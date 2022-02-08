@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -20,16 +20,40 @@ class CareTeamMembershipDto {
     this.encryptedSelf,
   });
 
-  int startDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? startDate;
 
-  int endDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endDate;
 
-  String careTeamMemberId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? careTeamMemberId;
 
-  CareTeamMembershipDtoMembershipTypeEnum membershipType;
+  CareTeamMembershipDtoMembershipTypeEnum? membershipType;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CareTeamMembershipDto &&
@@ -41,12 +65,12 @@ class CareTeamMembershipDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (startDate == null ? 0 : startDate.hashCode) +
-    (endDate == null ? 0 : endDate.hashCode) +
-    (careTeamMemberId == null ? 0 : careTeamMemberId.hashCode) +
-    (membershipType == null ? 0 : membershipType.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode);
+    // ignore: unnecessary_parenthesis
+    (startDate == null ? 0 : startDate!.hashCode) +
+    (endDate == null ? 0 : endDate!.hashCode) +
+    (careTeamMemberId == null ? 0 : careTeamMemberId!.hashCode) +
+    (membershipType == null ? 0 : membershipType!.hashCode) +
+    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'CareTeamMembershipDto[startDate=$startDate, endDate=$endDate, careTeamMemberId=$careTeamMemberId, membershipType=$membershipType, encryptedSelf=$encryptedSelf]';
@@ -74,9 +98,21 @@ class CareTeamMembershipDto {
   /// Returns a new [CareTeamMembershipDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CareTeamMembershipDto fromJson(dynamic value) {
+  static CareTeamMembershipDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "CareTeamMembershipDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CareTeamMembershipDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return CareTeamMembershipDto(
         startDate: mapValueOfType<int>(json, r'startDate'),
         endDate: mapValueOfType<int>(json, r'endDate'),
@@ -88,37 +124,51 @@ class CareTeamMembershipDto {
     return null;
   }
 
-  static List<CareTeamMembershipDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(CareTeamMembershipDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <CareTeamMembershipDto>[];
+  static List<CareTeamMembershipDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <CareTeamMembershipDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = CareTeamMembershipDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, CareTeamMembershipDto> mapFromJson(dynamic json) {
     final map = <String, CareTeamMembershipDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = CareTeamMembershipDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CareTeamMembershipDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of CareTeamMembershipDto-objects as value to a dart map
-  static Map<String, List<CareTeamMembershipDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<CareTeamMembershipDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CareTeamMembershipDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = CareTeamMembershipDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CareTeamMembershipDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -130,7 +180,7 @@ class CareTeamMembershipDtoMembershipTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -149,13 +199,20 @@ class CareTeamMembershipDtoMembershipTypeEnum {
     other,
   ];
 
-  static CareTeamMembershipDtoMembershipTypeEnum fromJson(dynamic value) =>
-    CareTeamMembershipDtoMembershipTypeEnumTypeTransformer().decode(value);
+  static CareTeamMembershipDtoMembershipTypeEnum? fromJson(dynamic value) => CareTeamMembershipDtoMembershipTypeEnumTypeTransformer().decode(value);
 
-  static List<CareTeamMembershipDtoMembershipTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(CareTeamMembershipDtoMembershipTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <CareTeamMembershipDtoMembershipTypeEnum>[];
+  static List<CareTeamMembershipDtoMembershipTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <CareTeamMembershipDtoMembershipTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = CareTeamMembershipDtoMembershipTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [CareTeamMembershipDtoMembershipTypeEnum] to String,
@@ -175,7 +232,7 @@ class CareTeamMembershipDtoMembershipTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  CareTeamMembershipDtoMembershipTypeEnum decode(dynamic data, {bool allowNull}) {
+  CareTeamMembershipDtoMembershipTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'doctor': return CareTeamMembershipDtoMembershipTypeEnum.doctor;
@@ -184,7 +241,7 @@ class CareTeamMembershipDtoMembershipTypeEnumTypeTransformer {
         case r'specialist': return CareTeamMembershipDtoMembershipTypeEnum.specialist;
         case r'other': return CareTeamMembershipDtoMembershipTypeEnum.other;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -193,7 +250,7 @@ class CareTeamMembershipDtoMembershipTypeEnumTypeTransformer {
   }
 
   /// Singleton [CareTeamMembershipDtoMembershipTypeEnumTypeTransformer] instance.
-  static CareTeamMembershipDtoMembershipTypeEnumTypeTransformer _instance;
+  static CareTeamMembershipDtoMembershipTypeEnumTypeTransformer? _instance;
 }
 
 

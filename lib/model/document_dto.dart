@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class DocumentDto {
   /// Returns a new [DocumentDto] instance.
   DocumentDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.created,
     this.modified,
@@ -52,22 +52,58 @@ class DocumentDto {
   String id;
 
   /// The revision of the document in the database, used for conflict management / optimistic locking.
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// The timestamp (unix epoch in ms) of creation of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// The date (unix epoch in ms) of the latest modification of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int modified;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modified;
 
   /// The id of the User that has created this entity, will be filled automatically if missing. Not enforced by the application server.
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   /// The id of the HealthcareParty that is responsible for this entity, will be filled automatically if missing. Not enforced by the application server.
-  String responsible;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? responsible;
 
   /// The id of the medical location where this entity was created.
-  String medicalLocationId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicalLocationId;
 
   /// A tag is an item from a codification system that qualifies an entity as being member of a certain class, whatever the value it might have taken. If the tag qualifies the content of a field, it means that whatever the content of the field, the tag will always apply. For example, the label of a field is qualified using a tag. LOINC is a codification system typically used for tags.
   Set<CodeStubDto> tags;
@@ -76,59 +112,149 @@ class DocumentDto {
   Set<CodeStubDto> codes;
 
   /// Soft delete (unix epoch in ms) timestamp of the object.
-  int endOfLife;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfLife;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
   /// Reference in object store
-  String objectStoreReference;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? objectStoreReference;
 
   /// Location of the document
-  DocumentDtoDocumentLocationEnum documentLocation;
+  DocumentDtoDocumentLocationEnum? documentLocation;
 
   /// The type of document, ex: admission, clinical path, document report,invoice, etc.
-  DocumentDtoDocumentTypeEnum documentType;
+  DocumentDtoDocumentTypeEnum? documentType;
 
   /// The status of the development of the document. Ex: Draft, finalized, reviewed, signed, etc.
-  DocumentDtoDocumentStatusEnum documentStatus;
+  DocumentDtoDocumentStatusEnum? documentStatus;
 
   /// When the document is stored in an external repository, this is the uri of the document in that repository
-  String externalUri;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? externalUri;
 
   /// The main Uniform Type Identifier of the document (https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/understanding_utis/understand_utis_conc/understand_utis_conc.html#//apple_ref/doc/uid/TP40001319-CH202-CHDHIJDE)
-  String mainUti;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mainUti;
 
   /// Name of the document
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
   /// The document version
-  String version;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? version;
 
   /// Extra Uniform Type Identifiers
   Set<String> otherUtis;
 
   /// The ICureDocument (Form, Contact, ...) that has been used to generate the document
-  String storedICureDocumentId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? storedICureDocumentId;
 
   /// A unique external id (from another external source).
-  String externalUuid;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? externalUuid;
 
   /// Size of the document file
-  int size;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? size;
 
   /// Hashed version of the document
-  String hash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? hash;
 
   /// Id of the contact during which the document was created
-  String openingContactId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? openingContactId;
 
   /// Id of attachment to this document
-  String attachmentId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? attachmentId;
 
-  String encryptedAttachment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedAttachment;
 
-  String decryptedAttachment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? decryptedAttachment;
 
   /// The secretForeignKeys are filled at the to many end of a one to many relationship (for example inside Contact for the Patient -> Contacts relationship). Used when we want to find all contacts for a specific patient. These keys are in clear. You can have several to partition the medical document space.
   Set<String> secretForeignKeys;
@@ -143,7 +269,13 @@ class DocumentDto {
   Map<String, Set<DelegationDto>> encryptionKeys;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DocumentDto &&
@@ -183,40 +315,40 @@ class DocumentDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (modified == null ? 0 : modified.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (responsible == null ? 0 : responsible.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (objectStoreReference == null ? 0 : objectStoreReference.hashCode) +
-    (documentLocation == null ? 0 : documentLocation.hashCode) +
-    (documentType == null ? 0 : documentType.hashCode) +
-    (documentStatus == null ? 0 : documentStatus.hashCode) +
-    (externalUri == null ? 0 : externalUri.hashCode) +
-    (mainUti == null ? 0 : mainUti.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (version == null ? 0 : version.hashCode) +
-    (otherUtis == null ? 0 : otherUtis.hashCode) +
-    (storedICureDocumentId == null ? 0 : storedICureDocumentId.hashCode) +
-    (externalUuid == null ? 0 : externalUuid.hashCode) +
-    (size == null ? 0 : size.hashCode) +
-    (hash == null ? 0 : hash.hashCode) +
-    (openingContactId == null ? 0 : openingContactId.hashCode) +
-    (attachmentId == null ? 0 : attachmentId.hashCode) +
-    (encryptedAttachment == null ? 0 : encryptedAttachment.hashCode) +
-    (decryptedAttachment == null ? 0 : decryptedAttachment.hashCode) +
-    (secretForeignKeys == null ? 0 : secretForeignKeys.hashCode) +
-    (cryptedForeignKeys == null ? 0 : cryptedForeignKeys.hashCode) +
-    (delegations == null ? 0 : delegations.hashCode) +
-    (encryptionKeys == null ? 0 : encryptionKeys.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (created == null ? 0 : created!.hashCode) +
+    (modified == null ? 0 : modified!.hashCode) +
+    (author == null ? 0 : author!.hashCode) +
+    (responsible == null ? 0 : responsible!.hashCode) +
+    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+    (tags.hashCode) +
+    (codes.hashCode) +
+    (endOfLife == null ? 0 : endOfLife!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (objectStoreReference == null ? 0 : objectStoreReference!.hashCode) +
+    (documentLocation == null ? 0 : documentLocation!.hashCode) +
+    (documentType == null ? 0 : documentType!.hashCode) +
+    (documentStatus == null ? 0 : documentStatus!.hashCode) +
+    (externalUri == null ? 0 : externalUri!.hashCode) +
+    (mainUti == null ? 0 : mainUti!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (version == null ? 0 : version!.hashCode) +
+    (otherUtis.hashCode) +
+    (storedICureDocumentId == null ? 0 : storedICureDocumentId!.hashCode) +
+    (externalUuid == null ? 0 : externalUuid!.hashCode) +
+    (size == null ? 0 : size!.hashCode) +
+    (hash == null ? 0 : hash!.hashCode) +
+    (openingContactId == null ? 0 : openingContactId!.hashCode) +
+    (attachmentId == null ? 0 : attachmentId!.hashCode) +
+    (encryptedAttachment == null ? 0 : encryptedAttachment!.hashCode) +
+    (decryptedAttachment == null ? 0 : decryptedAttachment!.hashCode) +
+    (secretForeignKeys.hashCode) +
+    (cryptedForeignKeys.hashCode) +
+    (delegations.hashCode) +
+    (encryptionKeys.hashCode) +
+    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'DocumentDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, objectStoreReference=$objectStoreReference, documentLocation=$documentLocation, documentType=$documentType, documentStatus=$documentStatus, externalUri=$externalUri, mainUti=$mainUti, name=$name, version=$version, otherUtis=$otherUtis, storedICureDocumentId=$storedICureDocumentId, externalUuid=$externalUuid, size=$size, hash=$hash, openingContactId=$openingContactId, attachmentId=$attachmentId, encryptedAttachment=$encryptedAttachment, decryptedAttachment=$decryptedAttachment, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
@@ -312,19 +444,31 @@ class DocumentDto {
   /// Returns a new [DocumentDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DocumentDto fromJson(dynamic value) {
+  static DocumentDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "DocumentDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DocumentDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return DocumentDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
         modified: mapValueOfType<int>(json, r'modified'),
         author: mapValueOfType<String>(json, r'author'),
         responsible: mapValueOfType<String>(json, r'responsible'),
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
-        tags: CodeStubDto.listFromJson(json[r'tags']),
-        codes: CodeStubDto.listFromJson(json[r'codes']),
+        tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
+        codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         objectStoreReference: mapValueOfType<String>(json, r'objectStoreReference'),
@@ -336,8 +480,8 @@ class DocumentDto {
         name: mapValueOfType<String>(json, r'name'),
         version: mapValueOfType<String>(json, r'version'),
         otherUtis: json[r'otherUtis'] is Set
-          ? (json[r'otherUtis'] as Set).cast<String>()
-          : null,
+            ? (json[r'otherUtis'] as Set).cast<String>()
+            : const {},
         storedICureDocumentId: mapValueOfType<String>(json, r'storedICureDocumentId'),
         externalUuid: mapValueOfType<String>(json, r'externalUuid'),
         size: mapValueOfType<int>(json, r'size'),
@@ -347,54 +491,76 @@ class DocumentDto {
         encryptedAttachment: mapValueOfType<String>(json, r'encryptedAttachment'),
         decryptedAttachment: mapValueOfType<String>(json, r'decryptedAttachment'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
-          ? (json[r'secretForeignKeys'] as Set).cast<String>()
-          : null,
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+          ? const {}
+            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'delegations']),
+          ? const {}
+            : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+          ? const {}
+            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<DocumentDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DocumentDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DocumentDto>[];
+  static List<DocumentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DocumentDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DocumentDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, DocumentDto> mapFromJson(dynamic json) {
     final map = <String, DocumentDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = DocumentDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DocumentDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of DocumentDto-objects as value to a dart map
-  static Map<String, List<DocumentDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<DocumentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DocumentDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = DocumentDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DocumentDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'tags',
+    'codes',
+    'otherUtis',
+    'secretForeignKeys',
+    'cryptedForeignKeys',
+    'delegations',
+    'encryptionKeys',
+  };
 }
 
 /// Location of the document
@@ -406,7 +572,7 @@ class DocumentDtoDocumentLocationEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -419,13 +585,20 @@ class DocumentDtoDocumentLocationEnum {
     body,
   ];
 
-  static DocumentDtoDocumentLocationEnum fromJson(dynamic value) =>
-    DocumentDtoDocumentLocationEnumTypeTransformer().decode(value);
+  static DocumentDtoDocumentLocationEnum? fromJson(dynamic value) => DocumentDtoDocumentLocationEnumTypeTransformer().decode(value);
 
-  static List<DocumentDtoDocumentLocationEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DocumentDtoDocumentLocationEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DocumentDtoDocumentLocationEnum>[];
+  static List<DocumentDtoDocumentLocationEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DocumentDtoDocumentLocationEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DocumentDtoDocumentLocationEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [DocumentDtoDocumentLocationEnum] to String,
@@ -445,13 +618,13 @@ class DocumentDtoDocumentLocationEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DocumentDtoDocumentLocationEnum decode(dynamic data, {bool allowNull}) {
+  DocumentDtoDocumentLocationEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'annex': return DocumentDtoDocumentLocationEnum.annex;
         case r'body': return DocumentDtoDocumentLocationEnum.body;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -460,7 +633,7 @@ class DocumentDtoDocumentLocationEnumTypeTransformer {
   }
 
   /// Singleton [DocumentDtoDocumentLocationEnumTypeTransformer] instance.
-  static DocumentDtoDocumentLocationEnumTypeTransformer _instance;
+  static DocumentDtoDocumentLocationEnumTypeTransformer? _instance;
 }
 
 
@@ -473,7 +646,7 @@ class DocumentDtoDocumentTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -560,13 +733,20 @@ class DocumentDtoDocumentTypeEnum {
     vaccination,
   ];
 
-  static DocumentDtoDocumentTypeEnum fromJson(dynamic value) =>
-    DocumentDtoDocumentTypeEnumTypeTransformer().decode(value);
+  static DocumentDtoDocumentTypeEnum? fromJson(dynamic value) => DocumentDtoDocumentTypeEnumTypeTransformer().decode(value);
 
-  static List<DocumentDtoDocumentTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DocumentDtoDocumentTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DocumentDtoDocumentTypeEnum>[];
+  static List<DocumentDtoDocumentTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DocumentDtoDocumentTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DocumentDtoDocumentTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [DocumentDtoDocumentTypeEnum] to String,
@@ -586,7 +766,7 @@ class DocumentDtoDocumentTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DocumentDtoDocumentTypeEnum decode(dynamic data, {bool allowNull}) {
+  DocumentDtoDocumentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'admission': return DocumentDtoDocumentTypeEnum.admission;
@@ -629,7 +809,7 @@ class DocumentDtoDocumentTypeEnumTypeTransformer {
         case r'treatmentsuspension': return DocumentDtoDocumentTypeEnum.treatmentsuspension;
         case r'vaccination': return DocumentDtoDocumentTypeEnum.vaccination;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -638,7 +818,7 @@ class DocumentDtoDocumentTypeEnumTypeTransformer {
   }
 
   /// Singleton [DocumentDtoDocumentTypeEnumTypeTransformer] instance.
-  static DocumentDtoDocumentTypeEnumTypeTransformer _instance;
+  static DocumentDtoDocumentTypeEnumTypeTransformer? _instance;
 }
 
 
@@ -651,7 +831,7 @@ class DocumentDtoDocumentStatusEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -678,13 +858,20 @@ class DocumentDtoDocumentStatusEnum {
     delivered,
   ];
 
-  static DocumentDtoDocumentStatusEnum fromJson(dynamic value) =>
-    DocumentDtoDocumentStatusEnumTypeTransformer().decode(value);
+  static DocumentDtoDocumentStatusEnum? fromJson(dynamic value) => DocumentDtoDocumentStatusEnumTypeTransformer().decode(value);
 
-  static List<DocumentDtoDocumentStatusEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DocumentDtoDocumentStatusEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DocumentDtoDocumentStatusEnum>[];
+  static List<DocumentDtoDocumentStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DocumentDtoDocumentStatusEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DocumentDtoDocumentStatusEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [DocumentDtoDocumentStatusEnum] to String,
@@ -704,7 +891,7 @@ class DocumentDtoDocumentStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DocumentDtoDocumentStatusEnum decode(dynamic data, {bool allowNull}) {
+  DocumentDtoDocumentStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'draft': return DocumentDtoDocumentStatusEnum.draft;
@@ -717,7 +904,7 @@ class DocumentDtoDocumentStatusEnumTypeTransformer {
         case r'sent': return DocumentDtoDocumentStatusEnum.sent;
         case r'delivered': return DocumentDtoDocumentStatusEnum.delivered;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -726,7 +913,7 @@ class DocumentDtoDocumentStatusEnumTypeTransformer {
   }
 
   /// Singleton [DocumentDtoDocumentStatusEnumTypeTransformer] instance.
-  static DocumentDtoDocumentStatusEnumTypeTransformer _instance;
+  static DocumentDtoDocumentStatusEnumTypeTransformer? _instance;
 }
 
 

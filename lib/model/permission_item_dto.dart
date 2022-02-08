@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,8 +13,8 @@ part of openapi.api;
 class PermissionItemDto {
   /// Returns a new [PermissionItemDto] instance.
   PermissionItemDto({
-    @required this.type,
-    @required this.predicate,
+    required this.type,
+    required this.predicate,
   });
 
   PermissionItemDtoTypeEnum type;
@@ -28,9 +28,9 @@ class PermissionItemDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (type == null ? 0 : type.hashCode) +
-    (predicate == null ? 0 : predicate.hashCode);
+    // ignore: unnecessary_parenthesis
+    (type.hashCode) +
+    (predicate.hashCode);
 
   @override
   String toString() => 'PermissionItemDto[type=$type, predicate=$predicate]';
@@ -45,48 +45,76 @@ class PermissionItemDto {
   /// Returns a new [PermissionItemDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PermissionItemDto fromJson(dynamic value) {
+  static PermissionItemDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "PermissionItemDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PermissionItemDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return PermissionItemDto(
-        type: PermissionItemDtoTypeEnum.fromJson(json[r'type']),
-        predicate: mapValueOfType<Object>(json, r'predicate'),
+        type: PermissionItemDtoTypeEnum.fromJson(json[r'type'])!,
+        predicate: mapValueOfType<Object>(json, r'predicate')!,
       );
     }
     return null;
   }
 
-  static List<PermissionItemDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PermissionItemDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PermissionItemDto>[];
+  static List<PermissionItemDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PermissionItemDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PermissionItemDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, PermissionItemDto> mapFromJson(dynamic json) {
     final map = <String, PermissionItemDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = PermissionItemDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PermissionItemDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of PermissionItemDto-objects as value to a dart map
-  static Map<String, List<PermissionItemDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<PermissionItemDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<PermissionItemDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = PermissionItemDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PermissionItemDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'type',
+    'predicate',
+  };
 }
 
 
@@ -98,7 +126,7 @@ class PermissionItemDtoTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -129,13 +157,20 @@ class PermissionItemDtoTypeEnum {
     FINANCIAL_CHANGE_DELETE,
   ];
 
-  static PermissionItemDtoTypeEnum fromJson(dynamic value) =>
-    PermissionItemDtoTypeEnumTypeTransformer().decode(value);
+  static PermissionItemDtoTypeEnum? fromJson(dynamic value) => PermissionItemDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<PermissionItemDtoTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PermissionItemDtoTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PermissionItemDtoTypeEnum>[];
+  static List<PermissionItemDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PermissionItemDtoTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PermissionItemDtoTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [PermissionItemDtoTypeEnum] to String,
@@ -155,7 +190,7 @@ class PermissionItemDtoTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  PermissionItemDtoTypeEnum decode(dynamic data, {bool allowNull}) {
+  PermissionItemDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'AUTHENTICATE': return PermissionItemDtoTypeEnum.AUTHENTICATE;
@@ -170,7 +205,7 @@ class PermissionItemDtoTypeEnumTypeTransformer {
         case r'FINANCIAL_DATA_CREATE': return PermissionItemDtoTypeEnum.FINANCIAL_DATA_CREATE;
         case r'FINANCIAL_CHANGE_DELETE': return PermissionItemDtoTypeEnum.FINANCIAL_CHANGE_DELETE;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -179,7 +214,7 @@ class PermissionItemDtoTypeEnumTypeTransformer {
   }
 
   /// Singleton [PermissionItemDtoTypeEnumTypeTransformer] instance.
-  static PermissionItemDtoTypeEnumTypeTransformer _instance;
+  static PermissionItemDtoTypeEnumTypeTransformer? _instance;
 }
 
 

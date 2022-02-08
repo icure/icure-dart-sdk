@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -48,29 +48,95 @@ class MedicalHouseContractDto {
     this.encryptedSelf,
   });
 
-  String contractId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? contractId;
 
-  int validFrom;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? validFrom;
 
-  int validTo;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? validTo;
 
-  String mmNihii;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mmNihii;
 
-  String hcpId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? hcpId;
 
-  MedicalHouseContractDtoChangeTypeEnum changeType;
+  MedicalHouseContractDtoChangeTypeEnum? changeType;
 
-  String parentContractId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? parentContractId;
 
-  String changedBy;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? changedBy;
 
-  int startOfContract;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? startOfContract;
 
-  int startOfCoverage;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? startOfCoverage;
 
-  int endOfContract;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfContract;
 
-  int endOfCoverage;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfCoverage;
 
   bool kine;
 
@@ -86,34 +152,88 @@ class MedicalHouseContractDto {
 
   bool noNurse;
 
-  int unsubscriptionReasonId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? unsubscriptionReasonId;
 
-  int ptdStart;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? ptdStart;
 
-  int ptdEnd;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? ptdEnd;
 
-  int ptdLastInvoiced;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? ptdLastInvoiced;
 
-  int startOfSuspension;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? startOfSuspension;
 
-  int endOfSuspension;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfSuspension;
 
-  MedicalHouseContractDtoSuspensionReasonEnum suspensionReason;
+  MedicalHouseContractDtoSuspensionReasonEnum? suspensionReason;
 
-  String suspensionSource;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? suspensionSource;
 
   bool forcedSuspension;
 
-  MedicalHouseContractDtoSignatureTypeEnum signatureType;
+  MedicalHouseContractDtoSignatureTypeEnum? signatureType;
 
-  int status;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? status;
 
   Map<String, String> options;
 
   Map<String, String> receipts;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MedicalHouseContractDto &&
@@ -153,40 +273,40 @@ class MedicalHouseContractDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (contractId == null ? 0 : contractId.hashCode) +
-    (validFrom == null ? 0 : validFrom.hashCode) +
-    (validTo == null ? 0 : validTo.hashCode) +
-    (mmNihii == null ? 0 : mmNihii.hashCode) +
-    (hcpId == null ? 0 : hcpId.hashCode) +
-    (changeType == null ? 0 : changeType.hashCode) +
-    (parentContractId == null ? 0 : parentContractId.hashCode) +
-    (changedBy == null ? 0 : changedBy.hashCode) +
-    (startOfContract == null ? 0 : startOfContract.hashCode) +
-    (startOfCoverage == null ? 0 : startOfCoverage.hashCode) +
-    (endOfContract == null ? 0 : endOfContract.hashCode) +
-    (endOfCoverage == null ? 0 : endOfCoverage.hashCode) +
-    (kine == null ? 0 : kine.hashCode) +
-    (gp == null ? 0 : gp.hashCode) +
-    (ptd == null ? 0 : ptd.hashCode) +
-    (nurse == null ? 0 : nurse.hashCode) +
-    (noKine == null ? 0 : noKine.hashCode) +
-    (noGp == null ? 0 : noGp.hashCode) +
-    (noNurse == null ? 0 : noNurse.hashCode) +
-    (unsubscriptionReasonId == null ? 0 : unsubscriptionReasonId.hashCode) +
-    (ptdStart == null ? 0 : ptdStart.hashCode) +
-    (ptdEnd == null ? 0 : ptdEnd.hashCode) +
-    (ptdLastInvoiced == null ? 0 : ptdLastInvoiced.hashCode) +
-    (startOfSuspension == null ? 0 : startOfSuspension.hashCode) +
-    (endOfSuspension == null ? 0 : endOfSuspension.hashCode) +
-    (suspensionReason == null ? 0 : suspensionReason.hashCode) +
-    (suspensionSource == null ? 0 : suspensionSource.hashCode) +
-    (forcedSuspension == null ? 0 : forcedSuspension.hashCode) +
-    (signatureType == null ? 0 : signatureType.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (options == null ? 0 : options.hashCode) +
-    (receipts == null ? 0 : receipts.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode);
+    // ignore: unnecessary_parenthesis
+    (contractId == null ? 0 : contractId!.hashCode) +
+    (validFrom == null ? 0 : validFrom!.hashCode) +
+    (validTo == null ? 0 : validTo!.hashCode) +
+    (mmNihii == null ? 0 : mmNihii!.hashCode) +
+    (hcpId == null ? 0 : hcpId!.hashCode) +
+    (changeType == null ? 0 : changeType!.hashCode) +
+    (parentContractId == null ? 0 : parentContractId!.hashCode) +
+    (changedBy == null ? 0 : changedBy!.hashCode) +
+    (startOfContract == null ? 0 : startOfContract!.hashCode) +
+    (startOfCoverage == null ? 0 : startOfCoverage!.hashCode) +
+    (endOfContract == null ? 0 : endOfContract!.hashCode) +
+    (endOfCoverage == null ? 0 : endOfCoverage!.hashCode) +
+    (kine.hashCode) +
+    (gp.hashCode) +
+    (ptd.hashCode) +
+    (nurse.hashCode) +
+    (noKine.hashCode) +
+    (noGp.hashCode) +
+    (noNurse.hashCode) +
+    (unsubscriptionReasonId == null ? 0 : unsubscriptionReasonId!.hashCode) +
+    (ptdStart == null ? 0 : ptdStart!.hashCode) +
+    (ptdEnd == null ? 0 : ptdEnd!.hashCode) +
+    (ptdLastInvoiced == null ? 0 : ptdLastInvoiced!.hashCode) +
+    (startOfSuspension == null ? 0 : startOfSuspension!.hashCode) +
+    (endOfSuspension == null ? 0 : endOfSuspension!.hashCode) +
+    (suspensionReason == null ? 0 : suspensionReason!.hashCode) +
+    (suspensionSource == null ? 0 : suspensionSource!.hashCode) +
+    (forcedSuspension.hashCode) +
+    (signatureType == null ? 0 : signatureType!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (options.hashCode) +
+    (receipts.hashCode) +
+    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'MedicalHouseContractDto[contractId=$contractId, validFrom=$validFrom, validTo=$validTo, mmNihii=$mmNihii, hcpId=$hcpId, changeType=$changeType, parentContractId=$parentContractId, changedBy=$changedBy, startOfContract=$startOfContract, startOfCoverage=$startOfCoverage, endOfContract=$endOfContract, endOfCoverage=$endOfCoverage, kine=$kine, gp=$gp, ptd=$ptd, nurse=$nurse, noKine=$noKine, noGp=$noGp, noNurse=$noNurse, unsubscriptionReasonId=$unsubscriptionReasonId, ptdStart=$ptdStart, ptdEnd=$ptdEnd, ptdLastInvoiced=$ptdLastInvoiced, startOfSuspension=$startOfSuspension, endOfSuspension=$endOfSuspension, suspensionReason=$suspensionReason, suspensionSource=$suspensionSource, forcedSuspension=$forcedSuspension, signatureType=$signatureType, status=$status, options=$options, receipts=$receipts, encryptedSelf=$encryptedSelf]';
@@ -278,9 +398,21 @@ class MedicalHouseContractDto {
   /// Returns a new [MedicalHouseContractDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MedicalHouseContractDto fromJson(dynamic value) {
+  static MedicalHouseContractDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "MedicalHouseContractDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MedicalHouseContractDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return MedicalHouseContractDto(
         contractId: mapValueOfType<String>(json, r'contractId'),
         validFrom: mapValueOfType<int>(json, r'validFrom'),
@@ -294,13 +426,13 @@ class MedicalHouseContractDto {
         startOfCoverage: mapValueOfType<int>(json, r'startOfCoverage'),
         endOfContract: mapValueOfType<int>(json, r'endOfContract'),
         endOfCoverage: mapValueOfType<int>(json, r'endOfCoverage'),
-        kine: mapValueOfType<bool>(json, r'kine'),
-        gp: mapValueOfType<bool>(json, r'gp'),
-        ptd: mapValueOfType<bool>(json, r'ptd'),
-        nurse: mapValueOfType<bool>(json, r'nurse'),
-        noKine: mapValueOfType<bool>(json, r'noKine'),
-        noGp: mapValueOfType<bool>(json, r'noGp'),
-        noNurse: mapValueOfType<bool>(json, r'noNurse'),
+        kine: mapValueOfType<bool>(json, r'kine')!,
+        gp: mapValueOfType<bool>(json, r'gp')!,
+        ptd: mapValueOfType<bool>(json, r'ptd')!,
+        nurse: mapValueOfType<bool>(json, r'nurse')!,
+        noKine: mapValueOfType<bool>(json, r'noKine')!,
+        noGp: mapValueOfType<bool>(json, r'noGp')!,
+        noNurse: mapValueOfType<bool>(json, r'noNurse')!,
         unsubscriptionReasonId: mapValueOfType<int>(json, r'unsubscriptionReasonId'),
         ptdStart: mapValueOfType<int>(json, r'ptdStart'),
         ptdEnd: mapValueOfType<int>(json, r'ptdEnd'),
@@ -309,48 +441,72 @@ class MedicalHouseContractDto {
         endOfSuspension: mapValueOfType<int>(json, r'endOfSuspension'),
         suspensionReason: MedicalHouseContractDtoSuspensionReasonEnum.fromJson(json[r'suspensionReason']),
         suspensionSource: mapValueOfType<String>(json, r'suspensionSource'),
-        forcedSuspension: mapValueOfType<bool>(json, r'forcedSuspension'),
+        forcedSuspension: mapValueOfType<bool>(json, r'forcedSuspension')!,
         signatureType: MedicalHouseContractDtoSignatureTypeEnum.fromJson(json[r'signatureType']),
         status: mapValueOfType<int>(json, r'status'),
-        options: mapCastOfType<String, String>(json, r'options'),
-        receipts: mapCastOfType<String, String>(json, r'receipts'),
+        options: mapCastOfType<String, String>(json, r'options')!,
+        receipts: mapCastOfType<String, String>(json, r'receipts')!,
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<MedicalHouseContractDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(MedicalHouseContractDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <MedicalHouseContractDto>[];
+  static List<MedicalHouseContractDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <MedicalHouseContractDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MedicalHouseContractDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, MedicalHouseContractDto> mapFromJson(dynamic json) {
     final map = <String, MedicalHouseContractDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = MedicalHouseContractDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MedicalHouseContractDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of MedicalHouseContractDto-objects as value to a dart map
-  static Map<String, List<MedicalHouseContractDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<MedicalHouseContractDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<MedicalHouseContractDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = MedicalHouseContractDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MedicalHouseContractDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'kine',
+    'gp',
+    'ptd',
+    'nurse',
+    'noKine',
+    'noGp',
+    'noNurse',
+    'forcedSuspension',
+    'options',
+    'receipts',
+  };
 }
 
 
@@ -362,7 +518,7 @@ class MedicalHouseContractDtoChangeTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -379,13 +535,20 @@ class MedicalHouseContractDtoChangeTypeEnum {
     coverageChange,
   ];
 
-  static MedicalHouseContractDtoChangeTypeEnum fromJson(dynamic value) =>
-    MedicalHouseContractDtoChangeTypeEnumTypeTransformer().decode(value);
+  static MedicalHouseContractDtoChangeTypeEnum? fromJson(dynamic value) => MedicalHouseContractDtoChangeTypeEnumTypeTransformer().decode(value);
 
-  static List<MedicalHouseContractDtoChangeTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(MedicalHouseContractDtoChangeTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <MedicalHouseContractDtoChangeTypeEnum>[];
+  static List<MedicalHouseContractDtoChangeTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <MedicalHouseContractDtoChangeTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MedicalHouseContractDtoChangeTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [MedicalHouseContractDtoChangeTypeEnum] to String,
@@ -405,7 +568,7 @@ class MedicalHouseContractDtoChangeTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MedicalHouseContractDtoChangeTypeEnum decode(dynamic data, {bool allowNull}) {
+  MedicalHouseContractDtoChangeTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'inscriptionStart': return MedicalHouseContractDtoChangeTypeEnum.inscriptionStart;
@@ -413,7 +576,7 @@ class MedicalHouseContractDtoChangeTypeEnumTypeTransformer {
         case r'suspension': return MedicalHouseContractDtoChangeTypeEnum.suspension;
         case r'coverageChange': return MedicalHouseContractDtoChangeTypeEnum.coverageChange;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -422,7 +585,7 @@ class MedicalHouseContractDtoChangeTypeEnumTypeTransformer {
   }
 
   /// Singleton [MedicalHouseContractDtoChangeTypeEnumTypeTransformer] instance.
-  static MedicalHouseContractDtoChangeTypeEnumTypeTransformer _instance;
+  static MedicalHouseContractDtoChangeTypeEnumTypeTransformer? _instance;
 }
 
 
@@ -435,7 +598,7 @@ class MedicalHouseContractDtoSuspensionReasonEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -454,13 +617,20 @@ class MedicalHouseContractDtoSuspensionReasonEnum {
     changeOfMutuality,
   ];
 
-  static MedicalHouseContractDtoSuspensionReasonEnum fromJson(dynamic value) =>
-    MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer().decode(value);
+  static MedicalHouseContractDtoSuspensionReasonEnum? fromJson(dynamic value) => MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer().decode(value);
 
-  static List<MedicalHouseContractDtoSuspensionReasonEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(MedicalHouseContractDtoSuspensionReasonEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <MedicalHouseContractDtoSuspensionReasonEnum>[];
+  static List<MedicalHouseContractDtoSuspensionReasonEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <MedicalHouseContractDtoSuspensionReasonEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MedicalHouseContractDtoSuspensionReasonEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [MedicalHouseContractDtoSuspensionReasonEnum] to String,
@@ -480,7 +650,7 @@ class MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MedicalHouseContractDtoSuspensionReasonEnum decode(dynamic data, {bool allowNull}) {
+  MedicalHouseContractDtoSuspensionReasonEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'notInsured': return MedicalHouseContractDtoSuspensionReasonEnum.notInsured;
@@ -489,7 +659,7 @@ class MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer {
         case r'outsideOfCountry': return MedicalHouseContractDtoSuspensionReasonEnum.outsideOfCountry;
         case r'changeOfMutuality': return MedicalHouseContractDtoSuspensionReasonEnum.changeOfMutuality;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -498,7 +668,7 @@ class MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer {
   }
 
   /// Singleton [MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer] instance.
-  static MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer _instance;
+  static MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer? _instance;
 }
 
 
@@ -511,7 +681,7 @@ class MedicalHouseContractDtoSignatureTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -528,13 +698,20 @@ class MedicalHouseContractDtoSignatureTypeEnum {
     legalrepresentativePaper,
   ];
 
-  static MedicalHouseContractDtoSignatureTypeEnum fromJson(dynamic value) =>
-    MedicalHouseContractDtoSignatureTypeEnumTypeTransformer().decode(value);
+  static MedicalHouseContractDtoSignatureTypeEnum? fromJson(dynamic value) => MedicalHouseContractDtoSignatureTypeEnumTypeTransformer().decode(value);
 
-  static List<MedicalHouseContractDtoSignatureTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(MedicalHouseContractDtoSignatureTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <MedicalHouseContractDtoSignatureTypeEnum>[];
+  static List<MedicalHouseContractDtoSignatureTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <MedicalHouseContractDtoSignatureTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MedicalHouseContractDtoSignatureTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [MedicalHouseContractDtoSignatureTypeEnum] to String,
@@ -554,7 +731,7 @@ class MedicalHouseContractDtoSignatureTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MedicalHouseContractDtoSignatureTypeEnum decode(dynamic data, {bool allowNull}) {
+  MedicalHouseContractDtoSignatureTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'holderEid': return MedicalHouseContractDtoSignatureTypeEnum.holderEid;
@@ -562,7 +739,7 @@ class MedicalHouseContractDtoSignatureTypeEnumTypeTransformer {
         case r'legalrepresentativeEid': return MedicalHouseContractDtoSignatureTypeEnum.legalrepresentativeEid;
         case r'legalrepresentativePaper': return MedicalHouseContractDtoSignatureTypeEnum.legalrepresentativePaper;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -571,7 +748,7 @@ class MedicalHouseContractDtoSignatureTypeEnumTypeTransformer {
   }
 
   /// Singleton [MedicalHouseContractDtoSignatureTypeEnumTypeTransformer] instance.
-  static MedicalHouseContractDtoSignatureTypeEnumTypeTransformer _instance;
+  static MedicalHouseContractDtoSignatureTypeEnumTypeTransformer? _instance;
 }
 
 

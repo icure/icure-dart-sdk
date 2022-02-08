@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class MedicalLocationApi {
-  MedicalLocationApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  MedicalLocationApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -24,16 +24,11 @@ class MedicalLocationApi {
   ///
   /// * [MedicalLocationDto] medicalLocationDto (required):
   Future<Response> createMedicalLocationWithHttpInfo(MedicalLocationDto medicalLocationDto,) async {
-    // Verify required params are set.
-    if (medicalLocationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: medicalLocationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/medicallocation';
 
     // ignore: prefer_final_locals
-    Object postBody = medicalLocationDto;
+    Object? postBody = medicalLocationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -50,7 +45,7 @@ class MedicalLocationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -60,7 +55,7 @@ class MedicalLocationApi {
   /// Parameters:
   ///
   /// * [MedicalLocationDto] medicalLocationDto (required):
-  Future<MedicalLocationDto> createMedicalLocation(MedicalLocationDto medicalLocationDto,) async {
+  Future<MedicalLocationDto?> createMedicalLocation(MedicalLocationDto medicalLocationDto,) async {
     final response = await createMedicalLocationWithHttpInfo(medicalLocationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -68,11 +63,11 @@ class MedicalLocationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicalLocationDto',) as MedicalLocationDto;
     
     }
-    return Future<MedicalLocationDto>.value();
+    return null;
   }
 
   /// Deletes medical locations
@@ -83,16 +78,11 @@ class MedicalLocationApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteMedicalLocationsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/medicallocation/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -109,7 +99,7 @@ class MedicalLocationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -119,7 +109,7 @@ class MedicalLocationApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteMedicalLocations(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteMedicalLocations(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteMedicalLocationsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -127,14 +117,14 @@ class MedicalLocationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Gets a medical location
@@ -145,17 +135,12 @@ class MedicalLocationApi {
   ///
   /// * [String] locationId (required):
   Future<Response> getMedicalLocationWithHttpInfo(String locationId,) async {
-    // Verify required params are set.
-    if (locationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: locationId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/medicallocation/{locationId}'
       .replaceAll('{locationId}', locationId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -172,7 +157,7 @@ class MedicalLocationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -182,7 +167,7 @@ class MedicalLocationApi {
   /// Parameters:
   ///
   /// * [String] locationId (required):
-  Future<MedicalLocationDto> getMedicalLocation(String locationId,) async {
+  Future<MedicalLocationDto?> getMedicalLocation(String locationId,) async {
     final response = await getMedicalLocationWithHttpInfo(locationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -190,11 +175,11 @@ class MedicalLocationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicalLocationDto',) as MedicalLocationDto;
     
     }
-    return Future<MedicalLocationDto>.value();
+    return null;
   }
 
   /// Gets all medical locations
@@ -205,7 +190,7 @@ class MedicalLocationApi {
     final path = r'/rest/v2/medicallocation';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -222,13 +207,13 @@ class MedicalLocationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Gets all medical locations
-  Future<List<MedicalLocationDto>> getMedicalLocations() async {
+  Future<List<MedicalLocationDto>?> getMedicalLocations() async {
     final response = await getMedicalLocationsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -236,14 +221,14 @@ class MedicalLocationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MedicalLocationDto>') as List)
         .cast<MedicalLocationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<MedicalLocationDto>>.value();
+    return null;
   }
 
   /// Modifies a medical location
@@ -254,16 +239,11 @@ class MedicalLocationApi {
   ///
   /// * [MedicalLocationDto] medicalLocationDto (required):
   Future<Response> modifyMedicalLocationWithHttpInfo(MedicalLocationDto medicalLocationDto,) async {
-    // Verify required params are set.
-    if (medicalLocationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: medicalLocationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/medicallocation';
 
     // ignore: prefer_final_locals
-    Object postBody = medicalLocationDto;
+    Object? postBody = medicalLocationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -280,7 +260,7 @@ class MedicalLocationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -290,7 +270,7 @@ class MedicalLocationApi {
   /// Parameters:
   ///
   /// * [MedicalLocationDto] medicalLocationDto (required):
-  Future<MedicalLocationDto> modifyMedicalLocation(MedicalLocationDto medicalLocationDto,) async {
+  Future<MedicalLocationDto?> modifyMedicalLocation(MedicalLocationDto medicalLocationDto,) async {
     final response = await modifyMedicalLocationWithHttpInfo(medicalLocationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -298,10 +278,10 @@ class MedicalLocationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicalLocationDto',) as MedicalLocationDto;
     
     }
-    return Future<MedicalLocationDto>.value();
+    return null;
   }
 }

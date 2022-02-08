@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class FrontEndMigrationApi {
-  FrontEndMigrationApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  FrontEndMigrationApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -24,16 +24,11 @@ class FrontEndMigrationApi {
   ///
   /// * [FrontEndMigrationDto] frontEndMigrationDto (required):
   Future<Response> createFrontEndMigrationWithHttpInfo(FrontEndMigrationDto frontEndMigrationDto,) async {
-    // Verify required params are set.
-    if (frontEndMigrationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: frontEndMigrationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/frontendmigration';
 
     // ignore: prefer_final_locals
-    Object postBody = frontEndMigrationDto;
+    Object? postBody = frontEndMigrationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -50,7 +45,7 @@ class FrontEndMigrationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -60,7 +55,7 @@ class FrontEndMigrationApi {
   /// Parameters:
   ///
   /// * [FrontEndMigrationDto] frontEndMigrationDto (required):
-  Future<FrontEndMigrationDto> createFrontEndMigration(FrontEndMigrationDto frontEndMigrationDto,) async {
+  Future<FrontEndMigrationDto?> createFrontEndMigration(FrontEndMigrationDto frontEndMigrationDto,) async {
     final response = await createFrontEndMigrationWithHttpInfo(frontEndMigrationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -68,11 +63,11 @@ class FrontEndMigrationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FrontEndMigrationDto',) as FrontEndMigrationDto;
     
     }
-    return Future<FrontEndMigrationDto>.value();
+    return null;
   }
 
   /// Deletes a front end migration
@@ -83,17 +78,12 @@ class FrontEndMigrationApi {
   ///
   /// * [String] frontEndMigrationId (required):
   Future<Response> deleteFrontEndMigrationWithHttpInfo(String frontEndMigrationId,) async {
-    // Verify required params are set.
-    if (frontEndMigrationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: frontEndMigrationId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/frontendmigration/{frontEndMigrationId}'
       .replaceAll('{frontEndMigrationId}', frontEndMigrationId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -110,7 +100,7 @@ class FrontEndMigrationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -120,7 +110,7 @@ class FrontEndMigrationApi {
   /// Parameters:
   ///
   /// * [String] frontEndMigrationId (required):
-  Future<DocIdentifier> deleteFrontEndMigration(String frontEndMigrationId,) async {
+  Future<DocIdentifier?> deleteFrontEndMigration(String frontEndMigrationId,) async {
     final response = await deleteFrontEndMigrationWithHttpInfo(frontEndMigrationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -128,11 +118,11 @@ class FrontEndMigrationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocIdentifier',) as DocIdentifier;
     
     }
-    return Future<DocIdentifier>.value();
+    return null;
   }
 
   /// Gets a front end migration
@@ -143,17 +133,12 @@ class FrontEndMigrationApi {
   ///
   /// * [String] frontEndMigrationId (required):
   Future<Response> getFrontEndMigrationWithHttpInfo(String frontEndMigrationId,) async {
-    // Verify required params are set.
-    if (frontEndMigrationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: frontEndMigrationId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/frontendmigration/{frontEndMigrationId}'
       .replaceAll('{frontEndMigrationId}', frontEndMigrationId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -170,7 +155,7 @@ class FrontEndMigrationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -180,7 +165,7 @@ class FrontEndMigrationApi {
   /// Parameters:
   ///
   /// * [String] frontEndMigrationId (required):
-  Future<FrontEndMigrationDto> getFrontEndMigration(String frontEndMigrationId,) async {
+  Future<FrontEndMigrationDto?> getFrontEndMigration(String frontEndMigrationId,) async {
     final response = await getFrontEndMigrationWithHttpInfo(frontEndMigrationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -188,11 +173,11 @@ class FrontEndMigrationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FrontEndMigrationDto',) as FrontEndMigrationDto;
     
     }
-    return Future<FrontEndMigrationDto>.value();
+    return null;
   }
 
   /// Gets an front end migration
@@ -203,17 +188,12 @@ class FrontEndMigrationApi {
   ///
   /// * [String] frontEndMigrationName (required):
   Future<Response> getFrontEndMigrationByNameWithHttpInfo(String frontEndMigrationName,) async {
-    // Verify required params are set.
-    if (frontEndMigrationName == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: frontEndMigrationName');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/frontendmigration/byName/{frontEndMigrationName}'
       .replaceAll('{frontEndMigrationName}', frontEndMigrationName);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -230,7 +210,7 @@ class FrontEndMigrationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -240,7 +220,7 @@ class FrontEndMigrationApi {
   /// Parameters:
   ///
   /// * [String] frontEndMigrationName (required):
-  Future<List<FrontEndMigrationDto>> getFrontEndMigrationByName(String frontEndMigrationName,) async {
+  Future<List<FrontEndMigrationDto>?> getFrontEndMigrationByName(String frontEndMigrationName,) async {
     final response = await getFrontEndMigrationByNameWithHttpInfo(frontEndMigrationName,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -248,14 +228,14 @@ class FrontEndMigrationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FrontEndMigrationDto>') as List)
         .cast<FrontEndMigrationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FrontEndMigrationDto>>.value();
+    return null;
   }
 
   /// Gets a front end migration
@@ -266,7 +246,7 @@ class FrontEndMigrationApi {
     final path = r'/rest/v2/frontendmigration';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -283,13 +263,13 @@ class FrontEndMigrationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Gets a front end migration
-  Future<List<FrontEndMigrationDto>> getFrontEndMigrations() async {
+  Future<List<FrontEndMigrationDto>?> getFrontEndMigrations() async {
     final response = await getFrontEndMigrationsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -297,14 +277,14 @@ class FrontEndMigrationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FrontEndMigrationDto>') as List)
         .cast<FrontEndMigrationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FrontEndMigrationDto>>.value();
+    return null;
   }
 
   /// Modifies a front end migration
@@ -315,16 +295,11 @@ class FrontEndMigrationApi {
   ///
   /// * [FrontEndMigrationDto] frontEndMigrationDto (required):
   Future<Response> modifyFrontEndMigrationWithHttpInfo(FrontEndMigrationDto frontEndMigrationDto,) async {
-    // Verify required params are set.
-    if (frontEndMigrationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: frontEndMigrationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/frontendmigration';
 
     // ignore: prefer_final_locals
-    Object postBody = frontEndMigrationDto;
+    Object? postBody = frontEndMigrationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -341,7 +316,7 @@ class FrontEndMigrationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -351,7 +326,7 @@ class FrontEndMigrationApi {
   /// Parameters:
   ///
   /// * [FrontEndMigrationDto] frontEndMigrationDto (required):
-  Future<FrontEndMigrationDto> modifyFrontEndMigration(FrontEndMigrationDto frontEndMigrationDto,) async {
+  Future<FrontEndMigrationDto?> modifyFrontEndMigration(FrontEndMigrationDto frontEndMigrationDto,) async {
     final response = await modifyFrontEndMigrationWithHttpInfo(frontEndMigrationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -359,10 +334,10 @@ class FrontEndMigrationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FrontEndMigrationDto',) as FrontEndMigrationDto;
     
     }
-    return Future<FrontEndMigrationDto>.value();
+    return null;
   }
 }

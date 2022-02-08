@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -32,37 +32,115 @@ class ReimbursementDto {
     this.copayments = const [],
   });
 
-  int from;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? from;
 
-  int to;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? to;
 
-  ReimbursementDtoDeliveryEnvironmentEnum deliveryEnvironment;
+  ReimbursementDtoDeliveryEnvironmentEnum? deliveryEnvironment;
 
-  String code;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? code;
 
-  ReimbursementDtoCodeTypeEnum codeType;
+  ReimbursementDtoCodeTypeEnum? codeType;
 
-  ReimbursementDtoMultipleEnum multiple;
+  ReimbursementDtoMultipleEnum? multiple;
 
-  bool temporary;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? temporary;
 
-  bool reference;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? reference;
 
-  String legalReferencePath;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? legalReferencePath;
 
-  bool flatRateSystem;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? flatRateSystem;
 
-  num reimbursementBasePrice;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  num? reimbursementBasePrice;
 
-  num referenceBasePrice;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  num? referenceBasePrice;
 
-  num copaymentSupplement;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  num? copaymentSupplement;
 
-  PricingDto pricingUnit;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  PricingDto? pricingUnit;
 
-  PricingDto pricingSlice;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  PricingDto? pricingSlice;
 
-  ReimbursementCriterionDto reimbursementCriterion;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  ReimbursementCriterionDto? reimbursementCriterion;
 
   List<CopaymentDto> copayments;
 
@@ -88,24 +166,24 @@ class ReimbursementDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from.hashCode) +
-    (to == null ? 0 : to.hashCode) +
-    (deliveryEnvironment == null ? 0 : deliveryEnvironment.hashCode) +
-    (code == null ? 0 : code.hashCode) +
-    (codeType == null ? 0 : codeType.hashCode) +
-    (multiple == null ? 0 : multiple.hashCode) +
-    (temporary == null ? 0 : temporary.hashCode) +
-    (reference == null ? 0 : reference.hashCode) +
-    (legalReferencePath == null ? 0 : legalReferencePath.hashCode) +
-    (flatRateSystem == null ? 0 : flatRateSystem.hashCode) +
-    (reimbursementBasePrice == null ? 0 : reimbursementBasePrice.hashCode) +
-    (referenceBasePrice == null ? 0 : referenceBasePrice.hashCode) +
-    (copaymentSupplement == null ? 0 : copaymentSupplement.hashCode) +
-    (pricingUnit == null ? 0 : pricingUnit.hashCode) +
-    (pricingSlice == null ? 0 : pricingSlice.hashCode) +
-    (reimbursementCriterion == null ? 0 : reimbursementCriterion.hashCode) +
-    (copayments == null ? 0 : copayments.hashCode);
+    // ignore: unnecessary_parenthesis
+    (from == null ? 0 : from!.hashCode) +
+    (to == null ? 0 : to!.hashCode) +
+    (deliveryEnvironment == null ? 0 : deliveryEnvironment!.hashCode) +
+    (code == null ? 0 : code!.hashCode) +
+    (codeType == null ? 0 : codeType!.hashCode) +
+    (multiple == null ? 0 : multiple!.hashCode) +
+    (temporary == null ? 0 : temporary!.hashCode) +
+    (reference == null ? 0 : reference!.hashCode) +
+    (legalReferencePath == null ? 0 : legalReferencePath!.hashCode) +
+    (flatRateSystem == null ? 0 : flatRateSystem!.hashCode) +
+    (reimbursementBasePrice == null ? 0 : reimbursementBasePrice!.hashCode) +
+    (referenceBasePrice == null ? 0 : referenceBasePrice!.hashCode) +
+    (copaymentSupplement == null ? 0 : copaymentSupplement!.hashCode) +
+    (pricingUnit == null ? 0 : pricingUnit!.hashCode) +
+    (pricingSlice == null ? 0 : pricingSlice!.hashCode) +
+    (reimbursementCriterion == null ? 0 : reimbursementCriterion!.hashCode) +
+    (copayments.hashCode);
 
   @override
   String toString() => 'ReimbursementDto[from=$from, to=$to, deliveryEnvironment=$deliveryEnvironment, code=$code, codeType=$codeType, multiple=$multiple, temporary=$temporary, reference=$reference, legalReferencePath=$legalReferencePath, flatRateSystem=$flatRateSystem, reimbursementBasePrice=$reimbursementBasePrice, referenceBasePrice=$referenceBasePrice, copaymentSupplement=$copaymentSupplement, pricingUnit=$pricingUnit, pricingSlice=$pricingSlice, reimbursementCriterion=$reimbursementCriterion, copayments=$copayments]';
@@ -160,18 +238,28 @@ class ReimbursementDto {
     if (reimbursementCriterion != null) {
       json[r'reimbursementCriterion'] = reimbursementCriterion;
     }
-    if (copayments != null) {
       json[r'copayments'] = copayments;
-    }
     return json;
   }
 
   /// Returns a new [ReimbursementDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ReimbursementDto fromJson(dynamic value) {
+  static ReimbursementDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "ReimbursementDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ReimbursementDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return ReimbursementDto(
         from: mapValueOfType<int>(json, r'from'),
         to: mapValueOfType<int>(json, r'to'),
@@ -184,54 +272,68 @@ class ReimbursementDto {
         legalReferencePath: mapValueOfType<String>(json, r'legalReferencePath'),
         flatRateSystem: mapValueOfType<bool>(json, r'flatRateSystem'),
         reimbursementBasePrice: json[r'reimbursementBasePrice'] == null
-          ? null
-          : num.parse(json[r'reimbursementBasePrice'].toString()),
+            ? null
+            : num.parse(json[r'reimbursementBasePrice'].toString()),
         referenceBasePrice: json[r'referenceBasePrice'] == null
-          ? null
-          : num.parse(json[r'referenceBasePrice'].toString()),
+            ? null
+            : num.parse(json[r'referenceBasePrice'].toString()),
         copaymentSupplement: json[r'copaymentSupplement'] == null
-          ? null
-          : num.parse(json[r'copaymentSupplement'].toString()),
+            ? null
+            : num.parse(json[r'copaymentSupplement'].toString()),
         pricingUnit: PricingDto.fromJson(json[r'pricingUnit']),
         pricingSlice: PricingDto.fromJson(json[r'pricingSlice']),
         reimbursementCriterion: ReimbursementCriterionDto.fromJson(json[r'reimbursementCriterion']),
-        copayments: CopaymentDto.listFromJson(json[r'copayments']),
+        copayments: CopaymentDto.listFromJson(json[r'copayments']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<ReimbursementDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ReimbursementDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ReimbursementDto>[];
+  static List<ReimbursementDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ReimbursementDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = ReimbursementDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, ReimbursementDto> mapFromJson(dynamic json) {
     final map = <String, ReimbursementDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = ReimbursementDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ReimbursementDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of ReimbursementDto-objects as value to a dart map
-  static Map<String, List<ReimbursementDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<ReimbursementDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ReimbursementDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = ReimbursementDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ReimbursementDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -243,7 +345,7 @@ class ReimbursementDtoDeliveryEnvironmentEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -260,13 +362,20 @@ class ReimbursementDtoDeliveryEnvironmentEnum {
     R,
   ];
 
-  static ReimbursementDtoDeliveryEnvironmentEnum fromJson(dynamic value) =>
-    ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer().decode(value);
+  static ReimbursementDtoDeliveryEnvironmentEnum? fromJson(dynamic value) => ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer().decode(value);
 
-  static List<ReimbursementDtoDeliveryEnvironmentEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ReimbursementDtoDeliveryEnvironmentEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ReimbursementDtoDeliveryEnvironmentEnum>[];
+  static List<ReimbursementDtoDeliveryEnvironmentEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ReimbursementDtoDeliveryEnvironmentEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = ReimbursementDtoDeliveryEnvironmentEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [ReimbursementDtoDeliveryEnvironmentEnum] to String,
@@ -286,7 +395,7 @@ class ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  ReimbursementDtoDeliveryEnvironmentEnum decode(dynamic data, {bool allowNull}) {
+  ReimbursementDtoDeliveryEnvironmentEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'P': return ReimbursementDtoDeliveryEnvironmentEnum.P;
@@ -294,7 +403,7 @@ class ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer {
         case r'H': return ReimbursementDtoDeliveryEnvironmentEnum.H;
         case r'R': return ReimbursementDtoDeliveryEnvironmentEnum.R;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -303,7 +412,7 @@ class ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer {
   }
 
   /// Singleton [ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer] instance.
-  static ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer _instance;
+  static ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer? _instance;
 }
 
 
@@ -316,7 +425,7 @@ class ReimbursementDtoCodeTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -329,13 +438,20 @@ class ReimbursementDtoCodeTypeEnum {
     PSEUDO,
   ];
 
-  static ReimbursementDtoCodeTypeEnum fromJson(dynamic value) =>
-    ReimbursementDtoCodeTypeEnumTypeTransformer().decode(value);
+  static ReimbursementDtoCodeTypeEnum? fromJson(dynamic value) => ReimbursementDtoCodeTypeEnumTypeTransformer().decode(value);
 
-  static List<ReimbursementDtoCodeTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ReimbursementDtoCodeTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ReimbursementDtoCodeTypeEnum>[];
+  static List<ReimbursementDtoCodeTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ReimbursementDtoCodeTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = ReimbursementDtoCodeTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [ReimbursementDtoCodeTypeEnum] to String,
@@ -355,13 +471,13 @@ class ReimbursementDtoCodeTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  ReimbursementDtoCodeTypeEnum decode(dynamic data, {bool allowNull}) {
+  ReimbursementDtoCodeTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'CNK': return ReimbursementDtoCodeTypeEnum.CNK;
         case r'PSEUDO': return ReimbursementDtoCodeTypeEnum.PSEUDO;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -370,7 +486,7 @@ class ReimbursementDtoCodeTypeEnumTypeTransformer {
   }
 
   /// Singleton [ReimbursementDtoCodeTypeEnumTypeTransformer] instance.
-  static ReimbursementDtoCodeTypeEnumTypeTransformer _instance;
+  static ReimbursementDtoCodeTypeEnumTypeTransformer? _instance;
 }
 
 
@@ -383,7 +499,7 @@ class ReimbursementDtoMultipleEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -396,13 +512,20 @@ class ReimbursementDtoMultipleEnum {
     V,
   ];
 
-  static ReimbursementDtoMultipleEnum fromJson(dynamic value) =>
-    ReimbursementDtoMultipleEnumTypeTransformer().decode(value);
+  static ReimbursementDtoMultipleEnum? fromJson(dynamic value) => ReimbursementDtoMultipleEnumTypeTransformer().decode(value);
 
-  static List<ReimbursementDtoMultipleEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ReimbursementDtoMultipleEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ReimbursementDtoMultipleEnum>[];
+  static List<ReimbursementDtoMultipleEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ReimbursementDtoMultipleEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = ReimbursementDtoMultipleEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [ReimbursementDtoMultipleEnum] to String,
@@ -422,13 +545,13 @@ class ReimbursementDtoMultipleEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  ReimbursementDtoMultipleEnum decode(dynamic data, {bool allowNull}) {
+  ReimbursementDtoMultipleEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'M': return ReimbursementDtoMultipleEnum.M;
         case r'V': return ReimbursementDtoMultipleEnum.V;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -437,7 +560,7 @@ class ReimbursementDtoMultipleEnumTypeTransformer {
   }
 
   /// Singleton [ReimbursementDtoMultipleEnumTypeTransformer] instance.
-  static ReimbursementDtoMultipleEnumTypeTransformer _instance;
+  static ReimbursementDtoMultipleEnumTypeTransformer? _instance;
 }
 
 

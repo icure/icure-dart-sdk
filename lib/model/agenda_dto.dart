@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class AgendaDto {
   /// Returns a new [AgendaDto] instance.
   AgendaDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.created,
     this.modified,
@@ -31,22 +31,58 @@ class AgendaDto {
 
   String id;
 
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// The timestamp (unix epoch in ms) of creation of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// The date (unix epoch in ms) of the latest modification of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int modified;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modified;
 
   /// The id of the User that has created this entity, will be filled automatically if missing. Not enforced by the application server.
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   /// The id of the HealthcareParty that is responsible for this entity, will be filled automatically if missing. Not enforced by the application server.
-  String responsible;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? responsible;
 
   /// The id of the medical location where this entity was created.
-  String medicalLocationId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicalLocationId;
 
   /// A tag is an item from a codification system that qualifies an entity as being member of a certain class, whatever the value it might have taken. If the tag qualifies the content of a field, it means that whatever the content of the field, the tag will always apply. For example, the label of a field is qualified using a tag. LOINC is a codification system typically used for tags.
   Set<CodeStubDto> tags;
@@ -55,14 +91,38 @@ class AgendaDto {
   Set<CodeStubDto> codes;
 
   /// Soft delete (unix epoch in ms) timestamp of the object.
-  int endOfLife;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfLife;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
-  String userId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? userId;
 
   List<RightDto> rights;
 
@@ -85,21 +145,21 @@ class AgendaDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (modified == null ? 0 : modified.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (responsible == null ? 0 : responsible.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (userId == null ? 0 : userId.hashCode) +
-    (rights == null ? 0 : rights.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (created == null ? 0 : created!.hashCode) +
+    (modified == null ? 0 : modified!.hashCode) +
+    (author == null ? 0 : author!.hashCode) +
+    (responsible == null ? 0 : responsible!.hashCode) +
+    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+    (tags.hashCode) +
+    (codes.hashCode) +
+    (endOfLife == null ? 0 : endOfLife!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (userId == null ? 0 : userId!.hashCode) +
+    (rights.hashCode);
 
   @override
   String toString() => 'AgendaDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, name=$name, userId=$userId, rights=$rights]';
@@ -146,59 +206,89 @@ class AgendaDto {
   /// Returns a new [AgendaDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AgendaDto fromJson(dynamic value) {
+  static AgendaDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "AgendaDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AgendaDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return AgendaDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
         modified: mapValueOfType<int>(json, r'modified'),
         author: mapValueOfType<String>(json, r'author'),
         responsible: mapValueOfType<String>(json, r'responsible'),
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
-        tags: CodeStubDto.listFromJson(json[r'tags']),
-        codes: CodeStubDto.listFromJson(json[r'codes']),
+        tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
+        codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         name: mapValueOfType<String>(json, r'name'),
         userId: mapValueOfType<String>(json, r'userId'),
-        rights: RightDto.listFromJson(json[r'rights']),
+        rights: RightDto.listFromJson(json[r'rights'])!,
       );
     }
     return null;
   }
 
-  static List<AgendaDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AgendaDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AgendaDto>[];
+  static List<AgendaDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AgendaDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AgendaDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, AgendaDto> mapFromJson(dynamic json) {
     final map = <String, AgendaDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = AgendaDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AgendaDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of AgendaDto-objects as value to a dart map
-  static Map<String, List<AgendaDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<AgendaDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<AgendaDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = AgendaDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AgendaDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'tags',
+    'codes',
+    'rights',
+  };
 }
 

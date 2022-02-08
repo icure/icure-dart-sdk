@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -66,108 +66,408 @@ class InvoicingCodeDto {
     this.encryptedSelf,
   });
 
-  String id;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? id;
 
-  int dateCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? dateCode;
 
-  String logicalId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? logicalId;
 
-  String label;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? label;
 
-  String userId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? userId;
 
-  String contactId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? contactId;
 
-  String serviceId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? serviceId;
 
-  String tarificationId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? tarificationId;
 
-  String code;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? code;
 
-  InvoicingCodeDtoPaymentTypeEnum paymentType;
+  InvoicingCodeDtoPaymentTypeEnum? paymentType;
 
-  double paid;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? paid;
 
-  double totalAmount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? totalAmount;
 
-  double reimbursement;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? reimbursement;
 
-  double patientIntervention;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? patientIntervention;
 
-  double doctorSupplement;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? doctorSupplement;
 
-  double conventionAmount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? conventionAmount;
 
-  double vat;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? vat;
 
-  String error;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? error;
 
-  String contract;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? contract;
 
-  int contractDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? contractDate;
 
-  int units;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? units;
 
-  int side;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? side;
 
-  int timeOfDay;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? timeOfDay;
 
-  int eidReadingHour;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? eidReadingHour;
 
-  String eidReadingValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? eidReadingValue;
 
-  int override3rdPayerCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? override3rdPayerCode;
 
-  String override3rdPayerReason;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? override3rdPayerReason;
 
-  int transplantationCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? transplantationCode;
 
-  int prescriberNorm;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? prescriberNorm;
 
-  int percentNorm;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? percentNorm;
 
-  String prescriberNihii;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? prescriberNihii;
 
-  String relatedCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? relatedCode;
 
-  int prescriptionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? prescriptionDate;
 
-  int derogationMaxNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? derogationMaxNumber;
 
-  String prescriberSsin;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? prescriberSsin;
 
-  String prescriberLastName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? prescriberLastName;
 
-  String prescriberFirstName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? prescriberFirstName;
 
-  String prescriberCdHcParty;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? prescriberCdHcParty;
 
-  String locationNihii;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? locationNihii;
 
-  String locationCdHcParty;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? locationCdHcParty;
 
-  int locationService;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? locationService;
 
-  bool canceled;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? canceled;
 
-  bool accepted;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? accepted;
 
-  bool pending;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? pending;
 
-  bool resent;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? resent;
 
-  bool archived;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? archived;
 
-  bool lost;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? lost;
 
-  int insuranceJustification;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? insuranceJustification;
 
-  int cancelPatientInterventionReason;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? cancelPatientInterventionReason;
 
-  int status;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? status;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is InvoicingCodeDto &&
@@ -225,58 +525,58 @@ class InvoicingCodeDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (dateCode == null ? 0 : dateCode.hashCode) +
-    (logicalId == null ? 0 : logicalId.hashCode) +
-    (label == null ? 0 : label.hashCode) +
-    (userId == null ? 0 : userId.hashCode) +
-    (contactId == null ? 0 : contactId.hashCode) +
-    (serviceId == null ? 0 : serviceId.hashCode) +
-    (tarificationId == null ? 0 : tarificationId.hashCode) +
-    (code == null ? 0 : code.hashCode) +
-    (paymentType == null ? 0 : paymentType.hashCode) +
-    (paid == null ? 0 : paid.hashCode) +
-    (totalAmount == null ? 0 : totalAmount.hashCode) +
-    (reimbursement == null ? 0 : reimbursement.hashCode) +
-    (patientIntervention == null ? 0 : patientIntervention.hashCode) +
-    (doctorSupplement == null ? 0 : doctorSupplement.hashCode) +
-    (conventionAmount == null ? 0 : conventionAmount.hashCode) +
-    (vat == null ? 0 : vat.hashCode) +
-    (error == null ? 0 : error.hashCode) +
-    (contract == null ? 0 : contract.hashCode) +
-    (contractDate == null ? 0 : contractDate.hashCode) +
-    (units == null ? 0 : units.hashCode) +
-    (side == null ? 0 : side.hashCode) +
-    (timeOfDay == null ? 0 : timeOfDay.hashCode) +
-    (eidReadingHour == null ? 0 : eidReadingHour.hashCode) +
-    (eidReadingValue == null ? 0 : eidReadingValue.hashCode) +
-    (override3rdPayerCode == null ? 0 : override3rdPayerCode.hashCode) +
-    (override3rdPayerReason == null ? 0 : override3rdPayerReason.hashCode) +
-    (transplantationCode == null ? 0 : transplantationCode.hashCode) +
-    (prescriberNorm == null ? 0 : prescriberNorm.hashCode) +
-    (percentNorm == null ? 0 : percentNorm.hashCode) +
-    (prescriberNihii == null ? 0 : prescriberNihii.hashCode) +
-    (relatedCode == null ? 0 : relatedCode.hashCode) +
-    (prescriptionDate == null ? 0 : prescriptionDate.hashCode) +
-    (derogationMaxNumber == null ? 0 : derogationMaxNumber.hashCode) +
-    (prescriberSsin == null ? 0 : prescriberSsin.hashCode) +
-    (prescriberLastName == null ? 0 : prescriberLastName.hashCode) +
-    (prescriberFirstName == null ? 0 : prescriberFirstName.hashCode) +
-    (prescriberCdHcParty == null ? 0 : prescriberCdHcParty.hashCode) +
-    (locationNihii == null ? 0 : locationNihii.hashCode) +
-    (locationCdHcParty == null ? 0 : locationCdHcParty.hashCode) +
-    (locationService == null ? 0 : locationService.hashCode) +
-    (canceled == null ? 0 : canceled.hashCode) +
-    (accepted == null ? 0 : accepted.hashCode) +
-    (pending == null ? 0 : pending.hashCode) +
-    (resent == null ? 0 : resent.hashCode) +
-    (archived == null ? 0 : archived.hashCode) +
-    (lost == null ? 0 : lost.hashCode) +
-    (insuranceJustification == null ? 0 : insuranceJustification.hashCode) +
-    (cancelPatientInterventionReason == null ? 0 : cancelPatientInterventionReason.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id == null ? 0 : id!.hashCode) +
+    (dateCode == null ? 0 : dateCode!.hashCode) +
+    (logicalId == null ? 0 : logicalId!.hashCode) +
+    (label == null ? 0 : label!.hashCode) +
+    (userId == null ? 0 : userId!.hashCode) +
+    (contactId == null ? 0 : contactId!.hashCode) +
+    (serviceId == null ? 0 : serviceId!.hashCode) +
+    (tarificationId == null ? 0 : tarificationId!.hashCode) +
+    (code == null ? 0 : code!.hashCode) +
+    (paymentType == null ? 0 : paymentType!.hashCode) +
+    (paid == null ? 0 : paid!.hashCode) +
+    (totalAmount == null ? 0 : totalAmount!.hashCode) +
+    (reimbursement == null ? 0 : reimbursement!.hashCode) +
+    (patientIntervention == null ? 0 : patientIntervention!.hashCode) +
+    (doctorSupplement == null ? 0 : doctorSupplement!.hashCode) +
+    (conventionAmount == null ? 0 : conventionAmount!.hashCode) +
+    (vat == null ? 0 : vat!.hashCode) +
+    (error == null ? 0 : error!.hashCode) +
+    (contract == null ? 0 : contract!.hashCode) +
+    (contractDate == null ? 0 : contractDate!.hashCode) +
+    (units == null ? 0 : units!.hashCode) +
+    (side == null ? 0 : side!.hashCode) +
+    (timeOfDay == null ? 0 : timeOfDay!.hashCode) +
+    (eidReadingHour == null ? 0 : eidReadingHour!.hashCode) +
+    (eidReadingValue == null ? 0 : eidReadingValue!.hashCode) +
+    (override3rdPayerCode == null ? 0 : override3rdPayerCode!.hashCode) +
+    (override3rdPayerReason == null ? 0 : override3rdPayerReason!.hashCode) +
+    (transplantationCode == null ? 0 : transplantationCode!.hashCode) +
+    (prescriberNorm == null ? 0 : prescriberNorm!.hashCode) +
+    (percentNorm == null ? 0 : percentNorm!.hashCode) +
+    (prescriberNihii == null ? 0 : prescriberNihii!.hashCode) +
+    (relatedCode == null ? 0 : relatedCode!.hashCode) +
+    (prescriptionDate == null ? 0 : prescriptionDate!.hashCode) +
+    (derogationMaxNumber == null ? 0 : derogationMaxNumber!.hashCode) +
+    (prescriberSsin == null ? 0 : prescriberSsin!.hashCode) +
+    (prescriberLastName == null ? 0 : prescriberLastName!.hashCode) +
+    (prescriberFirstName == null ? 0 : prescriberFirstName!.hashCode) +
+    (prescriberCdHcParty == null ? 0 : prescriberCdHcParty!.hashCode) +
+    (locationNihii == null ? 0 : locationNihii!.hashCode) +
+    (locationCdHcParty == null ? 0 : locationCdHcParty!.hashCode) +
+    (locationService == null ? 0 : locationService!.hashCode) +
+    (canceled == null ? 0 : canceled!.hashCode) +
+    (accepted == null ? 0 : accepted!.hashCode) +
+    (pending == null ? 0 : pending!.hashCode) +
+    (resent == null ? 0 : resent!.hashCode) +
+    (archived == null ? 0 : archived!.hashCode) +
+    (lost == null ? 0 : lost!.hashCode) +
+    (insuranceJustification == null ? 0 : insuranceJustification!.hashCode) +
+    (cancelPatientInterventionReason == null ? 0 : cancelPatientInterventionReason!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'InvoicingCodeDto[id=$id, dateCode=$dateCode, logicalId=$logicalId, label=$label, userId=$userId, contactId=$contactId, serviceId=$serviceId, tarificationId=$tarificationId, code=$code, paymentType=$paymentType, paid=$paid, totalAmount=$totalAmount, reimbursement=$reimbursement, patientIntervention=$patientIntervention, doctorSupplement=$doctorSupplement, conventionAmount=$conventionAmount, vat=$vat, error=$error, contract=$contract, contractDate=$contractDate, units=$units, side=$side, timeOfDay=$timeOfDay, eidReadingHour=$eidReadingHour, eidReadingValue=$eidReadingValue, override3rdPayerCode=$override3rdPayerCode, override3rdPayerReason=$override3rdPayerReason, transplantationCode=$transplantationCode, prescriberNorm=$prescriberNorm, percentNorm=$percentNorm, prescriberNihii=$prescriberNihii, relatedCode=$relatedCode, prescriptionDate=$prescriptionDate, derogationMaxNumber=$derogationMaxNumber, prescriberSsin=$prescriberSsin, prescriberLastName=$prescriberLastName, prescriberFirstName=$prescriberFirstName, prescriberCdHcParty=$prescriberCdHcParty, locationNihii=$locationNihii, locationCdHcParty=$locationCdHcParty, locationService=$locationService, canceled=$canceled, accepted=$accepted, pending=$pending, resent=$resent, archived=$archived, lost=$lost, insuranceJustification=$insuranceJustification, cancelPatientInterventionReason=$cancelPatientInterventionReason, status=$status, encryptedSelf=$encryptedSelf]';
@@ -442,9 +742,21 @@ class InvoicingCodeDto {
   /// Returns a new [InvoicingCodeDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static InvoicingCodeDto fromJson(dynamic value) {
+  static InvoicingCodeDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "InvoicingCodeDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "InvoicingCodeDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return InvoicingCodeDto(
         id: mapValueOfType<String>(json, r'id'),
         dateCode: mapValueOfType<int>(json, r'dateCode'),
@@ -502,37 +814,51 @@ class InvoicingCodeDto {
     return null;
   }
 
-  static List<InvoicingCodeDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(InvoicingCodeDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <InvoicingCodeDto>[];
+  static List<InvoicingCodeDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <InvoicingCodeDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = InvoicingCodeDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, InvoicingCodeDto> mapFromJson(dynamic json) {
     final map = <String, InvoicingCodeDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = InvoicingCodeDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = InvoicingCodeDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of InvoicingCodeDto-objects as value to a dart map
-  static Map<String, List<InvoicingCodeDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<InvoicingCodeDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<InvoicingCodeDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = InvoicingCodeDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = InvoicingCodeDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -544,7 +870,7 @@ class InvoicingCodeDtoPaymentTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -569,13 +895,20 @@ class InvoicingCodeDtoPaymentTypeEnum {
     other,
   ];
 
-  static InvoicingCodeDtoPaymentTypeEnum fromJson(dynamic value) =>
-    InvoicingCodeDtoPaymentTypeEnumTypeTransformer().decode(value);
+  static InvoicingCodeDtoPaymentTypeEnum? fromJson(dynamic value) => InvoicingCodeDtoPaymentTypeEnumTypeTransformer().decode(value);
 
-  static List<InvoicingCodeDtoPaymentTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(InvoicingCodeDtoPaymentTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <InvoicingCodeDtoPaymentTypeEnum>[];
+  static List<InvoicingCodeDtoPaymentTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <InvoicingCodeDtoPaymentTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = InvoicingCodeDtoPaymentTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [InvoicingCodeDtoPaymentTypeEnum] to String,
@@ -595,7 +928,7 @@ class InvoicingCodeDtoPaymentTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  InvoicingCodeDtoPaymentTypeEnum decode(dynamic data, {bool allowNull}) {
+  InvoicingCodeDtoPaymentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'cash': return InvoicingCodeDtoPaymentTypeEnum.cash;
@@ -607,7 +940,7 @@ class InvoicingCodeDtoPaymentTypeEnumTypeTransformer {
         case r'bitcoin': return InvoicingCodeDtoPaymentTypeEnum.bitcoin;
         case r'other': return InvoicingCodeDtoPaymentTypeEnum.other;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -616,7 +949,7 @@ class InvoicingCodeDtoPaymentTypeEnumTypeTransformer {
   }
 
   /// Singleton [InvoicingCodeDtoPaymentTypeEnumTypeTransformer] instance.
-  static InvoicingCodeDtoPaymentTypeEnumTypeTransformer _instance;
+  static InvoicingCodeDtoPaymentTypeEnumTypeTransformer? _instance;
 }
 
 

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -22,19 +22,55 @@ class AmppComponentDto {
     this.packagingType,
   });
 
-  int from;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? from;
 
-  int to;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? to;
 
-  AmppComponentDtoContentTypeEnum contentType;
+  AmppComponentDtoContentTypeEnum? contentType;
 
-  int contentMultiplier;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? contentMultiplier;
 
-  String packSpecification;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? packSpecification;
 
-  DeviceTypeDto deviceType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DeviceTypeDto? deviceType;
 
-  PackagingTypeDto packagingType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  PackagingTypeDto? packagingType;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AmppComponentDto &&
@@ -48,14 +84,14 @@ class AmppComponentDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from.hashCode) +
-    (to == null ? 0 : to.hashCode) +
-    (contentType == null ? 0 : contentType.hashCode) +
-    (contentMultiplier == null ? 0 : contentMultiplier.hashCode) +
-    (packSpecification == null ? 0 : packSpecification.hashCode) +
-    (deviceType == null ? 0 : deviceType.hashCode) +
-    (packagingType == null ? 0 : packagingType.hashCode);
+    // ignore: unnecessary_parenthesis
+    (from == null ? 0 : from!.hashCode) +
+    (to == null ? 0 : to!.hashCode) +
+    (contentType == null ? 0 : contentType!.hashCode) +
+    (contentMultiplier == null ? 0 : contentMultiplier!.hashCode) +
+    (packSpecification == null ? 0 : packSpecification!.hashCode) +
+    (deviceType == null ? 0 : deviceType!.hashCode) +
+    (packagingType == null ? 0 : packagingType!.hashCode);
 
   @override
   String toString() => 'AmppComponentDto[from=$from, to=$to, contentType=$contentType, contentMultiplier=$contentMultiplier, packSpecification=$packSpecification, deviceType=$deviceType, packagingType=$packagingType]';
@@ -89,9 +125,21 @@ class AmppComponentDto {
   /// Returns a new [AmppComponentDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AmppComponentDto fromJson(dynamic value) {
+  static AmppComponentDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "AmppComponentDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AmppComponentDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return AmppComponentDto(
         from: mapValueOfType<int>(json, r'from'),
         to: mapValueOfType<int>(json, r'to'),
@@ -105,37 +153,51 @@ class AmppComponentDto {
     return null;
   }
 
-  static List<AmppComponentDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmppComponentDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmppComponentDto>[];
+  static List<AmppComponentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmppComponentDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmppComponentDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, AmppComponentDto> mapFromJson(dynamic json) {
     final map = <String, AmppComponentDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = AmppComponentDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AmppComponentDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of AmppComponentDto-objects as value to a dart map
-  static Map<String, List<AmppComponentDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<AmppComponentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<AmppComponentDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = AmppComponentDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AmppComponentDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -147,7 +209,7 @@ class AmppComponentDtoContentTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -164,13 +226,20 @@ class AmppComponentDtoContentTypeEnum {
     EXCIPIENT,
   ];
 
-  static AmppComponentDtoContentTypeEnum fromJson(dynamic value) =>
-    AmppComponentDtoContentTypeEnumTypeTransformer().decode(value);
+  static AmppComponentDtoContentTypeEnum? fromJson(dynamic value) => AmppComponentDtoContentTypeEnumTypeTransformer().decode(value);
 
-  static List<AmppComponentDtoContentTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmppComponentDtoContentTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmppComponentDtoContentTypeEnum>[];
+  static List<AmppComponentDtoContentTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmppComponentDtoContentTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmppComponentDtoContentTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [AmppComponentDtoContentTypeEnum] to String,
@@ -190,7 +259,7 @@ class AmppComponentDtoContentTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  AmppComponentDtoContentTypeEnum decode(dynamic data, {bool allowNull}) {
+  AmppComponentDtoContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'ACTIVE_COMPONENT': return AmppComponentDtoContentTypeEnum.ACTIVE_COMPONENT;
@@ -198,7 +267,7 @@ class AmppComponentDtoContentTypeEnumTypeTransformer {
         case r'DEVICE': return AmppComponentDtoContentTypeEnum.DEVICE;
         case r'EXCIPIENT': return AmppComponentDtoContentTypeEnum.EXCIPIENT;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -207,7 +276,7 @@ class AmppComponentDtoContentTypeEnumTypeTransformer {
   }
 
   /// Singleton [AmppComponentDtoContentTypeEnumTypeTransformer] instance.
-  static AmppComponentDtoContentTypeEnumTypeTransformer _instance;
+  static AmppComponentDtoContentTypeEnumTypeTransformer? _instance;
 }
 
 

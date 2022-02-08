@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class TarificationDto {
   /// Returns a new [TarificationDto] instance.
   TarificationDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.deletionDate,
     this.label = const {},
@@ -31,7 +31,7 @@ class TarificationDto {
     this.searchTerms = const {},
     this.data,
     this.appendices = const {},
-    @required this.disabled,
+    required this.disabled,
     this.valorisations = const {},
     this.category = const {},
     this.consultationCode,
@@ -44,38 +44,92 @@ class TarificationDto {
 
   String id;
 
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
   Map<String, String> label;
 
-  String context;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? context;
 
-  String type;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? type;
 
-  String code;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? code;
 
-  String version;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? version;
 
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   Set<String> regions;
 
   List<PeriodicityDto> periodicity;
 
-  int level;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? level;
 
   List<String> links;
 
   Map<String, List<String>> qualifiedLinks;
 
-  Set<String> flags;
+  Set<CodeDtoFlagsEnum> flags;
 
   Map<String, Set<String>> searchTerms;
 
-  String data;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? data;
 
   Map<String, String> appendices;
 
@@ -85,15 +139,39 @@ class TarificationDto {
 
   Map<String, String> category;
 
-  bool consultationCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? consultationCode;
 
-  bool hasRelatedCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? hasRelatedCode;
 
-  bool needsPrescriber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? needsPrescriber;
 
   Set<String> relatedCodes;
 
-  String ngroup;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ngroup;
 
   List<LetterValueDto> letterValues;
 
@@ -129,34 +207,34 @@ class TarificationDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (label == null ? 0 : label.hashCode) +
-    (context == null ? 0 : context.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (code == null ? 0 : code.hashCode) +
-    (version == null ? 0 : version.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (regions == null ? 0 : regions.hashCode) +
-    (periodicity == null ? 0 : periodicity.hashCode) +
-    (level == null ? 0 : level.hashCode) +
-    (links == null ? 0 : links.hashCode) +
-    (qualifiedLinks == null ? 0 : qualifiedLinks.hashCode) +
-    (flags == null ? 0 : flags.hashCode) +
-    (searchTerms == null ? 0 : searchTerms.hashCode) +
-    (data == null ? 0 : data.hashCode) +
-    (appendices == null ? 0 : appendices.hashCode) +
-    (disabled == null ? 0 : disabled.hashCode) +
-    (valorisations == null ? 0 : valorisations.hashCode) +
-    (category == null ? 0 : category.hashCode) +
-    (consultationCode == null ? 0 : consultationCode.hashCode) +
-    (hasRelatedCode == null ? 0 : hasRelatedCode.hashCode) +
-    (needsPrescriber == null ? 0 : needsPrescriber.hashCode) +
-    (relatedCodes == null ? 0 : relatedCodes.hashCode) +
-    (ngroup == null ? 0 : ngroup.hashCode) +
-    (letterValues == null ? 0 : letterValues.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (label.hashCode) +
+    (context == null ? 0 : context!.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (code == null ? 0 : code!.hashCode) +
+    (version == null ? 0 : version!.hashCode) +
+    (author == null ? 0 : author!.hashCode) +
+    (regions.hashCode) +
+    (periodicity.hashCode) +
+    (level == null ? 0 : level!.hashCode) +
+    (links.hashCode) +
+    (qualifiedLinks.hashCode) +
+    (flags.hashCode) +
+    (searchTerms.hashCode) +
+    (data == null ? 0 : data!.hashCode) +
+    (appendices.hashCode) +
+    (disabled.hashCode) +
+    (valorisations.hashCode) +
+    (category.hashCode) +
+    (consultationCode == null ? 0 : consultationCode!.hashCode) +
+    (hasRelatedCode == null ? 0 : hasRelatedCode!.hashCode) +
+    (needsPrescriber == null ? 0 : needsPrescriber!.hashCode) +
+    (relatedCodes.hashCode) +
+    (ngroup == null ? 0 : ngroup!.hashCode) +
+    (letterValues.hashCode);
 
   @override
   String toString() => 'TarificationDto[id=$id, rev=$rev, deletionDate=$deletionDate, label=$label, context=$context, type=$type, code=$code, version=$version, author=$author, regions=$regions, periodicity=$periodicity, level=$level, links=$links, qualifiedLinks=$qualifiedLinks, flags=$flags, searchTerms=$searchTerms, data=$data, appendices=$appendices, disabled=$disabled, valorisations=$valorisations, category=$category, consultationCode=$consultationCode, hasRelatedCode=$hasRelatedCode, needsPrescriber=$needsPrescriber, relatedCodes=$relatedCodes, ngroup=$ngroup, letterValues=$letterValues]';
@@ -170,9 +248,7 @@ class TarificationDto {
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-    if (label != null) {
       json[r'label'] = label;
-    }
     if (context != null) {
       json[r'context'] = context;
     }
@@ -224,14 +300,26 @@ class TarificationDto {
   /// Returns a new [TarificationDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static TarificationDto fromJson(dynamic value) {
+  static TarificationDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "TarificationDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TarificationDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return TarificationDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
-        label: mapCastOfType<String, String>(json, r'label'),
+        label: mapCastOfType<String, String>(json, r'label') ?? const {},
         context: mapValueOfType<String>(json, r'context'),
         type: mapValueOfType<String>(json, r'type'),
         code: mapValueOfType<String>(json, r'code'),
@@ -239,69 +327,96 @@ class TarificationDto {
         author: mapValueOfType<String>(json, r'author'),
         regions: json[r'regions'] is Set
             ? (json[r'regions'] as Set).cast<String>()
-            : null,
-        periodicity: PeriodicityDto.listFromJson(json[r'periodicity']),
+            : const {},
+        periodicity: PeriodicityDto.listFromJson(json[r'periodicity'])!,
         level: mapValueOfType<int>(json, r'level'),
         links: json[r'links'] is List
             ? (json[r'links'] as List).cast<String>()
-            : null,
+            : const [],
         qualifiedLinks: json[r'qualifiedLinks'] == null
-            ? null
-            : mapCastOfType<String, List>(json, r'qualifiedLinks'),
-        flags: CodeDtoFlagsEnum.listFromJson(json[r'flags']).map((it) =>
-            it.toString()).toSet(),
+          ? const {}
+            : mapCastOfType<String, List<String>>(json, r'qualifiedLinks') ?? <String, List<String>>{},
+        flags: CodeDtoFlagsEnum.listFromJson(json[r'flags'])!.toSet(),
         searchTerms: json[r'searchTerms'] == null
-            ? null
-            : mapCastOfType<String, Set<String>>(json, r'searchTerms'),
+          ? const {}
+            : mapCastOfType<String, List<String>>(json, r'searchTerms')?.map((k,v) => MapEntry(k, v.toSet())) ?? <String, Set<String>>{},
         data: mapValueOfType<String>(json, r'data'),
-        appendices: mapCastOfType<String, String>(json, r'appendices'),
-        disabled: mapValueOfType<bool>(json, r'disabled'),
-        valorisations: ValorisationDto.listFromJson(json[r'valorisations'])
-            .toSet(),
-        category: mapCastOfType<String, String>(json, r'category'),
+        appendices: mapCastOfType<String, String>(json, r'appendices')!,
+        disabled: mapValueOfType<bool>(json, r'disabled')!,
+        valorisations: ValorisationDto.listFromJson(json[r'valorisations'])!.toSet(),
+        category: mapCastOfType<String, String>(json, r'category')!,
         consultationCode: mapValueOfType<bool>(json, r'consultationCode'),
         hasRelatedCode: mapValueOfType<bool>(json, r'hasRelatedCode'),
         needsPrescriber: mapValueOfType<bool>(json, r'needsPrescriber'),
         relatedCodes: json[r'relatedCodes'] is Set
             ? (json[r'relatedCodes'] as Set).cast<String>()
-          : null,
+            : const {},
         ngroup: mapValueOfType<String>(json, r'ngroup'),
-        letterValues: LetterValueDto.listFromJson(json[r'letterValues']),
+        letterValues: LetterValueDto.listFromJson(json[r'letterValues'])!,
       );
     }
     return null;
   }
 
-  static List<TarificationDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(TarificationDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <TarificationDto>[];
+  static List<TarificationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TarificationDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = TarificationDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, TarificationDto> mapFromJson(dynamic json) {
     final map = <String, TarificationDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = TarificationDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TarificationDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of TarificationDto-objects as value to a dart map
-  static Map<String, List<TarificationDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<TarificationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TarificationDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = TarificationDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TarificationDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'regions',
+    'periodicity',
+    'links',
+    'qualifiedLinks',
+    'flags',
+    'searchTerms',
+    'appendices',
+    'disabled',
+    'valorisations',
+    'category',
+    'relatedCodes',
+    'letterValues',
+  };
 }
+
+
 

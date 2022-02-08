@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -19,13 +19,31 @@ class DatabaseSynchronizationDto {
     this.localTarget,
   });
 
-  String source_;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? source_;
 
-  String target;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? target;
 
-  String filter;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? filter;
 
-  DatabaseSynchronizationDtoLocalTargetEnum localTarget;
+  DatabaseSynchronizationDtoLocalTargetEnum? localTarget;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DatabaseSynchronizationDto &&
@@ -36,11 +54,11 @@ class DatabaseSynchronizationDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (source_ == null ? 0 : source_.hashCode) +
-    (target == null ? 0 : target.hashCode) +
-    (filter == null ? 0 : filter.hashCode) +
-    (localTarget == null ? 0 : localTarget.hashCode);
+    // ignore: unnecessary_parenthesis
+    (source_ == null ? 0 : source_!.hashCode) +
+    (target == null ? 0 : target!.hashCode) +
+    (filter == null ? 0 : filter!.hashCode) +
+    (localTarget == null ? 0 : localTarget!.hashCode);
 
   @override
   String toString() => 'DatabaseSynchronizationDto[source_=$source_, target=$target, filter=$filter, localTarget=$localTarget]';
@@ -65,9 +83,21 @@ class DatabaseSynchronizationDto {
   /// Returns a new [DatabaseSynchronizationDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DatabaseSynchronizationDto fromJson(dynamic value) {
+  static DatabaseSynchronizationDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "DatabaseSynchronizationDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DatabaseSynchronizationDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return DatabaseSynchronizationDto(
         source_: mapValueOfType<String>(json, r'source'),
         target: mapValueOfType<String>(json, r'target'),
@@ -78,37 +108,51 @@ class DatabaseSynchronizationDto {
     return null;
   }
 
-  static List<DatabaseSynchronizationDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DatabaseSynchronizationDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DatabaseSynchronizationDto>[];
+  static List<DatabaseSynchronizationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DatabaseSynchronizationDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DatabaseSynchronizationDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, DatabaseSynchronizationDto> mapFromJson(dynamic json) {
     final map = <String, DatabaseSynchronizationDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = DatabaseSynchronizationDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DatabaseSynchronizationDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of DatabaseSynchronizationDto-objects as value to a dart map
-  static Map<String, List<DatabaseSynchronizationDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<DatabaseSynchronizationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DatabaseSynchronizationDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = DatabaseSynchronizationDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DatabaseSynchronizationDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -120,7 +164,7 @@ class DatabaseSynchronizationDtoLocalTargetEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -135,13 +179,20 @@ class DatabaseSynchronizationDtoLocalTargetEnum {
     patient,
   ];
 
-  static DatabaseSynchronizationDtoLocalTargetEnum fromJson(dynamic value) =>
-    DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer().decode(value);
+  static DatabaseSynchronizationDtoLocalTargetEnum? fromJson(dynamic value) => DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer().decode(value);
 
-  static List<DatabaseSynchronizationDtoLocalTargetEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DatabaseSynchronizationDtoLocalTargetEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DatabaseSynchronizationDtoLocalTargetEnum>[];
+  static List<DatabaseSynchronizationDtoLocalTargetEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DatabaseSynchronizationDtoLocalTargetEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DatabaseSynchronizationDtoLocalTargetEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [DatabaseSynchronizationDtoLocalTargetEnum] to String,
@@ -161,14 +212,14 @@ class DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DatabaseSynchronizationDtoLocalTargetEnum decode(dynamic data, {bool allowNull}) {
+  DatabaseSynchronizationDtoLocalTargetEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'base': return DatabaseSynchronizationDtoLocalTargetEnum.base;
         case r'healthdata': return DatabaseSynchronizationDtoLocalTargetEnum.healthdata;
         case r'patient': return DatabaseSynchronizationDtoLocalTargetEnum.patient;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -177,7 +228,7 @@ class DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer {
   }
 
   /// Singleton [DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer] instance.
-  static DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer _instance;
+  static DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer? _instance;
 }
 
 

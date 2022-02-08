@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class ContactApi {
-  ContactApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  ContactApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -28,26 +28,18 @@ class ContactApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> closeForHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartySecretForeignKeys/close';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -60,7 +52,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -74,7 +66,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<ContactDto>> closeForHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<ContactDto>?> closeForHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await closeForHCPartyPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -82,14 +74,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// Create a contact with the current user
@@ -102,16 +94,11 @@ class ContactApi {
   ///
   /// * [ContactDto] contactDto (required):
   Future<Response> createContactWithHttpInfo(ContactDto contactDto,) async {
-    // Verify required params are set.
-    if (contactDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact';
 
     // ignore: prefer_final_locals
-    Object postBody = contactDto;
+    Object? postBody = contactDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -128,7 +115,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -140,7 +127,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ContactDto] contactDto (required):
-  Future<ContactDto> createContact(ContactDto contactDto,) async {
+  Future<ContactDto?> createContact(ContactDto contactDto,) async {
     final response = await createContactWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -148,11 +135,11 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
     
     }
-    return Future<ContactDto>.value();
+    return null;
   }
 
   /// Create a batch of contacts
@@ -165,16 +152,11 @@ class ContactApi {
   ///
   /// * [List<ContactDto>] contactDto (required):
   Future<Response> createContactsWithHttpInfo(List<ContactDto> contactDto,) async {
-    // Verify required params are set.
-    if (contactDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = contactDto;
+    Object? postBody = contactDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -191,7 +173,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -203,7 +185,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<ContactDto>] contactDto (required):
-  Future<List<ContactDto>> createContacts(List<ContactDto> contactDto,) async {
+  Future<List<ContactDto>?> createContacts(List<ContactDto> contactDto,) async {
     final response = await createContactsWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -211,14 +193,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// Delete contacts.
@@ -231,16 +213,11 @@ class ContactApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteContactsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -257,7 +234,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -269,7 +246,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteContacts(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteContacts(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteContactsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -277,14 +254,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// List contacts for the current user (HcParty) or the given hcparty in the filter 
@@ -302,27 +279,22 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterContactsByWithHttpInfo(FilterChainContact filterChainContact, { String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (filterChainContact == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: filterChainContact');
-    }
-
+  Future<Response> filterContactsByWithHttpInfo(FilterChainContact filterChainContact, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/filter';
 
     // ignore: prefer_final_locals
-    Object postBody = filterChainContact;
+    Object? postBody = filterChainContact;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -336,7 +308,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -354,7 +326,7 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListContactDto> filterContactsBy(FilterChainContact filterChainContact, { String startDocumentId, int limit, }) async {
+  Future<PaginatedListContactDto?> filterContactsBy(FilterChainContact filterChainContact, { String? startDocumentId, int? limit, }) async {
     final response = await filterContactsByWithHttpInfo(filterChainContact,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -362,11 +334,11 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListContactDto',) as PaginatedListContactDto;
     
     }
-    return Future<PaginatedListContactDto>.value();
+    return null;
   }
 
   /// List services for the current user (HcParty) or the given hcparty in the filter 
@@ -384,27 +356,22 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterServicesByWithHttpInfo(FilterChainService filterChainService, { String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (filterChainService == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: filterChainService');
-    }
-
+  Future<Response> filterServicesByWithHttpInfo(FilterChainService filterChainService, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/filter';
 
     // ignore: prefer_final_locals
-    Object postBody = filterChainService;
+    Object? postBody = filterChainService;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -418,7 +385,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -436,7 +403,7 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListServiceDto> filterServicesBy(FilterChainService filterChainService, { String startDocumentId, int limit, }) async {
+  Future<PaginatedListServiceDto?> filterServicesBy(FilterChainService filterChainService, { String? startDocumentId, int? limit, }) async {
     final response = await filterServicesByWithHttpInfo(filterChainService,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -444,11 +411,11 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListServiceDto',) as PaginatedListServiceDto;
     
     }
-    return Future<PaginatedListServiceDto>.value();
+    return null;
   }
 
   /// List contacts by opening date parties with(out) pagination
@@ -473,36 +440,25 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findContactsByOpeningDateWithHttpInfo(int startKey, int endKey, String hcpartyid, { String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (startKey == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: startKey');
-    }
-    if (endKey == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: endKey');
-    }
-    if (hcpartyid == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcpartyid');
-    }
-
+  Future<Response> findContactsByOpeningDateWithHttpInfo(int startKey, int endKey, String hcpartyid, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byOpeningDate';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'endKey', endKey));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcpartyid', hcpartyid));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'endKey', endKey));
+      queryParams.addAll(_queryParams('', 'hcpartyid', hcpartyid));
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -516,7 +472,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -541,7 +497,7 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListContactDto> findContactsByOpeningDate(int startKey, int endKey, String hcpartyid, { String startDocumentId, int limit, }) async {
+  Future<PaginatedListContactDto?> findContactsByOpeningDate(int startKey, int endKey, String hcpartyid, { String? startDocumentId, int? limit, }) async {
     final response = await findContactsByOpeningDateWithHttpInfo(startKey, endKey, hcpartyid,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -549,11 +505,11 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListContactDto',) as PaginatedListContactDto;
     
     }
-    return Future<PaginatedListContactDto>.value();
+    return null;
   }
 
   /// Get a contact
@@ -564,17 +520,12 @@ class ContactApi {
   ///
   /// * [String] contactId (required):
   Future<Response> getContactWithHttpInfo(String contactId,) async {
-    // Verify required params are set.
-    if (contactId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/{contactId}'
       .replaceAll('{contactId}', contactId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -591,7 +542,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -601,7 +552,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] contactId (required):
-  Future<ContactDto> getContact(String contactId,) async {
+  Future<ContactDto?> getContact(String contactId,) async {
     final response = await getContactWithHttpInfo(contactId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -609,11 +560,11 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
     
     }
-    return Future<ContactDto>.value();
+    return null;
   }
 
   /// Get contacts
@@ -624,16 +575,11 @@ class ContactApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getContactsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -650,7 +596,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -660,7 +606,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<ContactDto>> getContacts(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<ContactDto>?> getContacts(ListOfIdsDto listOfIdsDto,) async {
     final response = await getContactsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -668,14 +614,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// Get an empty content
@@ -686,7 +632,7 @@ class ContactApi {
     final path = r'/rest/v2/contact/service/content/empty';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -703,13 +649,13 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Get an empty content
-  Future<ContentDto> getEmptyContent() async {
+  Future<ContentDto?> getEmptyContent() async {
     final response = await getEmptyContentWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -717,11 +663,11 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContentDto',) as ContentDto;
     
     }
-    return Future<ContentDto>.value();
+    return null;
   }
 
   /// Get the list of all used codes frequencies in services
@@ -734,21 +680,13 @@ class ContactApi {
   ///
   /// * [int] minOccurences (required):
   Future<Response> getServiceCodesOccurencesWithHttpInfo(String codeType, int minOccurences,) async {
-    // Verify required params are set.
-    if (codeType == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: codeType');
-    }
-    if (minOccurences == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: minOccurences');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/codes/{codeType}/{minOccurences}'
       .replaceAll('{codeType}', codeType)
       .replaceAll('{minOccurences}', minOccurences.toString());
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -765,7 +703,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -777,7 +715,7 @@ class ContactApi {
   /// * [String] codeType (required):
   ///
   /// * [int] minOccurences (required):
-  Future<List<LabelledOccurenceDto>> getServiceCodesOccurences(String codeType, int minOccurences,) async {
+  Future<List<LabelledOccurenceDto>?> getServiceCodesOccurences(String codeType, int minOccurences,) async {
     final response = await getServiceCodesOccurencesWithHttpInfo(codeType, minOccurences,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -785,14 +723,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<LabelledOccurenceDto>') as List)
         .cast<LabelledOccurenceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<LabelledOccurenceDto>>.value();
+    return null;
   }
 
   /// List services with provided ids 
@@ -805,16 +743,11 @@ class ContactApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getServicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -831,7 +764,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -843,7 +776,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<ServiceDto>> getServices(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<ServiceDto>?> getServices(ListOfIdsDto listOfIdsDto,) async {
     final response = await getServicesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -851,14 +784,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ServiceDto>') as List)
         .cast<ServiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ServiceDto>>.value();
+    return null;
   }
 
   /// List services linked to provided ids 
@@ -873,24 +806,19 @@ class ContactApi {
   ///
   /// * [String] linkType:
   ///   The type of the link
-  Future<Response> getServicesLinkedToWithHttpInfo(ListOfIdsDto listOfIdsDto, { String linkType, }) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
+  Future<Response> getServicesLinkedToWithHttpInfo(ListOfIdsDto listOfIdsDto, { String? linkType, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/linkedTo';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (linkType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'linkType', linkType));
+      queryParams.addAll(_queryParams('', 'linkType', linkType));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -904,7 +832,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -919,7 +847,7 @@ class ContactApi {
   ///
   /// * [String] linkType:
   ///   The type of the link
-  Future<List<ServiceDto>> getServicesLinkedTo(ListOfIdsDto listOfIdsDto, { String linkType, }) async {
+  Future<List<ServiceDto>?> getServicesLinkedTo(ListOfIdsDto listOfIdsDto, { String? linkType, }) async {
     final response = await getServicesLinkedToWithHttpInfo(listOfIdsDto,  linkType: linkType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -927,14 +855,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ServiceDto>') as List)
         .cast<ServiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ServiceDto>>.value();
+    return null;
   }
 
   /// List contacts found By Healthcare Party and service Id.
@@ -947,26 +875,18 @@ class ContactApi {
   ///
   /// * [String] serviceId (required):
   Future<Response> listContactByHCPartyServiceIdWithHttpInfo(String hcPartyId, String serviceId,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (serviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: serviceId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartyServiceId';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'serviceId', serviceId));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'serviceId', serviceId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -979,7 +899,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -991,7 +911,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] serviceId (required):
-  Future<List<ContactDto>> listContactByHCPartyServiceId(String hcPartyId, String serviceId,) async {
+  Future<List<ContactDto>?> listContactByHCPartyServiceId(String hcPartyId, String serviceId,) async {
     final response = await listContactByHCPartyServiceIdWithHttpInfo(hcPartyId, serviceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -999,14 +919,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// List contacts found By externalId.
@@ -1017,22 +937,17 @@ class ContactApi {
   ///
   /// * [String] externalId (required):
   Future<Response> listContactsByExternalIdWithHttpInfo(String externalId,) async {
-    // Verify required params are set.
-    if (externalId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: externalId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byExternalId';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'externalId', externalId));
+      queryParams.addAll(_queryParams('', 'externalId', externalId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1045,7 +960,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1055,7 +970,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] externalId (required):
-  Future<List<ContactDto>> listContactsByExternalId(String externalId,) async {
+  Future<List<ContactDto>?> listContactsByExternalId(String externalId,) async {
     final response = await listContactsByExternalIdWithHttpInfo(externalId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1063,14 +978,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// List contacts found By Healthcare Party and form Id.
@@ -1083,26 +998,18 @@ class ContactApi {
   ///
   /// * [String] formId (required):
   Future<Response> listContactsByHCPartyAndFormIdWithHttpInfo(String hcPartyId, String formId,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (formId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartyFormId';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'formId', formId));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'formId', formId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1115,7 +1022,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1127,7 +1034,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] formId (required):
-  Future<List<ContactDto>> listContactsByHCPartyAndFormId(String hcPartyId, String formId,) async {
+  Future<List<ContactDto>?> listContactsByHCPartyAndFormId(String hcPartyId, String formId,) async {
     final response = await listContactsByHCPartyAndFormIdWithHttpInfo(hcPartyId, formId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1135,14 +1042,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// List contacts found By Healthcare Party and form Id.
@@ -1155,25 +1062,17 @@ class ContactApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listContactsByHCPartyAndFormIdsWithHttpInfo(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartyFormIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
@@ -1186,7 +1085,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1198,7 +1097,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<ContactDto>> listContactsByHCPartyAndFormIds(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
+  Future<List<ContactDto>?> listContactsByHCPartyAndFormIds(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
     final response = await listContactsByHCPartyAndFormIdsWithHttpInfo(hcPartyId, listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1206,14 +1105,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// List contacts found By Healthcare Party and Patient foreign keys.
@@ -1226,25 +1125,17 @@ class ContactApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listContactsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartyPatientForeignKeys';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
@@ -1257,7 +1148,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1269,7 +1160,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<ContactDto>> listContactsByHCPartyAndPatientForeignKeys(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
+  Future<List<ContactDto>?> listContactsByHCPartyAndPatientForeignKeys(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
     final response = await listContactsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1277,14 +1168,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// List contacts found By Healthcare Party and secret foreign keys.
@@ -1302,32 +1193,24 @@ class ContactApi {
   /// * [String] planOfActionsIds:
   ///
   /// * [bool] skipClosedContacts:
-  Future<Response> listContactsByHCPartyAndPatientSecretFKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String planOfActionsIds, bool skipClosedContacts, }) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
+  Future<Response> listContactsByHCPartyAndPatientSecretFKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String? planOfActionsIds, bool? skipClosedContacts, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
     if (planOfActionsIds != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'planOfActionsIds', planOfActionsIds));
+      queryParams.addAll(_queryParams('', 'planOfActionsIds', planOfActionsIds));
     }
     if (skipClosedContacts != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'skipClosedContacts', skipClosedContacts));
+      queryParams.addAll(_queryParams('', 'skipClosedContacts', skipClosedContacts));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1341,7 +1224,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1359,7 +1242,7 @@ class ContactApi {
   /// * [String] planOfActionsIds:
   ///
   /// * [bool] skipClosedContacts:
-  Future<List<ContactDto>> listContactsByHCPartyAndPatientSecretFKeys(String hcPartyId, String secretFKeys, { String planOfActionsIds, bool skipClosedContacts, }) async {
+  Future<List<ContactDto>?> listContactsByHCPartyAndPatientSecretFKeys(String hcPartyId, String secretFKeys, { String? planOfActionsIds, bool? skipClosedContacts, }) async {
     final response = await listContactsByHCPartyAndPatientSecretFKeysWithHttpInfo(hcPartyId, secretFKeys,  planOfActionsIds: planOfActionsIds, skipClosedContacts: skipClosedContacts, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1367,14 +1250,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// List contacts found By Healthcare Party and secret foreign keys.
@@ -1389,26 +1272,18 @@ class ContactApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> listContactsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartySecretForeignKeys/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1421,7 +1296,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1435,7 +1310,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<IcureStubDto>> listContactsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<IcureStubDto>?> listContactsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await listContactsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1443,14 +1318,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IcureStubDto>') as List)
         .cast<IcureStubDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IcureStubDto>>.value();
+    return null;
   }
 
   /// List services by related association id
@@ -1463,22 +1338,17 @@ class ContactApi {
   ///
   /// * [String] associationId (required):
   Future<Response> listServicesByAssociationIdWithHttpInfo(String associationId,) async {
-    // Verify required params are set.
-    if (associationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: associationId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/associationId';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'associationId', associationId));
+      queryParams.addAll(_queryParams('', 'associationId', associationId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1491,7 +1361,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1503,7 +1373,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] associationId (required):
-  Future<List<ServiceDto>> listServicesByAssociationId(String associationId,) async {
+  Future<List<ServiceDto>?> listServicesByAssociationId(String associationId,) async {
     final response = await listServicesByAssociationIdWithHttpInfo(associationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1511,14 +1381,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ServiceDto>') as List)
         .cast<ServiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ServiceDto>>.value();
+    return null;
   }
 
   /// List services linked to a health element
@@ -1531,17 +1401,12 @@ class ContactApi {
   ///
   /// * [String] healthElementId (required):
   Future<Response> listServicesByHealthElementIdWithHttpInfo(String healthElementId,) async {
-    // Verify required params are set.
-    if (healthElementId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/healthElementId/{healthElementId}'
       .replaceAll('{healthElementId}', healthElementId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1558,7 +1423,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1570,7 +1435,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] healthElementId (required):
-  Future<List<ServiceDto>> listServicesByHealthElementId(String healthElementId,) async {
+  Future<List<ServiceDto>?> listServicesByHealthElementId(String healthElementId,) async {
     final response = await listServicesByHealthElementIdWithHttpInfo(healthElementId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1578,14 +1443,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ServiceDto>') as List)
         .cast<ServiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ServiceDto>>.value();
+    return null;
   }
 
   /// Get ids of contacts matching the provided filter for the current user (HcParty) 
@@ -1596,16 +1461,11 @@ class ContactApi {
   ///
   /// * [AbstractFilterDtoContact] abstractFilterDtoContact (required):
   Future<Response> matchContactsByWithHttpInfo(AbstractFilterDtoContact abstractFilterDtoContact,) async {
-    // Verify required params are set.
-    if (abstractFilterDtoContact == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: abstractFilterDtoContact');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/match';
 
     // ignore: prefer_final_locals
-    Object postBody = abstractFilterDtoContact;
+    Object? postBody = abstractFilterDtoContact;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1622,7 +1482,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1632,7 +1492,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoContact] abstractFilterDtoContact (required):
-  Future<List<String>> matchContactsBy(AbstractFilterDtoContact abstractFilterDtoContact,) async {
+  Future<List<String>?> matchContactsBy(AbstractFilterDtoContact abstractFilterDtoContact,) async {
     final response = await matchContactsByWithHttpInfo(abstractFilterDtoContact,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1640,14 +1500,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
         .cast<String>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<String>>.value();
+    return null;
   }
 
   /// Modify a contact
@@ -1660,16 +1520,11 @@ class ContactApi {
   ///
   /// * [ContactDto] contactDto (required):
   Future<Response> modifyContactWithHttpInfo(ContactDto contactDto,) async {
-    // Verify required params are set.
-    if (contactDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact';
 
     // ignore: prefer_final_locals
-    Object postBody = contactDto;
+    Object? postBody = contactDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1686,7 +1541,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1698,7 +1553,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ContactDto] contactDto (required):
-  Future<ContactDto> modifyContact(ContactDto contactDto,) async {
+  Future<ContactDto?> modifyContact(ContactDto contactDto,) async {
     final response = await modifyContactWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1706,11 +1561,11 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
     
     }
-    return Future<ContactDto>.value();
+    return null;
   }
 
   /// Modify a batch of contacts
@@ -1723,16 +1578,11 @@ class ContactApi {
   ///
   /// * [List<ContactDto>] contactDto (required):
   Future<Response> modifyContactsWithHttpInfo(List<ContactDto> contactDto,) async {
-    // Verify required params are set.
-    if (contactDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = contactDto;
+    Object? postBody = contactDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1749,7 +1599,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1761,7 +1611,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<ContactDto>] contactDto (required):
-  Future<List<ContactDto>> modifyContacts(List<ContactDto> contactDto,) async {
+  Future<List<ContactDto>?> modifyContacts(List<ContactDto> contactDto,) async {
     final response = await modifyContactsWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1769,14 +1619,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// Update delegations in healthElements.
@@ -1789,16 +1639,11 @@ class ContactApi {
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> modifyContactsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
-    // Verify required params are set.
-    if (icureStubDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: icureStubDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody = icureStubDto;
+    Object? postBody = icureStubDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1815,7 +1660,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1827,7 +1672,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<ContactDto>> modifyContactsDelegations(List<IcureStubDto> icureStubDto,) async {
+  Future<List<ContactDto>?> modifyContactsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await modifyContactsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1835,14 +1680,14 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// Delegates a contact to a healthcare party
@@ -1857,20 +1702,12 @@ class ContactApi {
   ///
   /// * [DelegationDto] delegationDto (required):
   Future<Response> newContactDelegationsWithHttpInfo(String contactId, DelegationDto delegationDto,) async {
-    // Verify required params are set.
-    if (contactId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactId');
-    }
-    if (delegationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: delegationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/{contactId}/delegate'
       .replaceAll('{contactId}', contactId);
 
     // ignore: prefer_final_locals
-    Object postBody = delegationDto;
+    Object? postBody = delegationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1887,7 +1724,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1901,7 +1738,7 @@ class ContactApi {
   /// * [String] contactId (required):
   ///
   /// * [DelegationDto] delegationDto (required):
-  Future<ContactDto> newContactDelegations(String contactId, DelegationDto delegationDto,) async {
+  Future<ContactDto?> newContactDelegations(String contactId, DelegationDto delegationDto,) async {
     final response = await newContactDelegationsWithHttpInfo(contactId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1909,11 +1746,11 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
     
     }
-    return Future<ContactDto>.value();
+    return null;
   }
 
   /// Update delegations in healthElements.
@@ -1926,16 +1763,11 @@ class ContactApi {
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> setContactsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
-    // Verify required params are set.
-    if (icureStubDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: icureStubDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody = icureStubDto;
+    Object? postBody = icureStubDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1952,7 +1784,7 @@ class ContactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1964,7 +1796,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<ContactDto>> setContactsDelegations(List<IcureStubDto> icureStubDto,) async {
+  Future<List<ContactDto>?> setContactsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await setContactsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1972,13 +1804,13 @@ class ContactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 }

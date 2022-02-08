@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -30,9 +30,21 @@ class AmpComponentDto {
     this.note,
   });
 
-  int from;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? from;
 
-  int to;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? to;
 
   List<IngredientDto> ingredients;
 
@@ -40,25 +52,73 @@ class AmpComponentDto {
 
   List<RouteOfAdministrationDto> routeOfAdministrations;
 
-  String dividable;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? dividable;
 
-  String scored;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? scored;
 
-  AmpComponentDtoCrushableEnum crushable;
+  AmpComponentDtoCrushableEnum? crushable;
 
-  AmpComponentDtoContainsAlcoholEnum containsAlcohol;
+  AmpComponentDtoContainsAlcoholEnum? containsAlcohol;
 
-  bool sugarFree;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? sugarFree;
 
-  int modifiedReleaseType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modifiedReleaseType;
 
-  int specificDrugDevice;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? specificDrugDevice;
 
-  String dimensions;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? dimensions;
 
-  SamTextDto name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? name;
 
-  SamTextDto note;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? note;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AmpComponentDto &&
@@ -80,22 +140,22 @@ class AmpComponentDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from.hashCode) +
-    (to == null ? 0 : to.hashCode) +
-    (ingredients == null ? 0 : ingredients.hashCode) +
-    (pharmaceuticalForms == null ? 0 : pharmaceuticalForms.hashCode) +
-    (routeOfAdministrations == null ? 0 : routeOfAdministrations.hashCode) +
-    (dividable == null ? 0 : dividable.hashCode) +
-    (scored == null ? 0 : scored.hashCode) +
-    (crushable == null ? 0 : crushable.hashCode) +
-    (containsAlcohol == null ? 0 : containsAlcohol.hashCode) +
-    (sugarFree == null ? 0 : sugarFree.hashCode) +
-    (modifiedReleaseType == null ? 0 : modifiedReleaseType.hashCode) +
-    (specificDrugDevice == null ? 0 : specificDrugDevice.hashCode) +
-    (dimensions == null ? 0 : dimensions.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (note == null ? 0 : note.hashCode);
+    // ignore: unnecessary_parenthesis
+    (from == null ? 0 : from!.hashCode) +
+    (to == null ? 0 : to!.hashCode) +
+    (ingredients.hashCode) +
+    (pharmaceuticalForms.hashCode) +
+    (routeOfAdministrations.hashCode) +
+    (dividable == null ? 0 : dividable!.hashCode) +
+    (scored == null ? 0 : scored!.hashCode) +
+    (crushable == null ? 0 : crushable!.hashCode) +
+    (containsAlcohol == null ? 0 : containsAlcohol!.hashCode) +
+    (sugarFree == null ? 0 : sugarFree!.hashCode) +
+    (modifiedReleaseType == null ? 0 : modifiedReleaseType!.hashCode) +
+    (specificDrugDevice == null ? 0 : specificDrugDevice!.hashCode) +
+    (dimensions == null ? 0 : dimensions!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (note == null ? 0 : note!.hashCode);
 
   @override
   String toString() => 'AmpComponentDto[from=$from, to=$to, ingredients=$ingredients, pharmaceuticalForms=$pharmaceuticalForms, routeOfAdministrations=$routeOfAdministrations, dividable=$dividable, scored=$scored, crushable=$crushable, containsAlcohol=$containsAlcohol, sugarFree=$sugarFree, modifiedReleaseType=$modifiedReleaseType, specificDrugDevice=$specificDrugDevice, dimensions=$dimensions, name=$name, note=$note]';
@@ -108,15 +168,9 @@ class AmpComponentDto {
     if (to != null) {
       json[r'to'] = to;
     }
-    if (ingredients != null) {
       json[r'ingredients'] = ingredients;
-    }
-    if (pharmaceuticalForms != null) {
       json[r'pharmaceuticalForms'] = pharmaceuticalForms;
-    }
-    if (routeOfAdministrations != null) {
       json[r'routeOfAdministrations'] = routeOfAdministrations;
-    }
     if (dividable != null) {
       json[r'dividable'] = dividable;
     }
@@ -153,15 +207,27 @@ class AmpComponentDto {
   /// Returns a new [AmpComponentDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AmpComponentDto fromJson(dynamic value) {
+  static AmpComponentDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "AmpComponentDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AmpComponentDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return AmpComponentDto(
         from: mapValueOfType<int>(json, r'from'),
         to: mapValueOfType<int>(json, r'to'),
-        ingredients: IngredientDto.listFromJson(json[r'ingredients']),
-        pharmaceuticalForms: PharmaceuticalFormStubDto.listFromJson(json[r'pharmaceuticalForms']),
-        routeOfAdministrations: RouteOfAdministrationDto.listFromJson(json[r'routeOfAdministrations']),
+        ingredients: IngredientDto.listFromJson(json[r'ingredients']) ?? const [],
+        pharmaceuticalForms: PharmaceuticalFormStubDto.listFromJson(json[r'pharmaceuticalForms']) ?? const [],
+        routeOfAdministrations: RouteOfAdministrationDto.listFromJson(json[r'routeOfAdministrations']) ?? const [],
         dividable: mapValueOfType<String>(json, r'dividable'),
         scored: mapValueOfType<String>(json, r'scored'),
         crushable: AmpComponentDtoCrushableEnum.fromJson(json[r'crushable']),
@@ -177,37 +243,51 @@ class AmpComponentDto {
     return null;
   }
 
-  static List<AmpComponentDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmpComponentDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmpComponentDto>[];
+  static List<AmpComponentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmpComponentDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmpComponentDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, AmpComponentDto> mapFromJson(dynamic json) {
     final map = <String, AmpComponentDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = AmpComponentDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AmpComponentDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of AmpComponentDto-objects as value to a dart map
-  static Map<String, List<AmpComponentDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<AmpComponentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<AmpComponentDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = AmpComponentDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AmpComponentDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -219,7 +299,7 @@ class AmpComponentDtoCrushableEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -234,13 +314,20 @@ class AmpComponentDtoCrushableEnum {
     X,
   ];
 
-  static AmpComponentDtoCrushableEnum fromJson(dynamic value) =>
-    AmpComponentDtoCrushableEnumTypeTransformer().decode(value);
+  static AmpComponentDtoCrushableEnum? fromJson(dynamic value) => AmpComponentDtoCrushableEnumTypeTransformer().decode(value);
 
-  static List<AmpComponentDtoCrushableEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmpComponentDtoCrushableEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmpComponentDtoCrushableEnum>[];
+  static List<AmpComponentDtoCrushableEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmpComponentDtoCrushableEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmpComponentDtoCrushableEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [AmpComponentDtoCrushableEnum] to String,
@@ -260,14 +347,14 @@ class AmpComponentDtoCrushableEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  AmpComponentDtoCrushableEnum decode(dynamic data, {bool allowNull}) {
+  AmpComponentDtoCrushableEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'Y': return AmpComponentDtoCrushableEnum.Y;
         case r'N': return AmpComponentDtoCrushableEnum.N;
         case r'X': return AmpComponentDtoCrushableEnum.X;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -276,7 +363,7 @@ class AmpComponentDtoCrushableEnumTypeTransformer {
   }
 
   /// Singleton [AmpComponentDtoCrushableEnumTypeTransformer] instance.
-  static AmpComponentDtoCrushableEnumTypeTransformer _instance;
+  static AmpComponentDtoCrushableEnumTypeTransformer? _instance;
 }
 
 
@@ -289,7 +376,7 @@ class AmpComponentDtoContainsAlcoholEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -304,13 +391,20 @@ class AmpComponentDtoContainsAlcoholEnum {
     X,
   ];
 
-  static AmpComponentDtoContainsAlcoholEnum fromJson(dynamic value) =>
-    AmpComponentDtoContainsAlcoholEnumTypeTransformer().decode(value);
+  static AmpComponentDtoContainsAlcoholEnum? fromJson(dynamic value) => AmpComponentDtoContainsAlcoholEnumTypeTransformer().decode(value);
 
-  static List<AmpComponentDtoContainsAlcoholEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmpComponentDtoContainsAlcoholEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmpComponentDtoContainsAlcoholEnum>[];
+  static List<AmpComponentDtoContainsAlcoholEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmpComponentDtoContainsAlcoholEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmpComponentDtoContainsAlcoholEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [AmpComponentDtoContainsAlcoholEnum] to String,
@@ -330,14 +424,14 @@ class AmpComponentDtoContainsAlcoholEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  AmpComponentDtoContainsAlcoholEnum decode(dynamic data, {bool allowNull}) {
+  AmpComponentDtoContainsAlcoholEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'Y': return AmpComponentDtoContainsAlcoholEnum.Y;
         case r'N': return AmpComponentDtoContainsAlcoholEnum.N;
         case r'X': return AmpComponentDtoContainsAlcoholEnum.X;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -346,7 +440,7 @@ class AmpComponentDtoContainsAlcoholEnumTypeTransformer {
   }
 
   /// Singleton [AmpComponentDtoContainsAlcoholEnumTypeTransformer] instance.
-  static AmpComponentDtoContainsAlcoholEnumTypeTransformer _instance;
+  static AmpComponentDtoContainsAlcoholEnumTypeTransformer? _instance;
 }
 
 

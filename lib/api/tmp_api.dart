@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class TmpApi {
-  TmpApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  TmpApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,16 +26,11 @@ class TmpApi {
   ///
   /// * [ClassificationDto] classificationDto (required):
   Future<Response> createTmpClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
-    // Verify required params are set.
-    if (classificationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: classificationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/classification';
 
     // ignore: prefer_final_locals
-    Object postBody = classificationDto;
+    Object? postBody = classificationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,7 +47,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -64,7 +59,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [ClassificationDto] classificationDto (required):
-  Future<ClassificationDto> createTmpClassification(ClassificationDto classificationDto,) async {
+  Future<ClassificationDto?> createTmpClassification(ClassificationDto classificationDto,) async {
     final response = await createTmpClassificationWithHttpInfo(classificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -72,11 +67,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
     
     }
-    return Future<ClassificationDto>.value();
+    return null;
   }
 
   /// Create a classification with the current user
@@ -89,16 +84,11 @@ class TmpApi {
   ///
   /// * [List<ClassificationDto>] classificationDto (required):
   Future<Response> createTmpClassificationsWithHttpInfo(List<ClassificationDto> classificationDto,) async {
-    // Verify required params are set.
-    if (classificationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: classificationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/classification/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = classificationDto;
+    Object? postBody = classificationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -115,7 +105,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -127,7 +117,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<ClassificationDto>] classificationDto (required):
-  Future<List<ClassificationDto>> createTmpClassifications(List<ClassificationDto> classificationDto,) async {
+  Future<List<ClassificationDto>?> createTmpClassifications(List<ClassificationDto> classificationDto,) async {
     final response = await createTmpClassificationsWithHttpInfo(classificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -135,14 +125,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ClassificationDto>') as List)
         .cast<ClassificationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ClassificationDto>>.value();
+    return null;
   }
 
   /// Create a contact with the current user
@@ -155,16 +145,11 @@ class TmpApi {
   ///
   /// * [ContactDto] contactDto (required):
   Future<Response> createTmpContactWithHttpInfo(ContactDto contactDto,) async {
-    // Verify required params are set.
-    if (contactDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/contact';
 
     // ignore: prefer_final_locals
-    Object postBody = contactDto;
+    Object? postBody = contactDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -181,7 +166,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -193,7 +178,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [ContactDto] contactDto (required):
-  Future<ContactDto> createTmpContact(ContactDto contactDto,) async {
+  Future<ContactDto?> createTmpContact(ContactDto contactDto,) async {
     final response = await createTmpContactWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -201,11 +186,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
     
     }
-    return Future<ContactDto>.value();
+    return null;
   }
 
   /// Create a contact with the current user
@@ -218,16 +203,11 @@ class TmpApi {
   ///
   /// * [List<ContactDto>] contactDto (required):
   Future<Response> createTmpContactsWithHttpInfo(List<ContactDto> contactDto,) async {
-    // Verify required params are set.
-    if (contactDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/contact/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = contactDto;
+    Object? postBody = contactDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -244,7 +224,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -256,7 +236,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<ContactDto>] contactDto (required):
-  Future<List<ContactDto>> createTmpContacts(List<ContactDto> contactDto,) async {
+  Future<List<ContactDto>?> createTmpContacts(List<ContactDto> contactDto,) async {
     final response = await createTmpContactsWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -264,14 +244,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// Create tmp database for current user
@@ -284,7 +264,7 @@ class TmpApi {
     final path = r'/rest/v2/tmp';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -301,7 +281,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -309,7 +289,7 @@ class TmpApi {
   /// Create tmp database for current user
   ///
   /// Nothing happens if the database already exists
-  Future<Object> createTmpDatabase() async {
+  Future<Object?> createTmpDatabase() async {
     final response = await createTmpDatabaseWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -317,11 +297,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
     
     }
-    return Future<Object>.value();
+    return null;
   }
 
   /// Create a document with the current user
@@ -334,16 +314,11 @@ class TmpApi {
   ///
   /// * [DocumentDto] documentDto (required):
   Future<Response> createTmpDocumentWithHttpInfo(DocumentDto documentDto,) async {
-    // Verify required params are set.
-    if (documentDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/document';
 
     // ignore: prefer_final_locals
-    Object postBody = documentDto;
+    Object? postBody = documentDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -360,7 +335,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -372,7 +347,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [DocumentDto] documentDto (required):
-  Future<DocumentDto> createTmpDocument(DocumentDto documentDto,) async {
+  Future<DocumentDto?> createTmpDocument(DocumentDto documentDto,) async {
     final response = await createTmpDocumentWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -380,11 +355,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Create a document with the current user
@@ -397,16 +372,11 @@ class TmpApi {
   ///
   /// * [List<DocumentDto>] documentDto (required):
   Future<Response> createTmpDocumentsWithHttpInfo(List<DocumentDto> documentDto,) async {
-    // Verify required params are set.
-    if (documentDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/document/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = documentDto;
+    Object? postBody = documentDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -423,7 +393,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -435,7 +405,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<DocumentDto>] documentDto (required):
-  Future<List<DocumentDto>> createTmpDocuments(List<DocumentDto> documentDto,) async {
+  Future<List<DocumentDto>?> createTmpDocuments(List<DocumentDto> documentDto,) async {
     final response = await createTmpDocumentsWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -443,14 +413,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// Create a entityTemplate with the current user
@@ -463,16 +433,11 @@ class TmpApi {
   ///
   /// * [EntityTemplateDto] entityTemplateDto (required):
   Future<Response> createTmpEntityTemplateWithHttpInfo(EntityTemplateDto entityTemplateDto,) async {
-    // Verify required params are set.
-    if (entityTemplateDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: entityTemplateDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/entityTemplate';
 
     // ignore: prefer_final_locals
-    Object postBody = entityTemplateDto;
+    Object? postBody = entityTemplateDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -489,7 +454,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -501,7 +466,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [EntityTemplateDto] entityTemplateDto (required):
-  Future<EntityTemplateDto> createTmpEntityTemplate(EntityTemplateDto entityTemplateDto,) async {
+  Future<EntityTemplateDto?> createTmpEntityTemplate(EntityTemplateDto entityTemplateDto,) async {
     final response = await createTmpEntityTemplateWithHttpInfo(entityTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -509,11 +474,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EntityTemplateDto',) as EntityTemplateDto;
     
     }
-    return Future<EntityTemplateDto>.value();
+    return null;
   }
 
   /// Create a entityTemplate with the current user
@@ -526,16 +491,11 @@ class TmpApi {
   ///
   /// * [List<EntityTemplateDto>] entityTemplateDto (required):
   Future<Response> createTmpEntityTemplatesWithHttpInfo(List<EntityTemplateDto> entityTemplateDto,) async {
-    // Verify required params are set.
-    if (entityTemplateDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: entityTemplateDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/entityTemplate/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = entityTemplateDto;
+    Object? postBody = entityTemplateDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -552,7 +512,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -564,7 +524,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<EntityTemplateDto>] entityTemplateDto (required):
-  Future<List<EntityTemplateDto>> createTmpEntityTemplates(List<EntityTemplateDto> entityTemplateDto,) async {
+  Future<List<EntityTemplateDto>?> createTmpEntityTemplates(List<EntityTemplateDto> entityTemplateDto,) async {
     final response = await createTmpEntityTemplatesWithHttpInfo(entityTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -572,14 +532,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<EntityTemplateDto>') as List)
         .cast<EntityTemplateDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<EntityTemplateDto>>.value();
+    return null;
   }
 
   /// Create a form with the current user
@@ -592,16 +552,11 @@ class TmpApi {
   ///
   /// * [FormDto] formDto (required):
   Future<Response> createTmpFormWithHttpInfo(FormDto formDto,) async {
-    // Verify required params are set.
-    if (formDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/form';
 
     // ignore: prefer_final_locals
-    Object postBody = formDto;
+    Object? postBody = formDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -618,7 +573,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -630,7 +585,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [FormDto] formDto (required):
-  Future<FormDto> createTmpForm(FormDto formDto,) async {
+  Future<FormDto?> createTmpForm(FormDto formDto,) async {
     final response = await createTmpFormWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -638,11 +593,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
     
     }
-    return Future<FormDto>.value();
+    return null;
   }
 
   /// Create a form with the current user
@@ -655,16 +610,11 @@ class TmpApi {
   ///
   /// * [List<FormDto>] formDto (required):
   Future<Response> createTmpFormsWithHttpInfo(List<FormDto> formDto,) async {
-    // Verify required params are set.
-    if (formDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/form/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = formDto;
+    Object? postBody = formDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -681,7 +631,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -693,7 +643,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<FormDto>] formDto (required):
-  Future<List<FormDto>> createTmpForms(List<FormDto> formDto,) async {
+  Future<List<FormDto>?> createTmpForms(List<FormDto> formDto,) async {
     final response = await createTmpFormsWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -701,14 +651,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// Create a healthElement with the current user
@@ -721,16 +671,11 @@ class TmpApi {
   ///
   /// * [HealthElementDto] healthElementDto (required):
   Future<Response> createTmpHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
-    // Verify required params are set.
-    if (healthElementDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/healthElement';
 
     // ignore: prefer_final_locals
-    Object postBody = healthElementDto;
+    Object? postBody = healthElementDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -747,7 +692,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -759,7 +704,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [HealthElementDto] healthElementDto (required):
-  Future<HealthElementDto> createTmpHealthElement(HealthElementDto healthElementDto,) async {
+  Future<HealthElementDto?> createTmpHealthElement(HealthElementDto healthElementDto,) async {
     final response = await createTmpHealthElementWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -767,11 +712,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
     
     }
-    return Future<HealthElementDto>.value();
+    return null;
   }
 
   /// Create a healthElement with the current user
@@ -784,16 +729,11 @@ class TmpApi {
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
   Future<Response> createTmpHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
-    // Verify required params are set.
-    if (healthElementDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/healthElement/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = healthElementDto;
+    Object? postBody = healthElementDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -810,7 +750,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -822,7 +762,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
-  Future<List<HealthElementDto>> createTmpHealthElements(List<HealthElementDto> healthElementDto,) async {
+  Future<List<HealthElementDto>?> createTmpHealthElements(List<HealthElementDto> healthElementDto,) async {
     final response = await createTmpHealthElementsWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -830,14 +770,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<HealthElementDto>') as List)
         .cast<HealthElementDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<HealthElementDto>>.value();
+    return null;
   }
 
   /// Create a invoice with the current user
@@ -850,16 +790,11 @@ class TmpApi {
   ///
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> createTmpInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
-    // Verify required params are set.
-    if (invoiceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/invoice';
 
     // ignore: prefer_final_locals
-    Object postBody = invoiceDto;
+    Object? postBody = invoiceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -876,7 +811,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -888,7 +823,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<InvoiceDto> createTmpInvoice(InvoiceDto invoiceDto,) async {
+  Future<InvoiceDto?> createTmpInvoice(InvoiceDto invoiceDto,) async {
     final response = await createTmpInvoiceWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -896,11 +831,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 
   /// Create a invoice with the current user
@@ -913,16 +848,11 @@ class TmpApi {
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
   Future<Response> createTmpInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
-    // Verify required params are set.
-    if (invoiceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/invoice/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = invoiceDto;
+    Object? postBody = invoiceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -939,7 +869,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -951,7 +881,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
-  Future<List<InvoiceDto>> createTmpInvoices(List<InvoiceDto> invoiceDto,) async {
+  Future<List<InvoiceDto>?> createTmpInvoices(List<InvoiceDto> invoiceDto,) async {
     final response = await createTmpInvoicesWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -959,14 +889,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Create a message with the current user
@@ -979,16 +909,11 @@ class TmpApi {
   ///
   /// * [MessageDto] messageDto (required):
   Future<Response> createTmpMessageWithHttpInfo(MessageDto messageDto,) async {
-    // Verify required params are set.
-    if (messageDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: messageDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/message';
 
     // ignore: prefer_final_locals
-    Object postBody = messageDto;
+    Object? postBody = messageDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1005,7 +930,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1017,7 +942,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [MessageDto] messageDto (required):
-  Future<MessageDto> createTmpMessage(MessageDto messageDto,) async {
+  Future<MessageDto?> createTmpMessage(MessageDto messageDto,) async {
     final response = await createTmpMessageWithHttpInfo(messageDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1025,11 +950,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MessageDto',) as MessageDto;
     
     }
-    return Future<MessageDto>.value();
+    return null;
   }
 
   /// Create a message with the current user
@@ -1042,16 +967,11 @@ class TmpApi {
   ///
   /// * [List<MessageDto>] messageDto (required):
   Future<Response> createTmpMessagesWithHttpInfo(List<MessageDto> messageDto,) async {
-    // Verify required params are set.
-    if (messageDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: messageDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/message/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = messageDto;
+    Object? postBody = messageDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1068,7 +988,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1080,7 +1000,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<MessageDto>] messageDto (required):
-  Future<List<MessageDto>> createTmpMessages(List<MessageDto> messageDto,) async {
+  Future<List<MessageDto>?> createTmpMessages(List<MessageDto> messageDto,) async {
     final response = await createTmpMessagesWithHttpInfo(messageDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1088,14 +1008,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MessageDto>') as List)
         .cast<MessageDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<MessageDto>>.value();
+    return null;
   }
 
   /// Create a patient with the current user
@@ -1108,16 +1028,11 @@ class TmpApi {
   ///
   /// * [PatientDto] patientDto (required):
   Future<Response> createTmpPatientWithHttpInfo(PatientDto patientDto,) async {
-    // Verify required params are set.
-    if (patientDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: patientDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/patient';
 
     // ignore: prefer_final_locals
-    Object postBody = patientDto;
+    Object? postBody = patientDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1134,7 +1049,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1146,7 +1061,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [PatientDto] patientDto (required):
-  Future<PatientDto> createTmpPatient(PatientDto patientDto,) async {
+  Future<PatientDto?> createTmpPatient(PatientDto patientDto,) async {
     final response = await createTmpPatientWithHttpInfo(patientDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1154,11 +1069,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
     
     }
-    return Future<PatientDto>.value();
+    return null;
   }
 
   /// Create a patient with the current user
@@ -1171,16 +1086,11 @@ class TmpApi {
   ///
   /// * [List<PatientDto>] patientDto (required):
   Future<Response> createTmpPatientsWithHttpInfo(List<PatientDto> patientDto,) async {
-    // Verify required params are set.
-    if (patientDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: patientDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/patient/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = patientDto;
+    Object? postBody = patientDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1197,7 +1107,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1209,7 +1119,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<PatientDto>] patientDto (required):
-  Future<List<PatientDto>> createTmpPatients(List<PatientDto> patientDto,) async {
+  Future<List<PatientDto>?> createTmpPatients(List<PatientDto> patientDto,) async {
     final response = await createTmpPatientsWithHttpInfo(patientDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1217,14 +1127,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PatientDto>') as List)
         .cast<PatientDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<PatientDto>>.value();
+    return null;
   }
 
   /// Soft delete items.
@@ -1237,16 +1147,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> deleteTmpItemsWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/batch/delete';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1263,7 +1168,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1275,7 +1180,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<DocIdentifier>> deleteTmpItems(List<String> requestBody,) async {
+  Future<List<DocIdentifier>?> deleteTmpItems(List<String> requestBody,) async {
     final response = await deleteTmpItemsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1283,14 +1188,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Destroy tmp database for current user
@@ -1303,7 +1208,7 @@ class TmpApi {
     final path = r'/rest/v2/tmp';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1320,7 +1225,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1328,7 +1233,7 @@ class TmpApi {
   /// Destroy tmp database for current user
   ///
   /// Nothing happens if the database does not exists
-  Future<Object> destroyTmpDatabase() async {
+  Future<Object?> destroyTmpDatabase() async {
     final response = await destroyTmpDatabaseWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1336,11 +1241,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
     
     }
-    return Future<Object>.value();
+    return null;
   }
 
   /// Get a classification by id
@@ -1353,17 +1258,12 @@ class TmpApi {
   ///
   /// * [String] id (required):
   Future<Response> getTmpClassificationWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/classification/byId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1380,7 +1280,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1392,7 +1292,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<ClassificationDto> getTmpClassification(String id,) async {
+  Future<ClassificationDto?> getTmpClassification(String id,) async {
     final response = await getTmpClassificationWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1400,11 +1300,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
     
     }
-    return Future<ClassificationDto>.value();
+    return null;
   }
 
   /// Get classifications by ids with the current user
@@ -1417,16 +1317,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpClassificationsWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/classification/get';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1443,7 +1338,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1455,7 +1350,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<ClassificationDto>> getTmpClassifications(List<String> requestBody,) async {
+  Future<List<ClassificationDto>?> getTmpClassifications(List<String> requestBody,) async {
     final response = await getTmpClassificationsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1463,14 +1358,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ClassificationDto>') as List)
         .cast<ClassificationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ClassificationDto>>.value();
+    return null;
   }
 
   /// Get a contact by id
@@ -1483,17 +1378,12 @@ class TmpApi {
   ///
   /// * [String] id (required):
   Future<Response> getTmpContactWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/contact/byId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1510,7 +1400,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1522,7 +1412,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<ContactDto> getTmpContact(String id,) async {
+  Future<ContactDto?> getTmpContact(String id,) async {
     final response = await getTmpContactWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1530,11 +1420,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
     
     }
-    return Future<ContactDto>.value();
+    return null;
   }
 
   /// Get contacts by ids with the current user
@@ -1547,16 +1437,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpContactsWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/contact/get';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1573,7 +1458,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1585,7 +1470,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<ContactDto>> getTmpContacts(List<String> requestBody,) async {
+  Future<List<ContactDto>?> getTmpContacts(List<String> requestBody,) async {
     final response = await getTmpContactsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1593,14 +1478,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// Get a document by id
@@ -1613,17 +1498,12 @@ class TmpApi {
   ///
   /// * [String] id (required):
   Future<Response> getTmpDocumentWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/document/byId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1640,7 +1520,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1652,7 +1532,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<DocumentDto> getTmpDocument(String id,) async {
+  Future<DocumentDto?> getTmpDocument(String id,) async {
     final response = await getTmpDocumentWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1660,11 +1540,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Get documents by ids with the current user
@@ -1677,16 +1557,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpDocumentsWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/document/get';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1703,7 +1578,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1715,7 +1590,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<DocumentDto>> getTmpDocuments(List<String> requestBody,) async {
+  Future<List<DocumentDto>?> getTmpDocuments(List<String> requestBody,) async {
     final response = await getTmpDocumentsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1723,14 +1598,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// Get a entityTemplate by id
@@ -1743,17 +1618,12 @@ class TmpApi {
   ///
   /// * [String] id (required):
   Future<Response> getTmpEntityTemplateWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/entityTemplate/byId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1770,7 +1640,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1782,7 +1652,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<EntityTemplateDto> getTmpEntityTemplate(String id,) async {
+  Future<EntityTemplateDto?> getTmpEntityTemplate(String id,) async {
     final response = await getTmpEntityTemplateWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1790,11 +1660,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EntityTemplateDto',) as EntityTemplateDto;
     
     }
-    return Future<EntityTemplateDto>.value();
+    return null;
   }
 
   /// Get entityTemplates by ids with the current user
@@ -1807,16 +1677,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpEntityTemplatesWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/entityTemplate/get';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1833,7 +1698,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1845,7 +1710,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<EntityTemplateDto>> getTmpEntityTemplates(List<String> requestBody,) async {
+  Future<List<EntityTemplateDto>?> getTmpEntityTemplates(List<String> requestBody,) async {
     final response = await getTmpEntityTemplatesWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1853,14 +1718,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<EntityTemplateDto>') as List)
         .cast<EntityTemplateDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<EntityTemplateDto>>.value();
+    return null;
   }
 
   /// Get a form by id
@@ -1873,17 +1738,12 @@ class TmpApi {
   ///
   /// * [String] id (required):
   Future<Response> getTmpFormWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/form/byId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1900,7 +1760,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1912,7 +1772,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<FormDto> getTmpForm(String id,) async {
+  Future<FormDto?> getTmpForm(String id,) async {
     final response = await getTmpFormWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1920,11 +1780,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
     
     }
-    return Future<FormDto>.value();
+    return null;
   }
 
   /// Get forms by ids with the current user
@@ -1937,16 +1797,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpFormsWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/form/get';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1963,7 +1818,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1975,7 +1830,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<FormDto>> getTmpForms(List<String> requestBody,) async {
+  Future<List<FormDto>?> getTmpForms(List<String> requestBody,) async {
     final response = await getTmpFormsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1983,14 +1838,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// Get a healthElement by id
@@ -2003,17 +1858,12 @@ class TmpApi {
   ///
   /// * [String] id (required):
   Future<Response> getTmpHealthElementWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/healthElement/byId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2030,7 +1880,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2042,7 +1892,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<HealthElementDto> getTmpHealthElement(String id,) async {
+  Future<HealthElementDto?> getTmpHealthElement(String id,) async {
     final response = await getTmpHealthElementWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2050,11 +1900,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
     
     }
-    return Future<HealthElementDto>.value();
+    return null;
   }
 
   /// Get healthElements by ids with the current user
@@ -2067,16 +1917,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpHealthElementsWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/healthElement/get';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2093,7 +1938,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2105,7 +1950,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<HealthElementDto>> getTmpHealthElements(List<String> requestBody,) async {
+  Future<List<HealthElementDto>?> getTmpHealthElements(List<String> requestBody,) async {
     final response = await getTmpHealthElementsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2113,14 +1958,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<HealthElementDto>') as List)
         .cast<HealthElementDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<HealthElementDto>>.value();
+    return null;
   }
 
   /// Get a invoice by id
@@ -2133,17 +1978,12 @@ class TmpApi {
   ///
   /// * [String] id (required):
   Future<Response> getTmpInvoiceWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/invoice/byId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2160,7 +2000,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2172,7 +2012,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<InvoiceDto> getTmpInvoice(String id,) async {
+  Future<InvoiceDto?> getTmpInvoice(String id,) async {
     final response = await getTmpInvoiceWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2180,11 +2020,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 
   /// Get invoices by ids with the current user
@@ -2197,16 +2037,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpInvoicesWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/invoice/get';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2223,7 +2058,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2235,7 +2070,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<InvoiceDto>> getTmpInvoices(List<String> requestBody,) async {
+  Future<List<InvoiceDto>?> getTmpInvoices(List<String> requestBody,) async {
     final response = await getTmpInvoicesWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2243,14 +2078,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Get a message by id
@@ -2263,17 +2098,12 @@ class TmpApi {
   ///
   /// * [String] id (required):
   Future<Response> getTmpMessageWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/message/byId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2290,7 +2120,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2302,7 +2132,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<MessageDto> getTmpMessage(String id,) async {
+  Future<MessageDto?> getTmpMessage(String id,) async {
     final response = await getTmpMessageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2310,11 +2140,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MessageDto',) as MessageDto;
     
     }
-    return Future<MessageDto>.value();
+    return null;
   }
 
   /// Get messages by ids with the current user
@@ -2327,16 +2157,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpMessagesWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/message/get';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2353,7 +2178,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2365,7 +2190,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<MessageDto>> getTmpMessages(List<String> requestBody,) async {
+  Future<List<MessageDto>?> getTmpMessages(List<String> requestBody,) async {
     final response = await getTmpMessagesWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2373,14 +2198,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MessageDto>') as List)
         .cast<MessageDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<MessageDto>>.value();
+    return null;
   }
 
   /// Get a patient by id
@@ -2393,17 +2218,12 @@ class TmpApi {
   ///
   /// * [String] id (required):
   Future<Response> getTmpPatientWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/patient/byId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2420,7 +2240,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2432,7 +2252,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<PatientDto> getTmpPatient(String id,) async {
+  Future<PatientDto?> getTmpPatient(String id,) async {
     final response = await getTmpPatientWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2440,11 +2260,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
     
     }
-    return Future<PatientDto>.value();
+    return null;
   }
 
   /// Get patients by ids with the current user
@@ -2457,16 +2277,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpPatientsWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/patient/get';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2483,7 +2298,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2495,7 +2310,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<PatientDto>> getTmpPatients(List<String> requestBody,) async {
+  Future<List<PatientDto>?> getTmpPatients(List<String> requestBody,) async {
     final response = await getTmpPatientsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2503,14 +2318,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PatientDto>') as List)
         .cast<PatientDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<PatientDto>>.value();
+    return null;
   }
 
   /// List classifications with the current user
@@ -2524,24 +2339,22 @@ class TmpApi {
   /// * [String] firstClassificationId:
   ///
   /// * [int] pageSize:
-  Future<Response> listTmpClassificationsWithHttpInfo({ String firstClassificationId, int pageSize, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTmpClassificationsWithHttpInfo({ String? firstClassificationId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/classification/list';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (firstClassificationId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'firstClassificationId', firstClassificationId));
+      queryParams.addAll(_queryParams('', 'firstClassificationId', firstClassificationId));
     }
     if (pageSize != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'pageSize', pageSize));
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -2555,7 +2368,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2569,7 +2382,7 @@ class TmpApi {
   /// * [String] firstClassificationId:
   ///
   /// * [int] pageSize:
-  Future<PaginatedListClassificationDto> listTmpClassifications({ String firstClassificationId, int pageSize, }) async {
+  Future<PaginatedListClassificationDto?> listTmpClassifications({ String? firstClassificationId, int? pageSize, }) async {
     final response = await listTmpClassificationsWithHttpInfo( firstClassificationId: firstClassificationId, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2577,11 +2390,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListClassificationDto',) as PaginatedListClassificationDto;
     
     }
-    return Future<PaginatedListClassificationDto>.value();
+    return null;
   }
 
   /// List contacts with the current user
@@ -2595,24 +2408,22 @@ class TmpApi {
   /// * [String] firstContactId:
   ///
   /// * [int] pageSize:
-  Future<Response> listTmpContactsWithHttpInfo({ String firstContactId, int pageSize, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTmpContactsWithHttpInfo({ String? firstContactId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/contact/list';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (firstContactId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'firstContactId', firstContactId));
+      queryParams.addAll(_queryParams('', 'firstContactId', firstContactId));
     }
     if (pageSize != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'pageSize', pageSize));
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -2626,7 +2437,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2640,7 +2451,7 @@ class TmpApi {
   /// * [String] firstContactId:
   ///
   /// * [int] pageSize:
-  Future<PaginatedListInvoiceDto> listTmpContacts({ String firstContactId, int pageSize, }) async {
+  Future<PaginatedListInvoiceDto?> listTmpContacts({ String? firstContactId, int? pageSize, }) async {
     final response = await listTmpContactsWithHttpInfo( firstContactId: firstContactId, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2648,11 +2459,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListInvoiceDto',) as PaginatedListInvoiceDto;
     
     }
-    return Future<PaginatedListInvoiceDto>.value();
+    return null;
   }
 
   /// List documents with the current user
@@ -2666,24 +2477,22 @@ class TmpApi {
   /// * [String] firstDocumentId:
   ///
   /// * [int] pageSize:
-  Future<Response> listTmpDocumentsWithHttpInfo({ String firstDocumentId, int pageSize, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTmpDocumentsWithHttpInfo({ String? firstDocumentId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/document/list';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (firstDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'firstDocumentId', firstDocumentId));
+      queryParams.addAll(_queryParams('', 'firstDocumentId', firstDocumentId));
     }
     if (pageSize != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'pageSize', pageSize));
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -2697,7 +2506,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2711,7 +2520,7 @@ class TmpApi {
   /// * [String] firstDocumentId:
   ///
   /// * [int] pageSize:
-  Future<PaginatedListDocumentDto> listTmpDocuments({ String firstDocumentId, int pageSize, }) async {
+  Future<PaginatedListDocumentDto?> listTmpDocuments({ String? firstDocumentId, int? pageSize, }) async {
     final response = await listTmpDocumentsWithHttpInfo( firstDocumentId: firstDocumentId, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2719,11 +2528,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListDocumentDto',) as PaginatedListDocumentDto;
     
     }
-    return Future<PaginatedListDocumentDto>.value();
+    return null;
   }
 
   /// List entityTemplates with the current user
@@ -2737,24 +2546,22 @@ class TmpApi {
   /// * [String] firstEntityTemplateId:
   ///
   /// * [int] pageSize:
-  Future<Response> listTmpEntityTemplatesWithHttpInfo({ String firstEntityTemplateId, int pageSize, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTmpEntityTemplatesWithHttpInfo({ String? firstEntityTemplateId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/entityTemplate/list';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (firstEntityTemplateId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'firstEntityTemplateId', firstEntityTemplateId));
+      queryParams.addAll(_queryParams('', 'firstEntityTemplateId', firstEntityTemplateId));
     }
     if (pageSize != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'pageSize', pageSize));
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -2768,7 +2575,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2782,7 +2589,7 @@ class TmpApi {
   /// * [String] firstEntityTemplateId:
   ///
   /// * [int] pageSize:
-  Future<PaginatedListEntityTemplateDto> listTmpEntityTemplates({ String firstEntityTemplateId, int pageSize, }) async {
+  Future<PaginatedListEntityTemplateDto?> listTmpEntityTemplates({ String? firstEntityTemplateId, int? pageSize, }) async {
     final response = await listTmpEntityTemplatesWithHttpInfo( firstEntityTemplateId: firstEntityTemplateId, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2790,11 +2597,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListEntityTemplateDto',) as PaginatedListEntityTemplateDto;
     
     }
-    return Future<PaginatedListEntityTemplateDto>.value();
+    return null;
   }
 
   /// List forms with the current user
@@ -2808,24 +2615,22 @@ class TmpApi {
   /// * [String] firstFormId:
   ///
   /// * [int] pageSize:
-  Future<Response> listTmpFormsWithHttpInfo({ String firstFormId, int pageSize, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTmpFormsWithHttpInfo({ String? firstFormId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/form/list';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (firstFormId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'firstFormId', firstFormId));
+      queryParams.addAll(_queryParams('', 'firstFormId', firstFormId));
     }
     if (pageSize != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'pageSize', pageSize));
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -2839,7 +2644,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2853,7 +2658,7 @@ class TmpApi {
   /// * [String] firstFormId:
   ///
   /// * [int] pageSize:
-  Future<PaginatedListFormDto> listTmpForms({ String firstFormId, int pageSize, }) async {
+  Future<PaginatedListFormDto?> listTmpForms({ String? firstFormId, int? pageSize, }) async {
     final response = await listTmpFormsWithHttpInfo( firstFormId: firstFormId, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2861,11 +2666,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListFormDto',) as PaginatedListFormDto;
     
     }
-    return Future<PaginatedListFormDto>.value();
+    return null;
   }
 
   /// List healthElements with the current user
@@ -2879,24 +2684,22 @@ class TmpApi {
   /// * [String] firstHealthElementId:
   ///
   /// * [int] pageSize:
-  Future<Response> listTmpHealthElementsWithHttpInfo({ String firstHealthElementId, int pageSize, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTmpHealthElementsWithHttpInfo({ String? firstHealthElementId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/healthElement/list';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (firstHealthElementId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'firstHealthElementId', firstHealthElementId));
+      queryParams.addAll(_queryParams('', 'firstHealthElementId', firstHealthElementId));
     }
     if (pageSize != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'pageSize', pageSize));
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -2910,7 +2713,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2924,7 +2727,7 @@ class TmpApi {
   /// * [String] firstHealthElementId:
   ///
   /// * [int] pageSize:
-  Future<PaginatedListHealthElementDto> listTmpHealthElements({ String firstHealthElementId, int pageSize, }) async {
+  Future<PaginatedListHealthElementDto?> listTmpHealthElements({ String? firstHealthElementId, int? pageSize, }) async {
     final response = await listTmpHealthElementsWithHttpInfo( firstHealthElementId: firstHealthElementId, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2932,11 +2735,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListHealthElementDto',) as PaginatedListHealthElementDto;
     
     }
-    return Future<PaginatedListHealthElementDto>.value();
+    return null;
   }
 
   /// List invoices with the current user
@@ -2950,24 +2753,22 @@ class TmpApi {
   /// * [String] firstInvoiceId:
   ///
   /// * [int] pageSize:
-  Future<Response> listTmpInvoicesWithHttpInfo({ String firstInvoiceId, int pageSize, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTmpInvoicesWithHttpInfo({ String? firstInvoiceId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/invoice/list';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (firstInvoiceId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'firstInvoiceId', firstInvoiceId));
+      queryParams.addAll(_queryParams('', 'firstInvoiceId', firstInvoiceId));
     }
     if (pageSize != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'pageSize', pageSize));
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -2981,7 +2782,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2995,7 +2796,7 @@ class TmpApi {
   /// * [String] firstInvoiceId:
   ///
   /// * [int] pageSize:
-  Future<PaginatedListInvoiceDto> listTmpInvoices({ String firstInvoiceId, int pageSize, }) async {
+  Future<PaginatedListInvoiceDto?> listTmpInvoices({ String? firstInvoiceId, int? pageSize, }) async {
     final response = await listTmpInvoicesWithHttpInfo( firstInvoiceId: firstInvoiceId, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3003,11 +2804,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListInvoiceDto',) as PaginatedListInvoiceDto;
     
     }
-    return Future<PaginatedListInvoiceDto>.value();
+    return null;
   }
 
   /// List messages with the current user
@@ -3021,24 +2822,22 @@ class TmpApi {
   /// * [String] firstMessageId:
   ///
   /// * [int] pageSize:
-  Future<Response> listTmpMessagesWithHttpInfo({ String firstMessageId, int pageSize, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTmpMessagesWithHttpInfo({ String? firstMessageId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/message/list';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (firstMessageId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'firstMessageId', firstMessageId));
+      queryParams.addAll(_queryParams('', 'firstMessageId', firstMessageId));
     }
     if (pageSize != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'pageSize', pageSize));
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -3052,7 +2851,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3066,7 +2865,7 @@ class TmpApi {
   /// * [String] firstMessageId:
   ///
   /// * [int] pageSize:
-  Future<PaginatedListInvoiceDto> listTmpMessages({ String firstMessageId, int pageSize, }) async {
+  Future<PaginatedListInvoiceDto?> listTmpMessages({ String? firstMessageId, int? pageSize, }) async {
     final response = await listTmpMessagesWithHttpInfo( firstMessageId: firstMessageId, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3074,11 +2873,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListInvoiceDto',) as PaginatedListInvoiceDto;
     
     }
-    return Future<PaginatedListInvoiceDto>.value();
+    return null;
   }
 
   /// List patients with the current user
@@ -3092,24 +2891,22 @@ class TmpApi {
   /// * [String] firstPatientId:
   ///
   /// * [int] pageSize:
-  Future<Response> listTmpPatientsWithHttpInfo({ String firstPatientId, int pageSize, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTmpPatientsWithHttpInfo({ String? firstPatientId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/patient/list';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (firstPatientId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'firstPatientId', firstPatientId));
+      queryParams.addAll(_queryParams('', 'firstPatientId', firstPatientId));
     }
     if (pageSize != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'pageSize', pageSize));
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -3123,7 +2920,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3137,7 +2934,7 @@ class TmpApi {
   /// * [String] firstPatientId:
   ///
   /// * [int] pageSize:
-  Future<PaginatedListPatientDto> listTmpPatients({ String firstPatientId, int pageSize, }) async {
+  Future<PaginatedListPatientDto?> listTmpPatients({ String? firstPatientId, int? pageSize, }) async {
     final response = await listTmpPatientsWithHttpInfo( firstPatientId: firstPatientId, pageSize: pageSize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3145,11 +2942,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListPatientDto',) as PaginatedListPatientDto;
     
     }
-    return Future<PaginatedListPatientDto>.value();
+    return null;
   }
 
   /// Modify a classification
@@ -3162,16 +2959,11 @@ class TmpApi {
   ///
   /// * [ClassificationDto] classificationDto (required):
   Future<Response> modifyTmpClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
-    // Verify required params are set.
-    if (classificationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: classificationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/classification';
 
     // ignore: prefer_final_locals
-    Object postBody = classificationDto;
+    Object? postBody = classificationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3188,7 +2980,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3200,7 +2992,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [ClassificationDto] classificationDto (required):
-  Future<ClassificationDto> modifyTmpClassification(ClassificationDto classificationDto,) async {
+  Future<ClassificationDto?> modifyTmpClassification(ClassificationDto classificationDto,) async {
     final response = await modifyTmpClassificationWithHttpInfo(classificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3208,11 +3000,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
     
     }
-    return Future<ClassificationDto>.value();
+    return null;
   }
 
   /// Modify a batch of healthcare elements
@@ -3225,16 +3017,11 @@ class TmpApi {
   ///
   /// * [List<ClassificationDto>] classificationDto (required):
   Future<Response> modifyTmpClassificationsWithHttpInfo(List<ClassificationDto> classificationDto,) async {
-    // Verify required params are set.
-    if (classificationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: classificationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/classification/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = classificationDto;
+    Object? postBody = classificationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3251,7 +3038,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3263,7 +3050,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<ClassificationDto>] classificationDto (required):
-  Future<List<ClassificationDto>> modifyTmpClassifications(List<ClassificationDto> classificationDto,) async {
+  Future<List<ClassificationDto>?> modifyTmpClassifications(List<ClassificationDto> classificationDto,) async {
     final response = await modifyTmpClassificationsWithHttpInfo(classificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3271,14 +3058,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ClassificationDto>') as List)
         .cast<ClassificationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ClassificationDto>>.value();
+    return null;
   }
 
   /// Modify a contact
@@ -3291,16 +3078,11 @@ class TmpApi {
   ///
   /// * [ContactDto] contactDto (required):
   Future<Response> modifyTmpContactWithHttpInfo(ContactDto contactDto,) async {
-    // Verify required params are set.
-    if (contactDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/contact';
 
     // ignore: prefer_final_locals
-    Object postBody = contactDto;
+    Object? postBody = contactDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3317,7 +3099,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3329,7 +3111,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [ContactDto] contactDto (required):
-  Future<ContactDto> modifyTmpContact(ContactDto contactDto,) async {
+  Future<ContactDto?> modifyTmpContact(ContactDto contactDto,) async {
     final response = await modifyTmpContactWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3337,11 +3119,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
     
     }
-    return Future<ContactDto>.value();
+    return null;
   }
 
   /// Modify a batch of healthcare elements
@@ -3354,16 +3136,11 @@ class TmpApi {
   ///
   /// * [List<ContactDto>] contactDto (required):
   Future<Response> modifyTmpContactsWithHttpInfo(List<ContactDto> contactDto,) async {
-    // Verify required params are set.
-    if (contactDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: contactDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/contact/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = contactDto;
+    Object? postBody = contactDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3380,7 +3157,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3392,7 +3169,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<ContactDto>] contactDto (required):
-  Future<List<ContactDto>> modifyTmpContacts(List<ContactDto> contactDto,) async {
+  Future<List<ContactDto>?> modifyTmpContacts(List<ContactDto> contactDto,) async {
     final response = await modifyTmpContactsWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3400,14 +3177,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// Modify a document
@@ -3420,16 +3197,11 @@ class TmpApi {
   ///
   /// * [DocumentDto] documentDto (required):
   Future<Response> modifyTmpDocumentWithHttpInfo(DocumentDto documentDto,) async {
-    // Verify required params are set.
-    if (documentDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/document';
 
     // ignore: prefer_final_locals
-    Object postBody = documentDto;
+    Object? postBody = documentDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3446,7 +3218,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3458,7 +3230,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [DocumentDto] documentDto (required):
-  Future<DocumentDto> modifyTmpDocument(DocumentDto documentDto,) async {
+  Future<DocumentDto?> modifyTmpDocument(DocumentDto documentDto,) async {
     final response = await modifyTmpDocumentWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3466,11 +3238,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Modify a batch of healthcare elements
@@ -3483,16 +3255,11 @@ class TmpApi {
   ///
   /// * [List<DocumentDto>] documentDto (required):
   Future<Response> modifyTmpDocumentsWithHttpInfo(List<DocumentDto> documentDto,) async {
-    // Verify required params are set.
-    if (documentDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/document/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = documentDto;
+    Object? postBody = documentDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3509,7 +3276,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3521,7 +3288,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<DocumentDto>] documentDto (required):
-  Future<List<DocumentDto>> modifyTmpDocuments(List<DocumentDto> documentDto,) async {
+  Future<List<DocumentDto>?> modifyTmpDocuments(List<DocumentDto> documentDto,) async {
     final response = await modifyTmpDocumentsWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3529,14 +3296,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// Modify a entityTemplate
@@ -3549,16 +3316,11 @@ class TmpApi {
   ///
   /// * [EntityTemplateDto] entityTemplateDto (required):
   Future<Response> modifyTmpEntityTemplateWithHttpInfo(EntityTemplateDto entityTemplateDto,) async {
-    // Verify required params are set.
-    if (entityTemplateDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: entityTemplateDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/entityTemplate';
 
     // ignore: prefer_final_locals
-    Object postBody = entityTemplateDto;
+    Object? postBody = entityTemplateDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3575,7 +3337,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3587,7 +3349,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [EntityTemplateDto] entityTemplateDto (required):
-  Future<EntityTemplateDto> modifyTmpEntityTemplate(EntityTemplateDto entityTemplateDto,) async {
+  Future<EntityTemplateDto?> modifyTmpEntityTemplate(EntityTemplateDto entityTemplateDto,) async {
     final response = await modifyTmpEntityTemplateWithHttpInfo(entityTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3595,11 +3357,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EntityTemplateDto',) as EntityTemplateDto;
     
     }
-    return Future<EntityTemplateDto>.value();
+    return null;
   }
 
   /// Modify a batch of healthcare elements
@@ -3612,16 +3374,11 @@ class TmpApi {
   ///
   /// * [List<EntityTemplateDto>] entityTemplateDto (required):
   Future<Response> modifyTmpEntityTemplatesWithHttpInfo(List<EntityTemplateDto> entityTemplateDto,) async {
-    // Verify required params are set.
-    if (entityTemplateDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: entityTemplateDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/entityTemplate/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = entityTemplateDto;
+    Object? postBody = entityTemplateDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3638,7 +3395,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3650,7 +3407,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<EntityTemplateDto>] entityTemplateDto (required):
-  Future<List<EntityTemplateDto>> modifyTmpEntityTemplates(List<EntityTemplateDto> entityTemplateDto,) async {
+  Future<List<EntityTemplateDto>?> modifyTmpEntityTemplates(List<EntityTemplateDto> entityTemplateDto,) async {
     final response = await modifyTmpEntityTemplatesWithHttpInfo(entityTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3658,14 +3415,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<EntityTemplateDto>') as List)
         .cast<EntityTemplateDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<EntityTemplateDto>>.value();
+    return null;
   }
 
   /// Modify a form
@@ -3678,16 +3435,11 @@ class TmpApi {
   ///
   /// * [FormDto] formDto (required):
   Future<Response> modifyTmpFormWithHttpInfo(FormDto formDto,) async {
-    // Verify required params are set.
-    if (formDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/form';
 
     // ignore: prefer_final_locals
-    Object postBody = formDto;
+    Object? postBody = formDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3704,7 +3456,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3716,7 +3468,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [FormDto] formDto (required):
-  Future<FormDto> modifyTmpForm(FormDto formDto,) async {
+  Future<FormDto?> modifyTmpForm(FormDto formDto,) async {
     final response = await modifyTmpFormWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3724,11 +3476,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
     
     }
-    return Future<FormDto>.value();
+    return null;
   }
 
   /// Modify a batch of healthcare elements
@@ -3741,16 +3493,11 @@ class TmpApi {
   ///
   /// * [List<FormDto>] formDto (required):
   Future<Response> modifyTmpFormsWithHttpInfo(List<FormDto> formDto,) async {
-    // Verify required params are set.
-    if (formDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/form/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = formDto;
+    Object? postBody = formDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3767,7 +3514,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3779,7 +3526,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<FormDto>] formDto (required):
-  Future<List<FormDto>> modifyTmpForms(List<FormDto> formDto,) async {
+  Future<List<FormDto>?> modifyTmpForms(List<FormDto> formDto,) async {
     final response = await modifyTmpFormsWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3787,14 +3534,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// Modify a healthElement
@@ -3807,16 +3554,11 @@ class TmpApi {
   ///
   /// * [HealthElementDto] healthElementDto (required):
   Future<Response> modifyTmpHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
-    // Verify required params are set.
-    if (healthElementDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/healthElement';
 
     // ignore: prefer_final_locals
-    Object postBody = healthElementDto;
+    Object? postBody = healthElementDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3833,7 +3575,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3845,7 +3587,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [HealthElementDto] healthElementDto (required):
-  Future<HealthElementDto> modifyTmpHealthElement(HealthElementDto healthElementDto,) async {
+  Future<HealthElementDto?> modifyTmpHealthElement(HealthElementDto healthElementDto,) async {
     final response = await modifyTmpHealthElementWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3853,11 +3595,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
     
     }
-    return Future<HealthElementDto>.value();
+    return null;
   }
 
   /// Modify a batch of healthcare elements
@@ -3870,16 +3612,11 @@ class TmpApi {
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
   Future<Response> modifyTmpHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
-    // Verify required params are set.
-    if (healthElementDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/healthElement/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = healthElementDto;
+    Object? postBody = healthElementDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3896,7 +3633,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3908,7 +3645,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
-  Future<List<HealthElementDto>> modifyTmpHealthElements(List<HealthElementDto> healthElementDto,) async {
+  Future<List<HealthElementDto>?> modifyTmpHealthElements(List<HealthElementDto> healthElementDto,) async {
     final response = await modifyTmpHealthElementsWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3916,14 +3653,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<HealthElementDto>') as List)
         .cast<HealthElementDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<HealthElementDto>>.value();
+    return null;
   }
 
   /// Modify a invoice
@@ -3936,16 +3673,11 @@ class TmpApi {
   ///
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> modifyTmpInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
-    // Verify required params are set.
-    if (invoiceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/invoice';
 
     // ignore: prefer_final_locals
-    Object postBody = invoiceDto;
+    Object? postBody = invoiceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -3962,7 +3694,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -3974,7 +3706,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<InvoiceDto> modifyTmpInvoice(InvoiceDto invoiceDto,) async {
+  Future<InvoiceDto?> modifyTmpInvoice(InvoiceDto invoiceDto,) async {
     final response = await modifyTmpInvoiceWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -3982,11 +3714,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 
   /// Modify a batch of healthcare elements
@@ -3999,16 +3731,11 @@ class TmpApi {
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
   Future<Response> modifyTmpInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
-    // Verify required params are set.
-    if (invoiceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/invoice/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = invoiceDto;
+    Object? postBody = invoiceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -4025,7 +3752,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -4037,7 +3764,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
-  Future<List<InvoiceDto>> modifyTmpInvoices(List<InvoiceDto> invoiceDto,) async {
+  Future<List<InvoiceDto>?> modifyTmpInvoices(List<InvoiceDto> invoiceDto,) async {
     final response = await modifyTmpInvoicesWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -4045,14 +3772,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Modify a message
@@ -4065,16 +3792,11 @@ class TmpApi {
   ///
   /// * [MessageDto] messageDto (required):
   Future<Response> modifyTmpMessageWithHttpInfo(MessageDto messageDto,) async {
-    // Verify required params are set.
-    if (messageDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: messageDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/message';
 
     // ignore: prefer_final_locals
-    Object postBody = messageDto;
+    Object? postBody = messageDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -4091,7 +3813,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -4103,7 +3825,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [MessageDto] messageDto (required):
-  Future<MessageDto> modifyTmpMessage(MessageDto messageDto,) async {
+  Future<MessageDto?> modifyTmpMessage(MessageDto messageDto,) async {
     final response = await modifyTmpMessageWithHttpInfo(messageDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -4111,11 +3833,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MessageDto',) as MessageDto;
     
     }
-    return Future<MessageDto>.value();
+    return null;
   }
 
   /// Modify a batch of healthcare elements
@@ -4128,16 +3850,11 @@ class TmpApi {
   ///
   /// * [List<MessageDto>] messageDto (required):
   Future<Response> modifyTmpMessagesWithHttpInfo(List<MessageDto> messageDto,) async {
-    // Verify required params are set.
-    if (messageDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: messageDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/message/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = messageDto;
+    Object? postBody = messageDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -4154,7 +3871,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -4166,7 +3883,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<MessageDto>] messageDto (required):
-  Future<List<MessageDto>> modifyTmpMessages(List<MessageDto> messageDto,) async {
+  Future<List<MessageDto>?> modifyTmpMessages(List<MessageDto> messageDto,) async {
     final response = await modifyTmpMessagesWithHttpInfo(messageDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -4174,14 +3891,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MessageDto>') as List)
         .cast<MessageDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<MessageDto>>.value();
+    return null;
   }
 
   /// Modify a patient
@@ -4194,16 +3911,11 @@ class TmpApi {
   ///
   /// * [PatientDto] patientDto (required):
   Future<Response> modifyTmpPatientWithHttpInfo(PatientDto patientDto,) async {
-    // Verify required params are set.
-    if (patientDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: patientDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/patient';
 
     // ignore: prefer_final_locals
-    Object postBody = patientDto;
+    Object? postBody = patientDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -4220,7 +3932,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -4232,7 +3944,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [PatientDto] patientDto (required):
-  Future<PatientDto> modifyTmpPatient(PatientDto patientDto,) async {
+  Future<PatientDto?> modifyTmpPatient(PatientDto patientDto,) async {
     final response = await modifyTmpPatientWithHttpInfo(patientDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -4240,11 +3952,11 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
     
     }
-    return Future<PatientDto>.value();
+    return null;
   }
 
   /// Modify a batch of healthcare elements
@@ -4257,16 +3969,11 @@ class TmpApi {
   ///
   /// * [List<PatientDto>] patientDto (required):
   Future<Response> modifyTmpPatientsWithHttpInfo(List<PatientDto> patientDto,) async {
-    // Verify required params are set.
-    if (patientDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: patientDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/patient/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = patientDto;
+    Object? postBody = patientDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -4283,7 +3990,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -4295,7 +4002,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<PatientDto>] patientDto (required):
-  Future<List<PatientDto>> modifyTmpPatients(List<PatientDto> patientDto,) async {
+  Future<List<PatientDto>?> modifyTmpPatients(List<PatientDto> patientDto,) async {
     final response = await modifyTmpPatientsWithHttpInfo(patientDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -4303,14 +4010,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PatientDto>') as List)
         .cast<PatientDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<PatientDto>>.value();
+    return null;
   }
 
   /// Hard delete items.
@@ -4323,16 +4030,11 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> purgeTmpItemsWithHttpInfo(List<String> requestBody,) async {
-    // Verify required params are set.
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/batch/purge';
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -4349,7 +4051,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -4361,7 +4063,7 @@ class TmpApi {
   /// Parameters:
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<DocIdentifier>> purgeTmpItems(List<String> requestBody,) async {
+  Future<List<DocIdentifier>?> purgeTmpItems(List<String> requestBody,) async {
     final response = await purgeTmpItemsWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -4369,14 +4071,14 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Performs an HTTP 'POST /rest/v2/tmp/replicate/from/{from}' operation and returns the [Response].
@@ -4386,20 +4088,12 @@ class TmpApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> replicateToTmpDatabaseWithHttpInfo(String from, List<String> requestBody,) async {
-    // Verify required params are set.
-    if (from == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: from');
-    }
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tmp/replicate/from/{from}'
       .replaceAll('{from}', from);
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -4416,7 +4110,7 @@ class TmpApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -4426,7 +4120,7 @@ class TmpApi {
   /// * [String] from (required):
   ///
   /// * [List<String>] requestBody (required):
-  Future<ReplicatorDocumentDto> replicateToTmpDatabase(String from, List<String> requestBody,) async {
+  Future<ReplicatorDocumentDto?> replicateToTmpDatabase(String from, List<String> requestBody,) async {
     final response = await replicateToTmpDatabaseWithHttpInfo(from, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -4434,10 +4128,10 @@ class TmpApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ReplicatorDocumentDto',) as ReplicatorDocumentDto;
     
     }
-    return Future<ReplicatorDocumentDto>.value();
+    return null;
   }
 }

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class FrontEndMigrationDto {
   /// Returns a new [FrontEndMigrationDto] instance.
   FrontEndMigrationDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.deletionDate,
     this.name,
@@ -30,28 +30,88 @@ class FrontEndMigrationDto {
 
   String id;
 
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
-  int startDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? startDate;
 
-  int endDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endDate;
 
-  FrontEndMigrationDtoStatusEnum status;
+  FrontEndMigrationDtoStatusEnum? status;
 
-  String logs;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? logs;
 
-  String userId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? userId;
 
-  String startKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? startKey;
 
-  String startKeyDocId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? startKeyDocId;
 
-  int processCount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? processCount;
 
   /// Extra properties for the fem. Those properties are typed (see class Property)
   Set<PropertyStubDto> properties;
@@ -74,20 +134,20 @@ class FrontEndMigrationDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (startDate == null ? 0 : startDate.hashCode) +
-    (endDate == null ? 0 : endDate.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (logs == null ? 0 : logs.hashCode) +
-    (userId == null ? 0 : userId.hashCode) +
-    (startKey == null ? 0 : startKey.hashCode) +
-    (startKeyDocId == null ? 0 : startKeyDocId.hashCode) +
-    (processCount == null ? 0 : processCount.hashCode) +
-    (properties == null ? 0 : properties.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (startDate == null ? 0 : startDate!.hashCode) +
+    (endDate == null ? 0 : endDate!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (logs == null ? 0 : logs!.hashCode) +
+    (userId == null ? 0 : userId!.hashCode) +
+    (startKey == null ? 0 : startKey!.hashCode) +
+    (startKeyDocId == null ? 0 : startKeyDocId!.hashCode) +
+    (processCount == null ? 0 : processCount!.hashCode) +
+    (properties.hashCode);
 
   @override
   String toString() => 'FrontEndMigrationDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, startDate=$startDate, endDate=$endDate, status=$status, logs=$logs, userId=$userId, startKey=$startKey, startKeyDocId=$startKeyDocId, processCount=$processCount, properties=$properties]';
@@ -135,11 +195,23 @@ class FrontEndMigrationDto {
   /// Returns a new [FrontEndMigrationDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static FrontEndMigrationDto fromJson(dynamic value) {
+  static FrontEndMigrationDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "FrontEndMigrationDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "FrontEndMigrationDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return FrontEndMigrationDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         name: mapValueOfType<String>(json, r'name'),
@@ -151,43 +223,59 @@ class FrontEndMigrationDto {
         startKey: mapValueOfType<String>(json, r'startKey'),
         startKeyDocId: mapValueOfType<String>(json, r'startKeyDocId'),
         processCount: mapValueOfType<int>(json, r'processCount'),
-        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
+        properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
       );
     }
     return null;
   }
 
-  static List<FrontEndMigrationDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(FrontEndMigrationDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <FrontEndMigrationDto>[];
+  static List<FrontEndMigrationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <FrontEndMigrationDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = FrontEndMigrationDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, FrontEndMigrationDto> mapFromJson(dynamic json) {
     final map = <String, FrontEndMigrationDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = FrontEndMigrationDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FrontEndMigrationDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of FrontEndMigrationDto-objects as value to a dart map
-  static Map<String, List<FrontEndMigrationDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<FrontEndMigrationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<FrontEndMigrationDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = FrontEndMigrationDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FrontEndMigrationDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'properties',
+  };
 }
 
 
@@ -199,7 +287,7 @@ class FrontEndMigrationDtoStatusEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -216,13 +304,20 @@ class FrontEndMigrationDtoStatusEnum {
     SUCCESS,
   ];
 
-  static FrontEndMigrationDtoStatusEnum fromJson(dynamic value) =>
-    FrontEndMigrationDtoStatusEnumTypeTransformer().decode(value);
+  static FrontEndMigrationDtoStatusEnum? fromJson(dynamic value) => FrontEndMigrationDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<FrontEndMigrationDtoStatusEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(FrontEndMigrationDtoStatusEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <FrontEndMigrationDtoStatusEnum>[];
+  static List<FrontEndMigrationDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <FrontEndMigrationDtoStatusEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = FrontEndMigrationDtoStatusEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [FrontEndMigrationDtoStatusEnum] to String,
@@ -242,7 +337,7 @@ class FrontEndMigrationDtoStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  FrontEndMigrationDtoStatusEnum decode(dynamic data, {bool allowNull}) {
+  FrontEndMigrationDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'STARTED': return FrontEndMigrationDtoStatusEnum.STARTED;
@@ -250,7 +345,7 @@ class FrontEndMigrationDtoStatusEnumTypeTransformer {
         case r'ERROR': return FrontEndMigrationDtoStatusEnum.ERROR;
         case r'SUCCESS': return FrontEndMigrationDtoStatusEnum.SUCCESS;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -259,7 +354,7 @@ class FrontEndMigrationDtoStatusEnumTypeTransformer {
   }
 
   /// Singleton [FrontEndMigrationDtoStatusEnumTypeTransformer] instance.
-  static FrontEndMigrationDtoStatusEnumTypeTransformer _instance;
+  static FrontEndMigrationDtoStatusEnumTypeTransformer? _instance;
 }
 
 

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class CodeDto {
   /// Returns a new [CodeDto] instance.
   CodeDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.deletionDate,
     this.context,
@@ -36,28 +36,76 @@ class CodeDto {
 
   String id;
 
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
-  String context;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? context;
 
-  String type;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? type;
 
-  String code;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? code;
 
-  String version;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? version;
 
   Map<String, String> label;
 
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   Set<String> regions;
 
   Set<PeriodicityDto> periodicity;
 
-  int level;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? level;
 
   Set<String> links;
 
@@ -67,7 +115,13 @@ class CodeDto {
 
   Map<String, Set<String>> searchTerms;
 
-  String data;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? data;
 
   Map<String, String> appendices;
 
@@ -97,26 +151,26 @@ class CodeDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (context == null ? 0 : context.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (code == null ? 0 : code.hashCode) +
-    (version == null ? 0 : version.hashCode) +
-    (label == null ? 0 : label.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (regions == null ? 0 : regions.hashCode) +
-    (periodicity == null ? 0 : periodicity.hashCode) +
-    (level == null ? 0 : level.hashCode) +
-    (links == null ? 0 : links.hashCode) +
-    (qualifiedLinks == null ? 0 : qualifiedLinks.hashCode) +
-    (flags == null ? 0 : flags.hashCode) +
-    (searchTerms == null ? 0 : searchTerms.hashCode) +
-    (data == null ? 0 : data.hashCode) +
-    (appendices == null ? 0 : appendices.hashCode) +
-    (disabled == null ? 0 : disabled.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (context == null ? 0 : context!.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (code == null ? 0 : code!.hashCode) +
+    (version == null ? 0 : version!.hashCode) +
+    (label.hashCode) +
+    (author == null ? 0 : author!.hashCode) +
+    (regions.hashCode) +
+    (periodicity.hashCode) +
+    (level == null ? 0 : level!.hashCode) +
+    (links.hashCode) +
+    (qualifiedLinks.hashCode) +
+    (flags.hashCode) +
+    (searchTerms.hashCode) +
+    (data == null ? 0 : data!.hashCode) +
+    (appendices.hashCode) +
+    (disabled.hashCode);
 
   @override
   String toString() => 'CodeDto[id=$id, rev=$rev, deletionDate=$deletionDate, context=$context, type=$type, code=$code, version=$version, label=$label, author=$author, regions=$regions, periodicity=$periodicity, level=$level, links=$links, qualifiedLinks=$qualifiedLinks, flags=$flags, searchTerms=$searchTerms, data=$data, appendices=$appendices, disabled=$disabled]';
@@ -142,9 +196,7 @@ class CodeDto {
     if (version != null) {
       json[r'version'] = version;
     }
-    if (label != null) {
       json[r'label'] = label;
-    }
     if (author != null) {
       json[r'author'] = author;
     }
@@ -168,73 +220,108 @@ class CodeDto {
   /// Returns a new [CodeDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CodeDto fromJson(dynamic value) {
+  static CodeDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "CodeDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CodeDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return CodeDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         context: mapValueOfType<String>(json, r'context'),
         type: mapValueOfType<String>(json, r'type'),
         code: mapValueOfType<String>(json, r'code'),
         version: mapValueOfType<String>(json, r'version'),
-        label: mapCastOfType<String, String>(json, r'label'),
+        label: mapCastOfType<String, String>(json, r'label') ?? const {},
         author: mapValueOfType<String>(json, r'author'),
         regions: json[r'regions'] is Set
-          ? (json[r'regions'] as Set).cast<String>()
-          : null,
-        periodicity: PeriodicityDto.listFromJson(json[r'periodicity']).toSet(),
+            ? (json[r'regions'] as Set).cast<String>()
+            : const {},
+        periodicity: PeriodicityDto.listFromJson(json[r'periodicity'])!.toSet(),
         level: mapValueOfType<int>(json, r'level'),
         links: json[r'links'] is Set
             ? (json[r'links'] as Set).cast<String>()
-            : null,
+            : const {},
         qualifiedLinks: json[r'qualifiedLinks'] == null
-            ? null
-            : mapCastOfType<String, List>(json, r'qualifiedLinks'),
-        flags: CodeDtoFlagsEnum.listFromJson(json[r'flags']).toSet(),
+          ? const {}
+            : mapCastOfType<String, List<String>>(json, r'qualifiedLinks') ?? <String, List<String>>{},
+        flags: CodeDtoFlagsEnum.listFromJson(json[r'flags'])!.toSet(),
         searchTerms: json[r'searchTerms'] == null
-            ? null
-            : mapCastOfType<String, Set<String>>(json, r'searchTerms'),
+          ? const {}
+            : mapCastOfType<String, List<String>>(json, r'searchTerms')?.map((k,v) => MapEntry(k, v.toSet())) ?? <String, Set<String>>{},
         data: mapValueOfType<String>(json, r'data'),
-        appendices: mapCastOfType<String, String>(json, r'appendices'),
-        disabled: mapValueOfType<bool>(json, r'disabled'),
+        appendices: mapCastOfType<String, String>(json, r'appendices')!,
+        disabled: mapValueOfType<bool>(json, r'disabled')!,
       );
     }
     return null;
   }
 
-  static List<CodeDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(CodeDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <CodeDto>[];
+  static List<CodeDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <CodeDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = CodeDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, CodeDto> mapFromJson(dynamic json) {
     final map = <String, CodeDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = CodeDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CodeDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of CodeDto-objects as value to a dart map
-  static Map<String, List<CodeDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<CodeDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CodeDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = CodeDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CodeDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'regions',
+    'periodicity',
+    'links',
+    'qualifiedLinks',
+    'flags',
+    'searchTerms',
+    'appendices',
+    'disabled',
+  };
 }
 
 
@@ -246,7 +333,7 @@ class CodeDtoFlagsEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -411,13 +498,20 @@ class CodeDtoFlagsEnum {
     deptchildbirth,
   ];
 
-  static CodeDtoFlagsEnum fromJson(dynamic value) =>
-    CodeDtoFlagsEnumTypeTransformer().decode(value);
+  static CodeDtoFlagsEnum? fromJson(dynamic value) => CodeDtoFlagsEnumTypeTransformer().decode(value);
 
-  static List<CodeDtoFlagsEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(CodeDtoFlagsEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <CodeDtoFlagsEnum>[];
+  static List<CodeDtoFlagsEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <CodeDtoFlagsEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = CodeDtoFlagsEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [CodeDtoFlagsEnum] to String,
@@ -437,7 +531,7 @@ class CodeDtoFlagsEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  CodeDtoFlagsEnum decode(dynamic data, {bool allowNull}) {
+  CodeDtoFlagsEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'male_only': return CodeDtoFlagsEnum.maleOnly;
@@ -519,7 +613,7 @@ class CodeDtoFlagsEnumTypeTransformer {
         case r'deptpercutaneous': return CodeDtoFlagsEnum.deptpercutaneous;
         case r'deptchildbirth': return CodeDtoFlagsEnum.deptchildbirth;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -528,7 +622,7 @@ class CodeDtoFlagsEnumTypeTransformer {
   }
 
   /// Singleton [CodeDtoFlagsEnumTypeTransformer] instance.
-  static CodeDtoFlagsEnumTypeTransformer _instance;
+  static CodeDtoFlagsEnumTypeTransformer? _instance;
 }
 
 

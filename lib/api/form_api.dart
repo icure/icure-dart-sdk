@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class FormApi {
-  FormApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  FormApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,16 +26,11 @@ class FormApi {
   ///
   /// * [FormDto] formDto (required):
   Future<Response> createFormWithHttpInfo(FormDto formDto,) async {
-    // Verify required params are set.
-    if (formDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form';
 
     // ignore: prefer_final_locals
-    Object postBody = formDto;
+    Object? postBody = formDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,7 +47,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -64,7 +59,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [FormDto] formDto (required):
-  Future<FormDto> createForm(FormDto formDto,) async {
+  Future<FormDto?> createForm(FormDto formDto,) async {
     final response = await createFormWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -72,11 +67,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
     
     }
-    return Future<FormDto>.value();
+    return null;
   }
 
   /// Create a form template with the current user
@@ -89,16 +84,11 @@ class FormApi {
   ///
   /// * [FormTemplateDto] formTemplateDto (required):
   Future<Response> createFormTemplateWithHttpInfo(FormTemplateDto formTemplateDto,) async {
-    // Verify required params are set.
-    if (formTemplateDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formTemplateDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template';
 
     // ignore: prefer_final_locals
-    Object postBody = formTemplateDto;
+    Object? postBody = formTemplateDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -115,7 +105,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -127,7 +117,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [FormTemplateDto] formTemplateDto (required):
-  Future<FormTemplateDto> createFormTemplate(FormTemplateDto formTemplateDto,) async {
+  Future<FormTemplateDto?> createFormTemplate(FormTemplateDto formTemplateDto,) async {
     final response = await createFormTemplateWithHttpInfo(formTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -135,11 +125,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormTemplateDto',) as FormTemplateDto;
     
     }
-    return Future<FormTemplateDto>.value();
+    return null;
   }
 
   /// Create a batch of forms
@@ -152,16 +142,11 @@ class FormApi {
   ///
   /// * [List<FormDto>] formDto (required):
   Future<Response> createFormsWithHttpInfo(List<FormDto> formDto,) async {
-    // Verify required params are set.
-    if (formDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = formDto;
+    Object? postBody = formDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -178,7 +163,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -190,7 +175,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [List<FormDto>] formDto (required):
-  Future<List<FormDto>> createForms(List<FormDto> formDto,) async {
+  Future<List<FormDto>?> createForms(List<FormDto> formDto,) async {
     final response = await createFormsWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -198,14 +183,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// Delete a form template
@@ -216,17 +201,12 @@ class FormApi {
   ///
   /// * [String] formTemplateId (required):
   Future<Response> deleteFormTemplateWithHttpInfo(String formTemplateId,) async {
-    // Verify required params are set.
-    if (formTemplateId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formTemplateId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{formTemplateId}'
       .replaceAll('{formTemplateId}', formTemplateId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -243,7 +223,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -253,7 +233,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] formTemplateId (required):
-  Future<DocIdentifier> deleteFormTemplate(String formTemplateId,) async {
+  Future<DocIdentifier?> deleteFormTemplate(String formTemplateId,) async {
     final response = await deleteFormTemplateWithHttpInfo(formTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -261,11 +241,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocIdentifier',) as DocIdentifier;
     
     }
-    return Future<DocIdentifier>.value();
+    return null;
   }
 
   /// Delete forms.
@@ -278,16 +258,11 @@ class FormApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteFormsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -304,7 +279,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -316,7 +291,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteForms(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteForms(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteFormsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -324,14 +299,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Get a list of forms by parents ids
@@ -346,21 +321,13 @@ class FormApi {
   ///
   /// * [String] hcPartyId (required):
   Future<Response> getChildrenFormsWithHttpInfo(String formId, String hcPartyId,) async {
-    // Verify required params are set.
-    if (formId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formId');
-    }
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/childrenOf/{formId}/{hcPartyId}'
       .replaceAll('{formId}', formId)
       .replaceAll('{hcPartyId}', hcPartyId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -377,7 +344,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -391,7 +358,7 @@ class FormApi {
   /// * [String] formId (required):
   ///
   /// * [String] hcPartyId (required):
-  Future<List<FormDto>> getChildrenForms(String formId, String hcPartyId,) async {
+  Future<List<FormDto>?> getChildrenForms(String formId, String hcPartyId,) async {
     final response = await getChildrenFormsWithHttpInfo(formId, hcPartyId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -399,14 +366,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// Gets a form
@@ -417,17 +384,12 @@ class FormApi {
   ///
   /// * [String] formId (required):
   Future<Response> getFormWithHttpInfo(String formId,) async {
-    // Verify required params are set.
-    if (formId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/{formId}'
       .replaceAll('{formId}', formId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -444,7 +406,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -454,7 +416,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] formId (required):
-  Future<FormDto> getForm(String formId,) async {
+  Future<FormDto?> getForm(String formId,) async {
     final response = await getFormWithHttpInfo(formId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -462,11 +424,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
     
     }
-    return Future<FormDto>.value();
+    return null;
   }
 
   /// Gets the most recent form with the given logicalUuid
@@ -477,17 +439,12 @@ class FormApi {
   ///
   /// * [String] logicalUuid (required):
   Future<Response> getFormByLogicalUuidWithHttpInfo(String logicalUuid,) async {
-    // Verify required params are set.
-    if (logicalUuid == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: logicalUuid');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/logicalUuid/{logicalUuid}'
       .replaceAll('{logicalUuid}', logicalUuid);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -504,7 +461,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -514,7 +471,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] logicalUuid (required):
-  Future<FormDto> getFormByLogicalUuid(String logicalUuid,) async {
+  Future<FormDto?> getFormByLogicalUuid(String logicalUuid,) async {
     final response = await getFormByLogicalUuidWithHttpInfo(logicalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -522,11 +479,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
     
     }
-    return Future<FormDto>.value();
+    return null;
   }
 
   /// Gets the most recent form with the given uniqueId
@@ -537,17 +494,12 @@ class FormApi {
   ///
   /// * [String] uniqueId (required):
   Future<Response> getFormByUniqueIdWithHttpInfo(String uniqueId,) async {
-    // Verify required params are set.
-    if (uniqueId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: uniqueId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/uniqueId/{uniqueId}'
       .replaceAll('{uniqueId}', uniqueId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -564,7 +516,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -574,7 +526,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] uniqueId (required):
-  Future<FormDto> getFormByUniqueId(String uniqueId,) async {
+  Future<FormDto?> getFormByUniqueId(String uniqueId,) async {
     final response = await getFormByUniqueIdWithHttpInfo(uniqueId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -582,11 +534,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
     
     }
-    return Future<FormDto>.value();
+    return null;
   }
 
   /// Gets a form template by guid
@@ -597,17 +549,12 @@ class FormApi {
   ///
   /// * [String] formTemplateId (required):
   Future<Response> getFormTemplateWithHttpInfo(String formTemplateId,) async {
-    // Verify required params are set.
-    if (formTemplateId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formTemplateId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{formTemplateId}'
       .replaceAll('{formTemplateId}', formTemplateId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -624,7 +571,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -634,7 +581,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] formTemplateId (required):
-  Future<FormTemplateDto> getFormTemplate(String formTemplateId,) async {
+  Future<FormTemplateDto?> getFormTemplate(String formTemplateId,) async {
     final response = await getFormTemplateWithHttpInfo(formTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -642,11 +589,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormTemplateDto',) as FormTemplateDto;
     
     }
-    return Future<FormTemplateDto>.value();
+    return null;
   }
 
   /// Gets all form templates for current user
@@ -656,21 +603,19 @@ class FormApi {
   /// Parameters:
   ///
   /// * [bool] loadLayout:
-  Future<Response> getFormTemplatesWithHttpInfo({ bool loadLayout, }) async {
-    // Verify required params are set.
-
+  Future<Response> getFormTemplatesWithHttpInfo({ bool? loadLayout, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (loadLayout != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'loadLayout', loadLayout));
+      queryParams.addAll(_queryParams('', 'loadLayout', loadLayout));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -684,7 +629,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -694,7 +639,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [bool] loadLayout:
-  Future<List<FormTemplateDto>> getFormTemplates({ bool loadLayout, }) async {
+  Future<List<FormTemplateDto>?> getFormTemplates({ bool? loadLayout, }) async {
     final response = await getFormTemplatesWithHttpInfo( loadLayout: loadLayout, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -702,14 +647,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormTemplateDto>') as List)
         .cast<FormTemplateDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormTemplateDto>>.value();
+    return null;
   }
 
   /// Gets a form template
@@ -722,21 +667,13 @@ class FormApi {
   ///
   /// * [String] specialityCode (required):
   Future<Response> getFormTemplatesByGuidWithHttpInfo(String formTemplateGuid, String specialityCode,) async {
-    // Verify required params are set.
-    if (formTemplateGuid == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formTemplateGuid');
-    }
-    if (specialityCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: specialityCode');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{specialityCode}/guid/{formTemplateGuid}'
       .replaceAll('{formTemplateGuid}', formTemplateGuid)
       .replaceAll('{specialityCode}', specialityCode);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -753,7 +690,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -765,7 +702,7 @@ class FormApi {
   /// * [String] formTemplateGuid (required):
   ///
   /// * [String] specialityCode (required):
-  Future<List<FormTemplateDto>> getFormTemplatesByGuid(String formTemplateGuid, String specialityCode,) async {
+  Future<List<FormTemplateDto>?> getFormTemplatesByGuid(String formTemplateGuid, String specialityCode,) async {
     final response = await getFormTemplatesByGuidWithHttpInfo(formTemplateGuid, specialityCode,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -773,14 +710,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormTemplateDto>') as List)
         .cast<FormTemplateDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormTemplateDto>>.value();
+    return null;
   }
 
   /// Get a list of forms by ids
@@ -793,16 +730,11 @@ class FormApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getFormsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/byIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -819,7 +751,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -831,7 +763,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<FormDto>> getForms(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<FormDto>?> getForms(ListOfIdsDto listOfIdsDto,) async {
     final response = await getFormsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -839,14 +771,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// Gets all forms with given logicalUuid
@@ -857,17 +789,12 @@ class FormApi {
   ///
   /// * [String] logicalUuid (required):
   Future<Response> getFormsByLogicalUuidWithHttpInfo(String logicalUuid,) async {
-    // Verify required params are set.
-    if (logicalUuid == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: logicalUuid');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/all/logicalUuid/{logicalUuid}'
       .replaceAll('{logicalUuid}', logicalUuid);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -884,7 +811,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -894,7 +821,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] logicalUuid (required):
-  Future<List<FormDto>> getFormsByLogicalUuid(String logicalUuid,) async {
+  Future<List<FormDto>?> getFormsByLogicalUuid(String logicalUuid,) async {
     final response = await getFormsByLogicalUuidWithHttpInfo(logicalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -902,14 +829,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// Gets all forms by uniqueId
@@ -920,17 +847,12 @@ class FormApi {
   ///
   /// * [String] uniqueId (required):
   Future<Response> getFormsByUniqueIdWithHttpInfo(String uniqueId,) async {
-    // Verify required params are set.
-    if (uniqueId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: uniqueId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/all/uniqueId/{uniqueId}'
       .replaceAll('{uniqueId}', uniqueId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -947,7 +869,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -957,7 +879,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] uniqueId (required):
-  Future<List<FormDto>> getFormsByUniqueId(String uniqueId,) async {
+  Future<List<FormDto>?> getFormsByUniqueId(String uniqueId,) async {
     final response = await getFormsByUniqueIdWithHttpInfo(uniqueId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -965,14 +887,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// Gets all form templates
@@ -984,25 +906,20 @@ class FormApi {
   /// * [String] specialityCode (required):
   ///
   /// * [bool] loadLayout:
-  Future<Response> listFormTemplatesBySpecialityWithHttpInfo(String specialityCode, { bool loadLayout, }) async {
-    // Verify required params are set.
-    if (specialityCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: specialityCode');
-    }
-
+  Future<Response> listFormTemplatesBySpecialityWithHttpInfo(String specialityCode, { bool? loadLayout, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/bySpecialty/{specialityCode}'
       .replaceAll('{specialityCode}', specialityCode);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (loadLayout != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'loadLayout', loadLayout));
+      queryParams.addAll(_queryParams('', 'loadLayout', loadLayout));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1016,7 +933,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1028,7 +945,7 @@ class FormApi {
   /// * [String] specialityCode (required):
   ///
   /// * [bool] loadLayout:
-  Future<List<FormTemplateDto>> listFormTemplatesBySpeciality(String specialityCode, { bool loadLayout, }) async {
+  Future<List<FormTemplateDto>?> listFormTemplatesBySpeciality(String specialityCode, { bool? loadLayout, }) async {
     final response = await listFormTemplatesBySpecialityWithHttpInfo(specialityCode,  loadLayout: loadLayout, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1036,14 +953,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormTemplateDto>') as List)
         .cast<FormTemplateDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormTemplateDto>>.value();
+    return null;
   }
 
   /// List forms found By Healthcare Party and secret foreign keys.
@@ -1063,35 +980,27 @@ class FormApi {
   /// * [String] planOfActionId:
   ///
   /// * [String] formTemplateId:
-  Future<Response> listFormsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String healthElementId, String planOfActionId, String formTemplateId, }) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
+  Future<Response> listFormsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String? healthElementId, String? planOfActionId, String? formTemplateId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
     if (healthElementId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'healthElementId', healthElementId));
+      queryParams.addAll(_queryParams('', 'healthElementId', healthElementId));
     }
     if (planOfActionId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'planOfActionId', planOfActionId));
+      queryParams.addAll(_queryParams('', 'planOfActionId', planOfActionId));
     }
     if (formTemplateId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'formTemplateId', formTemplateId));
+      queryParams.addAll(_queryParams('', 'formTemplateId', formTemplateId));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1105,7 +1014,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1125,7 +1034,7 @@ class FormApi {
   /// * [String] planOfActionId:
   ///
   /// * [String] formTemplateId:
-  Future<List<FormDto>> listFormsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys, { String healthElementId, String planOfActionId, String formTemplateId, }) async {
+  Future<List<FormDto>?> listFormsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys, { String? healthElementId, String? planOfActionId, String? formTemplateId, }) async {
     final response = await listFormsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,  healthElementId: healthElementId, planOfActionId: planOfActionId, formTemplateId: formTemplateId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1133,14 +1042,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// List form stubs found By Healthcare Party and secret foreign keys.
@@ -1155,26 +1064,18 @@ class FormApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> listFormsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/byHcPartySecretForeignKeys/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1187,7 +1088,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1201,7 +1102,7 @@ class FormApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<IcureStubDto>> listFormsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<IcureStubDto>?> listFormsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await listFormsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1209,14 +1110,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IcureStubDto>') as List)
         .cast<IcureStubDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IcureStubDto>>.value();
+    return null;
   }
 
   /// Modify a form
@@ -1229,16 +1130,11 @@ class FormApi {
   ///
   /// * [FormDto] formDto (required):
   Future<Response> modifyFormWithHttpInfo(FormDto formDto,) async {
-    // Verify required params are set.
-    if (formDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form';
 
     // ignore: prefer_final_locals
-    Object postBody = formDto;
+    Object? postBody = formDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1255,7 +1151,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1267,7 +1163,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [FormDto] formDto (required):
-  Future<FormDto> modifyForm(FormDto formDto,) async {
+  Future<FormDto?> modifyForm(FormDto formDto,) async {
     final response = await modifyFormWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1275,11 +1171,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
     
     }
-    return Future<FormDto>.value();
+    return null;
   }
 
   /// Modify a batch of forms
@@ -1292,16 +1188,11 @@ class FormApi {
   ///
   /// * [List<FormDto>] formDto (required):
   Future<Response> modifyFormsWithHttpInfo(List<FormDto> formDto,) async {
-    // Verify required params are set.
-    if (formDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = formDto;
+    Object? postBody = formDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1318,7 +1209,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1330,7 +1221,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [List<FormDto>] formDto (required):
-  Future<List<FormDto>> modifyForms(List<FormDto> formDto,) async {
+  Future<List<FormDto>?> modifyForms(List<FormDto> formDto,) async {
     final response = await modifyFormsWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1338,14 +1229,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// Delegates a form to a healthcare party
@@ -1360,20 +1251,12 @@ class FormApi {
   ///
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> newFormDelegationsWithHttpInfo(String formId, List<DelegationDto> delegationDto,) async {
-    // Verify required params are set.
-    if (formId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formId');
-    }
-    if (delegationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: delegationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/delegate/{formId}'
       .replaceAll('{formId}', formId);
 
     // ignore: prefer_final_locals
-    Object postBody = delegationDto;
+    Object? postBody = delegationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1390,7 +1273,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1404,7 +1287,7 @@ class FormApi {
   /// * [String] formId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<FormDto> newFormDelegations(String formId, List<DelegationDto> delegationDto,) async {
+  Future<FormDto?> newFormDelegations(String formId, List<DelegationDto> delegationDto,) async {
     final response = await newFormDelegationsWithHttpInfo(formId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1412,11 +1295,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
     
     }
-    return Future<FormDto>.value();
+    return null;
   }
 
   /// Update delegations in form.
@@ -1429,16 +1312,11 @@ class FormApi {
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> setFormsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
-    // Verify required params are set.
-    if (icureStubDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: icureStubDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody = icureStubDto;
+    Object? postBody = icureStubDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1455,7 +1333,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1467,7 +1345,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<IcureStubDto>> setFormsDelegations(List<IcureStubDto> icureStubDto,) async {
+  Future<List<IcureStubDto>?> setFormsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await setFormsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1475,14 +1353,14 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IcureStubDto>') as List)
         .cast<IcureStubDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IcureStubDto>>.value();
+    return null;
   }
 
   /// Update a form template's layout
@@ -1495,20 +1373,12 @@ class FormApi {
   ///
   /// * [String] attachment (required):
   Future<Response> setTemplateAttachmentMultiWithHttpInfo(String formTemplateId, String attachment,) async {
-    // Verify required params are set.
-    if (formTemplateId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formTemplateId');
-    }
-    if (attachment == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: attachment');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{formTemplateId}/attachment/multipart'
       .replaceAll('{formTemplateId}', formTemplateId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1534,7 +1404,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1546,7 +1416,7 @@ class FormApi {
   /// * [String] formTemplateId (required):
   ///
   /// * [String] attachment (required):
-  Future<String> setTemplateAttachmentMulti(String formTemplateId, String attachment,) async {
+  Future<String?> setTemplateAttachmentMulti(String formTemplateId, String attachment,) async {
     final response = await setTemplateAttachmentMultiWithHttpInfo(formTemplateId, attachment,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1554,11 +1424,11 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
     
     }
-    return Future<String>.value();
+    return null;
   }
 
   /// Modify a form template with the current user
@@ -1573,20 +1443,12 @@ class FormApi {
   ///
   /// * [FormTemplateDto] formTemplateDto (required):
   Future<Response> updateFormTemplateWithHttpInfo(String formTemplateId, FormTemplateDto formTemplateDto,) async {
-    // Verify required params are set.
-    if (formTemplateId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formTemplateId');
-    }
-    if (formTemplateDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: formTemplateDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{formTemplateId}'
       .replaceAll('{formTemplateId}', formTemplateId);
 
     // ignore: prefer_final_locals
-    Object postBody = formTemplateDto;
+    Object? postBody = formTemplateDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1603,7 +1465,7 @@ class FormApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1617,7 +1479,7 @@ class FormApi {
   /// * [String] formTemplateId (required):
   ///
   /// * [FormTemplateDto] formTemplateDto (required):
-  Future<FormTemplateDto> updateFormTemplate(String formTemplateId, FormTemplateDto formTemplateDto,) async {
+  Future<FormTemplateDto?> updateFormTemplate(String formTemplateId, FormTemplateDto formTemplateDto,) async {
     final response = await updateFormTemplateWithHttpInfo(formTemplateId, formTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1625,10 +1487,10 @@ class FormApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormTemplateDto',) as FormTemplateDto;
     
     }
-    return Future<FormTemplateDto>.value();
+    return null;
   }
 }

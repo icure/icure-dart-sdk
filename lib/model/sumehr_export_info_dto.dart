@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -28,15 +28,39 @@ class SumehrExportInfoDto {
 
   List<String> excludedIds;
 
-  HealthcarePartyDto recipient;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  HealthcarePartyDto? recipient;
 
-  String softwareName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? softwareName;
 
-  String softwareVersion;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? softwareVersion;
 
   String comment;
 
-  bool includeIrrelevantInformation;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? includeIrrelevantInformation;
 
   List<ServiceDto> services;
 
@@ -56,16 +80,16 @@ class SumehrExportInfoDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (secretForeignKeys == null ? 0 : secretForeignKeys.hashCode) +
-    (excludedIds == null ? 0 : excludedIds.hashCode) +
-    (recipient == null ? 0 : recipient.hashCode) +
-    (softwareName == null ? 0 : softwareName.hashCode) +
-    (softwareVersion == null ? 0 : softwareVersion.hashCode) +
-    (comment == null ? 0 : comment.hashCode) +
-    (includeIrrelevantInformation == null ? 0 : includeIrrelevantInformation.hashCode) +
-    (services == null ? 0 : services.hashCode) +
-    (healthElements == null ? 0 : healthElements.hashCode);
+    // ignore: unnecessary_parenthesis
+    (secretForeignKeys.hashCode) +
+    (excludedIds.hashCode) +
+    (recipient == null ? 0 : recipient!.hashCode) +
+    (softwareName == null ? 0 : softwareName!.hashCode) +
+    (softwareVersion == null ? 0 : softwareVersion!.hashCode) +
+    (comment.hashCode) +
+    (includeIrrelevantInformation == null ? 0 : includeIrrelevantInformation!.hashCode) +
+    (services.hashCode) +
+    (healthElements.hashCode);
 
   @override
   String toString() => 'SumehrExportInfoDto[secretForeignKeys=$secretForeignKeys, excludedIds=$excludedIds, recipient=$recipient, softwareName=$softwareName, softwareVersion=$softwareVersion, comment=$comment, includeIrrelevantInformation=$includeIrrelevantInformation, services=$services, healthElements=$healthElements]';
@@ -87,70 +111,95 @@ class SumehrExportInfoDto {
     if (includeIrrelevantInformation != null) {
       json[r'includeIrrelevantInformation'] = includeIrrelevantInformation;
     }
-    if (services != null) {
       json[r'services'] = services;
-    }
-    if (healthElements != null) {
       json[r'healthElements'] = healthElements;
-    }
     return json;
   }
 
   /// Returns a new [SumehrExportInfoDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static SumehrExportInfoDto fromJson(dynamic value) {
+  static SumehrExportInfoDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "SumehrExportInfoDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "SumehrExportInfoDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return SumehrExportInfoDto(
         secretForeignKeys: json[r'secretForeignKeys'] is List
-          ? (json[r'secretForeignKeys'] as List).cast<String>()
-          : null,
+            ? (json[r'secretForeignKeys'] as List).cast<String>()
+            : const [],
         excludedIds: json[r'excludedIds'] is List
-          ? (json[r'excludedIds'] as List).cast<String>()
-          : null,
+            ? (json[r'excludedIds'] as List).cast<String>()
+            : const [],
         recipient: HealthcarePartyDto.fromJson(json[r'recipient']),
         softwareName: mapValueOfType<String>(json, r'softwareName'),
         softwareVersion: mapValueOfType<String>(json, r'softwareVersion'),
-        comment: mapValueOfType<String>(json, r'comment'),
+        comment: mapValueOfType<String>(json, r'comment')!,
         includeIrrelevantInformation: mapValueOfType<bool>(json, r'includeIrrelevantInformation'),
-        services: ServiceDto.listFromJson(json[r'services']),
-        healthElements: HealthElementDto.listFromJson(json[r'healthElements']),
+        services: ServiceDto.listFromJson(json[r'services']) ?? const [],
+        healthElements: HealthElementDto.listFromJson(json[r'healthElements']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<SumehrExportInfoDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(SumehrExportInfoDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <SumehrExportInfoDto>[];
+  static List<SumehrExportInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <SumehrExportInfoDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = SumehrExportInfoDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, SumehrExportInfoDto> mapFromJson(dynamic json) {
     final map = <String, SumehrExportInfoDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = SumehrExportInfoDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = SumehrExportInfoDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of SumehrExportInfoDto-objects as value to a dart map
-  static Map<String, List<SumehrExportInfoDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<SumehrExportInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<SumehrExportInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = SumehrExportInfoDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = SumehrExportInfoDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'secretForeignKeys',
+    'excludedIds',
+    'comment',
+  };
 }
 

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -14,9 +14,12 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
+import 'dart:math';
 
 import 'package:tuple/tuple.dart';
-
+import 'package:expire_cache/expire_cache.dart';
+import 'package:pointycastle/src/platform_check/platform_check.dart';
+import "package:pointycastle/export.dart";
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
@@ -30,6 +33,7 @@ part 'auth/oauth.dart';
 part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 part 'crypto/crypto.dart';
+part 'functional_utils.dart';
 
 part 'api/access_log_api.dart';
 part 'api/agenda_api.dart';

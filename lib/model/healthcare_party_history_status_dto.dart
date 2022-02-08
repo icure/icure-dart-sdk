@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,10 +13,10 @@ part of openapi.api;
 class HealthcarePartyHistoryStatusDto {
   /// Returns a new [HealthcarePartyHistoryStatusDto] instance.
   HealthcarePartyHistoryStatusDto({
-    @required this.status,
-    @required this.specialisationCode,
-    @required this.startDate,
-    @required this.active,
+    required this.status,
+    required this.specialisationCode,
+    required this.startDate,
+    required this.active,
   });
 
   HealthcarePartyHistoryStatusDtoStatusEnum status;
@@ -36,11 +36,11 @@ class HealthcarePartyHistoryStatusDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (status == null ? 0 : status.hashCode) +
-    (specialisationCode == null ? 0 : specialisationCode.hashCode) +
-    (startDate == null ? 0 : startDate.hashCode) +
-    (active == null ? 0 : active.hashCode);
+    // ignore: unnecessary_parenthesis
+    (status.hashCode) +
+    (specialisationCode.hashCode) +
+    (startDate.hashCode) +
+    (active.hashCode);
 
   @override
   String toString() => 'HealthcarePartyHistoryStatusDto[status=$status, specialisationCode=$specialisationCode, startDate=$startDate, active=$active]';
@@ -57,50 +57,80 @@ class HealthcarePartyHistoryStatusDto {
   /// Returns a new [HealthcarePartyHistoryStatusDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static HealthcarePartyHistoryStatusDto fromJson(dynamic value) {
+  static HealthcarePartyHistoryStatusDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "HealthcarePartyHistoryStatusDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "HealthcarePartyHistoryStatusDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return HealthcarePartyHistoryStatusDto(
-        status: HealthcarePartyHistoryStatusDtoStatusEnum.fromJson(json[r'status']),
-        specialisationCode: mapValueOfType<String>(json, r'specialisationCode'),
-        startDate: mapValueOfType<int>(json, r'startDate'),
-        active: mapValueOfType<bool>(json, r'active'),
+        status: HealthcarePartyHistoryStatusDtoStatusEnum.fromJson(json[r'status'])!,
+        specialisationCode: mapValueOfType<String>(json, r'specialisationCode')!,
+        startDate: mapValueOfType<int>(json, r'startDate')!,
+        active: mapValueOfType<bool>(json, r'active')!,
       );
     }
     return null;
   }
 
-  static List<HealthcarePartyHistoryStatusDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(HealthcarePartyHistoryStatusDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <HealthcarePartyHistoryStatusDto>[];
+  static List<HealthcarePartyHistoryStatusDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <HealthcarePartyHistoryStatusDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = HealthcarePartyHistoryStatusDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, HealthcarePartyHistoryStatusDto> mapFromJson(dynamic json) {
     final map = <String, HealthcarePartyHistoryStatusDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = HealthcarePartyHistoryStatusDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = HealthcarePartyHistoryStatusDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of HealthcarePartyHistoryStatusDto-objects as value to a dart map
-  static Map<String, List<HealthcarePartyHistoryStatusDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<HealthcarePartyHistoryStatusDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<HealthcarePartyHistoryStatusDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = HealthcarePartyHistoryStatusDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = HealthcarePartyHistoryStatusDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'status',
+    'specialisationCode',
+    'startDate',
+    'active',
+  };
 }
 
 
@@ -112,7 +142,7 @@ class HealthcarePartyHistoryStatusDtoStatusEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -127,13 +157,20 @@ class HealthcarePartyHistoryStatusDtoStatusEnum {
     accreditated,
   ];
 
-  static HealthcarePartyHistoryStatusDtoStatusEnum fromJson(dynamic value) =>
-    HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer().decode(value);
+  static HealthcarePartyHistoryStatusDtoStatusEnum? fromJson(dynamic value) => HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<HealthcarePartyHistoryStatusDtoStatusEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(HealthcarePartyHistoryStatusDtoStatusEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <HealthcarePartyHistoryStatusDtoStatusEnum>[];
+  static List<HealthcarePartyHistoryStatusDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <HealthcarePartyHistoryStatusDtoStatusEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = HealthcarePartyHistoryStatusDtoStatusEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [HealthcarePartyHistoryStatusDtoStatusEnum] to String,
@@ -153,14 +190,14 @@ class HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  HealthcarePartyHistoryStatusDtoStatusEnum decode(dynamic data, {bool allowNull}) {
+  HealthcarePartyHistoryStatusDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'trainee': return HealthcarePartyHistoryStatusDtoStatusEnum.trainee;
         case r'withconvention': return HealthcarePartyHistoryStatusDtoStatusEnum.withconvention;
         case r'accreditated': return HealthcarePartyHistoryStatusDtoStatusEnum.accreditated;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -169,7 +206,7 @@ class HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer {
   }
 
   /// Singleton [HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer] instance.
-  static HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer _instance;
+  static HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer? _instance;
 }
 
 

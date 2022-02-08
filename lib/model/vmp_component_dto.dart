@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,15 +21,39 @@ class VmpComponentDto {
     this.virtualIngredients = const [],
   });
 
-  String code;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? code;
 
-  VirtualFormDto virtualForm;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  VirtualFormDto? virtualForm;
 
   List<RouteOfAdministrationDto> routeOfAdministrations;
 
-  SamTextDto name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? name;
 
-  int phaseNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? phaseNumber;
 
   List<VirtualIngredientDto> virtualIngredients;
 
@@ -44,13 +68,13 @@ class VmpComponentDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (code == null ? 0 : code.hashCode) +
-    (virtualForm == null ? 0 : virtualForm.hashCode) +
-    (routeOfAdministrations == null ? 0 : routeOfAdministrations.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (phaseNumber == null ? 0 : phaseNumber.hashCode) +
-    (virtualIngredients == null ? 0 : virtualIngredients.hashCode);
+    // ignore: unnecessary_parenthesis
+    (code == null ? 0 : code!.hashCode) +
+    (virtualForm == null ? 0 : virtualForm!.hashCode) +
+    (routeOfAdministrations.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (phaseNumber == null ? 0 : phaseNumber!.hashCode) +
+    (virtualIngredients.hashCode);
 
   @override
   String toString() => 'VmpComponentDto[code=$code, virtualForm=$virtualForm, routeOfAdministrations=$routeOfAdministrations, name=$name, phaseNumber=$phaseNumber, virtualIngredients=$virtualIngredients]';
@@ -63,69 +87,91 @@ class VmpComponentDto {
     if (virtualForm != null) {
       json[r'virtualForm'] = virtualForm;
     }
-    if (routeOfAdministrations != null) {
       json[r'routeOfAdministrations'] = routeOfAdministrations;
-    }
     if (name != null) {
       json[r'name'] = name;
     }
     if (phaseNumber != null) {
       json[r'phaseNumber'] = phaseNumber;
     }
-    if (virtualIngredients != null) {
       json[r'virtualIngredients'] = virtualIngredients;
-    }
     return json;
   }
 
   /// Returns a new [VmpComponentDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static VmpComponentDto fromJson(dynamic value) {
+  static VmpComponentDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "VmpComponentDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "VmpComponentDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return VmpComponentDto(
         code: mapValueOfType<String>(json, r'code'),
         virtualForm: VirtualFormDto.fromJson(json[r'virtualForm']),
-        routeOfAdministrations: RouteOfAdministrationDto.listFromJson(json[r'routeOfAdministrations']),
+        routeOfAdministrations: RouteOfAdministrationDto.listFromJson(json[r'routeOfAdministrations']) ?? const [],
         name: SamTextDto.fromJson(json[r'name']),
         phaseNumber: mapValueOfType<int>(json, r'phaseNumber'),
-        virtualIngredients: VirtualIngredientDto.listFromJson(json[r'virtualIngredients']),
+        virtualIngredients: VirtualIngredientDto.listFromJson(json[r'virtualIngredients']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<VmpComponentDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(VmpComponentDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <VmpComponentDto>[];
+  static List<VmpComponentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <VmpComponentDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = VmpComponentDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, VmpComponentDto> mapFromJson(dynamic json) {
     final map = <String, VmpComponentDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = VmpComponentDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = VmpComponentDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of VmpComponentDto-objects as value to a dart map
-  static Map<String, List<VmpComponentDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<VmpComponentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<VmpComponentDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = VmpComponentDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = VmpComponentDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

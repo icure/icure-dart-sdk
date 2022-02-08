@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class DocumentTemplateDto {
   /// Returns a new [DocumentTemplateDto] instance.
   DocumentTemplateDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.created,
     this.modified,
@@ -41,22 +41,58 @@ class DocumentTemplateDto {
 
   String id;
 
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// The timestamp (unix epoch in ms) of creation of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// The date (unix epoch in ms) of the latest modification of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int modified;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modified;
 
   /// The id of the User that has created this entity, will be filled automatically if missing. Not enforced by the application server.
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   /// The id of the HealthcareParty that is responsible for this entity, will be filled automatically if missing. Not enforced by the application server.
-  String responsible;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? responsible;
 
   /// The id of the medical location where this entity was created.
-  String medicalLocationId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicalLocationId;
 
   /// A tag is an item from a codification system that qualifies an entity as being member of a certain class, whatever the value it might have taken. If the tag qualifies the content of a field, it means that whatever the content of the field, the tag will always apply. For example, the label of a field is qualified using a tag. LOINC is a codification system typically used for tags.
   Set<CodeStubDto> tags;
@@ -65,37 +101,109 @@ class DocumentTemplateDto {
   Set<CodeStubDto> codes;
 
   /// Soft delete (unix epoch in ms) timestamp of the object.
-  int endOfLife;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfLife;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
-  String attachment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? attachment;
 
   /// The type of document, ex: admission, clinical path, document report,invoice, etc.
-  DocumentTemplateDtoDocumentTypeEnum documentType;
+  DocumentTemplateDtoDocumentTypeEnum? documentType;
 
-  String mainUti;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mainUti;
 
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
   Set<String> otherUtis;
 
-  String attachmentId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? attachmentId;
 
-  DocumentTemplateDtoVersionEnum version;
+  DocumentTemplateDtoVersionEnum? version;
 
-  String owner;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? owner;
 
-  String guid;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? guid;
 
-  DocumentGroupDto group;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DocumentGroupDto? group;
 
-  String descr;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? descr;
 
-  String disabled;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? disabled;
 
-  CodeStubDto specialty;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CodeStubDto? specialty;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DocumentTemplateDto &&
@@ -126,31 +234,31 @@ class DocumentTemplateDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (modified == null ? 0 : modified.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (responsible == null ? 0 : responsible.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (attachment == null ? 0 : attachment.hashCode) +
-    (documentType == null ? 0 : documentType.hashCode) +
-    (mainUti == null ? 0 : mainUti.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (otherUtis == null ? 0 : otherUtis.hashCode) +
-    (attachmentId == null ? 0 : attachmentId.hashCode) +
-    (version == null ? 0 : version.hashCode) +
-    (owner == null ? 0 : owner.hashCode) +
-    (guid == null ? 0 : guid.hashCode) +
-    (group == null ? 0 : group.hashCode) +
-    (descr == null ? 0 : descr.hashCode) +
-    (disabled == null ? 0 : disabled.hashCode) +
-    (specialty == null ? 0 : specialty.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (created == null ? 0 : created!.hashCode) +
+    (modified == null ? 0 : modified!.hashCode) +
+    (author == null ? 0 : author!.hashCode) +
+    (responsible == null ? 0 : responsible!.hashCode) +
+    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+    (tags.hashCode) +
+    (codes.hashCode) +
+    (endOfLife == null ? 0 : endOfLife!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (attachment == null ? 0 : attachment!.hashCode) +
+    (documentType == null ? 0 : documentType!.hashCode) +
+    (mainUti == null ? 0 : mainUti!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (otherUtis.hashCode) +
+    (attachmentId == null ? 0 : attachmentId!.hashCode) +
+    (version == null ? 0 : version!.hashCode) +
+    (owner == null ? 0 : owner!.hashCode) +
+    (guid == null ? 0 : guid!.hashCode) +
+    (group == null ? 0 : group!.hashCode) +
+    (descr == null ? 0 : descr!.hashCode) +
+    (disabled == null ? 0 : disabled!.hashCode) +
+    (specialty == null ? 0 : specialty!.hashCode);
 
   @override
   String toString() => 'DocumentTemplateDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, attachment=$attachment, documentType=$documentType, mainUti=$mainUti, name=$name, otherUtis=$otherUtis, attachmentId=$attachmentId, version=$version, owner=$owner, guid=$guid, group=$group, descr=$descr, disabled=$disabled, specialty=$specialty]';
@@ -227,19 +335,31 @@ class DocumentTemplateDto {
   /// Returns a new [DocumentTemplateDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DocumentTemplateDto fromJson(dynamic value) {
+  static DocumentTemplateDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "DocumentTemplateDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DocumentTemplateDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return DocumentTemplateDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
         modified: mapValueOfType<int>(json, r'modified'),
         author: mapValueOfType<String>(json, r'author'),
         responsible: mapValueOfType<String>(json, r'responsible'),
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
-        tags: CodeStubDto.listFromJson(json[r'tags']),
-        codes: CodeStubDto.listFromJson(json[r'codes']),
+        tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
+        codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         attachment: mapValueOfType<String>(json, r'attachment'),
@@ -247,8 +367,8 @@ class DocumentTemplateDto {
         mainUti: mapValueOfType<String>(json, r'mainUti'),
         name: mapValueOfType<String>(json, r'name'),
         otherUtis: json[r'otherUtis'] is Set
-          ? (json[r'otherUtis'] as Set).cast<String>()
-          : null,
+            ? (json[r'otherUtis'] as Set).cast<String>()
+            : const {},
         attachmentId: mapValueOfType<String>(json, r'attachmentId'),
         version: DocumentTemplateDtoVersionEnum.fromJson(json[r'version']),
         owner: mapValueOfType<String>(json, r'owner'),
@@ -262,37 +382,55 @@ class DocumentTemplateDto {
     return null;
   }
 
-  static List<DocumentTemplateDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DocumentTemplateDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DocumentTemplateDto>[];
+  static List<DocumentTemplateDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DocumentTemplateDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DocumentTemplateDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, DocumentTemplateDto> mapFromJson(dynamic json) {
     final map = <String, DocumentTemplateDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = DocumentTemplateDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DocumentTemplateDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of DocumentTemplateDto-objects as value to a dart map
-  static Map<String, List<DocumentTemplateDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<DocumentTemplateDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DocumentTemplateDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = DocumentTemplateDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DocumentTemplateDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'tags',
+    'codes',
+    'otherUtis',
+  };
 }
 
 /// The type of document, ex: admission, clinical path, document report,invoice, etc.
@@ -304,7 +442,7 @@ class DocumentTemplateDtoDocumentTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -391,13 +529,20 @@ class DocumentTemplateDtoDocumentTypeEnum {
     vaccination,
   ];
 
-  static DocumentTemplateDtoDocumentTypeEnum fromJson(dynamic value) =>
-    DocumentTemplateDtoDocumentTypeEnumTypeTransformer().decode(value);
+  static DocumentTemplateDtoDocumentTypeEnum? fromJson(dynamic value) => DocumentTemplateDtoDocumentTypeEnumTypeTransformer().decode(value);
 
-  static List<DocumentTemplateDtoDocumentTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DocumentTemplateDtoDocumentTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DocumentTemplateDtoDocumentTypeEnum>[];
+  static List<DocumentTemplateDtoDocumentTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DocumentTemplateDtoDocumentTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DocumentTemplateDtoDocumentTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [DocumentTemplateDtoDocumentTypeEnum] to String,
@@ -417,7 +562,7 @@ class DocumentTemplateDtoDocumentTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DocumentTemplateDtoDocumentTypeEnum decode(dynamic data, {bool allowNull}) {
+  DocumentTemplateDtoDocumentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'admission': return DocumentTemplateDtoDocumentTypeEnum.admission;
@@ -460,7 +605,7 @@ class DocumentTemplateDtoDocumentTypeEnumTypeTransformer {
         case r'treatmentsuspension': return DocumentTemplateDtoDocumentTypeEnum.treatmentsuspension;
         case r'vaccination': return DocumentTemplateDtoDocumentTypeEnum.vaccination;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -469,7 +614,7 @@ class DocumentTemplateDtoDocumentTypeEnumTypeTransformer {
   }
 
   /// Singleton [DocumentTemplateDtoDocumentTypeEnumTypeTransformer] instance.
-  static DocumentTemplateDtoDocumentTypeEnumTypeTransformer _instance;
+  static DocumentTemplateDtoDocumentTypeEnumTypeTransformer? _instance;
 }
 
 
@@ -482,7 +627,7 @@ class DocumentTemplateDtoVersionEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -493,13 +638,20 @@ class DocumentTemplateDtoVersionEnum {
     v100,
   ];
 
-  static DocumentTemplateDtoVersionEnum fromJson(dynamic value) =>
-    DocumentTemplateDtoVersionEnumTypeTransformer().decode(value);
+  static DocumentTemplateDtoVersionEnum? fromJson(dynamic value) => DocumentTemplateDtoVersionEnumTypeTransformer().decode(value);
 
-  static List<DocumentTemplateDtoVersionEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DocumentTemplateDtoVersionEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DocumentTemplateDtoVersionEnum>[];
+  static List<DocumentTemplateDtoVersionEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DocumentTemplateDtoVersionEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DocumentTemplateDtoVersionEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [DocumentTemplateDtoVersionEnum] to String,
@@ -519,12 +671,12 @@ class DocumentTemplateDtoVersionEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DocumentTemplateDtoVersionEnum decode(dynamic data, {bool allowNull}) {
+  DocumentTemplateDtoVersionEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'V1_0_0': return DocumentTemplateDtoVersionEnum.v100;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -533,7 +685,7 @@ class DocumentTemplateDtoVersionEnumTypeTransformer {
   }
 
   /// Singleton [DocumentTemplateDtoVersionEnumTypeTransformer] instance.
-  static DocumentTemplateDtoVersionEnumTypeTransformer _instance;
+  static DocumentTemplateDtoVersionEnumTypeTransformer? _instance;
 }
 
 

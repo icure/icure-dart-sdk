@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class DeviceDto {
   /// Returns a new [DeviceDto] instance.
   DeviceDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.deletionDate,
     this.identifiers = const [],
@@ -41,24 +41,60 @@ class DeviceDto {
 
   String id;
 
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
   List<IdentifierDto> identifiers;
 
   /// The timestamp (unix epoch in ms) of creation of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// The date (unix epoch in ms) of the latest modification of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int modified;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modified;
 
   /// The id of the User that has created this entity, will be filled automatically if missing. Not enforced by the application server.
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   /// The id of the HealthcareParty that is responsible for this entity, will be filled automatically if missing. Not enforced by the application server.
-  String responsible;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? responsible;
 
   /// A tag is an item from a codification system that qualifies an entity as being member of a certain class, whatever the value it might have taken. If the tag qualifies the content of a field, it means that whatever the content of the field, the tag will always apply. For example, the label of a field is qualified using a tag. LOINC is a codification system typically used for tags.
   Set<CodeStubDto> tags;
@@ -67,24 +103,78 @@ class DeviceDto {
   Set<CodeStubDto> codes;
 
   /// Soft delete (unix epoch in ms) timestamp of the object.
-  int endOfLife;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfLife;
 
   /// The id of the medical location where this entity was created.
-  String medicalLocationId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicalLocationId;
 
-  String externalId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? externalId;
 
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
-  String type;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? type;
 
-  String brand;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? brand;
 
-  String model;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? model;
 
-  String serialNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? serialNumber;
 
-  String parentId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? parentId;
 
   List<String> picture;
 
@@ -97,7 +187,13 @@ class DeviceDto {
   Map<String, String> privateKeyShamirPartitions;
 
   /// The public key of this hcp
-  String publicKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? publicKey;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DeviceDto &&
@@ -128,31 +224,31 @@ class DeviceDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (identifiers == null ? 0 : identifiers.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (modified == null ? 0 : modified.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (responsible == null ? 0 : responsible.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId.hashCode) +
-    (externalId == null ? 0 : externalId.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (brand == null ? 0 : brand.hashCode) +
-    (model == null ? 0 : model.hashCode) +
-    (serialNumber == null ? 0 : serialNumber.hashCode) +
-    (parentId == null ? 0 : parentId.hashCode) +
-    (picture == null ? 0 : picture.hashCode) +
-    (properties == null ? 0 : properties.hashCode) +
-    (hcPartyKeys == null ? 0 : hcPartyKeys.hashCode) +
-    (privateKeyShamirPartitions == null ? 0 : privateKeyShamirPartitions.hashCode) +
-    (publicKey == null ? 0 : publicKey.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (identifiers.hashCode) +
+    (created == null ? 0 : created!.hashCode) +
+    (modified == null ? 0 : modified!.hashCode) +
+    (author == null ? 0 : author!.hashCode) +
+    (responsible == null ? 0 : responsible!.hashCode) +
+    (tags.hashCode) +
+    (codes.hashCode) +
+    (endOfLife == null ? 0 : endOfLife!.hashCode) +
+    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+    (externalId == null ? 0 : externalId!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (brand == null ? 0 : brand!.hashCode) +
+    (model == null ? 0 : model!.hashCode) +
+    (serialNumber == null ? 0 : serialNumber!.hashCode) +
+    (parentId == null ? 0 : parentId!.hashCode) +
+    (picture.hashCode) +
+    (properties.hashCode) +
+    (hcPartyKeys.hashCode) +
+    (privateKeyShamirPartitions.hashCode) +
+    (publicKey == null ? 0 : publicKey!.hashCode);
 
   @override
   String toString() => 'DeviceDto[id=$id, rev=$rev, deletionDate=$deletionDate, identifiers=$identifiers, created=$created, modified=$modified, author=$author, responsible=$responsible, tags=$tags, codes=$codes, endOfLife=$endOfLife, medicalLocationId=$medicalLocationId, externalId=$externalId, name=$name, type=$type, brand=$brand, model=$model, serialNumber=$serialNumber, parentId=$parentId, picture=$picture, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey]';
@@ -208,9 +304,7 @@ class DeviceDto {
     if (parentId != null) {
       json[r'parentId'] = parentId;
     }
-    if (picture != null) {
       json[r'picture'] = picture;
-    }
       json[r'properties'] = properties;
       json[r'hcPartyKeys'] = hcPartyKeys;
       json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
@@ -223,20 +317,32 @@ class DeviceDto {
   /// Returns a new [DeviceDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DeviceDto fromJson(dynamic value) {
+  static DeviceDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "DeviceDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DeviceDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return DeviceDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
-        identifiers: IdentifierDto.listFromJson(json[r'identifiers']),
+        identifiers: IdentifierDto.listFromJson(json[r'identifiers'])!,
         created: mapValueOfType<int>(json, r'created'),
         modified: mapValueOfType<int>(json, r'modified'),
         author: mapValueOfType<String>(json, r'author'),
         responsible: mapValueOfType<String>(json, r'responsible'),
-        tags: CodeStubDto.listFromJson(json[r'tags']),
-        codes: CodeStubDto.listFromJson(json[r'codes']),
+        tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
+        codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
         externalId: mapValueOfType<String>(json, r'externalId'),
@@ -247,49 +353,70 @@ class DeviceDto {
         serialNumber: mapValueOfType<String>(json, r'serialNumber'),
         parentId: mapValueOfType<String>(json, r'parentId'),
         picture: json[r'picture'] is List
-          ? (json[r'picture'] as List).cast<String>()
-          : null,
-        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
+            ? (json[r'picture'] as List).cast<String>()
+            : const [],
+        properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null
-          ? null
-          : mapCastOfType<String, List>(json, r'hcPartyKeys'),
-        privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions'),
+          ? const {}
+            : mapCastOfType<String, List<String>>(json, r'hcPartyKeys') ?? <String, List<String>>{},
+        privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
         publicKey: mapValueOfType<String>(json, r'publicKey'),
       );
     }
     return null;
   }
 
-  static List<DeviceDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DeviceDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DeviceDto>[];
+  static List<DeviceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DeviceDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DeviceDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, DeviceDto> mapFromJson(dynamic json) {
     final map = <String, DeviceDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = DeviceDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DeviceDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of DeviceDto-objects as value to a dart map
-  static Map<String, List<DeviceDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<DeviceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DeviceDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = DeviceDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DeviceDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'identifiers',
+    'tags',
+    'codes',
+    'properties',
+    'hcPartyKeys',
+    'privateKeyShamirPartitions',
+  };
 }
 

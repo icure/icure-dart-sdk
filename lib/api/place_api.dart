@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class PlaceApi {
-  PlaceApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  PlaceApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -24,16 +24,11 @@ class PlaceApi {
   ///
   /// * [PlaceDto] placeDto (required):
   Future<Response> createPlaceWithHttpInfo(PlaceDto placeDto,) async {
-    // Verify required params are set.
-    if (placeDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: placeDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/place';
 
     // ignore: prefer_final_locals
-    Object postBody = placeDto;
+    Object? postBody = placeDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -50,7 +45,7 @@ class PlaceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -60,7 +55,7 @@ class PlaceApi {
   /// Parameters:
   ///
   /// * [PlaceDto] placeDto (required):
-  Future<PlaceDto> createPlace(PlaceDto placeDto,) async {
+  Future<PlaceDto?> createPlace(PlaceDto placeDto,) async {
     final response = await createPlaceWithHttpInfo(placeDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -68,11 +63,11 @@ class PlaceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlaceDto',) as PlaceDto;
     
     }
-    return Future<PlaceDto>.value();
+    return null;
   }
 
   /// Deletes places
@@ -83,16 +78,11 @@ class PlaceApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deletePlacesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/place/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -109,7 +99,7 @@ class PlaceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -119,7 +109,7 @@ class PlaceApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deletePlaces(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deletePlaces(ListOfIdsDto listOfIdsDto,) async {
     final response = await deletePlacesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -127,14 +117,14 @@ class PlaceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Gets an place
@@ -145,17 +135,12 @@ class PlaceApi {
   ///
   /// * [String] placeId (required):
   Future<Response> getPlaceWithHttpInfo(String placeId,) async {
-    // Verify required params are set.
-    if (placeId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: placeId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/place/{placeId}'
       .replaceAll('{placeId}', placeId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -172,7 +157,7 @@ class PlaceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -182,7 +167,7 @@ class PlaceApi {
   /// Parameters:
   ///
   /// * [String] placeId (required):
-  Future<PlaceDto> getPlace(String placeId,) async {
+  Future<PlaceDto?> getPlace(String placeId,) async {
     final response = await getPlaceWithHttpInfo(placeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -190,11 +175,11 @@ class PlaceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlaceDto',) as PlaceDto;
     
     }
-    return Future<PlaceDto>.value();
+    return null;
   }
 
   /// Gets all places
@@ -205,7 +190,7 @@ class PlaceApi {
     final path = r'/rest/v2/place';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -222,13 +207,13 @@ class PlaceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Gets all places
-  Future<List<PlaceDto>> getPlaces() async {
+  Future<List<PlaceDto>?> getPlaces() async {
     final response = await getPlacesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -236,14 +221,14 @@ class PlaceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PlaceDto>') as List)
         .cast<PlaceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<PlaceDto>>.value();
+    return null;
   }
 
   /// Modifies an place
@@ -254,16 +239,11 @@ class PlaceApi {
   ///
   /// * [PlaceDto] placeDto (required):
   Future<Response> modifyPlaceWithHttpInfo(PlaceDto placeDto,) async {
-    // Verify required params are set.
-    if (placeDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: placeDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/place';
 
     // ignore: prefer_final_locals
-    Object postBody = placeDto;
+    Object? postBody = placeDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -280,7 +260,7 @@ class PlaceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -290,7 +270,7 @@ class PlaceApi {
   /// Parameters:
   ///
   /// * [PlaceDto] placeDto (required):
-  Future<PlaceDto> modifyPlace(PlaceDto placeDto,) async {
+  Future<PlaceDto?> modifyPlace(PlaceDto placeDto,) async {
     final response = await modifyPlaceWithHttpInfo(placeDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -298,10 +278,10 @@ class PlaceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlaceDto',) as PlaceDto;
     
     }
-    return Future<PlaceDto>.value();
+    return null;
   }
 }

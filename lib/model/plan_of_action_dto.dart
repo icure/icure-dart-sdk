@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class PlanOfActionDto {
   /// Returns a new [PlanOfActionDto] instance.
   PlanOfActionDto({
-    @required this.id,
+    required this.id,
     this.created,
     this.modified,
     this.author,
@@ -43,19 +43,49 @@ class PlanOfActionDto {
   String id;
 
   /// The timestamp (unix epoch in ms) of creation of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// The date (unix epoch in ms) of the latest modification of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int modified;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modified;
 
   /// The id of the User that has created this entity, will be filled automatically if missing. Not enforced by the application server.
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   /// The id of the HealthcareParty that is responsible for this entity, will be filled automatically if missing. Not enforced by the application server.
-  String responsible;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? responsible;
 
   /// The id of the medical location where this entity was created.
-  String medicalLocationId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicalLocationId;
 
   /// A tag is an item from a codification system that qualifies an entity as being member of a certain class, whatever the value it might have taken. If the tag qualifies the content of a field, it means that whatever the content of the field, the tag will always apply. For example, the label of a field is qualified using a tag. LOINC is a codification system typically used for tags.
   Set<CodeStubDto> tags;
@@ -64,37 +94,103 @@ class PlanOfActionDto {
   Set<CodeStubDto> codes;
 
   /// Soft delete (unix epoch in ms) timestamp of the object.
-  int endOfLife;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfLife;
 
   /// The id of the hcp who prescribed this healthcare approach
-  String prescriberId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? prescriberId;
 
   /// The date (unix epoch in ms) when the healthcare approach is noted to have started and also closes on the same date
-  int valueDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? valueDate;
 
   /// The date (unix epoch in ms) of the start of the healthcare approach.
-  int openingDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? openingDate;
 
   /// The date (unix epoch in ms) marking the end of the healthcare approach.
-  int closingDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? closingDate;
 
   /// The date (unix epoch in ms) when the healthcare approach has to be carried out.
-  int deadlineDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deadlineDate;
 
   /// The name of the healthcare approach.
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
   /// Description of the healthcare approach.
-  String descr;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? descr;
 
   /// Note about the healthcare approach.
-  String note;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? note;
 
   /// Id of the opening contact when the healthcare approach was created.
-  String idOpeningContact;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? idOpeningContact;
 
   /// Id of the closing contact for the healthcare approach.
-  String idClosingContact;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? idClosingContact;
 
   /// bit 0: active/inactive, bit 1: relevant/irrelevant, bit 2 : present/absent, ex: 0 = active,relevant and present
   int status;
@@ -102,7 +198,13 @@ class PlanOfActionDto {
   Set<String> documentIds;
 
   /// The number of individual cares already performed in the course of this healthcare approach
-  int numberOfCares;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? numberOfCares;
 
   /// Members of the careteam involved in this approach
   List<CareTeamMembershipDto> careTeamMemberships;
@@ -110,7 +212,13 @@ class PlanOfActionDto {
   bool relevant;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PlanOfActionDto &&
@@ -142,32 +250,32 @@ class PlanOfActionDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (modified == null ? 0 : modified.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (responsible == null ? 0 : responsible.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife.hashCode) +
-    (prescriberId == null ? 0 : prescriberId.hashCode) +
-    (valueDate == null ? 0 : valueDate.hashCode) +
-    (openingDate == null ? 0 : openingDate.hashCode) +
-    (closingDate == null ? 0 : closingDate.hashCode) +
-    (deadlineDate == null ? 0 : deadlineDate.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (descr == null ? 0 : descr.hashCode) +
-    (note == null ? 0 : note.hashCode) +
-    (idOpeningContact == null ? 0 : idOpeningContact.hashCode) +
-    (idClosingContact == null ? 0 : idClosingContact.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (documentIds == null ? 0 : documentIds.hashCode) +
-    (numberOfCares == null ? 0 : numberOfCares.hashCode) +
-    (careTeamMemberships == null ? 0 : careTeamMemberships.hashCode) +
-    (relevant == null ? 0 : relevant.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (created == null ? 0 : created!.hashCode) +
+    (modified == null ? 0 : modified!.hashCode) +
+    (author == null ? 0 : author!.hashCode) +
+    (responsible == null ? 0 : responsible!.hashCode) +
+    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+    (tags.hashCode) +
+    (codes.hashCode) +
+    (endOfLife == null ? 0 : endOfLife!.hashCode) +
+    (prescriberId == null ? 0 : prescriberId!.hashCode) +
+    (valueDate == null ? 0 : valueDate!.hashCode) +
+    (openingDate == null ? 0 : openingDate!.hashCode) +
+    (closingDate == null ? 0 : closingDate!.hashCode) +
+    (deadlineDate == null ? 0 : deadlineDate!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (descr == null ? 0 : descr!.hashCode) +
+    (note == null ? 0 : note!.hashCode) +
+    (idOpeningContact == null ? 0 : idOpeningContact!.hashCode) +
+    (idClosingContact == null ? 0 : idClosingContact!.hashCode) +
+    (status.hashCode) +
+    (documentIds.hashCode) +
+    (numberOfCares == null ? 0 : numberOfCares!.hashCode) +
+    (careTeamMemberships.hashCode) +
+    (relevant.hashCode) +
+    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'PlanOfActionDto[id=$id, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, prescriberId=$prescriberId, valueDate=$valueDate, openingDate=$openingDate, closingDate=$closingDate, deadlineDate=$deadlineDate, name=$name, descr=$descr, note=$note, idOpeningContact=$idOpeningContact, idClosingContact=$idClosingContact, status=$status, documentIds=$documentIds, numberOfCares=$numberOfCares, careTeamMemberships=$careTeamMemberships, relevant=$relevant, encryptedSelf=$encryptedSelf]';
@@ -241,18 +349,30 @@ class PlanOfActionDto {
   /// Returns a new [PlanOfActionDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PlanOfActionDto fromJson(dynamic value) {
+  static PlanOfActionDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "PlanOfActionDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PlanOfActionDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return PlanOfActionDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         created: mapValueOfType<int>(json, r'created'),
         modified: mapValueOfType<int>(json, r'modified'),
         author: mapValueOfType<String>(json, r'author'),
         responsible: mapValueOfType<String>(json, r'responsible'),
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
-        tags: CodeStubDto.listFromJson(json[r'tags']),
-        codes: CodeStubDto.listFromJson(json[r'codes']),
+        tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
+        codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         prescriberId: mapValueOfType<String>(json, r'prescriberId'),
         valueDate: mapValueOfType<int>(json, r'valueDate'),
@@ -264,49 +384,70 @@ class PlanOfActionDto {
         note: mapValueOfType<String>(json, r'note'),
         idOpeningContact: mapValueOfType<String>(json, r'idOpeningContact'),
         idClosingContact: mapValueOfType<String>(json, r'idClosingContact'),
-        status: mapValueOfType<int>(json, r'status'),
+        status: mapValueOfType<int>(json, r'status')!,
         documentIds: json[r'documentIds'] is Set
-          ? (json[r'documentIds'] as Set).cast<String>()
-          : null,
+            ? (json[r'documentIds'] as Set).cast<String>()
+            : const {},
         numberOfCares: mapValueOfType<int>(json, r'numberOfCares'),
-        careTeamMemberships: CareTeamMembershipDto.listFromJson(json[r'careTeamMemberships']),
-        relevant: mapValueOfType<bool>(json, r'relevant'),
+        careTeamMemberships: CareTeamMembershipDto.listFromJson(json[r'careTeamMemberships'])!,
+        relevant: mapValueOfType<bool>(json, r'relevant')!,
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<PlanOfActionDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PlanOfActionDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PlanOfActionDto>[];
+  static List<PlanOfActionDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PlanOfActionDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PlanOfActionDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, PlanOfActionDto> mapFromJson(dynamic json) {
     final map = <String, PlanOfActionDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = PlanOfActionDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PlanOfActionDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of PlanOfActionDto-objects as value to a dart map
-  static Map<String, List<PlanOfActionDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<PlanOfActionDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<PlanOfActionDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = PlanOfActionDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PlanOfActionDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'tags',
+    'codes',
+    'status',
+    'documentIds',
+    'careTeamMemberships',
+    'relevant',
+  };
 }
 

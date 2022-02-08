@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,7 +17,7 @@ class AmppDto {
     this.to,
     this.index,
     this.ctiExtended,
-    @required this.orphan,
+    required this.orphan,
     this.leafletLink,
     this.spcLink,
     this.rmaPatientLink,
@@ -56,77 +56,269 @@ class AmppDto {
     this.vaccineIndicationCodes = const [],
   });
 
-  int from;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? from;
 
-  int to;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? to;
 
-  double index;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? index;
 
-  String ctiExtended;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ctiExtended;
 
   bool orphan;
 
-  SamTextDto leafletLink;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? leafletLink;
 
-  SamTextDto spcLink;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? spcLink;
 
-  SamTextDto rmaPatientLink;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? rmaPatientLink;
 
-  SamTextDto rmaProfessionalLink;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? rmaProfessionalLink;
 
-  int parallelCircuit;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? parallelCircuit;
 
-  String parallelDistributor;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? parallelDistributor;
 
-  int packMultiplier;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? packMultiplier;
 
-  QuantityDto packAmount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  QuantityDto? packAmount;
 
-  String packDisplayValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? packDisplayValue;
 
-  AmppDtoStatusEnum status;
+  AmppDtoStatusEnum? status;
 
   List<AtcDto> atcs;
 
-  SamTextDto crmLink;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? crmLink;
 
-  String deliveryModusCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? deliveryModusCode;
 
-  SamTextDto deliveryModus;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? deliveryModus;
 
-  String deliveryModusSpecificationCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? deliveryModusSpecificationCode;
 
-  SamTextDto deliveryModusSpecification;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? deliveryModusSpecification;
 
-  SamTextDto dhpcLink;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? dhpcLink;
 
-  CompanyDto distributorCompany;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CompanyDto? distributorCompany;
 
-  bool singleUse;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? singleUse;
 
-  int speciallyRegulated;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? speciallyRegulated;
 
-  SamTextDto abbreviatedName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? abbreviatedName;
 
-  SamTextDto prescriptionName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? prescriptionName;
 
-  SamTextDto note;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? note;
 
-  SamTextDto posologyNote;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? posologyNote;
 
   List<SamTextDto> noGenericPrescriptionReasons;
 
-  double exFactoryPrice;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? exFactoryPrice;
 
-  int reimbursementCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? reimbursementCode;
 
-  QuantityDto definedDailyDose;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  QuantityDto? definedDailyDose;
 
-  double officialExFactoryPrice;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? officialExFactoryPrice;
 
-  double realExFactoryPrice;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? realExFactoryPrice;
 
-  int pricingInformationDecisionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? pricingInformationDecisionDate;
 
   List<AmppComponentDto> components;
 
@@ -184,48 +376,48 @@ class AmppDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from.hashCode) +
-    (to == null ? 0 : to.hashCode) +
-    (index == null ? 0 : index.hashCode) +
-    (ctiExtended == null ? 0 : ctiExtended.hashCode) +
-    (orphan == null ? 0 : orphan.hashCode) +
-    (leafletLink == null ? 0 : leafletLink.hashCode) +
-    (spcLink == null ? 0 : spcLink.hashCode) +
-    (rmaPatientLink == null ? 0 : rmaPatientLink.hashCode) +
-    (rmaProfessionalLink == null ? 0 : rmaProfessionalLink.hashCode) +
-    (parallelCircuit == null ? 0 : parallelCircuit.hashCode) +
-    (parallelDistributor == null ? 0 : parallelDistributor.hashCode) +
-    (packMultiplier == null ? 0 : packMultiplier.hashCode) +
-    (packAmount == null ? 0 : packAmount.hashCode) +
-    (packDisplayValue == null ? 0 : packDisplayValue.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (atcs == null ? 0 : atcs.hashCode) +
-    (crmLink == null ? 0 : crmLink.hashCode) +
-    (deliveryModusCode == null ? 0 : deliveryModusCode.hashCode) +
-    (deliveryModus == null ? 0 : deliveryModus.hashCode) +
-    (deliveryModusSpecificationCode == null ? 0 : deliveryModusSpecificationCode.hashCode) +
-    (deliveryModusSpecification == null ? 0 : deliveryModusSpecification.hashCode) +
-    (dhpcLink == null ? 0 : dhpcLink.hashCode) +
-    (distributorCompany == null ? 0 : distributorCompany.hashCode) +
-    (singleUse == null ? 0 : singleUse.hashCode) +
-    (speciallyRegulated == null ? 0 : speciallyRegulated.hashCode) +
-    (abbreviatedName == null ? 0 : abbreviatedName.hashCode) +
-    (prescriptionName == null ? 0 : prescriptionName.hashCode) +
-    (note == null ? 0 : note.hashCode) +
-    (posologyNote == null ? 0 : posologyNote.hashCode) +
-    (noGenericPrescriptionReasons == null ? 0 : noGenericPrescriptionReasons.hashCode) +
-    (exFactoryPrice == null ? 0 : exFactoryPrice.hashCode) +
-    (reimbursementCode == null ? 0 : reimbursementCode.hashCode) +
-    (definedDailyDose == null ? 0 : definedDailyDose.hashCode) +
-    (officialExFactoryPrice == null ? 0 : officialExFactoryPrice.hashCode) +
-    (realExFactoryPrice == null ? 0 : realExFactoryPrice.hashCode) +
-    (pricingInformationDecisionDate == null ? 0 : pricingInformationDecisionDate.hashCode) +
-    (components == null ? 0 : components.hashCode) +
-    (commercializations == null ? 0 : commercializations.hashCode) +
-    (supplyProblems == null ? 0 : supplyProblems.hashCode) +
-    (dmpps == null ? 0 : dmpps.hashCode) +
-    (vaccineIndicationCodes == null ? 0 : vaccineIndicationCodes.hashCode);
+    // ignore: unnecessary_parenthesis
+    (from == null ? 0 : from!.hashCode) +
+    (to == null ? 0 : to!.hashCode) +
+    (index == null ? 0 : index!.hashCode) +
+    (ctiExtended == null ? 0 : ctiExtended!.hashCode) +
+    (orphan.hashCode) +
+    (leafletLink == null ? 0 : leafletLink!.hashCode) +
+    (spcLink == null ? 0 : spcLink!.hashCode) +
+    (rmaPatientLink == null ? 0 : rmaPatientLink!.hashCode) +
+    (rmaProfessionalLink == null ? 0 : rmaProfessionalLink!.hashCode) +
+    (parallelCircuit == null ? 0 : parallelCircuit!.hashCode) +
+    (parallelDistributor == null ? 0 : parallelDistributor!.hashCode) +
+    (packMultiplier == null ? 0 : packMultiplier!.hashCode) +
+    (packAmount == null ? 0 : packAmount!.hashCode) +
+    (packDisplayValue == null ? 0 : packDisplayValue!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (atcs.hashCode) +
+    (crmLink == null ? 0 : crmLink!.hashCode) +
+    (deliveryModusCode == null ? 0 : deliveryModusCode!.hashCode) +
+    (deliveryModus == null ? 0 : deliveryModus!.hashCode) +
+    (deliveryModusSpecificationCode == null ? 0 : deliveryModusSpecificationCode!.hashCode) +
+    (deliveryModusSpecification == null ? 0 : deliveryModusSpecification!.hashCode) +
+    (dhpcLink == null ? 0 : dhpcLink!.hashCode) +
+    (distributorCompany == null ? 0 : distributorCompany!.hashCode) +
+    (singleUse == null ? 0 : singleUse!.hashCode) +
+    (speciallyRegulated == null ? 0 : speciallyRegulated!.hashCode) +
+    (abbreviatedName == null ? 0 : abbreviatedName!.hashCode) +
+    (prescriptionName == null ? 0 : prescriptionName!.hashCode) +
+    (note == null ? 0 : note!.hashCode) +
+    (posologyNote == null ? 0 : posologyNote!.hashCode) +
+    (noGenericPrescriptionReasons.hashCode) +
+    (exFactoryPrice == null ? 0 : exFactoryPrice!.hashCode) +
+    (reimbursementCode == null ? 0 : reimbursementCode!.hashCode) +
+    (definedDailyDose == null ? 0 : definedDailyDose!.hashCode) +
+    (officialExFactoryPrice == null ? 0 : officialExFactoryPrice!.hashCode) +
+    (realExFactoryPrice == null ? 0 : realExFactoryPrice!.hashCode) +
+    (pricingInformationDecisionDate == null ? 0 : pricingInformationDecisionDate!.hashCode) +
+    (components.hashCode) +
+    (commercializations.hashCode) +
+    (supplyProblems.hashCode) +
+    (dmpps.hashCode) +
+    (vaccineIndicationCodes.hashCode);
 
   @override
   String toString() => 'AmppDto[from=$from, to=$to, index=$index, ctiExtended=$ctiExtended, orphan=$orphan, leafletLink=$leafletLink, spcLink=$spcLink, rmaPatientLink=$rmaPatientLink, rmaProfessionalLink=$rmaProfessionalLink, parallelCircuit=$parallelCircuit, parallelDistributor=$parallelDistributor, packMultiplier=$packMultiplier, packAmount=$packAmount, packDisplayValue=$packDisplayValue, status=$status, atcs=$atcs, crmLink=$crmLink, deliveryModusCode=$deliveryModusCode, deliveryModus=$deliveryModus, deliveryModusSpecificationCode=$deliveryModusSpecificationCode, deliveryModusSpecification=$deliveryModusSpecification, dhpcLink=$dhpcLink, distributorCompany=$distributorCompany, singleUse=$singleUse, speciallyRegulated=$speciallyRegulated, abbreviatedName=$abbreviatedName, prescriptionName=$prescriptionName, note=$note, posologyNote=$posologyNote, noGenericPrescriptionReasons=$noGenericPrescriptionReasons, exFactoryPrice=$exFactoryPrice, reimbursementCode=$reimbursementCode, definedDailyDose=$definedDailyDose, officialExFactoryPrice=$officialExFactoryPrice, realExFactoryPrice=$realExFactoryPrice, pricingInformationDecisionDate=$pricingInformationDecisionDate, components=$components, commercializations=$commercializations, supplyProblems=$supplyProblems, dmpps=$dmpps, vaccineIndicationCodes=$vaccineIndicationCodes]';
@@ -315,9 +507,7 @@ class AmppDto {
     if (posologyNote != null) {
       json[r'posologyNote'] = posologyNote;
     }
-    if (noGenericPrescriptionReasons != null) {
       json[r'noGenericPrescriptionReasons'] = noGenericPrescriptionReasons;
-    }
     if (exFactoryPrice != null) {
       json[r'exFactoryPrice'] = exFactoryPrice;
     }
@@ -336,34 +526,38 @@ class AmppDto {
     if (pricingInformationDecisionDate != null) {
       json[r'pricingInformationDecisionDate'] = pricingInformationDecisionDate;
     }
-    if (components != null) {
       json[r'components'] = components;
-    }
-    if (commercializations != null) {
       json[r'commercializations'] = commercializations;
-    }
-    if (supplyProblems != null) {
       json[r'supplyProblems'] = supplyProblems;
-    }
       json[r'dmpps'] = dmpps;
-    if (vaccineIndicationCodes != null) {
       json[r'vaccineIndicationCodes'] = vaccineIndicationCodes;
-    }
     return json;
   }
 
   /// Returns a new [AmppDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AmppDto fromJson(dynamic value) {
+  static AmppDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "AmppDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AmppDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return AmppDto(
         from: mapValueOfType<int>(json, r'from'),
         to: mapValueOfType<int>(json, r'to'),
         index: mapValueOfType<double>(json, r'index'),
         ctiExtended: mapValueOfType<String>(json, r'ctiExtended'),
-        orphan: mapValueOfType<bool>(json, r'orphan'),
+        orphan: mapValueOfType<bool>(json, r'orphan')!,
         leafletLink: SamTextDto.fromJson(json[r'leafletLink']),
         spcLink: SamTextDto.fromJson(json[r'spcLink']),
         rmaPatientLink: SamTextDto.fromJson(json[r'rmaPatientLink']),
@@ -374,7 +568,7 @@ class AmppDto {
         packAmount: QuantityDto.fromJson(json[r'packAmount']),
         packDisplayValue: mapValueOfType<String>(json, r'packDisplayValue'),
         status: AmppDtoStatusEnum.fromJson(json[r'status']),
-        atcs: AtcDto.listFromJson(json[r'atcs']),
+        atcs: AtcDto.listFromJson(json[r'atcs'])!,
         crmLink: SamTextDto.fromJson(json[r'crmLink']),
         deliveryModusCode: mapValueOfType<String>(json, r'deliveryModusCode'),
         deliveryModus: SamTextDto.fromJson(json[r'deliveryModus']),
@@ -388,56 +582,73 @@ class AmppDto {
         prescriptionName: SamTextDto.fromJson(json[r'prescriptionName']),
         note: SamTextDto.fromJson(json[r'note']),
         posologyNote: SamTextDto.fromJson(json[r'posologyNote']),
-        noGenericPrescriptionReasons: SamTextDto.listFromJson(json[r'noGenericPrescriptionReasons']),
+        noGenericPrescriptionReasons: SamTextDto.listFromJson(json[r'noGenericPrescriptionReasons']) ?? const [],
         exFactoryPrice: mapValueOfType<double>(json, r'exFactoryPrice'),
         reimbursementCode: mapValueOfType<int>(json, r'reimbursementCode'),
         definedDailyDose: QuantityDto.fromJson(json[r'definedDailyDose']),
         officialExFactoryPrice: mapValueOfType<double>(json, r'officialExFactoryPrice'),
         realExFactoryPrice: mapValueOfType<double>(json, r'realExFactoryPrice'),
         pricingInformationDecisionDate: mapValueOfType<int>(json, r'pricingInformationDecisionDate'),
-        components: AmppComponentDto.listFromJson(json[r'components']),
-        commercializations: CommercializationDto.listFromJson(json[r'commercializations']),
-        supplyProblems: SupplyProblemDto.listFromJson(json[r'supplyProblems']),
-        dmpps: DmppDto.listFromJson(json[r'dmpps']),
+        components: AmppComponentDto.listFromJson(json[r'components']) ?? const [],
+        commercializations: CommercializationDto.listFromJson(json[r'commercializations']) ?? const [],
+        supplyProblems: SupplyProblemDto.listFromJson(json[r'supplyProblems']) ?? const [],
+        dmpps: DmppDto.listFromJson(json[r'dmpps'])!,
         vaccineIndicationCodes: json[r'vaccineIndicationCodes'] is List
-          ? (json[r'vaccineIndicationCodes'] as List).cast<String>()
-          : null,
+            ? (json[r'vaccineIndicationCodes'] as List).cast<String>()
+            : const [],
       );
     }
     return null;
   }
 
-  static List<AmppDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmppDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmppDto>[];
+  static List<AmppDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmppDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmppDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, AmppDto> mapFromJson(dynamic json) {
     final map = <String, AmppDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = AmppDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AmppDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of AmppDto-objects as value to a dart map
-  static Map<String, List<AmppDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<AmppDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<AmppDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = AmppDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AmppDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'orphan',
+    'atcs',
+    'dmpps',
+  };
 }
 
 
@@ -449,7 +660,7 @@ class AmppDtoStatusEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -464,13 +675,20 @@ class AmppDtoStatusEnum {
     REVOKED,
   ];
 
-  static AmppDtoStatusEnum fromJson(dynamic value) =>
-    AmppDtoStatusEnumTypeTransformer().decode(value);
+  static AmppDtoStatusEnum? fromJson(dynamic value) => AmppDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<AmppDtoStatusEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmppDtoStatusEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmppDtoStatusEnum>[];
+  static List<AmppDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmppDtoStatusEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmppDtoStatusEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [AmppDtoStatusEnum] to String,
@@ -490,14 +708,14 @@ class AmppDtoStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  AmppDtoStatusEnum decode(dynamic data, {bool allowNull}) {
+  AmppDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'AUTHORIZED': return AmppDtoStatusEnum.AUTHORIZED;
         case r'SUSPENDED': return AmppDtoStatusEnum.SUSPENDED;
         case r'REVOKED': return AmppDtoStatusEnum.REVOKED;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -506,7 +724,7 @@ class AmppDtoStatusEnumTypeTransformer {
   }
 
   /// Singleton [AmppDtoStatusEnumTypeTransformer] instance.
-  static AmppDtoStatusEnumTypeTransformer _instance;
+  static AmppDtoStatusEnumTypeTransformer? _instance;
 }
 
 

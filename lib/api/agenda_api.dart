@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class AgendaApi {
-  AgendaApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  AgendaApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -24,16 +24,11 @@ class AgendaApi {
   ///
   /// * [AgendaDto] agendaDto (required):
   Future<Response> createAgendaWithHttpInfo(AgendaDto agendaDto,) async {
-    // Verify required params are set.
-    if (agendaDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: agendaDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/agenda';
 
     // ignore: prefer_final_locals
-    Object postBody = agendaDto;
+    Object? postBody = agendaDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -50,7 +45,7 @@ class AgendaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -60,7 +55,7 @@ class AgendaApi {
   /// Parameters:
   ///
   /// * [AgendaDto] agendaDto (required):
-  Future<AgendaDto> createAgenda(AgendaDto agendaDto,) async {
+  Future<AgendaDto?> createAgenda(AgendaDto agendaDto,) async {
     final response = await createAgendaWithHttpInfo(agendaDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -68,11 +63,11 @@ class AgendaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AgendaDto',) as AgendaDto;
     
     }
-    return Future<AgendaDto>.value();
+    return null;
   }
 
   /// Deletes agendas
@@ -83,16 +78,11 @@ class AgendaApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteAgendasWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/agenda/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -109,7 +99,7 @@ class AgendaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -119,7 +109,7 @@ class AgendaApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteAgendas(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteAgendas(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteAgendasWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -127,14 +117,14 @@ class AgendaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Gets an agenda
@@ -145,17 +135,12 @@ class AgendaApi {
   ///
   /// * [String] agendaId (required):
   Future<Response> getAgendaWithHttpInfo(String agendaId,) async {
-    // Verify required params are set.
-    if (agendaId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: agendaId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/agenda/{agendaId}'
       .replaceAll('{agendaId}', agendaId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -172,7 +157,7 @@ class AgendaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -182,7 +167,7 @@ class AgendaApi {
   /// Parameters:
   ///
   /// * [String] agendaId (required):
-  Future<AgendaDto> getAgenda(String agendaId,) async {
+  Future<AgendaDto?> getAgenda(String agendaId,) async {
     final response = await getAgendaWithHttpInfo(agendaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -190,11 +175,11 @@ class AgendaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AgendaDto',) as AgendaDto;
     
     }
-    return Future<AgendaDto>.value();
+    return null;
   }
 
   /// Gets all agendas
@@ -205,7 +190,7 @@ class AgendaApi {
     final path = r'/rest/v2/agenda';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -222,13 +207,13 @@ class AgendaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Gets all agendas
-  Future<List<AgendaDto>> getAgendas() async {
+  Future<List<AgendaDto>?> getAgendas() async {
     final response = await getAgendasWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -236,14 +221,14 @@ class AgendaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<AgendaDto>') as List)
         .cast<AgendaDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<AgendaDto>>.value();
+    return null;
   }
 
   /// Gets all agendas for user
@@ -254,22 +239,17 @@ class AgendaApi {
   ///
   /// * [String] userId (required):
   Future<Response> getAgendasForUserWithHttpInfo(String userId,) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/agenda/byUser';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'userId', userId));
+      queryParams.addAll(_queryParams('', 'userId', userId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -282,7 +262,7 @@ class AgendaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -292,7 +272,7 @@ class AgendaApi {
   /// Parameters:
   ///
   /// * [String] userId (required):
-  Future<AgendaDto> getAgendasForUser(String userId,) async {
+  Future<AgendaDto?> getAgendasForUser(String userId,) async {
     final response = await getAgendasForUserWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -300,11 +280,11 @@ class AgendaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AgendaDto',) as AgendaDto;
     
     }
-    return Future<AgendaDto>.value();
+    return null;
   }
 
   /// Gets readable agendas for user
@@ -315,22 +295,17 @@ class AgendaApi {
   ///
   /// * [String] userId (required):
   Future<Response> getReadableAgendasForUserWithHttpInfo(String userId,) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/agenda/readableForUser';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'userId', userId));
+      queryParams.addAll(_queryParams('', 'userId', userId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -343,7 +318,7 @@ class AgendaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -353,7 +328,7 @@ class AgendaApi {
   /// Parameters:
   ///
   /// * [String] userId (required):
-  Future<List<AgendaDto>> getReadableAgendasForUser(String userId,) async {
+  Future<List<AgendaDto>?> getReadableAgendasForUser(String userId,) async {
     final response = await getReadableAgendasForUserWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -361,14 +336,14 @@ class AgendaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<AgendaDto>') as List)
         .cast<AgendaDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<AgendaDto>>.value();
+    return null;
   }
 
   /// Modifies an agenda
@@ -379,16 +354,11 @@ class AgendaApi {
   ///
   /// * [AgendaDto] agendaDto (required):
   Future<Response> modifyAgendaWithHttpInfo(AgendaDto agendaDto,) async {
-    // Verify required params are set.
-    if (agendaDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: agendaDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/agenda';
 
     // ignore: prefer_final_locals
-    Object postBody = agendaDto;
+    Object? postBody = agendaDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -405,7 +375,7 @@ class AgendaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -415,7 +385,7 @@ class AgendaApi {
   /// Parameters:
   ///
   /// * [AgendaDto] agendaDto (required):
-  Future<AgendaDto> modifyAgenda(AgendaDto agendaDto,) async {
+  Future<AgendaDto?> modifyAgenda(AgendaDto agendaDto,) async {
     final response = await modifyAgendaWithHttpInfo(agendaDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -423,10 +393,10 @@ class AgendaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AgendaDto',) as AgendaDto;
     
     }
-    return Future<AgendaDto>.value();
+    return null;
   }
 }

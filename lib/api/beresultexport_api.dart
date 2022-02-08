@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class BeresultexportApi {
-  BeresultexportApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  BeresultexportApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -34,26 +34,6 @@ class BeresultexportApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> exportHealthOneWithHttpInfo(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
-    // Verify required params are set.
-    if (fromHcpId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: fromHcpId');
-    }
-    if (toHcpId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: toHcpId');
-    }
-    if (patId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: patId');
-    }
-    if (date == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: date');
-    }
-    if (ref == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: ref');
-    }
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_result_export/hl1/{fromHcpId}/{toHcpId}/{patId}/{date}/{ref}'
       .replaceAll('{fromHcpId}', fromHcpId)
@@ -63,7 +43,7 @@ class BeresultexportApi {
       .replaceAll('{ref}', ref);
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -80,7 +60,7 @@ class BeresultexportApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -100,7 +80,7 @@ class BeresultexportApi {
   /// * [String] ref (required):
   ///
   /// * [List<String>] requestBody (required):
-  Future<MultipartFile> exportHealthOne(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
+  Future<MultipartFile?> exportHealthOne(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
     final response = await exportHealthOneWithHttpInfo(fromHcpId, toHcpId, patId, date, ref, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -108,11 +88,11 @@ class BeresultexportApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
-    return Future<MultipartFile>.value();
+    return null;
   }
 
   /// Export data
@@ -134,27 +114,7 @@ class BeresultexportApi {
   /// * [List<String>] requestBody (required):
   ///
   /// * [bool] mimeType:
-  Future<Response> exportKmehrReportWithHttpInfo(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody, { bool mimeType, }) async {
-    // Verify required params are set.
-    if (fromHcpId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: fromHcpId');
-    }
-    if (toHcpId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: toHcpId');
-    }
-    if (patId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: patId');
-    }
-    if (date == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: date');
-    }
-    if (ref == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: ref');
-    }
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
+  Future<Response> exportKmehrReportWithHttpInfo(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody, { bool? mimeType, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_result_export/kmehrreport/{fromHcpId}/{toHcpId}/{patId}/{date}/{ref}'
       .replaceAll('{fromHcpId}', fromHcpId)
@@ -164,14 +124,14 @@ class BeresultexportApi {
       .replaceAll('{ref}', ref);
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (mimeType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'mimeType', mimeType));
+      queryParams.addAll(_queryParams('', 'mimeType', mimeType));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -185,7 +145,7 @@ class BeresultexportApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -207,7 +167,7 @@ class BeresultexportApi {
   /// * [List<String>] requestBody (required):
   ///
   /// * [bool] mimeType:
-  Future<MultipartFile> exportKmehrReport(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody, { bool mimeType, }) async {
+  Future<MultipartFile?> exportKmehrReport(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody, { bool? mimeType, }) async {
     final response = await exportKmehrReportWithHttpInfo(fromHcpId, toHcpId, patId, date, ref, requestBody,  mimeType: mimeType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -215,11 +175,11 @@ class BeresultexportApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
-    return Future<MultipartFile>.value();
+    return null;
   }
 
   /// Export data
@@ -240,26 +200,6 @@ class BeresultexportApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> exportMedidocWithHttpInfo(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
-    // Verify required params are set.
-    if (fromHcpId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: fromHcpId');
-    }
-    if (toHcpId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: toHcpId');
-    }
-    if (patId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: patId');
-    }
-    if (date == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: date');
-    }
-    if (ref == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: ref');
-    }
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_result_export/medidoc/{fromHcpId}/{toHcpId}/{patId}/{date}/{ref}'
       .replaceAll('{fromHcpId}', fromHcpId)
@@ -269,7 +209,7 @@ class BeresultexportApi {
       .replaceAll('{ref}', ref);
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -286,7 +226,7 @@ class BeresultexportApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -306,7 +246,7 @@ class BeresultexportApi {
   /// * [String] ref (required):
   ///
   /// * [List<String>] requestBody (required):
-  Future<MultipartFile> exportMedidoc(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
+  Future<MultipartFile?> exportMedidoc(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
     final response = await exportMedidocWithHttpInfo(fromHcpId, toHcpId, patId, date, ref, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -314,10 +254,10 @@ class BeresultexportApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
-    return Future<MultipartFile>.value();
+    return null;
   }
 }

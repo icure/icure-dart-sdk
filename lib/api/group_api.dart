@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class GroupApi {
-  GroupApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  GroupApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -43,41 +43,27 @@ class GroupApi {
   ///
   /// * [int] n:
   ///   The number of replications for dbs : 3 is a recommended value
-  Future<Response> createGroupWithHttpInfo(String id, String name, String password, DatabaseInitialisationDto databaseInitialisationDto, { String server, int q, int n, }) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-    if (name == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: name');
-    }
-    if (password == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: password');
-    }
-    if (databaseInitialisationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: databaseInitialisationDto');
-    }
-
+  Future<Response> createGroupWithHttpInfo(String id, String name, String password, DatabaseInitialisationDto databaseInitialisationDto, { String? server, int? q, int? n, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody = databaseInitialisationDto;
+    Object? postBody = databaseInitialisationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'name', name));
+      queryParams.addAll(_queryParams('', 'name', name));
     if (server != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'server', server));
+      queryParams.addAll(_queryParams('', 'server', server));
     }
     if (q != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'q', q));
+      queryParams.addAll(_queryParams('', 'q', q));
     }
     if (n != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'n', n));
+      queryParams.addAll(_queryParams('', 'n', n));
     }
 
     headerParams[r'password'] = parameterToString(password);
@@ -93,7 +79,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -123,7 +109,7 @@ class GroupApi {
   ///
   /// * [int] n:
   ///   The number of replications for dbs : 3 is a recommended value
-  Future<GroupDto> createGroup(String id, String name, String password, DatabaseInitialisationDto databaseInitialisationDto, { String server, int q, int n, }) async {
+  Future<GroupDto?> createGroup(String id, String name, String password, DatabaseInitialisationDto databaseInitialisationDto, { String? server, int? q, int? n, }) async {
     final response = await createGroupWithHttpInfo(id, name, password, databaseInitialisationDto,  server: server, q: q, n: n, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -131,11 +117,11 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
     
     }
-    return Future<GroupDto>.value();
+    return null;
   }
 
   /// Get a group by id
@@ -149,17 +135,12 @@ class GroupApi {
   /// * [String] id (required):
   ///   The id of the group
   Future<Response> getGroupWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -176,7 +157,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -189,7 +170,7 @@ class GroupApi {
   ///
   /// * [String] id (required):
   ///   The id of the group
-  Future<GroupDto> getGroup(String id,) async {
+  Future<GroupDto?> getGroup(String id,) async {
     final response = await getGroupWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -197,11 +178,11 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
     
     }
-    return Future<GroupDto>.value();
+    return null;
   }
 
   /// Get index info
@@ -213,17 +194,12 @@ class GroupApi {
   /// * [String] id (required):
   ///   The id of the group
   Future<Response> getReplicationInfo1WithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/{id}/r'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -240,7 +216,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -251,7 +227,7 @@ class GroupApi {
   ///
   /// * [String] id (required):
   ///   The id of the group
-  Future<ReplicationInfoDto> getReplicationInfo1(String id,) async {
+  Future<ReplicationInfoDto?> getReplicationInfo1(String id,) async {
     final response = await getReplicationInfo1WithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -259,11 +235,11 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ReplicationInfoDto',) as ReplicationInfoDto;
     
     }
-    return Future<ReplicationInfoDto>.value();
+    return null;
   }
 
   /// Init design docs
@@ -282,28 +258,23 @@ class GroupApi {
   ///
   /// * [bool] warmup:
   ///   Warmup the design doc
-  Future<Response> initDesignDocsWithHttpInfo(String id, { String clazz, bool warmup, }) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
+  Future<Response> initDesignDocsWithHttpInfo(String id, { String? clazz, bool? warmup, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/{id}/dd'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (clazz != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'clazz', clazz));
+      queryParams.addAll(_queryParams('', 'clazz', clazz));
     }
     if (warmup != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'warmup', warmup));
+      queryParams.addAll(_queryParams('', 'warmup', warmup));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -317,7 +288,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -336,7 +307,7 @@ class GroupApi {
   ///
   /// * [bool] warmup:
   ///   Warmup the design doc
-  Future<Object> initDesignDocs(String id, { String clazz, bool warmup, }) async {
+  Future<Object?> initDesignDocs(String id, { String? clazz, bool? warmup, }) async {
     final response = await initDesignDocsWithHttpInfo(id,  clazz: clazz, warmup: warmup, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -344,11 +315,11 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
     
     }
-    return Future<Object>.value();
+    return null;
   }
 
   /// List groups
@@ -361,7 +332,7 @@ class GroupApi {
     final path = r'/rest/v2/group';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -378,7 +349,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -386,7 +357,7 @@ class GroupApi {
   /// List groups
   ///
   /// List existing groups
-  Future<List<GroupDto>> listGroups() async {
+  Future<List<GroupDto>?> listGroups() async {
     final response = await listGroupsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -394,14 +365,14 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<GroupDto>') as List)
         .cast<GroupDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<GroupDto>>.value();
+    return null;
   }
 
   /// Update group name
@@ -418,21 +389,13 @@ class GroupApi {
   /// * [String] name (required):
   ///   The new name for the group
   Future<Response> modifyGroupNameWithHttpInfo(String id, String name,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-    if (name == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: name');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/{id}/name/{name}'
       .replaceAll('{id}', id)
       .replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -449,7 +412,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -465,7 +428,7 @@ class GroupApi {
   ///
   /// * [String] name (required):
   ///   The new name for the group
-  Future<GroupDto> modifyGroupName(String id, String name,) async {
+  Future<GroupDto?> modifyGroupName(String id, String name,) async {
     final response = await modifyGroupNameWithHttpInfo(id, name,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -473,11 +436,11 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
     
     }
-    return Future<GroupDto>.value();
+    return null;
   }
 
   /// Update group properties
@@ -493,20 +456,12 @@ class GroupApi {
   ///
   /// * [ListOfPropertiesDto] listOfPropertiesDto (required):
   Future<Response> modifyGroupPropertiesWithHttpInfo(String id, ListOfPropertiesDto listOfPropertiesDto,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-    if (listOfPropertiesDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfPropertiesDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/{id}/properties'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody = listOfPropertiesDto;
+    Object? postBody = listOfPropertiesDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -523,7 +478,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -538,7 +493,7 @@ class GroupApi {
   ///   The id of the group
   ///
   /// * [ListOfPropertiesDto] listOfPropertiesDto (required):
-  Future<GroupDto> modifyGroupProperties(String id, ListOfPropertiesDto listOfPropertiesDto,) async {
+  Future<GroupDto?> modifyGroupProperties(String id, ListOfPropertiesDto listOfPropertiesDto,) async {
     final response = await modifyGroupPropertiesWithHttpInfo(id, listOfPropertiesDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -546,11 +501,11 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
     
     }
-    return Future<GroupDto>.value();
+    return null;
   }
 
   /// Create a group
@@ -563,16 +518,11 @@ class GroupApi {
   ///
   /// * [RegistrationInformationDto] registrationInformationDto (required):
   Future<Response> registerNewGroupAdministratorWithHttpInfo(RegistrationInformationDto registrationInformationDto,) async {
-    // Verify required params are set.
-    if (registrationInformationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: registrationInformationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/register/trial';
 
     // ignore: prefer_final_locals
-    Object postBody = registrationInformationDto;
+    Object? postBody = registrationInformationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -589,7 +539,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -601,7 +551,7 @@ class GroupApi {
   /// Parameters:
   ///
   /// * [RegistrationInformationDto] registrationInformationDto (required):
-  Future<RegistrationSuccessDto> registerNewGroupAdministrator(RegistrationInformationDto registrationInformationDto,) async {
+  Future<RegistrationSuccessDto?> registerNewGroupAdministrator(RegistrationInformationDto registrationInformationDto,) async {
     final response = await registerNewGroupAdministratorWithHttpInfo(registrationInformationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -609,11 +559,11 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'RegistrationSuccessDto',) as RegistrationSuccessDto;
     
     }
-    return Future<RegistrationSuccessDto>.value();
+    return null;
   }
 
   /// Reset storage for group
@@ -634,31 +584,23 @@ class GroupApi {
   ///
   /// * [int] n:
   ///   The number of replications for dbs : 3 is a recommended value
-  Future<Response> resetStorageWithHttpInfo(String id, ListOfIdsDto listOfIdsDto, { int q, int n, }) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
+  Future<Response> resetStorageWithHttpInfo(String id, ListOfIdsDto listOfIdsDto, { int? q, int? n, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/{id}/reset/storage'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (q != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'q', q));
+      queryParams.addAll(_queryParams('', 'q', q));
     }
     if (n != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'n', n));
+      queryParams.addAll(_queryParams('', 'n', n));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -672,7 +614,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -693,7 +635,7 @@ class GroupApi {
   ///
   /// * [int] n:
   ///   The number of replications for dbs : 3 is a recommended value
-  Future<Object> resetStorage(String id, ListOfIdsDto listOfIdsDto, { int q, int n, }) async {
+  Future<Object?> resetStorage(String id, ListOfIdsDto listOfIdsDto, { int? q, int? n, }) async {
     final response = await resetStorageWithHttpInfo(id, listOfIdsDto,  q: q, n: n, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -701,11 +643,11 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
     
     }
-    return Future<Object>.value();
+    return null;
   }
 
   /// Set group password
@@ -722,20 +664,12 @@ class GroupApi {
   /// * [String] password (required):
   ///   The new password for the group (can only contain digits, letters, - and _)
   Future<Response> setGroupPasswordWithHttpInfo(String id, String password,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-    if (password == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: password');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/{id}/password'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -754,7 +688,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -770,7 +704,7 @@ class GroupApi {
   ///
   /// * [String] password (required):
   ///   The new password for the group (can only contain digits, letters, - and _)
-  Future<GroupDto> setGroupPassword(String id, String password,) async {
+  Future<GroupDto?> setGroupPassword(String id, String password,) async {
     final response = await setGroupPasswordWithHttpInfo(id, password,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -778,11 +712,11 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
     
     }
-    return Future<GroupDto>.value();
+    return null;
   }
 
   /// Solve conflicts for group
@@ -801,28 +735,23 @@ class GroupApi {
   ///
   /// * [bool] warmup:
   ///   Warmup the design doc
-  Future<Response> solveConflictsWithHttpInfo(String id, { int limit, bool warmup, }) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
+  Future<Response> solveConflictsWithHttpInfo(String id, { int? limit, bool? warmup, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/group/{id}/conflicts'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
     if (warmup != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'warmup', warmup));
+      queryParams.addAll(_queryParams('', 'warmup', warmup));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -836,7 +765,7 @@ class GroupApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -855,7 +784,7 @@ class GroupApi {
   ///
   /// * [bool] warmup:
   ///   Warmup the design doc
-  Future<List<IdWithRevDto>> solveConflicts(String id, { int limit, bool warmup, }) async {
+  Future<List<IdWithRevDto>?> solveConflicts(String id, { int? limit, bool? warmup, }) async {
     final response = await solveConflictsWithHttpInfo(id,  limit: limit, warmup: warmup, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -863,13 +792,13 @@ class GroupApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IdWithRevDto>') as List)
         .cast<IdWithRevDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IdWithRevDto>>.value();
+    return null;
   }
 }

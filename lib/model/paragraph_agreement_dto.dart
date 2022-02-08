@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -37,49 +37,163 @@ class ParagraphAgreementDto {
     this.documentId,
   });
 
-  int timestamp;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? timestamp;
 
-  String paragraph;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? paragraph;
 
-  bool accepted;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? accepted;
 
-  bool inTreatment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? inTreatment;
 
-  bool canceled;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? canceled;
 
-  String careProviderReference;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? careProviderReference;
 
-  String decisionReference;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? decisionReference;
 
-  int start;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? start;
 
-  int end;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? end;
 
-  int cancelationDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? cancelationDate;
 
-  double quantityValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? quantityValue;
 
-  String quantityUnit;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? quantityUnit;
 
-  String ioRequestReference;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ioRequestReference;
 
-  String responseType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? responseType;
 
   Map<String, String> refusalJustification;
 
   Set<int> verses;
 
-  String coverageType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? coverageType;
 
-  double unitNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? unitNumber;
 
-  double strength;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? strength;
 
-  String strengthUnit;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? strengthUnit;
 
   List<AgreementAppendixDto> agreementAppendices;
 
-  String documentId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? documentId;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ParagraphAgreementDto &&
@@ -108,29 +222,29 @@ class ParagraphAgreementDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (timestamp == null ? 0 : timestamp.hashCode) +
-    (paragraph == null ? 0 : paragraph.hashCode) +
-    (accepted == null ? 0 : accepted.hashCode) +
-    (inTreatment == null ? 0 : inTreatment.hashCode) +
-    (canceled == null ? 0 : canceled.hashCode) +
-    (careProviderReference == null ? 0 : careProviderReference.hashCode) +
-    (decisionReference == null ? 0 : decisionReference.hashCode) +
-    (start == null ? 0 : start.hashCode) +
-    (end == null ? 0 : end.hashCode) +
-    (cancelationDate == null ? 0 : cancelationDate.hashCode) +
-    (quantityValue == null ? 0 : quantityValue.hashCode) +
-    (quantityUnit == null ? 0 : quantityUnit.hashCode) +
-    (ioRequestReference == null ? 0 : ioRequestReference.hashCode) +
-    (responseType == null ? 0 : responseType.hashCode) +
-    (refusalJustification == null ? 0 : refusalJustification.hashCode) +
-    (verses == null ? 0 : verses.hashCode) +
-    (coverageType == null ? 0 : coverageType.hashCode) +
-    (unitNumber == null ? 0 : unitNumber.hashCode) +
-    (strength == null ? 0 : strength.hashCode) +
-    (strengthUnit == null ? 0 : strengthUnit.hashCode) +
-    (agreementAppendices == null ? 0 : agreementAppendices.hashCode) +
-    (documentId == null ? 0 : documentId.hashCode);
+    // ignore: unnecessary_parenthesis
+    (timestamp == null ? 0 : timestamp!.hashCode) +
+    (paragraph == null ? 0 : paragraph!.hashCode) +
+    (accepted == null ? 0 : accepted!.hashCode) +
+    (inTreatment == null ? 0 : inTreatment!.hashCode) +
+    (canceled == null ? 0 : canceled!.hashCode) +
+    (careProviderReference == null ? 0 : careProviderReference!.hashCode) +
+    (decisionReference == null ? 0 : decisionReference!.hashCode) +
+    (start == null ? 0 : start!.hashCode) +
+    (end == null ? 0 : end!.hashCode) +
+    (cancelationDate == null ? 0 : cancelationDate!.hashCode) +
+    (quantityValue == null ? 0 : quantityValue!.hashCode) +
+    (quantityUnit == null ? 0 : quantityUnit!.hashCode) +
+    (ioRequestReference == null ? 0 : ioRequestReference!.hashCode) +
+    (responseType == null ? 0 : responseType!.hashCode) +
+    (refusalJustification.hashCode) +
+    (verses.hashCode) +
+    (coverageType == null ? 0 : coverageType!.hashCode) +
+    (unitNumber == null ? 0 : unitNumber!.hashCode) +
+    (strength == null ? 0 : strength!.hashCode) +
+    (strengthUnit == null ? 0 : strengthUnit!.hashCode) +
+    (agreementAppendices.hashCode) +
+    (documentId == null ? 0 : documentId!.hashCode);
 
   @override
   String toString() => 'ParagraphAgreementDto[timestamp=$timestamp, paragraph=$paragraph, accepted=$accepted, inTreatment=$inTreatment, canceled=$canceled, careProviderReference=$careProviderReference, decisionReference=$decisionReference, start=$start, end=$end, cancelationDate=$cancelationDate, quantityValue=$quantityValue, quantityUnit=$quantityUnit, ioRequestReference=$ioRequestReference, responseType=$responseType, refusalJustification=$refusalJustification, verses=$verses, coverageType=$coverageType, unitNumber=$unitNumber, strength=$strength, strengthUnit=$strengthUnit, agreementAppendices=$agreementAppendices, documentId=$documentId]';
@@ -179,12 +293,8 @@ class ParagraphAgreementDto {
     if (responseType != null) {
       json[r'responseType'] = responseType;
     }
-    if (refusalJustification != null) {
       json[r'refusalJustification'] = refusalJustification;
-    }
-    if (verses != null) {
       json[r'verses'] = verses;
-    }
     if (coverageType != null) {
       json[r'coverageType'] = coverageType;
     }
@@ -197,9 +307,7 @@ class ParagraphAgreementDto {
     if (strengthUnit != null) {
       json[r'strengthUnit'] = strengthUnit;
     }
-    if (agreementAppendices != null) {
       json[r'agreementAppendices'] = agreementAppendices;
-    }
     if (documentId != null) {
       json[r'documentId'] = documentId;
     }
@@ -209,9 +317,21 @@ class ParagraphAgreementDto {
   /// Returns a new [ParagraphAgreementDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ParagraphAgreementDto fromJson(dynamic value) {
+  static ParagraphAgreementDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "ParagraphAgreementDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ParagraphAgreementDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return ParagraphAgreementDto(
         timestamp: mapValueOfType<int>(json, r'timestamp'),
         paragraph: mapValueOfType<String>(json, r'paragraph'),
@@ -227,51 +347,65 @@ class ParagraphAgreementDto {
         quantityUnit: mapValueOfType<String>(json, r'quantityUnit'),
         ioRequestReference: mapValueOfType<String>(json, r'ioRequestReference'),
         responseType: mapValueOfType<String>(json, r'responseType'),
-        refusalJustification: mapCastOfType<String, String>(json, r'refusalJustification'),
+        refusalJustification: mapCastOfType<String, String>(json, r'refusalJustification') ?? const {},
         verses: json[r'verses'] is Set
-          ? (json[r'verses'] as Set).cast<int>()
-          : null,
+            ? (json[r'verses'] as Set).cast<int>()
+            : const {},
         coverageType: mapValueOfType<String>(json, r'coverageType'),
         unitNumber: mapValueOfType<double>(json, r'unitNumber'),
         strength: mapValueOfType<double>(json, r'strength'),
         strengthUnit: mapValueOfType<String>(json, r'strengthUnit'),
-        agreementAppendices: AgreementAppendixDto.listFromJson(json[r'agreementAppendices']),
+        agreementAppendices: AgreementAppendixDto.listFromJson(json[r'agreementAppendices']) ?? const [],
         documentId: mapValueOfType<String>(json, r'documentId'),
       );
     }
     return null;
   }
 
-  static List<ParagraphAgreementDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ParagraphAgreementDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ParagraphAgreementDto>[];
+  static List<ParagraphAgreementDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ParagraphAgreementDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = ParagraphAgreementDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, ParagraphAgreementDto> mapFromJson(dynamic json) {
     final map = <String, ParagraphAgreementDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = ParagraphAgreementDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ParagraphAgreementDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of ParagraphAgreementDto-objects as value to a dart map
-  static Map<String, List<ParagraphAgreementDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<ParagraphAgreementDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ParagraphAgreementDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = ParagraphAgreementDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ParagraphAgreementDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

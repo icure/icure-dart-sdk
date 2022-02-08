@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -24,19 +24,61 @@ class FormLayout {
     this.importedServiceXPaths = const [],
   });
 
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
-  double width;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? width;
 
-  double height;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? height;
 
-  String descr;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? descr;
 
-  Tag tag;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Tag? tag;
 
-  String guid;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? guid;
 
-  String group;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? group;
 
   List<FormSection> sections;
 
@@ -56,16 +98,16 @@ class FormLayout {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (name == null ? 0 : name.hashCode) +
-    (width == null ? 0 : width.hashCode) +
-    (height == null ? 0 : height.hashCode) +
-    (descr == null ? 0 : descr.hashCode) +
-    (tag == null ? 0 : tag.hashCode) +
-    (guid == null ? 0 : guid.hashCode) +
-    (group == null ? 0 : group.hashCode) +
-    (sections == null ? 0 : sections.hashCode) +
-    (importedServiceXPaths == null ? 0 : importedServiceXPaths.hashCode);
+    // ignore: unnecessary_parenthesis
+    (name == null ? 0 : name!.hashCode) +
+    (width == null ? 0 : width!.hashCode) +
+    (height == null ? 0 : height!.hashCode) +
+    (descr == null ? 0 : descr!.hashCode) +
+    (tag == null ? 0 : tag!.hashCode) +
+    (guid == null ? 0 : guid!.hashCode) +
+    (group == null ? 0 : group!.hashCode) +
+    (sections.hashCode) +
+    (importedServiceXPaths.hashCode);
 
   @override
   String toString() => 'FormLayout[name=$name, width=$width, height=$height, descr=$descr, tag=$tag, guid=$guid, group=$group, sections=$sections, importedServiceXPaths=$importedServiceXPaths]';
@@ -93,21 +135,29 @@ class FormLayout {
     if (group != null) {
       json[r'group'] = group;
     }
-    if (sections != null) {
       json[r'sections'] = sections;
-    }
-    if (importedServiceXPaths != null) {
       json[r'importedServiceXPaths'] = importedServiceXPaths;
-    }
     return json;
   }
 
   /// Returns a new [FormLayout] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static FormLayout fromJson(dynamic value) {
+  static FormLayout? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "FormLayout[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "FormLayout[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return FormLayout(
         name: mapValueOfType<String>(json, r'name'),
         width: mapValueOfType<double>(json, r'width'),
@@ -116,45 +166,59 @@ class FormLayout {
         tag: Tag.fromJson(json[r'tag']),
         guid: mapValueOfType<String>(json, r'guid'),
         group: mapValueOfType<String>(json, r'group'),
-        sections: FormSection.listFromJson(json[r'sections']),
+        sections: FormSection.listFromJson(json[r'sections']) ?? const [],
         importedServiceXPaths: json[r'importedServiceXPaths'] is List
-          ? (json[r'importedServiceXPaths'] as List).cast<String>()
-          : null,
+            ? (json[r'importedServiceXPaths'] as List).cast<String>()
+            : const [],
       );
     }
     return null;
   }
 
-  static List<FormLayout> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(FormLayout.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <FormLayout>[];
+  static List<FormLayout>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <FormLayout>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = FormLayout.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, FormLayout> mapFromJson(dynamic json) {
     final map = <String, FormLayout>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = FormLayout.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FormLayout.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of FormLayout-objects as value to a dart map
-  static Map<String, List<FormLayout>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<FormLayout>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<FormLayout>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = FormLayout.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FormLayout.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class DeviceApi {
-  DeviceApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  DeviceApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,16 +26,11 @@ class DeviceApi {
   ///
   /// * [DeviceDto] deviceDto (required):
   Future<Response> createDeviceWithHttpInfo(DeviceDto deviceDto,) async {
-    // Verify required params are set.
-    if (deviceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device';
 
     // ignore: prefer_final_locals
-    Object postBody = deviceDto;
+    Object? postBody = deviceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,7 +47,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -64,7 +59,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [DeviceDto] deviceDto (required):
-  Future<DeviceDto> createDevice(DeviceDto deviceDto,) async {
+  Future<DeviceDto?> createDevice(DeviceDto deviceDto,) async {
     final response = await createDeviceWithHttpInfo(deviceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -72,11 +67,11 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeviceDto',) as DeviceDto;
     
     }
-    return Future<DeviceDto>.value();
+    return null;
   }
 
   /// Create devices in bulk
@@ -89,16 +84,11 @@ class DeviceApi {
   ///
   /// * [List<DeviceDto>] deviceDto (required):
   Future<Response> createDevicesWithHttpInfo(List<DeviceDto> deviceDto,) async {
-    // Verify required params are set.
-    if (deviceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = deviceDto;
+    Object? postBody = deviceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -115,7 +105,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -127,7 +117,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [List<DeviceDto>] deviceDto (required):
-  Future<List<IdWithRevDto>> createDevices(List<DeviceDto> deviceDto,) async {
+  Future<List<IdWithRevDto>?> createDevices(List<DeviceDto> deviceDto,) async {
     final response = await createDevicesWithHttpInfo(deviceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -135,14 +125,14 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IdWithRevDto>') as List)
         .cast<IdWithRevDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IdWithRevDto>>.value();
+    return null;
   }
 
   /// Create devices in bulk
@@ -155,16 +145,11 @@ class DeviceApi {
   ///
   /// * [List<DeviceDto>] deviceDto (required):
   Future<Response> createDevices1WithHttpInfo(List<DeviceDto> deviceDto,) async {
-    // Verify required params are set.
-    if (deviceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/bulk';
 
     // ignore: prefer_final_locals
-    Object postBody = deviceDto;
+    Object? postBody = deviceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -181,7 +166,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -193,7 +178,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [List<DeviceDto>] deviceDto (required):
-  Future<List<IdWithRevDto>> createDevices1(List<DeviceDto> deviceDto,) async {
+  Future<List<IdWithRevDto>?> createDevices1(List<DeviceDto> deviceDto,) async {
     final response = await createDevices1WithHttpInfo(deviceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -201,14 +186,14 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IdWithRevDto>') as List)
         .cast<IdWithRevDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IdWithRevDto>>.value();
+    return null;
   }
 
   /// Delete device.
@@ -221,17 +206,12 @@ class DeviceApi {
   ///
   /// * [String] deviceId (required):
   Future<Response> deleteDeviceWithHttpInfo(String deviceId,) async {
-    // Verify required params are set.
-    if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/{deviceId}'
       .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -248,7 +228,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -260,7 +240,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [String] deviceId (required):
-  Future<DocIdentifier> deleteDevice(String deviceId,) async {
+  Future<DocIdentifier?> deleteDevice(String deviceId,) async {
     final response = await deleteDeviceWithHttpInfo(deviceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -268,11 +248,11 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocIdentifier',) as DocIdentifier;
     
     }
-    return Future<DocIdentifier>.value();
+    return null;
   }
 
   /// Delete devices.
@@ -285,16 +265,11 @@ class DeviceApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteDevicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -311,7 +286,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -323,7 +298,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteDevices(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteDevices(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteDevicesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -331,14 +306,14 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Filter devices for the current user (HcParty) 
@@ -356,27 +331,22 @@ class DeviceApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterDevicesByWithHttpInfo(FilterChainDevice filterChainDevice, { String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (filterChainDevice == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: filterChainDevice');
-    }
-
+  Future<Response> filterDevicesByWithHttpInfo(FilterChainDevice filterChainDevice, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/filter';
 
     // ignore: prefer_final_locals
-    Object postBody = filterChainDevice;
+    Object? postBody = filterChainDevice;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -390,7 +360,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -408,7 +378,7 @@ class DeviceApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListDeviceDto> filterDevicesBy(FilterChainDevice filterChainDevice, { String startDocumentId, int limit, }) async {
+  Future<PaginatedListDeviceDto?> filterDevicesBy(FilterChainDevice filterChainDevice, { String? startDocumentId, int? limit, }) async {
     final response = await filterDevicesByWithHttpInfo(filterChainDevice,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -416,11 +386,11 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListDeviceDto',) as PaginatedListDeviceDto;
     
     }
-    return Future<PaginatedListDeviceDto>.value();
+    return null;
   }
 
   /// Get Device
@@ -433,17 +403,12 @@ class DeviceApi {
   ///
   /// * [String] deviceId (required):
   Future<Response> getDeviceWithHttpInfo(String deviceId,) async {
-    // Verify required params are set.
-    if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/{deviceId}'
       .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -460,7 +425,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -472,7 +437,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [String] deviceId (required):
-  Future<DeviceDto> getDevice(String deviceId,) async {
+  Future<DeviceDto?> getDevice(String deviceId,) async {
     final response = await getDeviceWithHttpInfo(deviceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -480,11 +445,11 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeviceDto',) as DeviceDto;
     
     }
-    return Future<DeviceDto>.value();
+    return null;
   }
 
   /// Get devices by id
@@ -497,16 +462,11 @@ class DeviceApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getDevicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/byIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -523,7 +483,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -535,7 +495,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DeviceDto>> getDevices(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DeviceDto>?> getDevices(ListOfIdsDto listOfIdsDto,) async {
     final response = await getDevicesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -543,14 +503,14 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DeviceDto>') as List)
         .cast<DeviceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DeviceDto>>.value();
+    return null;
   }
 
   /// Get ids of devices matching the provided filter for the current user (HcParty) 
@@ -561,16 +521,11 @@ class DeviceApi {
   ///
   /// * [AbstractFilterDtoDevice] abstractFilterDtoDevice (required):
   Future<Response> matchDevicesByWithHttpInfo(AbstractFilterDtoDevice abstractFilterDtoDevice,) async {
-    // Verify required params are set.
-    if (abstractFilterDtoDevice == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: abstractFilterDtoDevice');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/match';
 
     // ignore: prefer_final_locals
-    Object postBody = abstractFilterDtoDevice;
+    Object? postBody = abstractFilterDtoDevice;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -587,7 +542,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -597,7 +552,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoDevice] abstractFilterDtoDevice (required):
-  Future<List<String>> matchDevicesBy(AbstractFilterDtoDevice abstractFilterDtoDevice,) async {
+  Future<List<String>?> matchDevicesBy(AbstractFilterDtoDevice abstractFilterDtoDevice,) async {
     final response = await matchDevicesByWithHttpInfo(abstractFilterDtoDevice,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -605,14 +560,14 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
         .cast<String>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<String>>.value();
+    return null;
   }
 
   /// Modify a device
@@ -625,16 +580,11 @@ class DeviceApi {
   ///
   /// * [DeviceDto] deviceDto (required):
   Future<Response> updateDeviceWithHttpInfo(DeviceDto deviceDto,) async {
-    // Verify required params are set.
-    if (deviceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device';
 
     // ignore: prefer_final_locals
-    Object postBody = deviceDto;
+    Object? postBody = deviceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -651,7 +601,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -663,7 +613,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [DeviceDto] deviceDto (required):
-  Future<DeviceDto> updateDevice(DeviceDto deviceDto,) async {
+  Future<DeviceDto?> updateDevice(DeviceDto deviceDto,) async {
     final response = await updateDeviceWithHttpInfo(deviceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -671,11 +621,11 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeviceDto',) as DeviceDto;
     
     }
-    return Future<DeviceDto>.value();
+    return null;
   }
 
   /// Modify devices in bulk
@@ -688,16 +638,11 @@ class DeviceApi {
   ///
   /// * [List<DeviceDto>] deviceDto (required):
   Future<Response> updateDevicesWithHttpInfo(List<DeviceDto> deviceDto,) async {
-    // Verify required params are set.
-    if (deviceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = deviceDto;
+    Object? postBody = deviceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -714,7 +659,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -726,7 +671,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [List<DeviceDto>] deviceDto (required):
-  Future<List<IdWithRevDto>> updateDevices(List<DeviceDto> deviceDto,) async {
+  Future<List<IdWithRevDto>?> updateDevices(List<DeviceDto> deviceDto,) async {
     final response = await updateDevicesWithHttpInfo(deviceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -734,14 +679,14 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IdWithRevDto>') as List)
         .cast<IdWithRevDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IdWithRevDto>>.value();
+    return null;
   }
 
   /// Modify devices in bulk
@@ -754,16 +699,11 @@ class DeviceApi {
   ///
   /// * [List<DeviceDto>] deviceDto (required):
   Future<Response> updateDevices1WithHttpInfo(List<DeviceDto> deviceDto,) async {
-    // Verify required params are set.
-    if (deviceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/bulk';
 
     // ignore: prefer_final_locals
-    Object postBody = deviceDto;
+    Object? postBody = deviceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -780,7 +720,7 @@ class DeviceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -792,7 +732,7 @@ class DeviceApi {
   /// Parameters:
   ///
   /// * [List<DeviceDto>] deviceDto (required):
-  Future<List<IdWithRevDto>> updateDevices1(List<DeviceDto> deviceDto,) async {
+  Future<List<IdWithRevDto>?> updateDevices1(List<DeviceDto> deviceDto,) async {
     final response = await updateDevices1WithHttpInfo(deviceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -800,13 +740,13 @@ class DeviceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IdWithRevDto>') as List)
         .cast<IdWithRevDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IdWithRevDto>>.value();
+    return null;
   }
 }

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class FormTemplateLayout {
   /// Returns a new [FormTemplateLayout] instance.
   FormTemplateLayout({
-    @required this.form,
+    required this.form,
     this.sections = const [],
     this.description,
     this.keywords = const [],
@@ -23,7 +23,13 @@ class FormTemplateLayout {
 
   List<Section> sections;
 
-  String description;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? description;
 
   List<String> keywords;
 
@@ -36,11 +42,11 @@ class FormTemplateLayout {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (form == null ? 0 : form.hashCode) +
-    (sections == null ? 0 : sections.hashCode) +
-    (description == null ? 0 : description.hashCode) +
-    (keywords == null ? 0 : keywords.hashCode);
+    // ignore: unnecessary_parenthesis
+    (form.hashCode) +
+    (sections.hashCode) +
+    (description == null ? 0 : description!.hashCode) +
+    (keywords.hashCode);
 
   @override
   String toString() => 'FormTemplateLayout[form=$form, sections=$sections, description=$description, keywords=$keywords]';
@@ -52,60 +58,86 @@ class FormTemplateLayout {
     if (description != null) {
       json[r'description'] = description;
     }
-    if (keywords != null) {
       json[r'keywords'] = keywords;
-    }
     return json;
   }
 
   /// Returns a new [FormTemplateLayout] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static FormTemplateLayout fromJson(dynamic value) {
+  static FormTemplateLayout? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "FormTemplateLayout[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "FormTemplateLayout[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return FormTemplateLayout(
-        form: mapValueOfType<String>(json, r'form'),
-        sections: Section.listFromJson(json[r'sections']),
+        form: mapValueOfType<String>(json, r'form')!,
+        sections: Section.listFromJson(json[r'sections'])!,
         description: mapValueOfType<String>(json, r'description'),
         keywords: json[r'keywords'] is List
-          ? (json[r'keywords'] as List).cast<String>()
-          : null,
+            ? (json[r'keywords'] as List).cast<String>()
+            : const [],
       );
     }
     return null;
   }
 
-  static List<FormTemplateLayout> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(FormTemplateLayout.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <FormTemplateLayout>[];
+  static List<FormTemplateLayout>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <FormTemplateLayout>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = FormTemplateLayout.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, FormTemplateLayout> mapFromJson(dynamic json) {
     final map = <String, FormTemplateLayout>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = FormTemplateLayout.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FormTemplateLayout.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of FormTemplateLayout-objects as value to a dart map
-  static Map<String, List<FormTemplateLayout>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<FormTemplateLayout>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<FormTemplateLayout>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = FormTemplateLayout.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FormTemplateLayout.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'form',
+    'sections',
+  };
 }
 

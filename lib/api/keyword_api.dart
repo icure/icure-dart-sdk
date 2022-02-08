@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class KeywordApi {
-  KeywordApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  KeywordApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,16 +26,11 @@ class KeywordApi {
   ///
   /// * [KeywordDto] keywordDto (required):
   Future<Response> createKeywordWithHttpInfo(KeywordDto keywordDto,) async {
-    // Verify required params are set.
-    if (keywordDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: keywordDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/keyword';
 
     // ignore: prefer_final_locals
-    Object postBody = keywordDto;
+    Object? postBody = keywordDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,7 +47,7 @@ class KeywordApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -64,7 +59,7 @@ class KeywordApi {
   /// Parameters:
   ///
   /// * [KeywordDto] keywordDto (required):
-  Future<KeywordDto> createKeyword(KeywordDto keywordDto,) async {
+  Future<KeywordDto?> createKeyword(KeywordDto keywordDto,) async {
     final response = await createKeywordWithHttpInfo(keywordDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -72,11 +67,11 @@ class KeywordApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'KeywordDto',) as KeywordDto;
     
     }
-    return Future<KeywordDto>.value();
+    return null;
   }
 
   /// Delete keywords.
@@ -89,16 +84,11 @@ class KeywordApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteKeywordsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/keyword/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -115,7 +105,7 @@ class KeywordApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -127,7 +117,7 @@ class KeywordApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteKeywords(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteKeywords(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteKeywordsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -135,14 +125,14 @@ class KeywordApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Get a keyword
@@ -153,17 +143,12 @@ class KeywordApi {
   ///
   /// * [String] keywordId (required):
   Future<Response> getKeywordWithHttpInfo(String keywordId,) async {
-    // Verify required params are set.
-    if (keywordId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: keywordId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/keyword/{keywordId}'
       .replaceAll('{keywordId}', keywordId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -180,7 +165,7 @@ class KeywordApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -190,7 +175,7 @@ class KeywordApi {
   /// Parameters:
   ///
   /// * [String] keywordId (required):
-  Future<KeywordDto> getKeyword(String keywordId,) async {
+  Future<KeywordDto?> getKeyword(String keywordId,) async {
     final response = await getKeywordWithHttpInfo(keywordId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -198,11 +183,11 @@ class KeywordApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'KeywordDto',) as KeywordDto;
     
     }
-    return Future<KeywordDto>.value();
+    return null;
   }
 
   /// Gets all keywords
@@ -213,7 +198,7 @@ class KeywordApi {
     final path = r'/rest/v2/keyword';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -230,13 +215,13 @@ class KeywordApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Gets all keywords
-  Future<List<KeywordDto>> getKeywords() async {
+  Future<List<KeywordDto>?> getKeywords() async {
     final response = await getKeywordsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -244,14 +229,14 @@ class KeywordApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<KeywordDto>') as List)
         .cast<KeywordDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<KeywordDto>>.value();
+    return null;
   }
 
   /// Get keywords by user
@@ -262,17 +247,12 @@ class KeywordApi {
   ///
   /// * [String] userId (required):
   Future<Response> getKeywordsByUserWithHttpInfo(String userId,) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/keyword/byUser/{userId}'
       .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -289,7 +269,7 @@ class KeywordApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -299,7 +279,7 @@ class KeywordApi {
   /// Parameters:
   ///
   /// * [String] userId (required):
-  Future<List<KeywordDto>> getKeywordsByUser(String userId,) async {
+  Future<List<KeywordDto>?> getKeywordsByUser(String userId,) async {
     final response = await getKeywordsByUserWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -307,14 +287,14 @@ class KeywordApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<KeywordDto>') as List)
         .cast<KeywordDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<KeywordDto>>.value();
+    return null;
   }
 
   /// Modify a keyword
@@ -327,16 +307,11 @@ class KeywordApi {
   ///
   /// * [KeywordDto] keywordDto (required):
   Future<Response> modifyKeywordWithHttpInfo(KeywordDto keywordDto,) async {
-    // Verify required params are set.
-    if (keywordDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: keywordDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/keyword';
 
     // ignore: prefer_final_locals
-    Object postBody = keywordDto;
+    Object? postBody = keywordDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -353,7 +328,7 @@ class KeywordApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -365,7 +340,7 @@ class KeywordApi {
   /// Parameters:
   ///
   /// * [KeywordDto] keywordDto (required):
-  Future<KeywordDto> modifyKeyword(KeywordDto keywordDto,) async {
+  Future<KeywordDto?> modifyKeyword(KeywordDto keywordDto,) async {
     final response = await modifyKeywordWithHttpInfo(keywordDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -373,10 +348,10 @@ class KeywordApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'KeywordDto',) as KeywordDto;
     
     }
-    return Future<KeywordDto>.value();
+    return null;
   }
 }

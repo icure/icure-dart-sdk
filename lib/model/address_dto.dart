@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -28,40 +28,100 @@ class AddressDto {
   });
 
   /// The type of place the address represents, ex: home, office, hospital, clinic, etc. 
-  AddressDtoAddressTypeEnum addressType;
+  AddressDtoAddressTypeEnum? addressType;
 
   /// Descriptive notes about the address
-  String descr;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? descr;
 
   /// Street name
-  String street;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? street;
 
   /// Building / house number
-  String houseNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? houseNumber;
 
   /// Post / PO box number
-  String postboxNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? postboxNumber;
 
   /// Postal/PIN/ZIP/Area code
-  String postalCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? postalCode;
 
   /// Name of city in the address
-  String city;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? city;
 
   /// Name of state in the Address
-  String state;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? state;
 
   /// Name / code of country in the address
-  String country;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? country;
 
   /// Additional notes
-  String note;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? note;
 
   /// List of other contact details available through telecom services, ex: email, phone number, fax, etc.
   List<TelecomDto> telecoms;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AddressDto &&
@@ -80,19 +140,19 @@ class AddressDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (addressType == null ? 0 : addressType.hashCode) +
-    (descr == null ? 0 : descr.hashCode) +
-    (street == null ? 0 : street.hashCode) +
-    (houseNumber == null ? 0 : houseNumber.hashCode) +
-    (postboxNumber == null ? 0 : postboxNumber.hashCode) +
-    (postalCode == null ? 0 : postalCode.hashCode) +
-    (city == null ? 0 : city.hashCode) +
-    (state == null ? 0 : state.hashCode) +
-    (country == null ? 0 : country.hashCode) +
-    (note == null ? 0 : note.hashCode) +
-    (telecoms == null ? 0 : telecoms.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode);
+    // ignore: unnecessary_parenthesis
+    (addressType == null ? 0 : addressType!.hashCode) +
+    (descr == null ? 0 : descr!.hashCode) +
+    (street == null ? 0 : street!.hashCode) +
+    (houseNumber == null ? 0 : houseNumber!.hashCode) +
+    (postboxNumber == null ? 0 : postboxNumber!.hashCode) +
+    (postalCode == null ? 0 : postalCode!.hashCode) +
+    (city == null ? 0 : city!.hashCode) +
+    (state == null ? 0 : state!.hashCode) +
+    (country == null ? 0 : country!.hashCode) +
+    (note == null ? 0 : note!.hashCode) +
+    (telecoms.hashCode) +
+    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'AddressDto[addressType=$addressType, descr=$descr, street=$street, houseNumber=$houseNumber, postboxNumber=$postboxNumber, postalCode=$postalCode, city=$city, state=$state, country=$country, note=$note, telecoms=$telecoms, encryptedSelf=$encryptedSelf]';
@@ -139,9 +199,21 @@ class AddressDto {
   /// Returns a new [AddressDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AddressDto fromJson(dynamic value) {
+  static AddressDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "AddressDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AddressDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return AddressDto(
         addressType: AddressDtoAddressTypeEnum.fromJson(json[r'addressType']),
         descr: mapValueOfType<String>(json, r'descr'),
@@ -153,44 +225,59 @@ class AddressDto {
         state: mapValueOfType<String>(json, r'state'),
         country: mapValueOfType<String>(json, r'country'),
         note: mapValueOfType<String>(json, r'note'),
-        telecoms: TelecomDto.listFromJson(json[r'telecoms']),
+        telecoms: TelecomDto.listFromJson(json[r'telecoms'])!,
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<AddressDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AddressDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AddressDto>[];
+  static List<AddressDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AddressDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AddressDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, AddressDto> mapFromJson(dynamic json) {
     final map = <String, AddressDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = AddressDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AddressDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of AddressDto-objects as value to a dart map
-  static Map<String, List<AddressDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<AddressDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<AddressDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = AddressDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AddressDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'telecoms',
+  };
 }
 
 /// The type of place the address represents, ex: home, office, hospital, clinic, etc. 
@@ -202,7 +289,7 @@ class AddressDtoAddressTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -233,13 +320,20 @@ class AddressDtoAddressTypeEnum {
     reference,
   ];
 
-  static AddressDtoAddressTypeEnum fromJson(dynamic value) =>
-    AddressDtoAddressTypeEnumTypeTransformer().decode(value);
+  static AddressDtoAddressTypeEnum? fromJson(dynamic value) => AddressDtoAddressTypeEnumTypeTransformer().decode(value);
 
-  static List<AddressDtoAddressTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AddressDtoAddressTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AddressDtoAddressTypeEnum>[];
+  static List<AddressDtoAddressTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AddressDtoAddressTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AddressDtoAddressTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [AddressDtoAddressTypeEnum] to String,
@@ -259,7 +353,7 @@ class AddressDtoAddressTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  AddressDtoAddressTypeEnum decode(dynamic data, {bool allowNull}) {
+  AddressDtoAddressTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'home': return AddressDtoAddressTypeEnum.home;
@@ -274,7 +368,7 @@ class AddressDtoAddressTypeEnumTypeTransformer {
         case r'diplomatic': return AddressDtoAddressTypeEnum.diplomatic;
         case r'reference': return AddressDtoAddressTypeEnum.reference;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -283,7 +377,7 @@ class AddressDtoAddressTypeEnumTypeTransformer {
   }
 
   /// Singleton [AddressDtoAddressTypeEnumTypeTransformer] instance.
-  static AddressDtoAddressTypeEnumTypeTransformer _instance;
+  static AddressDtoAddressTypeEnumTypeTransformer? _instance;
 }
 
 

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,11 +18,29 @@ class AdministrationQuantity {
     this.unit,
   });
 
-  double quantity;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? quantity;
 
-  CodeStubDto administrationUnit;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CodeStubDto? administrationUnit;
 
-  String unit;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? unit;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AdministrationQuantity &&
@@ -32,10 +50,10 @@ class AdministrationQuantity {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (quantity == null ? 0 : quantity.hashCode) +
-    (administrationUnit == null ? 0 : administrationUnit.hashCode) +
-    (unit == null ? 0 : unit.hashCode);
+    // ignore: unnecessary_parenthesis
+    (quantity == null ? 0 : quantity!.hashCode) +
+    (administrationUnit == null ? 0 : administrationUnit!.hashCode) +
+    (unit == null ? 0 : unit!.hashCode);
 
   @override
   String toString() => 'AdministrationQuantity[quantity=$quantity, administrationUnit=$administrationUnit, unit=$unit]';
@@ -57,9 +75,21 @@ class AdministrationQuantity {
   /// Returns a new [AdministrationQuantity] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AdministrationQuantity fromJson(dynamic value) {
+  static AdministrationQuantity? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "AdministrationQuantity[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AdministrationQuantity[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return AdministrationQuantity(
         quantity: mapValueOfType<double>(json, r'quantity'),
         administrationUnit: CodeStubDto.fromJson(json[r'administrationUnit']),
@@ -69,36 +99,50 @@ class AdministrationQuantity {
     return null;
   }
 
-  static List<AdministrationQuantity> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AdministrationQuantity.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AdministrationQuantity>[];
+  static List<AdministrationQuantity>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AdministrationQuantity>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AdministrationQuantity.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, AdministrationQuantity> mapFromJson(dynamic json) {
     final map = <String, AdministrationQuantity>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = AdministrationQuantity.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AdministrationQuantity.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of AdministrationQuantity-objects as value to a dart map
-  static Map<String, List<AdministrationQuantity>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<AdministrationQuantity>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<AdministrationQuantity>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = AdministrationQuantity.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AdministrationQuantity.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class IcureApi {
-  IcureApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  IcureApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -24,7 +24,7 @@ class IcureApi {
     final path = r'/rest/v2/icure/i';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -41,13 +41,13 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Get index info
-  Future<IndexingInfoDto> getIndexingInfo() async {
+  Future<IndexingInfoDto?> getIndexingInfo() async {
     final response = await getIndexingInfoWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -55,11 +55,11 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'IndexingInfoDto',) as IndexingInfoDto;
     
     }
-    return Future<IndexingInfoDto>.value();
+    return null;
   }
 
   /// Get process info
@@ -70,7 +70,7 @@ class IcureApi {
     final path = r'/rest/v2/icure/p';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -87,13 +87,13 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Get process info
-  Future<String> getProcessInfo() async {
+  Future<String?> getProcessInfo() async {
     final response = await getProcessInfoWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -101,11 +101,11 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
     
     }
-    return Future<String>.value();
+    return null;
   }
 
   /// Get replication info
@@ -116,7 +116,7 @@ class IcureApi {
     final path = r'/rest/v2/icure/r';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -133,13 +133,13 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Get replication info
-  Future<ReplicationInfoDto> getReplicationInfo() async {
+  Future<ReplicationInfoDto?> getReplicationInfo() async {
     final response = await getReplicationInfoWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -147,11 +147,11 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ReplicationInfoDto',) as ReplicationInfoDto;
     
     }
-    return Future<ReplicationInfoDto>.value();
+    return null;
   }
 
   /// Get replication info
@@ -162,17 +162,12 @@ class IcureApi {
   ///
   /// * [String] id (required):
   Future<Response> getReplicatorInfoWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/icure/r/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -189,7 +184,7 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -199,7 +194,7 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<ReplicatorDocument> getReplicatorInfo(String id,) async {
+  Future<ReplicatorDocument?> getReplicatorInfo(String id,) async {
     final response = await getReplicatorInfoWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -207,11 +202,11 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ReplicatorDocument',) as ReplicatorDocument;
     
     }
-    return Future<ReplicatorDocument>.value();
+    return null;
   }
 
   /// Get version
@@ -222,7 +217,7 @@ class IcureApi {
     final path = r'/rest/v2/icure/v';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -239,13 +234,13 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Get version
-  Future<String> getVersion() async {
+  Future<String?> getVersion() async {
     final response = await getVersionWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -253,11 +248,11 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
     
     }
-    return Future<String>.value();
+    return null;
   }
 
   /// Check if a user exists
@@ -268,7 +263,7 @@ class IcureApi {
     final path = r'/rest/v2/icure/ok';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -285,13 +280,13 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Check if a user exists
-  Future<String> isReady() async {
+  Future<String?> isReady() async {
     final response = await isReadyWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -299,11 +294,11 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
     
     }
-    return Future<String>.value();
+    return null;
   }
 
   /// Resolve contacts conflicts
@@ -313,21 +308,19 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<Response> resolveContactsConflictsWithHttpInfo({ int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> resolveContactsConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/icure/conflicts/contact';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -341,7 +334,7 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -351,7 +344,7 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<List<ContactDto>> resolveContactsConflicts({ int limit, }) async {
+  Future<List<ContactDto>?> resolveContactsConflicts({ int? limit, }) async {
     final response = await resolveContactsConflictsWithHttpInfo( limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -359,14 +352,14 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
         .cast<ContactDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ContactDto>>.value();
+    return null;
   }
 
   /// resolve documents conflicts
@@ -378,24 +371,22 @@ class IcureApi {
   /// * [String] ids:
   ///
   /// * [int] limit:
-  Future<Response> resolveDocumentsConflictsWithHttpInfo({ String ids, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> resolveDocumentsConflictsWithHttpInfo({ String? ids, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/icure/conflicts/document';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (ids != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'ids', ids));
+      queryParams.addAll(_queryParams('', 'ids', ids));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -409,7 +400,7 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -421,7 +412,7 @@ class IcureApi {
   /// * [String] ids:
   ///
   /// * [int] limit:
-  Future<List<DocumentDto>> resolveDocumentsConflicts({ String ids, int limit, }) async {
+  Future<List<DocumentDto>?> resolveDocumentsConflicts({ String? ids, int? limit, }) async {
     final response = await resolveDocumentsConflictsWithHttpInfo( ids: ids, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -429,14 +420,14 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// resolve forms conflicts
@@ -446,21 +437,19 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<Response> resolveFormsConflictsWithHttpInfo({ int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> resolveFormsConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/icure/conflicts/form';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -474,7 +463,7 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -484,7 +473,7 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<List<FormDto>> resolveFormsConflicts({ int limit, }) async {
+  Future<List<FormDto>?> resolveFormsConflicts({ int? limit, }) async {
     final response = await resolveFormsConflictsWithHttpInfo( limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -492,14 +481,14 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<FormDto>') as List)
         .cast<FormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<FormDto>>.value();
+    return null;
   }
 
   /// resolve healthcare elements conflicts
@@ -509,21 +498,19 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<Response> resolveHealthElementsConflictsWithHttpInfo({ int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> resolveHealthElementsConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/icure/conflicts/healthelement';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -537,7 +524,7 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -547,7 +534,7 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<List<HealthElementDto>> resolveHealthElementsConflicts({ int limit, }) async {
+  Future<List<HealthElementDto>?> resolveHealthElementsConflicts({ int? limit, }) async {
     final response = await resolveHealthElementsConflictsWithHttpInfo( limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -555,14 +542,14 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<HealthElementDto>') as List)
         .cast<HealthElementDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<HealthElementDto>>.value();
+    return null;
   }
 
   /// resolve invoices conflicts
@@ -572,21 +559,19 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<Response> resolveInvoicesConflictsWithHttpInfo({ int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> resolveInvoicesConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/icure/conflicts/invoice';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -600,7 +585,7 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -610,7 +595,7 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<List<InvoiceDto>> resolveInvoicesConflicts({ int limit, }) async {
+  Future<List<InvoiceDto>?> resolveInvoicesConflicts({ int? limit, }) async {
     final response = await resolveInvoicesConflictsWithHttpInfo( limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -618,14 +603,14 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// resolve messages conflicts
@@ -635,21 +620,19 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<Response> resolveMessagesConflictsWithHttpInfo({ int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> resolveMessagesConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/icure/conflicts/message';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -663,7 +646,7 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -673,7 +656,7 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<List<MessageDto>> resolveMessagesConflicts({ int limit, }) async {
+  Future<List<MessageDto>?> resolveMessagesConflicts({ int? limit, }) async {
     final response = await resolveMessagesConflictsWithHttpInfo( limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -681,14 +664,14 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<MessageDto>') as List)
         .cast<MessageDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<MessageDto>>.value();
+    return null;
   }
 
   /// Resolve patients conflicts
@@ -698,21 +681,19 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<Response> resolvePatientsConflictsWithHttpInfo({ int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> resolvePatientsConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/icure/conflicts/patient';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -726,7 +707,7 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -736,7 +717,7 @@ class IcureApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<List<PatientDto>> resolvePatientsConflicts({ int limit, }) async {
+  Future<List<PatientDto>?> resolvePatientsConflicts({ int? limit, }) async {
     final response = await resolvePatientsConflictsWithHttpInfo( limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -744,14 +725,14 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PatientDto>') as List)
         .cast<PatientDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<PatientDto>>.value();
+    return null;
   }
 
   /// Force update design doc
@@ -763,25 +744,20 @@ class IcureApi {
   /// * [String] entityName (required):
   ///
   /// * [bool] warmup:
-  Future<Response> updateDesignDocWithHttpInfo(String entityName, { bool warmup, }) async {
-    // Verify required params are set.
-    if (entityName == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: entityName');
-    }
-
+  Future<Response> updateDesignDocWithHttpInfo(String entityName, { bool? warmup, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/icure/dd/{entityName}'
       .replaceAll('{entityName}', entityName);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (warmup != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'warmup', warmup));
+      queryParams.addAll(_queryParams('', 'warmup', warmup));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -795,7 +771,7 @@ class IcureApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -807,7 +783,7 @@ class IcureApi {
   /// * [String] entityName (required):
   ///
   /// * [bool] warmup:
-  Future<bool> updateDesignDoc(String entityName, { bool warmup, }) async {
+  Future<bool?> updateDesignDoc(String entityName, { bool? warmup, }) async {
     final response = await updateDesignDocWithHttpInfo(entityName,  warmup: warmup, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -815,10 +791,10 @@ class IcureApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
     
     }
-    return Future<bool>.value();
+    return null;
   }
 }

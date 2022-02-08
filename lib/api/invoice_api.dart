@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class InvoiceApi {
-  InvoiceApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  InvoiceApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -37,24 +37,7 @@ class InvoiceApi {
   /// * [String] invoiceId:
   ///
   /// * [int] gracePeriod:
-  Future<Response> appendCodesWithHttpInfo(String userId, String type, String sentMediumType, String secretFKeys, List<InvoicingCodeDto> invoicingCodeDto, { String insuranceId, String invoiceId, int gracePeriod, }) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-    if (type == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: type');
-    }
-    if (sentMediumType == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: sentMediumType');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-    if (invoicingCodeDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoicingCodeDto');
-    }
-
+  Future<Response> appendCodesWithHttpInfo(String userId, String type, String sentMediumType, String secretFKeys, List<InvoicingCodeDto> invoicingCodeDto, { String? insuranceId, String? invoiceId, int? gracePeriod, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byauthor/{userId}/append/{type}/{sentMediumType}'
       .replaceAll('{userId}', userId)
@@ -62,21 +45,21 @@ class InvoiceApi {
       .replaceAll('{sentMediumType}', sentMediumType);
 
     // ignore: prefer_final_locals
-    Object postBody = invoicingCodeDto;
+    Object? postBody = invoicingCodeDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
     if (insuranceId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'insuranceId', insuranceId));
+      queryParams.addAll(_queryParams('', 'insuranceId', insuranceId));
     }
     if (invoiceId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'invoiceId', invoiceId));
+      queryParams.addAll(_queryParams('', 'invoiceId', invoiceId));
     }
     if (gracePeriod != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'gracePeriod', gracePeriod));
+      queryParams.addAll(_queryParams('', 'gracePeriod', gracePeriod));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -90,7 +73,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -114,7 +97,7 @@ class InvoiceApi {
   /// * [String] invoiceId:
   ///
   /// * [int] gracePeriod:
-  Future<List<InvoiceDto>> appendCodes(String userId, String type, String sentMediumType, String secretFKeys, List<InvoicingCodeDto> invoicingCodeDto, { String insuranceId, String invoiceId, int gracePeriod, }) async {
+  Future<List<InvoiceDto>?> appendCodes(String userId, String type, String sentMediumType, String secretFKeys, List<InvoicingCodeDto> invoicingCodeDto, { String? insuranceId, String? invoiceId, int? gracePeriod, }) async {
     final response = await appendCodesWithHttpInfo(userId, type, sentMediumType, secretFKeys, invoicingCodeDto,  insuranceId: insuranceId, invoiceId: invoiceId, gracePeriod: gracePeriod, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -122,14 +105,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Creates an invoice
@@ -140,16 +123,11 @@ class InvoiceApi {
   ///
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> createInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
-    // Verify required params are set.
-    if (invoiceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice';
 
     // ignore: prefer_final_locals
-    Object postBody = invoiceDto;
+    Object? postBody = invoiceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -166,7 +144,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -176,7 +154,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<InvoiceDto> createInvoice(InvoiceDto invoiceDto,) async {
+  Future<InvoiceDto?> createInvoice(InvoiceDto invoiceDto,) async {
     final response = await createInvoiceWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -184,11 +162,11 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 
   /// Create a batch of invoices
@@ -201,16 +179,11 @@ class InvoiceApi {
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
   Future<Response> createInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
-    // Verify required params are set.
-    if (invoiceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = invoiceDto;
+    Object? postBody = invoiceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -227,7 +200,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -239,7 +212,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
-  Future<List<InvoiceDto>> createInvoices(List<InvoiceDto> invoiceDto,) async {
+  Future<List<InvoiceDto>?> createInvoices(List<InvoiceDto> invoiceDto,) async {
     final response = await createInvoicesWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -247,14 +220,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Deletes an invoice
@@ -265,17 +238,12 @@ class InvoiceApi {
   ///
   /// * [String] invoiceId (required):
   Future<Response> deleteInvoiceWithHttpInfo(String invoiceId,) async {
-    // Verify required params are set.
-    if (invoiceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/{invoiceId}'
       .replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -292,7 +260,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -302,7 +270,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] invoiceId (required):
-  Future<DocIdentifier> deleteInvoice(String invoiceId,) async {
+  Future<DocIdentifier?> deleteInvoice(String invoiceId,) async {
     final response = await deleteInvoiceWithHttpInfo(invoiceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -310,11 +278,11 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocIdentifier',) as DocIdentifier;
     
     }
-    return Future<DocIdentifier>.value();
+    return null;
   }
 
   /// Filter invoices for the current user (HcParty)
@@ -327,16 +295,11 @@ class InvoiceApi {
   ///
   /// * [FilterChainInvoice] filterChainInvoice (required):
   Future<Response> filterInvoicesByWithHttpInfo(FilterChainInvoice filterChainInvoice,) async {
-    // Verify required params are set.
-    if (filterChainInvoice == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: filterChainInvoice');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/filter';
 
     // ignore: prefer_final_locals
-    Object postBody = filterChainInvoice;
+    Object? postBody = filterChainInvoice;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -353,7 +316,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -365,7 +328,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [FilterChainInvoice] filterChainInvoice (required):
-  Future<List<InvoiceDto>> filterInvoicesBy(FilterChainInvoice filterChainInvoice,) async {
+  Future<List<InvoiceDto>?> filterInvoicesBy(FilterChainInvoice filterChainInvoice,) async {
     final response = await filterInvoicesByWithHttpInfo(filterChainInvoice,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -373,14 +336,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -403,37 +366,32 @@ class InvoiceApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findInvoicesByAuthorWithHttpInfo(String hcPartyId, { int fromDate, int toDate, String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-
+  Future<Response> findInvoicesByAuthorWithHttpInfo(String hcPartyId, { int? fromDate, int? toDate, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byauthor/{hcPartyId}'
       .replaceAll('{hcPartyId}', hcPartyId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (fromDate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'fromDate', fromDate));
+      queryParams.addAll(_queryParams('', 'fromDate', fromDate));
     }
     if (toDate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'toDate', toDate));
+      queryParams.addAll(_queryParams('', 'toDate', toDate));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -447,7 +405,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -470,7 +428,7 @@ class InvoiceApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListInvoiceDto> findInvoicesByAuthor(String hcPartyId, { int fromDate, int toDate, String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListInvoiceDto?> findInvoicesByAuthor(String hcPartyId, { int? fromDate, int? toDate, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findInvoicesByAuthorWithHttpInfo(hcPartyId,  fromDate: fromDate, toDate: toDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -478,11 +436,11 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListInvoiceDto',) as PaginatedListInvoiceDto;
     
     }
-    return Future<PaginatedListInvoiceDto>.value();
+    return null;
   }
 
   /// Gets an invoice
@@ -493,17 +451,12 @@ class InvoiceApi {
   ///
   /// * [String] invoiceId (required):
   Future<Response> getInvoiceWithHttpInfo(String invoiceId,) async {
-    // Verify required params are set.
-    if (invoiceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/{invoiceId}'
       .replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -520,7 +473,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -530,7 +483,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] invoiceId (required):
-  Future<InvoiceDto> getInvoice(String invoiceId,) async {
+  Future<InvoiceDto?> getInvoice(String invoiceId,) async {
     final response = await getInvoiceWithHttpInfo(invoiceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -538,11 +491,11 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 
   /// Gets an invoice
@@ -553,16 +506,11 @@ class InvoiceApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getInvoicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -579,7 +527,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -589,7 +537,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<InvoiceDto>> getInvoices(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<InvoiceDto>?> getInvoices(ListOfIdsDto listOfIdsDto,) async {
     final response = await getInvoicesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -597,14 +545,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Get the list of all used tarifications frequencies in invoices
@@ -615,17 +563,12 @@ class InvoiceApi {
   ///
   /// * [int] minOccurences (required):
   Future<Response> getTarificationsCodesOccurencesWithHttpInfo(int minOccurences,) async {
-    // Verify required params are set.
-    if (minOccurences == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: minOccurences');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/codes/{minOccurences}'
       .replaceAll('{minOccurences}', minOccurences.toString());
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -642,7 +585,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -652,7 +595,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [int] minOccurences (required):
-  Future<List<LabelledOccurenceDto>> getTarificationsCodesOccurences(int minOccurences,) async {
+  Future<List<LabelledOccurenceDto>?> getTarificationsCodesOccurences(int minOccurences,) async {
     final response = await getTarificationsCodesOccurencesWithHttpInfo(minOccurences,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -660,14 +603,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<LabelledOccurenceDto>') as List)
         .cast<LabelledOccurenceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<LabelledOccurenceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices per status
@@ -683,31 +626,23 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<Response> listAllHcpsByStatusWithHttpInfo(String status, ListOfIdsDto listOfIdsDto, { int from, int to, }) async {
-    // Verify required params are set.
-    if (status == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: status');
-    }
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
+  Future<Response> listAllHcpsByStatusWithHttpInfo(String status, ListOfIdsDto listOfIdsDto, { int? from, int? to, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/allHcpsByStatus/{status}'
       .replaceAll('{status}', status);
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (from != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'from', from));
+      queryParams.addAll(_queryParams('', 'from', from));
     }
     if (to != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'to', to));
+      queryParams.addAll(_queryParams('', 'to', to));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -721,7 +656,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -737,7 +672,7 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<List<InvoiceDto>> listAllHcpsByStatus(String status, ListOfIdsDto listOfIdsDto, { int from, int to, }) async {
+  Future<List<InvoiceDto>?> listAllHcpsByStatus(String status, ListOfIdsDto listOfIdsDto, { int? from, int? to, }) async {
     final response = await listAllHcpsByStatusWithHttpInfo(status, listOfIdsDto,  from: from, to: to, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -745,14 +680,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -763,16 +698,11 @@ class InvoiceApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listInvoicesByContactIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byContacts';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -789,7 +719,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -799,7 +729,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<InvoiceDto>> listInvoicesByContactIds(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<InvoiceDto>?> listInvoicesByContactIds(ListOfIdsDto listOfIdsDto,) async {
     final response = await listInvoicesByContactIdsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -807,14 +737,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// List invoices found By Healthcare Party and secret foreign patient keys.
@@ -829,26 +759,18 @@ class InvoiceApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> listInvoicesByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -861,7 +783,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -875,7 +797,7 @@ class InvoiceApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<InvoiceDto>> listInvoicesByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<InvoiceDto>?> listInvoicesByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await listInvoicesByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -883,14 +805,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// List invoices by groupId
@@ -905,21 +827,13 @@ class InvoiceApi {
   ///
   /// * [String] groupId (required):
   Future<Response> listInvoicesByHcPartyAndGroupIdWithHttpInfo(String hcPartyId, String groupId,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (groupId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: groupId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcPartyGroupId/{hcPartyId}/{groupId}'
       .replaceAll('{hcPartyId}', hcPartyId)
       .replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -936,7 +850,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -950,7 +864,7 @@ class InvoiceApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] groupId (required):
-  Future<List<InvoiceDto>> listInvoicesByHcPartyAndGroupId(String hcPartyId, String groupId,) async {
+  Future<List<InvoiceDto>?> listInvoicesByHcPartyAndGroupId(String hcPartyId, String groupId,) async {
     final response = await listInvoicesByHcPartyAndGroupIdWithHttpInfo(hcPartyId, groupId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -958,14 +872,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// List invoices by type, sent or unsent
@@ -987,21 +901,7 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<Response> listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDateWithHttpInfo(String hcPartyId, String sentMediumType, String invoiceType, bool sent, { int from, int to, }) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (sentMediumType == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: sentMediumType');
-    }
-    if (invoiceType == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceType');
-    }
-    if (sent == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: sent');
-    }
-
+  Future<Response> listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDateWithHttpInfo(String hcPartyId, String sentMediumType, String invoiceType, bool sent, { int? from, int? to, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcParty/{hcPartyId}/mediumType/{sentMediumType}/invoiceType/{invoiceType}/sent/{sent}'
       .replaceAll('{hcPartyId}', hcPartyId)
@@ -1010,17 +910,17 @@ class InvoiceApi {
       .replaceAll('{sent}', sent.toString());
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (from != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'from', from));
+      queryParams.addAll(_queryParams('', 'from', from));
     }
     if (to != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'to', to));
+      queryParams.addAll(_queryParams('', 'to', to));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1034,7 +934,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1056,7 +956,7 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<List<InvoiceDto>> listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDate(String hcPartyId, String sentMediumType, String invoiceType, bool sent, { int from, int to, }) async {
+  Future<List<InvoiceDto>?> listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDate(String hcPartyId, String sentMediumType, String invoiceType, bool sent, { int? from, int? to, }) async {
     final response = await listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDateWithHttpInfo(hcPartyId, sentMediumType, invoiceType, sent,  from: from, to: to, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1064,14 +964,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Get all invoices by author, by sending mode, by status and by date
@@ -1089,34 +989,29 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<Response> listInvoicesByHcpartySendingModeStatusDateWithHttpInfo(String hcPartyId, { String sendingMode, String status, int from, int to, }) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-
+  Future<Response> listInvoicesByHcpartySendingModeStatusDateWithHttpInfo(String hcPartyId, { String? sendingMode, String? status, int? from, int? to, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcpartySendingModeStatusDate/{hcPartyId}'
       .replaceAll('{hcPartyId}', hcPartyId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (sendingMode != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'sendingMode', sendingMode));
+      queryParams.addAll(_queryParams('', 'sendingMode', sendingMode));
     }
     if (status != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'status', status));
+      queryParams.addAll(_queryParams('', 'status', status));
     }
     if (from != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'from', from));
+      queryParams.addAll(_queryParams('', 'from', from));
     }
     if (to != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'to', to));
+      queryParams.addAll(_queryParams('', 'to', to));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1130,7 +1025,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1148,7 +1043,7 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<List<InvoiceDto>> listInvoicesByHcpartySendingModeStatusDate(String hcPartyId, { String sendingMode, String status, int from, int to, }) async {
+  Future<List<InvoiceDto>?> listInvoicesByHcpartySendingModeStatusDate(String hcPartyId, { String? sendingMode, String? status, int? from, int? to, }) async {
     final response = await listInvoicesByHcpartySendingModeStatusDateWithHttpInfo(hcPartyId,  sendingMode: sendingMode, status: status, from: from, to: to, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1156,14 +1051,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -1174,17 +1069,12 @@ class InvoiceApi {
   ///
   /// * [String] invoiceIds (required):
   Future<Response> listInvoicesByIdsWithHttpInfo(String invoiceIds,) async {
-    // Verify required params are set.
-    if (invoiceIds == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceIds');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byIds/{invoiceIds}'
       .replaceAll('{invoiceIds}', invoiceIds);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1201,7 +1091,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1211,7 +1101,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] invoiceIds (required):
-  Future<List<InvoiceDto>> listInvoicesByIds(String invoiceIds,) async {
+  Future<List<InvoiceDto>?> listInvoicesByIds(String invoiceIds,) async {
     final response = await listInvoicesByIdsWithHttpInfo(invoiceIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1219,14 +1109,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -1237,17 +1127,12 @@ class InvoiceApi {
   ///
   /// * [String] recipientIds (required):
   Future<Response> listInvoicesByRecipientsIdsWithHttpInfo(String recipientIds,) async {
-    // Verify required params are set.
-    if (recipientIds == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: recipientIds');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/to/{recipientIds}'
       .replaceAll('{recipientIds}', recipientIds);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1264,7 +1149,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1274,7 +1159,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] recipientIds (required):
-  Future<List<InvoiceDto>> listInvoicesByRecipientsIds(String recipientIds,) async {
+  Future<List<InvoiceDto>?> listInvoicesByRecipientsIds(String recipientIds,) async {
     final response = await listInvoicesByRecipientsIdsWithHttpInfo(recipientIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1282,14 +1167,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -1300,17 +1185,12 @@ class InvoiceApi {
   ///
   /// * [String] serviceIds (required):
   Future<Response> listInvoicesByServiceIdsWithHttpInfo(String serviceIds,) async {
-    // Verify required params are set.
-    if (serviceIds == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: serviceIds');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byServiceIds/{serviceIds}'
       .replaceAll('{serviceIds}', serviceIds);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1327,7 +1207,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1337,7 +1217,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] serviceIds (required):
-  Future<List<InvoiceDto>> listInvoicesByServiceIds(String serviceIds,) async {
+  Future<List<InvoiceDto>?> listInvoicesByServiceIds(String serviceIds,) async {
     final response = await listInvoicesByServiceIdsWithHttpInfo(serviceIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1345,14 +1225,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// List helement stubs found By Healthcare Party and secret foreign keys.
@@ -1367,26 +1247,18 @@ class InvoiceApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcPartySecretForeignKeys/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1399,7 +1271,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1413,7 +1285,7 @@ class InvoiceApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<IcureStubDto>> listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<IcureStubDto>?> listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1421,14 +1293,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IcureStubDto>') as List)
         .cast<IcureStubDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IcureStubDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -1438,21 +1310,19 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] userIds:
-  Future<Response> listToInsurancesWithHttpInfo({ String userIds, }) async {
-    // Verify required params are set.
-
+  Future<Response> listToInsurancesWithHttpInfo({ String? userIds, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/toInsurances';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (userIds != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'userIds', userIds));
+      queryParams.addAll(_queryParams('', 'userIds', userIds));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1466,7 +1336,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1476,7 +1346,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] userIds:
-  Future<List<InvoiceDto>> listToInsurances({ String userIds, }) async {
+  Future<List<InvoiceDto>?> listToInsurances({ String? userIds, }) async {
     final response = await listToInsurancesWithHttpInfo( userIds: userIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1484,14 +1354,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -1501,21 +1371,19 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] userIds:
-  Future<Response> listToInsurancesUnsentWithHttpInfo({ String userIds, }) async {
-    // Verify required params are set.
-
+  Future<Response> listToInsurancesUnsentWithHttpInfo({ String? userIds, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/toInsurances/unsent';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (userIds != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'userIds', userIds));
+      queryParams.addAll(_queryParams('', 'userIds', userIds));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1529,7 +1397,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1539,7 +1407,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] userIds:
-  Future<List<InvoiceDto>> listToInsurancesUnsent({ String userIds, }) async {
+  Future<List<InvoiceDto>?> listToInsurancesUnsent({ String? userIds, }) async {
     final response = await listToInsurancesUnsentWithHttpInfo( userIds: userIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1547,14 +1415,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -1564,21 +1432,19 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] hcPartyId:
-  Future<Response> listToPatientsWithHttpInfo({ String hcPartyId, }) async {
-    // Verify required params are set.
-
+  Future<Response> listToPatientsWithHttpInfo({ String? hcPartyId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/toPatients';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (hcPartyId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1592,7 +1458,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1602,7 +1468,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] hcPartyId:
-  Future<List<InvoiceDto>> listToPatients({ String hcPartyId, }) async {
+  Future<List<InvoiceDto>?> listToPatients({ String? hcPartyId, }) async {
     final response = await listToPatientsWithHttpInfo( hcPartyId: hcPartyId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1610,14 +1476,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -1627,21 +1493,19 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] hcPartyId:
-  Future<Response> listToPatientsUnsentWithHttpInfo({ String hcPartyId, }) async {
-    // Verify required params are set.
-
+  Future<Response> listToPatientsUnsentWithHttpInfo({ String? hcPartyId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/toPatients/unsent';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (hcPartyId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1655,7 +1519,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1665,7 +1529,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] hcPartyId:
-  Future<List<InvoiceDto>> listToPatientsUnsent({ String hcPartyId, }) async {
+  Future<List<InvoiceDto>?> listToPatientsUnsent({ String? hcPartyId, }) async {
     final response = await listToPatientsUnsentWithHttpInfo( hcPartyId: hcPartyId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1673,14 +1537,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -1693,20 +1557,12 @@ class InvoiceApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> mergeToWithHttpInfo(String invoiceId, ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (invoiceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceId');
-    }
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/mergeTo/{invoiceId}'
       .replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1723,7 +1579,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1735,7 +1591,7 @@ class InvoiceApi {
   /// * [String] invoiceId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<InvoiceDto> mergeTo(String invoiceId, ListOfIdsDto listOfIdsDto,) async {
+  Future<InvoiceDto?> mergeTo(String invoiceId, ListOfIdsDto listOfIdsDto,) async {
     final response = await mergeToWithHttpInfo(invoiceId, listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1743,11 +1599,11 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 
   /// Modifies an invoice
@@ -1758,16 +1614,11 @@ class InvoiceApi {
   ///
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> modifyInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
-    // Verify required params are set.
-    if (invoiceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice';
 
     // ignore: prefer_final_locals
-    Object postBody = invoiceDto;
+    Object? postBody = invoiceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1784,7 +1635,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1794,7 +1645,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<InvoiceDto> modifyInvoice(InvoiceDto invoiceDto,) async {
+  Future<InvoiceDto?> modifyInvoice(InvoiceDto invoiceDto,) async {
     final response = await modifyInvoiceWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1802,11 +1653,11 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 
   /// Modify a batch of invoices
@@ -1819,16 +1670,11 @@ class InvoiceApi {
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
   Future<Response> modifyInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
-    // Verify required params are set.
-    if (invoiceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = invoiceDto;
+    Object? postBody = invoiceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1845,7 +1691,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1857,7 +1703,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
-  Future<List<InvoiceDto>> modifyInvoices(List<InvoiceDto> invoiceDto,) async {
+  Future<List<InvoiceDto>?> modifyInvoices(List<InvoiceDto> invoiceDto,) async {
     final response = await modifyInvoicesWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1865,14 +1711,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Adds a delegation to a invoice
@@ -1885,20 +1731,12 @@ class InvoiceApi {
   ///
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> newInvoiceDelegationsWithHttpInfo(String invoiceId, List<DelegationDto> delegationDto,) async {
-    // Verify required params are set.
-    if (invoiceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceId');
-    }
-    if (delegationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: delegationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/{invoiceId}/delegate'
       .replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
-    Object postBody = delegationDto;
+    Object? postBody = delegationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1915,7 +1753,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1927,7 +1765,7 @@ class InvoiceApi {
   /// * [String] invoiceId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<InvoiceDto> newInvoiceDelegations(String invoiceId, List<DelegationDto> delegationDto,) async {
+  Future<InvoiceDto?> newInvoiceDelegations(String invoiceId, List<DelegationDto> delegationDto,) async {
     final response = await newInvoiceDelegationsWithHttpInfo(invoiceId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1935,11 +1773,11 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 
   /// Modifies an invoice
@@ -1950,16 +1788,11 @@ class InvoiceApi {
   ///
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> reassignInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
-    // Verify required params are set.
-    if (invoiceDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/reassign';
 
     // ignore: prefer_final_locals
-    Object postBody = invoiceDto;
+    Object? postBody = invoiceDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1976,7 +1809,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1986,7 +1819,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<InvoiceDto> reassignInvoice(InvoiceDto invoiceDto,) async {
+  Future<InvoiceDto?> reassignInvoice(InvoiceDto invoiceDto,) async {
     final response = await reassignInvoiceWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1994,11 +1827,11 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 
   /// Remove an invoice of an user
@@ -2015,33 +1848,19 @@ class InvoiceApi {
   ///
   /// * [List<String>] requestBody (required):
   Future<Response> removeCodesWithHttpInfo(String userId, String serviceId, String secretFKeys, List<String> requestBody,) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-    if (serviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: serviceId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-    if (requestBody == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestBody');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byauthor/{userId}/service/{serviceId}'
       .replaceAll('{userId}', userId)
       .replaceAll('{serviceId}', serviceId);
 
     // ignore: prefer_final_locals
-    Object postBody = requestBody;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
@@ -2054,7 +1873,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2070,7 +1889,7 @@ class InvoiceApi {
   /// * [String] secretFKeys (required):
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<InvoiceDto>> removeCodes(String userId, String serviceId, String secretFKeys, List<String> requestBody,) async {
+  Future<List<InvoiceDto>?> removeCodes(String userId, String serviceId, String secretFKeys, List<String> requestBody,) async {
     final response = await removeCodesWithHttpInfo(userId, serviceId, secretFKeys, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2078,14 +1897,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<InvoiceDto>') as List)
         .cast<InvoiceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<InvoiceDto>>.value();
+    return null;
   }
 
   /// Update delegations in healthElements.
@@ -2098,16 +1917,11 @@ class InvoiceApi {
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> setInvoicesDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
-    // Verify required params are set.
-    if (icureStubDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: icureStubDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody = icureStubDto;
+    Object? postBody = icureStubDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2124,7 +1938,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2136,7 +1950,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<IcureStubDto>> setInvoicesDelegations(List<IcureStubDto> icureStubDto,) async {
+  Future<List<IcureStubDto>?> setInvoicesDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await setInvoicesDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2144,14 +1958,14 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IcureStubDto>') as List)
         .cast<IcureStubDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IcureStubDto>>.value();
+    return null;
   }
 
   /// Gets all invoices for author at date
@@ -2166,30 +1980,19 @@ class InvoiceApi {
   ///
   /// * [String] forcedValue (required):
   Future<Response> validateWithHttpInfo(String invoiceId, String scheme, String forcedValue,) async {
-    // Verify required params are set.
-    if (invoiceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invoiceId');
-    }
-    if (scheme == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: scheme');
-    }
-    if (forcedValue == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: forcedValue');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/validate/{invoiceId}'
       .replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'scheme', scheme));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'forcedValue', forcedValue));
+      queryParams.addAll(_queryParams('', 'scheme', scheme));
+      queryParams.addAll(_queryParams('', 'forcedValue', forcedValue));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -2202,7 +2005,7 @@ class InvoiceApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2216,7 +2019,7 @@ class InvoiceApi {
   /// * [String] scheme (required):
   ///
   /// * [String] forcedValue (required):
-  Future<InvoiceDto> validate(String invoiceId, String scheme, String forcedValue,) async {
+  Future<InvoiceDto?> validate(String invoiceId, String scheme, String forcedValue,) async {
     final response = await validateWithHttpInfo(invoiceId, scheme, forcedValue,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2224,10 +2027,10 @@ class InvoiceApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
     
     }
-    return Future<InvoiceDto>.value();
+    return null;
   }
 }

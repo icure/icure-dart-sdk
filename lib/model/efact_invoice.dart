@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -19,26 +19,50 @@ class EfactInvoice {
     this.reason,
     this.invoiceRef,
     this.invoiceNumber,
-    @required this.ignorePrescriptionDate,
-    @required this.hospitalisedPatient,
-    @required this.creditNote,
+    required this.ignorePrescriptionDate,
+    required this.hospitalisedPatient,
+    required this.creditNote,
     this.relatedInvoiceIoCode,
     this.relatedInvoiceNumber,
     this.relatedBatchSendNumber,
     this.relatedBatchYearMonth,
   });
 
-  PatientDto patient;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  PatientDto? patient;
 
-  String ioCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ioCode;
 
   List<InvoiceItem> items;
 
-  EfactInvoiceReasonEnum reason;
+  EfactInvoiceReasonEnum? reason;
 
-  String invoiceRef;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? invoiceRef;
 
-  int invoiceNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? invoiceNumber;
 
   bool ignorePrescriptionDate;
 
@@ -46,13 +70,37 @@ class EfactInvoice {
 
   bool creditNote;
 
-  String relatedInvoiceIoCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? relatedInvoiceIoCode;
 
-  int relatedInvoiceNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? relatedInvoiceNumber;
 
-  int relatedBatchSendNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? relatedBatchSendNumber;
 
-  int relatedBatchYearMonth;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? relatedBatchYearMonth;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EfactInvoice &&
@@ -72,20 +120,20 @@ class EfactInvoice {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (patient == null ? 0 : patient.hashCode) +
-    (ioCode == null ? 0 : ioCode.hashCode) +
-    (items == null ? 0 : items.hashCode) +
-    (reason == null ? 0 : reason.hashCode) +
-    (invoiceRef == null ? 0 : invoiceRef.hashCode) +
-    (invoiceNumber == null ? 0 : invoiceNumber.hashCode) +
-    (ignorePrescriptionDate == null ? 0 : ignorePrescriptionDate.hashCode) +
-    (hospitalisedPatient == null ? 0 : hospitalisedPatient.hashCode) +
-    (creditNote == null ? 0 : creditNote.hashCode) +
-    (relatedInvoiceIoCode == null ? 0 : relatedInvoiceIoCode.hashCode) +
-    (relatedInvoiceNumber == null ? 0 : relatedInvoiceNumber.hashCode) +
-    (relatedBatchSendNumber == null ? 0 : relatedBatchSendNumber.hashCode) +
-    (relatedBatchYearMonth == null ? 0 : relatedBatchYearMonth.hashCode);
+    // ignore: unnecessary_parenthesis
+    (patient == null ? 0 : patient!.hashCode) +
+    (ioCode == null ? 0 : ioCode!.hashCode) +
+    (items.hashCode) +
+    (reason == null ? 0 : reason!.hashCode) +
+    (invoiceRef == null ? 0 : invoiceRef!.hashCode) +
+    (invoiceNumber == null ? 0 : invoiceNumber!.hashCode) +
+    (ignorePrescriptionDate.hashCode) +
+    (hospitalisedPatient.hashCode) +
+    (creditNote.hashCode) +
+    (relatedInvoiceIoCode == null ? 0 : relatedInvoiceIoCode!.hashCode) +
+    (relatedInvoiceNumber == null ? 0 : relatedInvoiceNumber!.hashCode) +
+    (relatedBatchSendNumber == null ? 0 : relatedBatchSendNumber!.hashCode) +
+    (relatedBatchYearMonth == null ? 0 : relatedBatchYearMonth!.hashCode);
 
   @override
   String toString() => 'EfactInvoice[patient=$patient, ioCode=$ioCode, items=$items, reason=$reason, invoiceRef=$invoiceRef, invoiceNumber=$invoiceNumber, ignorePrescriptionDate=$ignorePrescriptionDate, hospitalisedPatient=$hospitalisedPatient, creditNote=$creditNote, relatedInvoiceIoCode=$relatedInvoiceIoCode, relatedInvoiceNumber=$relatedInvoiceNumber, relatedBatchSendNumber=$relatedBatchSendNumber, relatedBatchYearMonth=$relatedBatchYearMonth]';
@@ -129,19 +177,31 @@ class EfactInvoice {
   /// Returns a new [EfactInvoice] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static EfactInvoice fromJson(dynamic value) {
+  static EfactInvoice? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "EfactInvoice[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "EfactInvoice[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return EfactInvoice(
         patient: PatientDto.fromJson(json[r'patient']),
         ioCode: mapValueOfType<String>(json, r'ioCode'),
-        items: InvoiceItem.listFromJson(json[r'items']),
+        items: InvoiceItem.listFromJson(json[r'items'])!,
         reason: EfactInvoiceReasonEnum.fromJson(json[r'reason']),
         invoiceRef: mapValueOfType<String>(json, r'invoiceRef'),
         invoiceNumber: mapValueOfType<int>(json, r'invoiceNumber'),
-        ignorePrescriptionDate: mapValueOfType<bool>(json, r'ignorePrescriptionDate'),
-        hospitalisedPatient: mapValueOfType<bool>(json, r'hospitalisedPatient'),
-        creditNote: mapValueOfType<bool>(json, r'creditNote'),
+        ignorePrescriptionDate: mapValueOfType<bool>(json, r'ignorePrescriptionDate')!,
+        hospitalisedPatient: mapValueOfType<bool>(json, r'hospitalisedPatient')!,
+        creditNote: mapValueOfType<bool>(json, r'creditNote')!,
         relatedInvoiceIoCode: mapValueOfType<String>(json, r'relatedInvoiceIoCode'),
         relatedInvoiceNumber: mapValueOfType<int>(json, r'relatedInvoiceNumber'),
         relatedBatchSendNumber: mapValueOfType<int>(json, r'relatedBatchSendNumber'),
@@ -151,37 +211,55 @@ class EfactInvoice {
     return null;
   }
 
-  static List<EfactInvoice> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(EfactInvoice.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <EfactInvoice>[];
+  static List<EfactInvoice>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <EfactInvoice>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = EfactInvoice.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, EfactInvoice> mapFromJson(dynamic json) {
     final map = <String, EfactInvoice>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = EfactInvoice.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = EfactInvoice.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of EfactInvoice-objects as value to a dart map
-  static Map<String, List<EfactInvoice>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<EfactInvoice>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<EfactInvoice>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = EfactInvoice.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = EfactInvoice.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'items',
+    'ignorePrescriptionDate',
+    'hospitalisedPatient',
+    'creditNote',
+  };
 }
 
 
@@ -193,7 +271,7 @@ class EfactInvoiceReasonEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -212,13 +290,20 @@ class EfactInvoiceReasonEnum {
     other,
   ];
 
-  static EfactInvoiceReasonEnum fromJson(dynamic value) =>
-    EfactInvoiceReasonEnumTypeTransformer().decode(value);
+  static EfactInvoiceReasonEnum? fromJson(dynamic value) => EfactInvoiceReasonEnumTypeTransformer().decode(value);
 
-  static List<EfactInvoiceReasonEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(EfactInvoiceReasonEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <EfactInvoiceReasonEnum>[];
+  static List<EfactInvoiceReasonEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <EfactInvoiceReasonEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = EfactInvoiceReasonEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [EfactInvoiceReasonEnum] to String,
@@ -238,7 +323,7 @@ class EfactInvoiceReasonEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  EfactInvoiceReasonEnum decode(dynamic data, {bool allowNull}) {
+  EfactInvoiceReasonEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'Chimiotherapy': return EfactInvoiceReasonEnum.chimiotherapy;
@@ -247,7 +332,7 @@ class EfactInvoiceReasonEnumTypeTransformer {
         case r'Accident': return EfactInvoiceReasonEnum.accident;
         case r'Other': return EfactInvoiceReasonEnum.other;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -256,7 +341,7 @@ class EfactInvoiceReasonEnumTypeTransformer {
   }
 
   /// Singleton [EfactInvoiceReasonEnumTypeTransformer] instance.
-  static EfactInvoiceReasonEnumTypeTransformer _instance;
+  static EfactInvoiceReasonEnumTypeTransformer? _instance;
 }
 
 

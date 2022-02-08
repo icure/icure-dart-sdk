@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -27,29 +27,83 @@ class DmppDto {
     this.productId,
   });
 
-  String id;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? id;
 
-  int from;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? from;
 
-  int to;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? to;
 
-  DmppDtoDeliveryEnvironmentEnum deliveryEnvironment;
+  DmppDtoDeliveryEnvironmentEnum? deliveryEnvironment;
 
-  String code;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? code;
 
-  DmppDtoCodeTypeEnum codeType;
+  DmppDtoCodeTypeEnum? codeType;
 
-  String price;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? price;
 
-  bool cheap;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? cheap;
 
-  bool cheapest;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? cheapest;
 
-  bool reimbursable;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? reimbursable;
 
   List<ReimbursementDto> reimbursements;
 
-  String productId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? productId;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DmppDto &&
@@ -68,19 +122,19 @@ class DmppDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (from == null ? 0 : from.hashCode) +
-    (to == null ? 0 : to.hashCode) +
-    (deliveryEnvironment == null ? 0 : deliveryEnvironment.hashCode) +
-    (code == null ? 0 : code.hashCode) +
-    (codeType == null ? 0 : codeType.hashCode) +
-    (price == null ? 0 : price.hashCode) +
-    (cheap == null ? 0 : cheap.hashCode) +
-    (cheapest == null ? 0 : cheapest.hashCode) +
-    (reimbursable == null ? 0 : reimbursable.hashCode) +
-    (reimbursements == null ? 0 : reimbursements.hashCode) +
-    (productId == null ? 0 : productId.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id == null ? 0 : id!.hashCode) +
+    (from == null ? 0 : from!.hashCode) +
+    (to == null ? 0 : to!.hashCode) +
+    (deliveryEnvironment == null ? 0 : deliveryEnvironment!.hashCode) +
+    (code == null ? 0 : code!.hashCode) +
+    (codeType == null ? 0 : codeType!.hashCode) +
+    (price == null ? 0 : price!.hashCode) +
+    (cheap == null ? 0 : cheap!.hashCode) +
+    (cheapest == null ? 0 : cheapest!.hashCode) +
+    (reimbursable == null ? 0 : reimbursable!.hashCode) +
+    (reimbursements.hashCode) +
+    (productId == null ? 0 : productId!.hashCode);
 
   @override
   String toString() => 'DmppDto[id=$id, from=$from, to=$to, deliveryEnvironment=$deliveryEnvironment, code=$code, codeType=$codeType, price=$price, cheap=$cheap, cheapest=$cheapest, reimbursable=$reimbursable, reimbursements=$reimbursements, productId=$productId]';
@@ -117,9 +171,7 @@ class DmppDto {
     if (reimbursable != null) {
       json[r'reimbursable'] = reimbursable;
     }
-    if (reimbursements != null) {
       json[r'reimbursements'] = reimbursements;
-    }
     if (productId != null) {
       json[r'productId'] = productId;
     }
@@ -129,9 +181,21 @@ class DmppDto {
   /// Returns a new [DmppDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DmppDto fromJson(dynamic value) {
+  static DmppDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "DmppDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DmppDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return DmppDto(
         id: mapValueOfType<String>(json, r'id'),
         from: mapValueOfType<int>(json, r'from'),
@@ -143,44 +207,58 @@ class DmppDto {
         cheap: mapValueOfType<bool>(json, r'cheap'),
         cheapest: mapValueOfType<bool>(json, r'cheapest'),
         reimbursable: mapValueOfType<bool>(json, r'reimbursable'),
-        reimbursements: ReimbursementDto.listFromJson(json[r'reimbursements']),
+        reimbursements: ReimbursementDto.listFromJson(json[r'reimbursements']) ?? const [],
         productId: mapValueOfType<String>(json, r'productId'),
       );
     }
     return null;
   }
 
-  static List<DmppDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DmppDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DmppDto>[];
+  static List<DmppDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DmppDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DmppDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, DmppDto> mapFromJson(dynamic json) {
     final map = <String, DmppDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = DmppDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DmppDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of DmppDto-objects as value to a dart map
-  static Map<String, List<DmppDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<DmppDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DmppDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = DmppDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DmppDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -192,7 +270,7 @@ class DmppDtoDeliveryEnvironmentEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -209,13 +287,20 @@ class DmppDtoDeliveryEnvironmentEnum {
     R,
   ];
 
-  static DmppDtoDeliveryEnvironmentEnum fromJson(dynamic value) =>
-    DmppDtoDeliveryEnvironmentEnumTypeTransformer().decode(value);
+  static DmppDtoDeliveryEnvironmentEnum? fromJson(dynamic value) => DmppDtoDeliveryEnvironmentEnumTypeTransformer().decode(value);
 
-  static List<DmppDtoDeliveryEnvironmentEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DmppDtoDeliveryEnvironmentEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DmppDtoDeliveryEnvironmentEnum>[];
+  static List<DmppDtoDeliveryEnvironmentEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DmppDtoDeliveryEnvironmentEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DmppDtoDeliveryEnvironmentEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [DmppDtoDeliveryEnvironmentEnum] to String,
@@ -235,7 +320,7 @@ class DmppDtoDeliveryEnvironmentEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DmppDtoDeliveryEnvironmentEnum decode(dynamic data, {bool allowNull}) {
+  DmppDtoDeliveryEnvironmentEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'P': return DmppDtoDeliveryEnvironmentEnum.P;
@@ -243,7 +328,7 @@ class DmppDtoDeliveryEnvironmentEnumTypeTransformer {
         case r'H': return DmppDtoDeliveryEnvironmentEnum.H;
         case r'R': return DmppDtoDeliveryEnvironmentEnum.R;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -252,7 +337,7 @@ class DmppDtoDeliveryEnvironmentEnumTypeTransformer {
   }
 
   /// Singleton [DmppDtoDeliveryEnvironmentEnumTypeTransformer] instance.
-  static DmppDtoDeliveryEnvironmentEnumTypeTransformer _instance;
+  static DmppDtoDeliveryEnvironmentEnumTypeTransformer? _instance;
 }
 
 
@@ -265,7 +350,7 @@ class DmppDtoCodeTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -278,13 +363,20 @@ class DmppDtoCodeTypeEnum {
     PSEUDO,
   ];
 
-  static DmppDtoCodeTypeEnum fromJson(dynamic value) =>
-    DmppDtoCodeTypeEnumTypeTransformer().decode(value);
+  static DmppDtoCodeTypeEnum? fromJson(dynamic value) => DmppDtoCodeTypeEnumTypeTransformer().decode(value);
 
-  static List<DmppDtoCodeTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DmppDtoCodeTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DmppDtoCodeTypeEnum>[];
+  static List<DmppDtoCodeTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DmppDtoCodeTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DmppDtoCodeTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [DmppDtoCodeTypeEnum] to String,
@@ -304,13 +396,13 @@ class DmppDtoCodeTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DmppDtoCodeTypeEnum decode(dynamic data, {bool allowNull}) {
+  DmppDtoCodeTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'CNK': return DmppDtoCodeTypeEnum.CNK;
         case r'PSEUDO': return DmppDtoCodeTypeEnum.PSEUDO;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -319,7 +411,7 @@ class DmppDtoCodeTypeEnumTypeTransformer {
   }
 
   /// Singleton [DmppDtoCodeTypeEnumTypeTransformer] instance.
-  static DmppDtoCodeTypeEnumTypeTransformer _instance;
+  static DmppDtoCodeTypeEnumTypeTransformer? _instance;
 }
 
 

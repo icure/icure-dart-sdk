@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class HealthcarePartyDto {
   /// Returns a new [HealthcarePartyDto] instance.
   HealthcarePartyDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.created,
     this.modified,
@@ -66,75 +66,213 @@ class HealthcarePartyDto {
   String id;
 
   /// the revision of the healthcare party in the database, used for conflict management / optimistic locking.
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// creation timestamp of the object.
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// last modification timestamp of the object.
-  int modified;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modified;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
   /// The full name of the healthcare party, used mainly when the healthcare party is an organization
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
   /// the lastname (surname) of the healthcare party. This is the official lastname that should be used for official administrative purposes.
-  String lastName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? lastName;
 
   /// the firstname (name) of the healthcare party.
-  String firstName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? firstName;
 
   /// the list of all names of the healthcare party, also containing the official full name information. Ordered by preference of use. First element is therefore the official name used for the healthcare party in the application
   List<PersonNameDto> names;
 
   /// the gender of the healthcare party: male, female, indeterminate, changed, changedToMale, changedToFemale, unknown
-  HealthcarePartyDtoGenderEnum gender;
+  HealthcarePartyDtoGenderEnum? gender;
 
   /// Mr., Ms., Pr., Dr. ...
-  String civility;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? civility;
 
   /// The name of the company this healthcare party is member of
-  String companyName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? companyName;
 
   /// Medical specialty of the healthcare party
-  String speciality;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? speciality;
 
   /// Bank Account identifier of the healhtcare party, IBAN, deprecated, use financial institutions instead
-  String bankAccount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? bankAccount;
 
   /// Bank Identifier Code, the SWIFT Address assigned to the bank, use financial institutions instead
-  String bic;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? bic;
 
-  String proxyBankAccount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? proxyBankAccount;
 
-  String proxyBic;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? proxyBic;
 
   /// All details included in the invoice header
-  String invoiceHeader;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? invoiceHeader;
 
   /// Identifier number for institution type if the healthcare party is an enterprise
-  String cbe;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? cbe;
 
   /// Identifier number for the institution if the healthcare party is an organization
-  String ehp;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ehp;
 
   /// The id of the user that usually handles this healthcare party.
-  String userId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? userId;
 
   /// Id of parent of the user representing the healthcare party.
-  String parentId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? parentId;
 
-  int convention;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? convention;
 
   /// National Institute for Health and Invalidity Insurance number assigned to healthcare parties (institution or person).
-  String nihii;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? nihii;
 
-  String nihiiSpecCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? nihiiSpecCode;
 
   /// Social security inscription number.
-  String ssin;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ssin;
 
   /// The list of addresses (with address type).
   List<AddressDto> addresses;
@@ -143,7 +281,13 @@ class HealthcarePartyDto {
   List<String> languages;
 
   /// A picture usually saved in JPEG format.
-  String picture;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? picture;
 
   /// The healthcare party's status: 'trainee' or 'withconvention' or 'accredited'
   Set<HealthcarePartyDtoStatusesEnum> statuses;
@@ -158,21 +302,57 @@ class HealthcarePartyDto {
   Map<String, String> sendFormats;
 
   /// Text notes.
-  String notes;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? notes;
 
   /// List of financial information (Bank, bank account).
   List<FinancialInstitutionInformationDto> financialInstitutionInformation;
 
   /// The invoicing scheme this healthcare party adheres to : 'service fee' or 'flat rate'
-  String billingType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? billingType;
 
-  String type;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? type;
 
-  String contactPerson;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? contactPerson;
 
-  String contactPersonHcpId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? contactPersonHcpId;
 
-  String supervisorId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? supervisorId;
 
   List<FlatRateTarificationDto> flatRateTarifications;
 
@@ -189,7 +369,13 @@ class HealthcarePartyDto {
   Map<String, String> privateKeyShamirPartitions;
 
   /// The public key of this hcp
-  String publicKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? publicKey;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is HealthcarePartyDto &&
@@ -243,54 +429,54 @@ class HealthcarePartyDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (modified == null ? 0 : modified.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (lastName == null ? 0 : lastName.hashCode) +
-    (firstName == null ? 0 : firstName.hashCode) +
-    (names == null ? 0 : names.hashCode) +
-    (gender == null ? 0 : gender.hashCode) +
-    (civility == null ? 0 : civility.hashCode) +
-    (companyName == null ? 0 : companyName.hashCode) +
-    (speciality == null ? 0 : speciality.hashCode) +
-    (bankAccount == null ? 0 : bankAccount.hashCode) +
-    (bic == null ? 0 : bic.hashCode) +
-    (proxyBankAccount == null ? 0 : proxyBankAccount.hashCode) +
-    (proxyBic == null ? 0 : proxyBic.hashCode) +
-    (invoiceHeader == null ? 0 : invoiceHeader.hashCode) +
-    (cbe == null ? 0 : cbe.hashCode) +
-    (ehp == null ? 0 : ehp.hashCode) +
-    (userId == null ? 0 : userId.hashCode) +
-    (parentId == null ? 0 : parentId.hashCode) +
-    (convention == null ? 0 : convention.hashCode) +
-    (nihii == null ? 0 : nihii.hashCode) +
-    (nihiiSpecCode == null ? 0 : nihiiSpecCode.hashCode) +
-    (ssin == null ? 0 : ssin.hashCode) +
-    (addresses == null ? 0 : addresses.hashCode) +
-    (languages == null ? 0 : languages.hashCode) +
-    (picture == null ? 0 : picture.hashCode) +
-    (statuses == null ? 0 : statuses.hashCode) +
-    (statusHistory == null ? 0 : statusHistory.hashCode) +
-    (specialityCodes == null ? 0 : specialityCodes.hashCode) +
-    (sendFormats == null ? 0 : sendFormats.hashCode) +
-    (notes == null ? 0 : notes.hashCode) +
-    (financialInstitutionInformation == null ? 0 : financialInstitutionInformation.hashCode) +
-    (billingType == null ? 0 : billingType.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (contactPerson == null ? 0 : contactPerson.hashCode) +
-    (contactPersonHcpId == null ? 0 : contactPersonHcpId.hashCode) +
-    (supervisorId == null ? 0 : supervisorId.hashCode) +
-    (flatRateTarifications == null ? 0 : flatRateTarifications.hashCode) +
-    (importedData == null ? 0 : importedData.hashCode) +
-    (options == null ? 0 : options.hashCode) +
-    (properties == null ? 0 : properties.hashCode) +
-    (hcPartyKeys == null ? 0 : hcPartyKeys.hashCode) +
-    (privateKeyShamirPartitions == null ? 0 : privateKeyShamirPartitions.hashCode) +
-    (publicKey == null ? 0 : publicKey.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (created == null ? 0 : created!.hashCode) +
+    (modified == null ? 0 : modified!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (lastName == null ? 0 : lastName!.hashCode) +
+    (firstName == null ? 0 : firstName!.hashCode) +
+    (names.hashCode) +
+    (gender == null ? 0 : gender!.hashCode) +
+    (civility == null ? 0 : civility!.hashCode) +
+    (companyName == null ? 0 : companyName!.hashCode) +
+    (speciality == null ? 0 : speciality!.hashCode) +
+    (bankAccount == null ? 0 : bankAccount!.hashCode) +
+    (bic == null ? 0 : bic!.hashCode) +
+    (proxyBankAccount == null ? 0 : proxyBankAccount!.hashCode) +
+    (proxyBic == null ? 0 : proxyBic!.hashCode) +
+    (invoiceHeader == null ? 0 : invoiceHeader!.hashCode) +
+    (cbe == null ? 0 : cbe!.hashCode) +
+    (ehp == null ? 0 : ehp!.hashCode) +
+    (userId == null ? 0 : userId!.hashCode) +
+    (parentId == null ? 0 : parentId!.hashCode) +
+    (convention == null ? 0 : convention!.hashCode) +
+    (nihii == null ? 0 : nihii!.hashCode) +
+    (nihiiSpecCode == null ? 0 : nihiiSpecCode!.hashCode) +
+    (ssin == null ? 0 : ssin!.hashCode) +
+    (addresses.hashCode) +
+    (languages.hashCode) +
+    (picture == null ? 0 : picture!.hashCode) +
+    (statuses.hashCode) +
+    (statusHistory.hashCode) +
+    (specialityCodes.hashCode) +
+    (sendFormats.hashCode) +
+    (notes == null ? 0 : notes!.hashCode) +
+    (financialInstitutionInformation.hashCode) +
+    (billingType == null ? 0 : billingType!.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (contactPerson == null ? 0 : contactPerson!.hashCode) +
+    (contactPersonHcpId == null ? 0 : contactPersonHcpId!.hashCode) +
+    (supervisorId == null ? 0 : supervisorId!.hashCode) +
+    (flatRateTarifications.hashCode) +
+    (importedData.hashCode) +
+    (options.hashCode) +
+    (properties.hashCode) +
+    (hcPartyKeys.hashCode) +
+    (privateKeyShamirPartitions.hashCode) +
+    (publicKey == null ? 0 : publicKey!.hashCode);
 
   @override
   String toString() => 'HealthcarePartyDto[id=$id, rev=$rev, created=$created, modified=$modified, deletionDate=$deletionDate, name=$name, lastName=$lastName, firstName=$firstName, names=$names, gender=$gender, civility=$civility, companyName=$companyName, speciality=$speciality, bankAccount=$bankAccount, bic=$bic, proxyBankAccount=$proxyBankAccount, proxyBic=$proxyBic, invoiceHeader=$invoiceHeader, cbe=$cbe, ehp=$ehp, userId=$userId, parentId=$parentId, convention=$convention, nihii=$nihii, nihiiSpecCode=$nihiiSpecCode, ssin=$ssin, addresses=$addresses, languages=$languages, picture=$picture, statuses=$statuses, statusHistory=$statusHistory, specialityCodes=$specialityCodes, sendFormats=$sendFormats, notes=$notes, financialInstitutionInformation=$financialInstitutionInformation, billingType=$billingType, type=$type, contactPerson=$contactPerson, contactPersonHcpId=$contactPersonHcpId, supervisorId=$supervisorId, flatRateTarifications=$flatRateTarifications, importedData=$importedData, options=$options, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey]';
@@ -414,11 +600,23 @@ class HealthcarePartyDto {
   /// Returns a new [HealthcarePartyDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static HealthcarePartyDto fromJson(dynamic value) {
+  static HealthcarePartyDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "HealthcarePartyDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "HealthcarePartyDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return HealthcarePartyDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
         modified: mapValueOfType<int>(json, r'modified'),
@@ -426,7 +624,7 @@ class HealthcarePartyDto {
         name: mapValueOfType<String>(json, r'name'),
         lastName: mapValueOfType<String>(json, r'lastName'),
         firstName: mapValueOfType<String>(json, r'firstName'),
-        names: PersonNameDto.listFromJson(json[r'names']),
+        names: PersonNameDto.listFromJson(json[r'names'])!,
         gender: HealthcarePartyDtoGenderEnum.fromJson(json[r'gender']),
         civility: mapValueOfType<String>(json, r'civility'),
         companyName: mapValueOfType<String>(json, r'companyName'),
@@ -444,67 +642,96 @@ class HealthcarePartyDto {
         nihii: mapValueOfType<String>(json, r'nihii'),
         nihiiSpecCode: mapValueOfType<String>(json, r'nihiiSpecCode'),
         ssin: mapValueOfType<String>(json, r'ssin'),
-        addresses: AddressDto.listFromJson(json[r'addresses']),
+        addresses: AddressDto.listFromJson(json[r'addresses'])!,
         languages: json[r'languages'] is List
-          ? (json[r'languages'] as List).cast<String>()
-          : null,
+            ? (json[r'languages'] as List).cast<String>()
+            : const [],
         picture: mapValueOfType<String>(json, r'picture'),
-        statuses: HealthcarePartyDtoStatusesEnum.listFromJson(json[r'statuses']).toSet(),
-        statusHistory: HealthcarePartyHistoryStatusDto.listFromJson(json[r'statusHistory']),
-        specialityCodes: CodeStubDto.listFromJson(json[r'specialityCodes']),
-        sendFormats: mapCastOfType<String, String>(json, r'sendFormats'),
+        statuses: HealthcarePartyDtoStatusesEnum.listFromJson(json[r'statuses'])!.toSet(),
+        statusHistory: HealthcarePartyHistoryStatusDto.listFromJson(json[r'statusHistory'])!,
+        specialityCodes: CodeStubDto.listFromJson(json[r'specialityCodes'])!.toSet(),
+        sendFormats: mapCastOfType<String, String>(json, r'sendFormats')!,
         notes: mapValueOfType<String>(json, r'notes'),
-        financialInstitutionInformation: FinancialInstitutionInformationDto.listFromJson(json[r'financialInstitutionInformation']),
+        financialInstitutionInformation: FinancialInstitutionInformationDto.listFromJson(json[r'financialInstitutionInformation'])!,
         billingType: mapValueOfType<String>(json, r'billingType'),
         type: mapValueOfType<String>(json, r'type'),
         contactPerson: mapValueOfType<String>(json, r'contactPerson'),
         contactPersonHcpId: mapValueOfType<String>(json, r'contactPersonHcpId'),
         supervisorId: mapValueOfType<String>(json, r'supervisorId'),
-        flatRateTarifications: FlatRateTarificationDto.listFromJson(json[r'flatRateTarifications']),
-        importedData: mapCastOfType<String, String>(json, r'importedData'),
-        options: mapCastOfType<String, String>(json, r'options'),
-        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
+        flatRateTarifications: FlatRateTarificationDto.listFromJson(json[r'flatRateTarifications'])!,
+        importedData: mapCastOfType<String, String>(json, r'importedData')!,
+        options: mapCastOfType<String, String>(json, r'options')!,
+        properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null
-          ? null
-          : mapCastOfType<String, List>(json, r'hcPartyKeys'),
-        privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions'),
+          ? const {}
+            : mapCastOfType<String, List<String>>(json, r'hcPartyKeys') ?? <String, List<String>>{},
+        privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
         publicKey: mapValueOfType<String>(json, r'publicKey'),
       );
     }
     return null;
   }
 
-  static List<HealthcarePartyDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(HealthcarePartyDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <HealthcarePartyDto>[];
+  static List<HealthcarePartyDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <HealthcarePartyDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = HealthcarePartyDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, HealthcarePartyDto> mapFromJson(dynamic json) {
     final map = <String, HealthcarePartyDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = HealthcarePartyDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = HealthcarePartyDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of HealthcarePartyDto-objects as value to a dart map
-  static Map<String, List<HealthcarePartyDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<HealthcarePartyDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<HealthcarePartyDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = HealthcarePartyDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = HealthcarePartyDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'names',
+    'addresses',
+    'languages',
+    'statuses',
+    'statusHistory',
+    'specialityCodes',
+    'sendFormats',
+    'financialInstitutionInformation',
+    'flatRateTarifications',
+    'importedData',
+    'options',
+    'properties',
+    'hcPartyKeys',
+    'privateKeyShamirPartitions',
+  };
 }
 
 /// the gender of the healthcare party: male, female, indeterminate, changed, changedToMale, changedToFemale, unknown
@@ -516,7 +743,7 @@ class HealthcarePartyDtoGenderEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -539,13 +766,20 @@ class HealthcarePartyDtoGenderEnum {
     unknown,
   ];
 
-  static HealthcarePartyDtoGenderEnum fromJson(dynamic value) =>
-    HealthcarePartyDtoGenderEnumTypeTransformer().decode(value);
+  static HealthcarePartyDtoGenderEnum? fromJson(dynamic value) => HealthcarePartyDtoGenderEnumTypeTransformer().decode(value);
 
-  static List<HealthcarePartyDtoGenderEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(HealthcarePartyDtoGenderEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <HealthcarePartyDtoGenderEnum>[];
+  static List<HealthcarePartyDtoGenderEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <HealthcarePartyDtoGenderEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = HealthcarePartyDtoGenderEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [HealthcarePartyDtoGenderEnum] to String,
@@ -565,7 +799,7 @@ class HealthcarePartyDtoGenderEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  HealthcarePartyDtoGenderEnum decode(dynamic data, {bool allowNull}) {
+  HealthcarePartyDtoGenderEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'male': return HealthcarePartyDtoGenderEnum.male;
@@ -576,7 +810,7 @@ class HealthcarePartyDtoGenderEnumTypeTransformer {
         case r'changedToFemale': return HealthcarePartyDtoGenderEnum.changedToFemale;
         case r'unknown': return HealthcarePartyDtoGenderEnum.unknown;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -585,7 +819,7 @@ class HealthcarePartyDtoGenderEnumTypeTransformer {
   }
 
   /// Singleton [HealthcarePartyDtoGenderEnumTypeTransformer] instance.
-  static HealthcarePartyDtoGenderEnumTypeTransformer _instance;
+  static HealthcarePartyDtoGenderEnumTypeTransformer? _instance;
 }
 
 
@@ -598,7 +832,7 @@ class HealthcarePartyDtoStatusesEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -613,13 +847,20 @@ class HealthcarePartyDtoStatusesEnum {
     accreditated,
   ];
 
-  static HealthcarePartyDtoStatusesEnum fromJson(dynamic value) =>
-    HealthcarePartyDtoStatusesEnumTypeTransformer().decode(value);
+  static HealthcarePartyDtoStatusesEnum? fromJson(dynamic value) => HealthcarePartyDtoStatusesEnumTypeTransformer().decode(value);
 
-  static List<HealthcarePartyDtoStatusesEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(HealthcarePartyDtoStatusesEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <HealthcarePartyDtoStatusesEnum>[];
+  static List<HealthcarePartyDtoStatusesEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <HealthcarePartyDtoStatusesEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = HealthcarePartyDtoStatusesEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [HealthcarePartyDtoStatusesEnum] to String,
@@ -639,14 +880,14 @@ class HealthcarePartyDtoStatusesEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  HealthcarePartyDtoStatusesEnum decode(dynamic data, {bool allowNull}) {
+  HealthcarePartyDtoStatusesEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'trainee': return HealthcarePartyDtoStatusesEnum.trainee;
         case r'withconvention': return HealthcarePartyDtoStatusesEnum.withconvention;
         case r'accreditated': return HealthcarePartyDtoStatusesEnum.accreditated;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -655,7 +896,7 @@ class HealthcarePartyDtoStatusesEnumTypeTransformer {
   }
 
   /// Singleton [HealthcarePartyDtoStatusesEnumTypeTransformer] instance.
-  static HealthcarePartyDtoStatusesEnumTypeTransformer _instance;
+  static HealthcarePartyDtoStatusesEnumTypeTransformer? _instance;
 }
 
 

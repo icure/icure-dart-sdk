@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -10,22 +10,28 @@
 
 part of openapi.api;
 
-class AuthenticationDto {
-  /// Returns a new [AuthenticationDto] instance.
-  AuthenticationDto({
+class Authentication {
+  /// Returns a new [Authentication] instance.
+  Authentication({
     this.basic,
   });
 
-  Basic basic;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Basic? basic;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AuthenticationDto &&
+  bool operator ==(Object other) => identical(this, other) || other is Authentication &&
      other.basic == basic;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (basic == null ? 0 : basic.hashCode);
+    // ignore: unnecessary_parenthesis
+    (basic == null ? 0 : basic!.hashCode);
 
   @override
   String toString() => 'Authentication[basic=$basic]';
@@ -41,46 +47,72 @@ class AuthenticationDto {
   /// Returns a new [Authentication] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AuthenticationDto fromJson(dynamic value) {
+  static Authentication? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
-      return AuthenticationDto(
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "Authentication[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "Authentication[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
+      return Authentication(
         basic: Basic.fromJson(json[r'basic']),
       );
     }
     return null;
   }
 
-  static List<AuthenticationDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AuthenticationDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AuthenticationDto>[];
+  static List<Authentication>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <Authentication>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = Authentication.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
-  static Map<String, AuthenticationDto> mapFromJson(dynamic json) {
-    final map = <String, AuthenticationDto>{};
+  static Map<String, Authentication> mapFromJson(dynamic json) {
+    final map = <String, Authentication>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = AuthenticationDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = Authentication.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of Authentication-objects as value to a dart map
-  static Map<String, List<AuthenticationDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<AuthenticationDto>>{};
+  static Map<String, List<Authentication>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<Authentication>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = AuthenticationDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = Authentication.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

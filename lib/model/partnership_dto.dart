@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,17 +21,35 @@ class PartnershipDto {
   });
 
   /// Type of relationship.
-  PartnershipDtoTypeEnum type;
+  PartnershipDtoTypeEnum? type;
 
   /// Status of the relationship.
-  PartnershipDtoStatusEnum status;
+  PartnershipDtoStatusEnum? status;
 
   /// UUID of the contact person or patient in this relationship.
-  String partnerId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? partnerId;
 
-  String meToOtherRelationshipDescription;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? meToOtherRelationshipDescription;
 
-  String otherToMeRelationshipDescription;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? otherToMeRelationshipDescription;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PartnershipDto &&
@@ -43,12 +61,12 @@ class PartnershipDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (type == null ? 0 : type.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (partnerId == null ? 0 : partnerId.hashCode) +
-    (meToOtherRelationshipDescription == null ? 0 : meToOtherRelationshipDescription.hashCode) +
-    (otherToMeRelationshipDescription == null ? 0 : otherToMeRelationshipDescription.hashCode);
+    // ignore: unnecessary_parenthesis
+    (type == null ? 0 : type!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (partnerId == null ? 0 : partnerId!.hashCode) +
+    (meToOtherRelationshipDescription == null ? 0 : meToOtherRelationshipDescription!.hashCode) +
+    (otherToMeRelationshipDescription == null ? 0 : otherToMeRelationshipDescription!.hashCode);
 
   @override
   String toString() => 'PartnershipDto[type=$type, status=$status, partnerId=$partnerId, meToOtherRelationshipDescription=$meToOtherRelationshipDescription, otherToMeRelationshipDescription=$otherToMeRelationshipDescription]';
@@ -76,9 +94,21 @@ class PartnershipDto {
   /// Returns a new [PartnershipDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PartnershipDto fromJson(dynamic value) {
+  static PartnershipDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "PartnershipDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PartnershipDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return PartnershipDto(
         type: PartnershipDtoTypeEnum.fromJson(json[r'type']),
         status: PartnershipDtoStatusEnum.fromJson(json[r'status']),
@@ -90,37 +120,51 @@ class PartnershipDto {
     return null;
   }
 
-  static List<PartnershipDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PartnershipDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PartnershipDto>[];
+  static List<PartnershipDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PartnershipDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PartnershipDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, PartnershipDto> mapFromJson(dynamic json) {
     final map = <String, PartnershipDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = PartnershipDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PartnershipDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of PartnershipDto-objects as value to a dart map
-  static Map<String, List<PartnershipDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<PartnershipDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<PartnershipDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = PartnershipDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PartnershipDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 /// Type of relationship.
@@ -132,7 +176,7 @@ class PartnershipDtoTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -213,13 +257,20 @@ class PartnershipDtoTypeEnum {
     refer,
   ];
 
-  static PartnershipDtoTypeEnum fromJson(dynamic value) =>
-    PartnershipDtoTypeEnumTypeTransformer().decode(value);
+  static PartnershipDtoTypeEnum? fromJson(dynamic value) => PartnershipDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<PartnershipDtoTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PartnershipDtoTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PartnershipDtoTypeEnum>[];
+  static List<PartnershipDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PartnershipDtoTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PartnershipDtoTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [PartnershipDtoTypeEnum] to String,
@@ -239,7 +290,7 @@ class PartnershipDtoTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  PartnershipDtoTypeEnum decode(dynamic data, {bool allowNull}) {
+  PartnershipDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'primary_contact': return PartnershipDtoTypeEnum.primaryContact;
@@ -279,7 +330,7 @@ class PartnershipDtoTypeEnumTypeTransformer {
         case r'seealso': return PartnershipDtoTypeEnum.seealso;
         case r'refer': return PartnershipDtoTypeEnum.refer;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -288,7 +339,7 @@ class PartnershipDtoTypeEnumTypeTransformer {
   }
 
   /// Singleton [PartnershipDtoTypeEnumTypeTransformer] instance.
-  static PartnershipDtoTypeEnumTypeTransformer _instance;
+  static PartnershipDtoTypeEnumTypeTransformer? _instance;
 }
 
 
@@ -301,7 +352,7 @@ class PartnershipDtoStatusEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -316,13 +367,20 @@ class PartnershipDtoStatusEnum {
     past,
   ];
 
-  static PartnershipDtoStatusEnum fromJson(dynamic value) =>
-    PartnershipDtoStatusEnumTypeTransformer().decode(value);
+  static PartnershipDtoStatusEnum? fromJson(dynamic value) => PartnershipDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<PartnershipDtoStatusEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PartnershipDtoStatusEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PartnershipDtoStatusEnum>[];
+  static List<PartnershipDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PartnershipDtoStatusEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PartnershipDtoStatusEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [PartnershipDtoStatusEnum] to String,
@@ -342,14 +400,14 @@ class PartnershipDtoStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  PartnershipDtoStatusEnum decode(dynamic data, {bool allowNull}) {
+  PartnershipDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'active': return PartnershipDtoStatusEnum.active;
         case r'complicated': return PartnershipDtoStatusEnum.complicated;
         case r'past': return PartnershipDtoStatusEnum.past;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -358,7 +416,7 @@ class PartnershipDtoStatusEnumTypeTransformer {
   }
 
   /// Singleton [PartnershipDtoStatusEnumTypeTransformer] instance.
-  static PartnershipDtoStatusEnumTypeTransformer _instance;
+  static PartnershipDtoStatusEnumTypeTransformer? _instance;
 }
 
 

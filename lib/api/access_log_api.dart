@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class AccessLogApi {
-  AccessLogApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  AccessLogApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -24,16 +24,11 @@ class AccessLogApi {
   ///
   /// * [AccessLogDto] accessLogDto (required):
   Future<Response> createAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
-    // Verify required params are set.
-    if (accessLogDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: accessLogDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog';
 
     // ignore: prefer_final_locals
-    Object postBody = accessLogDto;
+    Object? postBody = accessLogDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -50,7 +45,7 @@ class AccessLogApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -60,7 +55,7 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [AccessLogDto] accessLogDto (required):
-  Future<AccessLogDto> createAccessLog(AccessLogDto accessLogDto,) async {
+  Future<AccessLogDto?> createAccessLog(AccessLogDto accessLogDto,) async {
     final response = await createAccessLogWithHttpInfo(accessLogDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -68,11 +63,11 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
     
     }
-    return Future<AccessLogDto>.value();
+    return null;
   }
 
   /// Deletes an access log
@@ -83,16 +78,11 @@ class AccessLogApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteAccessLogsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -109,7 +99,7 @@ class AccessLogApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -119,7 +109,7 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteAccessLogs(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteAccessLogs(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteAccessLogsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -127,14 +117,14 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Get Paginated List of Access logs
@@ -154,36 +144,34 @@ class AccessLogApi {
   /// * [int] limit:
   ///
   /// * [bool] descending:
-  Future<Response> findAccessLogsByWithHttpInfo({ int fromEpoch, int toEpoch, int startKey, String startDocumentId, int limit, bool descending, }) async {
-    // Verify required params are set.
-
+  Future<Response> findAccessLogsByWithHttpInfo({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (fromEpoch != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'fromEpoch', fromEpoch));
+      queryParams.addAll(_queryParams('', 'fromEpoch', fromEpoch));
     }
     if (toEpoch != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'toEpoch', toEpoch));
+      queryParams.addAll(_queryParams('', 'toEpoch', toEpoch));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
     if (descending != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'descending', descending));
+      queryParams.addAll(_queryParams('', 'descending', descending));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -197,7 +185,7 @@ class AccessLogApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -217,7 +205,7 @@ class AccessLogApi {
   /// * [int] limit:
   ///
   /// * [bool] descending:
-  Future<PaginatedListAccessLogDto> findAccessLogsBy({ int fromEpoch, int toEpoch, int startKey, String startDocumentId, int limit, bool descending, }) async {
+  Future<PaginatedListAccessLogDto?> findAccessLogsBy({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     final response = await findAccessLogsByWithHttpInfo( fromEpoch: fromEpoch, toEpoch: toEpoch, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -225,11 +213,11 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAccessLogDto',) as PaginatedListAccessLogDto;
     
     }
-    return Future<PaginatedListAccessLogDto>.value();
+    return null;
   }
 
   /// Get Paginated List of Access logs by user after date
@@ -258,40 +246,35 @@ class AccessLogApi {
   ///
   /// * [bool] descending:
   ///   Descending order
-  Future<Response> findAccessLogsByUserAfterDateWithHttpInfo(String userId, { String accessType, int startDate, String startKey, String startDocumentId, int limit, bool descending, }) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-
+  Future<Response> findAccessLogsByUserAfterDateWithHttpInfo(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/byUser';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'userId', userId));
+      queryParams.addAll(_queryParams('', 'userId', userId));
     if (accessType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'accessType', accessType));
+      queryParams.addAll(_queryParams('', 'accessType', accessType));
     }
     if (startDate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDate', startDate));
+      queryParams.addAll(_queryParams('', 'startDate', startDate));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
     if (descending != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'descending', descending));
+      queryParams.addAll(_queryParams('', 'descending', descending));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -305,7 +288,7 @@ class AccessLogApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -334,7 +317,7 @@ class AccessLogApi {
   ///
   /// * [bool] descending:
   ///   Descending order
-  Future<PaginatedListAccessLogDto> findAccessLogsByUserAfterDate(String userId, { String accessType, int startDate, String startKey, String startDocumentId, int limit, bool descending, }) async {
+  Future<PaginatedListAccessLogDto?> findAccessLogsByUserAfterDate(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     final response = await findAccessLogsByUserAfterDateWithHttpInfo(userId,  accessType: accessType, startDate: startDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -342,11 +325,11 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAccessLogDto',) as PaginatedListAccessLogDto;
     
     }
-    return Future<PaginatedListAccessLogDto>.value();
+    return null;
   }
 
   /// Gets an access log
@@ -357,17 +340,12 @@ class AccessLogApi {
   ///
   /// * [String] accessLogId (required):
   Future<Response> getAccessLogWithHttpInfo(String accessLogId,) async {
-    // Verify required params are set.
-    if (accessLogId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: accessLogId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/{accessLogId}'
       .replaceAll('{accessLogId}', accessLogId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -384,7 +362,7 @@ class AccessLogApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -394,7 +372,7 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [String] accessLogId (required):
-  Future<AccessLogDto> getAccessLog(String accessLogId,) async {
+  Future<AccessLogDto?> getAccessLog(String accessLogId,) async {
     final response = await getAccessLogWithHttpInfo(accessLogId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -402,11 +380,11 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
     
     }
-    return Future<AccessLogDto>.value();
+    return null;
   }
 
   /// List access logs found By Healthcare Party and secret foreign keyelementIds.
@@ -419,26 +397,18 @@ class AccessLogApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> listAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -451,7 +421,7 @@ class AccessLogApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -463,7 +433,7 @@ class AccessLogApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<AccessLogDto>> listAccessLogsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<AccessLogDto>?> listAccessLogsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await listAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -471,14 +441,14 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<AccessLogDto>') as List)
         .cast<AccessLogDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<AccessLogDto>>.value();
+    return null;
   }
 
   /// Modifies an access log
@@ -489,16 +459,11 @@ class AccessLogApi {
   ///
   /// * [AccessLogDto] accessLogDto (required):
   Future<Response> modifyAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
-    // Verify required params are set.
-    if (accessLogDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: accessLogDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog';
 
     // ignore: prefer_final_locals
-    Object postBody = accessLogDto;
+    Object? postBody = accessLogDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -515,7 +480,7 @@ class AccessLogApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -525,7 +490,7 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [AccessLogDto] accessLogDto (required):
-  Future<AccessLogDto> modifyAccessLog(AccessLogDto accessLogDto,) async {
+  Future<AccessLogDto?> modifyAccessLog(AccessLogDto accessLogDto,) async {
     final response = await modifyAccessLogWithHttpInfo(accessLogDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -533,10 +498,10 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
     
     }
-    return Future<AccessLogDto>.value();
+    return null;
   }
 }

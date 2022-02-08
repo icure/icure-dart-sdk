@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,11 +18,29 @@ class NumeratorRangeDto {
     this.unit,
   });
 
-  num min;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  num? min;
 
-  num max;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  num? max;
 
-  String unit;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? unit;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NumeratorRangeDto &&
@@ -32,10 +50,10 @@ class NumeratorRangeDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (min == null ? 0 : min.hashCode) +
-    (max == null ? 0 : max.hashCode) +
-    (unit == null ? 0 : unit.hashCode);
+    // ignore: unnecessary_parenthesis
+    (min == null ? 0 : min!.hashCode) +
+    (max == null ? 0 : max!.hashCode) +
+    (unit == null ? 0 : unit!.hashCode);
 
   @override
   String toString() => 'NumeratorRangeDto[min=$min, max=$max, unit=$unit]';
@@ -57,52 +75,78 @@ class NumeratorRangeDto {
   /// Returns a new [NumeratorRangeDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static NumeratorRangeDto fromJson(dynamic value) {
+  static NumeratorRangeDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "NumeratorRangeDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "NumeratorRangeDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return NumeratorRangeDto(
         min: json[r'min'] == null
-          ? null
-          : num.parse(json[r'min'].toString()),
+            ? null
+            : num.parse(json[r'min'].toString()),
         max: json[r'max'] == null
-          ? null
-          : num.parse(json[r'max'].toString()),
+            ? null
+            : num.parse(json[r'max'].toString()),
         unit: mapValueOfType<String>(json, r'unit'),
       );
     }
     return null;
   }
 
-  static List<NumeratorRangeDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(NumeratorRangeDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <NumeratorRangeDto>[];
+  static List<NumeratorRangeDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <NumeratorRangeDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = NumeratorRangeDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, NumeratorRangeDto> mapFromJson(dynamic json) {
     final map = <String, NumeratorRangeDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = NumeratorRangeDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = NumeratorRangeDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of NumeratorRangeDto-objects as value to a dart map
-  static Map<String, List<NumeratorRangeDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<NumeratorRangeDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<NumeratorRangeDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = NumeratorRangeDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = NumeratorRangeDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

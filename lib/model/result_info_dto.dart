@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -28,27 +28,93 @@ class ResultInfoDto {
     this.services = const [],
   });
 
-  String ssin;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ssin;
 
-  String lastName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? lastName;
 
-  String firstName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? firstName;
 
-  int dateOfBirth;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? dateOfBirth;
 
-  String sex;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? sex;
 
-  String documentId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? documentId;
 
-  String protocol;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? protocol;
 
-  bool complete;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? complete;
 
-  int demandDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? demandDate;
 
-  String labo;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? labo;
 
-  String engine;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? engine;
 
   Set<CodeStubDto> codes;
 
@@ -72,20 +138,20 @@ class ResultInfoDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (ssin == null ? 0 : ssin.hashCode) +
-    (lastName == null ? 0 : lastName.hashCode) +
-    (firstName == null ? 0 : firstName.hashCode) +
-    (dateOfBirth == null ? 0 : dateOfBirth.hashCode) +
-    (sex == null ? 0 : sex.hashCode) +
-    (documentId == null ? 0 : documentId.hashCode) +
-    (protocol == null ? 0 : protocol.hashCode) +
-    (complete == null ? 0 : complete.hashCode) +
-    (demandDate == null ? 0 : demandDate.hashCode) +
-    (labo == null ? 0 : labo.hashCode) +
-    (engine == null ? 0 : engine.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (services == null ? 0 : services.hashCode);
+    // ignore: unnecessary_parenthesis
+    (ssin == null ? 0 : ssin!.hashCode) +
+    (lastName == null ? 0 : lastName!.hashCode) +
+    (firstName == null ? 0 : firstName!.hashCode) +
+    (dateOfBirth == null ? 0 : dateOfBirth!.hashCode) +
+    (sex == null ? 0 : sex!.hashCode) +
+    (documentId == null ? 0 : documentId!.hashCode) +
+    (protocol == null ? 0 : protocol!.hashCode) +
+    (complete == null ? 0 : complete!.hashCode) +
+    (demandDate == null ? 0 : demandDate!.hashCode) +
+    (labo == null ? 0 : labo!.hashCode) +
+    (engine == null ? 0 : engine!.hashCode) +
+    (codes.hashCode) +
+    (services.hashCode);
 
   @override
   String toString() => 'ResultInfoDto[ssin=$ssin, lastName=$lastName, firstName=$firstName, dateOfBirth=$dateOfBirth, sex=$sex, documentId=$documentId, protocol=$protocol, complete=$complete, demandDate=$demandDate, labo=$labo, engine=$engine, codes=$codes, services=$services]';
@@ -133,9 +199,21 @@ class ResultInfoDto {
   /// Returns a new [ResultInfoDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ResultInfoDto fromJson(dynamic value) {
+  static ResultInfoDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "ResultInfoDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ResultInfoDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return ResultInfoDto(
         ssin: mapValueOfType<String>(json, r'ssin'),
         lastName: mapValueOfType<String>(json, r'lastName'),
@@ -148,43 +226,59 @@ class ResultInfoDto {
         demandDate: mapValueOfType<int>(json, r'demandDate'),
         labo: mapValueOfType<String>(json, r'labo'),
         engine: mapValueOfType<String>(json, r'engine'),
-        codes: CodeStubDto.listFromJson(json[r'codes']),
-        services: ServiceDto.listFromJson(json[r'services']),
+        codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
+        services: ServiceDto.listFromJson(json[r'services'])!,
       );
     }
     return null;
   }
 
-  static List<ResultInfoDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ResultInfoDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ResultInfoDto>[];
+  static List<ResultInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ResultInfoDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = ResultInfoDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, ResultInfoDto> mapFromJson(dynamic json) {
     final map = <String, ResultInfoDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = ResultInfoDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ResultInfoDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of ResultInfoDto-objects as value to a dart map
-  static Map<String, List<ResultInfoDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<ResultInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ResultInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = ResultInfoDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ResultInfoDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'codes',
+    'services',
+  };
 }
 

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.16
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -117,8 +117,8 @@ void main() {
     //
     //Future<UserDto> getCurrentUser() async
     test('test getCurrentUser', () async {
-      UserDto res = await instance.getCurrentUser();
-      assert(res.login == 'abdemotst2');
+      UserDto? res = await instance.getCurrentUser();
+      assert(res?.login == 'abdemotst2');
     });
 
     // Get presently logged-in user.

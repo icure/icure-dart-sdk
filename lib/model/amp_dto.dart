@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class AmpDto {
   /// Returns a new [AmpDto] instance.
   AmpDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.deletionDate,
     this.from,
@@ -23,7 +23,7 @@ class AmpDto {
     this.officialName,
     this.status,
     this.name,
-    @required this.blackTriangle,
+    required this.blackTriangle,
     this.medicineType,
     this.company,
     this.abbreviatedName,
@@ -35,36 +35,108 @@ class AmpDto {
 
   String id;
 
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
-  int from;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? from;
 
-  int to;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? to;
 
-  String code;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? code;
 
-  VmpStubDto vmp;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  VmpStubDto? vmp;
 
-  String officialName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? officialName;
 
-  AmpDtoStatusEnum status;
+  AmpDtoStatusEnum? status;
 
-  SamTextDto name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? name;
 
   bool blackTriangle;
 
-  AmpDtoMedicineTypeEnum medicineType;
+  AmpDtoMedicineTypeEnum? medicineType;
 
-  CompanyDto company;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CompanyDto? company;
 
-  SamTextDto abbreviatedName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? abbreviatedName;
 
-  SamTextDto proprietarySuffix;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? proprietarySuffix;
 
-  SamTextDto prescriptionName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? prescriptionName;
 
   List<AmppDto> ampps;
 
@@ -93,25 +165,25 @@ class AmpDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (from == null ? 0 : from.hashCode) +
-    (to == null ? 0 : to.hashCode) +
-    (code == null ? 0 : code.hashCode) +
-    (vmp == null ? 0 : vmp.hashCode) +
-    (officialName == null ? 0 : officialName.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (blackTriangle == null ? 0 : blackTriangle.hashCode) +
-    (medicineType == null ? 0 : medicineType.hashCode) +
-    (company == null ? 0 : company.hashCode) +
-    (abbreviatedName == null ? 0 : abbreviatedName.hashCode) +
-    (proprietarySuffix == null ? 0 : proprietarySuffix.hashCode) +
-    (prescriptionName == null ? 0 : prescriptionName.hashCode) +
-    (ampps == null ? 0 : ampps.hashCode) +
-    (components == null ? 0 : components.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (from == null ? 0 : from!.hashCode) +
+    (to == null ? 0 : to!.hashCode) +
+    (code == null ? 0 : code!.hashCode) +
+    (vmp == null ? 0 : vmp!.hashCode) +
+    (officialName == null ? 0 : officialName!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (blackTriangle.hashCode) +
+    (medicineType == null ? 0 : medicineType!.hashCode) +
+    (company == null ? 0 : company!.hashCode) +
+    (abbreviatedName == null ? 0 : abbreviatedName!.hashCode) +
+    (proprietarySuffix == null ? 0 : proprietarySuffix!.hashCode) +
+    (prescriptionName == null ? 0 : prescriptionName!.hashCode) +
+    (ampps.hashCode) +
+    (components.hashCode);
 
   @override
   String toString() => 'AmpDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, code=$code, vmp=$vmp, officialName=$officialName, status=$status, name=$name, blackTriangle=$blackTriangle, medicineType=$medicineType, company=$company, abbreviatedName=$abbreviatedName, proprietarySuffix=$proprietarySuffix, prescriptionName=$prescriptionName, ampps=$ampps, components=$components]';
@@ -170,11 +242,23 @@ class AmpDto {
   /// Returns a new [AmpDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AmpDto fromJson(dynamic value) {
+  static AmpDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "AmpDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AmpDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return AmpDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         from: mapValueOfType<int>(json, r'from'),
@@ -184,50 +268,68 @@ class AmpDto {
         officialName: mapValueOfType<String>(json, r'officialName'),
         status: AmpDtoStatusEnum.fromJson(json[r'status']),
         name: SamTextDto.fromJson(json[r'name']),
-        blackTriangle: mapValueOfType<bool>(json, r'blackTriangle'),
+        blackTriangle: mapValueOfType<bool>(json, r'blackTriangle')!,
         medicineType: AmpDtoMedicineTypeEnum.fromJson(json[r'medicineType']),
         company: CompanyDto.fromJson(json[r'company']),
         abbreviatedName: SamTextDto.fromJson(json[r'abbreviatedName']),
         proprietarySuffix: SamTextDto.fromJson(json[r'proprietarySuffix']),
         prescriptionName: SamTextDto.fromJson(json[r'prescriptionName']),
-        ampps: AmppDto.listFromJson(json[r'ampps']),
-        components: AmpComponentDto.listFromJson(json[r'components']),
+        ampps: AmppDto.listFromJson(json[r'ampps'])!,
+        components: AmpComponentDto.listFromJson(json[r'components'])!,
       );
     }
     return null;
   }
 
-  static List<AmpDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmpDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmpDto>[];
+  static List<AmpDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmpDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmpDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, AmpDto> mapFromJson(dynamic json) {
     final map = <String, AmpDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = AmpDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AmpDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of AmpDto-objects as value to a dart map
-  static Map<String, List<AmpDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<AmpDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<AmpDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = AmpDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = AmpDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'blackTriangle',
+    'ampps',
+    'components',
+  };
 }
 
 
@@ -239,7 +341,7 @@ class AmpDtoStatusEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -254,13 +356,20 @@ class AmpDtoStatusEnum {
     REVOKED,
   ];
 
-  static AmpDtoStatusEnum fromJson(dynamic value) =>
-    AmpDtoStatusEnumTypeTransformer().decode(value);
+  static AmpDtoStatusEnum? fromJson(dynamic value) => AmpDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<AmpDtoStatusEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmpDtoStatusEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmpDtoStatusEnum>[];
+  static List<AmpDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmpDtoStatusEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmpDtoStatusEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [AmpDtoStatusEnum] to String,
@@ -280,14 +389,14 @@ class AmpDtoStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  AmpDtoStatusEnum decode(dynamic data, {bool allowNull}) {
+  AmpDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'AUTHORIZED': return AmpDtoStatusEnum.AUTHORIZED;
         case r'SUSPENDED': return AmpDtoStatusEnum.SUSPENDED;
         case r'REVOKED': return AmpDtoStatusEnum.REVOKED;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -296,7 +405,7 @@ class AmpDtoStatusEnumTypeTransformer {
   }
 
   /// Singleton [AmpDtoStatusEnumTypeTransformer] instance.
-  static AmpDtoStatusEnumTypeTransformer _instance;
+  static AmpDtoStatusEnumTypeTransformer? _instance;
 }
 
 
@@ -309,7 +418,7 @@ class AmpDtoMedicineTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -322,13 +431,20 @@ class AmpDtoMedicineTypeEnum {
     HOMEOPATHIC,
   ];
 
-  static AmpDtoMedicineTypeEnum fromJson(dynamic value) =>
-    AmpDtoMedicineTypeEnumTypeTransformer().decode(value);
+  static AmpDtoMedicineTypeEnum? fromJson(dynamic value) => AmpDtoMedicineTypeEnumTypeTransformer().decode(value);
 
-  static List<AmpDtoMedicineTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AmpDtoMedicineTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AmpDtoMedicineTypeEnum>[];
+  static List<AmpDtoMedicineTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AmpDtoMedicineTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = AmpDtoMedicineTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [AmpDtoMedicineTypeEnum] to String,
@@ -348,13 +464,13 @@ class AmpDtoMedicineTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  AmpDtoMedicineTypeEnum decode(dynamic data, {bool allowNull}) {
+  AmpDtoMedicineTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'ALLOPATHIC': return AmpDtoMedicineTypeEnum.ALLOPATHIC;
         case r'HOMEOPATHIC': return AmpDtoMedicineTypeEnum.HOMEOPATHIC;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -363,7 +479,7 @@ class AmpDtoMedicineTypeEnumTypeTransformer {
   }
 
   /// Singleton [AmpDtoMedicineTypeEnumTypeTransformer] instance.
-  static AmpDtoMedicineTypeEnumTypeTransformer _instance;
+  static AmpDtoMedicineTypeEnumTypeTransformer? _instance;
 }
 
 

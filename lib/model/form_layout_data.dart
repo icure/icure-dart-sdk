@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -33,29 +33,89 @@ class FormLayoutData {
     this.formulas = const [],
   });
 
-  bool subForm;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? subForm;
 
-  bool irrelevant;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? irrelevant;
 
-  bool determinesSscontactName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? determinesSscontactName;
 
-  String type;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? type;
 
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
-  double sortOrder;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? sortOrder;
 
   Map<String, FormDataOption> options;
 
-  String descr;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? descr;
 
-  String label;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? label;
 
-  Editor editor;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Editor? editor;
 
   List<ContentDto> defaultValue;
 
-  int defaultStatus;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? defaultStatus;
 
   List<Suggest> suggest;
 
@@ -92,25 +152,25 @@ class FormLayoutData {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (subForm == null ? 0 : subForm.hashCode) +
-    (irrelevant == null ? 0 : irrelevant.hashCode) +
-    (determinesSscontactName == null ? 0 : determinesSscontactName.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (sortOrder == null ? 0 : sortOrder.hashCode) +
-    (options == null ? 0 : options.hashCode) +
-    (descr == null ? 0 : descr.hashCode) +
-    (label == null ? 0 : label.hashCode) +
-    (editor == null ? 0 : editor.hashCode) +
-    (defaultValue == null ? 0 : defaultValue.hashCode) +
-    (defaultStatus == null ? 0 : defaultStatus.hashCode) +
-    (suggest == null ? 0 : suggest.hashCode) +
-    (plannings == null ? 0 : plannings.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (codeTypes == null ? 0 : codeTypes.hashCode) +
-    (formulas == null ? 0 : formulas.hashCode);
+    // ignore: unnecessary_parenthesis
+    (subForm == null ? 0 : subForm!.hashCode) +
+    (irrelevant == null ? 0 : irrelevant!.hashCode) +
+    (determinesSscontactName == null ? 0 : determinesSscontactName!.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (sortOrder == null ? 0 : sortOrder!.hashCode) +
+    (options.hashCode) +
+    (descr == null ? 0 : descr!.hashCode) +
+    (label == null ? 0 : label!.hashCode) +
+    (editor == null ? 0 : editor!.hashCode) +
+    (defaultValue.hashCode) +
+    (defaultStatus == null ? 0 : defaultStatus!.hashCode) +
+    (suggest.hashCode) +
+    (plannings.hashCode) +
+    (tags.hashCode) +
+    (codes.hashCode) +
+    (codeTypes.hashCode) +
+    (formulas.hashCode);
 
   @override
   String toString() => 'FormLayoutData[subForm=$subForm, irrelevant=$irrelevant, determinesSscontactName=$determinesSscontactName, type=$type, name=$name, sortOrder=$sortOrder, options=$options, descr=$descr, label=$label, editor=$editor, defaultValue=$defaultValue, defaultStatus=$defaultStatus, suggest=$suggest, plannings=$plannings, tags=$tags, codes=$codes, codeTypes=$codeTypes, formulas=$formulas]';
@@ -135,9 +195,7 @@ class FormLayoutData {
     if (sortOrder != null) {
       json[r'sortOrder'] = sortOrder;
     }
-    if (options != null) {
       json[r'options'] = options;
-    }
     if (descr != null) {
       json[r'descr'] = descr;
     }
@@ -147,39 +205,37 @@ class FormLayoutData {
     if (editor != null) {
       json[r'editor'] = editor;
     }
-    if (defaultValue != null) {
       json[r'defaultValue'] = defaultValue;
-    }
     if (defaultStatus != null) {
       json[r'defaultStatus'] = defaultStatus;
     }
-    if (suggest != null) {
       json[r'suggest'] = suggest;
-    }
-    if (plannings != null) {
       json[r'plannings'] = plannings;
-    }
-    if (tags != null) {
       json[r'tags'] = tags;
-    }
-    if (codes != null) {
       json[r'codes'] = codes;
-    }
-    if (codeTypes != null) {
       json[r'codeTypes'] = codeTypes;
-    }
-    if (formulas != null) {
       json[r'formulas'] = formulas;
-    }
     return json;
   }
 
   /// Returns a new [FormLayoutData] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static FormLayoutData fromJson(dynamic value) {
+  static FormLayoutData? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "FormLayoutData[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "FormLayoutData[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return FormLayoutData(
         subForm: mapValueOfType<bool>(json, r'subForm'),
         irrelevant: mapValueOfType<bool>(json, r'irrelevant'),
@@ -187,53 +243,67 @@ class FormLayoutData {
         type: mapValueOfType<String>(json, r'type'),
         name: mapValueOfType<String>(json, r'name'),
         sortOrder: mapValueOfType<double>(json, r'sortOrder'),
-        options: mapValueOfType<Map<String, FormDataOption>>(json, r'options'),
+        options: mapValueOfType<Map<String, FormDataOption>>(json, r'options') ?? const {},
         descr: mapValueOfType<String>(json, r'descr'),
         label: mapValueOfType<String>(json, r'label'),
         editor: Editor.fromJson(json[r'editor']),
-        defaultValue: ContentDto.listFromJson(json[r'defaultValue']),
+        defaultValue: ContentDto.listFromJson(json[r'defaultValue']) ?? const [],
         defaultStatus: mapValueOfType<int>(json, r'defaultStatus'),
-        suggest: Suggest.listFromJson(json[r'suggest']),
-        plannings: FormPlanning.listFromJson(json[r'plannings']),
-        tags: GuiCode.listFromJson(json[r'tags']),
-        codes: GuiCode.listFromJson(json[r'codes']),
-        codeTypes: GuiCodeType.listFromJson(json[r'codeTypes']),
-        formulas: Formula.listFromJson(json[r'formulas']),
+        suggest: Suggest.listFromJson(json[r'suggest']) ?? const [],
+        plannings: FormPlanning.listFromJson(json[r'plannings']) ?? const [],
+        tags: GuiCode.listFromJson(json[r'tags']) ?? const [],
+        codes: GuiCode.listFromJson(json[r'codes']) ?? const [],
+        codeTypes: GuiCodeType.listFromJson(json[r'codeTypes']) ?? const [],
+        formulas: Formula.listFromJson(json[r'formulas']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<FormLayoutData> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(FormLayoutData.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <FormLayoutData>[];
+  static List<FormLayoutData>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <FormLayoutData>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = FormLayoutData.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, FormLayoutData> mapFromJson(dynamic json) {
     final map = <String, FormLayoutData>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = FormLayoutData.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FormLayoutData.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of FormLayoutData-objects as value to a dart map
-  static Map<String, List<FormLayoutData>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<FormLayoutData>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<FormLayoutData>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = FormLayoutData.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FormLayoutData.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -24,7 +24,13 @@ class ImportResultDto {
     this.attachments = const {},
   });
 
-  PatientDto patient;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  PatientDto? patient;
 
   List<HealthElementDto> hes;
 
@@ -56,16 +62,16 @@ class ImportResultDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (patient == null ? 0 : patient.hashCode) +
-    (hes == null ? 0 : hes.hashCode) +
-    (ctcs == null ? 0 : ctcs.hashCode) +
-    (warnings == null ? 0 : warnings.hashCode) +
-    (errors == null ? 0 : errors.hashCode) +
-    (forms == null ? 0 : forms.hashCode) +
-    (hcps == null ? 0 : hcps.hashCode) +
-    (documents == null ? 0 : documents.hashCode) +
-    (attachments == null ? 0 : attachments.hashCode);
+    // ignore: unnecessary_parenthesis
+    (patient == null ? 0 : patient!.hashCode) +
+    (hes.hashCode) +
+    (ctcs.hashCode) +
+    (warnings.hashCode) +
+    (errors.hashCode) +
+    (forms.hashCode) +
+    (hcps.hashCode) +
+    (documents.hashCode) +
+    (attachments.hashCode);
 
   @override
   String toString() => 'ImportResultDto[patient=$patient, hes=$hes, ctcs=$ctcs, warnings=$warnings, errors=$errors, forms=$forms, hcps=$hcps, documents=$documents, attachments=$attachments]';
@@ -75,88 +81,98 @@ class ImportResultDto {
     if (patient != null) {
       json[r'patient'] = patient;
     }
-    if (hes != null) {
       json[r'hes'] = hes;
-    }
-    if (ctcs != null) {
       json[r'ctcs'] = ctcs;
-    }
-    if (warnings != null) {
       json[r'warnings'] = warnings;
-    }
-    if (errors != null) {
       json[r'errors'] = errors;
-    }
-    if (forms != null) {
       json[r'forms'] = forms;
-    }
-    if (hcps != null) {
       json[r'hcps'] = hcps;
-    }
-    if (documents != null) {
       json[r'documents'] = documents;
-    }
-    if (attachments != null) {
       json[r'attachments'] = attachments;
-    }
     return json;
   }
 
   /// Returns a new [ImportResultDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ImportResultDto fromJson(dynamic value) {
+  static ImportResultDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "ImportResultDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ImportResultDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return ImportResultDto(
         patient: PatientDto.fromJson(json[r'patient']),
-        hes: HealthElementDto.listFromJson(json[r'hes']),
-        ctcs: ContactDto.listFromJson(json[r'ctcs']),
+        hes: HealthElementDto.listFromJson(json[r'hes']) ?? const [],
+        ctcs: ContactDto.listFromJson(json[r'ctcs']) ?? const [],
         warnings: json[r'warnings'] is List
-          ? (json[r'warnings'] as List).cast<String>()
-          : null,
+            ? (json[r'warnings'] as List).cast<String>()
+            : const [],
         errors: json[r'errors'] is List
-          ? (json[r'errors'] as List).cast<String>()
-          : null,
-        forms: FormDto.listFromJson(json[r'forms']),
-        hcps: HealthcarePartyDto.listFromJson(json[r'hcps']),
-        documents: DocumentDto.listFromJson(json[r'documents']),
-        attachments: mapValueOfType<Map<String, MimeAttachmentDto>>(json, r'attachments'),
+            ? (json[r'errors'] as List).cast<String>()
+            : const [],
+        forms: FormDto.listFromJson(json[r'forms']) ?? const [],
+        hcps: HealthcarePartyDto.listFromJson(json[r'hcps']) ?? const [],
+        documents: DocumentDto.listFromJson(json[r'documents']) ?? const [],
+        attachments: mapValueOfType<Map<String, MimeAttachmentDto>>(json, r'attachments') ?? const {},
       );
     }
     return null;
   }
 
-  static List<ImportResultDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ImportResultDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ImportResultDto>[];
+  static List<ImportResultDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ImportResultDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = ImportResultDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, ImportResultDto> mapFromJson(dynamic json) {
     final map = <String, ImportResultDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = ImportResultDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ImportResultDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of ImportResultDto-objects as value to a dart map
-  static Map<String, List<ImportResultDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<ImportResultDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ImportResultDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = ImportResultDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ImportResultDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

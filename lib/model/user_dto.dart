@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class UserDto {
   /// Returns a new [UserDto] instance.
   UserDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.deletionDate,
     this.created,
@@ -44,15 +44,39 @@ class UserDto {
   String id;
 
   /// the revision of the user in the database, used for conflict management / optimistic locking.
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// Last name of the user. This is the official last name that should be used for official administrative purposes.
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
   /// Extra properties for the user. Those properties are typed (see class Property)
   Set<PropertyStubDto> properties;
@@ -64,49 +88,121 @@ class UserDto {
   Set<String> roles;
 
   /// Authorization source for user. 'Database', 'ldap' or 'token'
-  UserDtoTypeEnum type;
+  UserDtoTypeEnum? type;
 
   /// State of user's activeness: 'Active', 'Disabled' or 'Registering'
-  UserDtoStatusEnum status;
+  UserDtoStatusEnum? status;
 
   /// Username for this user. We encourage using an email address
-  String login;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? login;
 
   /// Hashed version of the password (BCrypt is used for hashing)
-  String passwordHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? passwordHash;
 
   /// Secret token used to verify 2fa
-  String secret;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? secret;
 
   /// Whether the user has activated two factors authentication
-  bool use2fa;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? use2fa;
 
   /// id of the group (practice/hospital) the user is member of
-  String groupId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? groupId;
 
   /// Id of the healthcare party if the user is a healthcare party.
-  String healthcarePartyId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? healthcarePartyId;
 
   /// Id of the patient if the user is a patient
-  String patientId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? patientId;
 
   /// Id of the device if the user is a device
-  String deviceId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? deviceId;
 
   /// Delegations that are automatically generated client side when a new database object is created by this user
   Map<String, Set<String>> autoDelegations;
 
   /// the timestamp (unix epoch in ms) of creation of the user, will be filled automatically if missing. Not enforced by the application server.
-  DateTime createdDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DateTime? createdDate;
 
   /// the timestamp (unix epoch in ms) of the latest validation of the terms of use of the application
-  DateTime termsOfUseDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DateTime? termsOfUseDate;
 
   /// email address of the user (used for token exchange or password recovery).
-  String email;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? email;
 
   /// mobile phone of the user (used for token exchange or password recovery).
-  String mobilePhone;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mobilePhone;
 
   Map<String, String> applicationTokens;
 
@@ -143,32 +239,32 @@ class UserDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (properties == null ? 0 : properties.hashCode) +
-    (permissions == null ? 0 : permissions.hashCode) +
-    (roles == null ? 0 : roles.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (login == null ? 0 : login.hashCode) +
-    (passwordHash == null ? 0 : passwordHash.hashCode) +
-    (secret == null ? 0 : secret.hashCode) +
-    (use2fa == null ? 0 : use2fa.hashCode) +
-    (groupId == null ? 0 : groupId.hashCode) +
-    (healthcarePartyId == null ? 0 : healthcarePartyId.hashCode) +
-    (patientId == null ? 0 : patientId.hashCode) +
-    (deviceId == null ? 0 : deviceId.hashCode) +
-    (autoDelegations == null ? 0 : autoDelegations.hashCode) +
-    (createdDate == null ? 0 : createdDate.hashCode) +
-    (termsOfUseDate == null ? 0 : termsOfUseDate.hashCode) +
-    (email == null ? 0 : email.hashCode) +
-    (mobilePhone == null ? 0 : mobilePhone.hashCode) +
-    (applicationTokens == null ? 0 : applicationTokens.hashCode) +
-    (authenticationTokens == null ? 0 : authenticationTokens.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (created == null ? 0 : created!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (properties.hashCode) +
+    (permissions.hashCode) +
+    (roles.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (login == null ? 0 : login!.hashCode) +
+    (passwordHash == null ? 0 : passwordHash!.hashCode) +
+    (secret == null ? 0 : secret!.hashCode) +
+    (use2fa == null ? 0 : use2fa!.hashCode) +
+    (groupId == null ? 0 : groupId!.hashCode) +
+    (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
+    (patientId == null ? 0 : patientId!.hashCode) +
+    (deviceId == null ? 0 : deviceId!.hashCode) +
+    (autoDelegations.hashCode) +
+    (createdDate == null ? 0 : createdDate!.hashCode) +
+    (termsOfUseDate == null ? 0 : termsOfUseDate!.hashCode) +
+    (email == null ? 0 : email!.hashCode) +
+    (mobilePhone == null ? 0 : mobilePhone!.hashCode) +
+    (applicationTokens.hashCode) +
+    (authenticationTokens.hashCode);
 
   @override
   String toString() => 'UserDto[id=$id, rev=$rev, deletionDate=$deletionDate, created=$created, name=$name, properties=$properties, permissions=$permissions, roles=$roles, type=$type, status=$status, login=$login, passwordHash=$passwordHash, secret=$secret, use2fa=$use2fa, groupId=$groupId, healthcarePartyId=$healthcarePartyId, patientId=$patientId, deviceId=$deviceId, autoDelegations=$autoDelegations, createdDate=$createdDate, termsOfUseDate=$termsOfUseDate, email=$email, mobilePhone=$mobilePhone, applicationTokens=$applicationTokens, authenticationTokens=$authenticationTokens]';
@@ -223,10 +319,10 @@ class UserDto {
     }
       json[r'autoDelegations'] = autoDelegations;
     if (createdDate != null) {
-      json[r'createdDate'] = createdDate.toUtc().toIso8601String();
+      json[r'createdDate'] = createdDate!.toUtc().toIso8601String();
     }
     if (termsOfUseDate != null) {
-      json[r'termsOfUseDate'] = termsOfUseDate.toUtc().toIso8601String();
+      json[r'termsOfUseDate'] = termsOfUseDate!.toUtc().toIso8601String();
     }
     if (email != null) {
       json[r'email'] = email;
@@ -242,20 +338,32 @@ class UserDto {
   /// Returns a new [UserDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static UserDto fromJson(dynamic value) {
+  static UserDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "UserDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "UserDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return UserDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         created: mapValueOfType<int>(json, r'created'),
         name: mapValueOfType<String>(json, r'name'),
-        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
-        permissions: PermissionDto.listFromJson(json[r'permissions']).toSet(),
+        properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
+        permissions: PermissionDto.listFromJson(json[r'permissions'])!.toSet(),
         roles: json[r'roles'] is Set
-          ? (json[r'roles'] as Set).cast<String>()
-          : null,
+            ? (json[r'roles'] as Set).cast<String>()
+            : const {},
         type: UserDtoTypeEnum.fromJson(json[r'type']),
         status: UserDtoStatusEnum.fromJson(json[r'status']),
         login: mapValueOfType<String>(json, r'login'),
@@ -267,53 +375,71 @@ class UserDto {
         patientId: mapValueOfType<String>(json, r'patientId'),
         deviceId: mapValueOfType<String>(json, r'deviceId'),
         autoDelegations: json[r'autoDelegations'] == null
-            ? null
-            : mapCastOfType<String, Set<String>>(json, r'autoDelegations'),
+          ? const {}
+            : mapCastOfType<String, List<String>>(json, r'autoDelegations')?.map((k,v) => MapEntry(k, v.toSet())) ?? <String, Set<String>>{},
         createdDate: mapDateTime(json, r'createdDate', ''),
         termsOfUseDate: mapDateTime(json, r'termsOfUseDate', ''),
         email: mapValueOfType<String>(json, r'email'),
         mobilePhone: mapValueOfType<String>(json, r'mobilePhone'),
-        applicationTokens:
-            mapCastOfType<String, String>(json, r'applicationTokens'),
-        authenticationTokens:
-            mapValueOfType<Map<String, AuthenticationTokenDto>>(
-                json, r'authenticationTokens'),
+        applicationTokens: mapCastOfType<String, String>(json, r'applicationTokens')!,
+        authenticationTokens: mapValueOfType<Map<String, AuthenticationTokenDto>>(json, r'authenticationTokens')!,
       );
     }
     return null;
   }
 
-  static List<UserDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(UserDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <UserDto>[];
+  static List<UserDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <UserDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = UserDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, UserDto> mapFromJson(dynamic json) {
     final map = <String, UserDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = UserDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = UserDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of UserDto-objects as value to a dart map
-  static Map<String, List<UserDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<UserDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<UserDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = UserDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = UserDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'properties',
+    'permissions',
+    'roles',
+    'autoDelegations',
+    'applicationTokens',
+    'authenticationTokens',
+  };
 }
 
 /// Authorization source for user. 'Database', 'ldap' or 'token'
@@ -325,7 +451,7 @@ class UserDtoTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -340,13 +466,20 @@ class UserDtoTypeEnum {
     token,
   ];
 
-  static UserDtoTypeEnum fromJson(dynamic value) =>
-    UserDtoTypeEnumTypeTransformer().decode(value);
+  static UserDtoTypeEnum? fromJson(dynamic value) => UserDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<UserDtoTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(UserDtoTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <UserDtoTypeEnum>[];
+  static List<UserDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <UserDtoTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = UserDtoTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [UserDtoTypeEnum] to String,
@@ -366,14 +499,14 @@ class UserDtoTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  UserDtoTypeEnum decode(dynamic data, {bool allowNull}) {
+  UserDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'database': return UserDtoTypeEnum.database;
         case r'ldap': return UserDtoTypeEnum.ldap;
         case r'token': return UserDtoTypeEnum.token;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -382,7 +515,7 @@ class UserDtoTypeEnumTypeTransformer {
   }
 
   /// Singleton [UserDtoTypeEnumTypeTransformer] instance.
-  static UserDtoTypeEnumTypeTransformer _instance;
+  static UserDtoTypeEnumTypeTransformer? _instance;
 }
 
 
@@ -395,7 +528,7 @@ class UserDtoStatusEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -410,13 +543,20 @@ class UserDtoStatusEnum {
     REGISTERING,
   ];
 
-  static UserDtoStatusEnum fromJson(dynamic value) =>
-    UserDtoStatusEnumTypeTransformer().decode(value);
+  static UserDtoStatusEnum? fromJson(dynamic value) => UserDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<UserDtoStatusEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(UserDtoStatusEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <UserDtoStatusEnum>[];
+  static List<UserDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <UserDtoStatusEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = UserDtoStatusEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [UserDtoStatusEnum] to String,
@@ -436,14 +576,14 @@ class UserDtoStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  UserDtoStatusEnum decode(dynamic data, {bool allowNull}) {
+  UserDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'ACTIVE': return UserDtoStatusEnum.ACTIVE;
         case r'DISABLED': return UserDtoStatusEnum.DISABLED;
         case r'REGISTERING': return UserDtoStatusEnum.REGISTERING;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -452,7 +592,7 @@ class UserDtoStatusEnumTypeTransformer {
   }
 
   /// Singleton [UserDtoStatusEnumTypeTransformer] instance.
-  static UserDtoStatusEnumTypeTransformer _instance;
+  static UserDtoStatusEnumTypeTransformer? _instance;
 }
 
 

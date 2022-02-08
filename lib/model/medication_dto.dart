@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -55,85 +55,307 @@ class MedicationDto {
     this.status,
   });
 
-  String compoundPrescription;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? compoundPrescription;
 
-  SubstanceproductDto substanceProduct;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SubstanceproductDto? substanceProduct;
 
-  MedicinalproductDto medicinalProduct;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MedicinalproductDto? medicinalProduct;
 
-  int numberOfPackages;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? numberOfPackages;
 
-  String batch;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? batch;
 
-  String instructionForPatient;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? instructionForPatient;
 
-  String commentForDelivery;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? commentForDelivery;
 
-  String drugRoute;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? drugRoute;
 
-  String temporality;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? temporality;
 
-  CodeStubDto frequency;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CodeStubDto? frequency;
 
-  CodeStubDto reimbursementReason;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CodeStubDto? reimbursementReason;
 
-  bool substitutionAllowed;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? substitutionAllowed;
 
-  int beginMoment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? beginMoment;
 
-  int endMoment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endMoment;
 
-  int deliveryMoment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deliveryMoment;
 
-  int endExecutionMoment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endExecutionMoment;
 
-  DurationDto duration;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DurationDto? duration;
 
-  RenewalDto renewal;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  RenewalDto? renewal;
 
-  bool knownUsage;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? knownUsage;
 
   List<RegimenItemDto> regimen;
 
-  String posology;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? posology;
 
   Map<String, ParagraphAgreementDto> agreements;
 
-  String medicationSchemeIdOnSafe;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicationSchemeIdOnSafe;
 
-  int medicationSchemeSafeVersion;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? medicationSchemeSafeVersion;
 
-  int medicationSchemeTimeStampOnSafe;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? medicationSchemeTimeStampOnSafe;
 
-  String medicationSchemeDocumentId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicationSchemeDocumentId;
 
-  String safeIdName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? safeIdName;
 
-  String idOnSafes;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? idOnSafes;
 
-  int timestampOnSafe;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? timestampOnSafe;
 
-  bool changeValidated;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? changeValidated;
 
-  bool newSafeMedication;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? newSafeMedication;
 
-  String medicationUse;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicationUse;
 
-  String beginCondition;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? beginCondition;
 
-  String endCondition;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? endCondition;
 
-  String origin;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? origin;
 
-  bool medicationChanged;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? medicationChanged;
 
-  bool posologyChanged;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? posologyChanged;
 
   List<SuspensionDto> suspension;
 
-  String prescriptionRID;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? prescriptionRID;
 
-  int status;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? status;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MedicationDto &&
@@ -180,47 +402,47 @@ class MedicationDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (compoundPrescription == null ? 0 : compoundPrescription.hashCode) +
-    (substanceProduct == null ? 0 : substanceProduct.hashCode) +
-    (medicinalProduct == null ? 0 : medicinalProduct.hashCode) +
-    (numberOfPackages == null ? 0 : numberOfPackages.hashCode) +
-    (batch == null ? 0 : batch.hashCode) +
-    (instructionForPatient == null ? 0 : instructionForPatient.hashCode) +
-    (commentForDelivery == null ? 0 : commentForDelivery.hashCode) +
-    (drugRoute == null ? 0 : drugRoute.hashCode) +
-    (temporality == null ? 0 : temporality.hashCode) +
-    (frequency == null ? 0 : frequency.hashCode) +
-    (reimbursementReason == null ? 0 : reimbursementReason.hashCode) +
-    (substitutionAllowed == null ? 0 : substitutionAllowed.hashCode) +
-    (beginMoment == null ? 0 : beginMoment.hashCode) +
-    (endMoment == null ? 0 : endMoment.hashCode) +
-    (deliveryMoment == null ? 0 : deliveryMoment.hashCode) +
-    (endExecutionMoment == null ? 0 : endExecutionMoment.hashCode) +
-    (duration == null ? 0 : duration.hashCode) +
-    (renewal == null ? 0 : renewal.hashCode) +
-    (knownUsage == null ? 0 : knownUsage.hashCode) +
-    (regimen == null ? 0 : regimen.hashCode) +
-    (posology == null ? 0 : posology.hashCode) +
-    (agreements == null ? 0 : agreements.hashCode) +
-    (medicationSchemeIdOnSafe == null ? 0 : medicationSchemeIdOnSafe.hashCode) +
-    (medicationSchemeSafeVersion == null ? 0 : medicationSchemeSafeVersion.hashCode) +
-    (medicationSchemeTimeStampOnSafe == null ? 0 : medicationSchemeTimeStampOnSafe.hashCode) +
-    (medicationSchemeDocumentId == null ? 0 : medicationSchemeDocumentId.hashCode) +
-    (safeIdName == null ? 0 : safeIdName.hashCode) +
-    (idOnSafes == null ? 0 : idOnSafes.hashCode) +
-    (timestampOnSafe == null ? 0 : timestampOnSafe.hashCode) +
-    (changeValidated == null ? 0 : changeValidated.hashCode) +
-    (newSafeMedication == null ? 0 : newSafeMedication.hashCode) +
-    (medicationUse == null ? 0 : medicationUse.hashCode) +
-    (beginCondition == null ? 0 : beginCondition.hashCode) +
-    (endCondition == null ? 0 : endCondition.hashCode) +
-    (origin == null ? 0 : origin.hashCode) +
-    (medicationChanged == null ? 0 : medicationChanged.hashCode) +
-    (posologyChanged == null ? 0 : posologyChanged.hashCode) +
-    (suspension == null ? 0 : suspension.hashCode) +
-    (prescriptionRID == null ? 0 : prescriptionRID.hashCode) +
-    (status == null ? 0 : status.hashCode);
+    // ignore: unnecessary_parenthesis
+    (compoundPrescription == null ? 0 : compoundPrescription!.hashCode) +
+    (substanceProduct == null ? 0 : substanceProduct!.hashCode) +
+    (medicinalProduct == null ? 0 : medicinalProduct!.hashCode) +
+    (numberOfPackages == null ? 0 : numberOfPackages!.hashCode) +
+    (batch == null ? 0 : batch!.hashCode) +
+    (instructionForPatient == null ? 0 : instructionForPatient!.hashCode) +
+    (commentForDelivery == null ? 0 : commentForDelivery!.hashCode) +
+    (drugRoute == null ? 0 : drugRoute!.hashCode) +
+    (temporality == null ? 0 : temporality!.hashCode) +
+    (frequency == null ? 0 : frequency!.hashCode) +
+    (reimbursementReason == null ? 0 : reimbursementReason!.hashCode) +
+    (substitutionAllowed == null ? 0 : substitutionAllowed!.hashCode) +
+    (beginMoment == null ? 0 : beginMoment!.hashCode) +
+    (endMoment == null ? 0 : endMoment!.hashCode) +
+    (deliveryMoment == null ? 0 : deliveryMoment!.hashCode) +
+    (endExecutionMoment == null ? 0 : endExecutionMoment!.hashCode) +
+    (duration == null ? 0 : duration!.hashCode) +
+    (renewal == null ? 0 : renewal!.hashCode) +
+    (knownUsage == null ? 0 : knownUsage!.hashCode) +
+    (regimen.hashCode) +
+    (posology == null ? 0 : posology!.hashCode) +
+    (agreements.hashCode) +
+    (medicationSchemeIdOnSafe == null ? 0 : medicationSchemeIdOnSafe!.hashCode) +
+    (medicationSchemeSafeVersion == null ? 0 : medicationSchemeSafeVersion!.hashCode) +
+    (medicationSchemeTimeStampOnSafe == null ? 0 : medicationSchemeTimeStampOnSafe!.hashCode) +
+    (medicationSchemeDocumentId == null ? 0 : medicationSchemeDocumentId!.hashCode) +
+    (safeIdName == null ? 0 : safeIdName!.hashCode) +
+    (idOnSafes == null ? 0 : idOnSafes!.hashCode) +
+    (timestampOnSafe == null ? 0 : timestampOnSafe!.hashCode) +
+    (changeValidated == null ? 0 : changeValidated!.hashCode) +
+    (newSafeMedication == null ? 0 : newSafeMedication!.hashCode) +
+    (medicationUse == null ? 0 : medicationUse!.hashCode) +
+    (beginCondition == null ? 0 : beginCondition!.hashCode) +
+    (endCondition == null ? 0 : endCondition!.hashCode) +
+    (origin == null ? 0 : origin!.hashCode) +
+    (medicationChanged == null ? 0 : medicationChanged!.hashCode) +
+    (posologyChanged == null ? 0 : posologyChanged!.hashCode) +
+    (suspension.hashCode) +
+    (prescriptionRID == null ? 0 : prescriptionRID!.hashCode) +
+    (status == null ? 0 : status!.hashCode);
 
   @override
   String toString() => 'MedicationDto[compoundPrescription=$compoundPrescription, substanceProduct=$substanceProduct, medicinalProduct=$medicinalProduct, numberOfPackages=$numberOfPackages, batch=$batch, instructionForPatient=$instructionForPatient, commentForDelivery=$commentForDelivery, drugRoute=$drugRoute, temporality=$temporality, frequency=$frequency, reimbursementReason=$reimbursementReason, substitutionAllowed=$substitutionAllowed, beginMoment=$beginMoment, endMoment=$endMoment, deliveryMoment=$deliveryMoment, endExecutionMoment=$endExecutionMoment, duration=$duration, renewal=$renewal, knownUsage=$knownUsage, regimen=$regimen, posology=$posology, agreements=$agreements, medicationSchemeIdOnSafe=$medicationSchemeIdOnSafe, medicationSchemeSafeVersion=$medicationSchemeSafeVersion, medicationSchemeTimeStampOnSafe=$medicationSchemeTimeStampOnSafe, medicationSchemeDocumentId=$medicationSchemeDocumentId, safeIdName=$safeIdName, idOnSafes=$idOnSafes, timestampOnSafe=$timestampOnSafe, changeValidated=$changeValidated, newSafeMedication=$newSafeMedication, medicationUse=$medicationUse, beginCondition=$beginCondition, endCondition=$endCondition, origin=$origin, medicationChanged=$medicationChanged, posologyChanged=$posologyChanged, suspension=$suspension, prescriptionRID=$prescriptionRID, status=$status]';
@@ -284,15 +506,11 @@ class MedicationDto {
     if (knownUsage != null) {
       json[r'knownUsage'] = knownUsage;
     }
-    if (regimen != null) {
       json[r'regimen'] = regimen;
-    }
     if (posology != null) {
       json[r'posology'] = posology;
     }
-    if (agreements != null) {
       json[r'agreements'] = agreements;
-    }
     if (medicationSchemeIdOnSafe != null) {
       json[r'medicationSchemeIdOnSafe'] = medicationSchemeIdOnSafe;
     }
@@ -338,9 +556,7 @@ class MedicationDto {
     if (posologyChanged != null) {
       json[r'posologyChanged'] = posologyChanged;
     }
-    if (suspension != null) {
       json[r'suspension'] = suspension;
-    }
     if (prescriptionRID != null) {
       json[r'prescriptionRID'] = prescriptionRID;
     }
@@ -353,9 +569,21 @@ class MedicationDto {
   /// Returns a new [MedicationDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MedicationDto fromJson(dynamic value) {
+  static MedicationDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "MedicationDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MedicationDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return MedicationDto(
         compoundPrescription: mapValueOfType<String>(json, r'compoundPrescription'),
         substanceProduct: SubstanceproductDto.fromJson(json[r'substanceProduct']),
@@ -376,9 +604,9 @@ class MedicationDto {
         duration: DurationDto.fromJson(json[r'duration']),
         renewal: RenewalDto.fromJson(json[r'renewal']),
         knownUsage: mapValueOfType<bool>(json, r'knownUsage'),
-        regimen: RegimenItemDto.listFromJson(json[r'regimen']),
+        regimen: RegimenItemDto.listFromJson(json[r'regimen']) ?? const [],
         posology: mapValueOfType<String>(json, r'posology'),
-        agreements: mapValueOfType<Map<String, ParagraphAgreementDto>>(json, r'agreements'),
+        agreements: mapValueOfType<Map<String, ParagraphAgreementDto>>(json, r'agreements') ?? const {},
         medicationSchemeIdOnSafe: mapValueOfType<String>(json, r'medicationSchemeIdOnSafe'),
         medicationSchemeSafeVersion: mapValueOfType<int>(json, r'medicationSchemeSafeVersion'),
         medicationSchemeTimeStampOnSafe: mapValueOfType<int>(json, r'medicationSchemeTimeStampOnSafe'),
@@ -394,7 +622,7 @@ class MedicationDto {
         origin: mapValueOfType<String>(json, r'origin'),
         medicationChanged: mapValueOfType<bool>(json, r'medicationChanged'),
         posologyChanged: mapValueOfType<bool>(json, r'posologyChanged'),
-        suspension: SuspensionDto.listFromJson(json[r'suspension']),
+        suspension: SuspensionDto.listFromJson(json[r'suspension']) ?? const [],
         prescriptionRID: mapValueOfType<String>(json, r'prescriptionRID'),
         status: mapValueOfType<int>(json, r'status'),
       );
@@ -402,36 +630,50 @@ class MedicationDto {
     return null;
   }
 
-  static List<MedicationDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(MedicationDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <MedicationDto>[];
+  static List<MedicationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <MedicationDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MedicationDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, MedicationDto> mapFromJson(dynamic json) {
     final map = <String, MedicationDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = MedicationDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MedicationDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of MedicationDto-objects as value to a dart map
-  static Map<String, List<MedicationDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<MedicationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<MedicationDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = MedicationDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MedicationDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

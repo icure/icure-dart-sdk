@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class DocumentApi {
-  DocumentApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  DocumentApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -24,16 +24,11 @@ class DocumentApi {
   ///
   /// * [DocumentDto] documentDto (required):
   Future<Response> createDocumentWithHttpInfo(DocumentDto documentDto,) async {
-    // Verify required params are set.
-    if (documentDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document';
 
     // ignore: prefer_final_locals
-    Object postBody = documentDto;
+    Object? postBody = documentDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -50,7 +45,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -60,7 +55,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [DocumentDto] documentDto (required):
-  Future<DocumentDto> createDocument(DocumentDto documentDto,) async {
+  Future<DocumentDto?> createDocument(DocumentDto documentDto,) async {
     final response = await createDocumentWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -68,11 +63,11 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Deletes a document's attachment
@@ -83,17 +78,12 @@ class DocumentApi {
   ///
   /// * [String] documentId (required):
   Future<Response> deleteAttachmentWithHttpInfo(String documentId,) async {
-    // Verify required params are set.
-    if (documentId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment'
       .replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -110,7 +100,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -120,7 +110,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] documentId (required):
-  Future<DocumentDto> deleteAttachment(String documentId,) async {
+  Future<DocumentDto?> deleteAttachment(String documentId,) async {
     final response = await deleteAttachmentWithHttpInfo(documentId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -128,11 +118,11 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Deletes documents
@@ -143,16 +133,11 @@ class DocumentApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteDocumentWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -169,7 +154,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -179,7 +164,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteDocument(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteDocument(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteDocumentWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -187,14 +172,14 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// List documents with no delegation
@@ -206,21 +191,19 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<Response> findWithoutDelegationWithHttpInfo({ int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> findWithoutDelegationWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/woDelegation';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -234,7 +217,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -246,7 +229,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<List<DocumentDto>> findWithoutDelegation({ int limit, }) async {
+  Future<List<DocumentDto>?> findWithoutDelegation({ int? limit, }) async {
     final response = await findWithoutDelegationWithHttpInfo( limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -254,14 +237,14 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// Gets a document
@@ -272,17 +255,12 @@ class DocumentApi {
   ///
   /// * [String] documentId (required):
   Future<Response> getDocumentWithHttpInfo(String documentId,) async {
-    // Verify required params are set.
-    if (documentId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}'
       .replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -299,7 +277,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -309,7 +287,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] documentId (required):
-  Future<DocumentDto> getDocument(String documentId,) async {
+  Future<DocumentDto?> getDocument(String documentId,) async {
     final response = await getDocumentWithHttpInfo(documentId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -317,11 +295,11 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Load document's attachment
@@ -337,32 +315,24 @@ class DocumentApi {
   /// * [String] enckeys:
   ///
   /// * [String] fileName:
-  Future<Response> getDocumentAttachmentWithHttpInfo(String documentId, String attachmentId, { String enckeys, String fileName, }) async {
-    // Verify required params are set.
-    if (documentId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentId');
-    }
-    if (attachmentId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: attachmentId');
-    }
-
+  Future<Response> getDocumentAttachmentWithHttpInfo(String documentId, String attachmentId, { String? enckeys, String? fileName, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment/{attachmentId}'
       .replaceAll('{documentId}', documentId)
       .replaceAll('{attachmentId}', attachmentId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (enckeys != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'enckeys', enckeys));
+      queryParams.addAll(_queryParams('', 'enckeys', enckeys));
     }
     if (fileName != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'fileName', fileName));
+      queryParams.addAll(_queryParams('', 'fileName', fileName));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -376,7 +346,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -392,7 +362,7 @@ class DocumentApi {
   /// * [String] enckeys:
   ///
   /// * [String] fileName:
-  Future<MultipartFile> getDocumentAttachment(String documentId, String attachmentId, { String enckeys, String fileName, }) async {
+  Future<MultipartFile?> getDocumentAttachment(String documentId, String attachmentId, { String? enckeys, String? fileName, }) async {
     final response = await getDocumentAttachmentWithHttpInfo(documentId, attachmentId,  enckeys: enckeys, fileName: fileName, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -400,11 +370,11 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
-    return Future<MultipartFile>.value();
+    return null;
   }
 
   /// Gets a document
@@ -415,17 +385,12 @@ class DocumentApi {
   ///
   /// * [String] externalUuid (required):
   Future<Response> getDocumentByExternalUuidWithHttpInfo(String externalUuid,) async {
-    // Verify required params are set.
-    if (externalUuid == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: externalUuid');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/externaluuid/{externalUuid}'
       .replaceAll('{externalUuid}', externalUuid);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -442,7 +407,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -452,7 +417,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] externalUuid (required):
-  Future<DocumentDto> getDocumentByExternalUuid(String externalUuid,) async {
+  Future<DocumentDto?> getDocumentByExternalUuid(String externalUuid,) async {
     final response = await getDocumentByExternalUuidWithHttpInfo(externalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -460,11 +425,11 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Gets a document
@@ -475,16 +440,11 @@ class DocumentApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getDocumentsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/byIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -501,7 +461,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -511,7 +471,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocumentDto>> getDocuments(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocumentDto>?> getDocuments(ListOfIdsDto listOfIdsDto,) async {
     final response = await getDocumentsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -519,14 +479,14 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// Get all documents with externalUuid
@@ -537,17 +497,12 @@ class DocumentApi {
   ///
   /// * [String] externalUuid (required):
   Future<Response> getDocumentsByExternalUuidWithHttpInfo(String externalUuid,) async {
-    // Verify required params are set.
-    if (externalUuid == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: externalUuid');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/externaluuid/{externalUuid}/all'
       .replaceAll('{externalUuid}', externalUuid);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -564,7 +519,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -574,7 +529,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] externalUuid (required):
-  Future<List<DocumentDto>> getDocumentsByExternalUuid(String externalUuid,) async {
+  Future<List<DocumentDto>?> getDocumentsByExternalUuid(String externalUuid,) async {
     final response = await getDocumentsByExternalUuidWithHttpInfo(externalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -582,14 +537,14 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// List documents found By type, By Healthcare Party and secret foreign keys.
@@ -606,30 +561,19 @@ class DocumentApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> listDocumentByTypeHCPartyMessageSecretFKeysWithHttpInfo(String documentTypeCode, String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (documentTypeCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentTypeCode');
-    }
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/byTypeHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'documentTypeCode', documentTypeCode));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'documentTypeCode', documentTypeCode));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -642,7 +586,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -658,7 +602,7 @@ class DocumentApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<DocumentDto>> listDocumentByTypeHCPartyMessageSecretFKeys(String documentTypeCode, String hcPartyId, String secretFKeys,) async {
+  Future<List<DocumentDto>?> listDocumentByTypeHCPartyMessageSecretFKeys(String documentTypeCode, String hcPartyId, String secretFKeys,) async {
     final response = await listDocumentByTypeHCPartyMessageSecretFKeysWithHttpInfo(documentTypeCode, hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -666,14 +610,14 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// List documents found By Healthcare Party and secret foreign keys.
@@ -688,26 +632,18 @@ class DocumentApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> listDocumentsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -720,7 +656,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -734,7 +670,7 @@ class DocumentApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<DocumentDto>> listDocumentsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<DocumentDto>?> listDocumentsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await listDocumentsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -742,14 +678,14 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// Updates a document
@@ -760,16 +696,11 @@ class DocumentApi {
   ///
   /// * [DocumentDto] documentDto (required):
   Future<Response> modifyDocumentWithHttpInfo(DocumentDto documentDto,) async {
-    // Verify required params are set.
-    if (documentDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document';
 
     // ignore: prefer_final_locals
-    Object postBody = documentDto;
+    Object? postBody = documentDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -786,7 +717,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -796,7 +727,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [DocumentDto] documentDto (required):
-  Future<DocumentDto> modifyDocument(DocumentDto documentDto,) async {
+  Future<DocumentDto?> modifyDocument(DocumentDto documentDto,) async {
     final response = await modifyDocumentWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -804,11 +735,11 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Updates a batch of documents
@@ -821,16 +752,11 @@ class DocumentApi {
   ///
   /// * [List<DocumentDto>] documentDto (required):
   Future<Response> modifyDocumentsWithHttpInfo(List<DocumentDto> documentDto,) async {
-    // Verify required params are set.
-    if (documentDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = documentDto;
+    Object? postBody = documentDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -847,7 +773,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -859,7 +785,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [List<DocumentDto>] documentDto (required):
-  Future<List<DocumentDto>> modifyDocuments(List<DocumentDto> documentDto,) async {
+  Future<List<DocumentDto>?> modifyDocuments(List<DocumentDto> documentDto,) async {
     final response = await modifyDocumentsWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -867,14 +793,14 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocumentDto>') as List)
         .cast<DocumentDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocumentDto>>.value();
+    return null;
   }
 
   /// Creates a document's attachment
@@ -888,28 +814,20 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<Response> setDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String enckeys, }) async {
-    // Verify required params are set.
-    if (documentId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentId');
-    }
-    if (body == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
-    }
-
+  Future<Response> setDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment'
       .replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
-    Object postBody = body;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (enckeys != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'enckeys', enckeys));
+      queryParams.addAll(_queryParams('', 'enckeys', enckeys));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -923,7 +841,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -937,7 +855,7 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<DocumentDto> setDocumentAttachment(String documentId, MultipartFile body, { String enckeys, }) async {
+  Future<DocumentDto?> setDocumentAttachment(String documentId, MultipartFile body, { String? enckeys, }) async {
     final response = await setDocumentAttachmentWithHttpInfo(documentId, body,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -945,11 +863,11 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Creates a document's attachment
@@ -963,28 +881,20 @@ class DocumentApi {
   /// * [String] attachment (required):
   ///
   /// * [String] enckeys:
-  Future<Response> setDocumentAttachmentMultiWithHttpInfo(String documentId, String attachment, { String enckeys, }) async {
-    // Verify required params are set.
-    if (documentId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentId');
-    }
-    if (attachment == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: attachment');
-    }
-
+  Future<Response> setDocumentAttachmentMultiWithHttpInfo(String documentId, String attachment, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment/multipart'
       .replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (enckeys != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'enckeys', enckeys));
+      queryParams.addAll(_queryParams('', 'enckeys', enckeys));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1007,7 +917,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1021,7 +931,7 @@ class DocumentApi {
   /// * [String] attachment (required):
   ///
   /// * [String] enckeys:
-  Future<DocumentDto> setDocumentAttachmentMulti(String documentId, String attachment, { String enckeys, }) async {
+  Future<DocumentDto?> setDocumentAttachmentMulti(String documentId, String attachment, { String? enckeys, }) async {
     final response = await setDocumentAttachmentMultiWithHttpInfo(documentId, attachment,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1029,11 +939,11 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 
   /// Update delegations in healthElements.
@@ -1046,16 +956,11 @@ class DocumentApi {
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> setDocumentsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
-    // Verify required params are set.
-    if (icureStubDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: icureStubDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody = icureStubDto;
+    Object? postBody = icureStubDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1072,7 +977,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1084,7 +989,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<IcureStubDto>> setDocumentsDelegations(List<IcureStubDto> icureStubDto,) async {
+  Future<List<IcureStubDto>?> setDocumentsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await setDocumentsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1092,14 +997,14 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IcureStubDto>') as List)
         .cast<IcureStubDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IcureStubDto>>.value();
+    return null;
   }
 
   /// Creates a document's attachment
@@ -1113,28 +1018,20 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<Response> setSafeDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String enckeys, }) async {
-    // Verify required params are set.
-    if (documentId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: documentId');
-    }
-    if (body == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
-    }
-
+  Future<Response> setSafeDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/attachment';
 
     // ignore: prefer_final_locals
-    Object postBody = body;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'documentId', documentId));
+      queryParams.addAll(_queryParams('', 'documentId', documentId));
     if (enckeys != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'enckeys', enckeys));
+      queryParams.addAll(_queryParams('', 'enckeys', enckeys));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1148,7 +1045,7 @@ class DocumentApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1162,7 +1059,7 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<DocumentDto> setSafeDocumentAttachment(String documentId, MultipartFile body, { String enckeys, }) async {
+  Future<DocumentDto?> setSafeDocumentAttachment(String documentId, MultipartFile body, { String? enckeys, }) async {
     final response = await setSafeDocumentAttachmentWithHttpInfo(documentId, body,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1170,10 +1067,10 @@ class DocumentApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocumentDto',) as DocumentDto;
     
     }
-    return Future<DocumentDto>.value();
+    return null;
   }
 }

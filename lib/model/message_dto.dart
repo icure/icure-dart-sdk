@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class MessageDto {
   /// Returns a new [MessageDto] instance.
   MessageDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.created,
     this.modified,
@@ -56,22 +56,58 @@ class MessageDto {
   String id;
 
   /// The revision of the message in the database, used for conflict management / optimistic locking.
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// The timestamp (unix epoch in ms) of creation of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// The date (unix epoch in ms) of the latest modification of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int modified;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modified;
 
   /// The id of the User that has created this entity, will be filled automatically if missing. Not enforced by the application server.
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   /// The id of the HealthcareParty that is responsible for this entity, will be filled automatically if missing. Not enforced by the application server.
-  String responsible;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? responsible;
 
   /// The id of the medical location where this entity was created.
-  String medicalLocationId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicalLocationId;
 
   /// A tag is an item from a codification system that qualifies an entity as being member of a certain class, whatever the value it might have taken. If the tag qualifies the content of a field, it means that whatever the content of the field, the tag will always apply. For example, the label of a field is qualified using a tag. LOINC is a codification system typically used for tags.
   Set<CodeStubDto> tags;
@@ -80,24 +116,66 @@ class MessageDto {
   Set<CodeStubDto> codes;
 
   /// Soft delete (unix epoch in ms) timestamp of the object.
-  int endOfLife;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfLife;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
   /// Address of the sender of the message
-  String fromAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? fromAddress;
 
   /// ID of the healthcare party sending the message
-  String fromHealthcarePartyId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? fromHealthcarePartyId;
 
-  String formId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? formId;
 
   /// Status of the message
-  int status;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? status;
 
   /// The type of user who is the recipient of this message
-  String recipientsType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? recipientsType;
 
   /// List of IDs of healthcare parties to whom the message is addressed
   Set<String> recipients;
@@ -106,32 +184,80 @@ class MessageDto {
   Set<String> toAddresses;
 
   /// The timestamp (unix epoch in ms) when the message was received
-  int received;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? received;
 
   /// The timestamp (unix epoch in ms) when the message was sent
-  int sent;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? sent;
 
   Map<String, String> metas;
 
   /// Status showing whether the message is read or not and the time of reading
   Map<String, MessageReadStatusDto> readStatus;
 
-  String transportGuid;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? transportGuid;
 
-  String remark;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? remark;
 
-  String conversationGuid;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? conversationGuid;
 
   /// Subject for the message
-  String subject;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? subject;
 
   /// Set of IDs for invoices in the message
   Set<String> invoiceIds;
 
   /// ID of a parent in a message conversation
-  String parentId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? parentId;
 
-  String externalRef;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? externalRef;
 
   Set<String> unassignedResults;
 
@@ -152,7 +278,13 @@ class MessageDto {
   Map<String, Set<DelegationDto>> encryptionKeys;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MessageDto &&
@@ -196,44 +328,44 @@ class MessageDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (modified == null ? 0 : modified.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (responsible == null ? 0 : responsible.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (fromAddress == null ? 0 : fromAddress.hashCode) +
-    (fromHealthcarePartyId == null ? 0 : fromHealthcarePartyId.hashCode) +
-    (formId == null ? 0 : formId.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (recipientsType == null ? 0 : recipientsType.hashCode) +
-    (recipients == null ? 0 : recipients.hashCode) +
-    (toAddresses == null ? 0 : toAddresses.hashCode) +
-    (received == null ? 0 : received.hashCode) +
-    (sent == null ? 0 : sent.hashCode) +
-    (metas == null ? 0 : metas.hashCode) +
-    (readStatus == null ? 0 : readStatus.hashCode) +
-    (transportGuid == null ? 0 : transportGuid.hashCode) +
-    (remark == null ? 0 : remark.hashCode) +
-    (conversationGuid == null ? 0 : conversationGuid.hashCode) +
-    (subject == null ? 0 : subject.hashCode) +
-    (invoiceIds == null ? 0 : invoiceIds.hashCode) +
-    (parentId == null ? 0 : parentId.hashCode) +
-    (externalRef == null ? 0 : externalRef.hashCode) +
-    (unassignedResults == null ? 0 : unassignedResults.hashCode) +
-    (assignedResults == null ? 0 : assignedResults.hashCode) +
-    (senderReferences == null ? 0 : senderReferences.hashCode) +
-    (secretForeignKeys == null ? 0 : secretForeignKeys.hashCode) +
-    (cryptedForeignKeys == null ? 0 : cryptedForeignKeys.hashCode) +
-    (delegations == null ? 0 : delegations.hashCode) +
-    (encryptionKeys == null ? 0 : encryptionKeys.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (created == null ? 0 : created!.hashCode) +
+    (modified == null ? 0 : modified!.hashCode) +
+    (author == null ? 0 : author!.hashCode) +
+    (responsible == null ? 0 : responsible!.hashCode) +
+    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+    (tags.hashCode) +
+    (codes.hashCode) +
+    (endOfLife == null ? 0 : endOfLife!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (fromAddress == null ? 0 : fromAddress!.hashCode) +
+    (fromHealthcarePartyId == null ? 0 : fromHealthcarePartyId!.hashCode) +
+    (formId == null ? 0 : formId!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (recipientsType == null ? 0 : recipientsType!.hashCode) +
+    (recipients.hashCode) +
+    (toAddresses.hashCode) +
+    (received == null ? 0 : received!.hashCode) +
+    (sent == null ? 0 : sent!.hashCode) +
+    (metas.hashCode) +
+    (readStatus.hashCode) +
+    (transportGuid == null ? 0 : transportGuid!.hashCode) +
+    (remark == null ? 0 : remark!.hashCode) +
+    (conversationGuid == null ? 0 : conversationGuid!.hashCode) +
+    (subject == null ? 0 : subject!.hashCode) +
+    (invoiceIds.hashCode) +
+    (parentId == null ? 0 : parentId!.hashCode) +
+    (externalRef == null ? 0 : externalRef!.hashCode) +
+    (unassignedResults.hashCode) +
+    (assignedResults.hashCode) +
+    (senderReferences.hashCode) +
+    (secretForeignKeys.hashCode) +
+    (cryptedForeignKeys.hashCode) +
+    (delegations.hashCode) +
+    (encryptionKeys.hashCode) +
+    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'MessageDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, fromAddress=$fromAddress, fromHealthcarePartyId=$fromHealthcarePartyId, formId=$formId, status=$status, recipientsType=$recipientsType, recipients=$recipients, toAddresses=$toAddresses, received=$received, sent=$sent, metas=$metas, readStatus=$readStatus, transportGuid=$transportGuid, remark=$remark, conversationGuid=$conversationGuid, subject=$subject, invoiceIds=$invoiceIds, parentId=$parentId, externalRef=$externalRef, unassignedResults=$unassignedResults, assignedResults=$assignedResults, senderReferences=$senderReferences, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
@@ -327,19 +459,31 @@ class MessageDto {
   /// Returns a new [MessageDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MessageDto fromJson(dynamic value) {
+  static MessageDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "MessageDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MessageDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return MessageDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
         modified: mapValueOfType<int>(json, r'modified'),
         author: mapValueOfType<String>(json, r'author'),
         responsible: mapValueOfType<String>(json, r'responsible'),
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
-        tags: CodeStubDto.listFromJson(json[r'tags']),
-        codes: CodeStubDto.listFromJson(json[r'codes']),
+        tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
+        codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         fromAddress: mapValueOfType<String>(json, r'fromAddress'),
@@ -348,77 +492,106 @@ class MessageDto {
         status: mapValueOfType<int>(json, r'status'),
         recipientsType: mapValueOfType<String>(json, r'recipientsType'),
         recipients: json[r'recipients'] is Set
-          ? (json[r'recipients'] as Set).cast<String>()
-          : null,
+            ? (json[r'recipients'] as Set).cast<String>()
+            : const {},
         toAddresses: json[r'toAddresses'] is Set
-          ? (json[r'toAddresses'] as Set).cast<String>()
-          : null,
+            ? (json[r'toAddresses'] as Set).cast<String>()
+            : const {},
         received: mapValueOfType<int>(json, r'received'),
         sent: mapValueOfType<int>(json, r'sent'),
-        metas: mapCastOfType<String, String>(json, r'metas'),
-        readStatus: mapValueOfType<Map<String, MessageReadStatusDto>>(json, r'readStatus'),
+        metas: mapCastOfType<String, String>(json, r'metas')!,
+        readStatus: mapValueOfType<Map<String, MessageReadStatusDto>>(json, r'readStatus')!,
         transportGuid: mapValueOfType<String>(json, r'transportGuid'),
         remark: mapValueOfType<String>(json, r'remark'),
         conversationGuid: mapValueOfType<String>(json, r'conversationGuid'),
         subject: mapValueOfType<String>(json, r'subject'),
         invoiceIds: json[r'invoiceIds'] is Set
-          ? (json[r'invoiceIds'] as Set).cast<String>()
-          : null,
+            ? (json[r'invoiceIds'] as Set).cast<String>()
+            : const {},
         parentId: mapValueOfType<String>(json, r'parentId'),
         externalRef: mapValueOfType<String>(json, r'externalRef'),
         unassignedResults: json[r'unassignedResults'] is Set
-          ? (json[r'unassignedResults'] as Set).cast<String>()
-          : null,
-        assignedResults: mapCastOfType<String, String>(json, r'assignedResults'),
-        senderReferences: mapCastOfType<String, String>(json, r'senderReferences'),
+            ? (json[r'unassignedResults'] as Set).cast<String>()
+            : const {},
+        assignedResults: mapCastOfType<String, String>(json, r'assignedResults')!,
+        senderReferences: mapCastOfType<String, String>(json, r'senderReferences')!,
         secretForeignKeys: json[r'secretForeignKeys'] is Set
-          ? (json[r'secretForeignKeys'] as Set).cast<String>()
-          : null,
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+          ? const {}
+            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'delegations']),
+          ? const {}
+            : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+          ? const {}
+            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<MessageDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(MessageDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <MessageDto>[];
+  static List<MessageDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <MessageDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MessageDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, MessageDto> mapFromJson(dynamic json) {
     final map = <String, MessageDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = MessageDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MessageDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of MessageDto-objects as value to a dart map
-  static Map<String, List<MessageDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<MessageDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<MessageDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = MessageDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MessageDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'tags',
+    'codes',
+    'recipients',
+    'toAddresses',
+    'metas',
+    'readStatus',
+    'invoiceIds',
+    'unassignedResults',
+    'assignedResults',
+    'senderReferences',
+    'secretForeignKeys',
+    'cryptedForeignKeys',
+    'delegations',
+    'encryptionKeys',
+  };
 }
 

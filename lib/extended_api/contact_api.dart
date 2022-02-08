@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:openapi/api.dart';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
@@ -18,7 +16,7 @@ extension InitDto on ContactDto {
 
     responsible = user.healthcarePartyId!;
     author = user.id;
-    delegations = await (delegationKeys..add(user.healthcarePartyId)).fold(
+    delegations = await (delegationKeys..add(user.healthcarePartyId!)).fold(
         Future.value(delegations),
         (m, d) async => (await m)
           ..addEntries([
@@ -27,11 +25,11 @@ extension InitDto on ContactDto {
                   owner: user.healthcarePartyId,
                   delegatedTo: d,
                   key: await config.crypto
-                      .encryptAESKeyForHcp(user.healthcarePartyId, d, id, sfk))
+                      .encryptAESKeyForHcp(user.healthcarePartyId!, d, id, sfk))
             })
           ]));
 
-    encryptionKeys = await (delegationKeys..add(user.healthcarePartyId)).fold(
+    encryptionKeys = await (delegationKeys..add(user.healthcarePartyId!)).fold(
         Future.value(encryptionKeys),
         (m, d) async => (await m)
           ..addEntries([
@@ -40,7 +38,7 @@ extension InitDto on ContactDto {
                   owner: user.healthcarePartyId,
                   delegatedTo: d,
                   key: await config.crypto
-                      .encryptAESKeyForHcp(user.healthcarePartyId, d, id, ek))
+                      .encryptAESKeyForHcp(user.healthcarePartyId!, d, id, ek))
             })
           ]));
     return this;

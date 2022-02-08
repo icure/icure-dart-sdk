@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class PermissionApi {
-  PermissionApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  PermissionApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -28,20 +28,12 @@ class PermissionApi {
   ///
   /// * [PermissionDto] permissionDto (required):
   Future<Response> modifyUserPermissionsWithHttpInfo(String userId, PermissionDto permissionDto,) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-    if (permissionDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: permissionDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/permissions/{userId}'
       .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
-    Object postBody = permissionDto;
+    Object? postBody = permissionDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -58,7 +50,7 @@ class PermissionApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -72,7 +64,7 @@ class PermissionApi {
   /// * [String] userId (required):
   ///
   /// * [PermissionDto] permissionDto (required):
-  Future<List<PermissionDto>> modifyUserPermissions(String userId, PermissionDto permissionDto,) async {
+  Future<List<PermissionDto>?> modifyUserPermissions(String userId, PermissionDto permissionDto,) async {
     final response = await modifyUserPermissionsWithHttpInfo(userId, permissionDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -80,13 +72,13 @@ class PermissionApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PermissionDto>') as List)
         .cast<PermissionDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<PermissionDto>>.value();
+    return null;
   }
 }

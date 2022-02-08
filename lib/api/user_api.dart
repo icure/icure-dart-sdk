@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class UserApi {
-  UserApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  UserApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,17 +26,12 @@ class UserApi {
   ///
   /// * [String] healthcarePartyId (required):
   Future<Response> assignHealthcarePartyWithHttpInfo(String healthcarePartyId,) async {
-    // Verify required params are set.
-    if (healthcarePartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthcarePartyId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/current/hcparty/{healthcarePartyId}'
       .replaceAll('{healthcarePartyId}', healthcarePartyId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -53,7 +48,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -65,7 +60,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [String] healthcarePartyId (required):
-  Future<UserDto> assignHealthcareParty(String healthcarePartyId,) async {
+  Future<UserDto?> assignHealthcareParty(String healthcarePartyId,) async {
     final response = await assignHealthcarePartyWithHttpInfo(healthcarePartyId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -73,11 +68,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
     
     }
-    return Future<UserDto>.value();
+    return null;
   }
 
   /// Performs an HTTP 'GET /rest/v2/user/checkPassword' operation and returns the [Response].
@@ -85,16 +80,11 @@ class UserApi {
   ///
   /// * [String] password (required):
   Future<Response> checkPasswordWithHttpInfo(String password,) async {
-    // Verify required params are set.
-    if (password == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: password');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/checkPassword';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -113,7 +103,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -121,7 +111,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [String] password (required):
-  Future<bool> checkPassword(String password,) async {
+  Future<bool?> checkPassword(String password,) async {
     final response = await checkPasswordWithHttpInfo(password,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -129,11 +119,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
     
     }
-    return Future<bool>.value();
+    return null;
   }
 
   /// Check token validity
@@ -146,20 +136,12 @@ class UserApi {
   ///
   /// * [String] token (required):
   Future<Response> checkTokenValidityWithHttpInfo(String userId, String token,) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-    if (token == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: token');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/token/{userId}'
       .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -178,7 +160,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -190,7 +172,7 @@ class UserApi {
   /// * [String] userId (required):
   ///
   /// * [String] token (required):
-  Future<bool> checkTokenValidity(String userId, String token,) async {
+  Future<bool?> checkTokenValidity(String userId, String token,) async {
     final response = await checkTokenValidityWithHttpInfo(userId, token,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -198,11 +180,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
     
     }
-    return Future<bool>.value();
+    return null;
   }
 
   /// Create a user
@@ -215,16 +197,11 @@ class UserApi {
   ///
   /// * [UserDto] userDto (required):
   Future<Response> createUserWithHttpInfo(UserDto userDto,) async {
-    // Verify required params are set.
-    if (userDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user';
 
     // ignore: prefer_final_locals
-    Object postBody = userDto;
+    Object? postBody = userDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -241,7 +218,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -253,7 +230,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [UserDto] userDto (required):
-  Future<UserDto> createUser(UserDto userDto,) async {
+  Future<UserDto?> createUser(UserDto userDto,) async {
     final response = await createUserWithHttpInfo(userDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -261,11 +238,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
     
     }
-    return Future<UserDto>.value();
+    return null;
   }
 
   /// Create a user
@@ -280,20 +257,12 @@ class UserApi {
   ///
   /// * [UserDto] userDto (required):
   Future<Response> createUserInGroupWithHttpInfo(String groupId, UserDto userDto,) async {
-    // Verify required params are set.
-    if (groupId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: groupId');
-    }
-    if (userDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/inGroup/{groupId}'
       .replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
-    Object postBody = userDto;
+    Object? postBody = userDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -310,7 +279,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -324,7 +293,7 @@ class UserApi {
   /// * [String] groupId (required):
   ///
   /// * [UserDto] userDto (required):
-  Future<UserDto> createUserInGroup(String groupId, UserDto userDto,) async {
+  Future<UserDto?> createUserInGroup(String groupId, UserDto userDto,) async {
     final response = await createUserInGroupWithHttpInfo(groupId, userDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -332,11 +301,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
     
     }
-    return Future<UserDto>.value();
+    return null;
   }
 
   /// Delete a User based on his/her ID.
@@ -349,17 +318,12 @@ class UserApi {
   ///
   /// * [String] userId (required):
   Future<Response> deleteUserWithHttpInfo(String userId,) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/{userId}'
       .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -376,7 +340,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -388,7 +352,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [String] userId (required):
-  Future<DocIdentifier> deleteUser(String userId,) async {
+  Future<DocIdentifier?> deleteUser(String userId,) async {
     final response = await deleteUserWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -396,11 +360,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocIdentifier',) as DocIdentifier;
     
     }
-    return Future<DocIdentifier>.value();
+    return null;
   }
 
   /// Delete a User based on his/her ID.
@@ -415,21 +379,13 @@ class UserApi {
   ///
   /// * [String] userId (required):
   Future<Response> deleteUserInGroupWithHttpInfo(String groupId, String userId,) async {
-    // Verify required params are set.
-    if (groupId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: groupId');
-    }
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/inGroup/{groupId}/{userId}'
       .replaceAll('{groupId}', groupId)
       .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -446,7 +402,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -460,7 +416,7 @@ class UserApi {
   /// * [String] groupId (required):
   ///
   /// * [String] userId (required):
-  Future<Object> deleteUserInGroup(String groupId, String userId,) async {
+  Future<Object?> deleteUserInGroup(String groupId, String userId,) async {
     final response = await deleteUserInGroupWithHttpInfo(groupId, userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -468,11 +424,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
     
     }
-    return Future<Object>.value();
+    return null;
   }
 
   /// Performs an HTTP 'GET /rest/v2/user/encodePassword' operation and returns the [Response].
@@ -480,16 +436,11 @@ class UserApi {
   ///
   /// * [String] password (required):
   Future<Response> encodePasswordWithHttpInfo(String password,) async {
-    // Verify required params are set.
-    if (password == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: password');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/encodePassword';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -508,7 +459,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -516,7 +467,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [String] password (required):
-  Future<String> encodePassword(String password,) async {
+  Future<String?> encodePassword(String password,) async {
     final response = await encodePasswordWithHttpInfo(password,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -524,11 +475,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
     
     }
-    return Future<String>.value();
+    return null;
   }
 
   /// Filter users for the current user (HcParty)
@@ -546,27 +497,22 @@ class UserApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterUsersByWithHttpInfo(FilterChainUser filterChainUser, { String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (filterChainUser == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: filterChainUser');
-    }
-
+  Future<Response> filterUsersByWithHttpInfo(FilterChainUser filterChainUser, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/filter';
 
     // ignore: prefer_final_locals
-    Object postBody = filterChainUser;
+    Object? postBody = filterChainUser;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -580,7 +526,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -598,7 +544,7 @@ class UserApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListUserDto> filterUsersBy(FilterChainUser filterChainUser, { String startDocumentId, int limit, }) async {
+  Future<PaginatedListUserDto?> filterUsersBy(FilterChainUser filterChainUser, { String? startDocumentId, int? limit, }) async {
     final response = await filterUsersByWithHttpInfo(filterChainUser,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -606,11 +552,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListUserDto',) as PaginatedListUserDto;
     
     }
-    return Future<PaginatedListUserDto>.value();
+    return null;
   }
 
   /// Get the list of users by healthcare party id
@@ -621,17 +567,12 @@ class UserApi {
   ///
   /// * [String] id (required):
   Future<Response> findByHcpartyIdWithHttpInfo(String id,) async {
-    // Verify required params are set.
-    if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/byHealthcarePartyId/{id}'
       .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -648,7 +589,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -658,7 +599,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [String] id (required):
-  Future<List<String>> findByHcpartyId(String id,) async {
+  Future<List<String>?> findByHcpartyId(String id,) async {
     final response = await findByHcpartyIdWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -666,14 +607,14 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
         .cast<String>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<String>>.value();
+    return null;
   }
 
   /// Send a forgotten email message to an user
@@ -687,20 +628,12 @@ class UserApi {
   ///
   /// * [EmailTemplateDto] emailTemplateDto (required):
   Future<Response> forgottenPasswordWithHttpInfo(String email, EmailTemplateDto emailTemplateDto,) async {
-    // Verify required params are set.
-    if (email == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: email');
-    }
-    if (emailTemplateDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: emailTemplateDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/forgottenPassword/{email}'
       .replaceAll('{email}', email);
 
     // ignore: prefer_final_locals
-    Object postBody = emailTemplateDto;
+    Object? postBody = emailTemplateDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -717,7 +650,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -730,7 +663,7 @@ class UserApi {
   ///   the email of the user 
   ///
   /// * [EmailTemplateDto] emailTemplateDto (required):
-  Future<bool> forgottenPassword(String email, EmailTemplateDto emailTemplateDto,) async {
+  Future<bool?> forgottenPassword(String email, EmailTemplateDto emailTemplateDto,) async {
     final response = await forgottenPasswordWithHttpInfo(email, emailTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -738,11 +671,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
     
     }
-    return Future<bool>.value();
+    return null;
   }
 
   /// Get Currently logged-in user session.
@@ -755,7 +688,7 @@ class UserApi {
     final path = r'/rest/v2/user/session';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -772,7 +705,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -780,7 +713,7 @@ class UserApi {
   /// Get Currently logged-in user session.
   ///
   /// Get current user.
-  Future<String> getCurrentSession() async {
+  Future<String?> getCurrentSession() async {
     final response = await getCurrentSessionWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -788,11 +721,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
     
     }
-    return Future<String>.value();
+    return null;
   }
 
   /// Get presently logged-in user.
@@ -805,7 +738,7 @@ class UserApi {
     final path = r'/rest/v2/user/current';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -822,7 +755,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -830,7 +763,7 @@ class UserApi {
   /// Get presently logged-in user.
   ///
   /// Get current user.
-  Future<UserDto> getCurrentUser() async {
+  Future<UserDto?> getCurrentUser() async {
     final response = await getCurrentUserWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -838,11 +771,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
     
     }
-    return Future<UserDto>.value();
+    return null;
   }
 
   /// Get presently logged-in user.
@@ -855,7 +788,7 @@ class UserApi {
     final path = r'/rest/v2/user/matches';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -872,7 +805,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -880,7 +813,7 @@ class UserApi {
   /// Get presently logged-in user.
   ///
   /// Get current user.
-  Future<List<UserGroupDto>> getMatchingUsers() async {
+  Future<List<UserGroupDto>?> getMatchingUsers() async {
     final response = await getMatchingUsersWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -888,14 +821,14 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<UserGroupDto>') as List)
         .cast<UserGroupDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<UserGroupDto>>.value();
+    return null;
   }
 
   /// Request a new temporary token for authentication
@@ -911,29 +844,21 @@ class UserApi {
   ///
   /// * [int] tokenValidity:
   ///   The token validity in seconds
-  Future<Response> getTokenWithHttpInfo(String userId, String key, { int tokenValidity, }) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-    if (key == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: key');
-    }
-
+  Future<Response> getTokenWithHttpInfo(String userId, String key, { int? tokenValidity, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/token/{userId}/{key}'
       .replaceAll('{userId}', userId)
       .replaceAll('{key}', key);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (tokenValidity != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'tokenValidity', tokenValidity));
+      queryParams.addAll(_queryParams('', 'tokenValidity', tokenValidity));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -947,7 +872,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -963,7 +888,7 @@ class UserApi {
   ///
   /// * [int] tokenValidity:
   ///   The token validity in seconds
-  Future<String> getToken(String userId, String key, { int tokenValidity, }) async {
+  Future<String?> getToken(String userId, String key, { int? tokenValidity, }) async {
     final response = await getTokenWithHttpInfo(userId, key,  tokenValidity: tokenValidity, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -971,11 +896,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
     
     }
-    return Future<String>.value();
+    return null;
   }
 
   /// Get a user by his ID
@@ -988,17 +913,12 @@ class UserApi {
   ///
   /// * [String] userId (required):
   Future<Response> getUserWithHttpInfo(String userId,) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/{userId}'
       .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1015,7 +935,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1027,7 +947,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [String] userId (required):
-  Future<UserDto> getUser(String userId,) async {
+  Future<UserDto?> getUser(String userId,) async {
     final response = await getUserWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1035,11 +955,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
     
     }
-    return Future<UserDto>.value();
+    return null;
   }
 
   /// Get a user by his Email/Login
@@ -1052,17 +972,12 @@ class UserApi {
   ///
   /// * [String] email (required):
   Future<Response> getUserByEmailWithHttpInfo(String email,) async {
-    // Verify required params are set.
-    if (email == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: email');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/byEmail/{email}'
       .replaceAll('{email}', email);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1079,7 +994,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1091,7 +1006,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [String] email (required):
-  Future<UserDto> getUserByEmail(String email,) async {
+  Future<UserDto?> getUserByEmail(String email,) async {
     final response = await getUserByEmailWithHttpInfo(email,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1099,11 +1014,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
     
     }
-    return Future<UserDto>.value();
+    return null;
   }
 
   /// List users with(out) pagination
@@ -1122,27 +1037,25 @@ class UserApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> listUsersByWithHttpInfo({ String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> listUsersByWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1156,7 +1069,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1175,7 +1088,7 @@ class UserApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListUserDto> listUsersBy({ String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListUserDto?> listUsersBy({ String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await listUsersByWithHttpInfo( startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1183,11 +1096,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListUserDto',) as PaginatedListUserDto;
     
     }
-    return Future<PaginatedListUserDto>.value();
+    return null;
   }
 
   /// List users with(out) pagination
@@ -1208,31 +1121,26 @@ class UserApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> listUsersInGroupWithHttpInfo(String groupId, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (groupId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: groupId');
-    }
-
+  Future<Response> listUsersInGroupWithHttpInfo(String groupId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/inGroup/{groupId}'
       .replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1246,7 +1154,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1267,7 +1175,7 @@ class UserApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListUserDto> listUsersInGroup(String groupId, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListUserDto?> listUsersInGroup(String groupId, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await listUsersInGroupWithHttpInfo(groupId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1275,11 +1183,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListUserDto',) as PaginatedListUserDto;
     
     }
-    return Future<PaginatedListUserDto>.value();
+    return null;
   }
 
   /// Get ids of healthcare party matching the provided filter for the current user (HcParty) 
@@ -1290,16 +1198,11 @@ class UserApi {
   ///
   /// * [AbstractFilterDtoUser] abstractFilterDtoUser (required):
   Future<Response> matchUsersByWithHttpInfo(AbstractFilterDtoUser abstractFilterDtoUser,) async {
-    // Verify required params are set.
-    if (abstractFilterDtoUser == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: abstractFilterDtoUser');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/match';
 
     // ignore: prefer_final_locals
-    Object postBody = abstractFilterDtoUser;
+    Object? postBody = abstractFilterDtoUser;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1316,7 +1219,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1326,7 +1229,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoUser] abstractFilterDtoUser (required):
-  Future<List<String>> matchUsersBy(AbstractFilterDtoUser abstractFilterDtoUser,) async {
+  Future<List<String>?> matchUsersBy(AbstractFilterDtoUser abstractFilterDtoUser,) async {
     final response = await matchUsersByWithHttpInfo(abstractFilterDtoUser,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1334,14 +1237,14 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
         .cast<String>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<String>>.value();
+    return null;
   }
 
   /// Modify a User property
@@ -1355,18 +1258,13 @@ class UserApi {
   /// * [String] userId (required):
   ///
   /// * [List<PropertyStubDto>] propertyStubDto:
-  Future<Response> modifyPropertiesWithHttpInfo(String userId, { List<PropertyStubDto> propertyStubDto, }) async {
-    // Verify required params are set.
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-
+  Future<Response> modifyPropertiesWithHttpInfo(String userId, { List<PropertyStubDto>? propertyStubDto, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/{userId}/properties'
       .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
-    Object postBody = propertyStubDto;
+    Object? postBody = propertyStubDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1383,7 +1281,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1397,7 +1295,7 @@ class UserApi {
   /// * [String] userId (required):
   ///
   /// * [List<PropertyStubDto>] propertyStubDto:
-  Future<UserDto> modifyProperties(String userId, { List<PropertyStubDto> propertyStubDto, }) async {
+  Future<UserDto?> modifyProperties(String userId, { List<PropertyStubDto>? propertyStubDto, }) async {
     final response = await modifyPropertiesWithHttpInfo(userId,  propertyStubDto: propertyStubDto, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1405,11 +1303,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
     
     }
-    return Future<UserDto>.value();
+    return null;
   }
 
   /// Modify a user.
@@ -1422,16 +1320,11 @@ class UserApi {
   ///
   /// * [UserDto] userDto (required):
   Future<Response> modifyUserWithHttpInfo(UserDto userDto,) async {
-    // Verify required params are set.
-    if (userDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user';
 
     // ignore: prefer_final_locals
-    Object postBody = userDto;
+    Object? postBody = userDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1448,7 +1341,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1460,7 +1353,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [UserDto] userDto (required):
-  Future<UserDto> modifyUser(UserDto userDto,) async {
+  Future<UserDto?> modifyUser(UserDto userDto,) async {
     final response = await modifyUserWithHttpInfo(userDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1468,11 +1361,11 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
     
     }
-    return Future<UserDto>.value();
+    return null;
   }
 
   /// Modify a user.
@@ -1487,20 +1380,12 @@ class UserApi {
   ///
   /// * [UserDto] userDto (required):
   Future<Response> modifyUserInGroupWithHttpInfo(String groupId, UserDto userDto,) async {
-    // Verify required params are set.
-    if (groupId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: groupId');
-    }
-    if (userDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/inGroup/{groupId}'
       .replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
-    Object postBody = userDto;
+    Object? postBody = userDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1517,7 +1402,7 @@ class UserApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1531,7 +1416,7 @@ class UserApi {
   /// * [String] groupId (required):
   ///
   /// * [UserDto] userDto (required):
-  Future<UserDto> modifyUserInGroup(String groupId, UserDto userDto,) async {
+  Future<UserDto?> modifyUserInGroup(String groupId, UserDto userDto,) async {
     final response = await modifyUserInGroupWithHttpInfo(groupId, userDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1539,10 +1424,10 @@ class UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
     
     }
-    return Future<UserDto>.value();
+    return null;
   }
 }

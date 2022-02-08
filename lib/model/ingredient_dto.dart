@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -24,23 +24,71 @@ class IngredientDto {
     this.substance,
   });
 
-  int from;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? from;
 
-  int to;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? to;
 
-  int rank;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? rank;
 
-  IngredientDtoTypeEnum type;
+  IngredientDtoTypeEnum? type;
 
-  bool knownEffect;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? knownEffect;
 
-  String strengthDescription;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? strengthDescription;
 
-  QuantityDto strength;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  QuantityDto? strength;
 
-  String additionalInformation;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? additionalInformation;
 
-  SubstanceStubDto substance;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SubstanceStubDto? substance;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is IngredientDto &&
@@ -56,16 +104,16 @@ class IngredientDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from.hashCode) +
-    (to == null ? 0 : to.hashCode) +
-    (rank == null ? 0 : rank.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (knownEffect == null ? 0 : knownEffect.hashCode) +
-    (strengthDescription == null ? 0 : strengthDescription.hashCode) +
-    (strength == null ? 0 : strength.hashCode) +
-    (additionalInformation == null ? 0 : additionalInformation.hashCode) +
-    (substance == null ? 0 : substance.hashCode);
+    // ignore: unnecessary_parenthesis
+    (from == null ? 0 : from!.hashCode) +
+    (to == null ? 0 : to!.hashCode) +
+    (rank == null ? 0 : rank!.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (knownEffect == null ? 0 : knownEffect!.hashCode) +
+    (strengthDescription == null ? 0 : strengthDescription!.hashCode) +
+    (strength == null ? 0 : strength!.hashCode) +
+    (additionalInformation == null ? 0 : additionalInformation!.hashCode) +
+    (substance == null ? 0 : substance!.hashCode);
 
   @override
   String toString() => 'IngredientDto[from=$from, to=$to, rank=$rank, type=$type, knownEffect=$knownEffect, strengthDescription=$strengthDescription, strength=$strength, additionalInformation=$additionalInformation, substance=$substance]';
@@ -105,9 +153,21 @@ class IngredientDto {
   /// Returns a new [IngredientDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static IngredientDto fromJson(dynamic value) {
+  static IngredientDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "IngredientDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "IngredientDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return IngredientDto(
         from: mapValueOfType<int>(json, r'from'),
         to: mapValueOfType<int>(json, r'to'),
@@ -123,37 +183,51 @@ class IngredientDto {
     return null;
   }
 
-  static List<IngredientDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(IngredientDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <IngredientDto>[];
+  static List<IngredientDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <IngredientDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = IngredientDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, IngredientDto> mapFromJson(dynamic json) {
     final map = <String, IngredientDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = IngredientDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = IngredientDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of IngredientDto-objects as value to a dart map
-  static Map<String, List<IngredientDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<IngredientDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<IngredientDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = IngredientDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = IngredientDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -165,7 +239,7 @@ class IngredientDtoTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -178,13 +252,20 @@ class IngredientDtoTypeEnum {
     EXCIPIENT,
   ];
 
-  static IngredientDtoTypeEnum fromJson(dynamic value) =>
-    IngredientDtoTypeEnumTypeTransformer().decode(value);
+  static IngredientDtoTypeEnum? fromJson(dynamic value) => IngredientDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<IngredientDtoTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(IngredientDtoTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <IngredientDtoTypeEnum>[];
+  static List<IngredientDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <IngredientDtoTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = IngredientDtoTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [IngredientDtoTypeEnum] to String,
@@ -204,13 +285,13 @@ class IngredientDtoTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  IngredientDtoTypeEnum decode(dynamic data, {bool allowNull}) {
+  IngredientDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'ACTIVE_SUBSTANCE': return IngredientDtoTypeEnum.ACTIVE_SUBSTANCE;
         case r'EXCIPIENT': return IngredientDtoTypeEnum.EXCIPIENT;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -219,7 +300,7 @@ class IngredientDtoTypeEnumTypeTransformer {
   }
 
   /// Singleton [IngredientDtoTypeEnumTypeTransformer] instance.
-  static IngredientDtoTypeEnumTypeTransformer _instance;
+  static IngredientDtoTypeEnumTypeTransformer? _instance;
 }
 
 

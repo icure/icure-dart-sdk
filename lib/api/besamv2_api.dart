@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class Besamv2Api {
-  Besamv2Api([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  Besamv2Api([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -27,17 +27,12 @@ class Besamv2Api {
   /// * [String] dmppCode (required):
   ///   dmppCode
   Future<Response> findAmpsByDmppCodeWithHttpInfo(String dmppCode,) async {
-    // Verify required params are set.
-    if (dmppCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: dmppCode');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byDmppCode/{dmppCode}'
       .replaceAll('{dmppCode}', dmppCode);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -54,7 +49,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -67,7 +62,7 @@ class Besamv2Api {
   ///
   /// * [String] dmppCode (required):
   ///   dmppCode
-  Future<List<AmpDto>> findAmpsByDmppCode(String dmppCode,) async {
+  Future<List<AmpDto>?> findAmpsByDmppCode(String dmppCode,) async {
     final response = await findAmpsByDmppCodeWithHttpInfo(dmppCode,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -75,14 +70,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<AmpDto>') as List)
         .cast<AmpDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<AmpDto>>.value();
+    return null;
   }
 
   /// Finding AMPs by atc code with pagination.
@@ -104,31 +99,26 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedAmpsByAtcWithHttpInfo(String atcCode, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (atcCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: atcCode');
-    }
-
+  Future<Response> findPaginatedAmpsByAtcWithHttpInfo(String atcCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmp/byAtc/{atcCode}'
       .replaceAll('{atcCode}', atcCode);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -142,7 +132,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -164,7 +154,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListAmpDto> findPaginatedAmpsByAtc(String atcCode, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListAmpDto?> findPaginatedAmpsByAtc(String atcCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByAtcWithHttpInfo(atcCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -172,11 +162,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
     
     }
-    return Future<PaginatedListAmpDto>.value();
+    return null;
   }
 
   /// Finding AMPs by group with pagination.
@@ -198,31 +188,26 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedAmpsByGroupCodeWithHttpInfo(String vmpgCode, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (vmpgCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: vmpgCode');
-    }
-
+  Future<Response> findPaginatedAmpsByGroupCodeWithHttpInfo(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byGroupCode/{vmpgCode}'
       .replaceAll('{vmpgCode}', vmpgCode);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -236,7 +221,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -258,7 +243,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListAmpDto> findPaginatedAmpsByGroupCode(String vmpgCode, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListAmpDto?> findPaginatedAmpsByGroupCode(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByGroupCodeWithHttpInfo(vmpgCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -266,11 +251,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
     
     }
-    return Future<PaginatedListAmpDto>.value();
+    return null;
   }
 
   /// Finding AMPs by group with pagination.
@@ -292,31 +277,26 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedAmpsByGroupIdWithHttpInfo(String vmpgId, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (vmpgId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: vmpgId');
-    }
-
+  Future<Response> findPaginatedAmpsByGroupIdWithHttpInfo(String vmpgId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byGroupId/{vmpgId}'
       .replaceAll('{vmpgId}', vmpgId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -330,7 +310,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -352,7 +332,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListAmpDto> findPaginatedAmpsByGroupId(String vmpgId, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListAmpDto?> findPaginatedAmpsByGroupId(String vmpgId, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByGroupIdWithHttpInfo(vmpgId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -360,11 +340,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
     
     }
-    return Future<PaginatedListAmpDto>.value();
+    return null;
   }
 
   /// Finding AMPs by label with pagination.
@@ -389,33 +369,31 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedAmpsByLabelWithHttpInfo({ String language, String label, String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> findPaginatedAmpsByLabelWithHttpInfo({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (language != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
+      queryParams.addAll(_queryParams('', 'language', language));
     }
     if (label != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'label', label));
+      queryParams.addAll(_queryParams('', 'label', label));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -429,7 +407,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -454,7 +432,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListAmpDto> findPaginatedAmpsByLabel({ String language, String label, String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListAmpDto?> findPaginatedAmpsByLabel({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByLabelWithHttpInfo( language: language, label: label, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -462,11 +440,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
     
     }
-    return Future<PaginatedListAmpDto>.value();
+    return null;
   }
 
   /// Finding AMPs by vmp code with pagination.
@@ -488,31 +466,26 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedAmpsByVmpCodeWithHttpInfo(String vmpCode, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (vmpCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: vmpCode');
-    }
-
+  Future<Response> findPaginatedAmpsByVmpCodeWithHttpInfo(String vmpCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byVmpCode/{vmpCode}'
       .replaceAll('{vmpCode}', vmpCode);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -526,7 +499,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -548,7 +521,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListAmpDto> findPaginatedAmpsByVmpCode(String vmpCode, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListAmpDto?> findPaginatedAmpsByVmpCode(String vmpCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByVmpCodeWithHttpInfo(vmpCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -556,11 +529,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
     
     }
-    return Future<PaginatedListAmpDto>.value();
+    return null;
   }
 
   /// Finding AMPs by vmp id with pagination.
@@ -582,31 +555,26 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedAmpsByVmpIdWithHttpInfo(String vmpId, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (vmpId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: vmpId');
-    }
-
+  Future<Response> findPaginatedAmpsByVmpIdWithHttpInfo(String vmpId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byVmpId/{vmpId}'
       .replaceAll('{vmpId}', vmpId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -620,7 +588,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -642,7 +610,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListAmpDto> findPaginatedAmpsByVmpId(String vmpId, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListAmpDto?> findPaginatedAmpsByVmpId(String vmpId, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByVmpIdWithHttpInfo(vmpId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -650,11 +618,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
     
     }
-    return Future<PaginatedListAmpDto>.value();
+    return null;
   }
 
   /// Finding NMPs by label with pagination.
@@ -679,33 +647,31 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedNmpsByLabelWithHttpInfo({ String language, String label, String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> findPaginatedNmpsByLabelWithHttpInfo({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/nmp';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (language != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
+      queryParams.addAll(_queryParams('', 'language', language));
     }
     if (label != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'label', label));
+      queryParams.addAll(_queryParams('', 'label', label));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -719,7 +685,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -744,7 +710,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListNmpDto> findPaginatedNmpsByLabel({ String language, String label, String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListNmpDto?> findPaginatedNmpsByLabel({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedNmpsByLabelWithHttpInfo( language: language, label: label, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -752,11 +718,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListNmpDto',) as PaginatedListNmpDto;
     
     }
-    return Future<PaginatedListNmpDto>.value();
+    return null;
   }
 
   /// Finding VMP groups by language label with pagination.
@@ -781,33 +747,31 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedVmpGroupsByLabelWithHttpInfo({ String language, String label, String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> findPaginatedVmpGroupsByLabelWithHttpInfo({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmpgroup';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (language != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
+      queryParams.addAll(_queryParams('', 'language', language));
     }
     if (label != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'label', label));
+      queryParams.addAll(_queryParams('', 'label', label));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -821,7 +785,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -846,7 +810,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListVmpGroupDto> findPaginatedVmpGroupsByLabel({ String language, String label, String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListVmpGroupDto?> findPaginatedVmpGroupsByLabel({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpGroupsByLabelWithHttpInfo( language: language, label: label, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -854,11 +818,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpGroupDto',) as PaginatedListVmpGroupDto;
     
     }
-    return Future<PaginatedListVmpGroupDto>.value();
+    return null;
   }
 
   /// Finding VMP groups by cmpgCode with pagination.
@@ -880,31 +844,26 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedVmpGroupsByVmpGroupCodeWithHttpInfo(String vmpgCode, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (vmpgCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: vmpgCode');
-    }
-
+  Future<Response> findPaginatedVmpGroupsByVmpGroupCodeWithHttpInfo(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmpgroup/byGroupCode/{vmpgCode}'
       .replaceAll('{vmpgCode}', vmpgCode);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -918,7 +877,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -940,7 +899,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListVmpGroupDto> findPaginatedVmpGroupsByVmpGroupCode(String vmpgCode, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListVmpGroupDto?> findPaginatedVmpGroupsByVmpGroupCode(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpGroupsByVmpGroupCodeWithHttpInfo(vmpgCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -948,11 +907,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpGroupDto',) as PaginatedListVmpGroupDto;
     
     }
-    return Future<PaginatedListVmpGroupDto>.value();
+    return null;
   }
 
   /// Finding VMPs by group with pagination.
@@ -974,31 +933,26 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedVmpsByGroupCodeWithHttpInfo(String vmpgCode, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (vmpgCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: vmpgCode');
-    }
-
+  Future<Response> findPaginatedVmpsByGroupCodeWithHttpInfo(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmp/byGroupCode/{vmpgCode}'
       .replaceAll('{vmpgCode}', vmpgCode);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1012,7 +966,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1034,7 +988,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListVmpDto> findPaginatedVmpsByGroupCode(String vmpgCode, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListVmpDto?> findPaginatedVmpsByGroupCode(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpsByGroupCodeWithHttpInfo(vmpgCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1042,11 +996,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpDto',) as PaginatedListVmpDto;
     
     }
-    return Future<PaginatedListVmpDto>.value();
+    return null;
   }
 
   /// Finding VMPs by group with pagination.
@@ -1068,31 +1022,26 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedVmpsByGroupIdWithHttpInfo(String vmpgId, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (vmpgId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: vmpgId');
-    }
-
+  Future<Response> findPaginatedVmpsByGroupIdWithHttpInfo(String vmpgId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmp/byGroupId/{vmpgId}'
       .replaceAll('{vmpgId}', vmpgId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1106,7 +1055,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1128,7 +1077,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListVmpDto> findPaginatedVmpsByGroupId(String vmpgId, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListVmpDto?> findPaginatedVmpsByGroupId(String vmpgId, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpsByGroupIdWithHttpInfo(vmpgId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1136,11 +1085,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpDto',) as PaginatedListVmpDto;
     
     }
-    return Future<PaginatedListVmpDto>.value();
+    return null;
   }
 
   /// Finding VMPs by label with pagination.
@@ -1165,33 +1114,31 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedVmpsByLabelWithHttpInfo({ String language, String label, String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> findPaginatedVmpsByLabelWithHttpInfo({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmp';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (language != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
+      queryParams.addAll(_queryParams('', 'language', language));
     }
     if (label != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'label', label));
+      queryParams.addAll(_queryParams('', 'label', label));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1205,7 +1152,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1230,7 +1177,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListVmpDto> findPaginatedVmpsByLabel({ String language, String label, String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListVmpDto?> findPaginatedVmpsByLabel({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpsByLabelWithHttpInfo( language: language, label: label, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1238,11 +1185,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpDto',) as PaginatedListVmpDto;
     
     }
-    return Future<PaginatedListVmpDto>.value();
+    return null;
   }
 
   /// Finding VMPs by group with pagination.
@@ -1264,31 +1211,26 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPaginatedVmpsByVmpCodeWithHttpInfo(String vmpCode, { String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (vmpCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: vmpCode');
-    }
-
+  Future<Response> findPaginatedVmpsByVmpCodeWithHttpInfo(String vmpCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmp/byVmpCode/{vmpCode}'
       .replaceAll('{vmpCode}', vmpCode);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1302,7 +1244,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1324,7 +1266,7 @@ class Besamv2Api {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListVmpDto> findPaginatedVmpsByVmpCode(String vmpCode, { String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListVmpDto?> findPaginatedVmpsByVmpCode(String vmpCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpsByVmpCodeWithHttpInfo(vmpCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1332,11 +1274,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpDto',) as PaginatedListVmpDto;
     
     }
-    return Future<PaginatedListVmpDto>.value();
+    return null;
   }
 
   /// Get Samv2 version.
@@ -1349,7 +1291,7 @@ class Besamv2Api {
     final path = r'/rest/v2/be_samv2/v';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1366,7 +1308,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1374,7 +1316,7 @@ class Besamv2Api {
   /// Get Samv2 version.
   ///
   /// Returns a list of codes matched with given input. If several types are provided, paginantion is not supported
-  Future<SamVersionDto> getSamVersion() async {
+  Future<SamVersionDto?> getSamVersion() async {
     final response = await getSamVersionWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1382,11 +1324,11 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'SamVersionDto',) as SamVersionDto;
     
     }
-    return Future<SamVersionDto>.value();
+    return null;
   }
 
   /// Finding AMPs by dmpp code
@@ -1399,16 +1341,11 @@ class Besamv2Api {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByDmppCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byDmppCodes';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1425,7 +1362,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1437,7 +1374,7 @@ class Besamv2Api {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<AmpDto>> listAmpsByDmppCodes(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<AmpDto>?> listAmpsByDmppCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByDmppCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1445,14 +1382,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<AmpDto>') as List)
         .cast<AmpDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<AmpDto>>.value();
+    return null;
   }
 
   /// Finding AMPs by group.
@@ -1465,16 +1402,11 @@ class Besamv2Api {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByGroupCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byGroupCodes';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1491,7 +1423,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1503,7 +1435,7 @@ class Besamv2Api {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<AmpDto>> listAmpsByGroupCodes(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<AmpDto>?> listAmpsByGroupCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByGroupCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1511,14 +1443,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<AmpDto>') as List)
         .cast<AmpDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<AmpDto>>.value();
+    return null;
   }
 
   /// Finding AMPs by group.
@@ -1531,16 +1463,11 @@ class Besamv2Api {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByGroupIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byGroupIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1557,7 +1484,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1569,7 +1496,7 @@ class Besamv2Api {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<AmpDto>> listAmpsByGroupIds(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<AmpDto>?> listAmpsByGroupIds(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByGroupIdsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1577,14 +1504,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<AmpDto>') as List)
         .cast<AmpDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<AmpDto>>.value();
+    return null;
   }
 
   /// Finding AMPs by vmp code.
@@ -1597,16 +1524,11 @@ class Besamv2Api {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByVmpCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byVmpCodes';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1623,7 +1545,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1635,7 +1557,7 @@ class Besamv2Api {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<AmpDto>> listAmpsByVmpCodes(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<AmpDto>?> listAmpsByVmpCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByVmpCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1643,14 +1565,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<AmpDto>') as List)
         .cast<AmpDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<AmpDto>>.value();
+    return null;
   }
 
   /// Finding AMPs by vmp id.
@@ -1663,16 +1585,11 @@ class Besamv2Api {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByVmpIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/amp/byVmpIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1689,7 +1606,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1701,7 +1618,7 @@ class Besamv2Api {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<AmpDto>> listAmpsByVmpIds(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<AmpDto>?> listAmpsByVmpIds(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByVmpIdsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1709,14 +1626,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<AmpDto>') as List)
         .cast<AmpDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<AmpDto>>.value();
+    return null;
   }
 
   /// Finding NMPs by cnk id.
@@ -1729,16 +1646,11 @@ class Besamv2Api {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listNmpsByCnksWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/nmp/byCnks';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1755,7 +1667,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1767,7 +1679,7 @@ class Besamv2Api {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<NmpDto>> listNmpsByCnks(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<NmpDto>?> listNmpsByCnks(ListOfIdsDto listOfIdsDto,) async {
     final response = await listNmpsByCnksWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1775,14 +1687,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<NmpDto>') as List)
         .cast<NmpDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<NmpDto>>.value();
+    return null;
   }
 
   /// List all pharmaceutical forms.
@@ -1793,7 +1705,7 @@ class Besamv2Api {
     final path = r'/rest/v2/be_samv2/pharmaform';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1810,13 +1722,13 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// List all pharmaceutical forms.
-  Future<List<PharmaceuticalFormDto>> listPharmaceuticalForms() async {
+  Future<List<PharmaceuticalFormDto>?> listPharmaceuticalForms() async {
     final response = await listPharmaceuticalFormsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1824,14 +1736,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<PharmaceuticalFormDto>') as List)
         .cast<PharmaceuticalFormDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<PharmaceuticalFormDto>>.value();
+    return null;
   }
 
   /// List all substances.
@@ -1842,7 +1754,7 @@ class Besamv2Api {
     final path = r'/rest/v2/be_samv2/substance';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1859,13 +1771,13 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// List all substances.
-  Future<List<SubstanceDto>> listSubstances() async {
+  Future<List<SubstanceDto>?> listSubstances() async {
     final response = await listSubstancesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1873,14 +1785,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<SubstanceDto>') as List)
         .cast<SubstanceDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<SubstanceDto>>.value();
+    return null;
   }
 
   /// Finding AMPs by group.
@@ -1893,16 +1805,11 @@ class Besamv2Api {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listVmpGroupsByVmpGroupCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmpgroup/byGroupCodes';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1919,7 +1826,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1931,7 +1838,7 @@ class Besamv2Api {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<VmpGroupDto>> listVmpGroupsByVmpGroupCodes(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<VmpGroupDto>?> listVmpGroupsByVmpGroupCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listVmpGroupsByVmpGroupCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1939,14 +1846,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<VmpGroupDto>') as List)
         .cast<VmpGroupDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<VmpGroupDto>>.value();
+    return null;
   }
 
   /// Finding VMPs by group.
@@ -1959,16 +1866,11 @@ class Besamv2Api {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listVmpsByGroupIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmp/byGroupIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1985,7 +1887,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1997,7 +1899,7 @@ class Besamv2Api {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<VmpDto>> listVmpsByGroupIds(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<VmpDto>?> listVmpsByGroupIds(ListOfIdsDto listOfIdsDto,) async {
     final response = await listVmpsByGroupIdsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2005,14 +1907,14 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<VmpDto>') as List)
         .cast<VmpDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<VmpDto>>.value();
+    return null;
   }
 
   /// Finding VMPs by group.
@@ -2025,16 +1927,11 @@ class Besamv2Api {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listVmpsByVmpCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_samv2/vmp/byVmpCodes';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -2051,7 +1948,7 @@ class Besamv2Api {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -2063,7 +1960,7 @@ class Besamv2Api {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<VmpDto>> listVmpsByVmpCodes(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<VmpDto>?> listVmpsByVmpCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listVmpsByVmpCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2071,13 +1968,13 @@ class Besamv2Api {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<VmpDto>') as List)
         .cast<VmpDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<VmpDto>>.value();
+    return null;
   }
 }

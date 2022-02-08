@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,9 +17,15 @@ class PropertyTypeStubDto {
     this.type,
   });
 
-  String identifier;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? identifier;
 
-  PropertyTypeStubDtoTypeEnum type;
+  PropertyTypeStubDtoTypeEnum? type;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PropertyTypeStubDto &&
@@ -28,9 +34,9 @@ class PropertyTypeStubDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (identifier == null ? 0 : identifier.hashCode) +
-    (type == null ? 0 : type.hashCode);
+    // ignore: unnecessary_parenthesis
+    (identifier == null ? 0 : identifier!.hashCode) +
+    (type == null ? 0 : type!.hashCode);
 
   @override
   String toString() => 'PropertyTypeStubDto[identifier=$identifier, type=$type]';
@@ -49,9 +55,21 @@ class PropertyTypeStubDto {
   /// Returns a new [PropertyTypeStubDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PropertyTypeStubDto fromJson(dynamic value) {
+  static PropertyTypeStubDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "PropertyTypeStubDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PropertyTypeStubDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return PropertyTypeStubDto(
         identifier: mapValueOfType<String>(json, r'identifier'),
         type: PropertyTypeStubDtoTypeEnum.fromJson(json[r'type']),
@@ -60,37 +78,51 @@ class PropertyTypeStubDto {
     return null;
   }
 
-  static List<PropertyTypeStubDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PropertyTypeStubDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PropertyTypeStubDto>[];
+  static List<PropertyTypeStubDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PropertyTypeStubDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PropertyTypeStubDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, PropertyTypeStubDto> mapFromJson(dynamic json) {
     final map = <String, PropertyTypeStubDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = PropertyTypeStubDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PropertyTypeStubDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of PropertyTypeStubDto-objects as value to a dart map
-  static Map<String, List<PropertyTypeStubDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<PropertyTypeStubDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<PropertyTypeStubDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = PropertyTypeStubDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PropertyTypeStubDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -102,7 +134,7 @@ class PropertyTypeStubDtoTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -125,13 +157,20 @@ class PropertyTypeStubDtoTypeEnum {
     JSON,
   ];
 
-  static PropertyTypeStubDtoTypeEnum fromJson(dynamic value) =>
-    PropertyTypeStubDtoTypeEnumTypeTransformer().decode(value);
+  static PropertyTypeStubDtoTypeEnum? fromJson(dynamic value) => PropertyTypeStubDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<PropertyTypeStubDtoTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PropertyTypeStubDtoTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PropertyTypeStubDtoTypeEnum>[];
+  static List<PropertyTypeStubDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PropertyTypeStubDtoTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PropertyTypeStubDtoTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [PropertyTypeStubDtoTypeEnum] to String,
@@ -151,7 +190,7 @@ class PropertyTypeStubDtoTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  PropertyTypeStubDtoTypeEnum decode(dynamic data, {bool allowNull}) {
+  PropertyTypeStubDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'BOOLEAN': return PropertyTypeStubDtoTypeEnum.BOOLEAN;
@@ -162,7 +201,7 @@ class PropertyTypeStubDtoTypeEnumTypeTransformer {
         case r'CLOB': return PropertyTypeStubDtoTypeEnum.CLOB;
         case r'JSON': return PropertyTypeStubDtoTypeEnum.JSON;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -171,7 +210,7 @@ class PropertyTypeStubDtoTypeEnumTypeTransformer {
   }
 
   /// Singleton [PropertyTypeStubDtoTypeEnumTypeTransformer] instance.
-  static PropertyTypeStubDtoTypeEnumTypeTransformer _instance;
+  static PropertyTypeStubDtoTypeEnumTypeTransformer? _instance;
 }
 
 

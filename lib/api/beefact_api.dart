@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class BeefactApi {
-  BeefactApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  BeefactApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -30,20 +30,6 @@ class BeefactApi {
   ///
   /// * [MapOfIdsDto] mapOfIdsDto (required):
   Future<Response> createBatchAndMessageWithHttpInfo(String insuranceId, String newMessageId, int numericalRef, MapOfIdsDto mapOfIdsDto,) async {
-    // Verify required params are set.
-    if (insuranceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: insuranceId');
-    }
-    if (newMessageId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: newMessageId');
-    }
-    if (numericalRef == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: numericalRef');
-    }
-    if (mapOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: mapOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/be_efact/{insuranceId}/{newMessageId}/{numericalRef}'
       .replaceAll('{insuranceId}', insuranceId)
@@ -51,7 +37,7 @@ class BeefactApi {
       .replaceAll('{numericalRef}', numericalRef.toString());
 
     // ignore: prefer_final_locals
-    Object postBody = mapOfIdsDto;
+    Object? postBody = mapOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -68,7 +54,7 @@ class BeefactApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -84,7 +70,7 @@ class BeefactApi {
   /// * [int] numericalRef (required):
   ///
   /// * [MapOfIdsDto] mapOfIdsDto (required):
-  Future<MessageWithBatch> createBatchAndMessage(String insuranceId, String newMessageId, int numericalRef, MapOfIdsDto mapOfIdsDto,) async {
+  Future<MessageWithBatch?> createBatchAndMessage(String insuranceId, String newMessageId, int numericalRef, MapOfIdsDto mapOfIdsDto,) async {
     final response = await createBatchAndMessageWithHttpInfo(insuranceId, newMessageId, numericalRef, mapOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -92,10 +78,10 @@ class BeefactApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MessageWithBatch',) as MessageWithBatch;
     
     }
-    return Future<MessageWithBatch>.value();
+    return null;
   }
 }

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class AnonymousAccessApi {
-  AnonymousAccessApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  AnonymousAccessApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -37,27 +37,7 @@ class AnonymousAccessApi {
   /// * [String] hcpId (required):
   ///
   /// * [int] limit:
-  Future<Response> getAvailabilitiesByPeriodAndCalendarItemTypeIdWithHttpInfo(String groupId, String userId, String getCalendarItemTypeId, int startDate, int endDate, String hcpId, { int limit, }) async {
-    // Verify required params are set.
-    if (groupId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: groupId');
-    }
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-    if (getCalendarItemTypeId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: getCalendarItemTypeId');
-    }
-    if (startDate == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: startDate');
-    }
-    if (endDate == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: endDate');
-    }
-    if (hcpId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcpId');
-    }
-
+  Future<Response> getAvailabilitiesByPeriodAndCalendarItemTypeIdWithHttpInfo(String groupId, String userId, String getCalendarItemTypeId, int startDate, int endDate, String hcpId, { int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/aa/available/inGroup/{groupId}/forUser/{userId}/type/{getCalendarItemTypeId}'
       .replaceAll('{groupId}', groupId)
@@ -65,17 +45,17 @@ class AnonymousAccessApi {
       .replaceAll('{getCalendarItemTypeId}', getCalendarItemTypeId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDate', startDate));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'endDate', endDate));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcpId', hcpId));
+      queryParams.addAll(_queryParams('', 'startDate', startDate));
+      queryParams.addAll(_queryParams('', 'endDate', endDate));
+      queryParams.addAll(_queryParams('', 'hcpId', hcpId));
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -89,7 +69,7 @@ class AnonymousAccessApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -113,7 +93,7 @@ class AnonymousAccessApi {
   /// * [String] hcpId (required):
   ///
   /// * [int] limit:
-  Future<List<int>> getAvailabilitiesByPeriodAndCalendarItemTypeId(String groupId, String userId, String getCalendarItemTypeId, int startDate, int endDate, String hcpId, { int limit, }) async {
+  Future<List<int>?> getAvailabilitiesByPeriodAndCalendarItemTypeId(String groupId, String userId, String getCalendarItemTypeId, int startDate, int endDate, String hcpId, { int? limit, }) async {
     final response = await getAvailabilitiesByPeriodAndCalendarItemTypeIdWithHttpInfo(groupId, userId, getCalendarItemTypeId, startDate, endDate, hcpId,  limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -121,14 +101,14 @@ class AnonymousAccessApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<int>') as List)
         .cast<int>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<int>>.value();
+    return null;
   }
 
   /// List Calendar Item types for a provided group id and user id
@@ -149,34 +129,20 @@ class AnonymousAccessApi {
   ///
   /// * [int] endDate (required):
   Future<Response> listAppointmentTypesForUserWithHttpInfo(String groupId, String userId, int startDate, int endDate,) async {
-    // Verify required params are set.
-    if (groupId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: groupId');
-    }
-    if (userId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userId');
-    }
-    if (startDate == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: startDate');
-    }
-    if (endDate == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: endDate');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/aa/appointmentType/inGroup/{groupId}/forUser/{userId}'
       .replaceAll('{groupId}', groupId)
       .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDate', startDate));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'endDate', endDate));
+      queryParams.addAll(_queryParams('', 'startDate', startDate));
+      queryParams.addAll(_queryParams('', 'endDate', endDate));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -189,7 +155,7 @@ class AnonymousAccessApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -209,7 +175,7 @@ class AnonymousAccessApi {
   /// * [int] startDate (required):
   ///
   /// * [int] endDate (required):
-  Future<List<CalendarItemTypeDto>> listAppointmentTypesForUser(String groupId, String userId, int startDate, int endDate,) async {
+  Future<List<CalendarItemTypeDto>?> listAppointmentTypesForUser(String groupId, String userId, int startDate, int endDate,) async {
     final response = await listAppointmentTypesForUserWithHttpInfo(groupId, userId, startDate, endDate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -217,14 +183,14 @@ class AnonymousAccessApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<CalendarItemTypeDto>') as List)
         .cast<CalendarItemTypeDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<CalendarItemTypeDto>>.value();
+    return null;
   }
 
   /// List healthcare parties for a provided group id
@@ -238,17 +204,12 @@ class AnonymousAccessApi {
   /// * [String] groupId (required):
   ///   Healthcare parties group id
   Future<Response> listHealthcarePartiesInGroupWithHttpInfo(String groupId,) async {
-    // Verify required params are set.
-    if (groupId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: groupId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/aa/hcparty/inGroup/{groupId}'
       .replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -265,7 +226,7 @@ class AnonymousAccessApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -278,7 +239,7 @@ class AnonymousAccessApi {
   ///
   /// * [String] groupId (required):
   ///   Healthcare parties group id
-  Future<List<UserDto>> listHealthcarePartiesInGroup(String groupId,) async {
+  Future<List<UserDto>?> listHealthcarePartiesInGroup(String groupId,) async {
     final response = await listHealthcarePartiesInGroupWithHttpInfo(groupId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -286,13 +247,13 @@ class AnonymousAccessApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<UserDto>') as List)
         .cast<UserDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<UserDto>>.value();
+    return null;
   }
 }

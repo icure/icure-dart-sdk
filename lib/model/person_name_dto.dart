@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -24,16 +24,34 @@ class PersonNameDto {
   });
 
   /// Family name (often called 'Surname')
-  String lastName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? lastName;
 
   /// Given names (not always 'first'). Includes middle names. This repeating element order: Given Names appear in the correct order for presenting the name
   List<String> firstNames;
 
   /// Starting date of time period when name is/was valid for use. Date encoded as a fuzzy date on 8 positions (YYYYMMDD)
-  int start;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? start;
 
   /// Ending date of time period when name is/was valid for use. Date encoded as a fuzzy date on 8 positions (YYYYMMDD)
-  int end;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? end;
 
   /// Parts that come before the name. This repeating element order: Prefixes appear in the correct order for presenting the name
   List<String> prefix;
@@ -42,10 +60,16 @@ class PersonNameDto {
   List<String> suffix;
 
   /// Text representation of the full name
-  String text;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? text;
 
   /// What is the use of this name
-  PersonNameDtoUseEnum use;
+  PersonNameDtoUseEnum? use;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PersonNameDto &&
@@ -60,15 +84,15 @@ class PersonNameDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (lastName == null ? 0 : lastName.hashCode) +
-    (firstNames == null ? 0 : firstNames.hashCode) +
-    (start == null ? 0 : start.hashCode) +
-    (end == null ? 0 : end.hashCode) +
-    (prefix == null ? 0 : prefix.hashCode) +
-    (suffix == null ? 0 : suffix.hashCode) +
-    (text == null ? 0 : text.hashCode) +
-    (use == null ? 0 : use.hashCode);
+    // ignore: unnecessary_parenthesis
+    (lastName == null ? 0 : lastName!.hashCode) +
+    (firstNames.hashCode) +
+    (start == null ? 0 : start!.hashCode) +
+    (end == null ? 0 : end!.hashCode) +
+    (prefix.hashCode) +
+    (suffix.hashCode) +
+    (text == null ? 0 : text!.hashCode) +
+    (use == null ? 0 : use!.hashCode);
 
   @override
   String toString() => 'PersonNameDto[lastName=$lastName, firstNames=$firstNames, start=$start, end=$end, prefix=$prefix, suffix=$suffix, text=$text, use=$use]';
@@ -99,22 +123,34 @@ class PersonNameDto {
   /// Returns a new [PersonNameDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PersonNameDto fromJson(dynamic value) {
+  static PersonNameDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "PersonNameDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PersonNameDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return PersonNameDto(
         lastName: mapValueOfType<String>(json, r'lastName'),
         firstNames: json[r'firstNames'] is List
-          ? (json[r'firstNames'] as List).cast<String>()
-          : null,
+            ? (json[r'firstNames'] as List).cast<String>()
+            : const [],
         start: mapValueOfType<int>(json, r'start'),
         end: mapValueOfType<int>(json, r'end'),
         prefix: json[r'prefix'] is List
-          ? (json[r'prefix'] as List).cast<String>()
-          : null,
+            ? (json[r'prefix'] as List).cast<String>()
+            : const [],
         suffix: json[r'suffix'] is List
-          ? (json[r'suffix'] as List).cast<String>()
-          : null,
+            ? (json[r'suffix'] as List).cast<String>()
+            : const [],
         text: mapValueOfType<String>(json, r'text'),
         use: PersonNameDtoUseEnum.fromJson(json[r'use']),
       );
@@ -122,37 +158,54 @@ class PersonNameDto {
     return null;
   }
 
-  static List<PersonNameDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PersonNameDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PersonNameDto>[];
+  static List<PersonNameDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PersonNameDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PersonNameDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, PersonNameDto> mapFromJson(dynamic json) {
     final map = <String, PersonNameDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = PersonNameDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PersonNameDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of PersonNameDto-objects as value to a dart map
-  static Map<String, List<PersonNameDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<PersonNameDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<PersonNameDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = PersonNameDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PersonNameDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'firstNames',
+    'prefix',
+    'suffix',
+  };
 }
 
 /// What is the use of this name
@@ -164,7 +217,7 @@ class PersonNameDtoUseEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -189,13 +242,20 @@ class PersonNameDtoUseEnum {
     other,
   ];
 
-  static PersonNameDtoUseEnum fromJson(dynamic value) =>
-    PersonNameDtoUseEnumTypeTransformer().decode(value);
+  static PersonNameDtoUseEnum? fromJson(dynamic value) => PersonNameDtoUseEnumTypeTransformer().decode(value);
 
-  static List<PersonNameDtoUseEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PersonNameDtoUseEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PersonNameDtoUseEnum>[];
+  static List<PersonNameDtoUseEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PersonNameDtoUseEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PersonNameDtoUseEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [PersonNameDtoUseEnum] to String,
@@ -215,7 +275,7 @@ class PersonNameDtoUseEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  PersonNameDtoUseEnum decode(dynamic data, {bool allowNull}) {
+  PersonNameDtoUseEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'usual': return PersonNameDtoUseEnum.usual;
@@ -227,7 +287,7 @@ class PersonNameDtoUseEnumTypeTransformer {
         case r'old': return PersonNameDtoUseEnum.old;
         case r'other': return PersonNameDtoUseEnum.other;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -236,7 +296,7 @@ class PersonNameDtoUseEnumTypeTransformer {
   }
 
   /// Singleton [PersonNameDtoUseEnumTypeTransformer] instance.
-  static PersonNameDtoUseEnumTypeTransformer _instance;
+  static PersonNameDtoUseEnumTypeTransformer? _instance;
 }
 
 

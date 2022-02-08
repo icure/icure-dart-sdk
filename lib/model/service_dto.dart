@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class ServiceDto {
   /// Returns a new [ServiceDto] instance.
   ServiceDto({
-    @required this.id,
+    required this.id,
     this.transactionId,
     this.identifier = const [],
     this.contactId,
@@ -54,12 +54,24 @@ class ServiceDto {
   String id;
 
   /// The transactionId is used when a single service had to be split into parts for technical reasons. Several services with the same non null transaction id form one single service
-  String transactionId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? transactionId;
 
   List<IdentifierDto> identifier;
 
   /// Id of the contact during which the service is provided
-  String contactId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? contactId;
 
   /// List of IDs of all sub-contacts that link the service to structural elements. Only used when the Service is emitted outside of its contact
   Set<String> subContactIds;
@@ -86,52 +98,142 @@ class ServiceDto {
   Map<String, Set<DelegationDto>> encryptionKeys;
 
   /// Description / Unambiguous qualification (LOINC code) of the type of information contained in the service. Could be a code to qualify temperature, complaint, diagnostic, ...
-  String label;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? label;
 
   /// Used for sorting services inside an upper object (A contact, a transaction, a FHIR bundle, ...)
-  int index;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? index;
 
   /// Information contained in the service. Content is localized, using ISO language code as key
   Map<String, ContentDto> content;
 
-  String encryptedContent;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedContent;
 
   Map<String, String> textIndexes;
 
   /// The date (YYYYMMDDhhmmss) when the Service is noted to have started and also closes on the same date
-  int valueDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? valueDate;
 
   /// The date (YYYYMMDDhhmmss) of the start of the Service
-  int openingDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? openingDate;
 
   /// The date (YYYYMMDDhhmmss) marking the end of the Service
-  int closingDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? closingDate;
 
   /// Id of the form used during the Service
-  String formId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? formId;
 
   /// The timestamp (unix epoch in ms) of creation of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// The date (unix epoch in ms) of the latest modification of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int modified;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modified;
 
   /// Soft delete (unix epoch in ms) timestamp of the object.
-  int endOfLife;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfLife;
 
   /// The id of the User that has created this entity, will be filled automatically if missing. Not enforced by the application server.
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   /// The id of the HealthcareParty that is responsible for this entity, will be filled automatically if missing. Not enforced by the application server.
-  String responsible;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? responsible;
 
   /// The id of the medical location where this entity was created.
-  String medicalLocationId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicalLocationId;
 
   /// Text, comments on the Service provided
-  String comment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? comment;
 
-  int status;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? status;
 
   /// List of invoicing codes
   Set<String> invoicingCodes;
@@ -149,7 +251,13 @@ class ServiceDto {
   Set<CodeStubDto> tags;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ServiceDto &&
@@ -191,42 +299,42 @@ class ServiceDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (transactionId == null ? 0 : transactionId.hashCode) +
-    (identifier == null ? 0 : identifier.hashCode) +
-    (contactId == null ? 0 : contactId.hashCode) +
-    (subContactIds == null ? 0 : subContactIds.hashCode) +
-    (plansOfActionIds == null ? 0 : plansOfActionIds.hashCode) +
-    (healthElementsIds == null ? 0 : healthElementsIds.hashCode) +
-    (formIds == null ? 0 : formIds.hashCode) +
-    (secretForeignKeys == null ? 0 : secretForeignKeys.hashCode) +
-    (cryptedForeignKeys == null ? 0 : cryptedForeignKeys.hashCode) +
-    (delegations == null ? 0 : delegations.hashCode) +
-    (encryptionKeys == null ? 0 : encryptionKeys.hashCode) +
-    (label == null ? 0 : label.hashCode) +
-    (index == null ? 0 : index.hashCode) +
-    (content == null ? 0 : content.hashCode) +
-    (encryptedContent == null ? 0 : encryptedContent.hashCode) +
-    (textIndexes == null ? 0 : textIndexes.hashCode) +
-    (valueDate == null ? 0 : valueDate.hashCode) +
-    (openingDate == null ? 0 : openingDate.hashCode) +
-    (closingDate == null ? 0 : closingDate.hashCode) +
-    (formId == null ? 0 : formId.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (modified == null ? 0 : modified.hashCode) +
-    (endOfLife == null ? 0 : endOfLife.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (responsible == null ? 0 : responsible.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId.hashCode) +
-    (comment == null ? 0 : comment.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (invoicingCodes == null ? 0 : invoicingCodes.hashCode) +
-    (notes == null ? 0 : notes.hashCode) +
-    (qualifiedLinks == null ? 0 : qualifiedLinks.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (transactionId == null ? 0 : transactionId!.hashCode) +
+    (identifier.hashCode) +
+    (contactId == null ? 0 : contactId!.hashCode) +
+    (subContactIds.hashCode) +
+    (plansOfActionIds.hashCode) +
+    (healthElementsIds.hashCode) +
+    (formIds.hashCode) +
+    (secretForeignKeys.hashCode) +
+    (cryptedForeignKeys.hashCode) +
+    (delegations.hashCode) +
+    (encryptionKeys.hashCode) +
+    (label == null ? 0 : label!.hashCode) +
+    (index == null ? 0 : index!.hashCode) +
+    (content.hashCode) +
+    (encryptedContent == null ? 0 : encryptedContent!.hashCode) +
+    (textIndexes.hashCode) +
+    (valueDate == null ? 0 : valueDate!.hashCode) +
+    (openingDate == null ? 0 : openingDate!.hashCode) +
+    (closingDate == null ? 0 : closingDate!.hashCode) +
+    (formId == null ? 0 : formId!.hashCode) +
+    (created == null ? 0 : created!.hashCode) +
+    (modified == null ? 0 : modified!.hashCode) +
+    (endOfLife == null ? 0 : endOfLife!.hashCode) +
+    (author == null ? 0 : author!.hashCode) +
+    (responsible == null ? 0 : responsible!.hashCode) +
+    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+    (comment == null ? 0 : comment!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (invoicingCodes.hashCode) +
+    (notes.hashCode) +
+    (qualifiedLinks.hashCode) +
+    (codes.hashCode) +
+    (tags.hashCode) +
+    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'ServiceDto[id=$id, transactionId=$transactionId, identifier=$identifier, contactId=$contactId, subContactIds=$subContactIds, plansOfActionIds=$plansOfActionIds, healthElementsIds=$healthElementsIds, formIds=$formIds, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, label=$label, index=$index, content=$content, encryptedContent=$encryptedContent, textIndexes=$textIndexes, valueDate=$valueDate, openingDate=$openingDate, closingDate=$closingDate, formId=$formId, created=$created, modified=$modified, endOfLife=$endOfLife, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, comment=$comment, status=$status, invoicingCodes=$invoicingCodes, notes=$notes, qualifiedLinks=$qualifiedLinks, codes=$codes, tags=$tags, encryptedSelf=$encryptedSelf]';
@@ -241,21 +349,11 @@ class ServiceDto {
     if (contactId != null) {
       json[r'contactId'] = contactId;
     }
-    if (subContactIds != null) {
       json[r'subContactIds'] = subContactIds;
-    }
-    if (plansOfActionIds != null) {
       json[r'plansOfActionIds'] = plansOfActionIds;
-    }
-    if (healthElementsIds != null) {
       json[r'healthElementsIds'] = healthElementsIds;
-    }
-    if (formIds != null) {
       json[r'formIds'] = formIds;
-    }
-    if (secretForeignKeys != null) {
       json[r'secretForeignKeys'] = secretForeignKeys;
-    }
       json[r'cryptedForeignKeys'] = cryptedForeignKeys;
       json[r'delegations'] = delegations;
       json[r'encryptionKeys'] = encryptionKeys;
@@ -320,43 +418,55 @@ class ServiceDto {
   /// Returns a new [ServiceDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ServiceDto fromJson(dynamic value) {
+  static ServiceDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "ServiceDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ServiceDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return ServiceDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         transactionId: mapValueOfType<String>(json, r'transactionId'),
-        identifier: IdentifierDto.listFromJson(json[r'identifier']),
+        identifier: IdentifierDto.listFromJson(json[r'identifier'])!,
         contactId: mapValueOfType<String>(json, r'contactId'),
         subContactIds: json[r'subContactIds'] is Set
-          ? (json[r'subContactIds'] as Set).cast<String>()
-          : null,
+            ? (json[r'subContactIds'] as Set).cast<String>()
+            : const {},
         plansOfActionIds: json[r'plansOfActionIds'] is Set
-          ? (json[r'plansOfActionIds'] as Set).cast<String>()
-          : null,
+            ? (json[r'plansOfActionIds'] as Set).cast<String>()
+            : const {},
         healthElementsIds: json[r'healthElementsIds'] is Set
-          ? (json[r'healthElementsIds'] as Set).cast<String>()
-          : null,
+            ? (json[r'healthElementsIds'] as Set).cast<String>()
+            : const {},
         formIds: json[r'formIds'] is Set
-          ? (json[r'formIds'] as Set).cast<String>()
-          : null,
+            ? (json[r'formIds'] as Set).cast<String>()
+            : const {},
         secretForeignKeys: json[r'secretForeignKeys'] is Set
-          ? (json[r'secretForeignKeys'] as Set).cast<String>()
-          : null,
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+          ? const {}
+            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'delegations']),
+          ? const {}
+            : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+          ? const {}
+            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         label: mapValueOfType<String>(json, r'label'),
         index: mapValueOfType<int>(json, r'index'),
-        content: mapValueOfType<Map<String, ContentDto>>(json, r'content'),
+        content: mapValueOfType<Map<String, ContentDto>>(json, r'content')!,
         encryptedContent: mapValueOfType<String>(json, r'encryptedContent'),
-        textIndexes: mapCastOfType<String, String>(json, r'textIndexes'),
+        textIndexes: mapCastOfType<String, String>(json, r'textIndexes')!,
         valueDate: mapValueOfType<int>(json, r'valueDate'),
         openingDate: mapValueOfType<int>(json, r'openingDate'),
         closingDate: mapValueOfType<int>(json, r'closingDate'),
@@ -370,48 +480,74 @@ class ServiceDto {
         comment: mapValueOfType<String>(json, r'comment'),
         status: mapValueOfType<int>(json, r'status'),
         invoicingCodes: json[r'invoicingCodes'] is Set
-          ? (json[r'invoicingCodes'] as Set).cast<String>()
-          : null,
-        notes: AnnotationDto.listFromJson(json[r'notes']),
-        qualifiedLinks: mapCastOfType<String, dynamic>(json, r'qualifiedLinks'),
-        codes: CodeStubDto.listFromJson(json[r'codes']),
-        tags: CodeStubDto.listFromJson(json[r'tags']),
+            ? (json[r'invoicingCodes'] as Set).cast<String>()
+            : const {},
+        notes: AnnotationDto.listFromJson(json[r'notes'])!,
+        qualifiedLinks: mapCastOfType<String, Map<String, String>>(json, r'qualifiedLinks')!,
+        codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
+        tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<ServiceDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ServiceDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ServiceDto>[];
+  static List<ServiceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <ServiceDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = ServiceDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, ServiceDto> mapFromJson(dynamic json) {
     final map = <String, ServiceDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = ServiceDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ServiceDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of ServiceDto-objects as value to a dart map
-  static Map<String, List<ServiceDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<ServiceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ServiceDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = ServiceDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = ServiceDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'identifier',
+    'cryptedForeignKeys',
+    'delegations',
+    'encryptionKeys',
+    'content',
+    'textIndexes',
+    'invoicingCodes',
+    'notes',
+    'qualifiedLinks',
+    'codes',
+    'tags',
+  };
 }
 

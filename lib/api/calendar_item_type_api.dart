@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class CalendarItemTypeApi {
-  CalendarItemTypeApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  CalendarItemTypeApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -24,16 +24,11 @@ class CalendarItemTypeApi {
   ///
   /// * [CalendarItemTypeDto] calendarItemTypeDto (required):
   Future<Response> createCalendarItemTypeWithHttpInfo(CalendarItemTypeDto calendarItemTypeDto,) async {
-    // Verify required params are set.
-    if (calendarItemTypeDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: calendarItemTypeDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/calendarItemType';
 
     // ignore: prefer_final_locals
-    Object postBody = calendarItemTypeDto;
+    Object? postBody = calendarItemTypeDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -50,7 +45,7 @@ class CalendarItemTypeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -60,7 +55,7 @@ class CalendarItemTypeApi {
   /// Parameters:
   ///
   /// * [CalendarItemTypeDto] calendarItemTypeDto (required):
-  Future<CalendarItemTypeDto> createCalendarItemType(CalendarItemTypeDto calendarItemTypeDto,) async {
+  Future<CalendarItemTypeDto?> createCalendarItemType(CalendarItemTypeDto calendarItemTypeDto,) async {
     final response = await createCalendarItemTypeWithHttpInfo(calendarItemTypeDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -68,11 +63,11 @@ class CalendarItemTypeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CalendarItemTypeDto',) as CalendarItemTypeDto;
     
     }
-    return Future<CalendarItemTypeDto>.value();
+    return null;
   }
 
   /// Deletes calendarItemTypes
@@ -83,16 +78,11 @@ class CalendarItemTypeApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteCalendarItemTypesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/calendarItemType/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -109,7 +99,7 @@ class CalendarItemTypeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -119,7 +109,7 @@ class CalendarItemTypeApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteCalendarItemTypes(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteCalendarItemTypes(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteCalendarItemTypesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -127,14 +117,14 @@ class CalendarItemTypeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Gets a calendarItemType
@@ -145,17 +135,12 @@ class CalendarItemTypeApi {
   ///
   /// * [String] calendarItemTypeId (required):
   Future<Response> getCalendarItemTypeWithHttpInfo(String calendarItemTypeId,) async {
-    // Verify required params are set.
-    if (calendarItemTypeId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: calendarItemTypeId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/calendarItemType/{calendarItemTypeId}'
       .replaceAll('{calendarItemTypeId}', calendarItemTypeId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -172,7 +157,7 @@ class CalendarItemTypeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -182,7 +167,7 @@ class CalendarItemTypeApi {
   /// Parameters:
   ///
   /// * [String] calendarItemTypeId (required):
-  Future<CalendarItemTypeDto> getCalendarItemType(String calendarItemTypeId,) async {
+  Future<CalendarItemTypeDto?> getCalendarItemType(String calendarItemTypeId,) async {
     final response = await getCalendarItemTypeWithHttpInfo(calendarItemTypeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -190,11 +175,11 @@ class CalendarItemTypeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CalendarItemTypeDto',) as CalendarItemTypeDto;
     
     }
-    return Future<CalendarItemTypeDto>.value();
+    return null;
   }
 
   /// Gets all calendarItemTypes
@@ -205,7 +190,7 @@ class CalendarItemTypeApi {
     final path = r'/rest/v2/calendarItemType';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -222,13 +207,13 @@ class CalendarItemTypeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Gets all calendarItemTypes
-  Future<List<CalendarItemTypeDto>> getCalendarItemTypes() async {
+  Future<List<CalendarItemTypeDto>?> getCalendarItemTypes() async {
     final response = await getCalendarItemTypesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -236,14 +221,14 @@ class CalendarItemTypeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<CalendarItemTypeDto>') as List)
         .cast<CalendarItemTypeDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<CalendarItemTypeDto>>.value();
+    return null;
   }
 
   /// Gets all calendarItemTypes include deleted
@@ -254,7 +239,7 @@ class CalendarItemTypeApi {
     final path = r'/rest/v2/calendarItemType/includeDeleted';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -271,13 +256,13 @@ class CalendarItemTypeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
 
   /// Gets all calendarItemTypes include deleted
-  Future<List<CalendarItemTypeDto>> getCalendarItemTypesIncludeDeleted() async {
+  Future<List<CalendarItemTypeDto>?> getCalendarItemTypesIncludeDeleted() async {
     final response = await getCalendarItemTypesIncludeDeletedWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -285,14 +270,14 @@ class CalendarItemTypeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<CalendarItemTypeDto>') as List)
         .cast<CalendarItemTypeDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<CalendarItemTypeDto>>.value();
+    return null;
   }
 
   /// Modifies an calendarItemType
@@ -303,16 +288,11 @@ class CalendarItemTypeApi {
   ///
   /// * [CalendarItemTypeDto] calendarItemTypeDto (required):
   Future<Response> modifyCalendarItemTypeWithHttpInfo(CalendarItemTypeDto calendarItemTypeDto,) async {
-    // Verify required params are set.
-    if (calendarItemTypeDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: calendarItemTypeDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/calendarItemType';
 
     // ignore: prefer_final_locals
-    Object postBody = calendarItemTypeDto;
+    Object? postBody = calendarItemTypeDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -329,7 +309,7 @@ class CalendarItemTypeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -339,7 +319,7 @@ class CalendarItemTypeApi {
   /// Parameters:
   ///
   /// * [CalendarItemTypeDto] calendarItemTypeDto (required):
-  Future<CalendarItemTypeDto> modifyCalendarItemType(CalendarItemTypeDto calendarItemTypeDto,) async {
+  Future<CalendarItemTypeDto?> modifyCalendarItemType(CalendarItemTypeDto calendarItemTypeDto,) async {
     final response = await modifyCalendarItemTypeWithHttpInfo(calendarItemTypeDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -347,10 +327,10 @@ class CalendarItemTypeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CalendarItemTypeDto',) as CalendarItemTypeDto;
     
     }
-    return Future<CalendarItemTypeDto>.value();
+    return null;
   }
 }

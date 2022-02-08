@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -23,9 +23,21 @@ class MedicationSchemeExportInfoDto {
 
   List<ServiceDto> services;
 
-  HealthcarePartyDto recipient;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  HealthcarePartyDto? recipient;
 
-  String comment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? comment;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MedicationSchemeExportInfoDto &&
@@ -36,11 +48,11 @@ class MedicationSchemeExportInfoDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (secretForeignKeys == null ? 0 : secretForeignKeys.hashCode) +
-    (services == null ? 0 : services.hashCode) +
-    (recipient == null ? 0 : recipient.hashCode) +
-    (comment == null ? 0 : comment.hashCode);
+    // ignore: unnecessary_parenthesis
+    (secretForeignKeys.hashCode) +
+    (services.hashCode) +
+    (recipient == null ? 0 : recipient!.hashCode) +
+    (comment == null ? 0 : comment!.hashCode);
 
   @override
   String toString() => 'MedicationSchemeExportInfoDto[secretForeignKeys=$secretForeignKeys, services=$services, recipient=$recipient, comment=$comment]';
@@ -61,14 +73,26 @@ class MedicationSchemeExportInfoDto {
   /// Returns a new [MedicationSchemeExportInfoDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MedicationSchemeExportInfoDto fromJson(dynamic value) {
+  static MedicationSchemeExportInfoDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "MedicationSchemeExportInfoDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MedicationSchemeExportInfoDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return MedicationSchemeExportInfoDto(
         secretForeignKeys: json[r'secretForeignKeys'] is List
-          ? (json[r'secretForeignKeys'] as List).cast<String>()
-          : null,
-        services: ServiceDto.listFromJson(json[r'services']),
+            ? (json[r'secretForeignKeys'] as List).cast<String>()
+            : const [],
+        services: ServiceDto.listFromJson(json[r'services'])!,
         recipient: HealthcarePartyDto.fromJson(json[r'recipient']),
         comment: mapValueOfType<String>(json, r'comment'),
       );
@@ -76,36 +100,52 @@ class MedicationSchemeExportInfoDto {
     return null;
   }
 
-  static List<MedicationSchemeExportInfoDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(MedicationSchemeExportInfoDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <MedicationSchemeExportInfoDto>[];
+  static List<MedicationSchemeExportInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <MedicationSchemeExportInfoDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MedicationSchemeExportInfoDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, MedicationSchemeExportInfoDto> mapFromJson(dynamic json) {
     final map = <String, MedicationSchemeExportInfoDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = MedicationSchemeExportInfoDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MedicationSchemeExportInfoDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of MedicationSchemeExportInfoDto-objects as value to a dart map
-  static Map<String, List<MedicationSchemeExportInfoDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<MedicationSchemeExportInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<MedicationSchemeExportInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = MedicationSchemeExportInfoDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MedicationSchemeExportInfoDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'secretForeignKeys',
+    'services',
+  };
 }
 

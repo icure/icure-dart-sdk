@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class DecryptedPatientDto {
   /// Returns a new [DecryptedPatientDto] instance.
   DecryptedPatientDto({
-    @required this.id,
+    required this.id,
     this.identifier = const [],
     this.rev,
     this.created,
@@ -95,19 +95,49 @@ class DecryptedPatientDto {
   List<IdentifierDto> identifier;
 
   /// the revision of the patient in the database, used for conflict management / optimistic locking.
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// The timestamp (unix epoch in ms) of creation of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int created;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? created;
 
   /// The date (unix epoch in ms) of the latest modification of this entity, will be filled automatically if missing. Not enforced by the application server.
-  int modified;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? modified;
 
   /// The id of the User that has created this entity, will be filled automatically if missing. Not enforced by the application server.
-  String author;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? author;
 
   /// The id of the HealthcareParty that is responsible for this entity, will be filled automatically if missing. Not enforced by the application server.
-  String responsible;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? responsible;
 
   /// A tag is an item from a codification system that qualifies an entity as being member of a certain class, whatever the value it might have taken. If the tag qualifies the content of a field, it means that whatever the content of the field, the tag will always apply. For example, the label of a field is qualified using a tag. LOINC is a codification system typically used for tags.
   Set<CodeStubDto> tags;
@@ -116,22 +146,52 @@ class DecryptedPatientDto {
   Set<CodeStubDto> codes;
 
   /// Soft delete (unix epoch in ms) timestamp of the object.
-  int endOfLife;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endOfLife;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
   /// the firstname (name) of the patient.
-  String firstName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? firstName;
 
   /// the lastname (surname) of the patient. This is the official lastname that should be used for official administrative purposes.
-  String lastName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? lastName;
 
   /// the list of all names of the patient, also containing the official full name information. Ordered by preference of use. First element is therefore the official name used for the patient in the application
   List<PersonNameDto> names;
 
   /// the name of the company this patient is member of.
-  String companyName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? companyName;
 
   /// the list of languages spoken by the patient ordered by fluency (alpha-2 code http://www.loc.gov/standards/iso639-2/ascii_8bits.html).
   List<String> languages;
@@ -140,22 +200,40 @@ class DecryptedPatientDto {
   List<AddressDto> addresses;
 
   /// Mr., Ms., Pr., Dr. ...
-  String civility;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? civility;
 
   /// the gender of the patient: male, female, indeterminate, changed, changedToMale, changedToFemale, unknown
-  PatientDtoGenderEnum gender;
+  PatientDtoGenderEnum? gender;
 
   /// the birth sex of the patient: male, female, indeterminate, unknown
-  PatientDtoBirthSexEnum birthSex;
+  PatientDtoBirthSexEnum? birthSex;
 
   /// The id of the patient this patient has been merged with.
-  String mergeToPatientId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mergeToPatientId;
 
   /// The ids of the patients that have been merged inside this patient.
   Set<String> mergedIds;
 
   /// An alias of the person, nickname, ...
-  String alias;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? alias;
 
   /// Is the patient active (boolean).
   bool active;
@@ -164,67 +242,187 @@ class DecryptedPatientDto {
   PatientDtoDeactivationReasonEnum deactivationReason;
 
   /// Social security inscription number.
-  String ssin;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ssin;
 
   /// Lastname at birth (can be different of the current name), depending on the country, must be used to design the patient .
-  String maidenName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? maidenName;
 
   /// Lastname of the spouse for a married woman, depending on the country, can be used to design the patient.
-  String spouseName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? spouseName;
 
   /// Lastname of the partner, should not be used to design the patient.
-  String partnerName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? partnerName;
 
   /// any of `single`, `in_couple`, `married`, `separated`, `divorced`, `divorcing`, `widowed`, `widower`, `complicated`, `unknown`, `contract`, `other`.
-  PatientDtoPersonalStatusEnum personalStatus;
+  PatientDtoPersonalStatusEnum? personalStatus;
 
   /// The birthdate encoded as a fuzzy date on 8 positions (YYYYMMDD) MM and/or DD can be set to 00 if unknown (19740000 is a valid date).
-  int dateOfBirth;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? dateOfBirth;
 
   /// The date of death encoded as a fuzzy date on 8 positions (YYYYMMDD) MM and/or DD can be set to 00 if unknown (19740000 is a valid date).
-  int dateOfDeath;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? dateOfDeath;
 
   /// Timestamp of the latest validation of the eID of the person..
-  int timestampOfLatestEidReading;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? timestampOfLatestEidReading;
 
   /// The place of birth.
-  String placeOfBirth;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? placeOfBirth;
 
   /// The place of death.
-  String placeOfDeath;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? placeOfDeath;
 
   /// Is the patient deceased.
-  bool deceased;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? deceased;
 
   /// The level of education (college degree, undergraduate, phd).
-  String education;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? education;
 
   /// The current professional activity.
-  String profession;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? profession;
 
   /// A text note (can be confidential, encrypted by default).
-  String note;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? note;
 
   /// An administrative note, not confidential.
-  String administrativeNote;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? administrativeNote;
 
   /// The nationality of the patient.
-  String nationality;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? nationality;
 
   /// The race of the patient.
-  String race;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? race;
 
   /// The ethnicity of the patient.
-  String ethnicity;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? ethnicity;
 
   /// The id of the user that usually handles this patient.
-  String preferredUserId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? preferredUserId;
 
   /// A picture usually saved in JPEG format.
-  String picture;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? picture;
 
   /// An external (from another source) id with no guarantee or requirement for unicity .
-  String externalId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? externalId;
 
   /// List of insurance coverages (of class Insurability, see below).
   List<InsurabilityDto> insurabilities;
@@ -257,7 +455,13 @@ class DecryptedPatientDto {
   Map<String, String> privateKeyShamirPartitions;
 
   /// The public key of this hcp
-  String publicKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? publicKey;
 
   /// The secretForeignKeys are filled at the to many end of a one to many relationship (for example inside Contact for the Patient -> Contacts relationship). Used when we want to find all contacts for a specific patient. These keys are in clear. You can have several to partition the medical document space.
   Set<String> secretForeignKeys;
@@ -272,28 +476,82 @@ class DecryptedPatientDto {
   Map<String, Set<DelegationDto>> encryptionKeys;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   /// The id of the medical location where this entity was created.
-  String medicalLocationId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? medicalLocationId;
 
   Set<String> nonDuplicateIds;
 
   Set<String> encryptedAdministrativesDocuments;
 
-  String comment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? comment;
 
-  String warning;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? warning;
 
-  CodeStubDto fatherBirthCountry;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CodeStubDto? fatherBirthCountry;
 
-  CodeStubDto birthCountry;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CodeStubDto? birthCountry;
 
-  CodeStubDto nativeCountry;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CodeStubDto? nativeCountry;
 
-  CodeStubDto socialStatus;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CodeStubDto? socialStatus;
 
-  CodeStubDto mainSourceOfIncome;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CodeStubDto? mainSourceOfIncome;
 
   List<SchoolingInfoDto> schoolingInfos;
 
@@ -301,166 +559,166 @@ class DecryptedPatientDto {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DecryptedPatientDto &&
-     other.id == id &&
-     other.identifier == identifier &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.deletionDate == deletionDate &&
-     other.firstName == firstName &&
-     other.lastName == lastName &&
-     other.names == names &&
-     other.companyName == companyName &&
-     other.languages == languages &&
-     other.addresses == addresses &&
-     other.civility == civility &&
-     other.gender == gender &&
-     other.birthSex == birthSex &&
-     other.mergeToPatientId == mergeToPatientId &&
-     other.mergedIds == mergedIds &&
-     other.alias == alias &&
-     other.active == active &&
-     other.deactivationReason == deactivationReason &&
-     other.ssin == ssin &&
-     other.maidenName == maidenName &&
-     other.spouseName == spouseName &&
-     other.partnerName == partnerName &&
-     other.personalStatus == personalStatus &&
-     other.dateOfBirth == dateOfBirth &&
-     other.dateOfDeath == dateOfDeath &&
-     other.timestampOfLatestEidReading == timestampOfLatestEidReading &&
-     other.placeOfBirth == placeOfBirth &&
-     other.placeOfDeath == placeOfDeath &&
-     other.deceased == deceased &&
-     other.education == education &&
-     other.profession == profession &&
-     other.note == note &&
-     other.administrativeNote == administrativeNote &&
-     other.nationality == nationality &&
-     other.race == race &&
-     other.ethnicity == ethnicity &&
-     other.preferredUserId == preferredUserId &&
-     other.picture == picture &&
-     other.externalId == externalId &&
-     other.insurabilities == insurabilities &&
-     other.partnerships == partnerships &&
-     other.patientHealthCareParties == patientHealthCareParties &&
-     other.financialInstitutionInformation == financialInstitutionInformation &&
-     other.medicalHouseContracts == medicalHouseContracts &&
-     other.patientProfessions == patientProfessions &&
-     other.parameters == parameters &&
-     other.properties == properties &&
-     other.hcPartyKeys == hcPartyKeys &&
-     other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
-     other.publicKey == publicKey &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.cryptedForeignKeys == cryptedForeignKeys &&
-     other.delegations == delegations &&
-     other.encryptionKeys == encryptionKeys &&
-     other.encryptedSelf == encryptedSelf &&
-     other.medicalLocationId == medicalLocationId &&
-     other.nonDuplicateIds == nonDuplicateIds &&
-     other.encryptedAdministrativesDocuments == encryptedAdministrativesDocuments &&
-     other.comment == comment &&
-     other.warning == warning &&
-     other.fatherBirthCountry == fatherBirthCountry &&
-     other.birthCountry == birthCountry &&
-     other.nativeCountry == nativeCountry &&
-     other.socialStatus == socialStatus &&
-     other.mainSourceOfIncome == mainSourceOfIncome &&
-     other.schoolingInfos == schoolingInfos &&
-     other.employementInfos == employementInfos;
+      other.id == id &&
+      other.identifier == identifier &&
+      other.rev == rev &&
+      other.created == created &&
+      other.modified == modified &&
+      other.author == author &&
+      other.responsible == responsible &&
+      other.tags == tags &&
+      other.codes == codes &&
+      other.endOfLife == endOfLife &&
+      other.deletionDate == deletionDate &&
+      other.firstName == firstName &&
+      other.lastName == lastName &&
+      other.names == names &&
+      other.companyName == companyName &&
+      other.languages == languages &&
+      other.addresses == addresses &&
+      other.civility == civility &&
+      other.gender == gender &&
+      other.birthSex == birthSex &&
+      other.mergeToPatientId == mergeToPatientId &&
+      other.mergedIds == mergedIds &&
+      other.alias == alias &&
+      other.active == active &&
+      other.deactivationReason == deactivationReason &&
+      other.ssin == ssin &&
+      other.maidenName == maidenName &&
+      other.spouseName == spouseName &&
+      other.partnerName == partnerName &&
+      other.personalStatus == personalStatus &&
+      other.dateOfBirth == dateOfBirth &&
+      other.dateOfDeath == dateOfDeath &&
+      other.timestampOfLatestEidReading == timestampOfLatestEidReading &&
+      other.placeOfBirth == placeOfBirth &&
+      other.placeOfDeath == placeOfDeath &&
+      other.deceased == deceased &&
+      other.education == education &&
+      other.profession == profession &&
+      other.note == note &&
+      other.administrativeNote == administrativeNote &&
+      other.nationality == nationality &&
+      other.race == race &&
+      other.ethnicity == ethnicity &&
+      other.preferredUserId == preferredUserId &&
+      other.picture == picture &&
+      other.externalId == externalId &&
+      other.insurabilities == insurabilities &&
+      other.partnerships == partnerships &&
+      other.patientHealthCareParties == patientHealthCareParties &&
+      other.financialInstitutionInformation == financialInstitutionInformation &&
+      other.medicalHouseContracts == medicalHouseContracts &&
+      other.patientProfessions == patientProfessions &&
+      other.parameters == parameters &&
+      other.properties == properties &&
+      other.hcPartyKeys == hcPartyKeys &&
+      other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
+      other.publicKey == publicKey &&
+      other.secretForeignKeys == secretForeignKeys &&
+      other.cryptedForeignKeys == cryptedForeignKeys &&
+      other.delegations == delegations &&
+      other.encryptionKeys == encryptionKeys &&
+      other.encryptedSelf == encryptedSelf &&
+      other.medicalLocationId == medicalLocationId &&
+      other.nonDuplicateIds == nonDuplicateIds &&
+      other.encryptedAdministrativesDocuments == encryptedAdministrativesDocuments &&
+      other.comment == comment &&
+      other.warning == warning &&
+      other.fatherBirthCountry == fatherBirthCountry &&
+      other.birthCountry == birthCountry &&
+      other.nativeCountry == nativeCountry &&
+      other.socialStatus == socialStatus &&
+      other.mainSourceOfIncome == mainSourceOfIncome &&
+      other.schoolingInfos == schoolingInfos &&
+      other.employementInfos == employementInfos;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (identifier == null ? 0 : identifier.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (modified == null ? 0 : modified.hashCode) +
-    (author == null ? 0 : author.hashCode) +
-    (responsible == null ? 0 : responsible.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (codes == null ? 0 : codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (firstName == null ? 0 : firstName.hashCode) +
-    (lastName == null ? 0 : lastName.hashCode) +
-    (names == null ? 0 : names.hashCode) +
-    (companyName == null ? 0 : companyName.hashCode) +
-    (languages == null ? 0 : languages.hashCode) +
-    (addresses == null ? 0 : addresses.hashCode) +
-    (civility == null ? 0 : civility.hashCode) +
-    (gender == null ? 0 : gender.hashCode) +
-    (birthSex == null ? 0 : birthSex.hashCode) +
-    (mergeToPatientId == null ? 0 : mergeToPatientId.hashCode) +
-    (mergedIds == null ? 0 : mergedIds.hashCode) +
-    (alias == null ? 0 : alias.hashCode) +
-    (active == null ? 0 : active.hashCode) +
-    (deactivationReason == null ? 0 : deactivationReason.hashCode) +
-    (ssin == null ? 0 : ssin.hashCode) +
-    (maidenName == null ? 0 : maidenName.hashCode) +
-    (spouseName == null ? 0 : spouseName.hashCode) +
-    (partnerName == null ? 0 : partnerName.hashCode) +
-    (personalStatus == null ? 0 : personalStatus.hashCode) +
-    (dateOfBirth == null ? 0 : dateOfBirth.hashCode) +
-    (dateOfDeath == null ? 0 : dateOfDeath.hashCode) +
-    (timestampOfLatestEidReading == null ? 0 : timestampOfLatestEidReading.hashCode) +
-    (placeOfBirth == null ? 0 : placeOfBirth.hashCode) +
-    (placeOfDeath == null ? 0 : placeOfDeath.hashCode) +
-    (deceased == null ? 0 : deceased.hashCode) +
-    (education == null ? 0 : education.hashCode) +
-    (profession == null ? 0 : profession.hashCode) +
-    (note == null ? 0 : note.hashCode) +
-    (administrativeNote == null ? 0 : administrativeNote.hashCode) +
-    (nationality == null ? 0 : nationality.hashCode) +
-    (race == null ? 0 : race.hashCode) +
-    (ethnicity == null ? 0 : ethnicity.hashCode) +
-    (preferredUserId == null ? 0 : preferredUserId.hashCode) +
-    (picture == null ? 0 : picture.hashCode) +
-    (externalId == null ? 0 : externalId.hashCode) +
-    (insurabilities == null ? 0 : insurabilities.hashCode) +
-    (partnerships == null ? 0 : partnerships.hashCode) +
-    (patientHealthCareParties == null ? 0 : patientHealthCareParties.hashCode) +
-    (financialInstitutionInformation == null ? 0 : financialInstitutionInformation.hashCode) +
-    (medicalHouseContracts == null ? 0 : medicalHouseContracts.hashCode) +
-    (patientProfessions == null ? 0 : patientProfessions.hashCode) +
-    (parameters == null ? 0 : parameters.hashCode) +
-    (properties == null ? 0 : properties.hashCode) +
-    (hcPartyKeys == null ? 0 : hcPartyKeys.hashCode) +
-    (privateKeyShamirPartitions == null ? 0 : privateKeyShamirPartitions.hashCode) +
-    (publicKey == null ? 0 : publicKey.hashCode) +
-    (secretForeignKeys == null ? 0 : secretForeignKeys.hashCode) +
-    (cryptedForeignKeys == null ? 0 : cryptedForeignKeys.hashCode) +
-    (delegations == null ? 0 : delegations.hashCode) +
-    (encryptionKeys == null ? 0 : encryptionKeys.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId.hashCode) +
-    (nonDuplicateIds == null ? 0 : nonDuplicateIds.hashCode) +
-    (encryptedAdministrativesDocuments == null ? 0 : encryptedAdministrativesDocuments.hashCode) +
-    (comment == null ? 0 : comment.hashCode) +
-    (warning == null ? 0 : warning.hashCode) +
-    (fatherBirthCountry == null ? 0 : fatherBirthCountry.hashCode) +
-    (birthCountry == null ? 0 : birthCountry.hashCode) +
-    (nativeCountry == null ? 0 : nativeCountry.hashCode) +
-    (socialStatus == null ? 0 : socialStatus.hashCode) +
-    (mainSourceOfIncome == null ? 0 : mainSourceOfIncome.hashCode) +
-    (schoolingInfos == null ? 0 : schoolingInfos.hashCode) +
-    (employementInfos == null ? 0 : employementInfos.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (identifier.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (firstName == null ? 0 : firstName!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
+      (names.hashCode) +
+      (companyName == null ? 0 : companyName!.hashCode) +
+      (languages.hashCode) +
+      (addresses.hashCode) +
+      (civility == null ? 0 : civility!.hashCode) +
+      (gender == null ? 0 : gender!.hashCode) +
+      (birthSex == null ? 0 : birthSex!.hashCode) +
+      (mergeToPatientId == null ? 0 : mergeToPatientId!.hashCode) +
+      (mergedIds.hashCode) +
+      (alias == null ? 0 : alias!.hashCode) +
+      (active.hashCode) +
+      (deactivationReason.hashCode) +
+      (ssin == null ? 0 : ssin!.hashCode) +
+      (maidenName == null ? 0 : maidenName!.hashCode) +
+      (spouseName == null ? 0 : spouseName!.hashCode) +
+      (partnerName == null ? 0 : partnerName!.hashCode) +
+      (personalStatus == null ? 0 : personalStatus!.hashCode) +
+      (dateOfBirth == null ? 0 : dateOfBirth!.hashCode) +
+      (dateOfDeath == null ? 0 : dateOfDeath!.hashCode) +
+      (timestampOfLatestEidReading == null ? 0 : timestampOfLatestEidReading!.hashCode) +
+      (placeOfBirth == null ? 0 : placeOfBirth!.hashCode) +
+      (placeOfDeath == null ? 0 : placeOfDeath!.hashCode) +
+      (deceased == null ? 0 : deceased!.hashCode) +
+      (education == null ? 0 : education!.hashCode) +
+      (profession == null ? 0 : profession!.hashCode) +
+      (note == null ? 0 : note!.hashCode) +
+      (administrativeNote == null ? 0 : administrativeNote!.hashCode) +
+      (nationality == null ? 0 : nationality!.hashCode) +
+      (race == null ? 0 : race!.hashCode) +
+      (ethnicity == null ? 0 : ethnicity!.hashCode) +
+      (preferredUserId == null ? 0 : preferredUserId!.hashCode) +
+      (picture == null ? 0 : picture!.hashCode) +
+      (externalId == null ? 0 : externalId!.hashCode) +
+      (insurabilities.hashCode) +
+      (partnerships.hashCode) +
+      (patientHealthCareParties.hashCode) +
+      (financialInstitutionInformation.hashCode) +
+      (medicalHouseContracts.hashCode) +
+      (patientProfessions.hashCode) +
+      (parameters.hashCode) +
+      (properties.hashCode) +
+      (hcPartyKeys.hashCode) +
+      (privateKeyShamirPartitions.hashCode) +
+      (publicKey == null ? 0 : publicKey!.hashCode) +
+      (secretForeignKeys.hashCode) +
+      (cryptedForeignKeys.hashCode) +
+      (delegations.hashCode) +
+      (encryptionKeys.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (nonDuplicateIds.hashCode) +
+      (encryptedAdministrativesDocuments.hashCode) +
+      (comment == null ? 0 : comment!.hashCode) +
+      (warning == null ? 0 : warning!.hashCode) +
+      (fatherBirthCountry == null ? 0 : fatherBirthCountry!.hashCode) +
+      (birthCountry == null ? 0 : birthCountry!.hashCode) +
+      (nativeCountry == null ? 0 : nativeCountry!.hashCode) +
+      (socialStatus == null ? 0 : socialStatus!.hashCode) +
+      (mainSourceOfIncome == null ? 0 : mainSourceOfIncome!.hashCode) +
+      (schoolingInfos.hashCode) +
+      (employementInfos.hashCode);
 
   @override
   String toString() => 'DecryptedPatientDto[id=$id, identifier=$identifier, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, firstName=$firstName, lastName=$lastName, names=$names, companyName=$companyName, languages=$languages, addresses=$addresses, civility=$civility, gender=$gender, birthSex=$birthSex, mergeToPatientId=$mergeToPatientId, mergedIds=$mergedIds, alias=$alias, active=$active, deactivationReason=$deactivationReason, ssin=$ssin, maidenName=$maidenName, spouseName=$spouseName, partnerName=$partnerName, personalStatus=$personalStatus, dateOfBirth=$dateOfBirth, dateOfDeath=$dateOfDeath, timestampOfLatestEidReading=$timestampOfLatestEidReading, placeOfBirth=$placeOfBirth, placeOfDeath=$placeOfDeath, deceased=$deceased, education=$education, profession=$profession, note=$note, administrativeNote=$administrativeNote, nationality=$nationality, race=$race, ethnicity=$ethnicity, preferredUserId=$preferredUserId, picture=$picture, externalId=$externalId, insurabilities=$insurabilities, partnerships=$partnerships, patientHealthCareParties=$patientHealthCareParties, financialInstitutionInformation=$financialInstitutionInformation, medicalHouseContracts=$medicalHouseContracts, patientProfessions=$patientProfessions, parameters=$parameters, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf, medicalLocationId=$medicalLocationId, nonDuplicateIds=$nonDuplicateIds, encryptedAdministrativesDocuments=$encryptedAdministrativesDocuments, comment=$comment, warning=$warning, fatherBirthCountry=$fatherBirthCountry, birthCountry=$birthCountry, nativeCountry=$nativeCountry, socialStatus=$socialStatus, mainSourceOfIncome=$mainSourceOfIncome, schoolingInfos=$schoolingInfos, employementInfos=$employementInfos]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
-      json[r'identifier'] = identifier;
+    json[r'id'] = id;
+    json[r'identifier'] = identifier;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -476,8 +734,8 @@ class DecryptedPatientDto {
     if (responsible != null) {
       json[r'responsible'] = responsible;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags;
+    json[r'codes'] = codes;
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -490,12 +748,12 @@ class DecryptedPatientDto {
     if (lastName != null) {
       json[r'lastName'] = lastName;
     }
-      json[r'names'] = names;
+    json[r'names'] = names;
     if (companyName != null) {
       json[r'companyName'] = companyName;
     }
-      json[r'languages'] = languages;
-      json[r'addresses'] = addresses;
+    json[r'languages'] = languages;
+    json[r'addresses'] = addresses;
     if (civility != null) {
       json[r'civility'] = civility;
     }
@@ -508,12 +766,12 @@ class DecryptedPatientDto {
     if (mergeToPatientId != null) {
       json[r'mergeToPatientId'] = mergeToPatientId;
     }
-      json[r'mergedIds'] = mergedIds;
+    json[r'mergedIds'] = mergedIds;
     if (alias != null) {
       json[r'alias'] = alias;
     }
-      json[r'active'] = active;
-      json[r'deactivationReason'] = deactivationReason;
+    json[r'active'] = active;
+    json[r'deactivationReason'] = deactivationReason;
     if (ssin != null) {
       json[r'ssin'] = ssin;
     }
@@ -577,31 +835,31 @@ class DecryptedPatientDto {
     if (externalId != null) {
       json[r'externalId'] = externalId;
     }
-      json[r'insurabilities'] = insurabilities;
-      json[r'partnerships'] = partnerships;
-      json[r'patientHealthCareParties'] = patientHealthCareParties;
-      json[r'financialInstitutionInformation'] = financialInstitutionInformation;
-      json[r'medicalHouseContracts'] = medicalHouseContracts;
-      json[r'patientProfessions'] = patientProfessions;
-      json[r'parameters'] = parameters;
-      json[r'properties'] = properties;
-      json[r'hcPartyKeys'] = hcPartyKeys;
-      json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
+    json[r'insurabilities'] = insurabilities;
+    json[r'partnerships'] = partnerships;
+    json[r'patientHealthCareParties'] = patientHealthCareParties;
+    json[r'financialInstitutionInformation'] = financialInstitutionInformation;
+    json[r'medicalHouseContracts'] = medicalHouseContracts;
+    json[r'patientProfessions'] = patientProfessions;
+    json[r'parameters'] = parameters;
+    json[r'properties'] = properties;
+    json[r'hcPartyKeys'] = hcPartyKeys;
+    json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
     if (publicKey != null) {
       json[r'publicKey'] = publicKey;
     }
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys;
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
+    json[r'delegations'] = delegations;
+    json[r'encryptionKeys'] = encryptionKeys;
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'nonDuplicateIds'] = nonDuplicateIds;
-      json[r'encryptedAdministrativesDocuments'] = encryptedAdministrativesDocuments;
+    json[r'nonDuplicateIds'] = nonDuplicateIds;
+    json[r'encryptedAdministrativesDocuments'] = encryptedAdministrativesDocuments;
     if (comment != null) {
       json[r'comment'] = comment;
     }
@@ -623,47 +881,59 @@ class DecryptedPatientDto {
     if (mainSourceOfIncome != null) {
       json[r'mainSourceOfIncome'] = mainSourceOfIncome;
     }
-      json[r'schoolingInfos'] = schoolingInfos;
-      json[r'employementInfos'] = employementInfos;
+    json[r'schoolingInfos'] = schoolingInfos;
+    json[r'employementInfos'] = employementInfos;
     return json;
   }
 
   /// Returns a new [DecryptedPatientDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DecryptedPatientDto fromJson(dynamic value) {
+  static DecryptedPatientDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "DecryptedPatientDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedPatientDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return DecryptedPatientDto(
-        id: mapValueOfType<String>(json, r'id'),
-        identifier: IdentifierDto.listFromJson(json[r'identifier']),
+        id: mapValueOfType<String>(json, r'id')!,
+        identifier: IdentifierDto.listFromJson(json[r'identifier'])!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
         modified: mapValueOfType<int>(json, r'modified'),
         author: mapValueOfType<String>(json, r'author'),
         responsible: mapValueOfType<String>(json, r'responsible'),
-        tags: CodeStubDto.listFromJson(json[r'tags']),
-        codes: CodeStubDto.listFromJson(json[r'codes']),
+        tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
+        codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         firstName: mapValueOfType<String>(json, r'firstName'),
         lastName: mapValueOfType<String>(json, r'lastName'),
-        names: PersonNameDto.listFromJson(json[r'names']),
+        names: PersonNameDto.listFromJson(json[r'names'])!,
         companyName: mapValueOfType<String>(json, r'companyName'),
         languages: json[r'languages'] is List
-          ? (json[r'languages'] as List).cast<String>()
-          : null,
-        addresses: AddressDto.listFromJson(json[r'addresses']),
+            ? (json[r'languages'] as List).cast<String>()
+            : const [],
+        addresses: AddressDto.listFromJson(json[r'addresses'])!,
         civility: mapValueOfType<String>(json, r'civility'),
         gender: PatientDtoGenderEnum.fromJson(json[r'gender']),
         birthSex: PatientDtoBirthSexEnum.fromJson(json[r'birthSex']),
         mergeToPatientId: mapValueOfType<String>(json, r'mergeToPatientId'),
         mergedIds: json[r'mergedIds'] is Set
-          ? (json[r'mergedIds'] as Set).cast<String>()
-          : null,
+            ? (json[r'mergedIds'] as Set).cast<String>()
+            : const {},
         alias: mapValueOfType<String>(json, r'alias'),
-        active: mapValueOfType<bool>(json, r'active'),
-        deactivationReason: PatientDtoDeactivationReasonEnum.fromJson(json[r'deactivationReason']),
+        active: mapValueOfType<bool>(json, r'active')!,
+        deactivationReason: PatientDtoDeactivationReasonEnum.fromJson(json[r'deactivationReason'])!,
         ssin: mapValueOfType<String>(json, r'ssin'),
         maidenName: mapValueOfType<String>(json, r'maidenName'),
         spouseName: mapValueOfType<String>(json, r'spouseName'),
@@ -685,41 +955,41 @@ class DecryptedPatientDto {
         preferredUserId: mapValueOfType<String>(json, r'preferredUserId'),
         picture: mapValueOfType<String>(json, r'picture'),
         externalId: mapValueOfType<String>(json, r'externalId'),
-        insurabilities: InsurabilityDto.listFromJson(json[r'insurabilities']),
-        partnerships: PartnershipDto.listFromJson(json[r'partnerships']),
-        patientHealthCareParties: PatientHealthCarePartyDto.listFromJson(json[r'patientHealthCareParties']),
-        financialInstitutionInformation: FinancialInstitutionInformationDto.listFromJson(json[r'financialInstitutionInformation']),
-        medicalHouseContracts: MedicalHouseContractDto.listFromJson(json[r'medicalHouseContracts']),
-        patientProfessions: CodeStubDto.listFromJson(json[r'patientProfessions']).toList(),
+        insurabilities: InsurabilityDto.listFromJson(json[r'insurabilities'])!,
+        partnerships: PartnershipDto.listFromJson(json[r'partnerships'])!,
+        patientHealthCareParties: PatientHealthCarePartyDto.listFromJson(json[r'patientHealthCareParties'])!,
+        financialInstitutionInformation: FinancialInstitutionInformationDto.listFromJson(json[r'financialInstitutionInformation'])!,
+        medicalHouseContracts: MedicalHouseContractDto.listFromJson(json[r'medicalHouseContracts'])!,
+        patientProfessions: CodeStubDto.listFromJson(json[r'patientProfessions'])!,
         parameters: json[r'parameters'] == null
-          ? null
-          : mapCastOfType<String, List>(json, r'parameters'),
-        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
+            ? const {}
+            : mapCastOfType<String, List<String>>(json, r'parameters') ?? <String, List<String>>{},
+        properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null
-          ? null
-          : mapCastOfType<String, List>(json, r'hcPartyKeys'),
-        privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions'),
+            ? const {}
+            : mapCastOfType<String, List<String>>(json, r'hcPartyKeys') ?? <String, List<String>>{},
+        privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
         publicKey: mapValueOfType<String>(json, r'publicKey'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
-          ? (json[r'secretForeignKeys'] as Set).cast<String>()
-          : null,
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+            ? const {}
+            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'delegations']),
+            ? const {}
+            : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? null
-          : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+            ? const {}
+            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
         nonDuplicateIds: json[r'nonDuplicateIds'] is Set
-          ? (json[r'nonDuplicateIds'] as Set).cast<String>()
-          : null,
+            ? (json[r'nonDuplicateIds'] as Set).cast<String>()
+            : const {},
         encryptedAdministrativesDocuments: json[r'encryptedAdministrativesDocuments'] is Set
-          ? (json[r'encryptedAdministrativesDocuments'] as Set).cast<String>()
-          : null,
+            ? (json[r'encryptedAdministrativesDocuments'] as Set).cast<String>()
+            : const {},
         comment: mapValueOfType<String>(json, r'comment'),
         warning: mapValueOfType<String>(json, r'warning'),
         fatherBirthCountry: CodeStubDto.fromJson(json[r'fatherBirthCountry']),
@@ -727,42 +997,84 @@ class DecryptedPatientDto {
         nativeCountry: CodeStubDto.fromJson(json[r'nativeCountry']),
         socialStatus: CodeStubDto.fromJson(json[r'socialStatus']),
         mainSourceOfIncome: CodeStubDto.fromJson(json[r'mainSourceOfIncome']),
-        schoolingInfos: SchoolingInfoDto.listFromJson(json[r'schoolingInfos']),
-        employementInfos: EmploymentInfoDto.listFromJson(json[r'employementInfos']),
+        schoolingInfos: SchoolingInfoDto.listFromJson(json[r'schoolingInfos'])!,
+        employementInfos: EmploymentInfoDto.listFromJson(json[r'employementInfos'])!,
       );
     }
     return null;
   }
 
-  static List<DecryptedPatientDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DecryptedPatientDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DecryptedPatientDto>[];
+  static List<DecryptedPatientDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <DecryptedPatientDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DecryptedPatientDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, DecryptedPatientDto> mapFromJson(dynamic json) {
     final map = <String, DecryptedPatientDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = DecryptedPatientDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DecryptedPatientDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of DecryptedPatientDto-objects as value to a dart map
-  static Map<String, List<DecryptedPatientDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<DecryptedPatientDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DecryptedPatientDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = DecryptedPatientDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DecryptedPatientDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+    'identifier',
+    'tags',
+    'codes',
+    'names',
+    'languages',
+    'addresses',
+    'mergedIds',
+    'active',
+    'deactivationReason',
+    'insurabilities',
+    'partnerships',
+    'patientHealthCareParties',
+    'financialInstitutionInformation',
+    'medicalHouseContracts',
+    'patientProfessions',
+    'parameters',
+    'properties',
+    'hcPartyKeys',
+    'privateKeyShamirPartitions',
+    'secretForeignKeys',
+    'cryptedForeignKeys',
+    'delegations',
+    'encryptionKeys',
+    'nonDuplicateIds',
+    'encryptedAdministrativesDocuments',
+    'schoolingInfos',
+    'employementInfos',
+  };
 }

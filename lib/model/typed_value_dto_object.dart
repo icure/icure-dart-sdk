@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -22,20 +22,56 @@ class TypedValueDtoObject {
     this.encryptedSelf,
   });
 
-  TypedValueDtoObjectTypeEnum type;
+  TypedValueDtoObjectTypeEnum? type;
 
-  bool booleanValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? booleanValue;
 
-  int integerValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? integerValue;
 
-  double doubleValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  double? doubleValue;
 
-  String stringValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? stringValue;
 
-  DateTime dateValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DateTime? dateValue;
 
   /// The base64 encoded data of this object, formatted as JSON and encrypted in AES using the random master key from encryptionKeys.
-  String encryptedSelf;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? encryptedSelf;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TypedValueDtoObject &&
@@ -49,14 +85,14 @@ class TypedValueDtoObject {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (type == null ? 0 : type.hashCode) +
-    (booleanValue == null ? 0 : booleanValue.hashCode) +
-    (integerValue == null ? 0 : integerValue.hashCode) +
-    (doubleValue == null ? 0 : doubleValue.hashCode) +
-    (stringValue == null ? 0 : stringValue.hashCode) +
-    (dateValue == null ? 0 : dateValue.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf.hashCode);
+    // ignore: unnecessary_parenthesis
+    (type == null ? 0 : type!.hashCode) +
+    (booleanValue == null ? 0 : booleanValue!.hashCode) +
+    (integerValue == null ? 0 : integerValue!.hashCode) +
+    (doubleValue == null ? 0 : doubleValue!.hashCode) +
+    (stringValue == null ? 0 : stringValue!.hashCode) +
+    (dateValue == null ? 0 : dateValue!.hashCode) +
+    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'TypedValueDtoObject[type=$type, booleanValue=$booleanValue, integerValue=$integerValue, doubleValue=$doubleValue, stringValue=$stringValue, dateValue=$dateValue, encryptedSelf=$encryptedSelf]';
@@ -79,7 +115,7 @@ class TypedValueDtoObject {
       json[r'stringValue'] = stringValue;
     }
     if (dateValue != null) {
-      json[r'dateValue'] = dateValue.toUtc().toIso8601String();
+      json[r'dateValue'] = dateValue!.toUtc().toIso8601String();
     }
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
@@ -90,9 +126,21 @@ class TypedValueDtoObject {
   /// Returns a new [TypedValueDtoObject] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static TypedValueDtoObject fromJson(dynamic value) {
+  static TypedValueDtoObject? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "TypedValueDtoObject[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TypedValueDtoObject[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return TypedValueDtoObject(
         type: TypedValueDtoObjectTypeEnum.fromJson(json[r'type']),
         booleanValue: mapValueOfType<bool>(json, r'booleanValue'),
@@ -106,37 +154,51 @@ class TypedValueDtoObject {
     return null;
   }
 
-  static List<TypedValueDtoObject> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(TypedValueDtoObject.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <TypedValueDtoObject>[];
+  static List<TypedValueDtoObject>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TypedValueDtoObject>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = TypedValueDtoObject.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, TypedValueDtoObject> mapFromJson(dynamic json) {
     final map = <String, TypedValueDtoObject>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = TypedValueDtoObject.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TypedValueDtoObject.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of TypedValueDtoObject-objects as value to a dart map
-  static Map<String, List<TypedValueDtoObject>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<TypedValueDtoObject>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TypedValueDtoObject>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = TypedValueDtoObject.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = TypedValueDtoObject.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 
 
@@ -148,7 +210,7 @@ class TypedValueDtoObjectTypeEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -171,13 +233,20 @@ class TypedValueDtoObjectTypeEnum {
     JSON,
   ];
 
-  static TypedValueDtoObjectTypeEnum fromJson(dynamic value) =>
-    TypedValueDtoObjectTypeEnumTypeTransformer().decode(value);
+  static TypedValueDtoObjectTypeEnum? fromJson(dynamic value) => TypedValueDtoObjectTypeEnumTypeTransformer().decode(value);
 
-  static List<TypedValueDtoObjectTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(TypedValueDtoObjectTypeEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <TypedValueDtoObjectTypeEnum>[];
+  static List<TypedValueDtoObjectTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TypedValueDtoObjectTypeEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = TypedValueDtoObjectTypeEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [TypedValueDtoObjectTypeEnum] to String,
@@ -197,7 +266,7 @@ class TypedValueDtoObjectTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  TypedValueDtoObjectTypeEnum decode(dynamic data, {bool allowNull}) {
+  TypedValueDtoObjectTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'BOOLEAN': return TypedValueDtoObjectTypeEnum.BOOLEAN;
@@ -208,7 +277,7 @@ class TypedValueDtoObjectTypeEnumTypeTransformer {
         case r'CLOB': return TypedValueDtoObjectTypeEnum.CLOB;
         case r'JSON': return TypedValueDtoObjectTypeEnum.JSON;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -217,7 +286,7 @@ class TypedValueDtoObjectTypeEnumTypeTransformer {
   }
 
   /// Singleton [TypedValueDtoObjectTypeEnumTypeTransformer] instance.
-  static TypedValueDtoObjectTypeEnumTypeTransformer _instance;
+  static TypedValueDtoObjectTypeEnumTypeTransformer? _instance;
 }
 
 

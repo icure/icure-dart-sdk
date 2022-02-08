@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class VmpDto {
   /// Returns a new [VmpDto] instance.
   VmpDto({
-    @required this.id,
+    required this.id,
     this.rev,
     this.deletionDate,
     this.from,
@@ -30,24 +30,78 @@ class VmpDto {
 
   String id;
 
-  String rev;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? rev;
 
   /// hard delete (unix epoch in ms) timestamp of the object. Filled automatically when deletePatient is called.
-  int deletionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? deletionDate;
 
-  int from;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? from;
 
-  int to;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? to;
 
-  String code;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? code;
 
-  VmpGroupStubDto vmpGroup;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  VmpGroupStubDto? vmpGroup;
 
-  SamTextDto name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? name;
 
-  SamTextDto abbreviation;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SamTextDto? abbreviation;
 
-  VtmDto vtm;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  VtmDto? vtm;
 
   List<WadaDto> wadas;
 
@@ -73,20 +127,20 @@ class VmpDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (rev == null ? 0 : rev.hashCode) +
-    (deletionDate == null ? 0 : deletionDate.hashCode) +
-    (from == null ? 0 : from.hashCode) +
-    (to == null ? 0 : to.hashCode) +
-    (code == null ? 0 : code.hashCode) +
-    (vmpGroup == null ? 0 : vmpGroup.hashCode) +
-    (name == null ? 0 : name.hashCode) +
-    (abbreviation == null ? 0 : abbreviation.hashCode) +
-    (vtm == null ? 0 : vtm.hashCode) +
-    (wadas == null ? 0 : wadas.hashCode) +
-    (components == null ? 0 : components.hashCode) +
-    (commentedClassifications == null ? 0 : commentedClassifications.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (rev == null ? 0 : rev!.hashCode) +
+    (deletionDate == null ? 0 : deletionDate!.hashCode) +
+    (from == null ? 0 : from!.hashCode) +
+    (to == null ? 0 : to!.hashCode) +
+    (code == null ? 0 : code!.hashCode) +
+    (vmpGroup == null ? 0 : vmpGroup!.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (abbreviation == null ? 0 : abbreviation!.hashCode) +
+    (vtm == null ? 0 : vtm!.hashCode) +
+    (wadas.hashCode) +
+    (components.hashCode) +
+    (commentedClassifications.hashCode);
 
   @override
   String toString() => 'VmpDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, code=$code, vmpGroup=$vmpGroup, name=$name, abbreviation=$abbreviation, vtm=$vtm, wadas=$wadas, components=$components, commentedClassifications=$commentedClassifications]';
@@ -121,26 +175,32 @@ class VmpDto {
     if (vtm != null) {
       json[r'vtm'] = vtm;
     }
-    if (wadas != null) {
       json[r'wadas'] = wadas;
-    }
-    if (components != null) {
       json[r'components'] = components;
-    }
-    if (commentedClassifications != null) {
       json[r'commentedClassifications'] = commentedClassifications;
-    }
     return json;
   }
 
   /// Returns a new [VmpDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static VmpDto fromJson(dynamic value) {
+  static VmpDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "VmpDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "VmpDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return VmpDto(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         from: mapValueOfType<int>(json, r'from'),
@@ -150,44 +210,59 @@ class VmpDto {
         name: SamTextDto.fromJson(json[r'name']),
         abbreviation: SamTextDto.fromJson(json[r'abbreviation']),
         vtm: VtmDto.fromJson(json[r'vtm']),
-        wadas: WadaDto.listFromJson(json[r'wadas']),
-        components: VmpComponentDto.listFromJson(json[r'components']),
-        commentedClassifications: CommentedClassificationDto.listFromJson(json[r'commentedClassifications']),
+        wadas: WadaDto.listFromJson(json[r'wadas']) ?? const [],
+        components: VmpComponentDto.listFromJson(json[r'components']) ?? const [],
+        commentedClassifications: CommentedClassificationDto.listFromJson(json[r'commentedClassifications']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<VmpDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(VmpDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <VmpDto>[];
+  static List<VmpDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <VmpDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = VmpDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, VmpDto> mapFromJson(dynamic json) {
     final map = <String, VmpDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = VmpDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = VmpDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of VmpDto-objects as value to a dart map
-  static Map<String, List<VmpDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<VmpDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<VmpDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = VmpDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = VmpDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'id',
+  };
 }
 

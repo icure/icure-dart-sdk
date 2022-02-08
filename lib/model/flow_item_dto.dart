@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -48,71 +48,269 @@ class FlowItemDto {
     this.interventionCode,
   });
 
-  String id;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? id;
 
-  String title;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? title;
 
-  String comment;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? comment;
 
-  int receptionDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? receptionDate;
 
-  int processingDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? processingDate;
 
-  String processer;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? processer;
 
-  int cancellationDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? cancellationDate;
 
-  String canceller;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? canceller;
 
-  String cancellationReason;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? cancellationReason;
 
-  String cancellationNote;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? cancellationNote;
 
-  String status;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? status;
 
-  bool homeVisit;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? homeVisit;
 
-  String municipality;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? municipality;
 
-  String town;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? town;
 
-  String zipCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? zipCode;
 
-  String street;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? street;
 
-  String building;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? building;
 
-  String buildingNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? buildingNumber;
 
-  String doorbellName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? doorbellName;
 
-  String floor;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? floor;
 
-  String letterBox;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? letterBox;
 
-  String notesOps;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? notesOps;
 
-  String notesContact;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? notesContact;
 
-  String latitude;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? latitude;
 
-  String longitude;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? longitude;
 
-  String type;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? type;
 
-  bool emergency;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? emergency;
 
-  String phoneNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? phoneNumber;
 
-  String patientId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? patientId;
 
-  String patientLastName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? patientLastName;
 
-  String patientFirstName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? patientFirstName;
 
-  String description;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? description;
 
-  String interventionCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? interventionCode;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is FlowItemDto &&
@@ -152,40 +350,40 @@ class FlowItemDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id.hashCode) +
-    (title == null ? 0 : title.hashCode) +
-    (comment == null ? 0 : comment.hashCode) +
-    (receptionDate == null ? 0 : receptionDate.hashCode) +
-    (processingDate == null ? 0 : processingDate.hashCode) +
-    (processer == null ? 0 : processer.hashCode) +
-    (cancellationDate == null ? 0 : cancellationDate.hashCode) +
-    (canceller == null ? 0 : canceller.hashCode) +
-    (cancellationReason == null ? 0 : cancellationReason.hashCode) +
-    (cancellationNote == null ? 0 : cancellationNote.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (homeVisit == null ? 0 : homeVisit.hashCode) +
-    (municipality == null ? 0 : municipality.hashCode) +
-    (town == null ? 0 : town.hashCode) +
-    (zipCode == null ? 0 : zipCode.hashCode) +
-    (street == null ? 0 : street.hashCode) +
-    (building == null ? 0 : building.hashCode) +
-    (buildingNumber == null ? 0 : buildingNumber.hashCode) +
-    (doorbellName == null ? 0 : doorbellName.hashCode) +
-    (floor == null ? 0 : floor.hashCode) +
-    (letterBox == null ? 0 : letterBox.hashCode) +
-    (notesOps == null ? 0 : notesOps.hashCode) +
-    (notesContact == null ? 0 : notesContact.hashCode) +
-    (latitude == null ? 0 : latitude.hashCode) +
-    (longitude == null ? 0 : longitude.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (emergency == null ? 0 : emergency.hashCode) +
-    (phoneNumber == null ? 0 : phoneNumber.hashCode) +
-    (patientId == null ? 0 : patientId.hashCode) +
-    (patientLastName == null ? 0 : patientLastName.hashCode) +
-    (patientFirstName == null ? 0 : patientFirstName.hashCode) +
-    (description == null ? 0 : description.hashCode) +
-    (interventionCode == null ? 0 : interventionCode.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id == null ? 0 : id!.hashCode) +
+    (title == null ? 0 : title!.hashCode) +
+    (comment == null ? 0 : comment!.hashCode) +
+    (receptionDate == null ? 0 : receptionDate!.hashCode) +
+    (processingDate == null ? 0 : processingDate!.hashCode) +
+    (processer == null ? 0 : processer!.hashCode) +
+    (cancellationDate == null ? 0 : cancellationDate!.hashCode) +
+    (canceller == null ? 0 : canceller!.hashCode) +
+    (cancellationReason == null ? 0 : cancellationReason!.hashCode) +
+    (cancellationNote == null ? 0 : cancellationNote!.hashCode) +
+    (status == null ? 0 : status!.hashCode) +
+    (homeVisit == null ? 0 : homeVisit!.hashCode) +
+    (municipality == null ? 0 : municipality!.hashCode) +
+    (town == null ? 0 : town!.hashCode) +
+    (zipCode == null ? 0 : zipCode!.hashCode) +
+    (street == null ? 0 : street!.hashCode) +
+    (building == null ? 0 : building!.hashCode) +
+    (buildingNumber == null ? 0 : buildingNumber!.hashCode) +
+    (doorbellName == null ? 0 : doorbellName!.hashCode) +
+    (floor == null ? 0 : floor!.hashCode) +
+    (letterBox == null ? 0 : letterBox!.hashCode) +
+    (notesOps == null ? 0 : notesOps!.hashCode) +
+    (notesContact == null ? 0 : notesContact!.hashCode) +
+    (latitude == null ? 0 : latitude!.hashCode) +
+    (longitude == null ? 0 : longitude!.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
+    (emergency == null ? 0 : emergency!.hashCode) +
+    (phoneNumber == null ? 0 : phoneNumber!.hashCode) +
+    (patientId == null ? 0 : patientId!.hashCode) +
+    (patientLastName == null ? 0 : patientLastName!.hashCode) +
+    (patientFirstName == null ? 0 : patientFirstName!.hashCode) +
+    (description == null ? 0 : description!.hashCode) +
+    (interventionCode == null ? 0 : interventionCode!.hashCode);
 
   @override
   String toString() => 'FlowItemDto[id=$id, title=$title, comment=$comment, receptionDate=$receptionDate, processingDate=$processingDate, processer=$processer, cancellationDate=$cancellationDate, canceller=$canceller, cancellationReason=$cancellationReason, cancellationNote=$cancellationNote, status=$status, homeVisit=$homeVisit, municipality=$municipality, town=$town, zipCode=$zipCode, street=$street, building=$building, buildingNumber=$buildingNumber, doorbellName=$doorbellName, floor=$floor, letterBox=$letterBox, notesOps=$notesOps, notesContact=$notesContact, latitude=$latitude, longitude=$longitude, type=$type, emergency=$emergency, phoneNumber=$phoneNumber, patientId=$patientId, patientLastName=$patientLastName, patientFirstName=$patientFirstName, description=$description, interventionCode=$interventionCode]';
@@ -297,9 +495,21 @@ class FlowItemDto {
   /// Returns a new [FlowItemDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static FlowItemDto fromJson(dynamic value) {
+  static FlowItemDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "FlowItemDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "FlowItemDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return FlowItemDto(
         id: mapValueOfType<String>(json, r'id'),
         title: mapValueOfType<String>(json, r'title'),
@@ -339,36 +549,50 @@ class FlowItemDto {
     return null;
   }
 
-  static List<FlowItemDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(FlowItemDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <FlowItemDto>[];
+  static List<FlowItemDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <FlowItemDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = FlowItemDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, FlowItemDto> mapFromJson(dynamic json) {
     final map = <String, FlowItemDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = FlowItemDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FlowItemDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of FlowItemDto-objects as value to a dart map
-  static Map<String, List<FlowItemDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<FlowItemDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<FlowItemDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = FlowItemDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FlowItemDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

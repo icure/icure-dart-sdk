@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class HealthElementApi {
-  HealthElementApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  HealthElementApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,16 +26,11 @@ class HealthElementApi {
   ///
   /// * [HealthElementDto] healthElementDto (required):
   Future<Response> createHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
-    // Verify required params are set.
-    if (healthElementDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement';
 
     // ignore: prefer_final_locals
-    Object postBody = healthElementDto;
+    Object? postBody = healthElementDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,7 +47,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -64,7 +59,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [HealthElementDto] healthElementDto (required):
-  Future<HealthElementDto> createHealthElement(HealthElementDto healthElementDto,) async {
+  Future<HealthElementDto?> createHealthElement(HealthElementDto healthElementDto,) async {
     final response = await createHealthElementWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -72,11 +67,11 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
     
     }
-    return Future<HealthElementDto>.value();
+    return null;
   }
 
   /// Create a batch of healthcare elements
@@ -89,16 +84,11 @@ class HealthElementApi {
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
   Future<Response> createHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
-    // Verify required params are set.
-    if (healthElementDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = healthElementDto;
+    Object? postBody = healthElementDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -115,7 +105,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -127,7 +117,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
-  Future<List<HealthElementDto>> createHealthElements(List<HealthElementDto> healthElementDto,) async {
+  Future<List<HealthElementDto>?> createHealthElements(List<HealthElementDto> healthElementDto,) async {
     final response = await createHealthElementsWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -135,14 +125,14 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<HealthElementDto>') as List)
         .cast<HealthElementDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<HealthElementDto>>.value();
+    return null;
   }
 
   /// Delete health elements.
@@ -155,16 +145,11 @@ class HealthElementApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteHealthElementsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -181,7 +166,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -193,7 +178,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteHealthElements(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteHealthElements(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteHealthElementsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -201,14 +186,14 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// Filter health elements for the current user (HcParty)
@@ -226,27 +211,22 @@ class HealthElementApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterHealthElementsByWithHttpInfo(FilterChainHealthElement filterChainHealthElement, { String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (filterChainHealthElement == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: filterChainHealthElement');
-    }
-
+  Future<Response> filterHealthElementsByWithHttpInfo(FilterChainHealthElement filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/filter';
 
     // ignore: prefer_final_locals
-    Object postBody = filterChainHealthElement;
+    Object? postBody = filterChainHealthElement;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -260,7 +240,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -278,7 +258,7 @@ class HealthElementApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListHealthElementDto> filterHealthElementsBy(FilterChainHealthElement filterChainHealthElement, { String startDocumentId, int limit, }) async {
+  Future<PaginatedListHealthElementDto?> filterHealthElementsBy(FilterChainHealthElement filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
     final response = await filterHealthElementsByWithHttpInfo(filterChainHealthElement,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -286,11 +266,11 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListHealthElementDto',) as PaginatedListHealthElementDto;
     
     }
-    return Future<PaginatedListHealthElementDto>.value();
+    return null;
   }
 
   /// Get a health element
@@ -301,17 +281,12 @@ class HealthElementApi {
   ///
   /// * [String] healthElementId (required):
   Future<Response> getHealthElementWithHttpInfo(String healthElementId,) async {
-    // Verify required params are set.
-    if (healthElementId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/{healthElementId}'
       .replaceAll('{healthElementId}', healthElementId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -328,7 +303,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -338,7 +313,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [String] healthElementId (required):
-  Future<HealthElementDto> getHealthElement(String healthElementId,) async {
+  Future<HealthElementDto?> getHealthElement(String healthElementId,) async {
     final response = await getHealthElementWithHttpInfo(healthElementId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -346,11 +321,11 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
     
     }
-    return Future<HealthElementDto>.value();
+    return null;
   }
 
   /// Get healthElements by batch
@@ -363,16 +338,11 @@ class HealthElementApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getHealthElementsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/byIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -389,7 +359,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -401,7 +371,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<HealthElementDto>> getHealthElements(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<HealthElementDto>?> getHealthElements(ListOfIdsDto listOfIdsDto,) async {
     final response = await getHealthElementsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -409,14 +379,14 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<HealthElementDto>') as List)
         .cast<HealthElementDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<HealthElementDto>>.value();
+    return null;
   }
 
   /// List health elements found By Healthcare Party and secret foreign keyelementIds.
@@ -431,26 +401,18 @@ class HealthElementApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> listHealthElementsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -463,7 +425,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -477,7 +439,7 @@ class HealthElementApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<HealthElementDto>> listHealthElementsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<HealthElementDto>?> listHealthElementsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await listHealthElementsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -485,14 +447,14 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<HealthElementDto>') as List)
         .cast<HealthElementDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<HealthElementDto>>.value();
+    return null;
   }
 
   /// List helement stubs found By Healthcare Party and secret foreign keys.
@@ -507,26 +469,18 @@ class HealthElementApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/byHcPartySecretForeignKeys/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -539,7 +493,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -553,7 +507,7 @@ class HealthElementApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<IcureStubDto>> listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<IcureStubDto>?> listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -561,14 +515,14 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IcureStubDto>') as List)
         .cast<IcureStubDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IcureStubDto>>.value();
+    return null;
   }
 
   /// Get ids of health element matching the provided filter for the current user (HcParty) 
@@ -579,16 +533,11 @@ class HealthElementApi {
   ///
   /// * [AbstractFilterDtoHealthElement] abstractFilterDtoHealthElement (required):
   Future<Response> matchHealthElementsByWithHttpInfo(AbstractFilterDtoHealthElement abstractFilterDtoHealthElement,) async {
-    // Verify required params are set.
-    if (abstractFilterDtoHealthElement == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: abstractFilterDtoHealthElement');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/match';
 
     // ignore: prefer_final_locals
-    Object postBody = abstractFilterDtoHealthElement;
+    Object? postBody = abstractFilterDtoHealthElement;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -605,7 +554,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -615,7 +564,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoHealthElement] abstractFilterDtoHealthElement (required):
-  Future<List<String>> matchHealthElementsBy(AbstractFilterDtoHealthElement abstractFilterDtoHealthElement,) async {
+  Future<List<String>?> matchHealthElementsBy(AbstractFilterDtoHealthElement abstractFilterDtoHealthElement,) async {
     final response = await matchHealthElementsByWithHttpInfo(abstractFilterDtoHealthElement,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -623,14 +572,14 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
         .cast<String>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<String>>.value();
+    return null;
   }
 
   /// Modify a health element
@@ -643,16 +592,11 @@ class HealthElementApi {
   ///
   /// * [HealthElementDto] healthElementDto (required):
   Future<Response> modifyHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
-    // Verify required params are set.
-    if (healthElementDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement';
 
     // ignore: prefer_final_locals
-    Object postBody = healthElementDto;
+    Object? postBody = healthElementDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -669,7 +613,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -681,7 +625,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [HealthElementDto] healthElementDto (required):
-  Future<HealthElementDto> modifyHealthElement(HealthElementDto healthElementDto,) async {
+  Future<HealthElementDto?> modifyHealthElement(HealthElementDto healthElementDto,) async {
     final response = await modifyHealthElementWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -689,11 +633,11 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
     
     }
-    return Future<HealthElementDto>.value();
+    return null;
   }
 
   /// Modify a batch of health elements
@@ -706,16 +650,11 @@ class HealthElementApi {
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
   Future<Response> modifyHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
-    // Verify required params are set.
-    if (healthElementDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = healthElementDto;
+    Object? postBody = healthElementDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -732,7 +671,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -744,7 +683,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
-  Future<List<HealthElementDto>> modifyHealthElements(List<HealthElementDto> healthElementDto,) async {
+  Future<List<HealthElementDto>?> modifyHealthElements(List<HealthElementDto> healthElementDto,) async {
     final response = await modifyHealthElementsWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -752,14 +691,14 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<HealthElementDto>') as List)
         .cast<HealthElementDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<HealthElementDto>>.value();
+    return null;
   }
 
   /// Delegates a health element to a healthcare party
@@ -774,20 +713,12 @@ class HealthElementApi {
   ///
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> newHealthElementDelegationsWithHttpInfo(String healthElementId, List<DelegationDto> delegationDto,) async {
-    // Verify required params are set.
-    if (healthElementId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: healthElementId');
-    }
-    if (delegationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: delegationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/{healthElementId}/delegate'
       .replaceAll('{healthElementId}', healthElementId);
 
     // ignore: prefer_final_locals
-    Object postBody = delegationDto;
+    Object? postBody = delegationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -804,7 +735,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -818,7 +749,7 @@ class HealthElementApi {
   /// * [String] healthElementId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<HealthElementDto> newHealthElementDelegations(String healthElementId, List<DelegationDto> delegationDto,) async {
+  Future<HealthElementDto?> newHealthElementDelegations(String healthElementId, List<DelegationDto> delegationDto,) async {
     final response = await newHealthElementDelegationsWithHttpInfo(healthElementId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -826,11 +757,11 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
     
     }
-    return Future<HealthElementDto>.value();
+    return null;
   }
 
   /// Update delegations in healthElements.
@@ -843,16 +774,11 @@ class HealthElementApi {
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> setHealthElementsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
-    // Verify required params are set.
-    if (icureStubDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: icureStubDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody = icureStubDto;
+    Object? postBody = icureStubDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -869,7 +795,7 @@ class HealthElementApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -881,7 +807,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<HealthElementDto>> setHealthElementsDelegations(List<IcureStubDto> icureStubDto,) async {
+  Future<List<HealthElementDto>?> setHealthElementsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await setHealthElementsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -889,13 +815,13 @@ class HealthElementApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<HealthElementDto>') as List)
         .cast<HealthElementDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<HealthElementDto>>.value();
+    return null;
   }
 }

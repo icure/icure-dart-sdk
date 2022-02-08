@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,9 +17,21 @@ class PublicKeyDto {
     this.hexString,
   });
 
-  String hcPartyId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? hcPartyId;
 
-  String hexString;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? hexString;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PublicKeyDto &&
@@ -28,9 +40,9 @@ class PublicKeyDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (hcPartyId == null ? 0 : hcPartyId.hashCode) +
-    (hexString == null ? 0 : hexString.hashCode);
+    // ignore: unnecessary_parenthesis
+    (hcPartyId == null ? 0 : hcPartyId!.hashCode) +
+    (hexString == null ? 0 : hexString!.hashCode);
 
   @override
   String toString() => 'PublicKeyDto[hcPartyId=$hcPartyId, hexString=$hexString]';
@@ -49,9 +61,21 @@ class PublicKeyDto {
   /// Returns a new [PublicKeyDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PublicKeyDto fromJson(dynamic value) {
+  static PublicKeyDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "PublicKeyDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PublicKeyDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return PublicKeyDto(
         hcPartyId: mapValueOfType<String>(json, r'hcPartyId'),
         hexString: mapValueOfType<String>(json, r'hexString'),
@@ -60,36 +84,50 @@ class PublicKeyDto {
     return null;
   }
 
-  static List<PublicKeyDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(PublicKeyDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <PublicKeyDto>[];
+  static List<PublicKeyDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PublicKeyDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PublicKeyDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, PublicKeyDto> mapFromJson(dynamic json) {
     final map = <String, PublicKeyDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = PublicKeyDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PublicKeyDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of PublicKeyDto-objects as value to a dart map
-  static Map<String, List<PublicKeyDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<PublicKeyDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<PublicKeyDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = PublicKeyDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PublicKeyDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

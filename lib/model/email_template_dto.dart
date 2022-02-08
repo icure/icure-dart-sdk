@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,9 +17,21 @@ class EmailTemplateDto {
     this.body,
   });
 
-  String subject;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? subject;
 
-  String body;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? body;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EmailTemplateDto &&
@@ -28,9 +40,9 @@ class EmailTemplateDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (subject == null ? 0 : subject.hashCode) +
-    (body == null ? 0 : body.hashCode);
+    // ignore: unnecessary_parenthesis
+    (subject == null ? 0 : subject!.hashCode) +
+    (body == null ? 0 : body!.hashCode);
 
   @override
   String toString() => 'EmailTemplateDto[subject=$subject, body=$body]';
@@ -49,9 +61,21 @@ class EmailTemplateDto {
   /// Returns a new [EmailTemplateDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static EmailTemplateDto fromJson(dynamic value) {
+  static EmailTemplateDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "EmailTemplateDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "EmailTemplateDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return EmailTemplateDto(
         subject: mapValueOfType<String>(json, r'subject'),
         body: mapValueOfType<String>(json, r'body'),
@@ -60,36 +84,50 @@ class EmailTemplateDto {
     return null;
   }
 
-  static List<EmailTemplateDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(EmailTemplateDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <EmailTemplateDto>[];
+  static List<EmailTemplateDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <EmailTemplateDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = EmailTemplateDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, EmailTemplateDto> mapFromJson(dynamic json) {
     final map = <String, EmailTemplateDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = EmailTemplateDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = EmailTemplateDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of EmailTemplateDto-objects as value to a dart map
-  static Map<String, List<EmailTemplateDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<EmailTemplateDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<EmailTemplateDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = EmailTemplateDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = EmailTemplateDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+  };
 }
 

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class ClassificationApi {
-  ClassificationApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  ClassificationApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,16 +26,11 @@ class ClassificationApi {
   ///
   /// * [ClassificationDto] classificationDto (required):
   Future<Response> createClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
-    // Verify required params are set.
-    if (classificationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: classificationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification';
 
     // ignore: prefer_final_locals
-    Object postBody = classificationDto;
+    Object? postBody = classificationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,7 +47,7 @@ class ClassificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -64,7 +59,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [ClassificationDto] classificationDto (required):
-  Future<ClassificationDto> createClassification(ClassificationDto classificationDto,) async {
+  Future<ClassificationDto?> createClassification(ClassificationDto classificationDto,) async {
     final response = await createClassificationWithHttpInfo(classificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -72,11 +67,11 @@ class ClassificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
     
     }
-    return Future<ClassificationDto>.value();
+    return null;
   }
 
   /// Delete classification Templates.
@@ -89,16 +84,11 @@ class ClassificationApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteClassificationsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/delete/batch';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -115,7 +105,7 @@ class ClassificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -127,7 +117,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>> deleteClassifications(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteClassifications(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteClassificationsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -135,14 +125,14 @@ class ClassificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<DocIdentifier>>.value();
+    return null;
   }
 
   /// List classification Templates found By Healthcare Party and secret foreign keyelementIds.
@@ -157,26 +147,18 @@ class ClassificationApi {
   ///
   /// * [String] secretFKeys (required):
   Future<Response> findClassificationsByHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
-    // Verify required params are set.
-    if (hcPartyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: hcPartyId');
-    }
-    if (secretFKeys == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: secretFKeys');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
+      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -189,7 +171,7 @@ class ClassificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -203,7 +185,7 @@ class ClassificationApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<ClassificationDto>> findClassificationsByHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+  Future<List<ClassificationDto>?> findClassificationsByHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await findClassificationsByHCPartyPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -211,14 +193,14 @@ class ClassificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ClassificationDto>') as List)
         .cast<ClassificationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ClassificationDto>>.value();
+    return null;
   }
 
   /// Get a classification Template
@@ -229,17 +211,12 @@ class ClassificationApi {
   ///
   /// * [String] classificationId (required):
   Future<Response> getClassificationWithHttpInfo(String classificationId,) async {
-    // Verify required params are set.
-    if (classificationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: classificationId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/{classificationId}'
       .replaceAll('{classificationId}', classificationId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -256,7 +233,7 @@ class ClassificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -266,7 +243,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [String] classificationId (required):
-  Future<ClassificationDto> getClassification(String classificationId,) async {
+  Future<ClassificationDto?> getClassification(String classificationId,) async {
     final response = await getClassificationWithHttpInfo(classificationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -274,11 +251,11 @@ class ClassificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
     
     }
-    return Future<ClassificationDto>.value();
+    return null;
   }
 
   /// Get a list of classifications
@@ -291,17 +268,12 @@ class ClassificationApi {
   ///
   /// * [String] ids (required):
   Future<Response> getClassificationByHcPartyIdWithHttpInfo(String ids,) async {
-    // Verify required params are set.
-    if (ids == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: ids');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/byIds/{ids}'
       .replaceAll('{ids}', ids);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -318,7 +290,7 @@ class ClassificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -330,7 +302,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [String] ids (required):
-  Future<List<ClassificationDto>> getClassificationByHcPartyId(String ids,) async {
+  Future<List<ClassificationDto>?> getClassificationByHcPartyId(String ids,) async {
     final response = await getClassificationByHcPartyIdWithHttpInfo(ids,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -338,14 +310,14 @@ class ClassificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<ClassificationDto>') as List)
         .cast<ClassificationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<ClassificationDto>>.value();
+    return null;
   }
 
   /// Modify a classification Template
@@ -358,16 +330,11 @@ class ClassificationApi {
   ///
   /// * [ClassificationDto] classificationDto (required):
   Future<Response> modifyClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
-    // Verify required params are set.
-    if (classificationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: classificationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification';
 
     // ignore: prefer_final_locals
-    Object postBody = classificationDto;
+    Object? postBody = classificationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -384,7 +351,7 @@ class ClassificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -396,7 +363,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [ClassificationDto] classificationDto (required):
-  Future<ClassificationDto> modifyClassification(ClassificationDto classificationDto,) async {
+  Future<ClassificationDto?> modifyClassification(ClassificationDto classificationDto,) async {
     final response = await modifyClassificationWithHttpInfo(classificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -404,11 +371,11 @@ class ClassificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
     
     }
-    return Future<ClassificationDto>.value();
+    return null;
   }
 
   /// Delegates a classification to a healthcare party
@@ -423,20 +390,12 @@ class ClassificationApi {
   ///
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> newClassificationDelegationsWithHttpInfo(String classificationId, List<DelegationDto> delegationDto,) async {
-    // Verify required params are set.
-    if (classificationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: classificationId');
-    }
-    if (delegationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: delegationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/{classificationId}/delegate'
       .replaceAll('{classificationId}', classificationId);
 
     // ignore: prefer_final_locals
-    Object postBody = delegationDto;
+    Object? postBody = delegationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -453,7 +412,7 @@ class ClassificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -467,7 +426,7 @@ class ClassificationApi {
   /// * [String] classificationId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<ClassificationDto> newClassificationDelegations(String classificationId, List<DelegationDto> delegationDto,) async {
+  Future<ClassificationDto?> newClassificationDelegations(String classificationId, List<DelegationDto> delegationDto,) async {
     final response = await newClassificationDelegationsWithHttpInfo(classificationId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -475,11 +434,11 @@ class ClassificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
     
     }
-    return Future<ClassificationDto>.value();
+    return null;
   }
 
   /// Update delegations in classification
@@ -492,16 +451,11 @@ class ClassificationApi {
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> setClassificationsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
-    // Verify required params are set.
-    if (icureStubDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: icureStubDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/delegations';
 
     // ignore: prefer_final_locals
-    Object postBody = icureStubDto;
+    Object? postBody = icureStubDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -518,7 +472,7 @@ class ClassificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -530,7 +484,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<IcureStubDto>> setClassificationsDelegations(List<IcureStubDto> icureStubDto,) async {
+  Future<List<IcureStubDto>?> setClassificationsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await setClassificationsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -538,13 +492,13 @@ class ClassificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<IcureStubDto>') as List)
         .cast<IcureStubDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<IcureStubDto>>.value();
+    return null;
   }
 }

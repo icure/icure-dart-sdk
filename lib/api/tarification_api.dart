@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class TarificationApi {
-  TarificationApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  TarificationApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,16 +26,11 @@ class TarificationApi {
   ///
   /// * [TarificationDto] tarificationDto (required):
   Future<Response> createTarificationWithHttpInfo(TarificationDto tarificationDto,) async {
-    // Verify required params are set.
-    if (tarificationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tarificationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tarification';
 
     // ignore: prefer_final_locals
-    Object postBody = tarificationDto;
+    Object? postBody = tarificationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,7 +47,7 @@ class TarificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -64,7 +59,7 @@ class TarificationApi {
   /// Parameters:
   ///
   /// * [TarificationDto] tarificationDto (required):
-  Future<TarificationDto> createTarification(TarificationDto tarificationDto,) async {
+  Future<TarificationDto?> createTarification(TarificationDto tarificationDto,) async {
     final response = await createTarificationWithHttpInfo(tarificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -72,11 +67,11 @@ class TarificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TarificationDto',) as TarificationDto;
     
     }
-    return Future<TarificationDto>.value();
+    return null;
   }
 
   /// Finding tarifications by tarification, type and version with pagination.
@@ -100,36 +95,34 @@ class TarificationApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findTarificationsByWithHttpInfo({ String region, String type, String tarification, String version, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> findTarificationsByWithHttpInfo({ String? region, String? type, String? tarification, String? version, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tarification';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (region != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'region', region));
+      queryParams.addAll(_queryParams('', 'region', region));
     }
     if (type != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'type', type));
+      queryParams.addAll(_queryParams('', 'type', type));
     }
     if (tarification != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'tarification', tarification));
+      queryParams.addAll(_queryParams('', 'tarification', tarification));
     }
     if (version != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'version', version));
+      queryParams.addAll(_queryParams('', 'version', version));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -143,7 +136,7 @@ class TarificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -167,7 +160,7 @@ class TarificationApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListTarificationDto> findTarificationsBy({ String region, String type, String tarification, String version, String startDocumentId, int limit, }) async {
+  Future<PaginatedListTarificationDto?> findTarificationsBy({ String? region, String? type, String? tarification, String? version, String? startDocumentId, int? limit, }) async {
     final response = await findTarificationsByWithHttpInfo( region: region, type: type, tarification: tarification, version: version, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -175,11 +168,11 @@ class TarificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListTarificationDto',) as PaginatedListTarificationDto;
     
     }
-    return Future<PaginatedListTarificationDto>.value();
+    return null;
   }
 
   /// Finding tarifications by tarification, type and version
@@ -201,30 +194,28 @@ class TarificationApi {
   ///
   /// * [String] version:
   ///   Tarification version
-  Future<Response> findTarificationsBy1WithHttpInfo({ String region, String type, String tarification, String version, }) async {
-    // Verify required params are set.
-
+  Future<Response> findTarificationsBy1WithHttpInfo({ String? region, String? type, String? tarification, String? version, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tarification/byRegionTypeTarification';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (region != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'region', region));
+      queryParams.addAll(_queryParams('', 'region', region));
     }
     if (type != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'type', type));
+      queryParams.addAll(_queryParams('', 'type', type));
     }
     if (tarification != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'tarification', tarification));
+      queryParams.addAll(_queryParams('', 'tarification', tarification));
     }
     if (version != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'version', version));
+      queryParams.addAll(_queryParams('', 'version', version));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -238,7 +229,7 @@ class TarificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -260,7 +251,7 @@ class TarificationApi {
   ///
   /// * [String] version:
   ///   Tarification version
-  Future<List<TarificationDto>> findTarificationsBy1({ String region, String type, String tarification, String version, }) async {
+  Future<List<TarificationDto>?> findTarificationsBy1({ String? region, String? type, String? tarification, String? version, }) async {
     final response = await findTarificationsBy1WithHttpInfo( region: region, type: type, tarification: tarification, version: version, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -268,14 +259,14 @@ class TarificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<TarificationDto>') as List)
         .cast<TarificationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<TarificationDto>>.value();
+    return null;
   }
 
   /// Finding tarifications by tarification, type and version with pagination.
@@ -299,36 +290,34 @@ class TarificationApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findTarificationsByLabelWithHttpInfo({ String region, String types, String language, String label, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> findTarificationsByLabelWithHttpInfo({ String? region, String? types, String? language, String? label, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tarification/byLabel';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (region != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'region', region));
+      queryParams.addAll(_queryParams('', 'region', region));
     }
     if (types != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'types', types));
+      queryParams.addAll(_queryParams('', 'types', types));
     }
     if (language != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
+      queryParams.addAll(_queryParams('', 'language', language));
     }
     if (label != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'label', label));
+      queryParams.addAll(_queryParams('', 'label', label));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -342,7 +331,7 @@ class TarificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -366,7 +355,7 @@ class TarificationApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListTarificationDto> findTarificationsByLabel({ String region, String types, String language, String label, String startDocumentId, int limit, }) async {
+  Future<PaginatedListTarificationDto?> findTarificationsByLabel({ String? region, String? types, String? language, String? label, String? startDocumentId, int? limit, }) async {
     final response = await findTarificationsByLabelWithHttpInfo( region: region, types: types, language: language, label: label, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -374,11 +363,11 @@ class TarificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListTarificationDto',) as PaginatedListTarificationDto;
     
     }
-    return Future<PaginatedListTarificationDto>.value();
+    return null;
   }
 
   /// Get a tarification
@@ -392,17 +381,12 @@ class TarificationApi {
   /// * [String] tarificationId (required):
   ///   Tarification id
   Future<Response> getTarificationWithHttpInfo(String tarificationId,) async {
-    // Verify required params are set.
-    if (tarificationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tarificationId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tarification/{tarificationId}'
       .replaceAll('{tarificationId}', tarificationId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -419,7 +403,7 @@ class TarificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -432,7 +416,7 @@ class TarificationApi {
   ///
   /// * [String] tarificationId (required):
   ///   Tarification id
-  Future<TarificationDto> getTarification(String tarificationId,) async {
+  Future<TarificationDto?> getTarification(String tarificationId,) async {
     final response = await getTarificationWithHttpInfo(tarificationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -440,11 +424,11 @@ class TarificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TarificationDto',) as TarificationDto;
     
     }
-    return Future<TarificationDto>.value();
+    return null;
   }
 
   /// Get a tarification
@@ -464,17 +448,6 @@ class TarificationApi {
   /// * [String] version (required):
   ///   Tarification version
   Future<Response> getTarificationWithPartsWithHttpInfo(String type, String tarification, String version,) async {
-    // Verify required params are set.
-    if (type == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: type');
-    }
-    if (tarification == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tarification');
-    }
-    if (version == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: version');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tarification/{type}/{tarification}/{version}'
       .replaceAll('{type}', type)
@@ -482,7 +455,7 @@ class TarificationApi {
       .replaceAll('{version}', version);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -499,7 +472,7 @@ class TarificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -518,7 +491,7 @@ class TarificationApi {
   ///
   /// * [String] version (required):
   ///   Tarification version
-  Future<TarificationDto> getTarificationWithParts(String type, String tarification, String version,) async {
+  Future<TarificationDto?> getTarificationWithParts(String type, String tarification, String version,) async {
     final response = await getTarificationWithPartsWithHttpInfo(type, tarification, version,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -526,11 +499,11 @@ class TarificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TarificationDto',) as TarificationDto;
     
     }
-    return Future<TarificationDto>.value();
+    return null;
   }
 
   /// Get a list of tarifications by ids
@@ -543,16 +516,11 @@ class TarificationApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getTarificationsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tarification/byIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -569,7 +537,7 @@ class TarificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -581,7 +549,7 @@ class TarificationApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<TarificationDto>> getTarifications(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<TarificationDto>?> getTarifications(ListOfIdsDto listOfIdsDto,) async {
     final response = await getTarificationsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -589,14 +557,14 @@ class TarificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<TarificationDto>') as List)
         .cast<TarificationDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<TarificationDto>>.value();
+    return null;
   }
 
   /// Modify a tarification
@@ -609,16 +577,11 @@ class TarificationApi {
   ///
   /// * [TarificationDto] tarificationDto (required):
   Future<Response> modifyTarificationWithHttpInfo(TarificationDto tarificationDto,) async {
-    // Verify required params are set.
-    if (tarificationDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tarificationDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/tarification';
 
     // ignore: prefer_final_locals
-    Object postBody = tarificationDto;
+    Object? postBody = tarificationDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -635,7 +598,7 @@ class TarificationApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -647,7 +610,7 @@ class TarificationApi {
   /// Parameters:
   ///
   /// * [TarificationDto] tarificationDto (required):
-  Future<TarificationDto> modifyTarification(TarificationDto tarificationDto,) async {
+  Future<TarificationDto?> modifyTarification(TarificationDto tarificationDto,) async {
     final response = await modifyTarificationWithHttpInfo(tarificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -655,10 +618,10 @@ class TarificationApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TarificationDto',) as TarificationDto;
     
     }
-    return Future<TarificationDto>.value();
+    return null;
   }
 }

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ part of openapi.api;
 class SumehrValidityDto {
   /// Returns a new [SumehrValidityDto] instance.
   SumehrValidityDto({
-    @required this.sumehrValid,
+    required this.sumehrValid,
   });
 
   SumehrValidityDtoSumehrValidEnum sumehrValid;
@@ -24,8 +24,8 @@ class SumehrValidityDto {
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (sumehrValid == null ? 0 : sumehrValid.hashCode);
+    // ignore: unnecessary_parenthesis
+    (sumehrValid.hashCode);
 
   @override
   String toString() => 'SumehrValidityDto[sumehrValid=$sumehrValid]';
@@ -39,47 +39,74 @@ class SumehrValidityDto {
   /// Returns a new [SumehrValidityDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static SumehrValidityDto fromJson(dynamic value) {
+  static SumehrValidityDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "SumehrValidityDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "SumehrValidityDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return SumehrValidityDto(
-        sumehrValid: SumehrValidityDtoSumehrValidEnum.fromJson(json[r'sumehrValid']),
+        sumehrValid: SumehrValidityDtoSumehrValidEnum.fromJson(json[r'sumehrValid'])!,
       );
     }
     return null;
   }
 
-  static List<SumehrValidityDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(SumehrValidityDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <SumehrValidityDto>[];
+  static List<SumehrValidityDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <SumehrValidityDto>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = SumehrValidityDto.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, SumehrValidityDto> mapFromJson(dynamic json) {
     final map = <String, SumehrValidityDto>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = SumehrValidityDto.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = SumehrValidityDto.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
 
   // maps a json object with a list of SumehrValidityDto-objects as value to a dart map
-  static Map<String, List<SumehrValidityDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<SumehrValidityDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<SumehrValidityDto>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = SumehrValidityDto.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = SumehrValidityDto.listFromJson(entry.value, growable: growable,);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'sumehrValid',
+  };
 }
 
 
@@ -91,7 +118,7 @@ class SumehrValidityDtoSumehrValidEnum {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -106,13 +133,20 @@ class SumehrValidityDtoSumehrValidEnum {
     outdated,
   ];
 
-  static SumehrValidityDtoSumehrValidEnum fromJson(dynamic value) =>
-    SumehrValidityDtoSumehrValidEnumTypeTransformer().decode(value);
+  static SumehrValidityDtoSumehrValidEnum? fromJson(dynamic value) => SumehrValidityDtoSumehrValidEnumTypeTransformer().decode(value);
 
-  static List<SumehrValidityDtoSumehrValidEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(SumehrValidityDtoSumehrValidEnum.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <SumehrValidityDtoSumehrValidEnum>[];
+  static List<SumehrValidityDtoSumehrValidEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <SumehrValidityDtoSumehrValidEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = SumehrValidityDtoSumehrValidEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [SumehrValidityDtoSumehrValidEnum] to String,
@@ -132,14 +166,14 @@ class SumehrValidityDtoSumehrValidEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  SumehrValidityDtoSumehrValidEnum decode(dynamic data, {bool allowNull}) {
+  SumehrValidityDtoSumehrValidEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'absent': return SumehrValidityDtoSumehrValidEnum.absent;
         case r'uptodate': return SumehrValidityDtoSumehrValidEnum.uptodate;
         case r'outdated': return SumehrValidityDtoSumehrValidEnum.outdated;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -148,7 +182,7 @@ class SumehrValidityDtoSumehrValidEnumTypeTransformer {
   }
 
   /// Singleton [SumehrValidityDtoSumehrValidEnumTypeTransformer] instance.
-  static SumehrValidityDtoSumehrValidEnumTypeTransformer _instance;
+  static SumehrValidityDtoSumehrValidEnumTypeTransformer? _instance;
 }
 
 

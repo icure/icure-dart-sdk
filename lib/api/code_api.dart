@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of openapi.api;
 
 
 class CodeApi {
-  CodeApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  CodeApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,16 +26,11 @@ class CodeApi {
   ///
   /// * [CodeDto] codeDto (required):
   Future<Response> createCodeWithHttpInfo(CodeDto codeDto,) async {
-    // Verify required params are set.
-    if (codeDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: codeDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code';
 
     // ignore: prefer_final_locals
-    Object postBody = codeDto;
+    Object? postBody = codeDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,7 +47,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -64,7 +59,7 @@ class CodeApi {
   /// Parameters:
   ///
   /// * [CodeDto] codeDto (required):
-  Future<CodeDto> createCode(CodeDto codeDto,) async {
+  Future<CodeDto?> createCode(CodeDto codeDto,) async {
     final response = await createCodeWithHttpInfo(codeDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -72,11 +67,11 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CodeDto',) as CodeDto;
     
     }
-    return Future<CodeDto>.value();
+    return null;
   }
 
   /// Filter codes 
@@ -106,36 +101,34 @@ class CodeApi {
   ///   Descending
   ///
   /// * [FilterChainCode] filterChainCode:
-  Future<Response> filterCodesByWithHttpInfo({ String startKey, String startDocumentId, int limit, int skip, String sort, bool desc, FilterChainCode filterChainCode, }) async {
-    // Verify required params are set.
-
+  Future<Response> filterCodesByWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, FilterChainCode? filterChainCode, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/filter';
 
     // ignore: prefer_final_locals
-    Object postBody = filterChainCode;
+    Object? postBody = filterChainCode;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
     if (skip != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'skip', skip));
+      queryParams.addAll(_queryParams('', 'skip', skip));
     }
     if (sort != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'sort', sort));
+      queryParams.addAll(_queryParams('', 'sort', sort));
     }
     if (desc != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'desc', desc));
+      queryParams.addAll(_queryParams('', 'desc', desc));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -149,7 +142,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -179,7 +172,7 @@ class CodeApi {
   ///   Descending
   ///
   /// * [FilterChainCode] filterChainCode:
-  Future<PaginatedListCodeDto> filterCodesBy({ String startKey, String startDocumentId, int limit, int skip, String sort, bool desc, FilterChainCode filterChainCode, }) async {
+  Future<PaginatedListCodeDto?> filterCodesBy({ String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, FilterChainCode? filterChainCode, }) async {
     final response = await filterCodesByWithHttpInfo( startKey: startKey, startDocumentId: startDocumentId, limit: limit, skip: skip, sort: sort, desc: desc, filterChainCode: filterChainCode, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -187,11 +180,11 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListCodeDto',) as PaginatedListCodeDto;
     
     }
-    return Future<PaginatedListCodeDto>.value();
+    return null;
   }
 
   /// Finding codes by code, type and version with pagination.
@@ -218,39 +211,37 @@ class CodeApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findCodesByLabelWithHttpInfo({ String region, String types, String language, String label, String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> findCodesByLabelWithHttpInfo({ String? region, String? types, String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/byLabel';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (region != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'region', region));
+      queryParams.addAll(_queryParams('', 'region', region));
     }
     if (types != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'types', types));
+      queryParams.addAll(_queryParams('', 'types', types));
     }
     if (language != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
+      queryParams.addAll(_queryParams('', 'language', language));
     }
     if (label != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'label', label));
+      queryParams.addAll(_queryParams('', 'label', label));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -264,7 +255,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -291,7 +282,7 @@ class CodeApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListCodeDto> findCodesByLabel({ String region, String types, String language, String label, String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListCodeDto?> findCodesByLabel({ String? region, String? types, String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findCodesByLabelWithHttpInfo( region: region, types: types, language: language, label: label, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -299,11 +290,11 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListCodeDto',) as PaginatedListCodeDto;
     
     }
-    return Future<PaginatedListCodeDto>.value();
+    return null;
   }
 
   /// Finding codes by code, type and version with pagination.
@@ -326,34 +317,29 @@ class CodeApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findCodesByLinkWithHttpInfo(String linkType, { String linkedId, String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-    if (linkType == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: linkType');
-    }
-
+  Future<Response> findCodesByLinkWithHttpInfo(String linkType, { String? linkedId, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/byLink/{linkType}'
       .replaceAll('{linkType}', linkType);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (linkedId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'linkedId', linkedId));
+      queryParams.addAll(_queryParams('', 'linkedId', linkedId));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -367,7 +353,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -390,7 +376,7 @@ class CodeApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListCodeDto> findCodesByLink(String linkType, { String linkedId, String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListCodeDto?> findCodesByLink(String linkType, { String? linkedId, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findCodesByLinkWithHttpInfo(linkType,  linkedId: linkedId, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -398,11 +384,11 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListCodeDto',) as PaginatedListCodeDto;
     
     }
-    return Future<PaginatedListCodeDto>.value();
+    return null;
   }
 
   /// Finding codes by code, type and version with pagination.
@@ -429,39 +415,37 @@ class CodeApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findCodesByTypeWithHttpInfo({ String region, String type, String code, String version, String startKey, String startDocumentId, int limit, }) async {
-    // Verify required params are set.
-
+  Future<Response> findCodesByTypeWithHttpInfo({ String? region, String? type, String? code, String? version, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (region != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'region', region));
+      queryParams.addAll(_queryParams('', 'region', region));
     }
     if (type != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'type', type));
+      queryParams.addAll(_queryParams('', 'type', type));
     }
     if (code != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'code', code));
+      queryParams.addAll(_queryParams('', 'code', code));
     }
     if (version != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'version', version));
+      queryParams.addAll(_queryParams('', 'version', version));
     }
     if (startKey != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startKey', startKey));
+      queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -475,7 +459,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -502,7 +486,7 @@ class CodeApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListCodeDto> findCodesByType({ String region, String type, String code, String version, String startKey, String startDocumentId, int limit, }) async {
+  Future<PaginatedListCodeDto?> findCodesByType({ String? region, String? type, String? code, String? version, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findCodesByTypeWithHttpInfo( region: region, type: type, code: code, version: version, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -510,11 +494,11 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListCodeDto',) as PaginatedListCodeDto;
     
     }
-    return Future<PaginatedListCodeDto>.value();
+    return null;
   }
 
   /// Get a code
@@ -528,17 +512,12 @@ class CodeApi {
   /// * [String] codeId (required):
   ///   Code id
   Future<Response> getCodeWithHttpInfo(String codeId,) async {
-    // Verify required params are set.
-    if (codeId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: codeId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/{codeId}'
       .replaceAll('{codeId}', codeId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -555,7 +534,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -568,7 +547,7 @@ class CodeApi {
   ///
   /// * [String] codeId (required):
   ///   Code id
-  Future<CodeDto> getCode(String codeId,) async {
+  Future<CodeDto?> getCode(String codeId,) async {
     final response = await getCodeWithHttpInfo(codeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -576,11 +555,11 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CodeDto',) as CodeDto;
     
     }
-    return Future<CodeDto>.value();
+    return null;
   }
 
   /// Get a code
@@ -600,17 +579,6 @@ class CodeApi {
   /// * [String] version (required):
   ///   Code version
   Future<Response> getCodeWithPartsWithHttpInfo(String type, String code, String version,) async {
-    // Verify required params are set.
-    if (type == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: type');
-    }
-    if (code == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: code');
-    }
-    if (version == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: version');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/{type}/{code}/{version}'
       .replaceAll('{type}', type)
@@ -618,7 +586,7 @@ class CodeApi {
       .replaceAll('{version}', version);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -635,7 +603,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -654,7 +622,7 @@ class CodeApi {
   ///
   /// * [String] version (required):
   ///   Code version
-  Future<CodeDto> getCodeWithParts(String type, String code, String version,) async {
+  Future<CodeDto?> getCodeWithParts(String type, String code, String version,) async {
     final response = await getCodeWithPartsWithHttpInfo(type, code, version,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -662,11 +630,11 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CodeDto',) as CodeDto;
     
     }
-    return Future<CodeDto>.value();
+    return null;
   }
 
   /// Get a list of codes by ids
@@ -679,16 +647,11 @@ class CodeApi {
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
-    // Verify required params are set.
-    if (listOfIdsDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: listOfIdsDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/byIds';
 
     // ignore: prefer_final_locals
-    Object postBody = listOfIdsDto;
+    Object? postBody = listOfIdsDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -705,7 +668,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -717,7 +680,7 @@ class CodeApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<CodeDto>> getCodes(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<CodeDto>?> getCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await getCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -725,14 +688,14 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<CodeDto>') as List)
         .cast<CodeDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<CodeDto>>.value();
+    return null;
   }
 
   /// Import codes
@@ -745,17 +708,12 @@ class CodeApi {
   ///
   /// * [String] codeType (required):
   Future<Response> importCodesWithHttpInfo(String codeType,) async {
-    // Verify required params are set.
-    if (codeType == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: codeType');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/{codeType}'
       .replaceAll('{codeType}', codeType);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -772,7 +730,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -784,7 +742,7 @@ class CodeApi {
   /// Parameters:
   ///
   /// * [String] codeType (required):
-  Future<Object> importCodes(String codeType,) async {
+  Future<Object?> importCodes(String codeType,) async {
     final response = await importCodesWithHttpInfo(codeType,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -792,11 +750,11 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
     
     }
-    return Future<Object>.value();
+    return null;
   }
 
   /// Finding code types.
@@ -812,24 +770,22 @@ class CodeApi {
   ///
   /// * [String] type:
   ///   Code type
-  Future<Response> listCodeTypesByWithHttpInfo({ String region, String type, }) async {
-    // Verify required params are set.
-
+  Future<Response> listCodeTypesByWithHttpInfo({ String? region, String? type, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/codetype/byRegionType';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (region != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'region', region));
+      queryParams.addAll(_queryParams('', 'region', region));
     }
     if (type != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'type', type));
+      queryParams.addAll(_queryParams('', 'type', type));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -843,7 +799,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -859,7 +815,7 @@ class CodeApi {
   ///
   /// * [String] type:
   ///   Code type
-  Future<List<String>> listCodeTypesBy({ String region, String type, }) async {
+  Future<List<String>?> listCodeTypesBy({ String? region, String? type, }) async {
     final response = await listCodeTypesByWithHttpInfo( region: region, type: type, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -867,14 +823,14 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
         .cast<String>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<String>>.value();
+    return null;
   }
 
   /// Finding codes by code, type and version
@@ -896,30 +852,28 @@ class CodeApi {
   ///
   /// * [String] version:
   ///   Code version
-  Future<Response> listCodesByRegionTypeCodeVersionWithHttpInfo({ String region, String type, String code, String version, }) async {
-    // Verify required params are set.
-
+  Future<Response> listCodesByRegionTypeCodeVersionWithHttpInfo({ String? region, String? type, String? code, String? version, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/byRegionTypeCode';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (region != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'region', region));
+      queryParams.addAll(_queryParams('', 'region', region));
     }
     if (type != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'type', type));
+      queryParams.addAll(_queryParams('', 'type', type));
     }
     if (code != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'code', code));
+      queryParams.addAll(_queryParams('', 'code', code));
     }
     if (version != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'version', version));
+      queryParams.addAll(_queryParams('', 'version', version));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -933,7 +887,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -955,7 +909,7 @@ class CodeApi {
   ///
   /// * [String] version:
   ///   Code version
-  Future<List<CodeDto>> listCodesByRegionTypeCodeVersion({ String region, String type, String code, String version, }) async {
+  Future<List<CodeDto>?> listCodesByRegionTypeCodeVersion({ String? region, String? type, String? code, String? version, }) async {
     final response = await listCodesByRegionTypeCodeVersionWithHttpInfo( region: region, type: type, code: code, version: version, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -963,14 +917,14 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<CodeDto>') as List)
         .cast<CodeDto>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<CodeDto>>.value();
+    return null;
   }
 
   /// Finding tag types.
@@ -986,24 +940,22 @@ class CodeApi {
   ///
   /// * [String] type:
   ///   Code type
-  Future<Response> listTagTypesByWithHttpInfo({ String region, String type, }) async {
-    // Verify required params are set.
-
+  Future<Response> listTagTypesByWithHttpInfo({ String? region, String? type, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/tagtype/byRegionType';
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (region != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'region', region));
+      queryParams.addAll(_queryParams('', 'region', region));
     }
     if (type != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'type', type));
+      queryParams.addAll(_queryParams('', 'type', type));
     }
 
     const authNames = <String>[r'basicSchema'];
@@ -1017,7 +969,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1033,7 +985,7 @@ class CodeApi {
   ///
   /// * [String] type:
   ///   Code type
-  Future<List<String>> listTagTypesBy({ String region, String type, }) async {
+  Future<List<String>?> listTagTypesBy({ String? region, String? type, }) async {
     final response = await listTagTypesByWithHttpInfo( region: region, type: type, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1041,14 +993,14 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
         .cast<String>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<String>>.value();
+    return null;
   }
 
   /// Get ids of code matching the provided filter for the current user (HcParty) 
@@ -1059,16 +1011,11 @@ class CodeApi {
   ///
   /// * [AbstractFilterDtoCode] abstractFilterDtoCode (required):
   Future<Response> matchCodesByWithHttpInfo(AbstractFilterDtoCode abstractFilterDtoCode,) async {
-    // Verify required params are set.
-    if (abstractFilterDtoCode == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: abstractFilterDtoCode');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/match';
 
     // ignore: prefer_final_locals
-    Object postBody = abstractFilterDtoCode;
+    Object? postBody = abstractFilterDtoCode;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1085,7 +1032,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1095,7 +1042,7 @@ class CodeApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoCode] abstractFilterDtoCode (required):
-  Future<List<String>> matchCodesBy(AbstractFilterDtoCode abstractFilterDtoCode,) async {
+  Future<List<String>?> matchCodesBy(AbstractFilterDtoCode abstractFilterDtoCode,) async {
     final response = await matchCodesByWithHttpInfo(abstractFilterDtoCode,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1103,14 +1050,14 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
       return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
         .cast<String>()
-        .toList(growable: false);
+        .toList();
 
     }
-    return Future<List<String>>.value();
+    return null;
   }
 
   /// Modify a code
@@ -1123,16 +1070,11 @@ class CodeApi {
   ///
   /// * [CodeDto] codeDto (required):
   Future<Response> modifyCodeWithHttpInfo(CodeDto codeDto,) async {
-    // Verify required params are set.
-    if (codeDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: codeDto');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code';
 
     // ignore: prefer_final_locals
-    Object postBody = codeDto;
+    Object? postBody = codeDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1149,7 +1091,7 @@ class CodeApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
+      contentTypes.isEmpty ? null : contentTypes.first,
       authNames,
     );
   }
@@ -1161,7 +1103,7 @@ class CodeApi {
   /// Parameters:
   ///
   /// * [CodeDto] codeDto (required):
-  Future<CodeDto> modifyCode(CodeDto codeDto,) async {
+  Future<CodeDto?> modifyCode(CodeDto codeDto,) async {
     final response = await modifyCodeWithHttpInfo(codeDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1169,10 +1111,10 @@ class CodeApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CodeDto',) as CodeDto;
     
     }
-    return Future<CodeDto>.value();
+    return null;
   }
 }
