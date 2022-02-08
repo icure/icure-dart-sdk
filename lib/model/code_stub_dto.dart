@@ -96,10 +96,10 @@ class CodeStubDto {
     return null;
   }
 
-  static List<CodeStubDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
+  static Set<CodeStubDto> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+      (json is List && json.isNotEmpty
       ? json.map(CodeStubDto.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <CodeStubDto>[];
+      : true == emptyIsNull ? null : <CodeStubDto>[]).toSet();
 
   static Map<String, CodeStubDto> mapFromJson(dynamic json) {
     final map = <String, CodeStubDto>{};

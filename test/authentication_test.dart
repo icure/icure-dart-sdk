@@ -13,7 +13,7 @@ import 'package:test/test.dart';
 
 // tests for Authentication
 void main() {
-  final instance = Authentication();
+  final instance = AuthenticationDto();
 
   group('test Authentication', () {
     // Basic basic

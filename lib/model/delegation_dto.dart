@@ -94,8 +94,8 @@ class DelegationDto {
   }
 
   // maps a json object with a list of DelegationDto-objects as value to a dart map
-  static Map<String, List<DelegationDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<DelegationDto>>{};
+  static Map<String, Set<DelegationDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, Set<DelegationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -104,7 +104,7 @@ class DelegationDto {
             value,
             emptyIsNull: emptyIsNull,
             growable: growable,
-          );
+          ).toSet();
         });
     }
     return map;

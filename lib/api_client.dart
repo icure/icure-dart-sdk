@@ -237,6 +237,8 @@ class ApiClient {
           return ArticleDto.fromJson(value);
         case 'AtcDto':
           return AtcDto.fromJson(value);
+        case 'AuthenticationDto':
+          return AuthenticationDto.fromJson(value);
         case 'AuthenticationResponse':
           return AuthenticationResponse.fromJson(value);
         case 'AuthenticationTokenDto':

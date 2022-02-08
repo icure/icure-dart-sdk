@@ -368,7 +368,7 @@ class CalendarItemDto {
         wasMigrated: mapValueOfType<bool>(json, r'wasMigrated'),
         agendaId: mapValueOfType<String>(json, r'agendaId'),
         recurrenceId: mapValueOfType<String>(json, r'recurrenceId'),
-        meetingTags: CalendarItemTagDto.listFromJson(json[r'meetingTags']),
+        meetingTags: CalendarItemTagDto.listFromJson(json[r'meetingTags']).toSet(),
         flowItem: FlowItemDto.fromJson(json[r'flowItem']),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
           ? (json[r'secretForeignKeys'] as Set).cast<String>()
