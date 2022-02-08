@@ -13,6 +13,9 @@ library openapi.api;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
+
+import 'package:tuple/tuple.dart';
 
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
@@ -26,6 +29,7 @@ part 'auth/api_key_auth.dart';
 part 'auth/oauth.dart';
 part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
+part 'crypto/crypto.dart';
 
 part 'api/access_log_api.dart';
 part 'api/agenda_api.dart';
@@ -113,6 +117,7 @@ part 'model/commented_classification_dto.dart';
 part 'model/commercialization_dto.dart';
 part 'model/company_dto.dart';
 part 'model/contact_dto.dart';
+part 'model/decrypted/contact_dto.dart';
 part 'model/content_dto.dart';
 part 'model/copayment_dto.dart';
 part 'model/database_initialisation_dto.dart';
@@ -231,6 +236,7 @@ part 'model/paginated_list_vmp_group_dto.dart';
 part 'model/paragraph_agreement_dto.dart';
 part 'model/partnership_dto.dart';
 part 'model/patient_dto.dart';
+part 'model/decrypted/patient_dto.dart';
 part 'model/patient_health_care_party_dto.dart';
 part 'model/patient_registration_success_dto.dart';
 part 'model/payment_dto.dart';

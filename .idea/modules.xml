@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/icure-flutter-client.iml" filepath="$PROJECT_DIR$/.idea/icure-flutter-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/icure-dart-sdk.iml" filepath="$PROJECT_DIR$/.idea/icure-dart-sdk.iml" />
     </modules>
   </component>
 </project>
