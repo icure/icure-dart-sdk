@@ -187,15 +187,15 @@ class CodeDto {
         periodicity: PeriodicityDto.listFromJson(json[r'periodicity']).toSet(),
         level: mapValueOfType<int>(json, r'level'),
         links: json[r'links'] is Set
-          ? (json[r'links'] as Set).cast<String>()
-          : null,
+            ? (json[r'links'] as Set).cast<String>()
+            : null,
         qualifiedLinks: json[r'qualifiedLinks'] == null
-          ? null
-          : mapCastOfType<String, List>(json, r'qualifiedLinks'),
+            ? null
+            : mapCastOfType<String, List>(json, r'qualifiedLinks'),
         flags: CodeDtoFlagsEnum.listFromJson(json[r'flags']).toSet(),
         searchTerms: json[r'searchTerms'] == null
-          ? null
-          : null, //TODO mapCastOfType<String, List>(json, r'searchTerms'),
+            ? null
+            : mapCastOfType<String, Set<String>>(json, r'searchTerms'),
         data: mapValueOfType<String>(json, r'data'),
         appendices: mapCastOfType<String, String>(json, r'appendices'),
         disabled: mapValueOfType<bool>(json, r'disabled'),

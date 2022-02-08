@@ -66,11 +66,11 @@ class Section {
       final json = value.cast<String, dynamic>();
       return Section(
         section: mapValueOfType<String>(json, r'section'),
-        //TODO fields: Object.listFromJson(json[r'fields']).toSet(),
+        fields: List.from((json[r'fields' as List].cast<Object>())),
         description: mapValueOfType<String>(json, r'description'),
         keywords: json[r'keywords'] is List
-          ? (json[r'keywords'] as List).cast<String>()
-          : null,
+            ? (json[r'keywords'] as List).cast<String>()
+            : null,
       );
     }
     return null;

@@ -267,14 +267,17 @@ class UserDto {
         patientId: mapValueOfType<String>(json, r'patientId'),
         deviceId: mapValueOfType<String>(json, r'deviceId'),
         autoDelegations: json[r'autoDelegations'] == null
-          ? null
-          : null, //TODO mapCastOfType<String, List>(json, r'autoDelegations'),
+            ? null
+            : mapCastOfType<String, Set<String>>(json, r'autoDelegations'),
         createdDate: mapDateTime(json, r'createdDate', ''),
         termsOfUseDate: mapDateTime(json, r'termsOfUseDate', ''),
         email: mapValueOfType<String>(json, r'email'),
         mobilePhone: mapValueOfType<String>(json, r'mobilePhone'),
-        applicationTokens: mapCastOfType<String, String>(json, r'applicationTokens'),
-        authenticationTokens: mapValueOfType<Map<String, AuthenticationTokenDto>>(json, r'authenticationTokens'),
+        applicationTokens:
+            mapCastOfType<String, String>(json, r'applicationTokens'),
+        authenticationTokens:
+            mapValueOfType<Map<String, AuthenticationTokenDto>>(
+                json, r'authenticationTokens'),
       );
     }
     return null;
