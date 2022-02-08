@@ -162,7 +162,7 @@ class KeywordDto {
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         value: mapValueOfType<String>(json, r'value'),
-        subWords: KeywordSubwordDto.listFromJson(json[r'subWords']),
+        subWords: KeywordSubwordDto.listFromJson(json[r'subWords']).toSet(),
         userId: mapValueOfType<String>(json, r'userId'),
       );
     }

@@ -73,8 +73,8 @@ class SubstanceproductDto {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return SubstanceproductDto(
-        intendedcds: CodeStubDto.listFromJson(json[r'intendedcds']),
-        deliveredcds: CodeStubDto.listFromJson(json[r'deliveredcds']),
+        intendedcds: CodeStubDto.listFromJson(json[r'intendedcds']).toList(),
+        deliveredcds: CodeStubDto.listFromJson(json[r'deliveredcds']).toList(),
         intendedname: mapValueOfType<String>(json, r'intendedname'),
         deliveredname: mapValueOfType<String>(json, r'deliveredname'),
         productId: mapValueOfType<String>(json, r'productId'),

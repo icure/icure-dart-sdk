@@ -112,8 +112,8 @@ class CodeStubDto {
   }
 
   // maps a json object with a list of CodeStubDto-objects as value to a dart map
-  static Map<String, List<CodeStubDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<CodeStubDto>>{};
+  static Map<String, Set<CodeStubDto>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, Set<CodeStubDto>>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()

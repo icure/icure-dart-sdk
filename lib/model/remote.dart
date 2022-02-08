@@ -19,7 +19,7 @@ class Remote {
 
   String url;
 
-  Authentication auth;
+  AuthenticationDto auth;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Remote &&
@@ -52,7 +52,7 @@ class Remote {
       final json = value.cast<String, dynamic>();
       return Remote(
         url: mapValueOfType<String>(json, r'url'),
-        auth: Authentication.fromJson(json[r'auth']),
+        auth: AuthenticationDto.fromJson(json[r'auth']),
       );
     }
     return null;

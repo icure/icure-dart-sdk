@@ -87,7 +87,7 @@ class PatientHealthCarePartyDto {
         type: PatientHealthCarePartyDtoTypeEnum.fromJson(json[r'type']),
         healthcarePartyId: mapValueOfType<String>(json, r'healthcarePartyId'),
         sendFormats: mapCastOfType<String, String>(json, r'sendFormats'),
-        referralPeriods: ReferralPeriodDto.listFromJson(json[r'referralPeriods']),
+        referralPeriods: ReferralPeriodDto.listFromJson(json[r'referralPeriods']).toSet(),
         referral: mapValueOfType<bool>(json, r'referral'),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );

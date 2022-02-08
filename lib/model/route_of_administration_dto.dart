@@ -52,7 +52,7 @@ class RouteOfAdministrationDto {
       final json = value.cast<String, dynamic>();
       return RouteOfAdministrationDto(
         name: SamTextDto.fromJson(json[r'name']),
-        standardRoutes: CodeStubDto.listFromJson(json[r'standardRoutes']),
+        standardRoutes: CodeStubDto.listFromJson(json[r'standardRoutes']).toList(),
       );
     }
     return null;

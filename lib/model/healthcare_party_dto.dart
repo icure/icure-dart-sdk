@@ -449,7 +449,7 @@ class HealthcarePartyDto {
           ? (json[r'languages'] as List).cast<String>()
           : null,
         picture: mapValueOfType<String>(json, r'picture'),
-        statuses: HealthcarePartyDtoStatusesEnum.listFromJson(json[r'statuses']),
+        statuses: HealthcarePartyDtoStatusesEnum.listFromJson(json[r'statuses']).toSet(),
         statusHistory: HealthcarePartyHistoryStatusDto.listFromJson(json[r'statusHistory']),
         specialityCodes: CodeStubDto.listFromJson(json[r'specialityCodes']),
         sendFormats: mapCastOfType<String, String>(json, r'sendFormats'),
@@ -463,7 +463,7 @@ class HealthcarePartyDto {
         flatRateTarifications: FlatRateTarificationDto.listFromJson(json[r'flatRateTarifications']),
         importedData: mapCastOfType<String, String>(json, r'importedData'),
         options: mapCastOfType<String, String>(json, r'options'),
-        properties: PropertyStubDto.listFromJson(json[r'properties']),
+        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null
           ? null
           : mapCastOfType<String, List>(json, r'hcPartyKeys'),

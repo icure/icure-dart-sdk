@@ -28,7 +28,7 @@ class ImportMapping {
 
   Map<String, String> label;
 
-  Set<CodeStub> tags;
+  Set<CodeStubDto> tags;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ImportMapping &&
@@ -77,7 +77,7 @@ class ImportMapping {
         content: mapValueOfType<String>(json, r'content'),
         cdLocal: mapValueOfType<String>(json, r'cdLocal'),
         label: mapCastOfType<String, String>(json, r'label'),
-        tags: CodeStub.listFromJson(json[r'tags']),
+        tags: CodeStubDto.listFromJson(json[r'tags']),
       );
     }
     return null;

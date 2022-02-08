@@ -25,8 +25,6 @@ class ReplicatorDocumentDto {
     this.replicationStateTime,
     this.replicationStats,
     this.errorCount,
-    this.revsInfo = const [],
-    this.revHistory = const {},
   });
 
   String id;
@@ -70,9 +68,7 @@ class ReplicatorDocumentDto {
      other.replicationState == replicationState &&
      other.replicationStateTime == replicationStateTime &&
      other.replicationStats == replicationStats &&
-     other.errorCount == errorCount &&
-     other.revsInfo == revsInfo &&
-     other.revHistory == revHistory;
+     other.errorCount == errorCount;
 
   @override
   int get hashCode =>
@@ -88,12 +84,10 @@ class ReplicatorDocumentDto {
     (replicationState == null ? 0 : replicationState.hashCode) +
     (replicationStateTime == null ? 0 : replicationStateTime.hashCode) +
     (replicationStats == null ? 0 : replicationStats.hashCode) +
-    (errorCount == null ? 0 : errorCount.hashCode) +
-    (revsInfo == null ? 0 : revsInfo.hashCode) +
-    (revHistory == null ? 0 : revHistory.hashCode);
+    (errorCount == null ? 0 : errorCount.hashCode);
 
   @override
-  String toString() => 'ReplicatorDocumentDto[id=$id, rev=$rev, source_=$source_, target=$target, owner=$owner, createTarget=$createTarget, continuous=$continuous, docIds=$docIds, replicationState=$replicationState, replicationStateTime=$replicationStateTime, replicationStats=$replicationStats, errorCount=$errorCount, revsInfo=$revsInfo, revHistory=$revHistory]';
+  String toString() => 'ReplicatorDocumentDto[id=$id, rev=$rev, source_=$source_, target=$target, owner=$owner, createTarget=$createTarget, continuous=$continuous, docIds=$docIds, replicationState=$replicationState, replicationStateTime=$replicationStateTime, replicationStats=$replicationStats, errorCount=$errorCount]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -131,12 +125,6 @@ class ReplicatorDocumentDto {
     if (errorCount != null) {
       json[r'errorCount'] = errorCount;
     }
-    if (revsInfo != null) {
-      json[r'revsInfo'] = revsInfo;
-    }
-    if (revHistory != null) {
-      json[r'revHistory'] = revHistory;
-    }
     return json;
   }
 
@@ -161,8 +149,6 @@ class ReplicatorDocumentDto {
         replicationStateTime: mapDateTime(json, r'replicationStateTime', ''),
         replicationStats: ReplicationStatsDto.fromJson(json[r'replicationStats']),
         errorCount: mapValueOfType<int>(json, r'errorCount'),
-        revsInfo: Map.listFromJson(json[r'revsInfo']),
-        revHistory: mapCastOfType<String, String>(json, r'revHistory'),
       );
     }
     return null;

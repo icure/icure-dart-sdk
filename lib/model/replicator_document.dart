@@ -25,8 +25,6 @@ class ReplicatorDocument {
     this.replicationStateTime,
     this.replicationStats,
     this.errorCount,
-    this.revsInfo = const [],
-    this.revHistory = const {},
   });
 
   String id;
@@ -53,10 +51,6 @@ class ReplicatorDocument {
 
   int errorCount;
 
-  List<Map<String, String>> revsInfo;
-
-  Map<String, String> revHistory;
-
   @override
   bool operator ==(Object other) => identical(this, other) || other is ReplicatorDocument &&
      other.id == id &&
@@ -70,9 +64,7 @@ class ReplicatorDocument {
      other.replicationState == replicationState &&
      other.replicationStateTime == replicationStateTime &&
      other.replicationStats == replicationStats &&
-     other.errorCount == errorCount &&
-     other.revsInfo == revsInfo &&
-     other.revHistory == revHistory;
+     other.errorCount == errorCount;
 
   @override
   int get hashCode =>
@@ -88,12 +80,10 @@ class ReplicatorDocument {
     (replicationState == null ? 0 : replicationState.hashCode) +
     (replicationStateTime == null ? 0 : replicationStateTime.hashCode) +
     (replicationStats == null ? 0 : replicationStats.hashCode) +
-    (errorCount == null ? 0 : errorCount.hashCode) +
-    (revsInfo == null ? 0 : revsInfo.hashCode) +
-    (revHistory == null ? 0 : revHistory.hashCode);
+    (errorCount == null ? 0 : errorCount.hashCode);
 
   @override
-  String toString() => 'ReplicatorDocument[id=$id, rev=$rev, source_=$source_, target=$target, owner=$owner, createTarget=$createTarget, continuous=$continuous, docIds=$docIds, replicationState=$replicationState, replicationStateTime=$replicationStateTime, replicationStats=$replicationStats, errorCount=$errorCount, revsInfo=$revsInfo, revHistory=$revHistory]';
+  String toString() => 'ReplicatorDocument[id=$id, rev=$rev, source_=$source_, target=$target, owner=$owner, createTarget=$createTarget, continuous=$continuous, docIds=$docIds, replicationState=$replicationState, replicationStateTime=$replicationStateTime, replicationStats=$replicationStats, errorCount=$errorCount';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -131,12 +121,6 @@ class ReplicatorDocument {
     if (errorCount != null) {
       json[r'error_count'] = errorCount;
     }
-    if (revsInfo != null) {
-      json[r'_revs_info'] = revsInfo;
-    }
-    if (revHistory != null) {
-      json[r'rev_history'] = revHistory;
-    }
     return json;
   }
 
@@ -161,8 +145,6 @@ class ReplicatorDocument {
         replicationStateTime: mapDateTime(json, r'_replication_state_time', ''),
         replicationStats: ReplicationStats.fromJson(json[r'_replication_stats']),
         errorCount: mapValueOfType<int>(json, r'error_count'),
-        revsInfo: Map.listFromJson(json[r'_revs_info']),
-        revHistory: mapCastOfType<String, String>(json, r'rev_history'),
       );
     }
     return null;

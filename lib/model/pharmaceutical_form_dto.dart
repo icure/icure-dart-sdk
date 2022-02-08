@@ -87,7 +87,7 @@ class PharmaceuticalFormDto {
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         code: mapValueOfType<String>(json, r'code'),
         name: SamTextDto.fromJson(json[r'name']),
-        standardForms: CodeStubDto.listFromJson(json[r'standardForms']),
+        standardForms: CodeStubDto.listFromJson(json[r'standardForms']).toList(),
       );
     }
     return null;

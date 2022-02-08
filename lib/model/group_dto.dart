@@ -120,7 +120,7 @@ class GroupDto {
           ? (json[r'servers'] as List).cast<String>()
           : null,
         superAdmin: mapValueOfType<bool>(json, r'superAdmin'),
-        properties: PropertyStubDto.listFromJson(json[r'properties']),
+        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
         superGroup: mapValueOfType<String>(json, r'superGroup'),
       );
     }

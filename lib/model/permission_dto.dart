@@ -51,8 +51,8 @@ class PermissionDto {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return PermissionDto(
-        grants: PermissionItemDto.listFromJson(json[r'grants']),
-        revokes: PermissionItemDto.listFromJson(json[r'revokes']),
+        grants: PermissionItemDto.listFromJson(json[r'grants']).toSet(),
+        revokes: PermissionItemDto.listFromJson(json[r'revokes']).toSet(),
       );
     }
     return null;

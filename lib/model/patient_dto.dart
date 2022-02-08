@@ -690,11 +690,11 @@ class PatientDto {
         patientHealthCareParties: PatientHealthCarePartyDto.listFromJson(json[r'patientHealthCareParties']),
         financialInstitutionInformation: FinancialInstitutionInformationDto.listFromJson(json[r'financialInstitutionInformation']),
         medicalHouseContracts: MedicalHouseContractDto.listFromJson(json[r'medicalHouseContracts']),
-        patientProfessions: CodeStubDto.listFromJson(json[r'patientProfessions']),
+        patientProfessions: CodeStubDto.listFromJson(json[r'patientProfessions']).toList(),
         parameters: json[r'parameters'] == null
           ? null
           : mapCastOfType<String, List>(json, r'parameters'),
-        properties: PropertyStubDto.listFromJson(json[r'properties']),
+        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null
           ? null
           : mapCastOfType<String, List>(json, r'hcPartyKeys'),

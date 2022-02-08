@@ -43,7 +43,7 @@ class ListOfPropertiesDto {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return ListOfPropertiesDto(
-        properties: PropertyStubDto.listFromJson(json[r'properties']),
+        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
       );
     }
     return null;

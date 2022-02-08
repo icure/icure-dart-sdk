@@ -195,7 +195,7 @@ class CodeDto {
         flags: CodeDtoFlagsEnum.listFromJson(json[r'flags']).toSet(),
         searchTerms: json[r'searchTerms'] == null
           ? null
-          : mapCastOfType<String, List>(json, r'searchTerms'),
+          : null, //TODO mapCastOfType<String, List>(json, r'searchTerms'),
         data: mapValueOfType<String>(json, r'data'),
         appendices: mapCastOfType<String, String>(json, r'appendices'),
         disabled: mapValueOfType<bool>(json, r'disabled'),

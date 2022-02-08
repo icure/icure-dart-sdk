@@ -151,7 +151,7 @@ class FrontEndMigrationDto {
         startKey: mapValueOfType<String>(json, r'startKey'),
         startKeyDocId: mapValueOfType<String>(json, r'startKeyDocId'),
         processCount: mapValueOfType<int>(json, r'processCount'),
-        properties: PropertyStubDto.listFromJson(json[r'properties']),
+        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
       );
     }
     return null;

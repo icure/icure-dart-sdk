@@ -277,8 +277,8 @@ class ContactDto {
         location: mapValueOfType<String>(json, r'location'),
         externalId: mapValueOfType<String>(json, r'externalId'),
         encounterType: CodeStubDto.fromJson(json[r'encounterType']),
-        subContacts: SubContactDto.listFromJson(json[r'subContacts']),
-        services: ServiceDto.listFromJson(json[r'services']),
+        subContacts: SubContactDto.listFromJson(json[r'subContacts']).toSet(),
+        services: ServiceDto.listFromJson(json[r'services']).toSet(),
         healthcarePartyId: mapValueOfType<String>(json, r'healthcarePartyId'),
         modifiedContactId: mapValueOfType<String>(json, r'modifiedContactId'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set

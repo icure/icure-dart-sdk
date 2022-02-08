@@ -125,7 +125,7 @@ class EntityTemplateDto {
         entityType: mapValueOfType<String>(json, r'entityType'),
         subType: mapValueOfType<String>(json, r'subType'),
         defaultTemplate: mapValueOfType<bool>(json, r'defaultTemplate'),
-        entity: Map.listFromJson(json[r'entity']),
+        entity: null //TODO Map.listFromJson(json[r'entity']),
       );
     }
     return null;
