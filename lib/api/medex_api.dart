@@ -39,7 +39,7 @@ class MedexApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 

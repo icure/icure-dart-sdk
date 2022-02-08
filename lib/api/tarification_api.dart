@@ -41,7 +41,7 @@ class TarificationApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -132,7 +132,7 @@ class TarificationApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -227,7 +227,7 @@ class TarificationApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'version', version));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -331,7 +331,7 @@ class TarificationApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -408,7 +408,7 @@ class TarificationApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -488,7 +488,7 @@ class TarificationApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -558,7 +558,7 @@ class TarificationApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -624,7 +624,7 @@ class TarificationApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 

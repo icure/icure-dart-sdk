@@ -82,7 +82,7 @@ class GroupApi {
 
     headerParams[r'password'] = parameterToString(password);
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -165,7 +165,7 @@ class GroupApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -229,7 +229,7 @@ class GroupApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -306,7 +306,7 @@ class GroupApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'warmup', warmup));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -367,7 +367,7 @@ class GroupApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -438,7 +438,7 @@ class GroupApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -512,7 +512,7 @@ class GroupApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -578,7 +578,7 @@ class GroupApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -661,7 +661,7 @@ class GroupApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'n', n));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -743,7 +743,7 @@ class GroupApi {
 
     headerParams[r'password'] = parameterToString(password);
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -825,7 +825,7 @@ class GroupApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'warmup', warmup));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 

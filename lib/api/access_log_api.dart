@@ -39,7 +39,7 @@ class AccessLogApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -98,7 +98,7 @@ class AccessLogApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -186,7 +186,7 @@ class AccessLogApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'descending', descending));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -294,7 +294,7 @@ class AccessLogApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'descending', descending));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -373,7 +373,7 @@ class AccessLogApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -440,7 +440,7 @@ class AccessLogApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -504,7 +504,7 @@ class AccessLogApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 

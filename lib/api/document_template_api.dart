@@ -41,7 +41,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -102,7 +102,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -171,7 +171,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -233,7 +233,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -299,7 +299,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -351,7 +351,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -400,7 +400,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -459,7 +459,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -522,7 +522,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -585,7 +585,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -655,7 +655,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -724,7 +724,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -791,7 +791,7 @@ class DocumentTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 

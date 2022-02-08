@@ -42,7 +42,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -102,7 +102,7 @@ class UserApi {
 
     headerParams[r'password'] = parameterToString(password);
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -167,7 +167,7 @@ class UserApi {
 
     headerParams[r'token'] = parameterToString(token);
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -230,7 +230,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -299,7 +299,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -365,7 +365,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -435,7 +435,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -497,7 +497,7 @@ class UserApi {
 
     headerParams[r'password'] = parameterToString(password);
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -569,7 +569,7 @@ class UserApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -637,7 +637,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -706,7 +706,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -761,7 +761,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -811,7 +811,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -861,7 +861,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -936,7 +936,7 @@ class UserApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'tokenValidity', tokenValidity));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1004,7 +1004,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1068,7 +1068,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1145,7 +1145,7 @@ class UserApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1235,7 +1235,7 @@ class UserApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1305,7 +1305,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1372,7 +1372,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1437,7 +1437,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1506,7 +1506,7 @@ class UserApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 

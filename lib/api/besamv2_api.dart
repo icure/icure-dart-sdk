@@ -43,7 +43,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -131,7 +131,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -225,7 +225,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -319,7 +319,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -418,7 +418,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -515,7 +515,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -609,7 +609,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -708,7 +708,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -810,7 +810,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -907,7 +907,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1001,7 +1001,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1095,7 +1095,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1194,7 +1194,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1291,7 +1291,7 @@ class Besamv2Api {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1355,7 +1355,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1414,7 +1414,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1480,7 +1480,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1546,7 +1546,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1612,7 +1612,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1678,7 +1678,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1744,7 +1744,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1799,7 +1799,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1848,7 +1848,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -1908,7 +1908,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1974,7 +1974,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -2040,7 +2040,7 @@ class Besamv2Api {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 

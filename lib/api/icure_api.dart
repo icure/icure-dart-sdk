@@ -30,7 +30,7 @@ class IcureApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -76,7 +76,7 @@ class IcureApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -122,7 +122,7 @@ class IcureApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -178,7 +178,7 @@ class IcureApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -228,7 +228,7 @@ class IcureApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -274,7 +274,7 @@ class IcureApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -330,7 +330,7 @@ class IcureApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -398,7 +398,7 @@ class IcureApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -463,7 +463,7 @@ class IcureApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -526,7 +526,7 @@ class IcureApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -589,7 +589,7 @@ class IcureApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -652,7 +652,7 @@ class IcureApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -715,7 +715,7 @@ class IcureApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -784,7 +784,7 @@ class IcureApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'warmup', warmup));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 

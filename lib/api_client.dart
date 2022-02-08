@@ -13,8 +13,13 @@ part of openapi.api;
 class ApiClient {
   ApiClient({this.basePath = 'https://kraken.icure.dev'}) {
     // Setup authentications (key: authentication name, value: authentication).
-    _authentications[r'basicSchema'] = HttpBasicAuth();
+    _authentications[r'basicSchema'] = HttpBasicAuth("", "");
   }
+
+  ApiClient.basic(this.basePath, String userName, String password) {
+    _authentications[r'basicSchema'] = HttpBasicAuth(userName, password);
+  }
+
 
   final String basePath;
 

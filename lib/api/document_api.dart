@@ -39,7 +39,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -99,7 +99,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -158,7 +158,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -223,7 +223,7 @@ class DocumentApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -288,7 +288,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -365,7 +365,7 @@ class DocumentApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'fileName', fileName));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -431,7 +431,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -490,7 +490,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -553,7 +553,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -631,7 +631,7 @@ class DocumentApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -709,7 +709,7 @@ class DocumentApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -775,7 +775,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -836,7 +836,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -912,7 +912,7 @@ class DocumentApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'enckeys', enckeys));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -987,7 +987,7 @@ class DocumentApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'enckeys', enckeys));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['multipart/form-data'];
 
     bool hasFields = false;
@@ -1061,7 +1061,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1137,7 +1137,7 @@ class DocumentApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'enckeys', enckeys));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 

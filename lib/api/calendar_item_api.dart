@@ -39,7 +39,7 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -99,7 +99,7 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -161,7 +161,7 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -231,7 +231,7 @@ class CalendarItemApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'secretFKeys', secretFKeys));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -297,7 +297,7 @@ class CalendarItemApi {
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'recurrenceId', recurrenceId));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -360,7 +360,7 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -410,7 +410,7 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -482,7 +482,7 @@ class CalendarItemApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'endDate', endDate));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'hcPartyId', hcPartyId));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -545,7 +545,7 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -621,7 +621,7 @@ class CalendarItemApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'endDate', endDate));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'agendaId', agendaId));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -687,7 +687,7 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -746,7 +746,7 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 

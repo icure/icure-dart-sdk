@@ -69,7 +69,7 @@ class BeresultexportApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -174,7 +174,7 @@ class BeresultexportApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'mimeType', mimeType));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -275,7 +275,7 @@ class BeresultexportApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 

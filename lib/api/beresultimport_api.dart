@@ -47,7 +47,7 @@ class BeresultimportApi {
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'enckeys', enckeys));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -152,7 +152,7 @@ class BeresultimportApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'enckeys', enckeys));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'ctc', ctc));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -244,7 +244,7 @@ class BeresultimportApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'full', full));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 

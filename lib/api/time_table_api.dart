@@ -39,7 +39,7 @@ class TimeTableApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -98,7 +98,7 @@ class TimeTableApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -161,7 +161,7 @@ class TimeTableApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -222,7 +222,7 @@ class TimeTableApi {
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'agendaId', agendaId));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -298,7 +298,7 @@ class TimeTableApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'endDate', endDate));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'agendaId', agendaId));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -364,7 +364,7 @@ class TimeTableApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 

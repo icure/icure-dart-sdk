@@ -78,7 +78,7 @@ class AnonymousAccessApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -178,7 +178,7 @@ class AnonymousAccessApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'startDate', startDate));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'endDate', endDate));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -254,7 +254,7 @@ class AnonymousAccessApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 

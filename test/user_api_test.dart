@@ -14,7 +14,7 @@ import 'package:test/test.dart';
 
 /// tests for UserApi
 void main() {
-  final instance = UserApi();
+  final instance = UserApi(ApiClient.basic('https://kraken.icure.dev', 'abdemotst2', '27b90f6e-6847-44bf-b90f-6e6847b4bf1c'));
 
   group('tests for UserApi', () {
     // Assign a healthcare party ID to current user
@@ -117,7 +117,8 @@ void main() {
     //
     //Future<UserDto> getCurrentUser() async
     test('test getCurrentUser', () async {
-      // TODO
+      UserDto res = await instance.getCurrentUser();
+      assert(res.login == 'abdemotst2');
     });
 
     // Get presently logged-in user.
@@ -172,7 +173,7 @@ void main() {
       // TODO
     });
 
-    // Get ids of healthcare party matching the provided filter for the current user (HcParty) 
+    // Get ids of healthcare party matching the provided filter for the current user (HcParty)
     //
     //Future<List<String>> matchUsersBy(AbstractFilterDtoUser abstractFilterDtoUser) async
     test('test matchUsersBy', () async {

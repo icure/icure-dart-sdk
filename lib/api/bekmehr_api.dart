@@ -58,7 +58,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -183,7 +183,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'recipientLastName', recipientLastName));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'mimeType', mimeType));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -273,7 +273,7 @@ class BekmehrApi {
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -391,7 +391,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'recipientLastName', recipientLastName));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'mimeType', mimeType));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -493,7 +493,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'recipientSafe', recipientSafe));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'version', version));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -615,7 +615,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'recipientLastName', recipientLastName));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'mimeType', mimeType));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -699,7 +699,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -815,7 +815,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'recipientLastName', recipientLastName));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'mimeType', mimeType));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -947,7 +947,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'recipientLastName', recipientLastName));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'mimeType', mimeType));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -1079,7 +1079,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'recipientLastName', recipientLastName));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'mimeType', mimeType));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -1211,7 +1211,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'recipientLastName', recipientLastName));
       queryParams.addAll(_convertParametersForCollectionFormat('', 'mimeType', mimeType));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/octet-stream'];
 
 
@@ -1301,7 +1301,7 @@ class BekmehrApi {
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1377,7 +1377,7 @@ class BekmehrApi {
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1453,7 +1453,7 @@ class BekmehrApi {
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1522,7 +1522,7 @@ class BekmehrApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1589,7 +1589,7 @@ class BekmehrApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1656,7 +1656,7 @@ class BekmehrApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1723,7 +1723,7 @@ class BekmehrApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1809,7 +1809,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -1906,7 +1906,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'dryRun', dryRun));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -2003,7 +2003,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -2107,7 +2107,7 @@ class BekmehrApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -2188,7 +2188,7 @@ class BekmehrApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -2255,7 +2255,7 @@ class BekmehrApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -2329,7 +2329,7 @@ class BekmehrApi {
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -2405,7 +2405,7 @@ class BekmehrApi {
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'language', language));
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 

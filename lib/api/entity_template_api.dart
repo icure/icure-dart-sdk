@@ -41,7 +41,7 @@ class EntityTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -104,7 +104,7 @@ class EntityTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -168,7 +168,7 @@ class EntityTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -245,7 +245,7 @@ class EntityTemplateApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'includeEntities', includeEntities));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -317,7 +317,7 @@ class EntityTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -381,7 +381,7 @@ class EntityTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -459,7 +459,7 @@ class EntityTemplateApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'includeEntities', includeEntities));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -547,7 +547,7 @@ class EntityTemplateApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'includeEntities', includeEntities));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -638,7 +638,7 @@ class EntityTemplateApi {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'includeEntities', includeEntities));
     }
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
 
 
@@ -710,7 +710,7 @@ class EntityTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
@@ -773,7 +773,7 @@ class EntityTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>[];
+    const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
 
 
