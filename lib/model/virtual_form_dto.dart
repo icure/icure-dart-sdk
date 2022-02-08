@@ -52,7 +52,7 @@ class VirtualFormDto {
       final json = value.cast<String, dynamic>();
       return VirtualFormDto(
         name: SamTextDto.fromJson(json[r'name']),
-        standardForms: CodeStubDto.listFromJson(json[r'standardForms']),
+        standardForms: CodeStubDto.listFromJson(json[r'standardForms']).toList(),
       );
     }
     return null;

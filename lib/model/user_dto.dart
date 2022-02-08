@@ -251,8 +251,8 @@ class UserDto {
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         created: mapValueOfType<int>(json, r'created'),
         name: mapValueOfType<String>(json, r'name'),
-        properties: PropertyStubDto.listFromJson(json[r'properties']),
-        permissions: PermissionDto.listFromJson(json[r'permissions']),
+        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
+        permissions: PermissionDto.listFromJson(json[r'permissions']).toSet(),
         roles: json[r'roles'] is Set
           ? (json[r'roles'] as Set).cast<String>()
           : null,
@@ -268,7 +268,7 @@ class UserDto {
         deviceId: mapValueOfType<String>(json, r'deviceId'),
         autoDelegations: json[r'autoDelegations'] == null
           ? null
-          : mapCastOfType<String, List>(json, r'autoDelegations'),
+          : null, //TODO mapCastOfType<String, List>(json, r'autoDelegations'),
         createdDate: mapDateTime(json, r'createdDate', ''),
         termsOfUseDate: mapDateTime(json, r'termsOfUseDate', ''),
         email: mapValueOfType<String>(json, r'email'),

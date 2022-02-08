@@ -249,7 +249,7 @@ class DeviceDto {
         picture: json[r'picture'] is List
           ? (json[r'picture'] as List).cast<String>()
           : null,
-        properties: PropertyStubDto.listFromJson(json[r'properties']).set(),
+        properties: PropertyStubDto.listFromJson(json[r'properties']).toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null
           ? null
           : mapCastOfType<String, List>(json, r'hcPartyKeys'),

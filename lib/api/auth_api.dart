@@ -74,7 +74,7 @@ class AuthApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AuthenticationResponse',) as AuthenticationResponse;
-    
+
     }
     return Future<AuthenticationResponse>.value();
   }
@@ -124,7 +124,7 @@ class AuthApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AuthenticationResponse',) as AuthenticationResponse;
-    
+
     }
     return Future<AuthenticationResponse>.value();
   }
@@ -174,7 +174,7 @@ class AuthApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AuthenticationResponse',) as AuthenticationResponse;
-    
+
     }
     return Future<AuthenticationResponse>.value();
   }
@@ -190,19 +190,19 @@ class AuthApi {
   /// * [String] method (required):
   ///
   /// * [String] path (required):
-  Future<Response> tokenWithHttpInfo(String method, String path,) async {
+  Future<Response> tokenWithHttpInfo(String method, String bpath,) async {
     // Verify required params are set.
     if (method == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: method');
     }
-    if (path == null) {
+    if (bpath == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: path');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/auth/token/{method}/{path}'
       .replaceAll('{method}', method)
-      .replaceAll('{path}', path);
+      .replaceAll('{path}', bpath);
 
     // ignore: prefer_final_locals
     Object postBody;
@@ -246,7 +246,7 @@ class AuthApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+
     }
     return Future<String>.value();
   }
