@@ -238,30 +238,32 @@ class TarificationDto {
         version: mapValueOfType<String>(json, r'version'),
         author: mapValueOfType<String>(json, r'author'),
         regions: json[r'regions'] is Set
-          ? (json[r'regions'] as Set).cast<String>()
-          : null,
+            ? (json[r'regions'] as Set).cast<String>()
+            : null,
         periodicity: PeriodicityDto.listFromJson(json[r'periodicity']),
         level: mapValueOfType<int>(json, r'level'),
         links: json[r'links'] is List
-          ? (json[r'links'] as List).cast<String>()
-          : null,
+            ? (json[r'links'] as List).cast<String>()
+            : null,
         qualifiedLinks: json[r'qualifiedLinks'] == null
-          ? null
-          : mapCastOfType<String, List>(json, r'qualifiedLinks'),
-        //TODO flags: CodeDtoFlagsEnum.listFromJson(json[r'flags']).toList(),
+            ? null
+            : mapCastOfType<String, List>(json, r'qualifiedLinks'),
+        flags: CodeDtoFlagsEnum.listFromJson(json[r'flags']).map((it) =>
+            it.toString()).toSet(),
         searchTerms: json[r'searchTerms'] == null
-          ? null
-          : null, //TODO mapCastOfType<String, List>(json, r'searchTerms'),
+            ? null
+            : mapCastOfType<String, Set<String>>(json, r'searchTerms'),
         data: mapValueOfType<String>(json, r'data'),
         appendices: mapCastOfType<String, String>(json, r'appendices'),
         disabled: mapValueOfType<bool>(json, r'disabled'),
-        valorisations: ValorisationDto.listFromJson(json[r'valorisations']).toSet(),
+        valorisations: ValorisationDto.listFromJson(json[r'valorisations'])
+            .toSet(),
         category: mapCastOfType<String, String>(json, r'category'),
         consultationCode: mapValueOfType<bool>(json, r'consultationCode'),
         hasRelatedCode: mapValueOfType<bool>(json, r'hasRelatedCode'),
         needsPrescriber: mapValueOfType<bool>(json, r'needsPrescriber'),
         relatedCodes: json[r'relatedCodes'] is Set
-          ? (json[r'relatedCodes'] as Set).cast<String>()
+            ? (json[r'relatedCodes'] as Set).cast<String>()
           : null,
         ngroup: mapValueOfType<String>(json, r'ngroup'),
         letterValues: LetterValueDto.listFromJson(json[r'letterValues']),

@@ -120,12 +120,13 @@ class EntityTemplateDto {
         userId: mapValueOfType<String>(json, r'userId'),
         descr: mapValueOfType<String>(json, r'descr'),
         keywords: json[r'keywords'] is Set
-          ? (json[r'keywords'] as Set).cast<String>()
-          : null,
+            ? (json[r'keywords'] as Set).cast<String>()
+            : null,
         entityType: mapValueOfType<String>(json, r'entityType'),
         subType: mapValueOfType<String>(json, r'subType'),
         defaultTemplate: mapValueOfType<bool>(json, r'defaultTemplate'),
-        entity: null //TODO Map.listFromJson(json[r'entity']),
+        entity:
+            List.from((json[r'entity' as List].cast<Map<String, Object>>())),
       );
     }
     return null;
