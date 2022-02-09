@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class DecryptedContactDto {
-  /// Returns a new [DecryptedContactDto] instance.
-  DecryptedContactDto({
+class DecryptedFormDto {
+  /// Returns a new [DecryptedFormDto] instance.
+  DecryptedFormDto({
     required this.id,
     this.rev,
     this.created,
@@ -24,17 +24,17 @@ class DecryptedContactDto {
     this.codes = const {},
     this.endOfLife,
     this.deletionDate,
-    this.groupId,
     this.openingDate,
-    this.closingDate,
+    this.status,
+    this.version,
+    this.logicalUuid,
     this.descr,
-    this.location,
-    this.externalId,
-    this.encounterType,
-    this.subContacts = const {},
-    this.services = const {},
-    this.healthcarePartyId,
-    this.modifiedContactId,
+    this.uniqueId,
+    this.formTemplateId,
+    this.contactId,
+    this.healthElementId,
+    this.planOfActionId,
+    this.parent,
     this.secretForeignKeys = const {},
     this.cryptedForeignKeys = const {},
     this.delegations = const {},
@@ -42,10 +42,10 @@ class DecryptedContactDto {
     this.encryptedSelf,
   });
 
-  /// the Id of the contact. We encourage using either a v4 UUID or a HL7 Id.
+  /// the Id of the form. We encourage using either a v4 UUID or a HL7 Id.
   String id;
 
-  /// the revision of the contact in the database, used for conflict management / optimistic locking.
+  /// the revision of the form in the database, used for conflict management / optimistic locking.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -123,16 +123,6 @@ class DecryptedContactDto {
   ///
   int? deletionDate;
 
-  /// Separate contacts can merged in one logical contact if they share the same groupId. When a contact must be split to selectively assign rights to healthcare parties, the split contacts all share the same groupId
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? groupId;
-
-  /// The date (YYYYMMDDhhmmss) of the start of the contact.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -141,16 +131,31 @@ class DecryptedContactDto {
   ///
   int? openingDate;
 
-  /// The date (YYYYMMDDhhmmss) marking the end of the contact.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  int? closingDate;
+  String? status;
 
-  /// Description of the contact
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? version;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? logicalUuid;
+
+  /// Name/basic description of the form
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -159,53 +164,59 @@ class DecryptedContactDto {
   ///
   String? descr;
 
-  /// Location where the contact was recorded.
+  /// A unique external id (from another external source).
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? location;
+  String? uniqueId;
 
-  /// An external (from another source) id with no guarantee or requirement for unicity.
+  /// Id of the form template being used to display the form
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? externalId;
+  String? formTemplateId;
 
+  /// Id of the contact for which the form is being used.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodeStubDto? encounterType;
+  String? contactId;
 
-  /// Set of all sub-contacts recorded during the given contact. Sub-contacts are used to link services embedded inside this contact to healthcare elements, healthcare approaches and/or forms.
-  Set<SubContactDto> subContacts;
-
-  /// Set of all services provided to the patient during the contact.
-  Set<ServiceDto> services;
-
+  /// The healthcare element to which this form is attached.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? healthcarePartyId;
+  String? healthElementId;
 
+  /// The healthcare approach to which this form is attached.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? modifiedContactId;
+  String? planOfActionId;
+
+  /// The parent of this form, used to determine the forms hierarchy
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? parent;
 
   /// The secretForeignKeys are filled at the to many end of a one to many relationship (for example inside Contact for the Patient -> Contacts relationship). Used when we want to find all contacts for a specific patient. These keys are in clear. You can have several to partition the medical document space.
   Set<String> secretForeignKeys;
@@ -231,39 +242,39 @@ class DecryptedContactDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DecryptedContactDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.created == created &&
-          other.modified == modified &&
-          other.author == author &&
-          other.responsible == responsible &&
-          other.medicalLocationId == medicalLocationId &&
-          other.tags == tags &&
-          other.codes == codes &&
-          other.endOfLife == endOfLife &&
-          other.deletionDate == deletionDate &&
-          other.groupId == groupId &&
-          other.openingDate == openingDate &&
-          other.closingDate == closingDate &&
-          other.descr == descr &&
-          other.location == location &&
-          other.externalId == externalId &&
-          other.encounterType == encounterType &&
-          other.subContacts == subContacts &&
-          other.services == services &&
-          other.healthcarePartyId == healthcarePartyId &&
-          other.modifiedContactId == modifiedContactId &&
-          other.secretForeignKeys == secretForeignKeys &&
-          other.cryptedForeignKeys == cryptedForeignKeys &&
-          other.delegations == delegations &&
-          other.encryptionKeys == encryptionKeys &&
-          other.encryptedSelf == encryptedSelf;
+          other is DecryptedFormDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.created == created &&
+              other.modified == modified &&
+              other.author == author &&
+              other.responsible == responsible &&
+              other.medicalLocationId == medicalLocationId &&
+              other.tags == tags &&
+              other.codes == codes &&
+              other.endOfLife == endOfLife &&
+              other.deletionDate == deletionDate &&
+              other.openingDate == openingDate &&
+              other.status == status &&
+              other.version == version &&
+              other.logicalUuid == logicalUuid &&
+              other.descr == descr &&
+              other.uniqueId == uniqueId &&
+              other.formTemplateId == formTemplateId &&
+              other.contactId == contactId &&
+              other.healthElementId == healthElementId &&
+              other.planOfActionId == planOfActionId &&
+              other.parent == parent &&
+              other.secretForeignKeys == secretForeignKeys &&
+              other.cryptedForeignKeys == cryptedForeignKeys &&
+              other.delegations == delegations &&
+              other.encryptionKeys == encryptionKeys &&
+              other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (id.hashCode) +
+  (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -274,17 +285,17 @@ class DecryptedContactDto {
       (codes.hashCode) +
       (endOfLife == null ? 0 : endOfLife!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
-      (groupId == null ? 0 : groupId!.hashCode) +
       (openingDate == null ? 0 : openingDate!.hashCode) +
-      (closingDate == null ? 0 : closingDate!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (logicalUuid == null ? 0 : logicalUuid!.hashCode) +
       (descr == null ? 0 : descr!.hashCode) +
-      (location == null ? 0 : location!.hashCode) +
-      (externalId == null ? 0 : externalId!.hashCode) +
-      (encounterType == null ? 0 : encounterType!.hashCode) +
-      (subContacts.hashCode) +
-      (services.hashCode) +
-      (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
-      (modifiedContactId == null ? 0 : modifiedContactId!.hashCode) +
+      (uniqueId == null ? 0 : uniqueId!.hashCode) +
+      (formTemplateId == null ? 0 : formTemplateId!.hashCode) +
+      (contactId == null ? 0 : contactId!.hashCode) +
+      (healthElementId == null ? 0 : healthElementId!.hashCode) +
+      (planOfActionId == null ? 0 : planOfActionId!.hashCode) +
+      (parent == null ? 0 : parent!.hashCode) +
       (secretForeignKeys.hashCode) +
       (cryptedForeignKeys.hashCode) +
       (delegations.hashCode) +
@@ -293,7 +304,7 @@ class DecryptedContactDto {
 
   @override
   String toString() =>
-      'DecryptedContactDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, groupId=$groupId, openingDate=$openingDate, closingDate=$closingDate, descr=$descr, location=$location, externalId=$externalId, encounterType=$encounterType, subContacts=$subContacts, services=$services, healthcarePartyId=$healthcarePartyId, modifiedContactId=$modifiedContactId, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+      'DecryptedFormDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, openingDate=$openingDate, status=$status, version=$version, logicalUuid=$logicalUuid, descr=$descr, uniqueId=$uniqueId, formTemplateId=$formTemplateId, contactId=$contactId, healthElementId=$healthElementId, planOfActionId=$planOfActionId, parent=$parent, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -324,34 +335,38 @@ class DecryptedContactDto {
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-    if (groupId != null) {
-      json[r'groupId'] = groupId;
-    }
     if (openingDate != null) {
       json[r'openingDate'] = openingDate;
     }
-    if (closingDate != null) {
-      json[r'closingDate'] = closingDate;
+    if (status != null) {
+      json[r'status'] = status;
+    }
+    if (version != null) {
+      json[r'version'] = version;
+    }
+    if (logicalUuid != null) {
+      json[r'logicalUuid'] = logicalUuid;
     }
     if (descr != null) {
       json[r'descr'] = descr;
     }
-    if (location != null) {
-      json[r'location'] = location;
+    if (uniqueId != null) {
+      json[r'uniqueId'] = uniqueId;
     }
-    if (externalId != null) {
-      json[r'externalId'] = externalId;
+    if (formTemplateId != null) {
+      json[r'formTemplateId'] = formTemplateId;
     }
-    if (encounterType != null) {
-      json[r'encounterType'] = encounterType;
+    if (contactId != null) {
+      json[r'contactId'] = contactId;
     }
-    json[r'subContacts'] = subContacts;
-    json[r'services'] = services;
-    if (healthcarePartyId != null) {
-      json[r'healthcarePartyId'] = healthcarePartyId;
+    if (healthElementId != null) {
+      json[r'healthElementId'] = healthElementId;
     }
-    if (modifiedContactId != null) {
-      json[r'modifiedContactId'] = modifiedContactId;
+    if (planOfActionId != null) {
+      json[r'planOfActionId'] = planOfActionId;
+    }
+    if (parent != null) {
+      json[r'parent'] = parent;
     }
     json[r'secretForeignKeys'] = secretForeignKeys;
     json[r'cryptedForeignKeys'] = cryptedForeignKeys;
@@ -363,10 +378,10 @@ class DecryptedContactDto {
     return json;
   }
 
-  /// Returns a new [DecryptedContactDto] instance and imports its values from
+  /// Returns a new [DecryptedFormDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DecryptedContactDto? fromJson(dynamic value) {
+  static DecryptedFormDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -376,14 +391,14 @@ class DecryptedContactDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "ContactDto[$key]" is missing from JSON.');
+          'Required key "DecryptedFormDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "ContactDto[$key]" has a null value in JSON.');
+          'Required key "DecryptedFormDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DecryptedContactDto(
+      return DecryptedFormDto(
         id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
@@ -395,17 +410,17 @@ class DecryptedContactDto {
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
-        groupId: mapValueOfType<String>(json, r'groupId'),
         openingDate: mapValueOfType<int>(json, r'openingDate'),
-        closingDate: mapValueOfType<int>(json, r'closingDate'),
+        status: mapValueOfType<String>(json, r'status'),
+        version: mapValueOfType<int>(json, r'version'),
+        logicalUuid: mapValueOfType<String>(json, r'logicalUuid'),
         descr: mapValueOfType<String>(json, r'descr'),
-        location: mapValueOfType<String>(json, r'location'),
-        externalId: mapValueOfType<String>(json, r'externalId'),
-        encounterType: CodeStubDto.fromJson(json[r'encounterType']),
-        subContacts: SubContactDto.listFromJson(json[r'subContacts'])!.toSet(),
-        services: ServiceDto.listFromJson(json[r'services'])!.toSet(),
-        healthcarePartyId: mapValueOfType<String>(json, r'healthcarePartyId'),
-        modifiedContactId: mapValueOfType<String>(json, r'modifiedContactId'),
+        uniqueId: mapValueOfType<String>(json, r'uniqueId'),
+        formTemplateId: mapValueOfType<String>(json, r'formTemplateId'),
+        contactId: mapValueOfType<String>(json, r'contactId'),
+        healthElementId: mapValueOfType<String>(json, r'healthElementId'),
+        planOfActionId: mapValueOfType<String>(json, r'planOfActionId'),
+        parent: mapValueOfType<String>(json, r'parent'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
             : const {},
@@ -424,14 +439,13 @@ class DecryptedContactDto {
     return null;
   }
 
-  static List<DecryptedContactDto>? listFromJson(
-    dynamic json, {
+  static List<DecryptedFormDto>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
-    final result = <DecryptedContactDto>[];
+    final result = <DecryptedFormDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DecryptedContactDto.fromJson(row);
+        final value = DecryptedFormDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -440,12 +454,12 @@ class DecryptedContactDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedContactDto?> mapFromJson(dynamic json) {
-    final map = <String, DecryptedContactDto?>{};
+  static Map<String, DecryptedFormDto> mapFromJson(dynamic json) {
+    final map = <String, DecryptedFormDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.fromJson(entry.value);
+        final value = DecryptedFormDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -454,16 +468,15 @@ class DecryptedContactDto {
     return map;
   }
 
-  // maps a json object with a list of DecryptedContactDto-objects as value to a dart map
-  static Map<String, List<DecryptedContactDto>> mapListFromJson(
-    dynamic json, {
+  // maps a json object with a list of DecryptedFormDto-objects as value to a dart map
+  static Map<String, List<DecryptedFormDto>> mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DecryptedContactDto>>{};
+    final map = <String, List<DecryptedFormDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.listFromJson(
+        final value = DecryptedFormDto.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -480,8 +493,6 @@ class DecryptedContactDto {
     'id',
     'tags',
     'codes',
-    'subContacts',
-    'services',
     'secretForeignKeys',
     'cryptedForeignKeys',
     'delegations',

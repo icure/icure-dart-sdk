@@ -125,6 +125,9 @@ part 'model/commercialization_dto.dart';
 part 'model/company_dto.dart';
 part 'model/contact_dto.dart';
 part 'model/decrypted/contact_dto.dart';
+
+part 'model/decrypted/access_log_dto.dart';
+
 part 'model/content_dto.dart';
 part 'model/copayment_dto.dart';
 part 'model/database_initialisation_dto.dart';
@@ -234,25 +237,87 @@ part 'model/paginated_list_invoice_dto.dart';
 part 'model/paginated_list_message_dto.dart';
 part 'model/paginated_list_nmp_dto.dart';
 part 'model/paginated_list_patient_dto.dart';
+
 part 'model/paginated_list_service_dto.dart';
+
 part 'model/paginated_list_string.dart';
+
 part 'model/paginated_list_tarification_dto.dart';
+
 part 'model/paginated_list_user_dto.dart';
+
 part 'model/paginated_list_vmp_dto.dart';
+
 part 'model/paginated_list_vmp_group_dto.dart';
+
 part 'model/paragraph_agreement_dto.dart';
+
 part 'model/partnership_dto.dart';
+
 part 'model/patient_dto.dart';
+
 part 'model/decrypted/patient_dto.dart';
+
+part 'model/decrypted/article_dto.dart';
+
+part 'model/decrypted/calendar_item_dto.dart';
+
+part 'model/decrypted/classification_dto.dart';
+
+part 'model/decrypted/content_dto.dart';
+
+part 'model/decrypted/document_dto.dart';
+
+part 'model/decrypted/form_dto.dart';
+
+part 'model/decrypted/health_element_dto.dart';
+
+part 'model/decrypted/icure_stub_dto.dart';
+
+part 'model/decrypted/invoice_dto.dart';
+
+part 'model/decrypted/message_dto.dart';
+
+part 'model/decrypted/paginated_list_access_log_dto.dart';
+
+part 'model/decrypted/paginated_list_classification_dto.dart';
+
+part 'model/decrypted/paginated_list_contact_dto.dart';
+
+part 'model/decrypted/paginated_list_health_element_dto.dart';
+
+part 'model/decrypted/paginated_list_invoice_dto.dart';
+
+part 'model/decrypted/paginated_list_message_dto.dart';
+
+part 'model/decrypted/paginated_list_patient_dto.dart';
+
+part 'model/decrypted/paginated_list_service_dto.dart';
+
+part 'model/decrypted/receipt_dto.dart';
+
+part 'model/decrypted/service_dto.dart';
+
+part 'model/decrypted/time_table_dto.dart';
+
 part 'model/patient_health_care_party_dto.dart';
+
 part 'model/patient_registration_success_dto.dart';
+
 part 'model/payment_dto.dart';
+
 part 'model/periodicity_dto.dart';
+
 part 'model/permission_dto.dart';
+
 part 'model/permission_item_dto.dart';
+
 part 'model/person_name_dto.dart';
+
 part 'model/pharmaceutical_form_dto.dart';
+
 part 'model/pharmaceutical_form_stub_dto.dart';
+
 part 'model/place_dto.dart';
 part 'model/plan_of_action_dto.dart';
 part 'model/pricing_dto.dart';
