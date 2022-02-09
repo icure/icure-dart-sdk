@@ -1,4 +1,4 @@
- //
+//
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 // @dart=2.12
@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class DecryptedArticleDto {
-  /// Returns a new [DecryptedArticleDto] instance.
-  DecryptedArticleDto({
+class AccessLogDto {
+  /// Returns a new [AccessLogDto] instance.
+  AccessLogDto({
     required this.id,
     this.rev,
     this.created,
@@ -24,9 +24,12 @@ class DecryptedArticleDto {
     this.codes = const {},
     this.endOfLife,
     this.deletionDate,
-    this.name,
-    this.content = const [],
-    this.classification,
+    this.objectId,
+    this.accessType,
+    this.user,
+    this.detail,
+    this.date,
+    this.patientId,
     this.secretForeignKeys = const {},
     this.cryptedForeignKeys = const {},
     this.delegations = const {},
@@ -34,8 +37,10 @@ class DecryptedArticleDto {
     this.encryptedSelf,
   });
 
+  /// The Id of the Access log. We encourage using either a v4 UUID or a HL7 Id
   String id;
 
+  /// The revision of the access log in the database, used for conflict management / optimistic locking.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -113,15 +118,50 @@ class DecryptedArticleDto {
   ///
   int? deletionDate;
 
+  /// Id of the object that is being requested.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? name;
+  String? objectId;
 
-  List<ContentDto> content;
+  /// The type of access
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? accessType;
+
+  /// Id of the user making the requests
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? user;
+
+  /// Further details about the access
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? detail;
+
+  /// The date (unix epoch in ms) of logging, is filled instantaneously.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DateTime? date;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -129,7 +169,7 @@ class DecryptedArticleDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? classification;
+  String? patientId;
 
   /// The secretForeignKeys are filled at the to many end of a one to many relationship (for example inside Contact for the Patient -> Contacts relationship). Used when we want to find all contacts for a specific patient. These keys are in clear. You can have several to partition the medical document space.
   Set<String> secretForeignKeys;
@@ -155,31 +195,34 @@ class DecryptedArticleDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is DecryptedArticleDto &&
-              other.id == id &&
-              other.rev == rev &&
-              other.created == created &&
-              other.modified == modified &&
-              other.author == author &&
-              other.responsible == responsible &&
-              other.medicalLocationId == medicalLocationId &&
-              other.tags == tags &&
-              other.codes == codes &&
-              other.endOfLife == endOfLife &&
-              other.deletionDate == deletionDate &&
-              other.name == name &&
-              other.content == content &&
-              other.classification == classification &&
-              other.secretForeignKeys == secretForeignKeys &&
-              other.cryptedForeignKeys == cryptedForeignKeys &&
-              other.delegations == delegations &&
-              other.encryptionKeys == encryptionKeys &&
-              other.encryptedSelf == encryptedSelf;
+      other is AccessLogDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.objectId == objectId &&
+          other.accessType == accessType &&
+          other.user == user &&
+          other.detail == detail &&
+          other.date == date &&
+          other.patientId == patientId &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -190,9 +233,12 @@ class DecryptedArticleDto {
       (codes.hashCode) +
       (endOfLife == null ? 0 : endOfLife!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
-      (name == null ? 0 : name!.hashCode) +
-      (content.hashCode) +
-      (classification == null ? 0 : classification!.hashCode) +
+      (objectId == null ? 0 : objectId!.hashCode) +
+      (accessType == null ? 0 : accessType!.hashCode) +
+      (user == null ? 0 : user!.hashCode) +
+      (detail == null ? 0 : detail!.hashCode) +
+      (date == null ? 0 : date!.hashCode) +
+      (patientId == null ? 0 : patientId!.hashCode) +
       (secretForeignKeys.hashCode) +
       (cryptedForeignKeys.hashCode) +
       (delegations.hashCode) +
@@ -201,7 +247,7 @@ class DecryptedArticleDto {
 
   @override
   String toString() =>
-      'DecryptedArticleDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, name=$name, content=$content, classification=$classification, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+      'AccessLogDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, objectId=$objectId, accessType=$accessType, user=$user, detail=$detail, date=$date, patientId=$patientId, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -232,12 +278,23 @@ class DecryptedArticleDto {
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-    if (name != null) {
-      json[r'name'] = name;
+    if (objectId != null) {
+      json[r'objectId'] = objectId;
     }
-    json[r'content'] = content;
-    if (classification != null) {
-      json[r'classification'] = classification;
+    if (accessType != null) {
+      json[r'accessType'] = accessType;
+    }
+    if (user != null) {
+      json[r'user'] = user;
+    }
+    if (detail != null) {
+      json[r'detail'] = detail;
+    }
+    if (date != null) {
+      json[r'date'] = date!.toUtc().toIso8601String();
+    }
+    if (patientId != null) {
+      json[r'patientId'] = patientId;
     }
     json[r'secretForeignKeys'] = secretForeignKeys;
     json[r'cryptedForeignKeys'] = cryptedForeignKeys;
@@ -249,10 +306,10 @@ class DecryptedArticleDto {
     return json;
   }
 
-  /// Returns a new [DecryptedArticleDto] instance and imports its values from
+  /// Returns a new [AccessLogDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DecryptedArticleDto? fromJson(dynamic value) {
+  static AccessLogDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -262,14 +319,14 @@ class DecryptedArticleDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-          'Required key "DecryptedArticleDto[$key]" is missing from JSON.');
+              'Required key "AccessLogDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-          'Required key "DecryptedArticleDto[$key]" has a null value in JSON.');
+              'Required key "AccessLogDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DecryptedArticleDto(
+      return AccessLogDto(
         id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
@@ -281,9 +338,12 @@ class DecryptedArticleDto {
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
-        name: mapValueOfType<String>(json, r'name'),
-        content: ContentDto.listFromJson(json[r'content'])!,
-        classification: mapValueOfType<String>(json, r'classification'),
+        objectId: mapValueOfType<String>(json, r'objectId'),
+        accessType: mapValueOfType<String>(json, r'accessType'),
+        user: mapValueOfType<String>(json, r'user'),
+        detail: mapValueOfType<String>(json, r'detail'),
+        date: mapDateTime(json, r'date', ''),
+        patientId: mapValueOfType<String>(json, r'patientId'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
             : const {},
@@ -302,13 +362,14 @@ class DecryptedArticleDto {
     return null;
   }
 
-  static List<DecryptedArticleDto>? listFromJson(dynamic json, {
+  static List<AccessLogDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
-    final result = <DecryptedArticleDto>[];
+    final result = <AccessLogDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DecryptedArticleDto.fromJson(row);
+        final value = AccessLogDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -317,12 +378,12 @@ class DecryptedArticleDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedArticleDto> mapFromJson(dynamic json) {
-    final map = <String, DecryptedArticleDto>{};
+  static Map<String, AccessLogDto> mapFromJson(dynamic json) {
+    final map = <String, AccessLogDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedArticleDto.fromJson(entry.value);
+        final value = AccessLogDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -331,15 +392,16 @@ class DecryptedArticleDto {
     return map;
   }
 
-  // maps a json object with a list of DecryptedArticleDto-objects as value to a dart map
-  static Map<String, List<DecryptedArticleDto>> mapListFromJson(dynamic json, {
+  // maps a json object with a list of AccessLogDto-objects as value to a dart map
+  static Map<String, List<AccessLogDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DecryptedArticleDto>>{};
+    final map = <String, List<AccessLogDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedArticleDto.listFromJson(
+        final value = AccessLogDto.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -356,7 +418,6 @@ class DecryptedArticleDto {
     'id',
     'tags',
     'codes',
-    'content',
     'secretForeignKeys',
     'cryptedForeignKeys',
     'delegations',
