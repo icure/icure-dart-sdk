@@ -9,9 +9,42 @@ extension BinEncoding on Uint8List {
   RSAPrivateKey toPrivateKey() {
     return this.toHexString().toPrivateKey();
   }
+
+  RSAPublicKey toPublicKey() {
+    var asn1Parser = new ASN1Parser(this);
+    var topLevelSeq = asn1Parser.nextObject() as ASN1Sequence;
+    var publicKeySeq;
+    if (topLevelSeq.elements![1].runtimeType == ASN1BitString) {
+      var publicKeyBitString = topLevelSeq.elements![1] as ASN1BitString;
+
+      var publicKeyAsn =
+      ASN1Parser(publicKeyBitString.stringValues as Uint8List?);
+      publicKeySeq = publicKeyAsn.nextObject() as ASN1Sequence;
+    } else {
+      publicKeySeq = topLevelSeq;
+    }
+    var modulus = publicKeySeq.elements![0] as ASN1Integer;
+    var exponent = publicKeySeq.elements![1] as ASN1Integer;
+
+    var rsaPublicKey = RSAPublicKey(modulus.integer!, exponent.integer!);
+
+    return rsaPublicKey;
+  }
+
 }
 
 extension StrEncoding on String {
+  String formatAsKey() {
+    return this.replaceAllMapped(
+        RegExp('([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}-)'),
+        (match) =>
+            match.group(1)!.toLowerCase() +
+            match.group(2)!.toLowerCase() +
+            match.group(3)!.toLowerCase() +
+            match.group(4)!.toLowerCase() +
+            match.group(5)!.toLowerCase());
+  }
+
   Uint8List fromHexString() {
     return Uint8List.fromList(hex.decoder.convert(this));
   }
@@ -54,5 +87,9 @@ extension StrEncoding on String {
         modulus.integer!, privateExponent.integer!, p.integer, q.integer);
 
     return rsaPrivateKey;
+  }
+
+  RSAPublicKey toPublicKey() {
+    return this.fromHexString().toPublicKey();
   }
 }
