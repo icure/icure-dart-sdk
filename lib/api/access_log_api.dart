@@ -12,7 +12,8 @@ part of openapi.api;
 
 
 class AccessLogApi {
-  AccessLogApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  AccessLogApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -23,7 +24,8 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [AccessLogDto] accessLogDto (required):
-  Future<Response> createAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
+  Future<Response> createAccessLogWithHttpInfo(
+      AccessLogDto accessLogDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog';
 
@@ -63,9 +65,10 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
     }
     return null;
   }
@@ -77,7 +80,8 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteAccessLogsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> deleteAccessLogsWithHttpInfo(
+      ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/delete/batch';
 
@@ -109,7 +113,8 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteAccessLogs(ListOfIdsDto listOfIdsDto,) async {
+  Future<List<DocIdentifier>?> deleteAccessLogs(
+      ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteAccessLogsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -117,12 +122,13 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<DocIdentifier>') as List)
-        .cast<DocIdentifier>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(
+          responseBody, 'List<DocIdentifier>') as List)
+          .cast<DocIdentifier>()
+          .toList();
     }
     return null;
   }
@@ -144,7 +150,8 @@ class AccessLogApi {
   /// * [int] limit:
   ///
   /// * [bool] descending:
-  Future<Response> findAccessLogsByWithHttpInfo({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
+  Future<Response> findAccessLogsByWithHttpInfo(
+      { int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending,}) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog';
 
@@ -205,17 +212,25 @@ class AccessLogApi {
   /// * [int] limit:
   ///
   /// * [bool] descending:
-  Future<PaginatedListAccessLogDto?> findAccessLogsBy({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
-    final response = await findAccessLogsByWithHttpInfo( fromEpoch: fromEpoch, toEpoch: toEpoch, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
+  Future<PaginatedListAccessLogDto?> findAccessLogsBy(
+      { int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending,}) async {
+    final response = await findAccessLogsByWithHttpInfo(
+      fromEpoch: fromEpoch,
+      toEpoch: toEpoch,
+      startKey: startKey,
+      startDocumentId: startDocumentId,
+      limit: limit,
+      descending: descending,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAccessLogDto',) as PaginatedListAccessLogDto;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response),
+        'PaginatedListAccessLogDto',) as PaginatedListAccessLogDto;
     }
     return null;
   }
@@ -246,7 +261,8 @@ class AccessLogApi {
   ///
   /// * [bool] descending:
   ///   Descending order
-  Future<Response> findAccessLogsByUserAfterDateWithHttpInfo(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
+  Future<Response> findAccessLogsByUserAfterDateWithHttpInfo(String userId,
+      { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending,}) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/byUser';
 
@@ -257,7 +273,7 @@ class AccessLogApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'userId', userId));
+    queryParams.addAll(_queryParams('', 'userId', userId));
     if (accessType != null) {
       queryParams.addAll(_queryParams('', 'accessType', accessType));
     }
@@ -317,17 +333,26 @@ class AccessLogApi {
   ///
   /// * [bool] descending:
   ///   Descending order
-  Future<PaginatedListAccessLogDto?> findAccessLogsByUserAfterDate(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
-    final response = await findAccessLogsByUserAfterDateWithHttpInfo(userId,  accessType: accessType, startDate: startDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
+  Future<PaginatedListAccessLogDto?> findAccessLogsByUserAfterDate(
+      String userId,
+      { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending,}) async {
+    final response = await findAccessLogsByUserAfterDateWithHttpInfo(
+      userId, accessType: accessType,
+      startDate: startDate,
+      startKey: startKey,
+      startDocumentId: startDocumentId,
+      limit: limit,
+      descending: descending,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAccessLogDto',) as PaginatedListAccessLogDto;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response),
+        'PaginatedListAccessLogDto',) as PaginatedListAccessLogDto;
     }
     return null;
   }
@@ -342,7 +367,7 @@ class AccessLogApi {
   Future<Response> getAccessLogWithHttpInfo(String accessLogId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/{accessLogId}'
-      .replaceAll('{accessLogId}', accessLogId);
+        .replaceAll('{accessLogId}', accessLogId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -380,9 +405,10 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
     }
     return null;
   }
@@ -396,7 +422,8 @@ class AccessLogApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> listAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(
+      String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/byHcPartySecretForeignKeys';
 
@@ -407,8 +434,8 @@ class AccessLogApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -433,20 +460,23 @@ class AccessLogApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<AccessLogDto>?> listAccessLogsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await listAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<AccessLogDto>?> listAccessLogsByHCPartyAndPatientForeignKeys(
+      String hcPartyId, String secretFKeys,) async {
+    final response = await listAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(
+      hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<AccessLogDto>') as List)
-        .cast<AccessLogDto>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(
+          responseBody, 'List<AccessLogDto>') as List)
+          .cast<AccessLogDto>()
+          .toList();
     }
     return null;
   }
@@ -458,7 +488,8 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [AccessLogDto] accessLogDto (required):
-  Future<Response> modifyAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
+  Future<Response> modifyAccessLogWithHttpInfo(
+      AccessLogDto accessLogDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog';
 
@@ -498,9 +529,10 @@ class AccessLogApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
     }
     return null;
   }

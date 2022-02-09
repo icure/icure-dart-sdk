@@ -193,62 +193,65 @@ class AccessLogDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AccessLogDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.deletionDate == deletionDate &&
-     other.objectId == objectId &&
-     other.accessType == accessType &&
-     other.user == user &&
-     other.detail == detail &&
-     other.date == date &&
-     other.patientId == patientId &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.cryptedForeignKeys == cryptedForeignKeys &&
-     other.delegations == delegations &&
-     other.encryptionKeys == encryptionKeys &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AccessLogDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.objectId == objectId &&
+          other.accessType == accessType &&
+          other.user == user &&
+          other.detail == detail &&
+          other.date == date &&
+          other.patientId == patientId &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (objectId == null ? 0 : objectId!.hashCode) +
-    (accessType == null ? 0 : accessType!.hashCode) +
-    (user == null ? 0 : user!.hashCode) +
-    (detail == null ? 0 : detail!.hashCode) +
-    (date == null ? 0 : date!.hashCode) +
-    (patientId == null ? 0 : patientId!.hashCode) +
-    (secretForeignKeys.hashCode) +
-    (cryptedForeignKeys.hashCode) +
-    (delegations.hashCode) +
-    (encryptionKeys.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (objectId == null ? 0 : objectId!.hashCode) +
+      (accessType == null ? 0 : accessType!.hashCode) +
+      (user == null ? 0 : user!.hashCode) +
+      (detail == null ? 0 : detail!.hashCode) +
+      (date == null ? 0 : date!.hashCode) +
+      (patientId == null ? 0 : patientId!.hashCode) +
+      (secretForeignKeys.hashCode) +
+      (cryptedForeignKeys.hashCode) +
+      (delegations.hashCode) +
+      (encryptionKeys.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'AccessLogDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, objectId=$objectId, accessType=$accessType, user=$user, detail=$detail, date=$date, patientId=$patientId, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'AccessLogDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, objectId=$objectId, accessType=$accessType, user=$user, detail=$detail, date=$date, patientId=$patientId, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -267,8 +270,8 @@ class AccessLogDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags;
+    json[r'codes'] = codes;
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -293,10 +296,10 @@ class AccessLogDto {
     if (patientId != null) {
       json[r'patientId'] = patientId;
     }
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys;
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
+    json[r'delegations'] = delegations;
+    json[r'encryptionKeys'] = encryptionKeys;
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -315,8 +318,10 @@ class AccessLogDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AccessLogDto[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AccessLogDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "AccessLogDto[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "AccessLogDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -343,13 +348,13 @@ class AccessLogDto {
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
@@ -357,7 +362,10 @@ class AccessLogDto {
     return null;
   }
 
-  static List<AccessLogDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AccessLogDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AccessLogDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -385,12 +393,18 @@ class AccessLogDto {
   }
 
   // maps a json object with a list of AccessLogDto-objects as value to a dart map
-  static Map<String, List<AccessLogDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AccessLogDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AccessLogDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AccessLogDto.listFromJson(entry.value, growable: growable,);
+        final value = AccessLogDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -410,4 +424,3 @@ class AccessLogDto {
     'encryptionKeys',
   };
 }
-
