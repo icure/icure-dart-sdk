@@ -20,9 +20,11 @@ import 'package:tuple/tuple.dart';
 import 'package:expire_cache/expire_cache.dart';
 import 'package:pointycastle/src/platform_check/platform_check.dart';
 import "package:pointycastle/export.dart";
+import 'package:pointycastle/asn1.dart';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
+import 'package:convert/convert.dart';
 
 part 'api_client.dart';
 part 'api_helper.dart';
@@ -34,6 +36,7 @@ part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 part 'crypto/crypto.dart';
 part 'functional_utils.dart';
+part 'binary_utils.dart';
 
 part 'api/access_log_api.dart';
 part 'api/agenda_api.dart';
