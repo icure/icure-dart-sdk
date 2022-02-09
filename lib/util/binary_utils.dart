@@ -1,5 +1,8 @@
 // @dart=2.12
-part of openapi.api;
+import 'dart:typed_data';
+import 'package:convert/convert.dart';
+import 'package:pointycastle/asn1.dart';
+import "package:pointycastle/export.dart";
 
 extension BinEncoding on Uint8List {
   String toHexString() {

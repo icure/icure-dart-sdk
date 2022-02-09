@@ -9,7 +9,7 @@ abstract class CryptoConfig<D, K> {
 
   Future<Tuple2<K, Uint8List>> Function(D) get marshaller;
 
-  Future<D> Function(K, Uint8List) get unmarshaller;
+  Future<D> Function(K, Uint8List?) get unmarshaller;
 }
 
 abstract class Crypto {
@@ -31,21 +31,15 @@ PatientCryptoConfig patientCryptoConfig(Crypto crypto) {
                   .codeUnits)),
           (cry, data) async =>
       DecryptedPatientDto.fromJson(cry.toJson()
-        ..addAll(json.decode(String.fromCharCodes(data))))!);
+        ..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!);
 }
 
-class PatientCryptoConfig
-    implements CryptoConfig<DecryptedPatientDto, PatientDto> {
+class PatientCryptoConfig implements CryptoConfig<DecryptedPatientDto, PatientDto> {
   const PatientCryptoConfig(this.crypto, this.marshaller, this.unmarshaller);
 
-  @override
-  final Crypto crypto;
-  @override
-  final Future<Tuple2<PatientDto, Uint8List>> Function(DecryptedPatientDto)
-  marshaller;
-  @override
-  final Future<DecryptedPatientDto> Function(PatientDto, Uint8List)
-  unmarshaller;
+  @override final Crypto crypto;
+  @override final Future<Tuple2<PatientDto, Uint8List>> Function(DecryptedPatientDto) marshaller;
+  @override final Future<DecryptedPatientDto> Function(PatientDto, Uint8List?) unmarshaller;
 }
 
 class LocalCrypto implements Crypto {
@@ -57,7 +51,6 @@ class LocalCrypto implements Crypto {
   Map<String, Future<HealthcarePartyDto?>> hcParties = {};
   Map<String, Future<Map<String, Tuple2<String, Uint8List>>?>> ownerHcpartyKeysCache = {};
   Map<String, Future<Map<String, Tuple2<String, Uint8List>>?>> delegateHcpartyKeysCache = {};
-
 
   @override
   Future<Set<String>> decryptEncryptionKeys(String myId, Map<String, Set<DelegationDto>> keys) async {

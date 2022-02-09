@@ -17,6 +17,8 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
+import 'package:uuid/uuid.dart';
+import 'package:uuid/uuid_util.dart';
 import 'package:expire_cache/expire_cache.dart';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
@@ -25,6 +27,9 @@ import 'package:pointycastle/asn1.dart';
 import "package:pointycastle/export.dart";
 import 'package:pointycastle/src/platform_check/platform_check.dart';
 import 'package:tuple/tuple.dart';
+import 'util/collection_utils.dart';
+import 'util/binary_utils.dart';
+import 'util/functional_utils.dart';
 
 part 'api/access_log_api.dart';
 
@@ -48,12 +53,9 @@ part 'auth/http_bearer_auth.dart';
 
 part 'auth/oauth.dart';
 
-part 'binary_utils.dart';
-
 part 'crypto/crypto.dart';
 
-part 'functional_utils.dart';
-
+part 'extended_api/contact_api.dart';
 part 'model/access_log_dto.dart';
 
 part 'model/code_stub_dto.dart';
@@ -72,8 +74,6 @@ part 'model/healthcare_party_dto.dart';
 part 'model/patient_dto.dart';
 
 part 'model/user_dto.dart';
-
-part 'util/map.dart';
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';
