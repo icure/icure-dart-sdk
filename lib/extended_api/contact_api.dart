@@ -11,7 +11,7 @@ extension InitDto on ContactDto {
     Set<String> delegationKeys =
     Set.from(user.autoDelegations["all"] ?? <String>{})
       ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{});
-    final ek = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+    final ek = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
     final sfk = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
 
     responsible = user.healthcarePartyId!;
@@ -40,7 +40,7 @@ extension InitDto on ContactDto {
                   owner: user.healthcarePartyId,
                   delegatedTo: d,
                   key: await config.crypto
-                      .encryptAESKeyForHcp(user.healthcarePartyId!, d, id, ek))
+                      .encryptAESKeyForHcp(user.healthcarePartyId!, d, id, ek.toHexString()))
             })
           ]));
     return this;
