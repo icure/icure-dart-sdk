@@ -27,6 +27,7 @@ import 'package:pointycastle/asn1.dart';
 import "package:pointycastle/export.dart";
 import 'package:pointycastle/src/platform_check/platform_check.dart';
 import 'package:tuple/tuple.dart';
+
 import 'util/collection_utils.dart';
 import 'util/binary_utils.dart';
 import 'util/functional_utils.dart';
@@ -84,6 +85,7 @@ part 'api/time_table_api.dart';
 part 'api/tmp_api.dart';
 part 'api/user_api.dart';
 
+part 'extended_api/accesslog_api.dart';
 part 'extended_api/contact_api.dart';
 
 part 'model/abstract_filter_dto_code.dart';
@@ -325,8 +327,29 @@ part 'model/wada_dto.dart';
 part 'model/weekday.dart';
 
 part 'model/decrypted/access_log_dto.dart';
+part 'model/decrypted/article_dto.dart';
+part 'model/decrypted/calendar_item_dto.dart';
+part 'model/decrypted/classification_dto.dart';
 part 'model/decrypted/contact_dto.dart';
+part 'model/decrypted/content_dto.dart';
+part 'model/decrypted/document_dto.dart';
+part 'model/decrypted/form_dto.dart';
+part 'model/decrypted/health_element_dto.dart';
+part 'model/decrypted/icure_stub_dto.dart';
+part 'model/decrypted/invoice_dto.dart';
+part 'model/decrypted/message_dto.dart';
+part 'model/decrypted/paginated_list_access_log_dto.dart';
+part 'model/decrypted/paginated_list_classification_dto.dart';
+part 'model/decrypted/paginated_list_contact_dto.dart';
+part 'model/decrypted/paginated_list_health_element_dto.dart';
+part 'model/decrypted/paginated_list_invoice_dto.dart';
+part 'model/decrypted/paginated_list_message_dto.dart';
+part 'model/decrypted/paginated_list_patient_dto.dart';
+part 'model/decrypted/paginated_list_service_dto.dart';
 part 'model/decrypted/patient_dto.dart';
+part 'model/decrypted/receipt_dto.dart';
+part 'model/decrypted/service_dto.dart';
+part 'model/decrypted/time_table_dto.dart';
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';

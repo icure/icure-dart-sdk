@@ -1,10 +1,5 @@
-import 'dart:convert';
-import 'dart:typed_data';
-
-import 'package:openapi/api.dart';
-import 'package:tuple/tuple.dart';
-import 'package:uuid/uuid.dart';
-import 'package:uuid/uuid_util.dart';
+// @dart=2.12
+part of openapi.api;
 
 extension CryptoSupport on AccessLogApi {}
 
@@ -82,7 +77,7 @@ extension AccessLogCryptoConfig
                     e.key,
                     [
                       DelegationDto(
-                          owner: myId, delegatedTo: e, key: e.value, tags: [])
+                          owner: myId, delegatedTo: e.key, key: e.value, tags: [])
                     ].toSet())));
         accessLogDto.encryptionKeys = encryptionKeys;
         return accessLogDto;
