@@ -37,7 +37,8 @@ class DecryptedPatientDto {
     this.mergedIds = const {},
     this.alias,
     this.active = true,
-    this.deactivationReason = const PatientDtoDeactivationReasonEnum._('DeactivationReason.none'),
+    this.deactivationReason =
+        const PatientDtoDeactivationReasonEnum._('DeactivationReason.none'),
     this.ssin,
     this.maidenName,
     this.spouseName,
@@ -558,81 +559,85 @@ class DecryptedPatientDto {
   List<EmploymentInfoDto> employementInfos;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DecryptedPatientDto &&
-      other.id == id &&
-      other.identifier == identifier &&
-      other.rev == rev &&
-      other.created == created &&
-      other.modified == modified &&
-      other.author == author &&
-      other.responsible == responsible &&
-      other.tags == tags &&
-      other.codes == codes &&
-      other.endOfLife == endOfLife &&
-      other.deletionDate == deletionDate &&
-      other.firstName == firstName &&
-      other.lastName == lastName &&
-      other.names == names &&
-      other.companyName == companyName &&
-      other.languages == languages &&
-      other.addresses == addresses &&
-      other.civility == civility &&
-      other.gender == gender &&
-      other.birthSex == birthSex &&
-      other.mergeToPatientId == mergeToPatientId &&
-      other.mergedIds == mergedIds &&
-      other.alias == alias &&
-      other.active == active &&
-      other.deactivationReason == deactivationReason &&
-      other.ssin == ssin &&
-      other.maidenName == maidenName &&
-      other.spouseName == spouseName &&
-      other.partnerName == partnerName &&
-      other.personalStatus == personalStatus &&
-      other.dateOfBirth == dateOfBirth &&
-      other.dateOfDeath == dateOfDeath &&
-      other.timestampOfLatestEidReading == timestampOfLatestEidReading &&
-      other.placeOfBirth == placeOfBirth &&
-      other.placeOfDeath == placeOfDeath &&
-      other.deceased == deceased &&
-      other.education == education &&
-      other.profession == profession &&
-      other.note == note &&
-      other.administrativeNote == administrativeNote &&
-      other.nationality == nationality &&
-      other.race == race &&
-      other.ethnicity == ethnicity &&
-      other.preferredUserId == preferredUserId &&
-      other.picture == picture &&
-      other.externalId == externalId &&
-      other.insurabilities == insurabilities &&
-      other.partnerships == partnerships &&
-      other.patientHealthCareParties == patientHealthCareParties &&
-      other.financialInstitutionInformation == financialInstitutionInformation &&
-      other.medicalHouseContracts == medicalHouseContracts &&
-      other.patientProfessions == patientProfessions &&
-      other.parameters == parameters &&
-      other.properties == properties &&
-      other.hcPartyKeys == hcPartyKeys &&
-      other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
-      other.publicKey == publicKey &&
-      other.secretForeignKeys == secretForeignKeys &&
-      other.cryptedForeignKeys == cryptedForeignKeys &&
-      other.delegations == delegations &&
-      other.encryptionKeys == encryptionKeys &&
-      other.encryptedSelf == encryptedSelf &&
-      other.medicalLocationId == medicalLocationId &&
-      other.nonDuplicateIds == nonDuplicateIds &&
-      other.encryptedAdministrativesDocuments == encryptedAdministrativesDocuments &&
-      other.comment == comment &&
-      other.warning == warning &&
-      other.fatherBirthCountry == fatherBirthCountry &&
-      other.birthCountry == birthCountry &&
-      other.nativeCountry == nativeCountry &&
-      other.socialStatus == socialStatus &&
-      other.mainSourceOfIncome == mainSourceOfIncome &&
-      other.schoolingInfos == schoolingInfos &&
-      other.employementInfos == employementInfos;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DecryptedPatientDto &&
+          other.id == id &&
+          other.identifier == identifier &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.firstName == firstName &&
+          other.lastName == lastName &&
+          other.names == names &&
+          other.companyName == companyName &&
+          other.languages == languages &&
+          other.addresses == addresses &&
+          other.civility == civility &&
+          other.gender == gender &&
+          other.birthSex == birthSex &&
+          other.mergeToPatientId == mergeToPatientId &&
+          other.mergedIds == mergedIds &&
+          other.alias == alias &&
+          other.active == active &&
+          other.deactivationReason == deactivationReason &&
+          other.ssin == ssin &&
+          other.maidenName == maidenName &&
+          other.spouseName == spouseName &&
+          other.partnerName == partnerName &&
+          other.personalStatus == personalStatus &&
+          other.dateOfBirth == dateOfBirth &&
+          other.dateOfDeath == dateOfDeath &&
+          other.timestampOfLatestEidReading == timestampOfLatestEidReading &&
+          other.placeOfBirth == placeOfBirth &&
+          other.placeOfDeath == placeOfDeath &&
+          other.deceased == deceased &&
+          other.education == education &&
+          other.profession == profession &&
+          other.note == note &&
+          other.administrativeNote == administrativeNote &&
+          other.nationality == nationality &&
+          other.race == race &&
+          other.ethnicity == ethnicity &&
+          other.preferredUserId == preferredUserId &&
+          other.picture == picture &&
+          other.externalId == externalId &&
+          other.insurabilities == insurabilities &&
+          other.partnerships == partnerships &&
+          other.patientHealthCareParties == patientHealthCareParties &&
+          other.financialInstitutionInformation ==
+              financialInstitutionInformation &&
+          other.medicalHouseContracts == medicalHouseContracts &&
+          other.patientProfessions == patientProfessions &&
+          other.parameters == parameters &&
+          other.properties == properties &&
+          other.hcPartyKeys == hcPartyKeys &&
+          other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
+          other.publicKey == publicKey &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf &&
+          other.medicalLocationId == medicalLocationId &&
+          other.nonDuplicateIds == nonDuplicateIds &&
+          other.encryptedAdministrativesDocuments ==
+              encryptedAdministrativesDocuments &&
+          other.comment == comment &&
+          other.warning == warning &&
+          other.fatherBirthCountry == fatherBirthCountry &&
+          other.birthCountry == birthCountry &&
+          other.nativeCountry == nativeCountry &&
+          other.socialStatus == socialStatus &&
+          other.mainSourceOfIncome == mainSourceOfIncome &&
+          other.schoolingInfos == schoolingInfos &&
+          other.employementInfos == employementInfos;
 
   @override
   int get hashCode =>
@@ -669,7 +674,9 @@ class DecryptedPatientDto {
       (personalStatus == null ? 0 : personalStatus!.hashCode) +
       (dateOfBirth == null ? 0 : dateOfBirth!.hashCode) +
       (dateOfDeath == null ? 0 : dateOfDeath!.hashCode) +
-      (timestampOfLatestEidReading == null ? 0 : timestampOfLatestEidReading!.hashCode) +
+      (timestampOfLatestEidReading == null
+          ? 0
+          : timestampOfLatestEidReading!.hashCode) +
       (placeOfBirth == null ? 0 : placeOfBirth!.hashCode) +
       (placeOfDeath == null ? 0 : placeOfDeath!.hashCode) +
       (deceased == null ? 0 : deceased!.hashCode) +
@@ -713,7 +720,8 @@ class DecryptedPatientDto {
       (employementInfos.hashCode);
 
   @override
-  String toString() => 'DecryptedPatientDto[id=$id, identifier=$identifier, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, firstName=$firstName, lastName=$lastName, names=$names, companyName=$companyName, languages=$languages, addresses=$addresses, civility=$civility, gender=$gender, birthSex=$birthSex, mergeToPatientId=$mergeToPatientId, mergedIds=$mergedIds, alias=$alias, active=$active, deactivationReason=$deactivationReason, ssin=$ssin, maidenName=$maidenName, spouseName=$spouseName, partnerName=$partnerName, personalStatus=$personalStatus, dateOfBirth=$dateOfBirth, dateOfDeath=$dateOfDeath, timestampOfLatestEidReading=$timestampOfLatestEidReading, placeOfBirth=$placeOfBirth, placeOfDeath=$placeOfDeath, deceased=$deceased, education=$education, profession=$profession, note=$note, administrativeNote=$administrativeNote, nationality=$nationality, race=$race, ethnicity=$ethnicity, preferredUserId=$preferredUserId, picture=$picture, externalId=$externalId, insurabilities=$insurabilities, partnerships=$partnerships, patientHealthCareParties=$patientHealthCareParties, financialInstitutionInformation=$financialInstitutionInformation, medicalHouseContracts=$medicalHouseContracts, patientProfessions=$patientProfessions, parameters=$parameters, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf, medicalLocationId=$medicalLocationId, nonDuplicateIds=$nonDuplicateIds, encryptedAdministrativesDocuments=$encryptedAdministrativesDocuments, comment=$comment, warning=$warning, fatherBirthCountry=$fatherBirthCountry, birthCountry=$birthCountry, nativeCountry=$nativeCountry, socialStatus=$socialStatus, mainSourceOfIncome=$mainSourceOfIncome, schoolingInfos=$schoolingInfos, employementInfos=$employementInfos]';
+  String toString() =>
+      'DecryptedPatientDto[id=$id, identifier=$identifier, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, firstName=$firstName, lastName=$lastName, names=$names, companyName=$companyName, languages=$languages, addresses=$addresses, civility=$civility, gender=$gender, birthSex=$birthSex, mergeToPatientId=$mergeToPatientId, mergedIds=$mergedIds, alias=$alias, active=$active, deactivationReason=$deactivationReason, ssin=$ssin, maidenName=$maidenName, spouseName=$spouseName, partnerName=$partnerName, personalStatus=$personalStatus, dateOfBirth=$dateOfBirth, dateOfDeath=$dateOfDeath, timestampOfLatestEidReading=$timestampOfLatestEidReading, placeOfBirth=$placeOfBirth, placeOfDeath=$placeOfDeath, deceased=$deceased, education=$education, profession=$profession, note=$note, administrativeNote=$administrativeNote, nationality=$nationality, race=$race, ethnicity=$ethnicity, preferredUserId=$preferredUserId, picture=$picture, externalId=$externalId, insurabilities=$insurabilities, partnerships=$partnerships, patientHealthCareParties=$patientHealthCareParties, financialInstitutionInformation=$financialInstitutionInformation, medicalHouseContracts=$medicalHouseContracts, patientProfessions=$patientProfessions, parameters=$parameters, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf, medicalLocationId=$medicalLocationId, nonDuplicateIds=$nonDuplicateIds, encryptedAdministrativesDocuments=$encryptedAdministrativesDocuments, comment=$comment, warning=$warning, fatherBirthCountry=$fatherBirthCountry, birthCountry=$birthCountry, nativeCountry=$nativeCountry, socialStatus=$socialStatus, mainSourceOfIncome=$mainSourceOfIncome, schoolingInfos=$schoolingInfos, employementInfos=$employementInfos]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -859,7 +867,8 @@ class DecryptedPatientDto {
       json[r'medicalLocationId'] = medicalLocationId;
     }
     json[r'nonDuplicateIds'] = nonDuplicateIds;
-    json[r'encryptedAdministrativesDocuments'] = encryptedAdministrativesDocuments;
+    json[r'encryptedAdministrativesDocuments'] =
+        encryptedAdministrativesDocuments;
     if (comment != null) {
       json[r'comment'] = comment;
     }
@@ -898,8 +907,10 @@ class DecryptedPatientDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "DecryptedPatientDto[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "DecryptedPatientDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "DecryptedPatientDto[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "DecryptedPatientDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -933,15 +944,18 @@ class DecryptedPatientDto {
             : const {},
         alias: mapValueOfType<String>(json, r'alias'),
         active: mapValueOfType<bool>(json, r'active')!,
-        deactivationReason: PatientDtoDeactivationReasonEnum.fromJson(json[r'deactivationReason'])!,
+        deactivationReason: PatientDtoDeactivationReasonEnum.fromJson(
+            json[r'deactivationReason'])!,
         ssin: mapValueOfType<String>(json, r'ssin'),
         maidenName: mapValueOfType<String>(json, r'maidenName'),
         spouseName: mapValueOfType<String>(json, r'spouseName'),
         partnerName: mapValueOfType<String>(json, r'partnerName'),
-        personalStatus: PatientDtoPersonalStatusEnum.fromJson(json[r'personalStatus']),
+        personalStatus:
+            PatientDtoPersonalStatusEnum.fromJson(json[r'personalStatus']),
         dateOfBirth: mapValueOfType<int>(json, r'dateOfBirth'),
         dateOfDeath: mapValueOfType<int>(json, r'dateOfDeath'),
-        timestampOfLatestEidReading: mapValueOfType<int>(json, r'timestampOfLatestEidReading'),
+        timestampOfLatestEidReading:
+            mapValueOfType<int>(json, r'timestampOfLatestEidReading'),
         placeOfBirth: mapValueOfType<String>(json, r'placeOfBirth'),
         placeOfDeath: mapValueOfType<String>(json, r'placeOfDeath'),
         deceased: mapValueOfType<bool>(json, r'deceased'),
@@ -957,18 +971,26 @@ class DecryptedPatientDto {
         externalId: mapValueOfType<String>(json, r'externalId'),
         insurabilities: InsurabilityDto.listFromJson(json[r'insurabilities'])!,
         partnerships: PartnershipDto.listFromJson(json[r'partnerships'])!,
-        patientHealthCareParties: PatientHealthCarePartyDto.listFromJson(json[r'patientHealthCareParties'])!,
-        financialInstitutionInformation: FinancialInstitutionInformationDto.listFromJson(json[r'financialInstitutionInformation'])!,
-        medicalHouseContracts: MedicalHouseContractDto.listFromJson(json[r'medicalHouseContracts'])!,
-        patientProfessions: CodeStubDto.listFromJson(json[r'patientProfessions'])!,
+        patientHealthCareParties: PatientHealthCarePartyDto.listFromJson(
+            json[r'patientHealthCareParties'])!,
+        financialInstitutionInformation:
+            FinancialInstitutionInformationDto.listFromJson(
+                json[r'financialInstitutionInformation'])!,
+        medicalHouseContracts: MedicalHouseContractDto.listFromJson(
+            json[r'medicalHouseContracts'])!,
+        patientProfessions:
+            CodeStubDto.listFromJson(json[r'patientProfessions'])!,
         parameters: json[r'parameters'] == null
             ? const {}
-            : mapCastOfType<String, List<String>>(json, r'parameters') ?? <String, List<String>>{},
+            : mapCastOfType<String, List<String>>(json, r'parameters') ??
+                <String, List<String>>{},
         properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null
             ? const {}
-            : mapCastOfType<String, List<String>>(json, r'hcPartyKeys') ?? <String, List<String>>{},
-        privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
+            : mapCastOfType<String, List<String>>(json, r'hcPartyKeys') ??
+                <String, List<String>>{},
+        privateKeyShamirPartitions:
+            mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
         publicKey: mapValueOfType<String>(json, r'publicKey'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
@@ -987,9 +1009,11 @@ class DecryptedPatientDto {
         nonDuplicateIds: json[r'nonDuplicateIds'] is Set
             ? (json[r'nonDuplicateIds'] as Set).cast<String>()
             : const {},
-        encryptedAdministrativesDocuments: json[r'encryptedAdministrativesDocuments'] is Set
-            ? (json[r'encryptedAdministrativesDocuments'] as Set).cast<String>()
-            : const {},
+        encryptedAdministrativesDocuments:
+            json[r'encryptedAdministrativesDocuments'] is Set
+                ? (json[r'encryptedAdministrativesDocuments'] as Set)
+                    .cast<String>()
+                : const {},
         comment: mapValueOfType<String>(json, r'comment'),
         warning: mapValueOfType<String>(json, r'warning'),
         fatherBirthCountry: CodeStubDto.fromJson(json[r'fatherBirthCountry']),
@@ -998,13 +1022,17 @@ class DecryptedPatientDto {
         socialStatus: CodeStubDto.fromJson(json[r'socialStatus']),
         mainSourceOfIncome: CodeStubDto.fromJson(json[r'mainSourceOfIncome']),
         schoolingInfos: SchoolingInfoDto.listFromJson(json[r'schoolingInfos'])!,
-        employementInfos: EmploymentInfoDto.listFromJson(json[r'employementInfos'])!,
+        employementInfos:
+            EmploymentInfoDto.listFromJson(json[r'employementInfos'])!,
       );
     }
     return null;
   }
 
-  static List<DecryptedPatientDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DecryptedPatientDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DecryptedPatientDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -1032,12 +1060,17 @@ class DecryptedPatientDto {
   }
 
   // maps a json object with a list of DecryptedPatientDto-objects as value to a dart map
-  static Map<String, List<DecryptedPatientDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DecryptedPatientDto>> mapListFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DecryptedPatientDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedPatientDto.listFromJson(entry.value, growable: growable,);
+        final value = DecryptedPatientDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }

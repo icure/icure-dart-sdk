@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class DecryptedContactDto {
-  /// Returns a new [DecryptedContactDto] instance.
-  DecryptedContactDto({
+class DecryptedTimeTableDto {
+  /// Returns a new [DecryptedTimeTableDto] instance.
+  DecryptedTimeTableDto({
     required this.id,
     this.rev,
     this.created,
@@ -24,17 +24,12 @@ class DecryptedContactDto {
     this.codes = const {},
     this.endOfLife,
     this.deletionDate,
-    this.groupId,
-    this.openingDate,
-    this.closingDate,
-    this.descr,
-    this.location,
-    this.externalId,
-    this.encounterType,
-    this.subContacts = const {},
-    this.services = const {},
-    this.healthcarePartyId,
-    this.modifiedContactId,
+    this.name,
+    this.agendaId,
+    required this.publicTimeTable,
+    this.startTime,
+    this.endTime,
+    this.items = const [],
     this.secretForeignKeys = const {},
     this.cryptedForeignKeys = const {},
     this.delegations = const {},
@@ -42,10 +37,8 @@ class DecryptedContactDto {
     this.encryptedSelf,
   });
 
-  /// the Id of the contact. We encourage using either a v4 UUID or a HL7 Id.
   String id;
 
-  /// the revision of the contact in the database, used for conflict management / optimistic locking.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -123,59 +116,13 @@ class DecryptedContactDto {
   ///
   int? deletionDate;
 
-  /// Separate contacts can merged in one logical contact if they share the same groupId. When a contact must be split to selectively assign rights to healthcare parties, the split contacts all share the same groupId
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? groupId;
-
-  /// The date (YYYYMMDDhhmmss) of the start of the contact.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? openingDate;
-
-  /// The date (YYYYMMDDhhmmss) marking the end of the contact.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? closingDate;
-
-  /// Description of the contact
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? descr;
-
-  /// Location where the contact was recorded.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? location;
-
-  /// An external (from another source) id with no guarantee or requirement for unicity.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? externalId;
+  String? name;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -183,13 +130,9 @@ class DecryptedContactDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodeStubDto? encounterType;
+  String? agendaId;
 
-  /// Set of all sub-contacts recorded during the given contact. Sub-contacts are used to link services embedded inside this contact to healthcare elements, healthcare approaches and/or forms.
-  Set<SubContactDto> subContacts;
-
-  /// Set of all services provided to the patient during the contact.
-  Set<ServiceDto> services;
+  bool publicTimeTable;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -197,7 +140,7 @@ class DecryptedContactDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? healthcarePartyId;
+  int? startTime;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -205,7 +148,9 @@ class DecryptedContactDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? modifiedContactId;
+  int? endTime;
+
+  List<TimeTableItemDto> items;
 
   /// The secretForeignKeys are filled at the to many end of a one to many relationship (for example inside Contact for the Patient -> Contacts relationship). Used when we want to find all contacts for a specific patient. These keys are in clear. You can have several to partition the medical document space.
   Set<String> secretForeignKeys;
@@ -231,7 +176,7 @@ class DecryptedContactDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DecryptedContactDto &&
+      other is DecryptedTimeTableDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -243,17 +188,12 @@ class DecryptedContactDto {
           other.codes == codes &&
           other.endOfLife == endOfLife &&
           other.deletionDate == deletionDate &&
-          other.groupId == groupId &&
-          other.openingDate == openingDate &&
-          other.closingDate == closingDate &&
-          other.descr == descr &&
-          other.location == location &&
-          other.externalId == externalId &&
-          other.encounterType == encounterType &&
-          other.subContacts == subContacts &&
-          other.services == services &&
-          other.healthcarePartyId == healthcarePartyId &&
-          other.modifiedContactId == modifiedContactId &&
+          other.name == name &&
+          other.agendaId == agendaId &&
+          other.publicTimeTable == publicTimeTable &&
+          other.startTime == startTime &&
+          other.endTime == endTime &&
+          other.items == items &&
           other.secretForeignKeys == secretForeignKeys &&
           other.cryptedForeignKeys == cryptedForeignKeys &&
           other.delegations == delegations &&
@@ -274,17 +214,12 @@ class DecryptedContactDto {
       (codes.hashCode) +
       (endOfLife == null ? 0 : endOfLife!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
-      (groupId == null ? 0 : groupId!.hashCode) +
-      (openingDate == null ? 0 : openingDate!.hashCode) +
-      (closingDate == null ? 0 : closingDate!.hashCode) +
-      (descr == null ? 0 : descr!.hashCode) +
-      (location == null ? 0 : location!.hashCode) +
-      (externalId == null ? 0 : externalId!.hashCode) +
-      (encounterType == null ? 0 : encounterType!.hashCode) +
-      (subContacts.hashCode) +
-      (services.hashCode) +
-      (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
-      (modifiedContactId == null ? 0 : modifiedContactId!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (agendaId == null ? 0 : agendaId!.hashCode) +
+      (publicTimeTable.hashCode) +
+      (startTime == null ? 0 : startTime!.hashCode) +
+      (endTime == null ? 0 : endTime!.hashCode) +
+      (items.hashCode) +
       (secretForeignKeys.hashCode) +
       (cryptedForeignKeys.hashCode) +
       (delegations.hashCode) +
@@ -293,7 +228,7 @@ class DecryptedContactDto {
 
   @override
   String toString() =>
-      'DecryptedContactDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, groupId=$groupId, openingDate=$openingDate, closingDate=$closingDate, descr=$descr, location=$location, externalId=$externalId, encounterType=$encounterType, subContacts=$subContacts, services=$services, healthcarePartyId=$healthcarePartyId, modifiedContactId=$modifiedContactId, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+      'DecryptedTimeTableDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, name=$name, agendaId=$agendaId, publicTimeTable=$publicTimeTable, startTime=$startTime, endTime=$endTime, items=$items, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -324,35 +259,20 @@ class DecryptedContactDto {
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-    if (groupId != null) {
-      json[r'groupId'] = groupId;
+    if (name != null) {
+      json[r'name'] = name;
     }
-    if (openingDate != null) {
-      json[r'openingDate'] = openingDate;
+    if (agendaId != null) {
+      json[r'agendaId'] = agendaId;
     }
-    if (closingDate != null) {
-      json[r'closingDate'] = closingDate;
+    json[r'publicTimeTable'] = publicTimeTable;
+    if (startTime != null) {
+      json[r'startTime'] = startTime;
     }
-    if (descr != null) {
-      json[r'descr'] = descr;
+    if (endTime != null) {
+      json[r'endTime'] = endTime;
     }
-    if (location != null) {
-      json[r'location'] = location;
-    }
-    if (externalId != null) {
-      json[r'externalId'] = externalId;
-    }
-    if (encounterType != null) {
-      json[r'encounterType'] = encounterType;
-    }
-    json[r'subContacts'] = subContacts;
-    json[r'services'] = services;
-    if (healthcarePartyId != null) {
-      json[r'healthcarePartyId'] = healthcarePartyId;
-    }
-    if (modifiedContactId != null) {
-      json[r'modifiedContactId'] = modifiedContactId;
-    }
+    json[r'items'] = items;
     json[r'secretForeignKeys'] = secretForeignKeys;
     json[r'cryptedForeignKeys'] = cryptedForeignKeys;
     json[r'delegations'] = delegations;
@@ -363,10 +283,10 @@ class DecryptedContactDto {
     return json;
   }
 
-  /// Returns a new [DecryptedContactDto] instance and imports its values from
+  /// Returns a new [DecryptedTimeTableDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DecryptedContactDto? fromJson(dynamic value) {
+  static DecryptedTimeTableDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -376,14 +296,14 @@ class DecryptedContactDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "ContactDto[$key]" is missing from JSON.');
+              'Required key "DecryptedTimeTableDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "ContactDto[$key]" has a null value in JSON.');
+              'Required key "DecryptedTimeTableDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DecryptedContactDto(
+      return DecryptedTimeTableDto(
         id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
@@ -395,17 +315,12 @@ class DecryptedContactDto {
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
-        groupId: mapValueOfType<String>(json, r'groupId'),
-        openingDate: mapValueOfType<int>(json, r'openingDate'),
-        closingDate: mapValueOfType<int>(json, r'closingDate'),
-        descr: mapValueOfType<String>(json, r'descr'),
-        location: mapValueOfType<String>(json, r'location'),
-        externalId: mapValueOfType<String>(json, r'externalId'),
-        encounterType: CodeStubDto.fromJson(json[r'encounterType']),
-        subContacts: SubContactDto.listFromJson(json[r'subContacts'])!.toSet(),
-        services: ServiceDto.listFromJson(json[r'services'])!.toSet(),
-        healthcarePartyId: mapValueOfType<String>(json, r'healthcarePartyId'),
-        modifiedContactId: mapValueOfType<String>(json, r'modifiedContactId'),
+        name: mapValueOfType<String>(json, r'name'),
+        agendaId: mapValueOfType<String>(json, r'agendaId'),
+        publicTimeTable: mapValueOfType<bool>(json, r'publicTimeTable')!,
+        startTime: mapValueOfType<int>(json, r'startTime'),
+        endTime: mapValueOfType<int>(json, r'endTime'),
+        items: TimeTableItemDto.listFromJson(json[r'items'])!,
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
             : const {},
@@ -424,14 +339,14 @@ class DecryptedContactDto {
     return null;
   }
 
-  static List<DecryptedContactDto>? listFromJson(
+  static List<DecryptedTimeTableDto>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DecryptedContactDto>[];
+    final result = <DecryptedTimeTableDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DecryptedContactDto.fromJson(row);
+        final value = DecryptedTimeTableDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -440,12 +355,12 @@ class DecryptedContactDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedContactDto?> mapFromJson(dynamic json) {
-    final map = <String, DecryptedContactDto?>{};
+  static Map<String, DecryptedTimeTableDto> mapFromJson(dynamic json) {
+    final map = <String, DecryptedTimeTableDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.fromJson(entry.value);
+        final value = DecryptedTimeTableDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -454,16 +369,16 @@ class DecryptedContactDto {
     return map;
   }
 
-  // maps a json object with a list of DecryptedContactDto-objects as value to a dart map
-  static Map<String, List<DecryptedContactDto>> mapListFromJson(
+  // maps a json object with a list of DecryptedTimeTableDto-objects as value to a dart map
+  static Map<String, List<DecryptedTimeTableDto>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DecryptedContactDto>>{};
+    final map = <String, List<DecryptedTimeTableDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.listFromJson(
+        final value = DecryptedTimeTableDto.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -480,8 +395,8 @@ class DecryptedContactDto {
     'id',
     'tags',
     'codes',
-    'subContacts',
-    'services',
+    'publicTimeTable',
+    'items',
     'secretForeignKeys',
     'cryptedForeignKeys',
     'delegations',

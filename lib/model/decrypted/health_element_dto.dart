@@ -10,10 +10,11 @@
 
 part of openapi.api;
 
-class DecryptedContactDto {
-  /// Returns a new [DecryptedContactDto] instance.
-  DecryptedContactDto({
+class DecryptedHealthElementDto {
+  /// Returns a new [DecryptedHealthElementDto] instance.
+  DecryptedHealthElementDto({
     required this.id,
+    this.identifiers = const [],
     this.rev,
     this.created,
     this.modified,
@@ -24,17 +25,21 @@ class DecryptedContactDto {
     this.codes = const {},
     this.endOfLife,
     this.deletionDate,
-    this.groupId,
+    this.healthElementId,
+    this.valueDate,
     this.openingDate,
     this.closingDate,
     this.descr,
-    this.location,
-    this.externalId,
-    this.encounterType,
-    this.subContacts = const {},
-    this.services = const {},
-    this.healthcarePartyId,
-    this.modifiedContactId,
+    this.note,
+    required this.relevant,
+    this.idOpeningContact,
+    this.idClosingContact,
+    this.idService,
+    required this.status,
+    this.laterality,
+    this.plansOfAction = const [],
+    this.episodes = const [],
+    this.careTeam = const [],
     this.secretForeignKeys = const {},
     this.cryptedForeignKeys = const {},
     this.delegations = const {},
@@ -42,10 +47,12 @@ class DecryptedContactDto {
     this.encryptedSelf,
   });
 
-  /// the Id of the contact. We encourage using either a v4 UUID or a HL7 Id.
+  /// The Id of the healthcare element. We encourage using either a v4 UUID or a HL7 Id.
   String id;
 
-  /// the revision of the contact in the database, used for conflict management / optimistic locking.
+  List<IdentifierDto> identifiers;
+
+  /// The revision of the patient in the database, used for conflict management / optimistic locking.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -123,16 +130,25 @@ class DecryptedContactDto {
   ///
   int? deletionDate;
 
-  /// Separate contacts can merged in one logical contact if they share the same groupId. When a contact must be split to selectively assign rights to healthcare parties, the split contacts all share the same groupId
+  /// The logical id of the healthcare element, used to link together different versions of the same healthcare element. We encourage using either a v4 UUID or a HL7 Id.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? groupId;
+  String? healthElementId;
 
-  /// The date (YYYYMMDDhhmmss) of the start of the contact.
+  /// The date (unix epoch in ms) when the healthcare element is noted to have started and also closes on the same date
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? valueDate;
+
+  /// The date (unix epoch in ms) of the start of the healthcare element.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -141,7 +157,7 @@ class DecryptedContactDto {
   ///
   int? openingDate;
 
-  /// The date (YYYYMMDDhhmmss) marking the end of the contact.
+  /// The date (unix epoch in ms) marking the end of the healthcare element.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -150,7 +166,7 @@ class DecryptedContactDto {
   ///
   int? closingDate;
 
-  /// Description of the contact
+  /// Description of the healthcare element.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -159,53 +175,59 @@ class DecryptedContactDto {
   ///
   String? descr;
 
-  /// Location where the contact was recorded.
+  /// A text note (can be confidential, encrypted by default).
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? location;
+  String? note;
 
-  /// An external (from another source) id with no guarantee or requirement for unicity.
+  /// If the healthcare element is relevant or not (Set relevant by default).
+  bool relevant;
+
+  /// Id of the opening contact when the healthcare element was created.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? externalId;
+  String? idOpeningContact;
 
+  /// Id of the closing contact for the healthcare element.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodeStubDto? encounterType;
+  String? idClosingContact;
 
-  /// Set of all sub-contacts recorded during the given contact. Sub-contacts are used to link services embedded inside this contact to healthcare elements, healthcare approaches and/or forms.
-  Set<SubContactDto> subContacts;
-
-  /// Set of all services provided to the patient during the contact.
-  Set<ServiceDto> services;
-
+  /// Id of the service when a service is used to create a healthcare element.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? healthcarePartyId;
+  String? idService;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? modifiedContactId;
+  /// bit 0: active/inactive, bit 1: relevant/irrelevant, bit 2 : present/absent, ex: 0 = active,relevant and present
+  int status;
+
+  /// Left or Right dominance/preference.
+  DecryptedHealthElementDtoLateralityEnum? laterality;
+
+  /// List of healthcare approaches.
+  List<PlanOfActionDto> plansOfAction;
+
+  /// List of episodes of occurrences of the healthcare element.
+  List<EpisodeDto> episodes;
+
+  /// List of care team members assigned for the healthcare element.
+  List<CareTeamMemberDto> careTeam;
 
   /// The secretForeignKeys are filled at the to many end of a one to many relationship (for example inside Contact for the Patient -> Contacts relationship). Used when we want to find all contacts for a specific patient. These keys are in clear. You can have several to partition the medical document space.
   Set<String> secretForeignKeys;
@@ -231,8 +253,9 @@ class DecryptedContactDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DecryptedContactDto &&
+      other is DecryptedHealthElementDto &&
           other.id == id &&
+          other.identifiers == identifiers &&
           other.rev == rev &&
           other.created == created &&
           other.modified == modified &&
@@ -243,17 +266,21 @@ class DecryptedContactDto {
           other.codes == codes &&
           other.endOfLife == endOfLife &&
           other.deletionDate == deletionDate &&
-          other.groupId == groupId &&
+          other.healthElementId == healthElementId &&
+          other.valueDate == valueDate &&
           other.openingDate == openingDate &&
           other.closingDate == closingDate &&
           other.descr == descr &&
-          other.location == location &&
-          other.externalId == externalId &&
-          other.encounterType == encounterType &&
-          other.subContacts == subContacts &&
-          other.services == services &&
-          other.healthcarePartyId == healthcarePartyId &&
-          other.modifiedContactId == modifiedContactId &&
+          other.note == note &&
+          other.relevant == relevant &&
+          other.idOpeningContact == idOpeningContact &&
+          other.idClosingContact == idClosingContact &&
+          other.idService == idService &&
+          other.status == status &&
+          other.laterality == laterality &&
+          other.plansOfAction == plansOfAction &&
+          other.episodes == episodes &&
+          other.careTeam == careTeam &&
           other.secretForeignKeys == secretForeignKeys &&
           other.cryptedForeignKeys == cryptedForeignKeys &&
           other.delegations == delegations &&
@@ -264,6 +291,7 @@ class DecryptedContactDto {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (id.hashCode) +
+      (identifiers.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -274,17 +302,21 @@ class DecryptedContactDto {
       (codes.hashCode) +
       (endOfLife == null ? 0 : endOfLife!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
-      (groupId == null ? 0 : groupId!.hashCode) +
+      (healthElementId == null ? 0 : healthElementId!.hashCode) +
+      (valueDate == null ? 0 : valueDate!.hashCode) +
       (openingDate == null ? 0 : openingDate!.hashCode) +
       (closingDate == null ? 0 : closingDate!.hashCode) +
       (descr == null ? 0 : descr!.hashCode) +
-      (location == null ? 0 : location!.hashCode) +
-      (externalId == null ? 0 : externalId!.hashCode) +
-      (encounterType == null ? 0 : encounterType!.hashCode) +
-      (subContacts.hashCode) +
-      (services.hashCode) +
-      (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
-      (modifiedContactId == null ? 0 : modifiedContactId!.hashCode) +
+      (note == null ? 0 : note!.hashCode) +
+      (relevant.hashCode) +
+      (idOpeningContact == null ? 0 : idOpeningContact!.hashCode) +
+      (idClosingContact == null ? 0 : idClosingContact!.hashCode) +
+      (idService == null ? 0 : idService!.hashCode) +
+      (status.hashCode) +
+      (laterality == null ? 0 : laterality!.hashCode) +
+      (plansOfAction.hashCode) +
+      (episodes.hashCode) +
+      (careTeam.hashCode) +
       (secretForeignKeys.hashCode) +
       (cryptedForeignKeys.hashCode) +
       (delegations.hashCode) +
@@ -293,11 +325,12 @@ class DecryptedContactDto {
 
   @override
   String toString() =>
-      'DecryptedContactDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, groupId=$groupId, openingDate=$openingDate, closingDate=$closingDate, descr=$descr, location=$location, externalId=$externalId, encounterType=$encounterType, subContacts=$subContacts, services=$services, healthcarePartyId=$healthcarePartyId, modifiedContactId=$modifiedContactId, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+      'DecryptedHealthElementDto[id=$id, identifiers=$identifiers, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, healthElementId=$healthElementId, valueDate=$valueDate, openingDate=$openingDate, closingDate=$closingDate, descr=$descr, note=$note, relevant=$relevant, idOpeningContact=$idOpeningContact, idClosingContact=$idClosingContact, idService=$idService, status=$status, laterality=$laterality, plansOfAction=$plansOfAction, episodes=$episodes, careTeam=$careTeam, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'id'] = id;
+    json[r'identifiers'] = identifiers;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -324,8 +357,11 @@ class DecryptedContactDto {
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-    if (groupId != null) {
-      json[r'groupId'] = groupId;
+    if (healthElementId != null) {
+      json[r'healthElementId'] = healthElementId;
+    }
+    if (valueDate != null) {
+      json[r'valueDate'] = valueDate;
     }
     if (openingDate != null) {
       json[r'openingDate'] = openingDate;
@@ -336,23 +372,26 @@ class DecryptedContactDto {
     if (descr != null) {
       json[r'descr'] = descr;
     }
-    if (location != null) {
-      json[r'location'] = location;
+    if (note != null) {
+      json[r'note'] = note;
     }
-    if (externalId != null) {
-      json[r'externalId'] = externalId;
+    json[r'relevant'] = relevant;
+    if (idOpeningContact != null) {
+      json[r'idOpeningContact'] = idOpeningContact;
     }
-    if (encounterType != null) {
-      json[r'encounterType'] = encounterType;
+    if (idClosingContact != null) {
+      json[r'idClosingContact'] = idClosingContact;
     }
-    json[r'subContacts'] = subContacts;
-    json[r'services'] = services;
-    if (healthcarePartyId != null) {
-      json[r'healthcarePartyId'] = healthcarePartyId;
+    if (idService != null) {
+      json[r'idService'] = idService;
     }
-    if (modifiedContactId != null) {
-      json[r'modifiedContactId'] = modifiedContactId;
+    json[r'status'] = status;
+    if (laterality != null) {
+      json[r'laterality'] = laterality;
     }
+    json[r'plansOfAction'] = plansOfAction;
+    json[r'episodes'] = episodes;
+    json[r'careTeam'] = careTeam;
     json[r'secretForeignKeys'] = secretForeignKeys;
     json[r'cryptedForeignKeys'] = cryptedForeignKeys;
     json[r'delegations'] = delegations;
@@ -363,10 +402,10 @@ class DecryptedContactDto {
     return json;
   }
 
-  /// Returns a new [DecryptedContactDto] instance and imports its values from
+  /// Returns a new [DecryptedHealthElementDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DecryptedContactDto? fromJson(dynamic value) {
+  static DecryptedHealthElementDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -376,15 +415,16 @@ class DecryptedContactDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "ContactDto[$key]" is missing from JSON.');
+              'Required key "DecryptedHealthElementDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "ContactDto[$key]" has a null value in JSON.');
+              'Required key "DecryptedHealthElementDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DecryptedContactDto(
+      return DecryptedHealthElementDto(
         id: mapValueOfType<String>(json, r'id')!,
+        identifiers: IdentifierDto.listFromJson(json[r'identifiers'])!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
         modified: mapValueOfType<int>(json, r'modified'),
@@ -395,17 +435,22 @@ class DecryptedContactDto {
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
-        groupId: mapValueOfType<String>(json, r'groupId'),
+        healthElementId: mapValueOfType<String>(json, r'healthElementId'),
+        valueDate: mapValueOfType<int>(json, r'valueDate'),
         openingDate: mapValueOfType<int>(json, r'openingDate'),
         closingDate: mapValueOfType<int>(json, r'closingDate'),
         descr: mapValueOfType<String>(json, r'descr'),
-        location: mapValueOfType<String>(json, r'location'),
-        externalId: mapValueOfType<String>(json, r'externalId'),
-        encounterType: CodeStubDto.fromJson(json[r'encounterType']),
-        subContacts: SubContactDto.listFromJson(json[r'subContacts'])!.toSet(),
-        services: ServiceDto.listFromJson(json[r'services'])!.toSet(),
-        healthcarePartyId: mapValueOfType<String>(json, r'healthcarePartyId'),
-        modifiedContactId: mapValueOfType<String>(json, r'modifiedContactId'),
+        note: mapValueOfType<String>(json, r'note'),
+        relevant: mapValueOfType<bool>(json, r'relevant')!,
+        idOpeningContact: mapValueOfType<String>(json, r'idOpeningContact'),
+        idClosingContact: mapValueOfType<String>(json, r'idClosingContact'),
+        idService: mapValueOfType<String>(json, r'idService'),
+        status: mapValueOfType<int>(json, r'status')!,
+        laterality: DecryptedHealthElementDtoLateralityEnum.fromJson(
+            json[r'laterality']),
+        plansOfAction: PlanOfActionDto.listFromJson(json[r'plansOfAction'])!,
+        episodes: EpisodeDto.listFromJson(json[r'episodes'])!,
+        careTeam: CareTeamMemberDto.listFromJson(json[r'careTeam'])!,
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
             : const {},
@@ -424,14 +469,14 @@ class DecryptedContactDto {
     return null;
   }
 
-  static List<DecryptedContactDto>? listFromJson(
+  static List<DecryptedHealthElementDto>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DecryptedContactDto>[];
+    final result = <DecryptedHealthElementDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DecryptedContactDto.fromJson(row);
+        final value = DecryptedHealthElementDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -440,12 +485,12 @@ class DecryptedContactDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedContactDto?> mapFromJson(dynamic json) {
-    final map = <String, DecryptedContactDto?>{};
+  static Map<String, DecryptedHealthElementDto> mapFromJson(dynamic json) {
+    final map = <String, DecryptedHealthElementDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.fromJson(entry.value);
+        final value = DecryptedHealthElementDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -454,16 +499,16 @@ class DecryptedContactDto {
     return map;
   }
 
-  // maps a json object with a list of DecryptedContactDto-objects as value to a dart map
-  static Map<String, List<DecryptedContactDto>> mapListFromJson(
+  // maps a json object with a list of DecryptedHealthElementDto-objects as value to a dart map
+  static Map<String, List<DecryptedHealthElementDto>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DecryptedContactDto>>{};
+    final map = <String, List<DecryptedHealthElementDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.listFromJson(
+        final value = DecryptedHealthElementDto.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -478,13 +523,99 @@ class DecryptedContactDto {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'id',
+    'identifiers',
     'tags',
     'codes',
-    'subContacts',
-    'services',
+    'relevant',
+    'status',
+    'plansOfAction',
+    'episodes',
+    'careTeam',
     'secretForeignKeys',
     'cryptedForeignKeys',
     'delegations',
     'encryptionKeys',
   };
+}
+
+/// Left or Right dominance/preference.
+class DecryptedHealthElementDtoLateralityEnum {
+  /// Instantiate a new enum with the provided [value].
+  const DecryptedHealthElementDtoLateralityEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const left = DecryptedHealthElementDtoLateralityEnum._(r'left');
+  static const right = DecryptedHealthElementDtoLateralityEnum._(r'right');
+
+  /// List of all possible values in this [enum][DecryptedHealthElementDtoLateralityEnum].
+  static const values = <DecryptedHealthElementDtoLateralityEnum>[
+    left,
+    right,
+  ];
+
+  static DecryptedHealthElementDtoLateralityEnum? fromJson(dynamic value) =>
+      DecryptedHealthElementDtoLateralityEnumTypeTransformer().decode(value);
+
+  static List<DecryptedHealthElementDtoLateralityEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
+    final result = <DecryptedHealthElementDtoLateralityEnum>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DecryptedHealthElementDtoLateralityEnum.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+}
+
+/// Transformation class that can [encode] an instance of [DecryptedHealthElementDtoLateralityEnum] to String,
+/// and [decode] dynamic data back to [DecryptedHealthElementDtoLateralityEnum].
+class DecryptedHealthElementDtoLateralityEnumTypeTransformer {
+  factory DecryptedHealthElementDtoLateralityEnumTypeTransformer() =>
+      _instance ??=
+          const DecryptedHealthElementDtoLateralityEnumTypeTransformer._();
+
+  const DecryptedHealthElementDtoLateralityEnumTypeTransformer._();
+
+  String encode(DecryptedHealthElementDtoLateralityEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a DecryptedHealthElementDtoLateralityEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  DecryptedHealthElementDtoLateralityEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    if (data != null) {
+      switch (data.toString()) {
+        case r'left':
+          return DecryptedHealthElementDtoLateralityEnum.left;
+        case r'right':
+          return DecryptedHealthElementDtoLateralityEnum.right;
+        default:
+          if (!allowNull) {
+            throw ArgumentError('Unknown enum value to decode: $data');
+          }
+      }
+    }
+    return null;
+  }
+
+  /// Singleton [DecryptedHealthElementDtoLateralityEnumTypeTransformer] instance.
+  static DecryptedHealthElementDtoLateralityEnumTypeTransformer? _instance;
 }

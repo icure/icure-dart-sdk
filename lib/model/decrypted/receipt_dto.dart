@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class DecryptedContactDto {
-  /// Returns a new [DecryptedContactDto] instance.
-  DecryptedContactDto({
+class DecryptedReceiptDto {
+  /// Returns a new [DecryptedReceiptDto] instance.
+  DecryptedReceiptDto({
     required this.id,
     this.rev,
     this.created,
@@ -24,17 +24,11 @@ class DecryptedContactDto {
     this.codes = const {},
     this.endOfLife,
     this.deletionDate,
-    this.groupId,
-    this.openingDate,
-    this.closingDate,
-    this.descr,
-    this.location,
-    this.externalId,
-    this.encounterType,
-    this.subContacts = const {},
-    this.services = const {},
-    this.healthcarePartyId,
-    this.modifiedContactId,
+    this.attachmentIds = const {},
+    this.references = const [],
+    this.documentId,
+    this.category,
+    this.subCategory,
     this.secretForeignKeys = const {},
     this.cryptedForeignKeys = const {},
     this.delegations = const {},
@@ -42,10 +36,8 @@ class DecryptedContactDto {
     this.encryptedSelf,
   });
 
-  /// the Id of the contact. We encourage using either a v4 UUID or a HL7 Id.
   String id;
 
-  /// the revision of the contact in the database, used for conflict management / optimistic locking.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -123,59 +115,9 @@ class DecryptedContactDto {
   ///
   int? deletionDate;
 
-  /// Separate contacts can merged in one logical contact if they share the same groupId. When a contact must be split to selectively assign rights to healthcare parties, the split contacts all share the same groupId
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? groupId;
+  Map<String, String> attachmentIds;
 
-  /// The date (YYYYMMDDhhmmss) of the start of the contact.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? openingDate;
-
-  /// The date (YYYYMMDDhhmmss) marking the end of the contact.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? closingDate;
-
-  /// Description of the contact
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? descr;
-
-  /// Location where the contact was recorded.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? location;
-
-  /// An external (from another source) id with no guarantee or requirement for unicity.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? externalId;
+  List<String> references;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -183,13 +125,7 @@ class DecryptedContactDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodeStubDto? encounterType;
-
-  /// Set of all sub-contacts recorded during the given contact. Sub-contacts are used to link services embedded inside this contact to healthcare elements, healthcare approaches and/or forms.
-  Set<SubContactDto> subContacts;
-
-  /// Set of all services provided to the patient during the contact.
-  Set<ServiceDto> services;
+  String? documentId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -197,7 +133,7 @@ class DecryptedContactDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? healthcarePartyId;
+  String? category;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -205,7 +141,7 @@ class DecryptedContactDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? modifiedContactId;
+  String? subCategory;
 
   /// The secretForeignKeys are filled at the to many end of a one to many relationship (for example inside Contact for the Patient -> Contacts relationship). Used when we want to find all contacts for a specific patient. These keys are in clear. You can have several to partition the medical document space.
   Set<String> secretForeignKeys;
@@ -231,7 +167,7 @@ class DecryptedContactDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DecryptedContactDto &&
+      other is DecryptedReceiptDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -243,17 +179,11 @@ class DecryptedContactDto {
           other.codes == codes &&
           other.endOfLife == endOfLife &&
           other.deletionDate == deletionDate &&
-          other.groupId == groupId &&
-          other.openingDate == openingDate &&
-          other.closingDate == closingDate &&
-          other.descr == descr &&
-          other.location == location &&
-          other.externalId == externalId &&
-          other.encounterType == encounterType &&
-          other.subContacts == subContacts &&
-          other.services == services &&
-          other.healthcarePartyId == healthcarePartyId &&
-          other.modifiedContactId == modifiedContactId &&
+          other.attachmentIds == attachmentIds &&
+          other.references == references &&
+          other.documentId == documentId &&
+          other.category == category &&
+          other.subCategory == subCategory &&
           other.secretForeignKeys == secretForeignKeys &&
           other.cryptedForeignKeys == cryptedForeignKeys &&
           other.delegations == delegations &&
@@ -274,17 +204,11 @@ class DecryptedContactDto {
       (codes.hashCode) +
       (endOfLife == null ? 0 : endOfLife!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
-      (groupId == null ? 0 : groupId!.hashCode) +
-      (openingDate == null ? 0 : openingDate!.hashCode) +
-      (closingDate == null ? 0 : closingDate!.hashCode) +
-      (descr == null ? 0 : descr!.hashCode) +
-      (location == null ? 0 : location!.hashCode) +
-      (externalId == null ? 0 : externalId!.hashCode) +
-      (encounterType == null ? 0 : encounterType!.hashCode) +
-      (subContacts.hashCode) +
-      (services.hashCode) +
-      (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
-      (modifiedContactId == null ? 0 : modifiedContactId!.hashCode) +
+      (attachmentIds.hashCode) +
+      (references.hashCode) +
+      (documentId == null ? 0 : documentId!.hashCode) +
+      (category == null ? 0 : category!.hashCode) +
+      (subCategory == null ? 0 : subCategory!.hashCode) +
       (secretForeignKeys.hashCode) +
       (cryptedForeignKeys.hashCode) +
       (delegations.hashCode) +
@@ -293,7 +217,7 @@ class DecryptedContactDto {
 
   @override
   String toString() =>
-      'DecryptedContactDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, groupId=$groupId, openingDate=$openingDate, closingDate=$closingDate, descr=$descr, location=$location, externalId=$externalId, encounterType=$encounterType, subContacts=$subContacts, services=$services, healthcarePartyId=$healthcarePartyId, modifiedContactId=$modifiedContactId, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+      'DecryptedReceiptDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, attachmentIds=$attachmentIds, references=$references, documentId=$documentId, category=$category, subCategory=$subCategory, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -324,34 +248,16 @@ class DecryptedContactDto {
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-    if (groupId != null) {
-      json[r'groupId'] = groupId;
+    json[r'attachmentIds'] = attachmentIds;
+    json[r'references'] = references;
+    if (documentId != null) {
+      json[r'documentId'] = documentId;
     }
-    if (openingDate != null) {
-      json[r'openingDate'] = openingDate;
+    if (category != null) {
+      json[r'category'] = category;
     }
-    if (closingDate != null) {
-      json[r'closingDate'] = closingDate;
-    }
-    if (descr != null) {
-      json[r'descr'] = descr;
-    }
-    if (location != null) {
-      json[r'location'] = location;
-    }
-    if (externalId != null) {
-      json[r'externalId'] = externalId;
-    }
-    if (encounterType != null) {
-      json[r'encounterType'] = encounterType;
-    }
-    json[r'subContacts'] = subContacts;
-    json[r'services'] = services;
-    if (healthcarePartyId != null) {
-      json[r'healthcarePartyId'] = healthcarePartyId;
-    }
-    if (modifiedContactId != null) {
-      json[r'modifiedContactId'] = modifiedContactId;
+    if (subCategory != null) {
+      json[r'subCategory'] = subCategory;
     }
     json[r'secretForeignKeys'] = secretForeignKeys;
     json[r'cryptedForeignKeys'] = cryptedForeignKeys;
@@ -363,10 +269,10 @@ class DecryptedContactDto {
     return json;
   }
 
-  /// Returns a new [DecryptedContactDto] instance and imports its values from
+  /// Returns a new [DecryptedReceiptDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DecryptedContactDto? fromJson(dynamic value) {
+  static DecryptedReceiptDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -376,14 +282,14 @@ class DecryptedContactDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "ContactDto[$key]" is missing from JSON.');
+              'Required key "DecryptedReceiptDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "ContactDto[$key]" has a null value in JSON.');
+              'Required key "DecryptedReceiptDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DecryptedContactDto(
+      return DecryptedReceiptDto(
         id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
@@ -395,17 +301,13 @@ class DecryptedContactDto {
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
-        groupId: mapValueOfType<String>(json, r'groupId'),
-        openingDate: mapValueOfType<int>(json, r'openingDate'),
-        closingDate: mapValueOfType<int>(json, r'closingDate'),
-        descr: mapValueOfType<String>(json, r'descr'),
-        location: mapValueOfType<String>(json, r'location'),
-        externalId: mapValueOfType<String>(json, r'externalId'),
-        encounterType: CodeStubDto.fromJson(json[r'encounterType']),
-        subContacts: SubContactDto.listFromJson(json[r'subContacts'])!.toSet(),
-        services: ServiceDto.listFromJson(json[r'services'])!.toSet(),
-        healthcarePartyId: mapValueOfType<String>(json, r'healthcarePartyId'),
-        modifiedContactId: mapValueOfType<String>(json, r'modifiedContactId'),
+        attachmentIds: mapCastOfType<String, String>(json, r'attachmentIds')!,
+        references: json[r'references'] is List
+            ? (json[r'references'] as List).cast<String>()
+            : const [],
+        documentId: mapValueOfType<String>(json, r'documentId'),
+        category: mapValueOfType<String>(json, r'category'),
+        subCategory: mapValueOfType<String>(json, r'subCategory'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
             : const {},
@@ -424,14 +326,14 @@ class DecryptedContactDto {
     return null;
   }
 
-  static List<DecryptedContactDto>? listFromJson(
+  static List<DecryptedReceiptDto>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DecryptedContactDto>[];
+    final result = <DecryptedReceiptDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DecryptedContactDto.fromJson(row);
+        final value = DecryptedReceiptDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -440,12 +342,12 @@ class DecryptedContactDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedContactDto?> mapFromJson(dynamic json) {
-    final map = <String, DecryptedContactDto?>{};
+  static Map<String, DecryptedReceiptDto> mapFromJson(dynamic json) {
+    final map = <String, DecryptedReceiptDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.fromJson(entry.value);
+        final value = DecryptedReceiptDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -454,16 +356,16 @@ class DecryptedContactDto {
     return map;
   }
 
-  // maps a json object with a list of DecryptedContactDto-objects as value to a dart map
-  static Map<String, List<DecryptedContactDto>> mapListFromJson(
+  // maps a json object with a list of DecryptedReceiptDto-objects as value to a dart map
+  static Map<String, List<DecryptedReceiptDto>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DecryptedContactDto>>{};
+    final map = <String, List<DecryptedReceiptDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.listFromJson(
+        final value = DecryptedReceiptDto.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -480,8 +382,8 @@ class DecryptedContactDto {
     'id',
     'tags',
     'codes',
-    'subContacts',
-    'services',
+    'attachmentIds',
+    'references',
     'secretForeignKeys',
     'cryptedForeignKeys',
     'delegations',

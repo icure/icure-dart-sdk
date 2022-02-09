@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class DecryptedContactDto {
-  /// Returns a new [DecryptedContactDto] instance.
-  DecryptedContactDto({
+class DecryptedCalendarItemDto {
+  /// Returns a new [DecryptedCalendarItemDto] instance.
+  DecryptedCalendarItemDto({
     required this.id,
     this.rev,
     this.created,
@@ -24,17 +24,28 @@ class DecryptedContactDto {
     this.codes = const {},
     this.endOfLife,
     this.deletionDate,
-    this.groupId,
-    this.openingDate,
-    this.closingDate,
-    this.descr,
-    this.location,
-    this.externalId,
-    this.encounterType,
-    this.subContacts = const {},
-    this.services = const {},
-    this.healthcarePartyId,
-    this.modifiedContactId,
+    required this.title,
+    this.calendarItemTypeId,
+    this.masterCalendarItemId,
+    this.patientId,
+    this.important,
+    this.homeVisit,
+    this.phoneNumber,
+    this.placeId,
+    this.address,
+    this.addressText,
+    this.startTime,
+    this.endTime,
+    this.confirmationTime,
+    this.confirmationId,
+    this.duration,
+    this.allDay,
+    this.details,
+    this.wasMigrated,
+    this.agendaId,
+    this.recurrenceId,
+    this.meetingTags = const {},
+    this.flowItem,
     this.secretForeignKeys = const {},
     this.cryptedForeignKeys = const {},
     this.delegations = const {},
@@ -42,10 +53,8 @@ class DecryptedContactDto {
     this.encryptedSelf,
   });
 
-  /// the Id of the contact. We encourage using either a v4 UUID or a HL7 Id.
   String id;
 
-  /// the revision of the contact in the database, used for conflict management / optimistic locking.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -123,59 +132,7 @@ class DecryptedContactDto {
   ///
   int? deletionDate;
 
-  /// Separate contacts can merged in one logical contact if they share the same groupId. When a contact must be split to selectively assign rights to healthcare parties, the split contacts all share the same groupId
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? groupId;
-
-  /// The date (YYYYMMDDhhmmss) of the start of the contact.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? openingDate;
-
-  /// The date (YYYYMMDDhhmmss) marking the end of the contact.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? closingDate;
-
-  /// Description of the contact
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? descr;
-
-  /// Location where the contact was recorded.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? location;
-
-  /// An external (from another source) id with no guarantee or requirement for unicity.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? externalId;
+  String title;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -183,13 +140,7 @@ class DecryptedContactDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  CodeStubDto? encounterType;
-
-  /// Set of all sub-contacts recorded during the given contact. Sub-contacts are used to link services embedded inside this contact to healthcare elements, healthcare approaches and/or forms.
-  Set<SubContactDto> subContacts;
-
-  /// Set of all services provided to the patient during the contact.
-  Set<ServiceDto> services;
+  String? calendarItemTypeId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -197,7 +148,7 @@ class DecryptedContactDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? healthcarePartyId;
+  String? masterCalendarItemId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -205,7 +156,145 @@ class DecryptedContactDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? modifiedContactId;
+  String? patientId;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? important;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? homeVisit;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? phoneNumber;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? placeId;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  AddressDto? address;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? addressText;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? startTime;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endTime;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? confirmationTime;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? confirmationId;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? duration;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? allDay;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? details;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? wasMigrated;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? agendaId;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? recurrenceId;
+
+  Set<CalendarItemTagDto> meetingTags;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  FlowItemDto? flowItem;
 
   /// The secretForeignKeys are filled at the to many end of a one to many relationship (for example inside Contact for the Patient -> Contacts relationship). Used when we want to find all contacts for a specific patient. These keys are in clear. You can have several to partition the medical document space.
   Set<String> secretForeignKeys;
@@ -231,7 +320,7 @@ class DecryptedContactDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DecryptedContactDto &&
+      other is DecryptedCalendarItemDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -243,17 +332,28 @@ class DecryptedContactDto {
           other.codes == codes &&
           other.endOfLife == endOfLife &&
           other.deletionDate == deletionDate &&
-          other.groupId == groupId &&
-          other.openingDate == openingDate &&
-          other.closingDate == closingDate &&
-          other.descr == descr &&
-          other.location == location &&
-          other.externalId == externalId &&
-          other.encounterType == encounterType &&
-          other.subContacts == subContacts &&
-          other.services == services &&
-          other.healthcarePartyId == healthcarePartyId &&
-          other.modifiedContactId == modifiedContactId &&
+          other.title == title &&
+          other.calendarItemTypeId == calendarItemTypeId &&
+          other.masterCalendarItemId == masterCalendarItemId &&
+          other.patientId == patientId &&
+          other.important == important &&
+          other.homeVisit == homeVisit &&
+          other.phoneNumber == phoneNumber &&
+          other.placeId == placeId &&
+          other.address == address &&
+          other.addressText == addressText &&
+          other.startTime == startTime &&
+          other.endTime == endTime &&
+          other.confirmationTime == confirmationTime &&
+          other.confirmationId == confirmationId &&
+          other.duration == duration &&
+          other.allDay == allDay &&
+          other.details == details &&
+          other.wasMigrated == wasMigrated &&
+          other.agendaId == agendaId &&
+          other.recurrenceId == recurrenceId &&
+          other.meetingTags == meetingTags &&
+          other.flowItem == flowItem &&
           other.secretForeignKeys == secretForeignKeys &&
           other.cryptedForeignKeys == cryptedForeignKeys &&
           other.delegations == delegations &&
@@ -274,17 +374,28 @@ class DecryptedContactDto {
       (codes.hashCode) +
       (endOfLife == null ? 0 : endOfLife!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
-      (groupId == null ? 0 : groupId!.hashCode) +
-      (openingDate == null ? 0 : openingDate!.hashCode) +
-      (closingDate == null ? 0 : closingDate!.hashCode) +
-      (descr == null ? 0 : descr!.hashCode) +
-      (location == null ? 0 : location!.hashCode) +
-      (externalId == null ? 0 : externalId!.hashCode) +
-      (encounterType == null ? 0 : encounterType!.hashCode) +
-      (subContacts.hashCode) +
-      (services.hashCode) +
-      (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
-      (modifiedContactId == null ? 0 : modifiedContactId!.hashCode) +
+      (title.hashCode) +
+      (calendarItemTypeId == null ? 0 : calendarItemTypeId!.hashCode) +
+      (masterCalendarItemId == null ? 0 : masterCalendarItemId!.hashCode) +
+      (patientId == null ? 0 : patientId!.hashCode) +
+      (important == null ? 0 : important!.hashCode) +
+      (homeVisit == null ? 0 : homeVisit!.hashCode) +
+      (phoneNumber == null ? 0 : phoneNumber!.hashCode) +
+      (placeId == null ? 0 : placeId!.hashCode) +
+      (address == null ? 0 : address!.hashCode) +
+      (addressText == null ? 0 : addressText!.hashCode) +
+      (startTime == null ? 0 : startTime!.hashCode) +
+      (endTime == null ? 0 : endTime!.hashCode) +
+      (confirmationTime == null ? 0 : confirmationTime!.hashCode) +
+      (confirmationId == null ? 0 : confirmationId!.hashCode) +
+      (duration == null ? 0 : duration!.hashCode) +
+      (allDay == null ? 0 : allDay!.hashCode) +
+      (details == null ? 0 : details!.hashCode) +
+      (wasMigrated == null ? 0 : wasMigrated!.hashCode) +
+      (agendaId == null ? 0 : agendaId!.hashCode) +
+      (recurrenceId == null ? 0 : recurrenceId!.hashCode) +
+      (meetingTags.hashCode) +
+      (flowItem == null ? 0 : flowItem!.hashCode) +
       (secretForeignKeys.hashCode) +
       (cryptedForeignKeys.hashCode) +
       (delegations.hashCode) +
@@ -293,7 +404,7 @@ class DecryptedContactDto {
 
   @override
   String toString() =>
-      'DecryptedContactDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, groupId=$groupId, openingDate=$openingDate, closingDate=$closingDate, descr=$descr, location=$location, externalId=$externalId, encounterType=$encounterType, subContacts=$subContacts, services=$services, healthcarePartyId=$healthcarePartyId, modifiedContactId=$modifiedContactId, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+      'DecryptedCalendarItemDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, title=$title, calendarItemTypeId=$calendarItemTypeId, masterCalendarItemId=$masterCalendarItemId, patientId=$patientId, important=$important, homeVisit=$homeVisit, phoneNumber=$phoneNumber, placeId=$placeId, address=$address, addressText=$addressText, startTime=$startTime, endTime=$endTime, confirmationTime=$confirmationTime, confirmationId=$confirmationId, duration=$duration, allDay=$allDay, details=$details, wasMigrated=$wasMigrated, agendaId=$agendaId, recurrenceId=$recurrenceId, meetingTags=$meetingTags, flowItem=$flowItem, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -324,34 +435,67 @@ class DecryptedContactDto {
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-    if (groupId != null) {
-      json[r'groupId'] = groupId;
+    json[r'title'] = title;
+    if (calendarItemTypeId != null) {
+      json[r'calendarItemTypeId'] = calendarItemTypeId;
     }
-    if (openingDate != null) {
-      json[r'openingDate'] = openingDate;
+    if (masterCalendarItemId != null) {
+      json[r'masterCalendarItemId'] = masterCalendarItemId;
     }
-    if (closingDate != null) {
-      json[r'closingDate'] = closingDate;
+    if (patientId != null) {
+      json[r'patientId'] = patientId;
     }
-    if (descr != null) {
-      json[r'descr'] = descr;
+    if (important != null) {
+      json[r'important'] = important;
     }
-    if (location != null) {
-      json[r'location'] = location;
+    if (homeVisit != null) {
+      json[r'homeVisit'] = homeVisit;
     }
-    if (externalId != null) {
-      json[r'externalId'] = externalId;
+    if (phoneNumber != null) {
+      json[r'phoneNumber'] = phoneNumber;
     }
-    if (encounterType != null) {
-      json[r'encounterType'] = encounterType;
+    if (placeId != null) {
+      json[r'placeId'] = placeId;
     }
-    json[r'subContacts'] = subContacts;
-    json[r'services'] = services;
-    if (healthcarePartyId != null) {
-      json[r'healthcarePartyId'] = healthcarePartyId;
+    if (address != null) {
+      json[r'address'] = address;
     }
-    if (modifiedContactId != null) {
-      json[r'modifiedContactId'] = modifiedContactId;
+    if (addressText != null) {
+      json[r'addressText'] = addressText;
+    }
+    if (startTime != null) {
+      json[r'startTime'] = startTime;
+    }
+    if (endTime != null) {
+      json[r'endTime'] = endTime;
+    }
+    if (confirmationTime != null) {
+      json[r'confirmationTime'] = confirmationTime;
+    }
+    if (confirmationId != null) {
+      json[r'confirmationId'] = confirmationId;
+    }
+    if (duration != null) {
+      json[r'duration'] = duration;
+    }
+    if (allDay != null) {
+      json[r'allDay'] = allDay;
+    }
+    if (details != null) {
+      json[r'details'] = details;
+    }
+    if (wasMigrated != null) {
+      json[r'wasMigrated'] = wasMigrated;
+    }
+    if (agendaId != null) {
+      json[r'agendaId'] = agendaId;
+    }
+    if (recurrenceId != null) {
+      json[r'recurrenceId'] = recurrenceId;
+    }
+    json[r'meetingTags'] = meetingTags;
+    if (flowItem != null) {
+      json[r'flowItem'] = flowItem;
     }
     json[r'secretForeignKeys'] = secretForeignKeys;
     json[r'cryptedForeignKeys'] = cryptedForeignKeys;
@@ -363,10 +507,10 @@ class DecryptedContactDto {
     return json;
   }
 
-  /// Returns a new [DecryptedContactDto] instance and imports its values from
+  /// Returns a new [DecryptedCalendarItemDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DecryptedContactDto? fromJson(dynamic value) {
+  static DecryptedCalendarItemDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -376,14 +520,14 @@ class DecryptedContactDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "ContactDto[$key]" is missing from JSON.');
+              'Required key "DecryptedCalendarItemDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "ContactDto[$key]" has a null value in JSON.');
+              'Required key "DecryptedCalendarItemDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DecryptedContactDto(
+      return DecryptedCalendarItemDto(
         id: mapValueOfType<String>(json, r'id')!,
         rev: mapValueOfType<String>(json, r'rev'),
         created: mapValueOfType<int>(json, r'created'),
@@ -395,17 +539,30 @@ class DecryptedContactDto {
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
-        groupId: mapValueOfType<String>(json, r'groupId'),
-        openingDate: mapValueOfType<int>(json, r'openingDate'),
-        closingDate: mapValueOfType<int>(json, r'closingDate'),
-        descr: mapValueOfType<String>(json, r'descr'),
-        location: mapValueOfType<String>(json, r'location'),
-        externalId: mapValueOfType<String>(json, r'externalId'),
-        encounterType: CodeStubDto.fromJson(json[r'encounterType']),
-        subContacts: SubContactDto.listFromJson(json[r'subContacts'])!.toSet(),
-        services: ServiceDto.listFromJson(json[r'services'])!.toSet(),
-        healthcarePartyId: mapValueOfType<String>(json, r'healthcarePartyId'),
-        modifiedContactId: mapValueOfType<String>(json, r'modifiedContactId'),
+        title: mapValueOfType<String>(json, r'title')!,
+        calendarItemTypeId: mapValueOfType<String>(json, r'calendarItemTypeId'),
+        masterCalendarItemId:
+            mapValueOfType<String>(json, r'masterCalendarItemId'),
+        patientId: mapValueOfType<String>(json, r'patientId'),
+        important: mapValueOfType<bool>(json, r'important'),
+        homeVisit: mapValueOfType<bool>(json, r'homeVisit'),
+        phoneNumber: mapValueOfType<String>(json, r'phoneNumber'),
+        placeId: mapValueOfType<String>(json, r'placeId'),
+        address: AddressDto.fromJson(json[r'address']),
+        addressText: mapValueOfType<String>(json, r'addressText'),
+        startTime: mapValueOfType<int>(json, r'startTime'),
+        endTime: mapValueOfType<int>(json, r'endTime'),
+        confirmationTime: mapValueOfType<int>(json, r'confirmationTime'),
+        confirmationId: mapValueOfType<String>(json, r'confirmationId'),
+        duration: mapValueOfType<int>(json, r'duration'),
+        allDay: mapValueOfType<bool>(json, r'allDay'),
+        details: mapValueOfType<String>(json, r'details'),
+        wasMigrated: mapValueOfType<bool>(json, r'wasMigrated'),
+        agendaId: mapValueOfType<String>(json, r'agendaId'),
+        recurrenceId: mapValueOfType<String>(json, r'recurrenceId'),
+        meetingTags:
+            CalendarItemTagDto.listFromJson(json[r'meetingTags'])!.toSet(),
+        flowItem: FlowItemDto.fromJson(json[r'flowItem']),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
             : const {},
@@ -424,14 +581,14 @@ class DecryptedContactDto {
     return null;
   }
 
-  static List<DecryptedContactDto>? listFromJson(
+  static List<DecryptedCalendarItemDto>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DecryptedContactDto>[];
+    final result = <DecryptedCalendarItemDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DecryptedContactDto.fromJson(row);
+        final value = DecryptedCalendarItemDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -440,12 +597,12 @@ class DecryptedContactDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedContactDto?> mapFromJson(dynamic json) {
-    final map = <String, DecryptedContactDto?>{};
+  static Map<String, DecryptedCalendarItemDto> mapFromJson(dynamic json) {
+    final map = <String, DecryptedCalendarItemDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.fromJson(entry.value);
+        final value = DecryptedCalendarItemDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -454,16 +611,16 @@ class DecryptedContactDto {
     return map;
   }
 
-  // maps a json object with a list of DecryptedContactDto-objects as value to a dart map
-  static Map<String, List<DecryptedContactDto>> mapListFromJson(
+  // maps a json object with a list of DecryptedCalendarItemDto-objects as value to a dart map
+  static Map<String, List<DecryptedCalendarItemDto>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DecryptedContactDto>>{};
+    final map = <String, List<DecryptedCalendarItemDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedContactDto.listFromJson(
+        final value = DecryptedCalendarItemDto.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -480,8 +637,8 @@ class DecryptedContactDto {
     'id',
     'tags',
     'codes',
-    'subContacts',
-    'services',
+    'title',
+    'meetingTags',
     'secretForeignKeys',
     'cryptedForeignKeys',
     'delegations',
