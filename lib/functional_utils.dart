@@ -9,3 +9,11 @@ extension ObjectExt<T> on T {
     return self;
   }
 }
+
+extension FutureExt<T> on Future<T> {
+  Future<T> also(void Function(Future<T> that) op) {
+    var self = this as Future<T>;
+    op(self);
+    return self;
+  }
+}
