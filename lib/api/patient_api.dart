@@ -16,7 +16,7 @@ class PatientApi {
 
   final ApiClient apiClient;
 
-  /// Get count of patients for a specific HcParty or for the current HcParty 
+  /// Get count of patients for a specific HcParty or for the current HcParty
   ///
   /// Returns the count of patients
   ///
@@ -54,7 +54,7 @@ class PatientApi {
     );
   }
 
-  /// Get count of patients for a specific HcParty or for the current HcParty 
+  /// Get count of patients for a specific HcParty or for the current HcParty
   ///
   /// Returns the count of patients
   ///
@@ -72,7 +72,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContentDto',) as ContentDto;
-    
+
     }
     return null;
   }
@@ -91,7 +91,7 @@ class PatientApi {
     final path = r'/rest/v2/patient';
 
     // ignore: prefer_final_locals
-    Object? postBody = patientDto;
+    PatientDto postBody = patientDto;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -105,7 +105,7 @@ class PatientApi {
       path,
       'POST',
       queryParams,
-      postBody,
+      postBody.toJson(),
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
@@ -130,7 +130,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
-    
+
     }
     return null;
   }
@@ -257,7 +257,7 @@ class PatientApi {
     return null;
   }
 
-  /// Filter patients for the current user (HcParty) 
+  /// Filter patients for the current user (HcParty)
   ///
   /// Returns a list of patients along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -330,7 +330,7 @@ class PatientApi {
     );
   }
 
-  /// Filter patients for the current user (HcParty) 
+  /// Filter patients for the current user (HcParty)
   ///
   /// Returns a list of patients along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -365,7 +365,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListPatientDto',) as PaginatedListPatientDto;
-    
+
     }
     return null;
   }
@@ -465,7 +465,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListPatientDto',) as PaginatedListPatientDto;
-    
+
     }
     return null;
   }
@@ -550,7 +550,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListPatientDto',) as PaginatedListPatientDto;
-    
+
     }
     return null;
   }
@@ -635,7 +635,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListPatientDto',) as PaginatedListPatientDto;
-    
+
     }
     return null;
   }
@@ -738,7 +738,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListPatientDto',) as PaginatedListPatientDto;
-    
+
     }
     return null;
   }
@@ -847,12 +847,12 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListPatientDto',) as PaginatedListPatientDto;
-    
+
     }
     return null;
   }
 
-  /// Find patients for the current user (HcParty) 
+  /// Find patients for the current user (HcParty)
   ///
   /// Returns a list of patients along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -923,7 +923,7 @@ class PatientApi {
     );
   }
 
-  /// Find patients for the current user (HcParty) 
+  /// Find patients for the current user (HcParty)
   ///
   /// Returns a list of patients along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -956,7 +956,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListPatientDto',) as PaginatedListPatientDto;
-    
+
     }
     return null;
   }
@@ -1045,7 +1045,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListString',) as PaginatedListString;
-    
+
     }
     return null;
   }
@@ -1132,12 +1132,12 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListPatientDto',) as PaginatedListPatientDto;
-    
+
     }
     return null;
   }
 
-  /// Filter patients for the current user (HcParty) 
+  /// Filter patients for the current user (HcParty)
   ///
   /// Returns a list of patients
   ///
@@ -1190,7 +1190,7 @@ class PatientApi {
     );
   }
 
-  /// Filter patients for the current user (HcParty) 
+  /// Filter patients for the current user (HcParty)
   ///
   /// Returns a list of patients
   ///
@@ -1276,7 +1276,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
-    
+
     }
     return null;
   }
@@ -1333,7 +1333,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
-    
+
     }
     return null;
   }
@@ -1405,7 +1405,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
-    
+
     }
     return null;
   }
@@ -1466,7 +1466,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+
     }
     return null;
   }
@@ -1608,7 +1608,7 @@ class PatientApi {
     return null;
   }
 
-  /// List patients that have been merged towards another patient 
+  /// List patients that have been merged towards another patient
   ///
   /// Returns a list of patients that have been merged after the provided date
   ///
@@ -1645,7 +1645,7 @@ class PatientApi {
     );
   }
 
-  /// List patients that have been merged towards another patient 
+  /// List patients that have been merged towards another patient
   ///
   /// Returns a list of patients that have been merged after the provided date
   ///
@@ -1670,7 +1670,7 @@ class PatientApi {
     return null;
   }
 
-  /// Get ids of patients matching the provided filter for the current user (HcParty) 
+  /// Get ids of patients matching the provided filter for the current user (HcParty)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1704,7 +1704,7 @@ class PatientApi {
     );
   }
 
-  /// Get ids of patients matching the provided filter for the current user (HcParty) 
+  /// Get ids of patients matching the provided filter for the current user (HcParty)
   ///
   /// Parameters:
   ///
@@ -1782,7 +1782,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
-    
+
     }
     return null;
   }
@@ -1840,7 +1840,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
-    
+
     }
     return null;
   }
@@ -1921,7 +1921,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
-    
+
     }
     return null;
   }
@@ -2045,7 +2045,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientDto',) as PatientDto;
-    
+
     }
     return null;
   }
@@ -2128,7 +2128,7 @@ class PatientApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientRegistrationSuccessDto',) as PatientRegistrationSuccessDto;
-    
+
     }
     return null;
   }

@@ -32,7 +32,11 @@ extension StrEncoding on String {
   }
 
   Uint8List fromHexString() {
-    return Uint8List.fromList(hex.decoder.convert(this));
+    try {
+      return Uint8List.fromList(hex.decoder.convert(this));
+    } catch(e) {
+      throw e;
+    }
   }
 
   Uint8List keyFromHexString() {
