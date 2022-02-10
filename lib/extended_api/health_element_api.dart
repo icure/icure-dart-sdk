@@ -207,10 +207,31 @@ extension HealthElementApiCrypto on HealthElementApi {
     return modifiedHealthElement != null ? await config.decryptHealthElement(user.healthcarePartyId!, modifiedHealthElement) : null;
   }
 
-  Future<List<DecryptedHealthElementDto>> modifyHealthElements(
-      UserDto user, List<DecryptedHealthElementDto> healthElements, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+  Future<List<DecryptedHealthElementDto>> modifyHealthElements(UserDto user, List<DecryptedHealthElementDto> healthElements,
+      CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
     var delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
     var encryptedHealthElements = await Future.wait(healthElements.map((e) => config.encryptHealthElement(user.healthcarePartyId!, delegations, e)));
     return await Future.wait(encryptedHealthElements.map((e) => config.decryptHealthElement(user.healthcarePartyId!, e)));
+  }
+
+  Future<DecryptedPaginatedListHealthElementDto> filterHealthElements(UserDto user, FilterChainHealthElement filterChainHealthElement,
+      CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config, String? startDocumentId, int? limit) async {
+    var paginatedListHealthElement = await this.filterHealthElementsBy(filterChainHealthElement, startDocumentId: startDocumentId, limit: limit);
+    if (paginatedListHealthElement == null) {
+      throw Exception("Couldn't get the paginatedList");
+    }
+    var rows = await Future.wait(paginatedListHealthElement.rows.map((e) => config.decryptHealthElement(user.healthcarePartyId!, e)));
+    return DecryptedPaginatedListHealthElementDto(pageSize: paginatedListHealthElement.pageSize,
+        totalSize: paginatedListHealthElement.totalSize,
+        rows: rows,
+        nextKeyPair: paginatedListHealthElement.nextKeyPair);
+  }
+
+  Future<List<DecryptedHealthElementDto>> setHealthElementsDelegations(UserDto user, List<IcureStubDto> icureStubDtos,
+      CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+    var healthElements = await this.setHealthElementsDelegations(icureStubDtos);
+    return healthElements != null ? await Future.wait(
+        healthElements.map((healthElement) => config.decryptHealthElement(user.healthcarePartyId!, healthElement))) : List<
+        DecryptedHealthElementDto>.empty();
   }
 }
