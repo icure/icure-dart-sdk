@@ -25,7 +25,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [FormDto] formDto (required):
-  Future<Response> createFormWithHttpInfo(FormDto formDto,) async {
+  Future<Response> rawCreateFormWithHttpInfo(FormDto formDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form';
 
@@ -59,8 +59,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [FormDto] formDto (required):
-  Future<FormDto?> createForm(FormDto formDto,) async {
-    final response = await createFormWithHttpInfo(formDto,);
+  Future<FormDto?> rawCreateForm(FormDto formDto,) async {
+    final response = await rawCreateFormWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -83,7 +83,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [FormTemplateDto] formTemplateDto (required):
-  Future<Response> createFormTemplateWithHttpInfo(FormTemplateDto formTemplateDto,) async {
+  Future<Response> rawCreateFormTemplateWithHttpInfo(FormTemplateDto formTemplateDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template';
 
@@ -117,8 +117,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [FormTemplateDto] formTemplateDto (required):
-  Future<FormTemplateDto?> createFormTemplate(FormTemplateDto formTemplateDto,) async {
-    final response = await createFormTemplateWithHttpInfo(formTemplateDto,);
+  Future<FormTemplateDto?> rawCreateFormTemplate(FormTemplateDto formTemplateDto,) async {
+    final response = await rawCreateFormTemplateWithHttpInfo(formTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -141,7 +141,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [List<FormDto>] formDto (required):
-  Future<Response> createFormsWithHttpInfo(List<FormDto> formDto,) async {
+  Future<Response> rawCreateFormsWithHttpInfo(List<FormDto> formDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/batch';
 
@@ -175,8 +175,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [List<FormDto>] formDto (required):
-  Future<List<FormDto>?> createForms(List<FormDto> formDto,) async {
-    final response = await createFormsWithHttpInfo(formDto,);
+  Future<List<FormDto>?> rawCreateForms(List<FormDto> formDto,) async {
+    final response = await rawCreateFormsWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -200,7 +200,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] formTemplateId (required):
-  Future<Response> deleteFormTemplateWithHttpInfo(String formTemplateId,) async {
+  Future<Response> rawDeleteFormTemplateWithHttpInfo(String formTemplateId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{formTemplateId}'
       .replaceAll('{formTemplateId}', formTemplateId);
@@ -233,8 +233,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] formTemplateId (required):
-  Future<DocIdentifier?> deleteFormTemplate(String formTemplateId,) async {
-    final response = await deleteFormTemplateWithHttpInfo(formTemplateId,);
+  Future<DocIdentifier?> rawDeleteFormTemplate(String formTemplateId,) async {
+    final response = await rawDeleteFormTemplateWithHttpInfo(formTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -257,7 +257,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteFormsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeleteFormsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/delete/batch';
 
@@ -291,8 +291,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteForms(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deleteFormsWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeleteForms(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeleteFormsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -320,7 +320,7 @@ class FormApi {
   /// * [String] formId (required):
   ///
   /// * [String] hcPartyId (required):
-  Future<Response> getChildrenFormsWithHttpInfo(String formId, String hcPartyId,) async {
+  Future<Response> rawGetChildrenFormsWithHttpInfo(String formId, String hcPartyId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/childrenOf/{formId}/{hcPartyId}'
       .replaceAll('{formId}', formId)
@@ -358,8 +358,8 @@ class FormApi {
   /// * [String] formId (required):
   ///
   /// * [String] hcPartyId (required):
-  Future<List<FormDto>?> getChildrenForms(String formId, String hcPartyId,) async {
-    final response = await getChildrenFormsWithHttpInfo(formId, hcPartyId,);
+  Future<List<FormDto>?> rawGetChildrenForms(String formId, String hcPartyId,) async {
+    final response = await rawGetChildrenFormsWithHttpInfo(formId, hcPartyId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -383,7 +383,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] formId (required):
-  Future<Response> getFormWithHttpInfo(String formId,) async {
+  Future<Response> rawGetFormWithHttpInfo(String formId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/{formId}'
       .replaceAll('{formId}', formId);
@@ -416,8 +416,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] formId (required):
-  Future<FormDto?> getForm(String formId,) async {
-    final response = await getFormWithHttpInfo(formId,);
+  Future<FormDto?> rawGetForm(String formId,) async {
+    final response = await rawGetFormWithHttpInfo(formId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -438,7 +438,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] logicalUuid (required):
-  Future<Response> getFormByLogicalUuidWithHttpInfo(String logicalUuid,) async {
+  Future<Response> rawGetFormByLogicalUuidWithHttpInfo(String logicalUuid,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/logicalUuid/{logicalUuid}'
       .replaceAll('{logicalUuid}', logicalUuid);
@@ -471,8 +471,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] logicalUuid (required):
-  Future<FormDto?> getFormByLogicalUuid(String logicalUuid,) async {
-    final response = await getFormByLogicalUuidWithHttpInfo(logicalUuid,);
+  Future<FormDto?> rawGetFormByLogicalUuid(String logicalUuid,) async {
+    final response = await rawGetFormByLogicalUuidWithHttpInfo(logicalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -493,7 +493,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] uniqueId (required):
-  Future<Response> getFormByUniqueIdWithHttpInfo(String uniqueId,) async {
+  Future<Response> rawGetFormByUniqueIdWithHttpInfo(String uniqueId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/uniqueId/{uniqueId}'
       .replaceAll('{uniqueId}', uniqueId);
@@ -526,8 +526,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] uniqueId (required):
-  Future<FormDto?> getFormByUniqueId(String uniqueId,) async {
-    final response = await getFormByUniqueIdWithHttpInfo(uniqueId,);
+  Future<FormDto?> rawGetFormByUniqueId(String uniqueId,) async {
+    final response = await rawGetFormByUniqueIdWithHttpInfo(uniqueId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -548,7 +548,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] formTemplateId (required):
-  Future<Response> getFormTemplateWithHttpInfo(String formTemplateId,) async {
+  Future<Response> rawGetFormTemplateWithHttpInfo(String formTemplateId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{formTemplateId}'
       .replaceAll('{formTemplateId}', formTemplateId);
@@ -581,8 +581,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] formTemplateId (required):
-  Future<FormTemplateDto?> getFormTemplate(String formTemplateId,) async {
-    final response = await getFormTemplateWithHttpInfo(formTemplateId,);
+  Future<FormTemplateDto?> rawGetFormTemplate(String formTemplateId,) async {
+    final response = await rawGetFormTemplateWithHttpInfo(formTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -603,7 +603,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [bool] loadLayout:
-  Future<Response> getFormTemplatesWithHttpInfo({ bool? loadLayout, }) async {
+  Future<Response> rawGetFormTemplatesWithHttpInfo({ bool? loadLayout, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template';
 
@@ -639,8 +639,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [bool] loadLayout:
-  Future<List<FormTemplateDto>?> getFormTemplates({ bool? loadLayout, }) async {
-    final response = await getFormTemplatesWithHttpInfo( loadLayout: loadLayout, );
+  Future<List<FormTemplateDto>?> rawGetFormTemplates({ bool? loadLayout, }) async {
+    final response = await rawGetFormTemplatesWithHttpInfo( loadLayout: loadLayout, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -666,7 +666,7 @@ class FormApi {
   /// * [String] formTemplateGuid (required):
   ///
   /// * [String] specialityCode (required):
-  Future<Response> getFormTemplatesByGuidWithHttpInfo(String formTemplateGuid, String specialityCode,) async {
+  Future<Response> rawGetFormTemplatesByGuidWithHttpInfo(String formTemplateGuid, String specialityCode,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{specialityCode}/guid/{formTemplateGuid}'
       .replaceAll('{formTemplateGuid}', formTemplateGuid)
@@ -702,8 +702,8 @@ class FormApi {
   /// * [String] formTemplateGuid (required):
   ///
   /// * [String] specialityCode (required):
-  Future<List<FormTemplateDto>?> getFormTemplatesByGuid(String formTemplateGuid, String specialityCode,) async {
-    final response = await getFormTemplatesByGuidWithHttpInfo(formTemplateGuid, specialityCode,);
+  Future<List<FormTemplateDto>?> rawGetFormTemplatesByGuid(String formTemplateGuid, String specialityCode,) async {
+    final response = await rawGetFormTemplatesByGuidWithHttpInfo(formTemplateGuid, specialityCode,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -729,7 +729,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> getFormsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawGetFormsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/byIds';
 
@@ -763,8 +763,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<FormDto>?> getForms(ListOfIdsDto listOfIdsDto,) async {
-    final response = await getFormsWithHttpInfo(listOfIdsDto,);
+  Future<List<FormDto>?> rawGetForms(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawGetFormsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -788,7 +788,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] logicalUuid (required):
-  Future<Response> getFormsByLogicalUuidWithHttpInfo(String logicalUuid,) async {
+  Future<Response> rawGetFormsByLogicalUuidWithHttpInfo(String logicalUuid,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/all/logicalUuid/{logicalUuid}'
       .replaceAll('{logicalUuid}', logicalUuid);
@@ -821,8 +821,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] logicalUuid (required):
-  Future<List<FormDto>?> getFormsByLogicalUuid(String logicalUuid,) async {
-    final response = await getFormsByLogicalUuidWithHttpInfo(logicalUuid,);
+  Future<List<FormDto>?> rawGetFormsByLogicalUuid(String logicalUuid,) async {
+    final response = await rawGetFormsByLogicalUuidWithHttpInfo(logicalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -846,7 +846,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] uniqueId (required):
-  Future<Response> getFormsByUniqueIdWithHttpInfo(String uniqueId,) async {
+  Future<Response> rawGetFormsByUniqueIdWithHttpInfo(String uniqueId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/all/uniqueId/{uniqueId}'
       .replaceAll('{uniqueId}', uniqueId);
@@ -879,8 +879,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [String] uniqueId (required):
-  Future<List<FormDto>?> getFormsByUniqueId(String uniqueId,) async {
-    final response = await getFormsByUniqueIdWithHttpInfo(uniqueId,);
+  Future<List<FormDto>?> rawGetFormsByUniqueId(String uniqueId,) async {
+    final response = await rawGetFormsByUniqueIdWithHttpInfo(uniqueId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -906,7 +906,7 @@ class FormApi {
   /// * [String] specialityCode (required):
   ///
   /// * [bool] loadLayout:
-  Future<Response> listFormTemplatesBySpecialityWithHttpInfo(String specialityCode, { bool? loadLayout, }) async {
+  Future<Response> rawListFormTemplatesBySpecialityWithHttpInfo(String specialityCode, { bool? loadLayout, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/bySpecialty/{specialityCode}'
       .replaceAll('{specialityCode}', specialityCode);
@@ -945,8 +945,8 @@ class FormApi {
   /// * [String] specialityCode (required):
   ///
   /// * [bool] loadLayout:
-  Future<List<FormTemplateDto>?> listFormTemplatesBySpeciality(String specialityCode, { bool? loadLayout, }) async {
-    final response = await listFormTemplatesBySpecialityWithHttpInfo(specialityCode,  loadLayout: loadLayout, );
+  Future<List<FormTemplateDto>?> rawListFormTemplatesBySpeciality(String specialityCode, { bool? loadLayout, }) async {
+    final response = await rawListFormTemplatesBySpecialityWithHttpInfo(specialityCode,  loadLayout: loadLayout, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -980,7 +980,7 @@ class FormApi {
   /// * [String] planOfActionId:
   ///
   /// * [String] formTemplateId:
-  Future<Response> listFormsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String? healthElementId, String? planOfActionId, String? formTemplateId, }) async {
+  Future<Response> rawListFormsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String? healthElementId, String? planOfActionId, String? formTemplateId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/byHcPartySecretForeignKeys';
 
@@ -1034,8 +1034,8 @@ class FormApi {
   /// * [String] planOfActionId:
   ///
   /// * [String] formTemplateId:
-  Future<List<FormDto>?> listFormsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys, { String? healthElementId, String? planOfActionId, String? formTemplateId, }) async {
-    final response = await listFormsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,  healthElementId: healthElementId, planOfActionId: planOfActionId, formTemplateId: formTemplateId, );
+  Future<List<FormDto>?> rawListFormsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys, { String? healthElementId, String? planOfActionId, String? formTemplateId, }) async {
+    final response = await rawListFormsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,  healthElementId: healthElementId, planOfActionId: planOfActionId, formTemplateId: formTemplateId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1063,7 +1063,7 @@ class FormApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listFormsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawListFormsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/byHcPartySecretForeignKeys/delegations';
 
@@ -1102,8 +1102,8 @@ class FormApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<IcureStubDto>?> listFormsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await listFormsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<IcureStubDto>?> rawListFormsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawListFormsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1129,7 +1129,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [FormDto] formDto (required):
-  Future<Response> modifyFormWithHttpInfo(FormDto formDto,) async {
+  Future<Response> rawModifyFormWithHttpInfo(FormDto formDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form';
 
@@ -1163,8 +1163,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [FormDto] formDto (required):
-  Future<FormDto?> modifyForm(FormDto formDto,) async {
-    final response = await modifyFormWithHttpInfo(formDto,);
+  Future<FormDto?> rawModifyForm(FormDto formDto,) async {
+    final response = await rawModifyFormWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1187,7 +1187,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [List<FormDto>] formDto (required):
-  Future<Response> modifyFormsWithHttpInfo(List<FormDto> formDto,) async {
+  Future<Response> rawModifyFormsWithHttpInfo(List<FormDto> formDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/batch';
 
@@ -1221,8 +1221,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [List<FormDto>] formDto (required):
-  Future<List<FormDto>?> modifyForms(List<FormDto> formDto,) async {
-    final response = await modifyFormsWithHttpInfo(formDto,);
+  Future<List<FormDto>?> rawModifyForms(List<FormDto> formDto,) async {
+    final response = await rawModifyFormsWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1250,7 +1250,7 @@ class FormApi {
   /// * [String] formId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<Response> newFormDelegationsWithHttpInfo(String formId, List<DelegationDto> delegationDto,) async {
+  Future<Response> rawNewFormDelegationsWithHttpInfo(String formId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/delegate/{formId}'
       .replaceAll('{formId}', formId);
@@ -1287,8 +1287,8 @@ class FormApi {
   /// * [String] formId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<FormDto?> newFormDelegations(String formId, List<DelegationDto> delegationDto,) async {
-    final response = await newFormDelegationsWithHttpInfo(formId, delegationDto,);
+  Future<FormDto?> rawNewFormDelegations(String formId, List<DelegationDto> delegationDto,) async {
+    final response = await rawNewFormDelegationsWithHttpInfo(formId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1311,7 +1311,7 @@ class FormApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<Response> setFormsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
+  Future<Response> rawSetFormsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/delegations';
 
@@ -1345,8 +1345,8 @@ class FormApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<IcureStubDto>?> setFormsDelegations(List<IcureStubDto> icureStubDto,) async {
-    final response = await setFormsDelegationsWithHttpInfo(icureStubDto,);
+  Future<List<IcureStubDto>?> rawSetFormsDelegations(List<IcureStubDto> icureStubDto,) async {
+    final response = await rawSetFormsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1372,7 +1372,7 @@ class FormApi {
   /// * [String] formTemplateId (required):
   ///
   /// * [String] attachment (required):
-  Future<Response> setTemplateAttachmentMultiWithHttpInfo(String formTemplateId, String attachment,) async {
+  Future<Response> rawSetTemplateAttachmentMultiWithHttpInfo(String formTemplateId, String attachment,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{formTemplateId}/attachment/multipart'
       .replaceAll('{formTemplateId}', formTemplateId);
@@ -1416,8 +1416,8 @@ class FormApi {
   /// * [String] formTemplateId (required):
   ///
   /// * [String] attachment (required):
-  Future<String?> setTemplateAttachmentMulti(String formTemplateId, String attachment,) async {
-    final response = await setTemplateAttachmentMultiWithHttpInfo(formTemplateId, attachment,);
+  Future<String?> rawSetTemplateAttachmentMulti(String formTemplateId, String attachment,) async {
+    final response = await rawSetTemplateAttachmentMultiWithHttpInfo(formTemplateId, attachment,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1442,7 +1442,7 @@ class FormApi {
   /// * [String] formTemplateId (required):
   ///
   /// * [FormTemplateDto] formTemplateDto (required):
-  Future<Response> updateFormTemplateWithHttpInfo(String formTemplateId, FormTemplateDto formTemplateDto,) async {
+  Future<Response> rawUpdateFormTemplateWithHttpInfo(String formTemplateId, FormTemplateDto formTemplateDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/form/template/{formTemplateId}'
       .replaceAll('{formTemplateId}', formTemplateId);
@@ -1479,8 +1479,8 @@ class FormApi {
   /// * [String] formTemplateId (required):
   ///
   /// * [FormTemplateDto] formTemplateDto (required):
-  Future<FormTemplateDto?> updateFormTemplate(String formTemplateId, FormTemplateDto formTemplateDto,) async {
-    final response = await updateFormTemplateWithHttpInfo(formTemplateId, formTemplateDto,);
+  Future<FormTemplateDto?> rawUpdateFormTemplate(String formTemplateId, FormTemplateDto formTemplateDto,) async {
+    final response = await rawUpdateFormTemplateWithHttpInfo(formTemplateId, formTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

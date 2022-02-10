@@ -26,7 +26,7 @@ class PatientApi {
   ///
   /// * [String] hcPartyId (required):
   ///   Healthcare party id
-  Future<Response> countOfPatientsWithHttpInfo(String hcPartyId,) async {
+  Future<Response> rawCountOfPatientsWithHttpInfo(String hcPartyId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/hcParty/{hcPartyId}/count'
       .replaceAll('{hcPartyId}', hcPartyId);
@@ -62,8 +62,8 @@ class PatientApi {
   ///
   /// * [String] hcPartyId (required):
   ///   Healthcare party id
-  Future<ContentDto?> countOfPatients(String hcPartyId,) async {
-    final response = await countOfPatientsWithHttpInfo(hcPartyId,);
+  Future<ContentDto?> rawCountOfPatients(String hcPartyId,) async {
+    final response = await rawCountOfPatientsWithHttpInfo(hcPartyId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -86,7 +86,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [PatientDto] patientDto (required):
-  Future<Response> createPatientWithHttpInfo(PatientDto patientDto,) async {
+  Future<Response> rawCreatePatientWithHttpInfo(PatientDto patientDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient';
 
@@ -120,8 +120,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [PatientDto] patientDto (required):
-  Future<PatientDto?> createPatient(PatientDto patientDto,) async {
-    final response = await createPatientWithHttpInfo(patientDto,);
+  Future<PatientDto?> rawCreatePatient(PatientDto patientDto,) async {
+    final response = await rawCreatePatientWithHttpInfo(patientDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -144,7 +144,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [List<PatientDto>] patientDto (required):
-  Future<Response> createPatientsWithHttpInfo(List<PatientDto> patientDto,) async {
+  Future<Response> rawCreatePatientsWithHttpInfo(List<PatientDto> patientDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/batch';
 
@@ -178,8 +178,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [List<PatientDto>] patientDto (required):
-  Future<List<IdWithRevDto>?> createPatients(List<PatientDto> patientDto,) async {
-    final response = await createPatientsWithHttpInfo(patientDto,);
+  Future<List<IdWithRevDto>?> rawCreatePatients(List<PatientDto> patientDto,) async {
+    final response = await rawCreatePatientsWithHttpInfo(patientDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -205,7 +205,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deletePatientsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeletePatientsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/delete/batch';
 
@@ -239,8 +239,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deletePatients(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deletePatientsWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeletePatients(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeletePatientsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -284,7 +284,7 @@ class PatientApi {
   ///
   /// * [bool] desc:
   ///   Descending
-  Future<Response> filterPatientsByWithHttpInfo(FilterChainPatient filterChainPatient, { String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, }) async {
+  Future<Response> rawFilterPatientsByWithHttpInfo(FilterChainPatient filterChainPatient, { String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/filter';
 
@@ -355,8 +355,8 @@ class PatientApi {
   ///
   /// * [bool] desc:
   ///   Descending
-  Future<PaginatedListPatientDto?> filterPatientsBy(FilterChainPatient filterChainPatient, { String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, }) async {
-    final response = await filterPatientsByWithHttpInfo(filterChainPatient,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, skip: skip, sort: sort, desc: desc, );
+  Future<PaginatedListPatientDto?> rawFilterPatientsBy(FilterChainPatient filterChainPatient, { String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, }) async {
+    final response = await rawFilterPatientsByWithHttpInfo(filterChainPatient,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, skip: skip, sort: sort, desc: desc, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -392,7 +392,7 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findDeletedPatientsWithHttpInfo({ int? startDate, int? endDate, bool? desc, String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFindDeletedPatientsWithHttpInfo({ int? startDate, int? endDate, bool? desc, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/deleted/byDate';
 
@@ -455,8 +455,8 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListPatientDto?> findDeletedPatients({ int? startDate, int? endDate, bool? desc, String? startDocumentId, int? limit, }) async {
-    final response = await findDeletedPatientsWithHttpInfo( startDate: startDate, endDate: endDate, desc: desc, startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListPatientDto?> rawFindDeletedPatients({ int? startDate, int? endDate, bool? desc, String? startDocumentId, int? limit, }) async {
+    final response = await rawFindDeletedPatientsWithHttpInfo( startDate: startDate, endDate: endDate, desc: desc, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -487,7 +487,7 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findDuplicatesByNameWithHttpInfo(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFindDuplicatesByNameWithHttpInfo(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/duplicates/name';
 
@@ -540,8 +540,8 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListPatientDto?> findDuplicatesByName(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
-    final response = await findDuplicatesByNameWithHttpInfo(hcPartyId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListPatientDto?> rawFindDuplicatesByName(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
+    final response = await rawFindDuplicatesByNameWithHttpInfo(hcPartyId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -572,7 +572,7 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findDuplicatesBySsinWithHttpInfo(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFindDuplicatesBySsinWithHttpInfo(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/duplicates/ssin';
 
@@ -625,8 +625,8 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListPatientDto?> findDuplicatesBySsin(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
-    final response = await findDuplicatesBySsinWithHttpInfo(hcPartyId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListPatientDto?> rawFindDuplicatesBySsin(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
+    final response = await rawFindDuplicatesBySsinWithHttpInfo(hcPartyId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -663,7 +663,7 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPatientsByAccessLogUserAfterDateWithHttpInfo(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFindPatientsByAccessLogUserAfterDateWithHttpInfo(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/byAccess/{userId}'
       .replaceAll('{userId}', userId);
@@ -728,8 +728,8 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListPatientDto?> findPatientsByAccessLogUserAfterDate(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, }) async {
-    final response = await findPatientsByAccessLogUserAfterDateWithHttpInfo(userId,  accessType: accessType, startDate: startDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListPatientDto?> rawFindPatientsByAccessLogUserAfterDate(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, }) async {
+    final response = await rawFindPatientsByAccessLogUserAfterDateWithHttpInfo(userId,  accessType: accessType, startDate: startDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -768,7 +768,7 @@ class PatientApi {
   ///
   /// * [String] sortDirection:
   ///   Optional value for providing a sorting direction ('asc', 'desc'). Set to 'asc' by default.
-  Future<Response> findPatientsByHealthcarePartyWithHttpInfo({ String? hcPartyId, String? sortField, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
+  Future<Response> rawFindPatientsByHealthcarePartyWithHttpInfo({ String? hcPartyId, String? sortField, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient';
 
@@ -837,8 +837,8 @@ class PatientApi {
   ///
   /// * [String] sortDirection:
   ///   Optional value for providing a sorting direction ('asc', 'desc'). Set to 'asc' by default.
-  Future<PaginatedListPatientDto?> findPatientsByHealthcareParty({ String? hcPartyId, String? sortField, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
-    final response = await findPatientsByHealthcarePartyWithHttpInfo( hcPartyId: hcPartyId, sortField: sortField, startKey: startKey, startDocumentId: startDocumentId, limit: limit, sortDirection: sortDirection, );
+  Future<PaginatedListPatientDto?> rawFindPatientsByHealthcareParty({ String? hcPartyId, String? sortField, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
+    final response = await rawFindPatientsByHealthcarePartyWithHttpInfo( hcPartyId: hcPartyId, sortField: sortField, startKey: startKey, startDocumentId: startDocumentId, limit: limit, sortDirection: sortDirection, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -877,7 +877,7 @@ class PatientApi {
   ///
   /// * [String] sortDirection:
   ///   Optional value for providing a sorting direction ('asc', 'desc'). Set to 'asc' by default.
-  Future<Response> findPatientsByNameBirthSsinAutoWithHttpInfo({ String? healthcarePartyId, String? filterValue, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
+  Future<Response> rawFindPatientsByNameBirthSsinAutoWithHttpInfo({ String? healthcarePartyId, String? filterValue, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/byNameBirthSsinAuto';
 
@@ -946,8 +946,8 @@ class PatientApi {
   ///
   /// * [String] sortDirection:
   ///   Optional value for providing a sorting direction ('asc', 'desc'). Set to 'asc' by default.
-  Future<PaginatedListPatientDto?> findPatientsByNameBirthSsinAuto({ String? healthcarePartyId, String? filterValue, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
-    final response = await findPatientsByNameBirthSsinAutoWithHttpInfo( healthcarePartyId: healthcarePartyId, filterValue: filterValue, startKey: startKey, startDocumentId: startDocumentId, limit: limit, sortDirection: sortDirection, );
+  Future<PaginatedListPatientDto?> rawFindPatientsByNameBirthSsinAuto({ String? healthcarePartyId, String? filterValue, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
+    final response = await rawFindPatientsByNameBirthSsinAutoWithHttpInfo( healthcarePartyId: healthcarePartyId, filterValue: filterValue, startKey: startKey, startDocumentId: startDocumentId, limit: limit, sortDirection: sortDirection, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -980,7 +980,7 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Page size
-  Future<Response> findPatientsIdsByHealthcarePartyWithHttpInfo(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFindPatientsIdsByHealthcarePartyWithHttpInfo(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/byHcPartyId';
 
@@ -1035,8 +1035,8 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Page size
-  Future<PaginatedListString?> findPatientsIdsByHealthcareParty(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
-    final response = await findPatientsIdsByHealthcarePartyWithHttpInfo(hcPartyId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListString?> rawFindPatientsIdsByHealthcareParty(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
+    final response = await rawFindPatientsIdsByHealthcarePartyWithHttpInfo(hcPartyId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1068,7 +1068,7 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findPatientsModifiedAfterWithHttpInfo(int date, { int? startKey, String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFindPatientsModifiedAfterWithHttpInfo(int date, { int? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/modifiedAfter/{date}'
       .replaceAll('{date}', date.toString());
@@ -1122,8 +1122,8 @@ class PatientApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListPatientDto?> findPatientsModifiedAfter(int date, { int? startKey, String? startDocumentId, int? limit, }) async {
-    final response = await findPatientsModifiedAfterWithHttpInfo(date,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListPatientDto?> rawFindPatientsModifiedAfter(int date, { int? startKey, String? startDocumentId, int? limit, }) async {
+    final response = await rawFindPatientsModifiedAfterWithHttpInfo(date,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1153,7 +1153,7 @@ class PatientApi {
   ///
   /// * [int] dateOfBirth:
   ///   The date of birth
-  Future<Response> fuzzySearchWithHttpInfo({ String? firstName, String? lastName, int? dateOfBirth, }) async {
+  Future<Response> rawFuzzySearchWithHttpInfo({ String? firstName, String? lastName, int? dateOfBirth, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/fuzzy';
 
@@ -1204,8 +1204,8 @@ class PatientApi {
   ///
   /// * [int] dateOfBirth:
   ///   The date of birth
-  Future<List<PatientDto>?> fuzzySearch({ String? firstName, String? lastName, int? dateOfBirth, }) async {
-    final response = await fuzzySearchWithHttpInfo( firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, );
+  Future<List<PatientDto>?> rawFuzzySearch({ String? firstName, String? lastName, int? dateOfBirth, }) async {
+    final response = await rawFuzzySearchWithHttpInfo( firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1231,7 +1231,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [String] patientId (required):
-  Future<Response> getPatientWithHttpInfo(String patientId,) async {
+  Future<Response> rawGetPatientWithHttpInfo(String patientId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/{patientId}'
       .replaceAll('{patientId}', patientId);
@@ -1266,8 +1266,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [String] patientId (required):
-  Future<PatientDto?> getPatient(String patientId,) async {
-    final response = await getPatientWithHttpInfo(patientId,);
+  Future<PatientDto?> rawGetPatient(String patientId,) async {
+    final response = await rawGetPatientWithHttpInfo(patientId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1289,7 +1289,7 @@ class PatientApi {
   ///
   /// * [String] externalId (required):
   ///   A external ID
-  Future<Response> getPatientByExternalIdWithHttpInfo(String externalId,) async {
+  Future<Response> rawGetPatientByExternalIdWithHttpInfo(String externalId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/byExternalId/{externalId}'
       .replaceAll('{externalId}', externalId);
@@ -1323,8 +1323,8 @@ class PatientApi {
   ///
   /// * [String] externalId (required):
   ///   A external ID
-  Future<PatientDto?> getPatientByExternalId(String externalId,) async {
-    final response = await getPatientByExternalIdWithHttpInfo(externalId,);
+  Future<PatientDto?> rawGetPatientByExternalId(String externalId,) async {
+    final response = await rawGetPatientByExternalIdWithHttpInfo(externalId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1351,7 +1351,7 @@ class PatientApi {
   /// * [String] id (required):
   ///
   /// * [String] system:
-  Future<Response> getPatientByHealthcarepartyAndIdentifierWithHttpInfo(String hcPartyId, String id, { String? system, }) async {
+  Future<Response> rawGetPatientByHealthcarepartyAndIdentifierWithHttpInfo(String hcPartyId, String id, { String? system, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/{hcPartyId}/{id}'
       .replaceAll('{hcPartyId}', hcPartyId)
@@ -1395,8 +1395,8 @@ class PatientApi {
   /// * [String] id (required):
   ///
   /// * [String] system:
-  Future<PatientDto?> getPatientByHealthcarepartyAndIdentifier(String hcPartyId, String id, { String? system, }) async {
-    final response = await getPatientByHealthcarepartyAndIdentifierWithHttpInfo(hcPartyId, id,  system: system, );
+  Future<PatientDto?> rawGetPatientByHealthcarepartyAndIdentifier(String hcPartyId, String id, { String? system, }) async {
+    final response = await rawGetPatientByHealthcarepartyAndIdentifierWithHttpInfo(hcPartyId, id,  system: system, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1420,7 +1420,7 @@ class PatientApi {
   ///
   /// * [String] patientId (required):
   ///   The patient Id for which information is shared
-  Future<Response> getPatientHcPartyKeysForDelegateWithHttpInfo(String patientId,) async {
+  Future<Response> rawGetPatientHcPartyKeysForDelegateWithHttpInfo(String patientId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/{patientId}/keys'
       .replaceAll('{patientId}', patientId);
@@ -1456,8 +1456,8 @@ class PatientApi {
   ///
   /// * [String] patientId (required):
   ///   The patient Id for which information is shared
-  Future<String?> getPatientHcPartyKeysForDelegate(String patientId,) async {
-    final response = await getPatientHcPartyKeysForDelegateWithHttpInfo(patientId,);
+  Future<String?> rawGetPatientHcPartyKeysForDelegate(String patientId,) async {
+    final response = await rawGetPatientHcPartyKeysForDelegateWithHttpInfo(patientId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1480,7 +1480,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> getPatientsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawGetPatientsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/byIds';
 
@@ -1514,8 +1514,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<PatientDto>?> getPatients(ListOfIdsDto listOfIdsDto,) async {
-    final response = await getPatientsWithHttpInfo(listOfIdsDto,);
+  Future<List<PatientDto>?> rawGetPatients(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawGetPatientsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1545,7 +1545,7 @@ class PatientApi {
   ///
   /// * [String] lastName:
   ///   Last name prefix
-  Future<Response> listDeletedPatientsByNameWithHttpInfo({ String? firstName, String? lastName, }) async {
+  Future<Response> rawListDeletedPatientsByNameWithHttpInfo({ String? firstName, String? lastName, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/deleted/by_name';
 
@@ -1590,8 +1590,8 @@ class PatientApi {
   ///
   /// * [String] lastName:
   ///   Last name prefix
-  Future<List<PatientDto>?> listDeletedPatientsByName({ String? firstName, String? lastName, }) async {
-    final response = await listDeletedPatientsByNameWithHttpInfo( firstName: firstName, lastName: lastName, );
+  Future<List<PatientDto>?> rawListDeletedPatientsByName({ String? firstName, String? lastName, }) async {
+    final response = await rawListDeletedPatientsByNameWithHttpInfo( firstName: firstName, lastName: lastName, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1617,7 +1617,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [int] date (required):
-  Future<Response> listOfMergesAfterWithHttpInfo(int date,) async {
+  Future<Response> rawListOfMergesAfterWithHttpInfo(int date,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/merges/{date}'
       .replaceAll('{date}', date.toString());
@@ -1652,8 +1652,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [int] date (required):
-  Future<List<PatientDto>?> listOfMergesAfter(int date,) async {
-    final response = await listOfMergesAfterWithHttpInfo(date,);
+  Future<List<PatientDto>?> rawListOfMergesAfter(int date,) async {
+    final response = await rawListOfMergesAfterWithHttpInfo(date,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1677,7 +1677,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoPatient] abstractFilterDtoPatient (required):
-  Future<Response> matchPatientsByWithHttpInfo(AbstractFilterDtoPatient abstractFilterDtoPatient,) async {
+  Future<Response> rawMatchPatientsByWithHttpInfo(AbstractFilterDtoPatient abstractFilterDtoPatient,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/match';
 
@@ -1709,8 +1709,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoPatient] abstractFilterDtoPatient (required):
-  Future<List<String>?> matchPatientsBy(AbstractFilterDtoPatient abstractFilterDtoPatient,) async {
-    final response = await matchPatientsByWithHttpInfo(abstractFilterDtoPatient,);
+  Future<List<String>?> rawMatchPatientsBy(AbstractFilterDtoPatient abstractFilterDtoPatient,) async {
+    final response = await rawMatchPatientsByWithHttpInfo(abstractFilterDtoPatient,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1736,7 +1736,7 @@ class PatientApi {
   /// * [String] toId (required):
   ///
   /// * [String] fromIds (required):
-  Future<Response> mergeIntoWithHttpInfo(String toId, String fromIds,) async {
+  Future<Response> rawMergeIntoWithHttpInfo(String toId, String fromIds,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/mergeInto/{toId}/from/{fromIds}'
       .replaceAll('{toId}', toId)
@@ -1772,8 +1772,8 @@ class PatientApi {
   /// * [String] toId (required):
   ///
   /// * [String] fromIds (required):
-  Future<PatientDto?> mergeInto(String toId, String fromIds,) async {
-    final response = await mergeIntoWithHttpInfo(toId, fromIds,);
+  Future<PatientDto?> rawMergeInto(String toId, String fromIds,) async {
+    final response = await rawMergeIntoWithHttpInfo(toId, fromIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1796,7 +1796,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [PatientDto] patientDto (required):
-  Future<Response> modifyPatientWithHttpInfo(PatientDto patientDto,) async {
+  Future<Response> rawModifyPatientWithHttpInfo(PatientDto patientDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient';
 
@@ -1830,8 +1830,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [PatientDto] patientDto (required):
-  Future<PatientDto?> modifyPatient(PatientDto patientDto,) async {
-    final response = await modifyPatientWithHttpInfo(patientDto,);
+  Future<PatientDto?> rawModifyPatient(PatientDto patientDto,) async {
+    final response = await rawModifyPatientWithHttpInfo(patientDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1861,7 +1861,7 @@ class PatientApi {
   ///
   /// * [int] end:
   ///   Optional value for end of referral
-  Future<Response> modifyPatientReferralWithHttpInfo(String patientId, String referralId, { int? start, int? end, }) async {
+  Future<Response> rawModifyPatientReferralWithHttpInfo(String patientId, String referralId, { int? start, int? end, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/{patientId}/referral/{referralId}'
       .replaceAll('{patientId}', patientId)
@@ -1911,8 +1911,8 @@ class PatientApi {
   ///
   /// * [int] end:
   ///   Optional value for end of referral
-  Future<PatientDto?> modifyPatientReferral(String patientId, String referralId, { int? start, int? end, }) async {
-    final response = await modifyPatientReferralWithHttpInfo(patientId, referralId,  start: start, end: end, );
+  Future<PatientDto?> rawModifyPatientReferral(String patientId, String referralId, { int? start, int? end, }) async {
+    final response = await rawModifyPatientReferralWithHttpInfo(patientId, referralId,  start: start, end: end, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1935,7 +1935,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [List<PatientDto>] patientDto (required):
-  Future<Response> modifyPatientsWithHttpInfo(List<PatientDto> patientDto,) async {
+  Future<Response> rawModifyPatientsWithHttpInfo(List<PatientDto> patientDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/batch';
 
@@ -1969,8 +1969,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [List<PatientDto>] patientDto (required):
-  Future<List<IdWithRevDto>?> modifyPatients(List<PatientDto> patientDto,) async {
-    final response = await modifyPatientsWithHttpInfo(patientDto,);
+  Future<List<IdWithRevDto>?> rawModifyPatients(List<PatientDto> patientDto,) async {
+    final response = await rawModifyPatientsWithHttpInfo(patientDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1998,7 +1998,7 @@ class PatientApi {
   /// * [String] patientId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<Response> newPatientDelegationsWithHttpInfo(String patientId, List<DelegationDto> delegationDto,) async {
+  Future<Response> rawNewPatientDelegationsWithHttpInfo(String patientId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/{patientId}/delegate'
       .replaceAll('{patientId}', patientId);
@@ -2035,8 +2035,8 @@ class PatientApi {
   /// * [String] patientId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<PatientDto?> newPatientDelegations(String patientId, List<DelegationDto> delegationDto,) async {
-    final response = await newPatientDelegationsWithHttpInfo(patientId, delegationDto,);
+  Future<PatientDto?> rawNewPatientDelegations(String patientId, List<DelegationDto> delegationDto,) async {
+    final response = await rawNewPatientDelegationsWithHttpInfo(patientId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2067,7 +2067,7 @@ class PatientApi {
   /// * [String] token:
   ///
   /// * [bool] useShortToken:
-  Future<Response> registerPatientWithHttpInfo(String hcPartyId, String groupId, PatientDto patientDto, { String? token, bool? useShortToken, }) async {
+  Future<Response> rawRegisterPatientWithHttpInfo(String hcPartyId, String groupId, PatientDto patientDto, { String? token, bool? useShortToken, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/register/forHcp/{hcPartyId}/inGroup/{groupId}'
       .replaceAll('{hcPartyId}', hcPartyId)
@@ -2118,8 +2118,8 @@ class PatientApi {
   /// * [String] token:
   ///
   /// * [bool] useShortToken:
-  Future<PatientRegistrationSuccessDto?> registerPatient(String hcPartyId, String groupId, PatientDto patientDto, { String? token, bool? useShortToken, }) async {
-    final response = await registerPatientWithHttpInfo(hcPartyId, groupId, patientDto,  token: token, useShortToken: useShortToken, );
+  Future<PatientRegistrationSuccessDto?> rawRegisterPatient(String hcPartyId, String groupId, PatientDto patientDto, { String? token, bool? useShortToken, }) async {
+    final response = await rawRegisterPatientWithHttpInfo(hcPartyId, groupId, patientDto,  token: token, useShortToken: useShortToken, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2142,7 +2142,7 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [String] patientIds (required):
-  Future<Response> undeletePatientWithHttpInfo(String patientIds,) async {
+  Future<Response> rawUndeletePatientWithHttpInfo(String patientIds,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/undelete/{patientIds}'
       .replaceAll('{patientIds}', patientIds);
@@ -2177,8 +2177,8 @@ class PatientApi {
   /// Parameters:
   ///
   /// * [String] patientIds (required):
-  Future<List<DocIdentifier>?> undeletePatient(String patientIds,) async {
-    final response = await undeletePatientWithHttpInfo(patientIds,);
+  Future<List<DocIdentifier>?> rawUndeletePatient(String patientIds,) async {
+    final response = await rawUndeletePatientWithHttpInfo(patientIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

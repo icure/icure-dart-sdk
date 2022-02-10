@@ -93,7 +93,7 @@ extension PatientApiCrypto on PatientApi {
   Future<DecryptedPatientDto?> createPatient(UserDto user, DecryptedPatientDto patient,
       CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
 
-    var newPatient = await this.createPatient(
+    var newPatient = await this.rawCreatePatient(
         await PatientCryptoConfiguration(config).encryptPatient(
             user.healthcarePartyId!,
             <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
@@ -106,7 +106,7 @@ extension PatientApiCrypto on PatientApi {
   Future<DecryptedPatientDto?> getPatient(UserDto user, String patientId,
       CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
 
-    var patient = await this.getPatient(patientId);
+    var patient = await this.rawGetPatient(patientId);
     return patient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, patient) : null;
   }
 

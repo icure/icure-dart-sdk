@@ -25,7 +25,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [ClassificationDto] classificationDto (required):
-  Future<Response> createClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
+  Future<Response> rawCreateClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification';
 
@@ -59,8 +59,8 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [ClassificationDto] classificationDto (required):
-  Future<ClassificationDto?> createClassification(ClassificationDto classificationDto,) async {
-    final response = await createClassificationWithHttpInfo(classificationDto,);
+  Future<ClassificationDto?> rawCreateClassification(ClassificationDto classificationDto,) async {
+    final response = await rawCreateClassificationWithHttpInfo(classificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -83,7 +83,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteClassificationsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeleteClassificationsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/delete/batch';
 
@@ -117,8 +117,8 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteClassifications(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deleteClassificationsWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeleteClassifications(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeleteClassificationsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -146,7 +146,7 @@ class ClassificationApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> findClassificationsByHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawFindClassificationsByHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/byHcPartySecretForeignKeys';
 
@@ -185,8 +185,8 @@ class ClassificationApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<ClassificationDto>?> findClassificationsByHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await findClassificationsByHCPartyPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<ClassificationDto>?> rawFindClassificationsByHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawFindClassificationsByHCPartyPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -210,7 +210,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [String] classificationId (required):
-  Future<Response> getClassificationWithHttpInfo(String classificationId,) async {
+  Future<Response> rawGetClassificationWithHttpInfo(String classificationId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/{classificationId}'
       .replaceAll('{classificationId}', classificationId);
@@ -243,8 +243,8 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [String] classificationId (required):
-  Future<ClassificationDto?> getClassification(String classificationId,) async {
-    final response = await getClassificationWithHttpInfo(classificationId,);
+  Future<ClassificationDto?> rawGetClassification(String classificationId,) async {
+    final response = await rawGetClassificationWithHttpInfo(classificationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -267,7 +267,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [String] ids (required):
-  Future<Response> getClassificationByHcPartyIdWithHttpInfo(String ids,) async {
+  Future<Response> rawGetClassificationByHcPartyIdWithHttpInfo(String ids,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/byIds/{ids}'
       .replaceAll('{ids}', ids);
@@ -302,8 +302,8 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [String] ids (required):
-  Future<List<ClassificationDto>?> getClassificationByHcPartyId(String ids,) async {
-    final response = await getClassificationByHcPartyIdWithHttpInfo(ids,);
+  Future<List<ClassificationDto>?> rawGetClassificationByHcPartyId(String ids,) async {
+    final response = await rawGetClassificationByHcPartyIdWithHttpInfo(ids,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -329,7 +329,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [ClassificationDto] classificationDto (required):
-  Future<Response> modifyClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
+  Future<Response> rawModifyClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification';
 
@@ -363,8 +363,8 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [ClassificationDto] classificationDto (required):
-  Future<ClassificationDto?> modifyClassification(ClassificationDto classificationDto,) async {
-    final response = await modifyClassificationWithHttpInfo(classificationDto,);
+  Future<ClassificationDto?> rawModifyClassification(ClassificationDto classificationDto,) async {
+    final response = await rawModifyClassificationWithHttpInfo(classificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -389,7 +389,7 @@ class ClassificationApi {
   /// * [String] classificationId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<Response> newClassificationDelegationsWithHttpInfo(String classificationId, List<DelegationDto> delegationDto,) async {
+  Future<Response> rawNewClassificationDelegationsWithHttpInfo(String classificationId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/{classificationId}/delegate'
       .replaceAll('{classificationId}', classificationId);
@@ -426,8 +426,8 @@ class ClassificationApi {
   /// * [String] classificationId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<ClassificationDto?> newClassificationDelegations(String classificationId, List<DelegationDto> delegationDto,) async {
-    final response = await newClassificationDelegationsWithHttpInfo(classificationId, delegationDto,);
+  Future<ClassificationDto?> rawNewClassificationDelegations(String classificationId, List<DelegationDto> delegationDto,) async {
+    final response = await rawNewClassificationDelegationsWithHttpInfo(classificationId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -450,7 +450,7 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<Response> setClassificationsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
+  Future<Response> rawSetClassificationsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/classification/delegations';
 
@@ -484,8 +484,8 @@ class ClassificationApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<IcureStubDto>?> setClassificationsDelegations(List<IcureStubDto> icureStubDto,) async {
-    final response = await setClassificationsDelegationsWithHttpInfo(icureStubDto,);
+  Future<List<IcureStubDto>?> rawSetClassificationsDelegations(List<IcureStubDto> icureStubDto,) async {
+    final response = await rawSetClassificationsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

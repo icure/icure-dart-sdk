@@ -25,7 +25,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [HealthElementDto] healthElementDto (required):
-  Future<Response> createHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
+  Future<Response> rawCreateHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement';
 
@@ -59,8 +59,8 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [HealthElementDto] healthElementDto (required):
-  Future<HealthElementDto?> createHealthElement(HealthElementDto healthElementDto,) async {
-    final response = await createHealthElementWithHttpInfo(healthElementDto,);
+  Future<HealthElementDto?> rawCreateHealthElement(HealthElementDto healthElementDto,) async {
+    final response = await rawCreateHealthElementWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -83,7 +83,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
-  Future<Response> createHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
+  Future<Response> rawCreateHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/batch';
 
@@ -117,8 +117,8 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
-  Future<List<HealthElementDto>?> createHealthElements(List<HealthElementDto> healthElementDto,) async {
-    final response = await createHealthElementsWithHttpInfo(healthElementDto,);
+  Future<List<HealthElementDto>?> rawCreateHealthElements(List<HealthElementDto> healthElementDto,) async {
+    final response = await rawCreateHealthElementsWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -144,7 +144,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteHealthElementsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeleteHealthElementsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/delete/batch';
 
@@ -178,8 +178,8 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteHealthElements(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deleteHealthElementsWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeleteHealthElements(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeleteHealthElementsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -211,7 +211,7 @@ class HealthElementApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterHealthElementsByWithHttpInfo(FilterChainHealthElement filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFilterHealthElementsByWithHttpInfo(FilterChainHealthElement filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/filter';
 
@@ -258,8 +258,8 @@ class HealthElementApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListHealthElementDto?> filterHealthElementsBy(FilterChainHealthElement filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
-    final response = await filterHealthElementsByWithHttpInfo(filterChainHealthElement,  startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListHealthElementDto?> rawFilterHealthElementsBy(FilterChainHealthElement filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
+    final response = await rawFilterHealthElementsByWithHttpInfo(filterChainHealthElement,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -280,7 +280,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [String] healthElementId (required):
-  Future<Response> getHealthElementWithHttpInfo(String healthElementId,) async {
+  Future<Response> rawGetHealthElementWithHttpInfo(String healthElementId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/{healthElementId}'
       .replaceAll('{healthElementId}', healthElementId);
@@ -313,8 +313,8 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [String] healthElementId (required):
-  Future<HealthElementDto?> getHealthElement(String healthElementId,) async {
-    final response = await getHealthElementWithHttpInfo(healthElementId,);
+  Future<HealthElementDto?> rawGetHealthElement(String healthElementId,) async {
+    final response = await rawGetHealthElementWithHttpInfo(healthElementId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -337,7 +337,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> getHealthElementsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawGetHealthElementsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/byIds';
 
@@ -371,8 +371,8 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<HealthElementDto>?> getHealthElements(ListOfIdsDto listOfIdsDto,) async {
-    final response = await getHealthElementsWithHttpInfo(listOfIdsDto,);
+  Future<List<HealthElementDto>?> rawGetHealthElements(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawGetHealthElementsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -400,7 +400,7 @@ class HealthElementApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listHealthElementsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawListHealthElementsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/byHcPartySecretForeignKeys';
 
@@ -439,8 +439,8 @@ class HealthElementApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<HealthElementDto>?> listHealthElementsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await listHealthElementsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<HealthElementDto>?> rawListHealthElementsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawListHealthElementsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -468,7 +468,7 @@ class HealthElementApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawListHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/byHcPartySecretForeignKeys/delegations';
 
@@ -507,8 +507,8 @@ class HealthElementApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<IcureStubDto>?> listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<IcureStubDto>?> rawListHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawListHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -532,7 +532,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoHealthElement] abstractFilterDtoHealthElement (required):
-  Future<Response> matchHealthElementsByWithHttpInfo(AbstractFilterDtoHealthElement abstractFilterDtoHealthElement,) async {
+  Future<Response> rawMatchHealthElementsByWithHttpInfo(AbstractFilterDtoHealthElement abstractFilterDtoHealthElement,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/match';
 
@@ -564,8 +564,8 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoHealthElement] abstractFilterDtoHealthElement (required):
-  Future<List<String>?> matchHealthElementsBy(AbstractFilterDtoHealthElement abstractFilterDtoHealthElement,) async {
-    final response = await matchHealthElementsByWithHttpInfo(abstractFilterDtoHealthElement,);
+  Future<List<String>?> rawMatchHealthElementsBy(AbstractFilterDtoHealthElement abstractFilterDtoHealthElement,) async {
+    final response = await rawMatchHealthElementsByWithHttpInfo(abstractFilterDtoHealthElement,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -591,7 +591,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [HealthElementDto] healthElementDto (required):
-  Future<Response> modifyHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
+  Future<Response> rawModifyHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement';
 
@@ -625,8 +625,8 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [HealthElementDto] healthElementDto (required):
-  Future<HealthElementDto?> modifyHealthElement(HealthElementDto healthElementDto,) async {
-    final response = await modifyHealthElementWithHttpInfo(healthElementDto,);
+  Future<HealthElementDto?> rawModifyHealthElement(HealthElementDto healthElementDto,) async {
+    final response = await rawModifyHealthElementWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -649,7 +649,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
-  Future<Response> modifyHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
+  Future<Response> rawModifyHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/batch';
 
@@ -683,8 +683,8 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [List<HealthElementDto>] healthElementDto (required):
-  Future<List<HealthElementDto>?> modifyHealthElements(List<HealthElementDto> healthElementDto,) async {
-    final response = await modifyHealthElementsWithHttpInfo(healthElementDto,);
+  Future<List<HealthElementDto>?> rawModifyHealthElements(List<HealthElementDto> healthElementDto,) async {
+    final response = await rawModifyHealthElementsWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -712,7 +712,7 @@ class HealthElementApi {
   /// * [String] healthElementId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<Response> newHealthElementDelegationsWithHttpInfo(String healthElementId, List<DelegationDto> delegationDto,) async {
+  Future<Response> rawNewHealthElementDelegationsWithHttpInfo(String healthElementId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/{healthElementId}/delegate'
       .replaceAll('{healthElementId}', healthElementId);
@@ -749,8 +749,8 @@ class HealthElementApi {
   /// * [String] healthElementId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<HealthElementDto?> newHealthElementDelegations(String healthElementId, List<DelegationDto> delegationDto,) async {
-    final response = await newHealthElementDelegationsWithHttpInfo(healthElementId, delegationDto,);
+  Future<HealthElementDto?> rawNewHealthElementDelegations(String healthElementId, List<DelegationDto> delegationDto,) async {
+    final response = await rawNewHealthElementDelegationsWithHttpInfo(healthElementId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -773,7 +773,7 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<Response> setHealthElementsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
+  Future<Response> rawSetHealthElementsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/delegations';
 
@@ -807,8 +807,8 @@ class HealthElementApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<HealthElementDto>?> setHealthElementsDelegations(List<IcureStubDto> icureStubDto,) async {
-    final response = await setHealthElementsDelegationsWithHttpInfo(icureStubDto,);
+  Future<List<HealthElementDto>?> rawSetHealthElementsDelegations(List<IcureStubDto> icureStubDto,) async {
+    final response = await rawSetHealthElementsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
