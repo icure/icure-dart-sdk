@@ -37,7 +37,7 @@ class PatientDto {
     this.mergedIds = const {},
     this.alias,
     this.active = true,
-    this.deactivationReason = const PatientDtoDeactivationReasonEnum._('DeactivationReason.none'),
+    this.deactivationReason,
     this.ssin,
     this.maidenName,
     this.spouseName,
@@ -239,7 +239,7 @@ class PatientDto {
   bool active;
 
   /// When not active, the reason for deactivation.
-  PatientDtoDeactivationReasonEnum deactivationReason;
+  PatientDtoDeactivationReasonEnum? deactivationReason;
 
   /// Social security inscription number.
   ///
@@ -661,7 +661,7 @@ class PatientDto {
     (mergedIds.hashCode) +
     (alias == null ? 0 : alias!.hashCode) +
     (active.hashCode) +
-    (deactivationReason.hashCode) +
+    (deactivationReason == null ? 0 : deactivationReason!.hashCode) +
     (ssin == null ? 0 : ssin!.hashCode) +
     (maidenName == null ? 0 : maidenName!.hashCode) +
     (spouseName == null ? 0 : spouseName!.hashCode) +
@@ -734,8 +734,8 @@ class PatientDto {
     if (responsible != null) {
       json[r'responsible'] = responsible;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+      json[r'tags'] = tags.toList();
+      json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -766,12 +766,14 @@ class PatientDto {
     if (mergeToPatientId != null) {
       json[r'mergeToPatientId'] = mergeToPatientId;
     }
-      json[r'mergedIds'] = mergedIds;
+      json[r'mergedIds'] = mergedIds.toList();
     if (alias != null) {
       json[r'alias'] = alias;
     }
       json[r'active'] = active;
+    if (deactivationReason != null) {
       json[r'deactivationReason'] = deactivationReason;
+    }
     if (ssin != null) {
       json[r'ssin'] = ssin;
     }
@@ -842,24 +844,24 @@ class PatientDto {
       json[r'medicalHouseContracts'] = medicalHouseContracts;
       json[r'patientProfessions'] = patientProfessions;
       json[r'parameters'] = parameters;
-      json[r'properties'] = properties;
+      json[r'properties'] = properties.toList();
       json[r'hcPartyKeys'] = hcPartyKeys;
       json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
     if (publicKey != null) {
       json[r'publicKey'] = publicKey;
     }
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+      json[r'secretForeignKeys'] = secretForeignKeys.toList();
+      json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k,v)=>MapEntry(k,v.toList()));
+      json[r'delegations'] = delegations.map((k,v)=>MapEntry(k,v.toList()));
+      json[r'encryptionKeys'] = encryptionKeys.map((k,v)=>MapEntry(k,v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'nonDuplicateIds'] = nonDuplicateIds;
-      json[r'encryptedAdministrativesDocuments'] = encryptedAdministrativesDocuments;
+      json[r'nonDuplicateIds'] = nonDuplicateIds.toList();
+      json[r'encryptedAdministrativesDocuments'] = encryptedAdministrativesDocuments.toList();
     if (comment != null) {
       json[r'comment'] = comment;
     }
@@ -933,7 +935,7 @@ class PatientDto {
             : const {},
         alias: mapValueOfType<String>(json, r'alias'),
         active: mapValueOfType<bool>(json, r'active')!,
-        deactivationReason: PatientDtoDeactivationReasonEnum.fromJson(json[r'deactivationReason'])!,
+        deactivationReason: PatientDtoDeactivationReasonEnum.fromJson(json[r'deactivationReason']),
         ssin: mapValueOfType<String>(json, r'ssin'),
         maidenName: mapValueOfType<String>(json, r'maidenName'),
         spouseName: mapValueOfType<String>(json, r'spouseName'),
@@ -1053,7 +1055,6 @@ class PatientDto {
     'addresses',
     'mergedIds',
     'active',
-    'deactivationReason',
     'insurabilities',
     'partnerships',
     'patientHealthCareParties',

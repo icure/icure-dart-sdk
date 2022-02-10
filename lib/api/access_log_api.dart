@@ -23,7 +23,7 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [AccessLogDto] accessLogDto (required):
-  Future<Response> createAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
+  Future<Response> rawCreateAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog';
 
@@ -55,8 +55,8 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [AccessLogDto] accessLogDto (required):
-  Future<AccessLogDto?> createAccessLog(AccessLogDto accessLogDto,) async {
-    final response = await createAccessLogWithHttpInfo(accessLogDto,);
+  Future<AccessLogDto?> rawCreateAccessLog(AccessLogDto accessLogDto,) async {
+    final response = await rawCreateAccessLogWithHttpInfo(accessLogDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -77,7 +77,7 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteAccessLogsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeleteAccessLogsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/delete/batch';
 
@@ -109,8 +109,8 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteAccessLogs(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deleteAccessLogsWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeleteAccessLogs(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeleteAccessLogsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -144,7 +144,7 @@ class AccessLogApi {
   /// * [int] limit:
   ///
   /// * [bool] descending:
-  Future<Response> findAccessLogsByWithHttpInfo({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
+  Future<Response> rawFindAccessLogsByWithHttpInfo({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog';
 
@@ -205,8 +205,8 @@ class AccessLogApi {
   /// * [int] limit:
   ///
   /// * [bool] descending:
-  Future<PaginatedListAccessLogDto?> findAccessLogsBy({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
-    final response = await findAccessLogsByWithHttpInfo( fromEpoch: fromEpoch, toEpoch: toEpoch, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
+  Future<PaginatedListAccessLogDto?> rawFindAccessLogsBy({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
+    final response = await rawFindAccessLogsByWithHttpInfo( fromEpoch: fromEpoch, toEpoch: toEpoch, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -246,7 +246,7 @@ class AccessLogApi {
   ///
   /// * [bool] descending:
   ///   Descending order
-  Future<Response> findAccessLogsByUserAfterDateWithHttpInfo(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
+  Future<Response> rawFindAccessLogsByUserAfterDateWithHttpInfo(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/byUser';
 
@@ -317,8 +317,8 @@ class AccessLogApi {
   ///
   /// * [bool] descending:
   ///   Descending order
-  Future<PaginatedListAccessLogDto?> findAccessLogsByUserAfterDate(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
-    final response = await findAccessLogsByUserAfterDateWithHttpInfo(userId,  accessType: accessType, startDate: startDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
+  Future<PaginatedListAccessLogDto?> rawFindAccessLogsByUserAfterDate(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
+    final response = await rawFindAccessLogsByUserAfterDateWithHttpInfo(userId,  accessType: accessType, startDate: startDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -339,7 +339,7 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [String] accessLogId (required):
-  Future<Response> getAccessLogWithHttpInfo(String accessLogId,) async {
+  Future<Response> rawGetAccessLogWithHttpInfo(String accessLogId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/{accessLogId}'
       .replaceAll('{accessLogId}', accessLogId);
@@ -372,8 +372,8 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [String] accessLogId (required):
-  Future<AccessLogDto?> getAccessLog(String accessLogId,) async {
-    final response = await getAccessLogWithHttpInfo(accessLogId,);
+  Future<AccessLogDto?> rawGetAccessLog(String accessLogId,) async {
+    final response = await rawGetAccessLogWithHttpInfo(accessLogId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -396,7 +396,7 @@ class AccessLogApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawListAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog/byHcPartySecretForeignKeys';
 
@@ -433,8 +433,8 @@ class AccessLogApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<AccessLogDto>?> listAccessLogsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await listAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<AccessLogDto>?> rawListAccessLogsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawListAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -458,7 +458,7 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [AccessLogDto] accessLogDto (required):
-  Future<Response> modifyAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
+  Future<Response> rawModifyAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/accesslog';
 
@@ -490,8 +490,8 @@ class AccessLogApi {
   /// Parameters:
   ///
   /// * [AccessLogDto] accessLogDto (required):
-  Future<AccessLogDto?> modifyAccessLog(AccessLogDto accessLogDto,) async {
-    final response = await modifyAccessLogWithHttpInfo(accessLogDto,);
+  Future<AccessLogDto?> rawModifyAccessLog(AccessLogDto accessLogDto,) async {
+    final response = await rawModifyAccessLogWithHttpInfo(accessLogDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

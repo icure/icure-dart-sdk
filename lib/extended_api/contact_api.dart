@@ -207,13 +207,13 @@ extension ContactApiCrypto on ContactApi {
   Future<List<DecryptedContactDto>> findByHCPartyFormId(
       UserDto user, String hcPartyId, String formId, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     return Future.wait(
-        (await this.listContactsByHCPartyAndFormId(hcPartyId, formId))!.map((it) => config.decryptContact(user.healthcarePartyId!, it)));
+        (await this.rawListContactsByHCPartyAndFormId(hcPartyId, formId))!.map((it) => config.decryptContact(user.healthcarePartyId!, it)));
   }
 
   Future<List<DecryptedContactDto>> findByHCPartyFormIds(
       UserDto user, String hcPartyId, ListOfIdsDto listOfIdsDto, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     return Future.wait(
-        (await this.listContactsByHCPartyAndFormIds(hcPartyId, listOfIdsDto))!.map((it) => config.decryptContact(user.healthcarePartyId!, it)));
+        (await this.rawListContactsByHCPartyAndFormIds(hcPartyId, listOfIdsDto))!.map((it) => config.decryptContact(user.healthcarePartyId!, it)));
   }
 
   Future<List<DecryptedContactDto>> findByHCPartyPatient(UserDto user, String hcPartyId, PatientDto patient, String? planOfActionsIds,
@@ -222,7 +222,7 @@ extension ContactApiCrypto on ContactApi {
     if (keys.isEmpty) {
       throw FormatException("No delegation for user");
     }
-    return Future.wait((await this.listContactsByHCPartyAndPatientSecretFKeys(hcPartyId, keys.join(","),
+    return Future.wait((await this.rawListContactsByHCPartyAndPatientSecretFKeys(hcPartyId, keys.join(","),
             planOfActionsIds: planOfActionsIds, skipClosedContacts: skipClosedContacts))!
         .map((it) => config.decryptContact(user.healthcarePartyId!, it)));
   }
@@ -230,22 +230,22 @@ extension ContactApiCrypto on ContactApi {
   Future<List<DecryptedContactDto>> findByHCPartyServiceId(
       UserDto user, String hcPartyId, String serviceId, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     return Future.wait(
-        (await this.listContactByHCPartyServiceId(hcPartyId, serviceId))!.map((it) => config.decryptContact(user.healthcarePartyId!, it)));
+        (await this.rawListContactByHCPartyServiceId(hcPartyId, serviceId))!.map((it) => config.decryptContact(user.healthcarePartyId!, it)));
   }
 
   Future<List<DecryptedContactDto>> findContactsByExternalId(
       UserDto user, String externalId, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
-    return Future.wait((await this.listContactsByExternalId(externalId))!.map((it) => config.decryptContact(user.healthcarePartyId!, it)));
+    return Future.wait((await this.rawListContactsByExternalId(externalId))!.map((it) => config.decryptContact(user.healthcarePartyId!, it)));
   }
 
   Future<List<DecryptedContactDto>> findContactsByHCPartyPatientForeignKeys(
       UserDto user, String hcPartyId, ListOfIdsDto listOfIdsDto, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
-    return Future.wait((await this.listContactsByHCPartyAndPatientForeignKeys(hcPartyId, listOfIdsDto))!
+    return Future.wait((await this.rawListContactsByHCPartyAndPatientForeignKeys(hcPartyId, listOfIdsDto))!
         .map((it) => config.decryptContact(user.healthcarePartyId!, it)));
   }
 
   Future<DecryptedContactDto?> getContact(UserDto user, String contactId, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
-    return await (await this.getContact(contactId))?.let((it) => config.decryptContact(user.healthcarePartyId!, it));
+    return await (await this.rawGetContact(contactId))?.let((it) => config.decryptContact(user.healthcarePartyId!, it));
   }
 
   Future<List<DecryptedContactDto>> getContacts(UserDto user, ListOfIdsDto listOfIdsDto, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
@@ -253,19 +253,19 @@ extension ContactApiCrypto on ContactApi {
   }
 
   Future<List<DecryptedServiceDto>> listServices(UserDto user, ListOfIdsDto listOfIdsDto, Crypto crypto) async {
-    return await crypto.decryptServices(user.healthcarePartyId!, null, (await this.getServices(listOfIdsDto)) ?? []);
+    return await crypto.decryptServices(user.healthcarePartyId!, null, (await this.rawGetServices(listOfIdsDto)) ?? []);
   }
 
   Future<List<DecryptedServiceDto>> listServicesByAssociationId(UserDto user, String associationId, Crypto crypto) async {
-    return await crypto.decryptServices(user.healthcarePartyId!, null, (await this.listServicesByAssociationId(associationId)) ?? []);
+    return await crypto.decryptServices(user.healthcarePartyId!, null, (await this.rawListServicesByAssociationId(associationId)) ?? []);
   }
 
   Future<List<DecryptedServiceDto>> listServicesByHealthElementId(UserDto user, String healthElementId, Crypto crypto) async {
-    return await crypto.decryptServices(user.healthcarePartyId!, null, (await this.listServicesByHealthElementId(healthElementId)) ?? []);
+    return await crypto.decryptServices(user.healthcarePartyId!, null, (await this.rawListServicesByHealthElementId(healthElementId)) ?? []);
   }
 
   Future<List<DecryptedServiceDto>> listServicesLinkedTo(UserDto user, ListOfIdsDto listOfIdsDto, String? linkType, Crypto crypto) async {
-    return await crypto.decryptServices(user.healthcarePartyId!, null, (await this.getServicesLinkedTo(listOfIdsDto, linkType: linkType)) ?? []);
+    return await crypto.decryptServices(user.healthcarePartyId!, null, (await this.rawGetServicesLinkedTo(listOfIdsDto, linkType: linkType)) ?? []);
   }
 
   Future<DecryptedContactDto?> modifyContact(UserDto user, DecryptedContactDto contact, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
@@ -285,19 +285,19 @@ extension ContactApiCrypto on ContactApi {
 
   Future<DecryptedContactDto> newContactDelegations(
       UserDto user, String contactId, DelegationDto delegationDto, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
-    return await config.decryptContact(user.healthcarePartyId!, (await this.newContactDelegations(contactId, delegationDto))!);
+    return await config.decryptContact(user.healthcarePartyId!, (await this.rawNewContactDelegations(contactId, delegationDto))!);
   }
 
   Future<List<DecryptedContactDto>> setContactsDelegations(
       UserDto user, List<IcureStubDto> icureStubDto, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
-    return Future.wait((await this.setContactsDelegations(icureStubDto))!.map((c) => config.decryptContact(user.healthcarePartyId!, c)));
+    return Future.wait((await this.rawSetContactsDelegations(icureStubDto))!.map((c) => config.decryptContact(user.healthcarePartyId!, c)));
   }
 
   Future<List<DecryptedContactDto>> updateServices(
       UserDto user, DecryptedPatientDto patient, List<ServiceDto> services, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     final Uuid uuid = Uuid();
     final serviceIds = services.map((it) => it.id).toSet();
-    final contactIds = (await this.matchContactsBy(ContactByServiceIdsFilter(ids: serviceIds)) ?? []).toSet().toList();
+    final contactIds = (await this.rawMatchContactsBy(ContactByServiceIdsFilter(ids: serviceIds)) ?? []).toSet().toList();
 
     return (await this.createContactsWithPatient(
         user,

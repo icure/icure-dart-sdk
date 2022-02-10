@@ -23,7 +23,7 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [MessageDto] messageDto (required):
-  Future<Response> createMessageWithHttpInfo(MessageDto messageDto,) async {
+  Future<Response> rawCreateMessageWithHttpInfo(MessageDto messageDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message';
 
@@ -55,8 +55,8 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [MessageDto] messageDto (required):
-  Future<MessageDto?> createMessage(MessageDto messageDto,) async {
-    final response = await createMessageWithHttpInfo(messageDto,);
+  Future<MessageDto?> rawCreateMessage(MessageDto messageDto,) async {
+    final response = await rawCreateMessageWithHttpInfo(messageDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -79,7 +79,7 @@ class MessageApi {
   /// * [String] messageId (required):
   ///
   /// * [String] delegateId (required):
-  Future<Response> deleteDelegationWithHttpInfo(String messageId, String delegateId,) async {
+  Future<Response> rawDeleteDelegationWithHttpInfo(String messageId, String delegateId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/{messageId}/delegate/{delegateId}'
       .replaceAll('{messageId}', messageId)
@@ -115,8 +115,8 @@ class MessageApi {
   /// * [String] messageId (required):
   ///
   /// * [String] delegateId (required):
-  Future<MessageDto?> deleteDelegation(String messageId, String delegateId,) async {
-    final response = await deleteDelegationWithHttpInfo(messageId, delegateId,);
+  Future<MessageDto?> rawDeleteDelegation(String messageId, String delegateId,) async {
+    final response = await rawDeleteDelegationWithHttpInfo(messageId, delegateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -137,7 +137,7 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteMessagesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeleteMessagesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/delete/batch';
 
@@ -169,8 +169,8 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteMessages(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deleteMessagesWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeleteMessages(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeleteMessagesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -198,7 +198,7 @@ class MessageApi {
   /// * [String] startDocumentId:
   ///
   /// * [int] limit:
-  Future<Response> findMessagesWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFindMessagesWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message';
 
@@ -244,8 +244,8 @@ class MessageApi {
   /// * [String] startDocumentId:
   ///
   /// * [int] limit:
-  Future<PaginatedListMessageDto?> findMessages({ String? startKey, String? startDocumentId, int? limit, }) async {
-    final response = await findMessagesWithHttpInfo( startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListMessageDto?> rawFindMessages({ String? startKey, String? startDocumentId, int? limit, }) async {
+    final response = await rawFindMessagesWithHttpInfo( startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -274,7 +274,7 @@ class MessageApi {
   /// * [int] limit:
   ///
   /// * [String] hcpId:
-  Future<Response> findMessagesByFromAddressWithHttpInfo({ String? fromAddress, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
+  Future<Response> rawFindMessagesByFromAddressWithHttpInfo({ String? fromAddress, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/byFromAddress';
 
@@ -330,8 +330,8 @@ class MessageApi {
   /// * [int] limit:
   ///
   /// * [String] hcpId:
-  Future<PaginatedListMessageDto?> findMessagesByFromAddress({ String? fromAddress, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
-    final response = await findMessagesByFromAddressWithHttpInfo( fromAddress: fromAddress, startKey: startKey, startDocumentId: startDocumentId, limit: limit, hcpId: hcpId, );
+  Future<PaginatedListMessageDto?> rawFindMessagesByFromAddress({ String? fromAddress, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
+    final response = await rawFindMessagesByFromAddressWithHttpInfo( fromAddress: fromAddress, startKey: startKey, startDocumentId: startDocumentId, limit: limit, hcpId: hcpId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -354,7 +354,7 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> findMessagesByHCPartyPatientForeignKeysWithHttpInfo(String secretFKeys,) async {
+  Future<Response> rawFindMessagesByHCPartyPatientForeignKeysWithHttpInfo(String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/byHcPartySecretForeignKeys';
 
@@ -390,8 +390,8 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [String] secretFKeys (required):
-  Future<List<MessageDto>?> findMessagesByHCPartyPatientForeignKeys(String secretFKeys,) async {
-    final response = await findMessagesByHCPartyPatientForeignKeysWithHttpInfo(secretFKeys,);
+  Future<List<MessageDto>?> rawFindMessagesByHCPartyPatientForeignKeys(String secretFKeys,) async {
+    final response = await rawFindMessagesByHCPartyPatientForeignKeysWithHttpInfo(secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -425,7 +425,7 @@ class MessageApi {
   /// * [bool] reverse:
   ///
   /// * [String] hcpId:
-  Future<Response> findMessagesByToAddressWithHttpInfo({ String? toAddress, String? startKey, String? startDocumentId, int? limit, bool? reverse, String? hcpId, }) async {
+  Future<Response> rawFindMessagesByToAddressWithHttpInfo({ String? toAddress, String? startKey, String? startDocumentId, int? limit, bool? reverse, String? hcpId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/byToAddress';
 
@@ -486,8 +486,8 @@ class MessageApi {
   /// * [bool] reverse:
   ///
   /// * [String] hcpId:
-  Future<PaginatedListMessageDto?> findMessagesByToAddress({ String? toAddress, String? startKey, String? startDocumentId, int? limit, bool? reverse, String? hcpId, }) async {
-    final response = await findMessagesByToAddressWithHttpInfo( toAddress: toAddress, startKey: startKey, startDocumentId: startDocumentId, limit: limit, reverse: reverse, hcpId: hcpId, );
+  Future<PaginatedListMessageDto?> rawFindMessagesByToAddress({ String? toAddress, String? startKey, String? startDocumentId, int? limit, bool? reverse, String? hcpId, }) async {
+    final response = await rawFindMessagesByToAddressWithHttpInfo( toAddress: toAddress, startKey: startKey, startDocumentId: startDocumentId, limit: limit, reverse: reverse, hcpId: hcpId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -518,7 +518,7 @@ class MessageApi {
   /// * [int] limit:
   ///
   /// * [String] hcpId:
-  Future<Response> findMessagesByTransportGuidWithHttpInfo({ String? transportGuid, bool? received, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
+  Future<Response> rawFindMessagesByTransportGuidWithHttpInfo({ String? transportGuid, bool? received, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/byTransportGuid';
 
@@ -579,8 +579,8 @@ class MessageApi {
   /// * [int] limit:
   ///
   /// * [String] hcpId:
-  Future<PaginatedListMessageDto?> findMessagesByTransportGuid({ String? transportGuid, bool? received, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
-    final response = await findMessagesByTransportGuidWithHttpInfo( transportGuid: transportGuid, received: received, startKey: startKey, startDocumentId: startDocumentId, limit: limit, hcpId: hcpId, );
+  Future<PaginatedListMessageDto?> rawFindMessagesByTransportGuid({ String? transportGuid, bool? received, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
+    final response = await rawFindMessagesByTransportGuidWithHttpInfo( transportGuid: transportGuid, received: received, startKey: startKey, startDocumentId: startDocumentId, limit: limit, hcpId: hcpId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -613,7 +613,7 @@ class MessageApi {
   /// * [int] limit:
   ///
   /// * [String] hcpId:
-  Future<Response> findMessagesByTransportGuidSentDateWithHttpInfo({ String? transportGuid, int? from, int? to, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
+  Future<Response> rawFindMessagesByTransportGuidSentDateWithHttpInfo({ String? transportGuid, int? from, int? to, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/byTransportGuidSentDate';
 
@@ -679,8 +679,8 @@ class MessageApi {
   /// * [int] limit:
   ///
   /// * [String] hcpId:
-  Future<PaginatedListMessageDto?> findMessagesByTransportGuidSentDate({ String? transportGuid, int? from, int? to, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
-    final response = await findMessagesByTransportGuidSentDateWithHttpInfo( transportGuid: transportGuid, from: from, to: to, startKey: startKey, startDocumentId: startDocumentId, limit: limit, hcpId: hcpId, );
+  Future<PaginatedListMessageDto?> rawFindMessagesByTransportGuidSentDate({ String? transportGuid, int? from, int? to, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
+    final response = await rawFindMessagesByTransportGuidSentDateWithHttpInfo( transportGuid: transportGuid, from: from, to: to, startKey: startKey, startDocumentId: startDocumentId, limit: limit, hcpId: hcpId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -701,7 +701,7 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [String] messageId (required):
-  Future<Response> getChildrenMessagesWithHttpInfo(String messageId,) async {
+  Future<Response> rawGetChildrenMessagesWithHttpInfo(String messageId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/{messageId}/children'
       .replaceAll('{messageId}', messageId);
@@ -734,8 +734,8 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [String] messageId (required):
-  Future<List<MessageDto>?> getChildrenMessages(String messageId,) async {
-    final response = await getChildrenMessagesWithHttpInfo(messageId,);
+  Future<List<MessageDto>?> rawGetChildrenMessages(String messageId,) async {
+    final response = await rawGetChildrenMessagesWithHttpInfo(messageId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -759,7 +759,7 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [String] messageId (required):
-  Future<Response> getMessageWithHttpInfo(String messageId,) async {
+  Future<Response> rawGetMessageWithHttpInfo(String messageId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/{messageId}'
       .replaceAll('{messageId}', messageId);
@@ -792,8 +792,8 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [String] messageId (required):
-  Future<MessageDto?> getMessage(String messageId,) async {
-    final response = await getMessageWithHttpInfo(messageId,);
+  Future<MessageDto?> rawGetMessage(String messageId,) async {
+    final response = await rawGetMessageWithHttpInfo(messageId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -814,7 +814,7 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> getMessagesChildrenWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawGetMessagesChildrenWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/children/batch';
 
@@ -846,8 +846,8 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<MessageDto>?> getMessagesChildren(ListOfIdsDto listOfIdsDto,) async {
-    final response = await getMessagesChildrenWithHttpInfo(listOfIdsDto,);
+  Future<List<MessageDto>?> rawGetMessagesChildren(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawGetMessagesChildrenWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -871,7 +871,7 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> listMessagesByInvoicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawListMessagesByInvoicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/byInvoice';
 
@@ -903,8 +903,8 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<MessageDto>?> listMessagesByInvoices(ListOfIdsDto listOfIdsDto,) async {
-    final response = await listMessagesByInvoicesWithHttpInfo(listOfIdsDto,);
+  Future<List<MessageDto>?> rawListMessagesByInvoices(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawListMessagesByInvoicesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -930,7 +930,7 @@ class MessageApi {
   /// * [String] hcpId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> listMessagesByTransportGuidsWithHttpInfo(String hcpId, ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawListMessagesByTransportGuidsWithHttpInfo(String hcpId, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/byTransportGuid/list';
 
@@ -966,8 +966,8 @@ class MessageApi {
   /// * [String] hcpId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<MessageDto>?> listMessagesByTransportGuids(String hcpId, ListOfIdsDto listOfIdsDto,) async {
-    final response = await listMessagesByTransportGuidsWithHttpInfo(hcpId, listOfIdsDto,);
+  Future<List<MessageDto>?> rawListMessagesByTransportGuids(String hcpId, ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawListMessagesByTransportGuidsWithHttpInfo(hcpId, listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -991,7 +991,7 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [MessageDto] messageDto (required):
-  Future<Response> modifyMessageWithHttpInfo(MessageDto messageDto,) async {
+  Future<Response> rawModifyMessageWithHttpInfo(MessageDto messageDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message';
 
@@ -1023,8 +1023,8 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [MessageDto] messageDto (required):
-  Future<MessageDto?> modifyMessage(MessageDto messageDto,) async {
-    final response = await modifyMessageWithHttpInfo(messageDto,);
+  Future<MessageDto?> rawModifyMessage(MessageDto messageDto,) async {
+    final response = await rawModifyMessageWithHttpInfo(messageDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1047,7 +1047,7 @@ class MessageApi {
   /// * [String] messageId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<Response> newMessageDelegationsWithHttpInfo(String messageId, List<DelegationDto> delegationDto,) async {
+  Future<Response> rawNewMessageDelegationsWithHttpInfo(String messageId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/{messageId}/delegate'
       .replaceAll('{messageId}', messageId);
@@ -1082,8 +1082,8 @@ class MessageApi {
   /// * [String] messageId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<IcureStubDto?> newMessageDelegations(String messageId, List<DelegationDto> delegationDto,) async {
-    final response = await newMessageDelegationsWithHttpInfo(messageId, delegationDto,);
+  Future<IcureStubDto?> rawNewMessageDelegations(String messageId, List<DelegationDto> delegationDto,) async {
+    final response = await rawNewMessageDelegationsWithHttpInfo(messageId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1104,7 +1104,7 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [MessagesReadStatusUpdate] messagesReadStatusUpdate (required):
-  Future<Response> setMessagesReadStatusWithHttpInfo(MessagesReadStatusUpdate messagesReadStatusUpdate,) async {
+  Future<Response> rawSetMessagesReadStatusWithHttpInfo(MessagesReadStatusUpdate messagesReadStatusUpdate,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/readstatus';
 
@@ -1136,8 +1136,8 @@ class MessageApi {
   /// Parameters:
   ///
   /// * [MessagesReadStatusUpdate] messagesReadStatusUpdate (required):
-  Future<List<MessageDto>?> setMessagesReadStatus(MessagesReadStatusUpdate messagesReadStatusUpdate,) async {
-    final response = await setMessagesReadStatusWithHttpInfo(messagesReadStatusUpdate,);
+  Future<List<MessageDto>?> rawSetMessagesReadStatus(MessagesReadStatusUpdate messagesReadStatusUpdate,) async {
+    final response = await rawSetMessagesReadStatusWithHttpInfo(messagesReadStatusUpdate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1163,7 +1163,7 @@ class MessageApi {
   /// * [int] status (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> setMessagesStatusBitsWithHttpInfo(int status, ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawSetMessagesStatusBitsWithHttpInfo(int status, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/message/status/{status}'
       .replaceAll('{status}', status.toString());
@@ -1198,8 +1198,8 @@ class MessageApi {
   /// * [int] status (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<MessageDto>?> setMessagesStatusBits(int status, ListOfIdsDto listOfIdsDto,) async {
-    final response = await setMessagesStatusBitsWithHttpInfo(status, listOfIdsDto,);
+  Future<List<MessageDto>?> rawSetMessagesStatusBits(int status, ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawSetMessagesStatusBitsWithHttpInfo(status, listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

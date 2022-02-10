@@ -122,7 +122,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<Response> createInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
+  Future<Response> rawCreateInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice';
 
@@ -154,8 +154,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<InvoiceDto?> createInvoice(InvoiceDto invoiceDto,) async {
-    final response = await createInvoiceWithHttpInfo(invoiceDto,);
+  Future<InvoiceDto?> rawCreateInvoice(InvoiceDto invoiceDto,) async {
+    final response = await rawCreateInvoiceWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -178,7 +178,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
-  Future<Response> createInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
+  Future<Response> rawCreateInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/batch';
 
@@ -212,8 +212,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
-  Future<List<InvoiceDto>?> createInvoices(List<InvoiceDto> invoiceDto,) async {
-    final response = await createInvoicesWithHttpInfo(invoiceDto,);
+  Future<List<InvoiceDto>?> rawCreateInvoices(List<InvoiceDto> invoiceDto,) async {
+    final response = await rawCreateInvoicesWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -237,7 +237,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] invoiceId (required):
-  Future<Response> deleteInvoiceWithHttpInfo(String invoiceId,) async {
+  Future<Response> rawDeleteInvoiceWithHttpInfo(String invoiceId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/{invoiceId}'
       .replaceAll('{invoiceId}', invoiceId);
@@ -270,8 +270,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] invoiceId (required):
-  Future<DocIdentifier?> deleteInvoice(String invoiceId,) async {
-    final response = await deleteInvoiceWithHttpInfo(invoiceId,);
+  Future<DocIdentifier?> rawDeleteInvoice(String invoiceId,) async {
+    final response = await rawDeleteInvoiceWithHttpInfo(invoiceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -294,7 +294,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [FilterChainInvoice] filterChainInvoice (required):
-  Future<Response> filterInvoicesByWithHttpInfo(FilterChainInvoice filterChainInvoice,) async {
+  Future<Response> rawFilterInvoicesByWithHttpInfo(FilterChainInvoice filterChainInvoice,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/filter';
 
@@ -328,8 +328,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [FilterChainInvoice] filterChainInvoice (required):
-  Future<List<InvoiceDto>?> filterInvoicesBy(FilterChainInvoice filterChainInvoice,) async {
-    final response = await filterInvoicesByWithHttpInfo(filterChainInvoice,);
+  Future<List<InvoiceDto>?> rawFilterInvoicesBy(FilterChainInvoice filterChainInvoice,) async {
+    final response = await rawFilterInvoicesByWithHttpInfo(filterChainInvoice,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -366,7 +366,7 @@ class InvoiceApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findInvoicesByAuthorWithHttpInfo(String hcPartyId, { int? fromDate, int? toDate, String? startKey, String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFindInvoicesByAuthorWithHttpInfo(String hcPartyId, { int? fromDate, int? toDate, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byauthor/{hcPartyId}'
       .replaceAll('{hcPartyId}', hcPartyId);
@@ -428,8 +428,8 @@ class InvoiceApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListInvoiceDto?> findInvoicesByAuthor(String hcPartyId, { int? fromDate, int? toDate, String? startKey, String? startDocumentId, int? limit, }) async {
-    final response = await findInvoicesByAuthorWithHttpInfo(hcPartyId,  fromDate: fromDate, toDate: toDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListInvoiceDto?> rawFindInvoicesByAuthor(String hcPartyId, { int? fromDate, int? toDate, String? startKey, String? startDocumentId, int? limit, }) async {
+    final response = await rawFindInvoicesByAuthorWithHttpInfo(hcPartyId,  fromDate: fromDate, toDate: toDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -450,7 +450,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] invoiceId (required):
-  Future<Response> getInvoiceWithHttpInfo(String invoiceId,) async {
+  Future<Response> rawGetInvoiceWithHttpInfo(String invoiceId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/{invoiceId}'
       .replaceAll('{invoiceId}', invoiceId);
@@ -483,8 +483,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] invoiceId (required):
-  Future<InvoiceDto?> getInvoice(String invoiceId,) async {
-    final response = await getInvoiceWithHttpInfo(invoiceId,);
+  Future<InvoiceDto?> rawGetInvoice(String invoiceId,) async {
+    final response = await rawGetInvoiceWithHttpInfo(invoiceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -505,7 +505,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> getInvoicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawGetInvoicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byIds';
 
@@ -537,8 +537,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<InvoiceDto>?> getInvoices(ListOfIdsDto listOfIdsDto,) async {
-    final response = await getInvoicesWithHttpInfo(listOfIdsDto,);
+  Future<List<InvoiceDto>?> rawGetInvoices(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawGetInvoicesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -562,7 +562,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [int] minOccurences (required):
-  Future<Response> getTarificationsCodesOccurencesWithHttpInfo(int minOccurences,) async {
+  Future<Response> rawGetTarificationsCodesOccurencesWithHttpInfo(int minOccurences,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/codes/{minOccurences}'
       .replaceAll('{minOccurences}', minOccurences.toString());
@@ -595,8 +595,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [int] minOccurences (required):
-  Future<List<LabelledOccurenceDto>?> getTarificationsCodesOccurences(int minOccurences,) async {
-    final response = await getTarificationsCodesOccurencesWithHttpInfo(minOccurences,);
+  Future<List<LabelledOccurenceDto>?> rawGetTarificationsCodesOccurences(int minOccurences,) async {
+    final response = await rawGetTarificationsCodesOccurencesWithHttpInfo(minOccurences,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -626,7 +626,7 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<Response> listAllHcpsByStatusWithHttpInfo(String status, ListOfIdsDto listOfIdsDto, { int? from, int? to, }) async {
+  Future<Response> rawListAllHcpsByStatusWithHttpInfo(String status, ListOfIdsDto listOfIdsDto, { int? from, int? to, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/allHcpsByStatus/{status}'
       .replaceAll('{status}', status);
@@ -672,8 +672,8 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<List<InvoiceDto>?> listAllHcpsByStatus(String status, ListOfIdsDto listOfIdsDto, { int? from, int? to, }) async {
-    final response = await listAllHcpsByStatusWithHttpInfo(status, listOfIdsDto,  from: from, to: to, );
+  Future<List<InvoiceDto>?> rawListAllHcpsByStatus(String status, ListOfIdsDto listOfIdsDto, { int? from, int? to, }) async {
+    final response = await rawListAllHcpsByStatusWithHttpInfo(status, listOfIdsDto,  from: from, to: to, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -697,7 +697,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> listInvoicesByContactIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawListInvoicesByContactIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byContacts';
 
@@ -729,8 +729,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<InvoiceDto>?> listInvoicesByContactIds(ListOfIdsDto listOfIdsDto,) async {
-    final response = await listInvoicesByContactIdsWithHttpInfo(listOfIdsDto,);
+  Future<List<InvoiceDto>?> rawListInvoicesByContactIds(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawListInvoicesByContactIdsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -758,7 +758,7 @@ class InvoiceApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listInvoicesByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawListInvoicesByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcPartySecretForeignKeys';
 
@@ -797,8 +797,8 @@ class InvoiceApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<InvoiceDto>?> listInvoicesByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await listInvoicesByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<InvoiceDto>?> rawListInvoicesByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawListInvoicesByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -826,7 +826,7 @@ class InvoiceApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] groupId (required):
-  Future<Response> listInvoicesByHcPartyAndGroupIdWithHttpInfo(String hcPartyId, String groupId,) async {
+  Future<Response> rawListInvoicesByHcPartyAndGroupIdWithHttpInfo(String hcPartyId, String groupId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcPartyGroupId/{hcPartyId}/{groupId}'
       .replaceAll('{hcPartyId}', hcPartyId)
@@ -864,8 +864,8 @@ class InvoiceApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] groupId (required):
-  Future<List<InvoiceDto>?> listInvoicesByHcPartyAndGroupId(String hcPartyId, String groupId,) async {
-    final response = await listInvoicesByHcPartyAndGroupIdWithHttpInfo(hcPartyId, groupId,);
+  Future<List<InvoiceDto>?> rawListInvoicesByHcPartyAndGroupId(String hcPartyId, String groupId,) async {
+    final response = await rawListInvoicesByHcPartyAndGroupIdWithHttpInfo(hcPartyId, groupId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -901,7 +901,7 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<Response> listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDateWithHttpInfo(String hcPartyId, String sentMediumType, String invoiceType, bool sent, { int? from, int? to, }) async {
+  Future<Response> rawListInvoicesByHcPartySentMediumTypeInvoiceTypeSentDateWithHttpInfo(String hcPartyId, String sentMediumType, String invoiceType, bool sent, { int? from, int? to, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcParty/{hcPartyId}/mediumType/{sentMediumType}/invoiceType/{invoiceType}/sent/{sent}'
       .replaceAll('{hcPartyId}', hcPartyId)
@@ -956,8 +956,8 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<List<InvoiceDto>?> listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDate(String hcPartyId, String sentMediumType, String invoiceType, bool sent, { int? from, int? to, }) async {
-    final response = await listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDateWithHttpInfo(hcPartyId, sentMediumType, invoiceType, sent,  from: from, to: to, );
+  Future<List<InvoiceDto>?> rawListInvoicesByHcPartySentMediumTypeInvoiceTypeSentDate(String hcPartyId, String sentMediumType, String invoiceType, bool sent, { int? from, int? to, }) async {
+    final response = await rawListInvoicesByHcPartySentMediumTypeInvoiceTypeSentDateWithHttpInfo(hcPartyId, sentMediumType, invoiceType, sent,  from: from, to: to, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -989,7 +989,7 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<Response> listInvoicesByHcpartySendingModeStatusDateWithHttpInfo(String hcPartyId, { String? sendingMode, String? status, int? from, int? to, }) async {
+  Future<Response> rawListInvoicesByHcpartySendingModeStatusDateWithHttpInfo(String hcPartyId, { String? sendingMode, String? status, int? from, int? to, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcpartySendingModeStatusDate/{hcPartyId}'
       .replaceAll('{hcPartyId}', hcPartyId);
@@ -1043,8 +1043,8 @@ class InvoiceApi {
   /// * [int] from:
   ///
   /// * [int] to:
-  Future<List<InvoiceDto>?> listInvoicesByHcpartySendingModeStatusDate(String hcPartyId, { String? sendingMode, String? status, int? from, int? to, }) async {
-    final response = await listInvoicesByHcpartySendingModeStatusDateWithHttpInfo(hcPartyId,  sendingMode: sendingMode, status: status, from: from, to: to, );
+  Future<List<InvoiceDto>?> rawListInvoicesByHcpartySendingModeStatusDate(String hcPartyId, { String? sendingMode, String? status, int? from, int? to, }) async {
+    final response = await rawListInvoicesByHcpartySendingModeStatusDateWithHttpInfo(hcPartyId,  sendingMode: sendingMode, status: status, from: from, to: to, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1068,7 +1068,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] invoiceIds (required):
-  Future<Response> listInvoicesByIdsWithHttpInfo(String invoiceIds,) async {
+  Future<Response> rawListInvoicesByIdsWithHttpInfo(String invoiceIds,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byIds/{invoiceIds}'
       .replaceAll('{invoiceIds}', invoiceIds);
@@ -1101,8 +1101,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] invoiceIds (required):
-  Future<List<InvoiceDto>?> listInvoicesByIds(String invoiceIds,) async {
-    final response = await listInvoicesByIdsWithHttpInfo(invoiceIds,);
+  Future<List<InvoiceDto>?> rawListInvoicesByIds(String invoiceIds,) async {
+    final response = await rawListInvoicesByIdsWithHttpInfo(invoiceIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1126,7 +1126,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] recipientIds (required):
-  Future<Response> listInvoicesByRecipientsIdsWithHttpInfo(String recipientIds,) async {
+  Future<Response> rawListInvoicesByRecipientsIdsWithHttpInfo(String recipientIds,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/to/{recipientIds}'
       .replaceAll('{recipientIds}', recipientIds);
@@ -1159,8 +1159,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] recipientIds (required):
-  Future<List<InvoiceDto>?> listInvoicesByRecipientsIds(String recipientIds,) async {
-    final response = await listInvoicesByRecipientsIdsWithHttpInfo(recipientIds,);
+  Future<List<InvoiceDto>?> rawListInvoicesByRecipientsIds(String recipientIds,) async {
+    final response = await rawListInvoicesByRecipientsIdsWithHttpInfo(recipientIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1184,7 +1184,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] serviceIds (required):
-  Future<Response> listInvoicesByServiceIdsWithHttpInfo(String serviceIds,) async {
+  Future<Response> rawListInvoicesByServiceIdsWithHttpInfo(String serviceIds,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byServiceIds/{serviceIds}'
       .replaceAll('{serviceIds}', serviceIds);
@@ -1217,8 +1217,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] serviceIds (required):
-  Future<List<InvoiceDto>?> listInvoicesByServiceIds(String serviceIds,) async {
-    final response = await listInvoicesByServiceIdsWithHttpInfo(serviceIds,);
+  Future<List<InvoiceDto>?> rawListInvoicesByServiceIds(String serviceIds,) async {
+    final response = await rawListInvoicesByServiceIdsWithHttpInfo(serviceIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1246,7 +1246,7 @@ class InvoiceApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawListInvoicesDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byHcPartySecretForeignKeys/delegations';
 
@@ -1285,8 +1285,8 @@ class InvoiceApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<IcureStubDto>?> listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<IcureStubDto>?> rawListInvoicesDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawListInvoicesDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1310,7 +1310,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] userIds:
-  Future<Response> listToInsurancesWithHttpInfo({ String? userIds, }) async {
+  Future<Response> rawListToInsurancesWithHttpInfo({ String? userIds, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/toInsurances';
 
@@ -1346,8 +1346,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] userIds:
-  Future<List<InvoiceDto>?> listToInsurances({ String? userIds, }) async {
-    final response = await listToInsurancesWithHttpInfo( userIds: userIds, );
+  Future<List<InvoiceDto>?> rawListToInsurances({ String? userIds, }) async {
+    final response = await rawListToInsurancesWithHttpInfo( userIds: userIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1371,7 +1371,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] userIds:
-  Future<Response> listToInsurancesUnsentWithHttpInfo({ String? userIds, }) async {
+  Future<Response> rawListToInsurancesUnsentWithHttpInfo({ String? userIds, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/toInsurances/unsent';
 
@@ -1407,8 +1407,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] userIds:
-  Future<List<InvoiceDto>?> listToInsurancesUnsent({ String? userIds, }) async {
-    final response = await listToInsurancesUnsentWithHttpInfo( userIds: userIds, );
+  Future<List<InvoiceDto>?> rawListToInsurancesUnsent({ String? userIds, }) async {
+    final response = await rawListToInsurancesUnsentWithHttpInfo( userIds: userIds, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1432,7 +1432,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] hcPartyId:
-  Future<Response> listToPatientsWithHttpInfo({ String? hcPartyId, }) async {
+  Future<Response> rawListToPatientsWithHttpInfo({ String? hcPartyId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/toPatients';
 
@@ -1468,8 +1468,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] hcPartyId:
-  Future<List<InvoiceDto>?> listToPatients({ String? hcPartyId, }) async {
-    final response = await listToPatientsWithHttpInfo( hcPartyId: hcPartyId, );
+  Future<List<InvoiceDto>?> rawListToPatients({ String? hcPartyId, }) async {
+    final response = await rawListToPatientsWithHttpInfo( hcPartyId: hcPartyId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1493,7 +1493,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] hcPartyId:
-  Future<Response> listToPatientsUnsentWithHttpInfo({ String? hcPartyId, }) async {
+  Future<Response> rawListToPatientsUnsentWithHttpInfo({ String? hcPartyId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/toPatients/unsent';
 
@@ -1529,8 +1529,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [String] hcPartyId:
-  Future<List<InvoiceDto>?> listToPatientsUnsent({ String? hcPartyId, }) async {
-    final response = await listToPatientsUnsentWithHttpInfo( hcPartyId: hcPartyId, );
+  Future<List<InvoiceDto>?> rawListToPatientsUnsent({ String? hcPartyId, }) async {
+    final response = await rawListToPatientsUnsentWithHttpInfo( hcPartyId: hcPartyId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1556,7 +1556,7 @@ class InvoiceApi {
   /// * [String] invoiceId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> mergeToWithHttpInfo(String invoiceId, ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawMergeToWithHttpInfo(String invoiceId, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/mergeTo/{invoiceId}'
       .replaceAll('{invoiceId}', invoiceId);
@@ -1591,8 +1591,8 @@ class InvoiceApi {
   /// * [String] invoiceId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<InvoiceDto?> mergeTo(String invoiceId, ListOfIdsDto listOfIdsDto,) async {
-    final response = await mergeToWithHttpInfo(invoiceId, listOfIdsDto,);
+  Future<InvoiceDto?> rawMergeTo(String invoiceId, ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawMergeToWithHttpInfo(invoiceId, listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1613,7 +1613,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<Response> modifyInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
+  Future<Response> rawModifyInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice';
 
@@ -1645,8 +1645,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<InvoiceDto?> modifyInvoice(InvoiceDto invoiceDto,) async {
-    final response = await modifyInvoiceWithHttpInfo(invoiceDto,);
+  Future<InvoiceDto?> rawModifyInvoice(InvoiceDto invoiceDto,) async {
+    final response = await rawModifyInvoiceWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1669,7 +1669,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
-  Future<Response> modifyInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
+  Future<Response> rawModifyInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/batch';
 
@@ -1703,8 +1703,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [List<InvoiceDto>] invoiceDto (required):
-  Future<List<InvoiceDto>?> modifyInvoices(List<InvoiceDto> invoiceDto,) async {
-    final response = await modifyInvoicesWithHttpInfo(invoiceDto,);
+  Future<List<InvoiceDto>?> rawModifyInvoices(List<InvoiceDto> invoiceDto,) async {
+    final response = await rawModifyInvoicesWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1730,7 +1730,7 @@ class InvoiceApi {
   /// * [String] invoiceId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<Response> newInvoiceDelegationsWithHttpInfo(String invoiceId, List<DelegationDto> delegationDto,) async {
+  Future<Response> rawNewInvoiceDelegationsWithHttpInfo(String invoiceId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/{invoiceId}/delegate'
       .replaceAll('{invoiceId}', invoiceId);
@@ -1765,8 +1765,8 @@ class InvoiceApi {
   /// * [String] invoiceId (required):
   ///
   /// * [List<DelegationDto>] delegationDto (required):
-  Future<InvoiceDto?> newInvoiceDelegations(String invoiceId, List<DelegationDto> delegationDto,) async {
-    final response = await newInvoiceDelegationsWithHttpInfo(invoiceId, delegationDto,);
+  Future<InvoiceDto?> rawNewInvoiceDelegations(String invoiceId, List<DelegationDto> delegationDto,) async {
+    final response = await rawNewInvoiceDelegationsWithHttpInfo(invoiceId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1787,7 +1787,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<Response> reassignInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
+  Future<Response> rawReassignInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/reassign';
 
@@ -1819,8 +1819,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [InvoiceDto] invoiceDto (required):
-  Future<InvoiceDto?> reassignInvoice(InvoiceDto invoiceDto,) async {
-    final response = await reassignInvoiceWithHttpInfo(invoiceDto,);
+  Future<InvoiceDto?> rawReassignInvoice(InvoiceDto invoiceDto,) async {
+    final response = await rawReassignInvoiceWithHttpInfo(invoiceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1847,7 +1847,7 @@ class InvoiceApi {
   /// * [String] secretFKeys (required):
   ///
   /// * [List<String>] requestBody (required):
-  Future<Response> removeCodesWithHttpInfo(String userId, String serviceId, String secretFKeys, List<String> requestBody,) async {
+  Future<Response> rawRemoveCodesWithHttpInfo(String userId, String serviceId, String secretFKeys, List<String> requestBody,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/byauthor/{userId}/service/{serviceId}'
       .replaceAll('{userId}', userId)
@@ -1889,8 +1889,8 @@ class InvoiceApi {
   /// * [String] secretFKeys (required):
   ///
   /// * [List<String>] requestBody (required):
-  Future<List<InvoiceDto>?> removeCodes(String userId, String serviceId, String secretFKeys, List<String> requestBody,) async {
-    final response = await removeCodesWithHttpInfo(userId, serviceId, secretFKeys, requestBody,);
+  Future<List<InvoiceDto>?> rawRemoveCodes(String userId, String serviceId, String secretFKeys, List<String> requestBody,) async {
+    final response = await rawRemoveCodesWithHttpInfo(userId, serviceId, secretFKeys, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1916,7 +1916,7 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<Response> setInvoicesDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
+  Future<Response> rawSetInvoicesDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/delegations';
 
@@ -1950,8 +1950,8 @@ class InvoiceApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<IcureStubDto>?> setInvoicesDelegations(List<IcureStubDto> icureStubDto,) async {
-    final response = await setInvoicesDelegationsWithHttpInfo(icureStubDto,);
+  Future<List<IcureStubDto>?> rawSetInvoicesDelegations(List<IcureStubDto> icureStubDto,) async {
+    final response = await rawSetInvoicesDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1979,7 +1979,7 @@ class InvoiceApi {
   /// * [String] scheme (required):
   ///
   /// * [String] forcedValue (required):
-  Future<Response> validateWithHttpInfo(String invoiceId, String scheme, String forcedValue,) async {
+  Future<Response> rawValidateWithHttpInfo(String invoiceId, String scheme, String forcedValue,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/validate/{invoiceId}'
       .replaceAll('{invoiceId}', invoiceId);
@@ -2019,8 +2019,8 @@ class InvoiceApi {
   /// * [String] scheme (required):
   ///
   /// * [String] forcedValue (required):
-  Future<InvoiceDto?> validate(String invoiceId, String scheme, String forcedValue,) async {
-    final response = await validateWithHttpInfo(invoiceId, scheme, forcedValue,);
+  Future<InvoiceDto?> rawValidate(String invoiceId, String scheme, String forcedValue,) async {
+    final response = await rawValidateWithHttpInfo(invoiceId, scheme, forcedValue,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

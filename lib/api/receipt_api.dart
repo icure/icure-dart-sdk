@@ -23,7 +23,7 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [ReceiptDto] receiptDto (required):
-  Future<Response> createReceiptWithHttpInfo(ReceiptDto receiptDto,) async {
+  Future<Response> rawCreateReceiptWithHttpInfo(ReceiptDto receiptDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/receipt';
 
@@ -55,8 +55,8 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [ReceiptDto] receiptDto (required):
-  Future<ReceiptDto?> createReceipt(ReceiptDto receiptDto,) async {
-    final response = await createReceiptWithHttpInfo(receiptDto,);
+  Future<ReceiptDto?> rawCreateReceipt(ReceiptDto receiptDto,) async {
+    final response = await rawCreateReceiptWithHttpInfo(receiptDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -77,7 +77,7 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteReceiptsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeleteReceiptsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/receipt/delete/batch';
 
@@ -109,8 +109,8 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteReceipts(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deleteReceiptsWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeleteReceipts(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeleteReceiptsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -134,7 +134,7 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [String] receiptId (required):
-  Future<Response> getReceiptWithHttpInfo(String receiptId,) async {
+  Future<Response> rawGetReceiptWithHttpInfo(String receiptId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/receipt/{receiptId}'
       .replaceAll('{receiptId}', receiptId);
@@ -167,8 +167,8 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [String] receiptId (required):
-  Future<ReceiptDto?> getReceipt(String receiptId,) async {
-    final response = await getReceiptWithHttpInfo(receiptId,);
+  Future<ReceiptDto?> rawGetReceipt(String receiptId,) async {
+    final response = await rawGetReceiptWithHttpInfo(receiptId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -193,7 +193,7 @@ class ReceiptApi {
   /// * [String] attachmentId (required):
   ///
   /// * [String] enckeys (required):
-  Future<Response> getReceiptAttachmentWithHttpInfo(String receiptId, String attachmentId, String enckeys,) async {
+  Future<Response> rawGetReceiptAttachmentWithHttpInfo(String receiptId, String attachmentId, String enckeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/receipt/{receiptId}/attachment/{attachmentId}'
       .replaceAll('{receiptId}', receiptId)
@@ -233,8 +233,8 @@ class ReceiptApi {
   /// * [String] attachmentId (required):
   ///
   /// * [String] enckeys (required):
-  Future<MultipartFile?> getReceiptAttachment(String receiptId, String attachmentId, String enckeys,) async {
-    final response = await getReceiptAttachmentWithHttpInfo(receiptId, attachmentId, enckeys,);
+  Future<MultipartFile?> rawGetReceiptAttachment(String receiptId, String attachmentId, String enckeys,) async {
+    final response = await rawGetReceiptAttachmentWithHttpInfo(receiptId, attachmentId, enckeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -255,7 +255,7 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [String] ref (required):
-  Future<Response> listByReferenceWithHttpInfo(String ref,) async {
+  Future<Response> rawListByReferenceWithHttpInfo(String ref,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/receipt/byRef/{ref}'
       .replaceAll('{ref}', ref);
@@ -288,8 +288,8 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [String] ref (required):
-  Future<List<ReceiptDto>?> listByReference(String ref,) async {
-    final response = await listByReferenceWithHttpInfo(ref,);
+  Future<List<ReceiptDto>?> rawListByReference(String ref,) async {
+    final response = await rawListByReferenceWithHttpInfo(ref,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -313,7 +313,7 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [ReceiptDto] receiptDto (required):
-  Future<Response> modifyReceiptWithHttpInfo(ReceiptDto receiptDto,) async {
+  Future<Response> rawModifyReceiptWithHttpInfo(ReceiptDto receiptDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/receipt';
 
@@ -345,8 +345,8 @@ class ReceiptApi {
   /// Parameters:
   ///
   /// * [ReceiptDto] receiptDto (required):
-  Future<ReceiptDto?> modifyReceipt(ReceiptDto receiptDto,) async {
-    final response = await modifyReceiptWithHttpInfo(receiptDto,);
+  Future<ReceiptDto?> rawModifyReceipt(ReceiptDto receiptDto,) async {
+    final response = await rawModifyReceiptWithHttpInfo(receiptDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -373,7 +373,7 @@ class ReceiptApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<Response> setReceiptAttachmentWithHttpInfo(String receiptId, String blobType, MultipartFile body, { String? enckeys, }) async {
+  Future<Response> rawSetReceiptAttachmentWithHttpInfo(String receiptId, String blobType, MultipartFile body, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/receipt/{receiptId}/attachment/{blobType}'
       .replaceAll('{receiptId}', receiptId)
@@ -417,8 +417,8 @@ class ReceiptApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<ReceiptDto?> setReceiptAttachment(String receiptId, String blobType, MultipartFile body, { String? enckeys, }) async {
-    final response = await setReceiptAttachmentWithHttpInfo(receiptId, blobType, body,  enckeys: enckeys, );
+  Future<ReceiptDto?> rawSetReceiptAttachment(String receiptId, String blobType, MultipartFile body, { String? enckeys, }) async {
+    final response = await rawSetReceiptAttachmentWithHttpInfo(receiptId, blobType, body,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

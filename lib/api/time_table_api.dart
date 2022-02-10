@@ -23,7 +23,7 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [TimeTableDto] timeTableDto (required):
-  Future<Response> createTimeTableWithHttpInfo(TimeTableDto timeTableDto,) async {
+  Future<Response> rawCreateTimeTableWithHttpInfo(TimeTableDto timeTableDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/timeTable';
 
@@ -55,8 +55,8 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [TimeTableDto] timeTableDto (required):
-  Future<TimeTableDto?> createTimeTable(TimeTableDto timeTableDto,) async {
-    final response = await createTimeTableWithHttpInfo(timeTableDto,);
+  Future<TimeTableDto?> rawCreateTimeTable(TimeTableDto timeTableDto,) async {
+    final response = await rawCreateTimeTableWithHttpInfo(timeTableDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -77,7 +77,7 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteTimeTableWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeleteTimeTableWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/timeTable/delete/batch';
 
@@ -109,8 +109,8 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteTimeTable(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deleteTimeTableWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeleteTimeTable(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeleteTimeTableWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -134,7 +134,7 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [String] timeTableId (required):
-  Future<Response> getTimeTableWithHttpInfo(String timeTableId,) async {
+  Future<Response> rawGetTimeTableWithHttpInfo(String timeTableId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/timeTable/{timeTableId}'
       .replaceAll('{timeTableId}', timeTableId);
@@ -167,8 +167,8 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [String] timeTableId (required):
-  Future<TimeTableDto?> getTimeTable(String timeTableId,) async {
-    final response = await getTimeTableWithHttpInfo(timeTableId,);
+  Future<TimeTableDto?> rawGetTimeTable(String timeTableId,) async {
+    final response = await rawGetTimeTableWithHttpInfo(timeTableId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -189,7 +189,7 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [String] agendaId (required):
-  Future<Response> getTimeTablesByAgendaIdWithHttpInfo(String agendaId,) async {
+  Future<Response> rawGetTimeTablesByAgendaIdWithHttpInfo(String agendaId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/timeTable/byAgendaId';
 
@@ -223,8 +223,8 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [String] agendaId (required):
-  Future<List<TimeTableDto>?> getTimeTablesByAgendaId(String agendaId,) async {
-    final response = await getTimeTablesByAgendaIdWithHttpInfo(agendaId,);
+  Future<List<TimeTableDto>?> rawGetTimeTablesByAgendaId(String agendaId,) async {
+    final response = await rawGetTimeTablesByAgendaIdWithHttpInfo(agendaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -252,7 +252,7 @@ class TimeTableApi {
   /// * [int] endDate (required):
   ///
   /// * [String] agendaId (required):
-  Future<Response> getTimeTablesByPeriodAndAgendaIdWithHttpInfo(int startDate, int endDate, String agendaId,) async {
+  Future<Response> rawGetTimeTablesByPeriodAndAgendaIdWithHttpInfo(int startDate, int endDate, String agendaId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/timeTable/byPeriodAndAgendaId';
 
@@ -292,8 +292,8 @@ class TimeTableApi {
   /// * [int] endDate (required):
   ///
   /// * [String] agendaId (required):
-  Future<List<TimeTableDto>?> getTimeTablesByPeriodAndAgendaId(int startDate, int endDate, String agendaId,) async {
-    final response = await getTimeTablesByPeriodAndAgendaIdWithHttpInfo(startDate, endDate, agendaId,);
+  Future<List<TimeTableDto>?> rawGetTimeTablesByPeriodAndAgendaId(int startDate, int endDate, String agendaId,) async {
+    final response = await rawGetTimeTablesByPeriodAndAgendaIdWithHttpInfo(startDate, endDate, agendaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -317,7 +317,7 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [TimeTableDto] timeTableDto (required):
-  Future<Response> modifyTimeTableWithHttpInfo(TimeTableDto timeTableDto,) async {
+  Future<Response> rawModifyTimeTableWithHttpInfo(TimeTableDto timeTableDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/timeTable';
 
@@ -349,8 +349,8 @@ class TimeTableApi {
   /// Parameters:
   ///
   /// * [TimeTableDto] timeTableDto (required):
-  Future<TimeTableDto?> modifyTimeTable(TimeTableDto timeTableDto,) async {
-    final response = await modifyTimeTableWithHttpInfo(timeTableDto,);
+  Future<TimeTableDto?> rawModifyTimeTable(TimeTableDto timeTableDto,) async {
+    final response = await rawModifyTimeTableWithHttpInfo(timeTableDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

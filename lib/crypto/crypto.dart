@@ -5,6 +5,8 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:crypton/crypton.dart';
+import 'package:pointycastle/export.dart' as pointy;
+
 import 'package:openapi/api.dart';
 import 'package:openapi/util/binary_utils.dart';
 import 'package:openapi/util/collection_utils.dart';
@@ -283,10 +285,15 @@ class LocalCrypto implements Crypto {
         throw FormatException("Unknown hcp $delegateId or missing public key");
       }
 
+      final encryptorForMe = pointy.OAEPEncoding(pointy.RSAEngine())
+        ..init(true, pointy.PublicKeyParameter<pointy.RSAPublicKey>(myPublicKey.asPointyCastle));
+      final encryptorForDelegate = pointy.OAEPEncoding(pointy.RSAEngine())
+        ..init(true, pointy.PublicKeyParameter<pointy.RSAPublicKey>(delegatePublicKey.asPointyCastle));
+
       final aesKey = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
 
-      var keyForMe = myPublicKey.encryptData(aesKey).toHexString();
-      var keyForDelegate = delegatePublicKey.encryptData(aesKey).toHexString();
+      var keyForMe = encryptorForMe.process(aesKey).toHexString();
+      var keyForDelegate = encryptorForDelegate.process(aesKey).toHexString();
 
       updateHcParty(
           myId,
@@ -304,8 +311,10 @@ class LocalCrypto implements Crypto {
   }
 
   Future<Map<String, Tuple2<String, Uint8List>>> decryptHcPartyKeys(Map<String, String> hcpKeys, String myId, RSAPrivateKey myPrivateKey) async {
+    final decryptor = pointy.OAEPEncoding(pointy.RSAEngine())
+      ..init(false, pointy.PrivateKeyParameter<pointy.RSAPrivateKey>(myPrivateKey.asPointyCastle));
     return hcpKeys.map((k, v) =>
-        MapEntry(k, Tuple2(v, myPrivateKey.decryptData(k.keyFromHexString()))));
+        MapEntry(k, Tuple2(v, decryptor.process(v.fromHexString()))));
   }
 }
 
@@ -318,6 +327,32 @@ extension aes on Uint8List {
   Uint8List encryptAES(Uint8List key) {
     var aesCrypt = AesCryptRaw(key: key, padding: PaddingAES.pkcs7);
     var iv = Uint8List.fromList(List<int>.generate(IV_BYTE_LENGTH, (i) => random.nextInt(256)));
-    return aesCrypt.cbc.encrypt(inp: this, iv: iv);
+    return (BytesBuilder()..add(iv)..add(aesCrypt.cbc.encrypt(inp: this, iv: iv))).toBytes();
+  }
+}
+
+extension rsa on pointy.OAEPEncoding {
+  Uint8List process(Uint8List input) {
+    final numBlocks = input.length ~/ this.inputBlockSize +
+        ((input.length % this.inputBlockSize != 0) ? 1 : 0);
+
+    final output = Uint8List(numBlocks * this.outputBlockSize);
+
+    var inputOffset = 0;
+    var outputOffset = 0;
+    while (inputOffset < input.length) {
+      final chunkSize = (inputOffset + this.inputBlockSize <= input.length)
+          ? this.inputBlockSize
+          : input.length - inputOffset;
+
+      outputOffset += this
+          .processBlock(input, inputOffset, chunkSize, output, outputOffset);
+
+      inputOffset += chunkSize;
+    }
+
+    return (output.length == outputOffset)
+        ? output
+        : output.sublist(0, outputOffset);
   }
 }

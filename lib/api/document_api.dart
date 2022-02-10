@@ -23,7 +23,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [DocumentDto] documentDto (required):
-  Future<Response> createDocumentWithHttpInfo(DocumentDto documentDto,) async {
+  Future<Response> rawCreateDocumentWithHttpInfo(DocumentDto documentDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document';
 
@@ -55,8 +55,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [DocumentDto] documentDto (required):
-  Future<DocumentDto?> createDocument(DocumentDto documentDto,) async {
-    final response = await createDocumentWithHttpInfo(documentDto,);
+  Future<DocumentDto?> rawCreateDocument(DocumentDto documentDto,) async {
+    final response = await rawCreateDocumentWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -77,7 +77,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] documentId (required):
-  Future<Response> deleteAttachmentWithHttpInfo(String documentId,) async {
+  Future<Response> rawDeleteAttachmentWithHttpInfo(String documentId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment'
       .replaceAll('{documentId}', documentId);
@@ -110,8 +110,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] documentId (required):
-  Future<DocumentDto?> deleteAttachment(String documentId,) async {
-    final response = await deleteAttachmentWithHttpInfo(documentId,);
+  Future<DocumentDto?> rawDeleteAttachment(String documentId,) async {
+    final response = await rawDeleteAttachmentWithHttpInfo(documentId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -132,7 +132,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteDocumentWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeleteDocumentWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/delete/batch';
 
@@ -164,8 +164,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteDocument(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deleteDocumentWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeleteDocument(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeleteDocumentWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -191,7 +191,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<Response> findWithoutDelegationWithHttpInfo({ int? limit, }) async {
+  Future<Response> rawFindWithoutDelegationWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/woDelegation';
 
@@ -229,8 +229,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [int] limit:
-  Future<List<DocumentDto>?> findWithoutDelegation({ int? limit, }) async {
-    final response = await findWithoutDelegationWithHttpInfo( limit: limit, );
+  Future<List<DocumentDto>?> rawFindWithoutDelegation({ int? limit, }) async {
+    final response = await rawFindWithoutDelegationWithHttpInfo( limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -254,7 +254,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] documentId (required):
-  Future<Response> getDocumentWithHttpInfo(String documentId,) async {
+  Future<Response> rawGetDocumentWithHttpInfo(String documentId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}'
       .replaceAll('{documentId}', documentId);
@@ -287,8 +287,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] documentId (required):
-  Future<DocumentDto?> getDocument(String documentId,) async {
-    final response = await getDocumentWithHttpInfo(documentId,);
+  Future<DocumentDto?> rawGetDocument(String documentId,) async {
+    final response = await rawGetDocumentWithHttpInfo(documentId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -315,7 +315,7 @@ class DocumentApi {
   /// * [String] enckeys:
   ///
   /// * [String] fileName:
-  Future<Response> getDocumentAttachmentWithHttpInfo(String documentId, String attachmentId, { String? enckeys, String? fileName, }) async {
+  Future<Response> rawGetDocumentAttachmentWithHttpInfo(String documentId, String attachmentId, { String? enckeys, String? fileName, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment/{attachmentId}'
       .replaceAll('{documentId}', documentId)
@@ -362,8 +362,8 @@ class DocumentApi {
   /// * [String] enckeys:
   ///
   /// * [String] fileName:
-  Future<MultipartFile?> getDocumentAttachment(String documentId, String attachmentId, { String? enckeys, String? fileName, }) async {
-    final response = await getDocumentAttachmentWithHttpInfo(documentId, attachmentId,  enckeys: enckeys, fileName: fileName, );
+  Future<MultipartFile?> rawGetDocumentAttachment(String documentId, String attachmentId, { String? enckeys, String? fileName, }) async {
+    final response = await rawGetDocumentAttachmentWithHttpInfo(documentId, attachmentId,  enckeys: enckeys, fileName: fileName, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -384,7 +384,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] externalUuid (required):
-  Future<Response> getDocumentByExternalUuidWithHttpInfo(String externalUuid,) async {
+  Future<Response> rawGetDocumentByExternalUuidWithHttpInfo(String externalUuid,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/externaluuid/{externalUuid}'
       .replaceAll('{externalUuid}', externalUuid);
@@ -417,8 +417,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] externalUuid (required):
-  Future<DocumentDto?> getDocumentByExternalUuid(String externalUuid,) async {
-    final response = await getDocumentByExternalUuidWithHttpInfo(externalUuid,);
+  Future<DocumentDto?> rawGetDocumentByExternalUuid(String externalUuid,) async {
+    final response = await rawGetDocumentByExternalUuidWithHttpInfo(externalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -439,7 +439,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> getDocumentsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawGetDocumentsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/byIds';
 
@@ -471,8 +471,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocumentDto>?> getDocuments(ListOfIdsDto listOfIdsDto,) async {
-    final response = await getDocumentsWithHttpInfo(listOfIdsDto,);
+  Future<List<DocumentDto>?> rawGetDocuments(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawGetDocumentsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -496,7 +496,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] externalUuid (required):
-  Future<Response> getDocumentsByExternalUuidWithHttpInfo(String externalUuid,) async {
+  Future<Response> rawGetDocumentsByExternalUuidWithHttpInfo(String externalUuid,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/externaluuid/{externalUuid}/all'
       .replaceAll('{externalUuid}', externalUuid);
@@ -529,8 +529,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [String] externalUuid (required):
-  Future<List<DocumentDto>?> getDocumentsByExternalUuid(String externalUuid,) async {
-    final response = await getDocumentsByExternalUuidWithHttpInfo(externalUuid,);
+  Future<List<DocumentDto>?> rawGetDocumentsByExternalUuid(String externalUuid,) async {
+    final response = await rawGetDocumentsByExternalUuidWithHttpInfo(externalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -560,7 +560,7 @@ class DocumentApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listDocumentByTypeHCPartyMessageSecretFKeysWithHttpInfo(String documentTypeCode, String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawListDocumentByTypeHCPartyMessageSecretFKeysWithHttpInfo(String documentTypeCode, String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/byTypeHcPartySecretForeignKeys';
 
@@ -602,8 +602,8 @@ class DocumentApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<DocumentDto>?> listDocumentByTypeHCPartyMessageSecretFKeys(String documentTypeCode, String hcPartyId, String secretFKeys,) async {
-    final response = await listDocumentByTypeHCPartyMessageSecretFKeysWithHttpInfo(documentTypeCode, hcPartyId, secretFKeys,);
+  Future<List<DocumentDto>?> rawListDocumentByTypeHCPartyMessageSecretFKeys(String documentTypeCode, String hcPartyId, String secretFKeys,) async {
+    final response = await rawListDocumentByTypeHCPartyMessageSecretFKeysWithHttpInfo(documentTypeCode, hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -631,7 +631,7 @@ class DocumentApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listDocumentsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawListDocumentsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/byHcPartySecretForeignKeys';
 
@@ -670,8 +670,8 @@ class DocumentApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<DocumentDto>?> listDocumentsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await listDocumentsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<DocumentDto>?> rawListDocumentsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawListDocumentsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -695,7 +695,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [DocumentDto] documentDto (required):
-  Future<Response> modifyDocumentWithHttpInfo(DocumentDto documentDto,) async {
+  Future<Response> rawModifyDocumentWithHttpInfo(DocumentDto documentDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document';
 
@@ -727,8 +727,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [DocumentDto] documentDto (required):
-  Future<DocumentDto?> modifyDocument(DocumentDto documentDto,) async {
-    final response = await modifyDocumentWithHttpInfo(documentDto,);
+  Future<DocumentDto?> rawModifyDocument(DocumentDto documentDto,) async {
+    final response = await rawModifyDocumentWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -751,7 +751,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [List<DocumentDto>] documentDto (required):
-  Future<Response> modifyDocumentsWithHttpInfo(List<DocumentDto> documentDto,) async {
+  Future<Response> rawModifyDocumentsWithHttpInfo(List<DocumentDto> documentDto) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/batch';
 
@@ -785,8 +785,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [List<DocumentDto>] documentDto (required):
-  Future<List<DocumentDto>?> modifyDocuments(List<DocumentDto> documentDto,) async {
-    final response = await modifyDocumentsWithHttpInfo(documentDto,);
+  Future<List<DocumentDto>?> rawModifyDocuments(List<DocumentDto> documentDto) async {
+    final response = await rawModifyDocumentsWithHttpInfo(documentDto);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -814,7 +814,7 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<Response> setDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String? enckeys, }) async {
+  Future<Response> rawSetDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment'
       .replaceAll('{documentId}', documentId);
@@ -855,8 +855,8 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<DocumentDto?> setDocumentAttachment(String documentId, MultipartFile body, { String? enckeys, }) async {
-    final response = await setDocumentAttachmentWithHttpInfo(documentId, body,  enckeys: enckeys, );
+  Future<DocumentDto?> rawSetDocumentAttachment(String documentId, MultipartFile body, { String? enckeys, }) async {
+    final response = await rawSetDocumentAttachmentWithHttpInfo(documentId, body,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -881,7 +881,7 @@ class DocumentApi {
   /// * [String] attachment (required):
   ///
   /// * [String] enckeys:
-  Future<Response> setDocumentAttachmentMultiWithHttpInfo(String documentId, String attachment, { String? enckeys, }) async {
+  Future<Response> rawSetDocumentAttachmentMultiWithHttpInfo(String documentId, String attachment, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment/multipart'
       .replaceAll('{documentId}', documentId);
@@ -931,8 +931,8 @@ class DocumentApi {
   /// * [String] attachment (required):
   ///
   /// * [String] enckeys:
-  Future<DocumentDto?> setDocumentAttachmentMulti(String documentId, String attachment, { String? enckeys, }) async {
-    final response = await setDocumentAttachmentMultiWithHttpInfo(documentId, attachment,  enckeys: enckeys, );
+  Future<DocumentDto?> rawSetDocumentAttachmentMulti(String documentId, String attachment, { String? enckeys, }) async {
+    final response = await rawSetDocumentAttachmentMultiWithHttpInfo(documentId, attachment,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -955,7 +955,7 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<Response> setDocumentsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
+  Future<Response> rawSetDocumentsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/delegations';
 
@@ -989,8 +989,8 @@ class DocumentApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<IcureStubDto>?> setDocumentsDelegations(List<IcureStubDto> icureStubDto,) async {
-    final response = await setDocumentsDelegationsWithHttpInfo(icureStubDto,);
+  Future<List<IcureStubDto>?> rawSetDocumentsDelegations(List<IcureStubDto> icureStubDto,) async {
+    final response = await rawSetDocumentsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1018,7 +1018,7 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<Response> setSafeDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String? enckeys, }) async {
+  Future<Response> rawSetSafeDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/attachment';
 
@@ -1059,8 +1059,8 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<DocumentDto?> setSafeDocumentAttachment(String documentId, MultipartFile body, { String? enckeys, }) async {
-    final response = await setSafeDocumentAttachmentWithHttpInfo(documentId, body,  enckeys: enckeys, );
+  Future<DocumentDto?> rawSetSafeDocumentAttachment(String documentId, MultipartFile body, { String? enckeys, }) async {
+    final response = await rawSetSafeDocumentAttachmentWithHttpInfo(documentId, body,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
