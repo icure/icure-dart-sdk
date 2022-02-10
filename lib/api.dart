@@ -86,8 +86,6 @@ part 'api/time_table_api.dart';
 part 'api/tmp_api.dart';
 part 'api/user_api.dart';
 
-part 'extended_api/accesslog_api.dart';
-part 'extended_api/contact_api.dart';
 part 'extended_api/patient_api.dart';
 
 part 'model/abstract_filter_dto_code.dart';

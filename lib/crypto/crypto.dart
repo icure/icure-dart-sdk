@@ -74,7 +74,7 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
 
 extension CryptoContact on Crypto {
   List<ServiceDto> encryptServices(String myId, Set<String> delegations, Uint8List key, List<DecryptedServiceDto> services) {
-
+    return List.empty();
   }
 }
 
