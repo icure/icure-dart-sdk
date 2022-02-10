@@ -183,4 +183,19 @@ extension HealthElementApiCrypto on HealthElementApi {
     }
     return await Future.wait(healthElements.map((healthElement) => config.decryptHealthElement(user.healthcarePartyId!, healthElement)));
   }
+
+  Future<DecryptedHealthElementDto?> getHeathElement(
+      UserDto user, String healthElementId, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+    var encryptedHealthElement = await this.getHealthElement(healthElementId);
+    return encryptedHealthElement != null ? config.decryptHealthElement(user.healthcarePartyId!, encryptedHealthElement) : null;
+  }
+
+  Future<List<DecryptedHealthElementDto>?> getHeathElements(
+      UserDto user, List<String> healthElementIds, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+    var encryptedHealthElements = await this.getHealthElements(ListOfIdsDto(ids: healthElementIds));
+    return encryptedHealthElements != null
+        ? await Future.wait(
+            encryptedHealthElements.map((encryptedHealthElement) => config.decryptHealthElement(user.healthcarePartyId!, encryptedHealthElement)))
+        : null;
+  }
 }
