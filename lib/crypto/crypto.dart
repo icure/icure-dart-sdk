@@ -1,18 +1,15 @@
 // @dart=2.12
-import 'package:openapi/api.dart';
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:openapi/api.dart';
+import 'package:openapi/util/binary_utils.dart';
+import 'package:openapi/util/collection_utils.dart';
+import 'package:openapi/util/functional_utils.dart';
 import "package:pointycastle/export.dart";
 import 'package:tuple/tuple.dart';
-
-import 'package:openapi/util/collection_utils.dart';
-import 'package:openapi/util/binary_utils.dart';
-import 'package:openapi/util/functional_utils.dart';
-
 
 const IV_BYTE_LENGTH = 16;
 final random = Random.secure();
@@ -36,45 +33,93 @@ abstract class Crypto {
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
   return BaseCryptoConfig(
       crypto,
-          (dec) async =>
-          Tuple2(PatientDto.fromJson(dec.toJson()
-            ..remove('note'))!,
-              Uint8List.fromList(json
-                  .encode({'note': dec.note})
-                  .codeUnits)),
-          (cry, data) async =>
-      DecryptedPatientDto.fromJson(cry.toJson()
-        ..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!);
+      (dec) async => Tuple2(PatientDto.fromJson(dec.toJson()..remove('note'))!, Uint8List.fromList(json.encode({'note': dec.note}).codeUnits)),
+      (cry, data) async => DecryptedPatientDto.fromJson(cry.toJson()..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!);
 }
 
 BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto user, Crypto crypto) {
-  return BaseCryptoConfig(
-      crypto,
-          (dec) async {
-            var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, dec.encryptionKeys)).firstOrNull();
-            if (key == null) {
-              throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.healthcarePartyId}");
-            }
+  return BaseCryptoConfig(crypto, (dec) async {
+    var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, dec.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    if (key == null) {
+      throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.healthcarePartyId}");
+    }
 
-            return Tuple2(ContactDto.fromJson({...dec.toJson(), 'services': crypto.encryptServices(
-                user.healthcarePartyId!,
-                <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
-                key.formatAsKey().fromHexString(),
-                dec.services.toList()
-            ).toList()})!,
-              Uint8List.fromList(json
-                  .encode({})
-                  .codeUnits));
-          },
-          (cry, data) async {
-            return DecryptedContactDto.fromJson(cry.toJson()
-        ..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!;
-          });
+    return Tuple2(
+        ContactDto.fromJson({
+          ...dec.toJson(),
+          'services': (await crypto.encryptServices(
+                  user.healthcarePartyId!,
+                  <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
+                  key,
+                  dec.services.toList()))
+              .toList()
+              .map((it) => it.toJson())
+        })!,
+        Uint8List.fromList(json.encode({}).codeUnits));
+  }, (cry, data) async {
+    var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, cry.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    if (key == null) {
+      throw FormatException("Cannot get encryption key for ${cry.id} and hcp ${user.healthcarePartyId}");
+    }
+
+    return DecryptedContactDto.fromJson({
+      ...cry.toJson(),
+      'services': (await crypto.decryptServices(user.healthcarePartyId!, key, cry.services.toList())).toList().map((it) => it.toJson()),
+      ...(data != null ? json.decode(String.fromCharCodes(data)) : {})
+    })!;
+  });
 }
 
 extension CryptoContact on Crypto {
-  List<ServiceDto> encryptServices(String myId, Set<String> delegations, Uint8List key, List<DecryptedServiceDto> services) {
+  Future<List<ServiceDto>> encryptServices(String myId, Set<String> delegations, Uint8List? contactKey, List<DecryptedServiceDto> services) async {
+    return await Future.wait(services.map((s) async {
+      var key = contactKey ?? (await this.decryptEncryptionKeys(myId, s.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      if (key == null) {
+        throw FormatException("Cannot get encryption key for ${s.id} and hcp ${myId}");
+      }
 
+      if (s.content.entries.every((e) =>
+          e.value.compoundValue.isNotEmpty &&
+          e.value.stringValue == null &&
+          e.value.documentId == null &&
+          e.value.measureValue == null &&
+          e.value.medicationValue == null &&
+          e.value.booleanValue == null &&
+          e.value.numberValue == null &&
+          e.value.instantValue == null &&
+          e.value.fuzzyDateValue == null &&
+          e.value.binaryValue == null &&
+          e.value.range.isEmpty)) {
+        return ServiceDto.fromJson({
+          ...s.toJson(),
+          'content': Map.fromEntries(await Future.wait(s.content.entries.map((e) async =>
+              MapEntry(e.key, ContentDto(compoundValue: (await this.encryptServices(myId, delegations, contactKey, e.value.compoundValue)))))))
+        })!;
+      } else {
+        return ServiceDto.fromJson(
+            {...s.toJson(), 'content': {}, 'encryptedSelf': base64.encoder.convert(Uint8List.fromList(json.encode(s).codeUnits).encryptAES(key))})!;
+      }
+    }));
+  }
+
+  Future<List<DecryptedServiceDto>> decryptServices(String myId, Uint8List? contactKey, List<ServiceDto> services) async {
+    return await Future.wait(services.map((s) async {
+      var key = contactKey ?? (await this.decryptEncryptionKeys(myId, s.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      if (key == null) {
+        throw FormatException("Cannot get encryption key for ${s.id} and hcp ${myId}");
+      }
+
+      if (s.encryptedSelf != null) {
+        return DecryptedServiceDto.fromJson(
+            {...s.toJson(), 'content': json.decode(String.fromCharCodes(base64.decoder.convert(s.encryptedSelf!).decryptAES(key)))})!;
+      } else {
+        return DecryptedServiceDto.fromJson({
+          ...s.toJson(),
+          'content': Map.fromEntries((await Future.wait(s.content.entries.map((e) async =>
+              MapEntry(e.key, {'compoundValue': (await decryptServices(myId, contactKey, e.value.compoundValue)).map((it) => it.toJson())})))))
+        })!;
+      }
+    }));
   }
 }
 
@@ -84,11 +129,9 @@ class BaseCryptoConfig<D, K> implements CryptoConfig<D, K> {
   @override
   final Crypto crypto;
   @override
-  final Future<Tuple2<K, Uint8List>> Function(D)
-  marshaller;
+  final Future<Tuple2<K, Uint8List>> Function(D) marshaller;
   @override
-  final Future<D> Function(K, Uint8List?)
-  unmarshaller;
+  final Future<D> Function(K, Uint8List?) unmarshaller;
 }
 
 class LocalCrypto implements Crypto {
@@ -153,7 +196,6 @@ class LocalCrypto implements Crypto {
     return await (hcParties[healthcarePartyId] = updater(hcParty));
   }
 
-
   Future<Uint8List> getDelegateHcPartyKey(String delegateId, String ownerId, RSAPrivateKey? myPrivateKey) async {
     RSAPrivateKey? privateKey = myPrivateKey ?? rsaKeyPairs[delegateId]?.privateKey;
     if (privateKey == null) {
@@ -186,15 +228,12 @@ class LocalCrypto implements Crypto {
     if (privateKey == null) {
       throw FormatException("Missing key for hcp $delegateId");
     }
-    Future<Map<String, Tuple2<String, Uint8List>>?>? keyMapFuture =
-    ownerHcpartyKeysCache[ownerId];
+    Future<Map<String, Tuple2<String, Uint8List>>?>? keyMapFuture = ownerHcpartyKeysCache[ownerId];
 
     if (keyMapFuture == null) {
-      keyMapFuture =
-          getHcParty(ownerId).then((hcp) {
-            return hcp?.hcPartyKeys.map((key, value) => MapEntry(key, value[0]))
-                .let((hcpnn) => decryptHcPartyKeys(hcpnn, delegateId, privateKey));
-          });
+      keyMapFuture = getHcParty(ownerId).then((hcp) {
+        return hcp?.hcPartyKeys.map((key, value) => MapEntry(key, value[0])).let((hcpnn) => decryptHcPartyKeys(hcpnn, delegateId, privateKey));
+      });
       ownerHcpartyKeysCache[ownerId] = keyMapFuture;
     }
 
@@ -207,8 +246,7 @@ class LocalCrypto implements Crypto {
     return keyMap[delegateId]?.item2;
   }
 
-  Future<Uint8List> getOrCreateHcPartyKey(String myId, String delegateId,
-      {RSAPrivateKey? privateKey, RSAPublicKey? publicKey}) async {
+  Future<Uint8List> getOrCreateHcPartyKey(String myId, String delegateId, {RSAPrivateKey? privateKey, RSAPublicKey? publicKey}) async {
     var myPublicKey = publicKey ?? rsaKeyPairs[myId]?.publicKey;
     var myPrivateKey = privateKey ?? rsaKeyPairs[myId]?.privateKey;
 
@@ -227,59 +265,51 @@ class LocalCrypto implements Crypto {
       if (delegatePublicKey == null) {
         throw FormatException("Unknown hcp $delegateId or missing public key");
       }
-      final encryptorForMe = OAEPEncoding(RSAEngine())
-        ..init(true, PublicKeyParameter<RSAPublicKey>(myPublicKey));
-      final encryptorForDelegate = OAEPEncoding(RSAEngine())
-        ..init(true, PublicKeyParameter<RSAPublicKey>(delegatePublicKey));
+      final encryptorForMe = OAEPEncoding(RSAEngine())..init(true, PublicKeyParameter<RSAPublicKey>(myPublicKey));
+      final encryptorForDelegate = OAEPEncoding(RSAEngine())..init(true, PublicKeyParameter<RSAPublicKey>(delegatePublicKey));
 
       final aesKey = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
 
       var keyForMe = encryptorForMe.process(aesKey).toHexString();
       var keyForDelegate = encryptorForDelegate.process(aesKey).toHexString();
 
-      updateHcParty(myId, (hcp) async => healthcarePartyApi.modifyHealthcareParty(hcp.also((that) {
-        that.hcPartyKeys = that.hcPartyKeys..addAll({delegateId:[keyForMe, keyForDelegate]});
-      })));
+      updateHcParty(
+          myId,
+          (hcp) async => healthcarePartyApi.modifyHealthcareParty(hcp.also((that) {
+                that.hcPartyKeys = that.hcPartyKeys
+                  ..addAll({
+                    delegateId: [keyForMe, keyForDelegate]
+                  });
+              })));
       return aesKey;
     } else {
       return aesKey;
     }
   }
 
-
-  Future<Map<String, Tuple2<String, Uint8List>>> decryptHcPartyKeys(Map<String, String> hcpKeys,
-      String myId,
-      RSAPrivateKey myPrivateKey) async {
-    final decryptor = OAEPEncoding(RSAEngine())
-      ..init(false, PrivateKeyParameter<RSAPrivateKey>(myPrivateKey));
-    return hcpKeys.map((k, v) =>
-        MapEntry(k, Tuple2(v, decryptor.process(k.keyFromHexString()))));
+  Future<Map<String, Tuple2<String, Uint8List>>> decryptHcPartyKeys(Map<String, String> hcpKeys, String myId, RSAPrivateKey myPrivateKey) async {
+    final decryptor = OAEPEncoding(RSAEngine())..init(false, PrivateKeyParameter<RSAPrivateKey>(myPrivateKey));
+    return hcpKeys.map((k, v) => MapEntry(k, Tuple2(v, decryptor.process(k.keyFromHexString()))));
   }
 }
 
 extension rsa on OAEPEncoding {
   Uint8List process(Uint8List input) {
-    final numBlocks = input.length ~/ this.inputBlockSize +
-        ((input.length % this.inputBlockSize != 0) ? 1 : 0);
+    final numBlocks = input.length ~/ this.inputBlockSize + ((input.length % this.inputBlockSize != 0) ? 1 : 0);
 
     final output = Uint8List(numBlocks * this.outputBlockSize);
 
     var inputOffset = 0;
     var outputOffset = 0;
     while (inputOffset < input.length) {
-      final chunkSize = (inputOffset + this.inputBlockSize <= input.length)
-          ? this.inputBlockSize
-          : input.length - inputOffset;
+      final chunkSize = (inputOffset + this.inputBlockSize <= input.length) ? this.inputBlockSize : input.length - inputOffset;
 
-      outputOffset += this
-          .processBlock(input, inputOffset, chunkSize, output, outputOffset);
+      outputOffset += this.processBlock(input, inputOffset, chunkSize, output, outputOffset);
 
       inputOffset += chunkSize;
     }
 
-    return (output.length == outputOffset)
-        ? output
-        : output.sublist(0, outputOffset);
+    return (output.length == outputOffset) ? output : output.sublist(0, outputOffset);
   }
 }
 
@@ -288,8 +318,7 @@ extension aes on Uint8List {
     var iv = this.sublist(0, IV_BYTE_LENGTH);
     var cipherText = this.sublist(IV_BYTE_LENGTH);
 
-    final cbc = CBCBlockCipher(AESEngine())
-      ..init(false, ParametersWithIV(KeyParameter(key), iv)); // false=decrypt
+    final cbc = CBCBlockCipher(AESEngine())..init(false, ParametersWithIV(KeyParameter(key), iv)); // false=decrypt
     final paddedPlainText = Uint8List(cipherText.length); // allocate space
 
     var offset = 0;
@@ -304,8 +333,7 @@ extension aes on Uint8List {
     final paddedPlaintext = this;
     var iv = Uint8List.fromList(List<int>.generate(IV_BYTE_LENGTH, (i) => random.nextInt(256)));
 
-    final cbc = CBCBlockCipher(AESEngine())
-      ..init(true, ParametersWithIV(KeyParameter(key), iv)); // true=encrypt
+    final cbc = CBCBlockCipher(AESEngine())..init(true, ParametersWithIV(KeyParameter(key), iv)); // true=encrypt
     final cipherText = Uint8List(paddedPlaintext.length); // allocate space
 
     var offset = 0;
