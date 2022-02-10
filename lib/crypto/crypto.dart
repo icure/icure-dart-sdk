@@ -53,7 +53,7 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
           throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.healthcarePartyId}");
         }
 
-        return Tuple2(ContactDto.fromJson({...dec.toJson(), 'services': (awaitcrypto.encryptServices(
+        return Tuple2(ContactDto.fromJson({...dec.toJson(), 'services': (await crypto.encryptServices(
             user.healthcarePartyId!,
             <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
             key,
@@ -243,10 +243,7 @@ class LocalCrypto implements Crypto {
 
     if (keyMapFuture == null) {
       keyMapFuture = getHcParty(ownerId).then((hcp) {
-        var keysToDecrypt = hcp?.hcPartyKeys.entries.map((entry) => MapEntry<String, String>(entry.key, entry.value[0])) ??
-            List<MapEntry<String, String>>.empty(growable: false);
-
-        var hcpnn = Map<String, String>.fromEntries(keysToDecrypt);
+        var hcpnn = Map<String, String>.fromEntries(findKeysToDecrypt(hcp));
         return decryptHcPartyKeys(hcpnn, delegateId, privateKey);
       });
       ownerHcpartyKeysCache[ownerId] = keyMapFuture;
@@ -259,6 +256,11 @@ class LocalCrypto implements Crypto {
     }
 
     return keyMap[delegateId]?.item2;
+  }
+
+  Iterable<MapEntry<String, String>> findKeysToDecrypt(HealthcarePartyDto? hcp) {
+    return hcp?.hcPartyKeys.entries.map<MapEntry<String, String>>((entry) => MapEntry<String, String>(entry.key, entry.value[0])) ??
+        Iterable<MapEntry<String, String>>.empty();
   }
 
   Future<Uint8List> getOrCreateHcPartyKey(String myId, String delegateId, {RSAPrivateKey? privateKey, RSAPublicKey? publicKey}) async {

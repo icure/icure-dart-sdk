@@ -76,7 +76,21 @@ T? mapValueOfType<T>(dynamic map, String key) {
 /// Returns a valid Map<K, V> found at the specified Map [key], null otherwise.
 Map<K, V>? mapCastOfType<K, V>(dynamic map, String key) {
   final dynamic value = map is Map ? map[key] : null;
+
   return value is Map ? value.cast<K, V>() : null;
+}
+
+List<String> hcPartyKeysListFromJson(dynamic json, {bool growable = false,}) {
+  final result = <String>[];
+  if (json is List && json.isNotEmpty) {
+    for (final row in json) {
+      final value = row as String;
+      if (value != null) {
+        result.add(value);
+      }
+    }
+  }
+  return result.toList(growable: growable);
 }
 
 /// Returns a valid [DateTime] found at the specified Map [key], null otherwise.
