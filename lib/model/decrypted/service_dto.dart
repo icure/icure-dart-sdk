@@ -488,8 +488,7 @@ class DecryptedServiceDto {
             ? (json[r'invoicingCodes'] as Set).cast<String>()
             : const {},
         notes: AnnotationDto.listFromJson(json[r'notes'])!,
-        qualifiedLinks: mapCastOfType<String, Map<String, String>>(
-            json, r'qualifiedLinks')!,
+        qualifiedLinks: mapWithMapOfStringsFromJson(json[r'qualifiedLinks']),
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),

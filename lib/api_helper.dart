@@ -80,17 +80,57 @@ Map<K, V>? mapCastOfType<K, V>(dynamic map, String key) {
   return value is Map ? value.cast<K, V>() : null;
 }
 
-List<String> hcPartyKeysListFromJson(dynamic json, {bool growable = false,}) {
+Map<String, Map<String, String>> mapWithMapOfStringsFromJson(dynamic json) {
+  final map = <String, Map<String, String>>{};
+  if (json is Map && json.isNotEmpty) {
+    json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+    for (final entry in json.entries) {
+      final value = mapCastOfType<String, String>(entry.value, entry.key);
+      if (value != null) {
+        map[entry.key] = value;
+      }
+    }
+  }
+  return map;
+}
+
+Map<String, List<String>> mapWithListOfStringsFromJson(dynamic json, {bool growable = false}) {
+  final map = <String, List<String>>{};
+  if (json is Map && json.isNotEmpty) {
+    json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+    for (final entry in json.entries) {
+      final value = stringListFromJson(entry.value, growable: growable);
+      map[entry.key] = value;
+    }
+  }
+  return map;
+}
+
+Map<String, Set<String>> mapWithSetOfStringsFromJson(dynamic json, {bool growable = false}) {
+  final map = <String, Set<String>>{};
+  if (json is Map && json.isNotEmpty) {
+    json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+    for (final entry in json.entries) {
+      final value = stringSetFromJson(entry.value, growable: growable);
+      map[entry.key] = value;
+    }
+  }
+  return map;
+}
+
+List<String> stringListFromJson(dynamic json, {bool growable = false,}) {
   final result = <String>[];
   if (json is List && json.isNotEmpty) {
     for (final row in json) {
       final value = row as String;
-      if (value != null) {
-        result.add(value);
-      }
+      result.add(value);
     }
   }
   return result.toList(growable: growable);
+}
+
+Set<String> stringSetFromJson(dynamic json, {bool growable = false,}) {
+  return stringListFromJson(json, growable: growable).toSet().cast<String>();
 }
 
 /// Returns a valid [DateTime] found at the specified Map [key], null otherwise.

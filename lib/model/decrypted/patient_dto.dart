@@ -976,21 +976,12 @@ class DecryptedPatientDto {
         financialInstitutionInformation:
             FinancialInstitutionInformationDto.listFromJson(
                 json[r'financialInstitutionInformation'])!,
-        medicalHouseContracts: MedicalHouseContractDto.listFromJson(
-            json[r'medicalHouseContracts'])!,
-        patientProfessions:
-            CodeStubDto.listFromJson(json[r'patientProfessions'])!,
-        parameters: json[r'parameters'] == null
-            ? const {}
-            : mapCastOfType<String, List<String>>(json, r'parameters') ??
-                <String, List<String>>{},
+        medicalHouseContracts: MedicalHouseContractDto.listFromJson(json[r'medicalHouseContracts'])!,
+        patientProfessions: CodeStubDto.listFromJson(json[r'patientProfessions'])!,
+        parameters: json[r'parameters'] == null ? const {} : mapWithListOfStringsFromJson(json[r'parameters']),
         properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
-        hcPartyKeys: json[r'hcPartyKeys'] == null
-            ? const {}
-            : mapCastOfType<String, List<String>>(json, r'hcPartyKeys') ??
-                <String, List<String>>{},
-        privateKeyShamirPartitions:
-            mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
+        hcPartyKeys: json[r'hcPartyKeys'] == null ? const {} : mapWithListOfStringsFromJson(json[r'hcPartyKeys']),
+        privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
         publicKey: mapValueOfType<String>(json, r'publicKey'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
