@@ -55,9 +55,7 @@ class MapOfIdsDto {
       }());
 
       return MapOfIdsDto(
-        mapOfIds: json[r'mapOfIds'] == null
-          ? const {}
-            : mapCastOfType<String, List<String>>(json, r'mapOfIds') ?? <String, List<String>>{},
+        mapOfIds: json[r'mapOfIds'] == null ? const {} : mapWithListOfStringsFromJson(json[r'mapOfIds']),
       );
     }
     return null;

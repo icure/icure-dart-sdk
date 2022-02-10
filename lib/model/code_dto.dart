@@ -253,13 +253,9 @@ class CodeDto {
         links: json[r'links'] is Set
             ? (json[r'links'] as Set).cast<String>()
             : const {},
-        qualifiedLinks: json[r'qualifiedLinks'] == null
-          ? const {}
-            : mapCastOfType<String, List<String>>(json, r'qualifiedLinks') ?? <String, List<String>>{},
+        qualifiedLinks: json[r'qualifiedLinks'] == null ? const {} : mapWithListOfStringsFromJson(json[r'qualifiedLinks']),
         flags: CodeDtoFlagsEnum.listFromJson(json[r'flags'])!.toSet(),
-        searchTerms: json[r'searchTerms'] == null
-          ? const {}
-            : mapCastOfType<String, List<String>>(json, r'searchTerms')?.map((k,v) => MapEntry(k, v.toSet())) ?? <String, Set<String>>{},
+        searchTerms: json[r'searchTerms'] == null ? const {} : mapWithSetOfStringsFromJson(json[r'searchTerms']),
         data: mapValueOfType<String>(json, r'data'),
         appendices: mapCastOfType<String, String>(json, r'appendices')!,
         disabled: mapValueOfType<bool>(json, r'disabled')!,
