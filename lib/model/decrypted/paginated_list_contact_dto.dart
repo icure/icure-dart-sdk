@@ -23,7 +23,7 @@ class DecryptedPaginatedListContactDto {
 
   int totalSize;
 
-  List<ContactDto> rows;
+  List<DecryptedContactDto> rows;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -88,9 +88,9 @@ class DecryptedPaginatedListContactDto {
       return DecryptedPaginatedListContactDto(
         pageSize: mapValueOfType<int>(json, r'pageSize')!,
         totalSize: mapValueOfType<int>(json, r'totalSize')!,
-        rows: ContactDto.listFromJson(json[r'rows'])!,
+        rows: DecryptedContactDto.listFromJson(json[r'rows'])!,
         nextKeyPair:
-            PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
+        PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
       );
     }
     return null;

@@ -23,7 +23,7 @@ class DecryptedPaginatedListServiceDto {
 
   int totalSize;
 
-  List<ServiceDto> rows;
+  List<DecryptedServiceDto> rows;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -88,9 +88,8 @@ class DecryptedPaginatedListServiceDto {
       return DecryptedPaginatedListServiceDto(
         pageSize: mapValueOfType<int>(json, r'pageSize')!,
         totalSize: mapValueOfType<int>(json, r'totalSize')!,
-        rows: ServiceDto.listFromJson(json[r'rows'])!,
-        nextKeyPair:
-        PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
+        rows: DecryptedServiceDto.listFromJson(json[r'rows'])!,
+        nextKeyPair: PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
       );
     }
     return null;

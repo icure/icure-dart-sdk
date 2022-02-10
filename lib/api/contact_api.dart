@@ -127,7 +127,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ContactDto] contactDto (required):
-  Future<ContactDto?> createContact(ContactDto contactDto,) async {
+  Future<ContactDto?> rawCreateContact(ContactDto contactDto,) async {
     final response = await createContactWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -137,7 +137,7 @@ class ContactApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
-    
+
     }
     return null;
   }
@@ -185,7 +185,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<ContactDto>] contactDto (required):
-  Future<List<ContactDto>?> createContacts(List<ContactDto> contactDto,) async {
+  Future<List<ContactDto>?> rawCreateContacts(List<ContactDto> contactDto,) async {
     final response = await createContactsWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -264,7 +264,7 @@ class ContactApi {
     return null;
   }
 
-  /// List contacts for the current user (HcParty) or the given hcparty in the filter 
+  /// List contacts for the current user (HcParty) or the given hcparty in the filter
   ///
   /// Returns a list of contacts along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -313,7 +313,7 @@ class ContactApi {
     );
   }
 
-  /// List contacts for the current user (HcParty) or the given hcparty in the filter 
+  /// List contacts for the current user (HcParty) or the given hcparty in the filter
   ///
   /// Returns a list of contacts along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -326,8 +326,16 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListContactDto?> filterContactsBy(FilterChainContact filterChainContact, { String? startDocumentId, int? limit, }) async {
-    final response = await filterContactsByWithHttpInfo(filterChainContact,  startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListContactDto?> rawFilterContactsBy(
+    FilterChainContact filterChainContact, {
+    String? startDocumentId,
+    int? limit,
+  }) async {
+    final response = await filterContactsByWithHttpInfo(
+      filterChainContact,
+      startDocumentId: startDocumentId,
+      limit: limit,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -335,13 +343,15 @@ class ContactApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListContactDto',) as PaginatedListContactDto;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'PaginatedListContactDto',
+      ) as PaginatedListContactDto;
     }
     return null;
   }
 
-  /// List services for the current user (HcParty) or the given hcparty in the filter 
+  /// List services for the current user (HcParty) or the given hcparty in the filter
   ///
   /// Returns a list of contacts along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -390,7 +400,7 @@ class ContactApi {
     );
   }
 
-  /// List services for the current user (HcParty) or the given hcparty in the filter 
+  /// List services for the current user (HcParty) or the given hcparty in the filter
   ///
   /// Returns a list of contacts along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -403,8 +413,8 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListServiceDto?> filterServicesBy(FilterChainService filterChainService, { String? startDocumentId, int? limit, }) async {
-    final response = await filterServicesByWithHttpInfo(filterChainService,  startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListServiceDto?> rawFilterServicesBy(FilterChainService filterChainService, { String? startDocumentId, int? limit,}) async {
+    final response = await filterServicesByWithHttpInfo(filterChainService, startDocumentId: startDocumentId, limit: limit,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -413,7 +423,7 @@ class ContactApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListServiceDto',) as PaginatedListServiceDto;
-    
+
     }
     return null;
   }
@@ -497,8 +507,20 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListContactDto?> findContactsByOpeningDate(int startKey, int endKey, String hcpartyid, { String? startDocumentId, int? limit, }) async {
-    final response = await findContactsByOpeningDateWithHttpInfo(startKey, endKey, hcpartyid,  startDocumentId: startDocumentId, limit: limit, );
+  Future<PaginatedListContactDto?> rawFindContactsByOpeningDate(
+    int startKey,
+    int endKey,
+    String hcpartyid, {
+    String? startDocumentId,
+    int? limit,
+  }) async {
+    final response = await findContactsByOpeningDateWithHttpInfo(
+      startKey,
+      endKey,
+      hcpartyid,
+      startDocumentId: startDocumentId,
+      limit: limit,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -506,8 +528,10 @@ class ContactApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListContactDto',) as PaginatedListContactDto;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'PaginatedListContactDto',
+      ) as PaginatedListContactDto;
     }
     return null;
   }
@@ -562,7 +586,6 @@ class ContactApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
-    
     }
     return null;
   }
@@ -606,8 +629,12 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<ContactDto>?> getContacts(ListOfIdsDto listOfIdsDto,) async {
-    final response = await getContactsWithHttpInfo(listOfIdsDto,);
+  Future<List<ContactDto>?> rawGetContacts(
+    ListOfIdsDto listOfIdsDto,
+  ) async {
+    final response = await getContactsWithHttpInfo(
+      listOfIdsDto,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -616,8 +643,7 @@ class ContactApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List)
-        .cast<ContactDto>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<ContactDto>') as List).cast<ContactDto>()
         .toList();
 
     }
@@ -665,7 +691,7 @@ class ContactApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContentDto',) as ContentDto;
-    
+
     }
     return null;
   }
@@ -733,7 +759,7 @@ class ContactApi {
     return null;
   }
 
-  /// List services with provided ids 
+  /// List services with provided ids
   ///
   /// Returns a list of services
   ///
@@ -769,7 +795,7 @@ class ContactApi {
     );
   }
 
-  /// List services with provided ids 
+  /// List services with provided ids
   ///
   /// Returns a list of services
   ///
@@ -794,7 +820,7 @@ class ContactApi {
     return null;
   }
 
-  /// List services linked to provided ids 
+  /// List services linked to provided ids
   ///
   /// Returns a list of services
   ///
@@ -837,7 +863,7 @@ class ContactApi {
     );
   }
 
-  /// List services linked to provided ids 
+  /// List services linked to provided ids
   ///
   /// Returns a list of services
   ///
@@ -1448,19 +1474,20 @@ class ContactApi {
       return (await apiClient.deserializeAsync(responseBody, 'List<ServiceDto>') as List)
         .cast<ServiceDto>()
         .toList();
-
     }
     return null;
   }
 
-  /// Get ids of contacts matching the provided filter for the current user (HcParty) 
+  /// Get ids of contacts matching the provided filter for the current user (HcParty)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoContact] abstractFilterDtoContact (required):
-  Future<Response> matchContactsByWithHttpInfo(AbstractFilterDtoContact abstractFilterDtoContact,) async {
+  /// * [AbstractFilterDto<ContactDto>] abstractFilterDtoContact (required):
+  Future<Response> matchContactsByWithHttpInfo(
+    AbstractFilterDto<ContactDto> abstractFilterDtoContact,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/match';
 
@@ -1487,13 +1514,17 @@ class ContactApi {
     );
   }
 
-  /// Get ids of contacts matching the provided filter for the current user (HcParty) 
+  /// Get ids of contacts matching the provided filter for the current user (HcParty)
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoContact] abstractFilterDtoContact (required):
-  Future<List<String>?> matchContactsBy(AbstractFilterDtoContact abstractFilterDtoContact,) async {
-    final response = await matchContactsByWithHttpInfo(abstractFilterDtoContact,);
+  /// * [AbstractFilterDto<ContactDto>] abstractFilterDtoContact (required):
+  Future<List<String>?> matchContactsBy(
+    AbstractFilterDto<ContactDto> abstractFilterDtoContact,
+  ) async {
+    final response = await matchContactsByWithHttpInfo(
+      abstractFilterDtoContact,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1502,8 +1533,7 @@ class ContactApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List)
-        .cast<String>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<String>') as List).cast<String>()
         .toList();
 
     }
@@ -1553,7 +1583,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ContactDto] contactDto (required):
-  Future<ContactDto?> modifyContact(ContactDto contactDto,) async {
+  Future<ContactDto?> rawModifyContact(ContactDto contactDto,) async {
     final response = await modifyContactWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1563,7 +1593,7 @@ class ContactApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
-    
+
     }
     return null;
   }
@@ -1611,7 +1641,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<ContactDto>] contactDto (required):
-  Future<List<ContactDto>?> modifyContacts(List<ContactDto> contactDto,) async {
+  Future<List<ContactDto>?> rawModifyContacts(List<ContactDto> contactDto,) async {
     final response = await modifyContactsWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1748,7 +1778,6 @@ class ContactApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ContactDto',) as ContactDto;
-    
     }
     return null;
   }

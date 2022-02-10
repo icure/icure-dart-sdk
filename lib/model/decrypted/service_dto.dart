@@ -116,7 +116,7 @@ class DecryptedServiceDto {
   int? index;
 
   /// Information contained in the service. Content is localized, using ISO language code as key
-  Map<String, ContentDto> content;
+  Map<String, DecryptedContentDto> content;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -469,7 +469,7 @@ class DecryptedServiceDto {
             : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         label: mapValueOfType<String>(json, r'label'),
         index: mapValueOfType<int>(json, r'index'),
-        content: mapValueOfType<Map<String, ContentDto>>(json, r'content')!,
+        content: mapValueOfType<Map<String, DecryptedContentDto>>(json, r'content')!,
         encryptedContent: mapValueOfType<String>(json, r'encryptedContent'),
         textIndexes: mapCastOfType<String, String>(json, r'textIndexes')!,
         valueDate: mapValueOfType<int>(json, r'valueDate'),
