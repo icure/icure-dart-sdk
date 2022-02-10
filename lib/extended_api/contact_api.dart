@@ -79,7 +79,7 @@ extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
     }
 
     if (secret == null) {
-      throw FormatException("Cannot get encryption key fo ${contact.id} and hcp $myId")
+      throw FormatException("Cannot get encryption key for ${contact.id} and hcp $myId");
     }
 
     Tuple2 t = await this.marshaller(contact);
