@@ -198,4 +198,19 @@ extension HealthElementApiCrypto on HealthElementApi {
             encryptedHealthElements.map((encryptedHealthElement) => config.decryptHealthElement(user.healthcarePartyId!, encryptedHealthElement)))
         : null;
   }
+
+  Future<DecryptedHealthElementDto?> modifyHealthElementCrypto(
+      UserDto user, DecryptedHealthElementDto healthElementDto, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+    var encryptedHealthElement = await config.encryptHealthElement(user.healthcarePartyId!,
+        <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, healthElementDto);
+    var modifiedHealthElement = await this.modifyHealthElement(encryptedHealthElement);
+    return modifiedHealthElement != null ? await config.decryptHealthElement(user.healthcarePartyId!, modifiedHealthElement) : null;
+  }
+
+  Future<List<DecryptedHealthElementDto>> modifyHealthElements(
+      UserDto user, List<DecryptedHealthElementDto> healthElements, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+    var delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
+    var encryptedHealthElements = await Future.wait(healthElements.map((e) => config.encryptHealthElement(user.healthcarePartyId!, delegations, e)));
+    return await Future.wait(encryptedHealthElements.map((e) => config.decryptHealthElement(user.healthcarePartyId!, e)));
+  }
 }
