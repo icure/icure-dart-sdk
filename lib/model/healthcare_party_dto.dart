@@ -663,13 +663,39 @@ class HealthcarePartyDto {
         options: mapCastOfType<String, String>(json, r'options')!,
         properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null
-          ? const {}
-            : mapCastOfType<String, List<String>>(json, r'hcPartyKeys') ?? <String, List<String>>{},
+          ? const {} : HealthcarePartyDto.hcPartyKeysFromJson(json[r'hcPartyKeys']),
         privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
         publicKey: mapValueOfType<String>(json, r'publicKey'),
       );
     }
     return null;
+  }
+
+  static Map<String, List<String>> hcPartyKeysFromJson(dynamic json, {bool growable = false}) {
+    final map = <String, List<String>>{};
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = HealthcarePartyDto.hcPartyKeysListFromJson(entry.value, growable: growable);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
+    }
+    return map;
+  }
+
+  static List<String> hcPartyKeysListFromJson(dynamic json, {bool growable = false,}) {
+    final result = <String>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = row as String;
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
   }
 
   static List<HealthcarePartyDto>? listFromJson(dynamic json, {bool growable = false,}) {
