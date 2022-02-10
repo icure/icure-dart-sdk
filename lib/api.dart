@@ -32,7 +32,8 @@ import 'util/collection_utils.dart';
 import 'util/binary_utils.dart';
 import 'util/functional_utils.dart';
 
-part 'api/healthcare_party_api.dart';
+import 'crypto/crypto.dart';
+
 part 'api_client.dart';
 part 'api_exception.dart';
 part 'api_helper.dart';
@@ -41,7 +42,6 @@ part 'auth/authentication.dart';
 part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 part 'auth/oauth.dart';
-part 'crypto/crypto.dart';
 
 part 'api/access_log_api.dart';
 part 'api/agenda_api.dart';
@@ -69,6 +69,7 @@ part 'api/form_api.dart';
 part 'api/front_end_migration_api.dart';
 part 'api/group_api.dart';
 part 'api/health_element_api.dart';
+part 'api/healthcare_party_api.dart';
 part 'api/icure_api.dart';
 part 'api/insurance_api.dart';
 part 'api/invoice_api.dart';
@@ -84,9 +85,6 @@ part 'api/tarification_api.dart';
 part 'api/time_table_api.dart';
 part 'api/tmp_api.dart';
 part 'api/user_api.dart';
-
-part 'extended_api/accesslog_api.dart';
-part 'extended_api/contact_api.dart';
 
 part 'model/abstract_filter_dto_code.dart';
 part 'model/abstract_filter_dto_contact.dart';

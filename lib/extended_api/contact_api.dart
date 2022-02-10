@@ -1,5 +1,17 @@
 // @dart=2.12
-part of openapi.api;
+import 'package:openapi/api.dart';
+
+import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:tuple/tuple.dart';
+import 'package:uuid/uuid.dart';
+import 'package:uuid/uuid_util.dart';
+
+import 'package:openapi/util/binary_utils.dart';
+import 'package:openapi/util/collection_utils.dart';
+import 'package:openapi/crypto/crypto.dart';
 
 extension CryptoSupport on ContactApi {}
 
@@ -48,8 +60,7 @@ extension InitDto on ContactDto {
 
 extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
   Future<DecryptedContactDto> decryptContact(String myId, ContactDto contact) async {
-    final secret = (await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys))
-        .firstOrNull()?.formatAsKey().fromHexString();
+    final secret = (await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
 
     if (secret == null) {
       throw FormatException("Cannot get encryption key fo ${contact.id} and hcp $myId");
@@ -74,7 +85,7 @@ extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
       secret = (await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys)).firstOrNull();
     }
 
-    var t = await this.marshaller(contact);
+    Tuple2 t = await this.marshaller(contact);
 
     var sanitizedContact = t.item1;
     var marshalledData = t.item2;

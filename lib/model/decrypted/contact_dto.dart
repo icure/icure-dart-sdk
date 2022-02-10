@@ -189,7 +189,7 @@ class DecryptedContactDto {
   Set<SubContactDto> subContacts;
 
   /// Set of all services provided to the patient during the contact.
-  Set<ServiceDto> services;
+  Set<DecryptedServiceDto> services;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -403,7 +403,7 @@ class DecryptedContactDto {
         externalId: mapValueOfType<String>(json, r'externalId'),
         encounterType: CodeStubDto.fromJson(json[r'encounterType']),
         subContacts: SubContactDto.listFromJson(json[r'subContacts'])!.toSet(),
-        services: ServiceDto.listFromJson(json[r'services'])!.toSet(),
+        services: DecryptedServiceDto.listFromJson(json[r'services'])!.toSet(),
         healthcarePartyId: mapValueOfType<String>(json, r'healthcarePartyId'),
         modifiedContactId: mapValueOfType<String>(json, r'modifiedContactId'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set

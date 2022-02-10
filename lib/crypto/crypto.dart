@@ -1,5 +1,18 @@
 // @dart=2.12
-part of openapi.api;
+import 'package:openapi/api.dart';
+
+import 'dart:async';
+import 'dart:convert';
+import 'dart:math';
+import 'dart:typed_data';
+
+import "package:pointycastle/export.dart";
+import 'package:tuple/tuple.dart';
+
+import 'package:openapi/util/collection_utils.dart';
+import 'package:openapi/util/binary_utils.dart';
+import 'package:openapi/util/functional_utils.dart';
+
 
 const IV_BYTE_LENGTH = 16;
 final random = Random.secure();
@@ -20,8 +33,8 @@ abstract class Crypto {
   Future<String> encryptValueForHcp(String myId, String delegateId, String objectId, String secret);
 }
 
-PatientCryptoConfig patientCryptoConfig(Crypto crypto) {
-  return PatientCryptoConfig(
+BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
+  return BaseCryptoConfig(
       crypto,
           (dec) async =>
           Tuple2(PatientDto.fromJson(dec.toJson()
@@ -34,16 +47,47 @@ PatientCryptoConfig patientCryptoConfig(Crypto crypto) {
         ..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!);
 }
 
-class PatientCryptoConfig implements CryptoConfig<DecryptedPatientDto, PatientDto> {
-  const PatientCryptoConfig(this.crypto, this.marshaller, this.unmarshaller);
+BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto user, Crypto crypto) {
+  return BaseCryptoConfig(
+      crypto,
+          (dec) async {
+            var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, dec.encryptionKeys)).firstOrNull();
+            if (key == null) {
+              throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.healthcarePartyId}");
+            }
+
+            return Tuple2(ContactDto.fromJson({...dec.toJson(), 'services': crypto.encryptServices(
+                user.healthcarePartyId!,
+                <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
+                key.formatAsKey().fromHexString(),
+                dec.services.toList()
+            ).toList()})!,
+              Uint8List.fromList(json
+                  .encode({})
+                  .codeUnits));
+          },
+          (cry, data) async {
+            return DecryptedContactDto.fromJson(cry.toJson()
+        ..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!;
+          });
+}
+
+extension CryptoContact on Crypto {
+  List<ServiceDto> encryptServices(String myId, Set<String> delegations, Uint8List key, List<DecryptedServiceDto> services) {
+
+  }
+}
+
+class BaseCryptoConfig<D, K> implements CryptoConfig<D, K> {
+  const BaseCryptoConfig(this.crypto, this.marshaller, this.unmarshaller);
 
   @override
   final Crypto crypto;
   @override
-  final Future<Tuple2<PatientDto, Uint8List>> Function(DecryptedPatientDto)
+  final Future<Tuple2<K, Uint8List>> Function(D)
   marshaller;
   @override
-  final Future<DecryptedPatientDto> Function(PatientDto, Uint8List?)
+  final Future<D> Function(K, Uint8List?)
   unmarshaller;
 }
 

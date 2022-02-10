@@ -1,5 +1,16 @@
 // @dart=2.12
-part of openapi.api;
+import 'package:openapi/api.dart';
+
+import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:tuple/tuple.dart';
+import 'package:uuid/uuid.dart';
+import 'package:uuid/uuid_util.dart';
+
+import 'package:openapi/util/collection_utils.dart';
+import 'package:openapi/crypto/crypto.dart';
 
 extension CryptoSupport on AccessLogApi {}
 
