@@ -162,4 +162,10 @@ extension HealthElementApiCrypto on HealthElementApi {
         <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, healthElement));
     return newHealthElement == null ? null : await config.decryptHealthElement(user.healthcarePartyId!, newHealthElement);
   }
+
+  Future<DecryptedHealthElementDto?> newHealthElementDelegations(
+      UserDto user, String healthElementId, List<DelegationDto> delegations, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+    var newHealthElement = await this.newHealthElementDelegations(healthElementId, delegations);
+    return newHealthElement != null ? await config.decryptHealthElement(user.healthcarePartyId!, newHealthElement) : null;
+  }
 }
