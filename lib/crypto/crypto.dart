@@ -1,12 +1,13 @@
 // @dart=2.12
+import 'package:crypton/crypton.dart';
 import 'package:openapi/api.dart';
+import 'package:steel_crypt/steel_crypt.dart';
 
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
-import "package:pointycastle/export.dart";
 import 'package:tuple/tuple.dart';
 
 import 'package:openapi/util/collection_utils.dart';
@@ -51,25 +52,25 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
   return BaseCryptoConfig(
       crypto,
           (dec) async {
-            var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, dec.encryptionKeys)).firstOrNull();
-            if (key == null) {
-              throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.healthcarePartyId}");
-            }
+        var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, dec.encryptionKeys)).firstOrNull();
+        if (key == null) {
+          throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.healthcarePartyId}");
+        }
 
-            return Tuple2(ContactDto.fromJson({...dec.toJson(), 'services': crypto.encryptServices(
-                user.healthcarePartyId!,
-                <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
-                key.formatAsKey().fromHexString(),
-                dec.services.toList()
-            ).toList()})!,
-              Uint8List.fromList(json
-                  .encode({})
-                  .codeUnits));
-          },
+        return Tuple2(ContactDto.fromJson({...dec.toJson(), 'services': crypto.encryptServices(
+            user.healthcarePartyId!,
+            <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
+            key.formatAsKey().fromHexString(),
+            dec.services.toList()
+        ).toList()})!,
+            Uint8List.fromList(json
+                .encode({})
+                .codeUnits));
+      },
           (cry, data) async {
-            return DecryptedContactDto.fromJson(cry.toJson()
-        ..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!;
-          });
+        return DecryptedContactDto.fromJson(cry.toJson()
+          ..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!;
+      });
 }
 
 extension CryptoContact on Crypto {
@@ -95,7 +96,7 @@ class LocalCrypto implements Crypto {
   LocalCrypto(this.healthcarePartyApi, this.rsaKeyPairs);
 
   HealthcarePartyApi healthcarePartyApi;
-  Map<String, AsymmetricKeyPair<RSAPublicKey, RSAPrivateKey>> rsaKeyPairs;
+  Map<String, RSAKeypair> rsaKeyPairs;
 
   Map<String, Future<HealthcarePartyDto?>> hcParties = {};
   Map<String, Future<Map<String, Tuple2<String, Uint8List>>?>> ownerHcpartyKeysCache = {};
@@ -129,6 +130,7 @@ class LocalCrypto implements Crypto {
   @override
   Future<String> encryptValueForHcp(String myId, String delegateId, String objectId, String secret) async {
     var hcPartyKey = await getOrCreateHcPartyKey(myId, delegateId);
+
     return Uint8List.fromList("$objectId:$secret".codeUnits).encryptAES(hcPartyKey).toHexString();
   }
 
@@ -186,14 +188,16 @@ class LocalCrypto implements Crypto {
     if (privateKey == null) {
       throw FormatException("Missing key for hcp $delegateId");
     }
-    Future<Map<String, Tuple2<String, Uint8List>>?>? keyMapFuture =
-    ownerHcpartyKeysCache[ownerId];
+    Future<Map<String, Tuple2<String, Uint8List>>?>? keyMapFuture = ownerHcpartyKeysCache[ownerId];
 
     if (keyMapFuture == null) {
       keyMapFuture =
           getHcParty(ownerId).then((hcp) {
-            return hcp?.hcPartyKeys.map((key, value) => MapEntry(key, value[0]))
-                .let((hcpnn) => decryptHcPartyKeys(hcpnn, delegateId, privateKey));
+            var keysToDecrypt = hcp?.hcPartyKeys.entries.map((entry) => MapEntry<String, String>(entry.key, entry.value[0]))
+                ?? List<MapEntry<String, String>>.empty(growable: false);
+
+            var hcpnn = Map<String, String>.fromEntries(keysToDecrypt);
+            return decryptHcPartyKeys(hcpnn, delegateId, privateKey);
           });
       ownerHcpartyKeysCache[ownerId] = keyMapFuture;
     }
@@ -227,15 +231,11 @@ class LocalCrypto implements Crypto {
       if (delegatePublicKey == null) {
         throw FormatException("Unknown hcp $delegateId or missing public key");
       }
-      final encryptorForMe = OAEPEncoding(RSAEngine())
-        ..init(true, PublicKeyParameter<RSAPublicKey>(myPublicKey));
-      final encryptorForDelegate = OAEPEncoding(RSAEngine())
-        ..init(true, PublicKeyParameter<RSAPublicKey>(delegatePublicKey));
 
       final aesKey = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
 
-      var keyForMe = encryptorForMe.process(aesKey).toHexString();
-      var keyForDelegate = encryptorForDelegate.process(aesKey).toHexString();
+      var keyForMe = myPublicKey.encryptData(aesKey).toHexString();
+      var keyForDelegate = delegatePublicKey.encryptData(aesKey).toHexString();
 
       updateHcParty(myId, (hcp) async => healthcarePartyApi.modifyHealthcareParty(hcp.also((that) {
         that.hcPartyKeys = that.hcPartyKeys..addAll({delegateId:[keyForMe, keyForDelegate]});
@@ -250,70 +250,20 @@ class LocalCrypto implements Crypto {
   Future<Map<String, Tuple2<String, Uint8List>>> decryptHcPartyKeys(Map<String, String> hcpKeys,
       String myId,
       RSAPrivateKey myPrivateKey) async {
-    final decryptor = OAEPEncoding(RSAEngine())
-      ..init(false, PrivateKeyParameter<RSAPrivateKey>(myPrivateKey));
     return hcpKeys.map((k, v) =>
-        MapEntry(k, Tuple2(v, decryptor.process(k.keyFromHexString()))));
-  }
-}
-
-extension rsa on OAEPEncoding {
-  Uint8List process(Uint8List input) {
-    final numBlocks = input.length ~/ this.inputBlockSize +
-        ((input.length % this.inputBlockSize != 0) ? 1 : 0);
-
-    final output = Uint8List(numBlocks * this.outputBlockSize);
-
-    var inputOffset = 0;
-    var outputOffset = 0;
-    while (inputOffset < input.length) {
-      final chunkSize = (inputOffset + this.inputBlockSize <= input.length)
-          ? this.inputBlockSize
-          : input.length - inputOffset;
-
-      outputOffset += this
-          .processBlock(input, inputOffset, chunkSize, output, outputOffset);
-
-      inputOffset += chunkSize;
-    }
-
-    return (output.length == outputOffset)
-        ? output
-        : output.sublist(0, outputOffset);
+        MapEntry(k, Tuple2(v, myPrivateKey.decryptData(k.keyFromHexString()))));
   }
 }
 
 extension aes on Uint8List {
   Uint8List decryptAES(Uint8List key) {
-    var iv = this.sublist(0, IV_BYTE_LENGTH);
-    var cipherText = this.sublist(IV_BYTE_LENGTH);
-
-    final cbc = CBCBlockCipher(AESEngine())
-      ..init(false, ParametersWithIV(KeyParameter(key), iv)); // false=decrypt
-    final paddedPlainText = Uint8List(cipherText.length); // allocate space
-
-    var offset = 0;
-    while (offset < cipherText.length) {
-      offset += cbc.processBlock(cipherText, offset, paddedPlainText, offset);
-    }
-    assert(offset == cipherText.length);
-    return paddedPlainText;
+    var aesCrypt = AesCryptRaw(key: key, padding: PaddingAES.pkcs7);
+    return aesCrypt.cbc.decrypt(enc: this.sublist(IV_BYTE_LENGTH), iv: this.sublist(0, IV_BYTE_LENGTH));
   }
 
   Uint8List encryptAES(Uint8List key) {
-    final paddedPlaintext = this;
+    var aesCrypt = AesCryptRaw(key: key, padding: PaddingAES.pkcs7);
     var iv = Uint8List.fromList(List<int>.generate(IV_BYTE_LENGTH, (i) => random.nextInt(256)));
-
-    final cbc = CBCBlockCipher(AESEngine())
-      ..init(true, ParametersWithIV(KeyParameter(key), iv)); // true=encrypt
-    final cipherText = Uint8List(paddedPlaintext.length); // allocate space
-
-    var offset = 0;
-    while (offset < paddedPlaintext.length) {
-      offset += cbc.processBlock(paddedPlaintext, offset, cipherText, offset);
-    }
-    assert(offset == paddedPlaintext.length);
-
-    return cipherText;
+    return aesCrypt.cbc.encrypt(inp: this, iv: iv);
   }
 }

@@ -1,8 +1,11 @@
+@Timeout(Duration(hours: 1))
 
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:crypton/crypton.dart';
 import 'package:openapi/api.dart';
+import 'package:openapi/crypto/crypto.dart';
 import 'package:pointycastle/api.dart';
 import "package:test/test.dart";
 import 'package:openapi/util/binary_utils.dart';
@@ -19,14 +22,14 @@ void main() {
   final Uuid uuid = Uuid();
 
   Future<LocalCrypto> localCrypto(UserDto user, HealthcarePartyDto hcp) async {
-    var fileUri = Uri.file("resources/keys/782f1bcd-9f3f-408a-af1b-cd9f3f908a98-icc-priv.2048.key", windows: false);
+    var fileUri = Uri.file("test/resources/keys/782f1bcd-9f3f-408a-af1b-cd9f3f908a98-icc-priv.2048.key", windows: false);
     var hcpKeyFile = File.fromUri(fileUri);
 
     var hcpPrivateKey = (await hcpKeyFile.readAsString(encoding: utf8)).toPrivateKey();
     var hcpPublicKey = hcp.publicKey!.toPublicKey();
 
     var keyPairs = {
-      user.healthcarePartyId! : AsymmetricKeyPair(hcpPublicKey, hcpPrivateKey)
+      user.healthcarePartyId! : RSAKeypair(hcpPrivateKey)
     };
 
     return LocalCrypto(hcpApi, keyPairs);
