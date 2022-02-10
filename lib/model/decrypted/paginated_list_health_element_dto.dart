@@ -23,7 +23,7 @@ class DecryptedPaginatedListHealthElementDto {
 
   int totalSize;
 
-  List<HealthElementDto> rows;
+  List<DecryptedHealthElementDto> rows;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -88,9 +88,8 @@ class DecryptedPaginatedListHealthElementDto {
       return DecryptedPaginatedListHealthElementDto(
         pageSize: mapValueOfType<int>(json, r'pageSize')!,
         totalSize: mapValueOfType<int>(json, r'totalSize')!,
-        rows: HealthElementDto.listFromJson(json[r'rows'])!,
-        nextKeyPair:
-            PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
+        rows: DecryptedHealthElementDto.listFromJson(json[r'rows'])!,
+        nextKeyPair: PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
       );
     }
     return null;
