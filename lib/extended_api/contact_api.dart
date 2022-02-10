@@ -63,18 +63,22 @@ extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
 
   Future<ContactDto> encryptContact(String myId, Set<String> delegations, DecryptedContactDto contact) async {
     var eks = contact.encryptionKeys;
-    var secret;
+    Uint8List? secret;
     if (!eks.entries.any((s) => s.value.isNotEmpty)) {
       secret = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
       final secretForDelegates = await Future.wait((<String>{...delegations, myId})
-          .map((String d) async => Tuple2(d, await this.crypto.encryptAESKeyForHcp(myId, d, contact.id, secret.toHexString()))));
+          .map((String d) async => Tuple2(d, await this.crypto.encryptAESKeyForHcp(myId, d, contact.id, secret!.toHexString()))));
       eks = {
         ...eks,
         ...Map.fromEntries(
             secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: myId, delegatedTo: t.item1, key: t.item2)})))
       };
     } else {
-      secret = (await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys)).firstOrNull();
+      secret = (await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    }
+
+    if (secret == null) {
+      throw FormatException("Cannot get encryption key fo ${contact.id} and hcp $myId")
     }
 
     Tuple2 t = await this.marshaller(contact);
