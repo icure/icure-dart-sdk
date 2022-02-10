@@ -3,7 +3,7 @@
 part of openapi.api;
 
 class HealthElementByIdsFilter extends AbstractFilterDto<HealthElementDto> {
-        @override String? desc;
-        Set<String> ids = {};
+  @override
+  String? desc;
+  Set<String> ids = {};
 }
-

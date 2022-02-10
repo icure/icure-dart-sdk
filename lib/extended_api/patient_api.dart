@@ -65,7 +65,7 @@ extension PatientCryptoConfiguration on CryptoConfig<DecryptedPatientDto, Patien
     if (!eks.entries.any((s) => s.value.isNotEmpty)) {
       secret = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
       final secretForDelegates = await Future.wait((<String>{...delegations, dataOwnerId}).map((String d) async => Tuple2(
-          d, await this.crypto.encryptAESKeyForHcp(dataOwnerId, d, patient.id, secret.toHexString())
+          d, await this.crypto.encryptAESKeyForHcp(dataOwnerId, d, patient.id, BinEncoding(secret).toHexString())
       )));
 
       eks = {...eks, ...Map.fromEntries(secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(

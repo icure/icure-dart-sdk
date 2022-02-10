@@ -2,8 +2,7 @@
 part of openapi.api;
 
 
-
 class CodeByIdsFilter extends AbstractFilterDto<CodeDto> {
-         @override String? desc;
-        Set<String> ids = {};
+  @override String? desc;
+  Set<String> ids = {};
 }

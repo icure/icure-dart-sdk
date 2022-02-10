@@ -4,6 +4,6 @@ part of openapi.api;
 
 
 class AllHealthcarePartiesFilter extends AbstractFilterDto<HealthcarePartyDto> {
-         @override String? desc;
+  @override String? desc;
 }
 

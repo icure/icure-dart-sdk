@@ -2,9 +2,9 @@
 
 part of openapi.api;
 
-
 class ComplementFilter<O> extends AbstractFilterDto<O> {
-  @override String? desc;
+  @override
+  String? desc;
   AbstractFilterDto<O>? superSet;
   AbstractFilterDto<O>? subSet;
 }

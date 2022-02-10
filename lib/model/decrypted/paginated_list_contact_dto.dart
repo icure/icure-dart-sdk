@@ -90,7 +90,7 @@ class DecryptedPaginatedListContactDto {
         totalSize: mapValueOfType<int>(json, r'totalSize')!,
         rows: DecryptedContactDto.listFromJson(json[r'rows'])!,
         nextKeyPair:
-            PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
+        PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
       );
     }
     return null;

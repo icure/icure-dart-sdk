@@ -4,9 +4,9 @@ part of openapi.api;
 
 
 class CodeByRegionTypeLabelLanguageFilter extends AbstractFilterDto<CodeDto> {
-         @override String? desc;
-        String? region;
-        String? type;
-        String? language;
-        String? label;
+  @override String? desc;
+  String? region;
+  String? type;
+  String? language;
+  String? label;
 }

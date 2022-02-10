@@ -3,6 +3,6 @@ part of openapi.api;
 
 
 class HealthElementByHcPartyFilter extends AbstractFilterDto<HealthElementDto> {
-        @override String? desc;
-        String? hcpId;
+  @override String? desc;
+  String? hcpId;
 }

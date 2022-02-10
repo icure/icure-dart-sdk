@@ -27,7 +27,8 @@ extension InitDto on ContactDto {
     author = user.id;
     delegations = await (delegationKeys..add(user.healthcarePartyId!)).fold(
         Future.value(delegations),
-        (m, d) async => (await m)
+            (m, d) async =>
+        (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
@@ -37,7 +38,7 @@ extension InitDto on ContactDto {
 
     encryptionKeys = await (delegationKeys..add(user.healthcarePartyId!)).fold(
         Future.value(encryptionKeys),
-        (m, d) async => (await m)
+            (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
@@ -169,26 +170,38 @@ extension ContactApiCrypto on ContactApi {
         DecryptedContactDto(
             id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
             services:
-            services.map((it) => DecryptedServiceDto(id: it.id, created: it.created, modified: currentTime, endOfLife: currentTime)).toSet()),
+                services.map((it) => DecryptedServiceDto(id: it.id, created: it.created, modified: currentTime, endOfLife: currentTime)).toSet()),
         config);
   }
 
-  Future<DecryptedPaginatedListContactDto?> filterContactsBy(UserDto user, FilterChainContact filterChain, String? startKey, String? startDocumentId, int? limit, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
+  Future<DecryptedPaginatedListContactDto?> filterContactsBy(UserDto user, FilterChainContact filterChain, String? startKey, String? startDocumentId,
+      int? limit, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     return await (await this.rawFilterContactsBy(filterChain, startDocumentId: startDocumentId, limit: limit))?.let((it) async =>
-        DecryptedPaginatedListContactDto(rows: await Future.wait(it.rows.map((it) => config.decryptContact(user.healthcarePartyId!, it))), pageSize: it.pageSize, totalSize: it.totalSize, nextKeyPair: it.nextKeyPair)
-    );
+        DecryptedPaginatedListContactDto(
+            rows: await Future.wait(it.rows.map((it) => config.decryptContact(user.healthcarePartyId!, it))),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair));
   }
 
-  Future<DecryptedPaginatedListServiceDto?> filterServicesBy(UserDto user, FilterChainService filterChain, String? startKey, String? startDocumentId, int? limit, Crypto crypto) async {
+  Future<DecryptedPaginatedListServiceDto?> filterServicesBy(
+      UserDto user, FilterChainService filterChain, String? startKey, String? startDocumentId, int? limit, Crypto crypto) async {
     return await (await this.rawFilterServicesBy(filterChain, startDocumentId: startDocumentId, limit: limit))?.let((it) async =>
-        DecryptedPaginatedListServiceDto(rows: await crypto.decryptServices(user.healthcarePartyId!, null, it.rows), pageSize: it.pageSize, totalSize: it.totalSize, nextKeyPair: it.nextKeyPair)
-    );
+        DecryptedPaginatedListServiceDto(
+            rows: await crypto.decryptServices(user.healthcarePartyId!, null, it.rows),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair));
   }
 
-  Future<DecryptedPaginatedListContactDto?> findContactsByOpeningDate(UserDto user, int startKey, int endKey, String hcpartyid, String? startDocumentId, int? limit, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
-    return await (await this.rawFindContactsByOpeningDate(startKey, endKey, hcpartyid, startDocumentId: startDocumentId, limit: limit))?.let((it) async =>
-        DecryptedPaginatedListContactDto(rows: await Future.wait(it.rows.map((it) => config.decryptContact(user.healthcarePartyId!, it))), pageSize: it.pageSize, totalSize: it.totalSize, nextKeyPair: it.nextKeyPair)
-    );
+  Future<DecryptedPaginatedListContactDto?> findContactsByOpeningDate(UserDto user, int startKey, int endKey, String hcpartyid,
+      String? startDocumentId, int? limit, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
+    return await (await this.rawFindContactsByOpeningDate(startKey, endKey, hcpartyid, startDocumentId: startDocumentId, limit: limit))?.let(
+        (it) async => DecryptedPaginatedListContactDto(
+            rows: await Future.wait(it.rows.map((it) => config.decryptContact(user.healthcarePartyId!, it))),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair));
   }
 
   Future<List<DecryptedContactDto>> findByHCPartyFormId(
@@ -210,7 +223,7 @@ extension ContactApiCrypto on ContactApi {
       throw FormatException("No delegation for user");
     }
     return Future.wait((await this.listContactsByHCPartyAndPatientSecretFKeys(hcPartyId, keys.join(","),
-        planOfActionsIds: planOfActionsIds, skipClosedContacts: skipClosedContacts))!
+            planOfActionsIds: planOfActionsIds, skipClosedContacts: skipClosedContacts))!
         .map((it) => config.decryptContact(user.healthcarePartyId!, it)));
   }
 
@@ -260,7 +273,6 @@ extension ContactApiCrypto on ContactApi {
         user.healthcarePartyId!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, contact));
     return newContact == null ? null : await config.decryptContact(user.healthcarePartyId!, newContact);
   }
-
 
   Future<List<DecryptedContactDto>?> modifyContacts(
       UserDto user, List<DecryptedContactDto> contacts, CryptoConfig<DecryptedContactDto, ContactDto> config) async {

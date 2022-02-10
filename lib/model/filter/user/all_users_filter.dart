@@ -2,7 +2,7 @@
 
 part of openapi.api;
 
-
 class AllUsersFilter extends AbstractFilterDto<UserDto> {
-  @override String? desc;
+  @override
+  String? desc;
 }

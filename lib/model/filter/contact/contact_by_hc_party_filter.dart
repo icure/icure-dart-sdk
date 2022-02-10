@@ -3,6 +3,6 @@
 part of openapi.api;
 
 class ContactByHcPartyFilter extends AbstractFilterDto<ContactDto> {
-         @override String? desc;
-        String? hcpId;
+  @override String? desc;
+  String? hcpId;
 }

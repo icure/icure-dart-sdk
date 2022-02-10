@@ -89,8 +89,7 @@ class DecryptedPaginatedListServiceDto {
         pageSize: mapValueOfType<int>(json, r'pageSize')!,
         totalSize: mapValueOfType<int>(json, r'totalSize')!,
         rows: DecryptedServiceDto.listFromJson(json[r'rows'])!,
-        nextKeyPair:
-        PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
+        nextKeyPair: PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
       );
     }
     return null;

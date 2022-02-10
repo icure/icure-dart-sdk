@@ -2,6 +2,7 @@
 part of openapi.api;
 
 class HealthcarePartyByIdsFilter extends AbstractFilterDto<HealthcarePartyDto> {
-        @override String? desc;
-        Set<String> ids = {};
+  @override
+  String? desc;
+  Set<String> ids = {};
 }

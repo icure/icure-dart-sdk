@@ -2,8 +2,8 @@
 part of openapi.api;
 
 class FilterChain<O> {
-        FilterChain(this.filter);
+  FilterChain(this.filter);
 
-        AbstractFilterDto<O> filter;
-        Predicate? predicate;
+  AbstractFilterDto<O> filter;
+  Predicate? predicate;
 }

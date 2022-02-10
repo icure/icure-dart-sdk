@@ -4,5 +4,5 @@ part of openapi.api;
 
 
 class AllDevicesFilter extends AbstractFilterDto<DeviceDto> {
-         @override String? desc;
+  @override String? desc;
 }

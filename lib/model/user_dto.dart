@@ -376,7 +376,7 @@ class UserDto {
         deviceId: mapValueOfType<String>(json, r'deviceId'),
         autoDelegations: json[r'autoDelegations'] == null
           ? const {}
-            : mapCastOfType<String, Set<String>>(json, r'autoDelegations') ?? <String, Set<String>>{},
+            : mapCastOfType<String, dynamic>(json, r'autoDelegations')!.map((key, value) => MapEntry(key, (value is List ? value.toSet().cast<String>() : const {}))),
         createdDate: mapDateTime(json, r'createdDate', ''),
         termsOfUseDate: mapDateTime(json, r'termsOfUseDate', ''),
         email: mapValueOfType<String>(json, r'email'),

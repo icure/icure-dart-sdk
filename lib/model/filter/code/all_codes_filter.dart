@@ -2,7 +2,7 @@
 
 part of openapi.api;
 
-
 class AllCodesFilter extends AbstractFilterDto<CodeDto> {
-         @override String? desc;
+  @override
+  String? desc;
 }

@@ -2,9 +2,8 @@
 part of openapi.api;
 
 
-
 class PatientByHcPartyAndSsinsFilter extends AbstractFilterDto<PatientDto> {
-         @override String? desc;
-        List<String>? ssins;
-        String? healthcarePartyId;
+  @override String? desc;
+  List<String>? ssins;
+  String? healthcarePartyId;
 }

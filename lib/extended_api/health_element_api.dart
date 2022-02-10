@@ -22,7 +22,7 @@ extension InitDto on DecryptedHealthElementDto {
     author = user.id;
     delegations = await (delegationKeys..add(user.healthcarePartyId!)).fold(
         Future.value(delegations),
-        (m, d) async => (await m)
+            (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(

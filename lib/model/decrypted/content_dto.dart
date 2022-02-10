@@ -224,8 +224,7 @@ class DecryptedContentDto {
         measureValue: MeasureDto.fromJson(json[r'measureValue']),
         medicationValue: MedicationDto.fromJson(json[r'medicationValue']),
         timeSeries: TimeSeriesDto.fromJson(json[r'timeSeries']),
-        compoundValue:
-        DecryptedServiceDto.listFromJson(json[r'compoundValue']) ?? const [],
+        compoundValue: DecryptedServiceDto.listFromJson(json[r'compoundValue']) ?? const [],
         ratio: MeasureDto.listFromJson(json[r'ratio']) ?? const [],
         range: MeasureDto.listFromJson(json[r'range']) ?? const [],
       );
