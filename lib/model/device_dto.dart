@@ -356,9 +356,7 @@ class DeviceDto {
             ? (json[r'picture'] as List).cast<String>()
             : const [],
         properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
-        hcPartyKeys: json[r'hcPartyKeys'] == null
-          ? const {}
-            : mapCastOfType<String, List<String>>(json, r'hcPartyKeys') ?? <String, List<String>>{},
+        hcPartyKeys: json[r'hcPartyKeys'] == null ? const {} : mapWithListOfStringsFromJson(json[r'hcPartyKeys']),
         privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
         publicKey: mapValueOfType<String>(json, r'publicKey'),
       );

@@ -334,12 +334,9 @@ class TarificationDto {
             ? (json[r'links'] as List).cast<String>()
             : const [],
         qualifiedLinks: json[r'qualifiedLinks'] == null
-          ? const {}
-            : mapCastOfType<String, List<String>>(json, r'qualifiedLinks') ?? <String, List<String>>{},
+          ? const {} : mapWithListOfStringsFromJson(json[r'qualifiedLinks']),
         flags: CodeDtoFlagsEnum.listFromJson(json[r'flags'])!.toSet(),
-        searchTerms: json[r'searchTerms'] == null
-          ? const {}
-            : mapCastOfType<String, List<String>>(json, r'searchTerms')?.map((k,v) => MapEntry(k, v.toSet())) ?? <String, Set<String>>{},
+        searchTerms: json[r'searchTerms'] == null ? const {} : mapWithSetOfStringsFromJson(json[r'searchTerms']),
         data: mapValueOfType<String>(json, r'data'),
         appendices: mapCastOfType<String, String>(json, r'appendices')!,
         disabled: mapValueOfType<bool>(json, r'disabled')!,
