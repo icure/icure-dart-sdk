@@ -153,14 +153,6 @@ extension HealthElementApiCrypto on HealthElementApi {
         : await Future.wait(newHealthElements.map((newHealthElement) => config.decryptHealthElement(user.healthcarePartyId!, newHealthElement)));
   }
 
-  Future<DecryptedHealthElementDto?> modifyHealthElement(
-      UserDto user, DecryptedHealthElementDto healthElement, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
-
-    final HealthElementDto? newHealthElement = await this.rawModifyHealthElement(await config.encryptHealthElement(user.healthcarePartyId!,
-        <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, healthElement));
-    return newHealthElement == null ? null : await config.decryptHealthElement(user.healthcarePartyId!, newHealthElement);
-  }
-
   Future<DecryptedHealthElementDto?> newHealthElementDelegations(
       UserDto user, String healthElementId, List<DelegationDto> delegations, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
     final HealthElementDto? newHealthElement = await this.rawNewHealthElementDelegations(healthElementId, delegations);
@@ -200,7 +192,7 @@ extension HealthElementApiCrypto on HealthElementApi {
         : null;
   }
 
-  Future<DecryptedHealthElementDto?> modifyHealthElementCrypto(
+  Future<DecryptedHealthElementDto?> modifyHealthElement(
       UserDto user, DecryptedHealthElementDto healthElementDto, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
     final HealthElementDto encryptedHealthElement = await config.encryptHealthElement(user.healthcarePartyId!,
         <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, healthElementDto);
@@ -213,7 +205,7 @@ extension HealthElementApiCrypto on HealthElementApi {
     final Set<String> delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
     final List<HealthElementDto> encryptedHealthElements =
         await Future.wait(healthElements.map((e) => config.encryptHealthElement(user.healthcarePartyId!, delegations, e)));
-    final List<HealthElementDto>? modifiedHealthElements = await this.modifyHealthElements(encryptedHealthElements);
+    final List<HealthElementDto>? modifiedHealthElements = await this.rawModifyHealthElements(encryptedHealthElements);
     return modifiedHealthElements != null
         ? await Future.wait(modifiedHealthElements.map((e) => config.decryptHealthElement(user.healthcarePartyId!, e)))
         : List<DecryptedHealthElementDto>.empty();
