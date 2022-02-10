@@ -22,8 +22,7 @@ extension InitDto on DecryptedHealthElementDto {
     author = user.id;
     delegations = await (delegationKeys..add(user.healthcarePartyId!)).fold(
         Future.value(delegations),
-            (m, d) async =>
-        (await m)
+        (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
@@ -33,8 +32,7 @@ extension InitDto on DecryptedHealthElementDto {
 
     encryptionKeys = await (delegationKeys..add(user.healthcarePartyId!)).fold(
         Future.value(encryptionKeys),
-            (m, d) async =>
-        (await m)
+            (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
@@ -51,8 +49,7 @@ extension HealthElementCryptoConfig on CryptoConfig<DecryptedHealthElementDto, H
     Uint8List? secret;
     if (encryptionKeys.entries.any((element) => element.value.isNotEmpty)) {
       secret = (await this.crypto.decryptEncryptionKeys(myId, healthElementDto.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
-    }
-    else {
+    } else {
       secret = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
       final secretForDelegates = await Future.wait((<String>{...delegations, myId})
           .map((String d) async => Tuple2(d, await this.crypto.encryptAESKeyForHcp(myId, d, healthElementDto.id, secret!.toHexString()))));
@@ -167,5 +164,23 @@ extension HealthElementApiCrypto on HealthElementApi {
       UserDto user, String healthElementId, List<DelegationDto> delegations, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
     var newHealthElement = await this.newHealthElementDelegations(healthElementId, delegations);
     return newHealthElement != null ? await config.decryptHealthElement(user.healthcarePartyId!, newHealthElement) : null;
+  }
+
+  Future<List<DecryptedHealthElementDto>> listHealthElementsByHCPartyAndPatient(
+      UserDto user, String hcPartyId, PatientDto patient, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+    var keys = await config.crypto.decryptEncryptionKeys(user.healthcarePartyId!, patient.delegations);
+    if (keys.isEmpty) {
+      throw Exception("No delegation for this user");
+    }
+    return await listHealthElementsByHCPartyAndPatientForeignKeys(user, hcPartyId, keys.join(","), config);
+  }
+
+  Future<List<DecryptedHealthElementDto>> listHealthElementsByHCPartyAndPatientForeignKeys(
+      UserDto user, String hcPartyId, String secretFKeys, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+    var healthElements = await this.listHealthElementsByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys);
+    if (healthElements == null || healthElements.isEmpty) {
+      throw Exception("No delegation for this user");
+    }
+    return await Future.wait(healthElements.map((healthElement) => config.decryptHealthElement(user.healthcarePartyId!, healthElement)));
   }
 }
