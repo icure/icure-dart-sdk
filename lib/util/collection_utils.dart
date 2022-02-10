@@ -4,10 +4,6 @@ extension MapExtension<E, F> on Map<E, F> {
   }
 }
 
-extension ListExtension<E> on List<E> {
-  E? firstOrNull() => this.isNotEmpty ? this.first : null;
-}
-
-extension SetExtension<E> on Set<E> {
+extension IterableExtension<E> on Iterable<E> {
   E? firstOrNull() => this.isNotEmpty ? this.first : null;
 }

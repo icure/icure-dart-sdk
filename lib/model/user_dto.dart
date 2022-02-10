@@ -376,13 +376,13 @@ class UserDto {
         deviceId: mapValueOfType<String>(json, r'deviceId'),
         autoDelegations: json[r'autoDelegations'] == null
           ? const {}
-            : mapCastOfType<String, List<String>>(json, r'autoDelegations')?.map((k,v) => MapEntry(k, v.toSet())) ?? <String, Set<String>>{},
+            : mapCastOfType<String, Set<String>>(json, r'autoDelegations') ?? <String, Set<String>>{},
         createdDate: mapDateTime(json, r'createdDate', ''),
         termsOfUseDate: mapDateTime(json, r'termsOfUseDate', ''),
         email: mapValueOfType<String>(json, r'email'),
         mobilePhone: mapValueOfType<String>(json, r'mobilePhone'),
         applicationTokens: mapCastOfType<String, String>(json, r'applicationTokens')!,
-        authenticationTokens: mapValueOfType<Map<String, AuthenticationTokenDto>>(json, r'authenticationTokens')!,
+        authenticationTokens: mapCastOfType<String, AuthenticationTokenDto>(json, r'authenticationTokens')!,
       );
     }
     return null;
