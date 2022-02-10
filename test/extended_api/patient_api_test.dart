@@ -51,7 +51,8 @@ void main() {
       var patient = DecryptedPatientDto(
           id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
           firstName: 'John',
-          lastName: 'Doe'
+          lastName: 'Doe',
+          note: 'Premature optimization is the root of all evil'
       );
 
       // When
@@ -61,6 +62,7 @@ void main() {
       expect(createdPatient!.id, patient.id);
       expect(createdPatient.firstName, patient.firstName);
       expect(createdPatient.lastName, patient.lastName);
+      expect(createdPatient.note, patient.note);
     });
   });
 }
