@@ -3,6 +3,16 @@
 part of icure_dart_sdk.api;
 
 class HealthElementByHcPartyTagCodeFilter extends AbstractFilterDto<HealthElementDto> {
+  HealthElementByHcPartyTagCodeFilter({
+    this.desc,
+    this.healthCarePartyId,
+    this.codeType,
+    this.codeNumber,
+    this.tagType,
+    this.tagCode,
+    this.status
+  });
+
   @override
   String? desc;
   String? healthCarePartyId;

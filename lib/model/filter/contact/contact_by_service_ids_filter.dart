@@ -2,7 +2,7 @@
 part of icure_dart_sdk.api;
 
 class ContactByServiceIdsFilter extends AbstractFilterDto<ContactDto> {
-  ContactByServiceIdsFilter({required this.ids, this.desc});
+  ContactByServiceIdsFilter({this.ids = const {}, this.desc});
 
   @override
   String? desc;
