@@ -3,10 +3,10 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:openapi/api.dart';
-import 'package:openapi/crypto/crypto.dart';
-import 'package:openapi/util/binary_utils.dart';
-import 'package:openapi/util/collection_utils.dart';
+import 'package:icure_dart_sdk/api.dart';
+import 'package:icure_dart_sdk/crypto/crypto.dart';
+import 'package:icure_dart_sdk/util/binary_utils.dart';
+import 'package:icure_dart_sdk/util/collection_utils.dart';
 import 'package:tuple/tuple.dart';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
@@ -147,16 +147,22 @@ extension PatientApiCrypto on PatientApi {
             user.healthcarePartyId!,
             <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
             patient
-        )
-    );
+        ));
     return newPatient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, newPatient) : null;
   }
 
-  Future<DecryptedPatientDto?> getPatient(UserDto user, String patientId,
-      CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
-
+  Future<DecryptedPatientDto?> getPatient(UserDto user, String patientId, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
     var patient = await this.rawGetPatient(patientId);
     return patient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, patient) : null;
+  }
+
+  Future<List<IdWithRevDto>> modifyHealthElements(
+      UserDto user, List<DecryptedPatientDto> patients, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    final Set<String> delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
+    final List<PatientDto> encryptedPatients = await Future.wait(patients.map((patient) => PatientCryptoConfiguration(config)
+        .encryptPatient(user.healthcarePartyId!, delegations, DecryptedPatientDtoExtensions(patient).initPatient())));
+    final List<IdWithRevDto>? modifiedIdsWithRevs = await this.rawModifyPatients(encryptedPatients);
+    return modifiedIdsWithRevs != null ? modifiedIdsWithRevs : List<IdWithRevDto>.empty();
   }
 }
 
