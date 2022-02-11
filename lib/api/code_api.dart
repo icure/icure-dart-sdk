@@ -1009,8 +1009,8 @@ class CodeApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoCode] abstractFilterDtoCode (required):
-  Future<Response> matchCodesByWithHttpInfo(AbstractFilterDtoCode abstractFilterDtoCode,) async {
+  /// * [AbstractFilterDto<CodeDto>] abstractFilterDtoCode (required):
+  Future<Response> matchCodesByWithHttpInfo(AbstractFilterDto<CodeDto> abstractFilterDtoCode,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/match';
 
@@ -1041,8 +1041,8 @@ class CodeApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoCode] abstractFilterDtoCode (required):
-  Future<List<String>?> matchCodesBy(AbstractFilterDtoCode abstractFilterDtoCode,) async {
+  /// * [AbstractFilterDto<CodeDto>] abstractFilterDtoCode (required):
+  Future<List<String>?> matchCodesBy(AbstractFilterDto<CodeDto> abstractFilterDtoCode,) async {
     final response = await matchCodesByWithHttpInfo(abstractFilterDtoCode,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

@@ -3,6 +3,8 @@
 part of icure_dart_sdk.api;
 
 class CodeByRegionTypeLabelLanguageFilter extends AbstractFilterDto<CodeDto> {
+  CodeByRegionTypeLabelLanguageFilter({this.desc, this.region, this.type, this.language, this.label});
+
   @override
   String? desc;
   String? region;

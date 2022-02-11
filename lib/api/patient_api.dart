@@ -1676,8 +1676,8 @@ class PatientApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoPatient] abstractFilterDtoPatient (required):
-  Future<Response> rawMatchPatientsByWithHttpInfo(AbstractFilterDtoPatient abstractFilterDtoPatient,) async {
+  /// * [AbstractFilterDto<PatientDto>] abstractFilterDtoPatient (required):
+  Future<Response> rawMatchPatientsByWithHttpInfo(AbstractFilterDto<PatientDto> abstractFilterDtoPatient,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/match';
 
@@ -1708,8 +1708,8 @@ class PatientApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoPatient] abstractFilterDtoPatient (required):
-  Future<List<String>?> rawMatchPatientsBy(AbstractFilterDtoPatient abstractFilterDtoPatient,) async {
+  /// * [AbstractFilterDto<PatientDto>] abstractFilterDtoPatient (required):
+  Future<List<String>?> rawMatchPatientsBy(AbstractFilterDto<PatientDto> abstractFilterDtoPatient,) async {
     final response = await rawMatchPatientsByWithHttpInfo(abstractFilterDtoPatient,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
