@@ -6,7 +6,6 @@ import 'dart:io';
 import 'package:crypton/crypton.dart';
 import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/crypto/crypto.dart';
-import 'package:pointycastle/api.dart';
 import "package:test/test.dart";
 import 'package:icure_dart_sdk/util/binary_utils.dart';
 import 'package:uuid/uuid.dart';
@@ -56,7 +55,7 @@ void main() {
       );
 
       // When
-      var createdPatient = await PatientApiCrypto(patientApi).createPatient(currentUser, patient, patientCryptoConfig(lc));
+      var createdPatient = await patientApi.createPatient(currentUser, patient, patientCryptoConfig(lc));
 
       // Then
       expect(createdPatient!.id, patient.id);
