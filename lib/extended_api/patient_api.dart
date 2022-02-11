@@ -146,8 +146,7 @@ extension PatientApiCrypto on PatientApi {
         await PatientCryptoConfiguration(config).encryptPatient(
             user.healthcarePartyId!,
             <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
-            patient
-        ));
+            DecryptedPatientDtoExtensions(patient).initPatient()));
     return newPatient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, newPatient) : null;
   }
 
@@ -165,12 +164,14 @@ extension PatientApiCrypto on PatientApi {
     return modifiedIdsWithRevs != null ? modifiedIdsWithRevs : List<IdWithRevDto>.empty();
   }
 
-  Future<DecryptedHealthElementDto?> modifyHealthElement(
-      UserDto user, DecryptedHealthElementDto healthElementDto, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
-    final HealthElementDto encryptedHealthElement = await config.encryptHealthElement(user.healthcarePartyId!,
-        <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, healthElementDto);
-    var modifiedHealthElement = await this.rawModifyHealthElement(encryptedHealthElement);
-    return modifiedHealthElement != null ? await config.decryptHealthElement(user.healthcarePartyId!, modifiedHealthElement) : null;
+  Future<DecryptedPatientDto?> modifyPatient(
+      UserDto user, DecryptedPatientDto patientDto, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    final PatientDto encryptedPatient = await PatientCryptoConfiguration(config).encryptPatient(
+        user.healthcarePartyId!,
+        <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
+        DecryptedPatientDtoExtensions(patientDto).initPatient());
+    var modifiedPatient = await this.rawModifyPatient(encryptedPatient);
+    return modifiedPatient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, modifiedPatient) : null;
   }
 }
 
