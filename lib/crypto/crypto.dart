@@ -5,12 +5,11 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:crypton/crypton.dart';
-import 'package:pointycastle/export.dart' as pointy;
-
 import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/util/binary_utils.dart';
 import 'package:icure_dart_sdk/util/collection_utils.dart';
 import 'package:icure_dart_sdk/util/functional_utils.dart';
+import 'package:pointycastle/export.dart' as pointy;
 import 'package:steel_crypt/steel_crypt.dart';
 import 'package:tuple/tuple.dart';
 
@@ -36,48 +35,51 @@ abstract class Crypto {
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
   return BaseCryptoConfig(
       crypto,
-          (dec) async =>
-          Tuple2(PatientDto.fromJson(dec.toJson()
-            ..remove('note'))!, Uint8List.fromList(json
-              .encode({'note': dec.note})
-              .codeUnits)),
-          (cry, data) async =>
-      DecryptedPatientDto.fromJson(cry.toJson()
-        ..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!);
+      (dec) async => Tuple2(PatientDto.fromJson(dec.toJson()..remove('note'))!, Uint8List.fromList(json.encode({'note': dec.note}).codeUnits)),
+      (cry, data) async => DecryptedPatientDto.fromJson(cry.toJson()..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!);
 }
 
 BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto user, Crypto crypto) {
-  return BaseCryptoConfig(
-      crypto,
-          (dec) async {
-        var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, dec.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
-        if (key == null) {
-          throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.healthcarePartyId}");
-        }
+  return BaseCryptoConfig(crypto, (dec) async {
+    var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, dec.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    if (key == null) {
+      throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.healthcarePartyId}");
+    }
 
-        return Tuple2(ContactDto.fromJson({...dec.toJson(), 'services': (await crypto.encryptServices(
-            user.healthcarePartyId!,
-            <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
-            key,
-            dec.services.toList()))
-            .toList()
-            .map((it) => it.toJson())
-        })!, Uint8List.fromList(json
-            .encode({})
-            .codeUnits));
-      },
-          (cry, data) async {
-        var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, cry.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
-        if (key == null) {
-          throw FormatException("Cannot get encryption key for ${cry.id} and hcp ${user.healthcarePartyId}");
-        }
+    return Tuple2(
+        ContactDto.fromJson({
+          ...dec.toJson(),
+          'services': (await crypto.encryptServices(
+                  user.healthcarePartyId!,
+                  <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
+                  key,
+                  dec.services.toList()))
+              .toList()
+              .map((it) => it.toJson())
+        })!,
+        Uint8List.fromList(json.encode({}).codeUnits));
+  }, (cry, data) async {
+    var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, cry.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    if (key == null) {
+      throw FormatException("Cannot get encryption key for ${cry.id} and hcp ${user.healthcarePartyId}");
+    }
 
-        return DecryptedContactDto.fromJson({
-          ...cry.toJson(),
-          'services': (await crypto.decryptServices(user.healthcarePartyId!, key, cry.services.toList())).toList().map((it) => it.toJson()),
-          ...(data != null ? json.decode(String.fromCharCodes(data)) : {})
-        })!;
-      });
+    return DecryptedContactDto.fromJson({
+      ...cry.toJson(),
+      'services': (await crypto.decryptServices(user.healthcarePartyId!, key, cry.services.toList())).toList().map((it) => it.toJson()),
+      ...(data != null ? json.decode(String.fromCharCodes(data)) : {})
+    })!;
+  });
+}
+
+BaseCryptoConfig<DecryptedHealthElementDto, HealthElementDto> healthElementCryptoConfig(Crypto crypto) {
+  //TODO : Check if this work
+  return BaseCryptoConfig(crypto, (decryptedHealthElementDto) async {
+    return Tuple2(HealthElementDto.fromJson({...decryptedHealthElementDto.toJson()})!, Uint8List.fromList(json.encode({}).codeUnits));
+  }, (encryptedHealthElementDto, data) async {
+    return DecryptedHealthElementDto.fromJson(
+        {...encryptedHealthElementDto.toJson(), ...(data != null ? json.decode(String.fromCharCodes(data)) : {})})!;
+  });
 }
 
 extension CryptoContact on Crypto {
@@ -107,9 +109,7 @@ extension CryptoContact on Crypto {
         })!;
       } else {
         return ServiceDto.fromJson(
-            {...s.toJson(), 'content': {}, 'encryptedSelf': base64.encoder.convert(Uint8List.fromList(json
-                .encode(s)
-                .codeUnits).encryptAES(key))})!;
+            {...s.toJson(), 'content': {}, 'encryptedSelf': base64.encoder.convert(Uint8List.fromList(json.encode(s).codeUnits).encryptAES(key))})!;
       }
     }));
   }
@@ -297,8 +297,7 @@ class LocalCrypto implements Crypto {
 
       updateHcParty(
           myId,
-              (hcp) async =>
-              healthcarePartyApi.modifyHealthcareParty(hcp.also((that) {
+              (hcp) async => healthcarePartyApi.modifyHealthcareParty(hcp.also((that) {
                 that.hcPartyKeys = that.hcPartyKeys
                   ..addAll({
                     delegateId: [keyForMe, keyForDelegate]
@@ -313,8 +312,7 @@ class LocalCrypto implements Crypto {
   Future<Map<String, Tuple2<String, Uint8List>>> decryptHcPartyKeys(Map<String, String> hcpKeys, String myId, RSAPrivateKey myPrivateKey) async {
     final decryptor = pointy.OAEPEncoding(pointy.RSAEngine())
       ..init(false, pointy.PrivateKeyParameter<pointy.RSAPrivateKey>(myPrivateKey.asPointyCastle));
-    return hcpKeys.map((k, v) =>
-        MapEntry(k, Tuple2(v, decryptor.process(v.fromHexString()))));
+    return hcpKeys.map((k, v) => MapEntry(k, Tuple2(v, decryptor.process(v.fromHexString()))));
   }
 }
 
@@ -327,32 +325,29 @@ extension aes on Uint8List {
   Uint8List encryptAES(Uint8List key) {
     var aesCrypt = AesCryptRaw(key: key, padding: PaddingAES.pkcs7);
     var iv = Uint8List.fromList(List<int>.generate(IV_BYTE_LENGTH, (i) => random.nextInt(256)));
-    return (BytesBuilder()..add(iv)..add(aesCrypt.cbc.encrypt(inp: this, iv: iv))).toBytes();
+    return (BytesBuilder()
+          ..add(iv)
+          ..add(aesCrypt.cbc.encrypt(inp: this, iv: iv)))
+        .toBytes();
   }
 }
 
 extension rsa on pointy.OAEPEncoding {
   Uint8List process(Uint8List input) {
-    final numBlocks = input.length ~/ this.inputBlockSize +
-        ((input.length % this.inputBlockSize != 0) ? 1 : 0);
+    final numBlocks = input.length ~/ this.inputBlockSize + ((input.length % this.inputBlockSize != 0) ? 1 : 0);
 
     final output = Uint8List(numBlocks * this.outputBlockSize);
 
     var inputOffset = 0;
     var outputOffset = 0;
     while (inputOffset < input.length) {
-      final chunkSize = (inputOffset + this.inputBlockSize <= input.length)
-          ? this.inputBlockSize
-          : input.length - inputOffset;
+      final chunkSize = (inputOffset + this.inputBlockSize <= input.length) ? this.inputBlockSize : input.length - inputOffset;
 
-      outputOffset += this
-          .processBlock(input, inputOffset, chunkSize, output, outputOffset);
+      outputOffset += this.processBlock(input, inputOffset, chunkSize, output, outputOffset);
 
       inputOffset += chunkSize;
     }
 
-    return (output.length == outputOffset)
-        ? output
-        : output.sublist(0, outputOffset);
+    return (output.length == outputOffset) ? output : output.sublist(0, outputOffset);
   }
 }
