@@ -814,7 +814,7 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<Response> rawSetDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String? enckeys, }) async {
+  Future<Response> rawSetDocumentAttachmentWithHttpInfo(String documentId, ByteStream body, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment'
       .replaceAll('{documentId}', documentId);
@@ -855,8 +855,8 @@ class DocumentApi {
   /// * [MultipartFile] body (required):
   ///
   /// * [String] enckeys:
-  Future<DocumentDto?> rawSetDocumentAttachment(String documentId, MultipartFile body, { String? enckeys, }) async {
-    final response = await rawSetDocumentAttachmentWithHttpInfo(documentId, body,  enckeys: enckeys, );
+  Future<DocumentDto?> rawSetDocumentAttachment(String documentId, ByteStream attachment, { String? enckeys, }) async {
+    final response = await rawSetDocumentAttachmentWithHttpInfo(documentId, attachment,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -881,13 +881,10 @@ class DocumentApi {
   /// * [String] attachment (required):
   ///
   /// * [String] enckeys:
-  Future<Response> rawSetDocumentAttachmentMultiWithHttpInfo(String documentId, String attachment, { String? enckeys, }) async {
+  Future<Response> rawSetDocumentAttachmentMultiWithHttpInfo(String documentId, MultipartFile attachment, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/document/{documentId}/attachment/multipart'
       .replaceAll('{documentId}', documentId);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -900,21 +897,14 @@ class DocumentApi {
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['multipart/form-data'];
 
-    bool hasFields = false;
     final mp = MultipartRequest('PUT', Uri.parse(path));
-    if (attachment != null) {
-      hasFields = true;
-      mp.fields[r'attachment'] = parameterToString(attachment);
-    }
-    if (hasFields) {
-      postBody = mp;
-    }
+    mp.files.add(attachment);
 
     return apiClient.invokeAPI(
       path,
       'PUT',
       queryParams,
-      postBody,
+      mp,
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
@@ -931,7 +921,7 @@ class DocumentApi {
   /// * [String] attachment (required):
   ///
   /// * [String] enckeys:
-  Future<DocumentDto?> rawSetDocumentAttachmentMulti(String documentId, String attachment, { String? enckeys, }) async {
+  Future<DocumentDto?> rawSetDocumentAttachmentMulti(String documentId, MultipartFile attachment, { String? enckeys, }) async {
     final response = await rawSetDocumentAttachmentMultiWithHttpInfo(documentId, attachment,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

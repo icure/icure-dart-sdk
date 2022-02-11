@@ -1,5 +1,15 @@
 // @dart=2.12
-part of icure_dart_sdk.api;
+
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:icure_dart_sdk/api.dart';
+import 'package:icure_dart_sdk/crypto/crypto.dart';
+import 'package:icure_dart_sdk/util/binary_utils.dart';
+import 'package:icure_dart_sdk/util/collection_utils.dart';
+import 'package:tuple/tuple.dart';
+import 'package:uuid/uuid.dart';
+import 'package:uuid/uuid_util.dart';
 
 extension CryptoSupport on PatientApi {}
 
@@ -7,8 +17,7 @@ extension InitDto on PatientDto {
   Future<PatientDto> initDelegations(UserDto user, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
     final Uuid uuid = Uuid();
 
-    Set<String> delegationKeys =
-    Set.from(user.autoDelegations["all"] ?? <String>{})
+    Set<String> delegationKeys = Set.from(user.autoDelegations["all"] ?? <String>{})
       ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{});
     final ek = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
     final sfk = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
@@ -44,9 +53,7 @@ extension InitDto on PatientDto {
   }
 }
 
-
 extension PatientCryptoConfiguration on CryptoConfig<DecryptedPatientDto, PatientDto> {
-
   Future<DecryptedPatientDto> decryptPatient(String dataOwnerId, PatientDto patient) async {
     final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, patient.encryptionKeys))
         .firstOrNull()?.formatAsKey().fromHexString();
@@ -88,6 +95,48 @@ extension PatientCryptoConfiguration on CryptoConfig<DecryptedPatientDto, Patien
   }
 }
 
+extension DecryptedPatientDtoExtensions on DecryptedPatientDto {
+  bool hasName(PersonNameDtoUseEnum nameUse) {
+    return this.names.any((element) => element.use == nameUse);
+  }
+
+  PersonNameDto findName(PersonNameDtoUseEnum nameUse) {
+    return this.names.firstWhere((element) => element.use == nameUse);
+  }
+
+  DecryptedPatientDto _addName(PersonNameDtoUseEnum use, String lastName, String? firstName) {
+    this.names = [...this.names, PersonNameDto(lastName: lastName, firstNames: firstName != null ? [firstName] : [], use: use)];
+    return this;
+  }
+
+  DecryptedPatientDto initPatient() {
+    if (this.lastName == null && DecryptedPatientDtoExtensions(this).hasName(PersonNameDtoUseEnum.official)) {
+      this.lastName = DecryptedPatientDtoExtensions(this)
+          .findName(PersonNameDtoUseEnum.official)
+          .lastName;
+    } else if (this.firstName == null && DecryptedPatientDtoExtensions(this).hasName(PersonNameDtoUseEnum.official)) {
+      this.firstName = DecryptedPatientDtoExtensions(this)
+          .findName(PersonNameDtoUseEnum.official)
+          .firstNames
+          .firstOrNull();
+    } else if (this.maidenName == null && DecryptedPatientDtoExtensions(this).hasName(PersonNameDtoUseEnum.maiden)) {
+      this.maidenName = DecryptedPatientDtoExtensions(this)
+          .findName(PersonNameDtoUseEnum.maiden)
+          .lastName;
+    } else if (this.alias == null && DecryptedPatientDtoExtensions(this).hasName(PersonNameDtoUseEnum.official)) {
+      this.alias = DecryptedPatientDtoExtensions(this)
+          .findName(PersonNameDtoUseEnum.nickname)
+          .lastName;
+    } else if (this.lastName != null && !DecryptedPatientDtoExtensions(this).hasName(PersonNameDtoUseEnum.official)) {
+      return DecryptedPatientDtoExtensions(this)._addName(PersonNameDtoUseEnum.official, this.lastName!, this.firstName);
+    } else if (this.maidenName != null && !DecryptedPatientDtoExtensions(this).hasName(PersonNameDtoUseEnum.maiden)) {
+      return DecryptedPatientDtoExtensions(this)._addName(PersonNameDtoUseEnum.maiden, this.maidenName!, this.firstName);
+    } else if (this.alias != null && !DecryptedPatientDtoExtensions(this).hasName(PersonNameDtoUseEnum.nickname)) {
+      return DecryptedPatientDtoExtensions(this)._addName(PersonNameDtoUseEnum.nickname, this.alias!, this.firstName);
+    }
+    return this;
+  }
+}
 
 extension PatientApiCrypto on PatientApi {
   Future<DecryptedPatientDto?> createPatient(UserDto user, DecryptedPatientDto patient,
@@ -97,17 +146,42 @@ extension PatientApiCrypto on PatientApi {
         await PatientCryptoConfiguration(config).encryptPatient(
             user.healthcarePartyId!,
             <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
-            patient
-        )
-    );
+            DecryptedPatientDtoExtensions(patient).initPatient()));
     return newPatient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, newPatient) : null;
   }
 
-  Future<DecryptedPatientDto?> getPatient(UserDto user, String patientId,
-      CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
-
+  Future<DecryptedPatientDto?> getPatient(UserDto user, String patientId, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
     var patient = await this.rawGetPatient(patientId);
     return patient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, patient) : null;
   }
 
+  Future<List<IdWithRevDto>> modifyPatients(
+      UserDto user, List<DecryptedPatientDto> patients, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    final Set<String> delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
+    final List<PatientDto> encryptedPatients = await Future.wait(patients.map((patient) => PatientCryptoConfiguration(config)
+        .encryptPatient(user.healthcarePartyId!, delegations, DecryptedPatientDtoExtensions(patient).initPatient())));
+    final List<IdWithRevDto>? modifiedIdsWithRevs = await this.rawModifyPatients(encryptedPatients);
+    return modifiedIdsWithRevs != null ? modifiedIdsWithRevs : List<IdWithRevDto>.empty();
+  }
+
+  Future<DecryptedPatientDto?> modifyPatient(
+      UserDto user, DecryptedPatientDto patientDto, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    final PatientDto encryptedPatient = await PatientCryptoConfiguration(config).encryptPatient(
+        user.healthcarePartyId!,
+        <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
+        DecryptedPatientDtoExtensions(patientDto).initPatient());
+    var modifiedPatient = await this.rawModifyPatient(encryptedPatient);
+    return modifiedPatient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, modifiedPatient) : null;
+  }
+
+  Future<List<IdWithRevDto>> deletePatients(
+      UserDto user, List<DecryptedPatientDto> patients, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    final int currentTime = DateTime.now().millisecondsSinceEpoch;
+    final List<DecryptedPatientDto> updatedPatients = patients.map((patient) {
+      patient.endOfLife = currentTime;
+      return patient;
+    }).toList();
+    return modifyPatients(user, updatedPatients, config);
+  }
 }
+
