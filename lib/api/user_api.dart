@@ -70,7 +70,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
-    
+
     }
     return null;
   }
@@ -121,7 +121,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
-    
+
     }
     return null;
   }
@@ -182,7 +182,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
-    
+
     }
     return null;
   }
@@ -240,7 +240,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
-    
+
     }
     return null;
   }
@@ -303,7 +303,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
-    
+
     }
     return null;
   }
@@ -362,7 +362,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocIdentifier',) as DocIdentifier;
-    
+
     }
     return null;
   }
@@ -426,7 +426,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+
     }
     return null;
   }
@@ -477,7 +477,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+
     }
     return null;
   }
@@ -490,14 +490,14 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainUser] filterChainUser (required):
+  /// * [FilterChain<ser]Dto> filterChainUser (required):
   ///
   /// * [String] startDocumentId:
   ///   A User document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterUsersByWithHttpInfo(FilterChainUser filterChainUser, { String? startDocumentId, int? limit, }) async {
+  Future<Response> filterUsersByWithHttpInfo(FilterChain<UserDto> filterChainUser, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/filter';
 
@@ -537,14 +537,14 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainUser] filterChainUser (required):
+  /// * [FilterChain<ser]Dto> filterChainUser (required):
   ///
   /// * [String] startDocumentId:
   ///   A User document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListUserDto?> filterUsersBy(FilterChainUser filterChainUser, { String? startDocumentId, int? limit, }) async {
+  Future<PaginatedListUserDto?> filterUsersBy(FilterChain<UserDto> filterChainUser, { String? startDocumentId, int? limit, }) async {
     final response = await filterUsersByWithHttpInfo(filterChainUser,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -554,7 +554,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListUserDto',) as PaginatedListUserDto;
-    
+
     }
     return null;
   }
@@ -624,7 +624,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [String] email (required):
-  ///   the email of the user 
+  ///   the email of the user
   ///
   /// * [EmailTemplateDto] emailTemplateDto (required):
   Future<Response> forgottenPasswordWithHttpInfo(String email, EmailTemplateDto emailTemplateDto,) async {
@@ -660,7 +660,7 @@ class UserApi {
   /// Parameters:
   ///
   /// * [String] email (required):
-  ///   the email of the user 
+  ///   the email of the user
   ///
   /// * [EmailTemplateDto] emailTemplateDto (required):
   Future<bool?> forgottenPassword(String email, EmailTemplateDto emailTemplateDto,) async {
@@ -673,7 +673,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
-    
+
     }
     return null;
   }
@@ -723,7 +723,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+
     }
     return null;
   }
@@ -773,7 +773,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
-    
+
     }
     return null;
   }
@@ -898,7 +898,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+
     }
     return null;
   }
@@ -957,7 +957,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
-    
+
     }
     return null;
   }
@@ -1016,7 +1016,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
-    
+
     }
     return null;
   }
@@ -1098,7 +1098,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListUserDto',) as PaginatedListUserDto;
-    
+
     }
     return null;
   }
@@ -1185,12 +1185,12 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListUserDto',) as PaginatedListUserDto;
-    
+
     }
     return null;
   }
 
-  /// Get ids of healthcare party matching the provided filter for the current user (HcParty) 
+  /// Get ids of healthcare party matching the provided filter for the current user (HcParty)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1224,7 +1224,7 @@ class UserApi {
     );
   }
 
-  /// Get ids of healthcare party matching the provided filter for the current user (HcParty) 
+  /// Get ids of healthcare party matching the provided filter for the current user (HcParty)
   ///
   /// Parameters:
   ///
@@ -1305,7 +1305,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
-    
+
     }
     return null;
   }
@@ -1363,7 +1363,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
-    
+
     }
     return null;
   }
@@ -1426,7 +1426,7 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserDto',) as UserDto;
-    
+
     }
     return null;
   }
