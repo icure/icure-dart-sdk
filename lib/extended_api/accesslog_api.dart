@@ -91,11 +91,14 @@ extension AccessLogCryptoConfig on CryptoConfig<DecryptedAccessLogDto, AccessLog
 }
 
 extension AccessLogExtendedApi on AccessLogApi {
+
   Future<DecryptedAccessLogDto?> createAccessLog(UserDto user, DecryptedAccessLogDto accessLogDto,
       CryptoConfig<DecryptedAccessLogDto, AccessLogDto> config) async {
+
     final AccessLogDto encryptedAccessLog = await config.encryptAccessLog(user.healthcarePartyId!, (user.autoDelegations["all"] ?? <String>{})
       ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{}), accessLogDto);
-    final AccessLogDto? createdAccessLog = await this.createAccessLog(encryptedAccessLog);
+    final AccessLogDto? createdAccessLog = await this.rawCreateAccessLog(encryptedAccessLog);
+
     return createdAccessLog != null ? await config.decryptAccessLog(user.healthcarePartyId!, createdAccessLog) : null;
   }
 }

@@ -27,7 +27,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> closeForHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawCloseForHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartySecretForeignKeys/close';
 
@@ -66,8 +66,8 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<ContactDto>?> closeForHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await closeForHCPartyPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<ContactDto>?> rawCloseForHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawCloseForHCPartyPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -93,7 +93,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ContactDto] contactDto (required):
-  Future<Response> createContactWithHttpInfo(ContactDto contactDto,) async {
+  Future<Response> rawCreateContactWithHttpInfo(ContactDto contactDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact';
 
@@ -128,7 +128,7 @@ class ContactApi {
   ///
   /// * [ContactDto] contactDto (required):
   Future<ContactDto?> rawCreateContact(ContactDto contactDto,) async {
-    final response = await createContactWithHttpInfo(contactDto,);
+    final response = await rawCreateContactWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -151,7 +151,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<ContactDto>] contactDto (required):
-  Future<Response> createContactsWithHttpInfo(List<ContactDto> contactDto,) async {
+  Future<Response> rawCreateContactsWithHttpInfo(List<ContactDto> contactDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/batch';
 
@@ -186,7 +186,7 @@ class ContactApi {
   ///
   /// * [List<ContactDto>] contactDto (required):
   Future<List<ContactDto>?> rawCreateContacts(List<ContactDto> contactDto,) async {
-    final response = await createContactsWithHttpInfo(contactDto,);
+    final response = await rawCreateContactsWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -212,7 +212,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> deleteContactsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawDeleteContactsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/delete/batch';
 
@@ -246,8 +246,8 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<DocIdentifier>?> deleteContacts(ListOfIdsDto listOfIdsDto,) async {
-    final response = await deleteContactsWithHttpInfo(listOfIdsDto,);
+  Future<List<DocIdentifier>?> rawDeleteContacts(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawDeleteContactsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -279,7 +279,7 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterContactsByWithHttpInfo(FilterChainContact filterChainContact, { String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFilterContactsByWithHttpInfo(FilterChainContact filterChainContact, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/filter';
 
@@ -331,7 +331,7 @@ class ContactApi {
     String? startDocumentId,
     int? limit,
   }) async {
-    final response = await filterContactsByWithHttpInfo(
+    final response = await rawFilterContactsByWithHttpInfo(
       filterChainContact,
       startDocumentId: startDocumentId,
       limit: limit,
@@ -366,7 +366,7 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterServicesByWithHttpInfo(FilterChainService filterChainService, { String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFilterServicesByWithHttpInfo(FilterChainService filterChainService, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/filter';
 
@@ -414,7 +414,7 @@ class ContactApi {
   /// * [int] limit:
   ///   Number of rows
   Future<PaginatedListServiceDto?> rawFilterServicesBy(FilterChainService filterChainService, { String? startDocumentId, int? limit,}) async {
-    final response = await filterServicesByWithHttpInfo(filterChainService, startDocumentId: startDocumentId, limit: limit,);
+    final response = await rawFilterServicesByWithHttpInfo(filterChainService, startDocumentId: startDocumentId, limit: limit,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -450,7 +450,7 @@ class ContactApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> findContactsByOpeningDateWithHttpInfo(int startKey, int endKey, String hcpartyid, { String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFindContactsByOpeningDateWithHttpInfo(int startKey, int endKey, String hcpartyid, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byOpeningDate';
 
@@ -514,7 +514,7 @@ class ContactApi {
     String? startDocumentId,
     int? limit,
   }) async {
-    final response = await findContactsByOpeningDateWithHttpInfo(
+    final response = await rawFindContactsByOpeningDateWithHttpInfo(
       startKey,
       endKey,
       hcpartyid,
@@ -543,7 +543,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] contactId (required):
-  Future<Response> getContactWithHttpInfo(String contactId,) async {
+  Future<Response> rawGetContactWithHttpInfo(String contactId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/{contactId}'
       .replaceAll('{contactId}', contactId);
@@ -576,8 +576,8 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] contactId (required):
-  Future<ContactDto?> getContact(String contactId,) async {
-    final response = await getContactWithHttpInfo(contactId,);
+  Future<ContactDto?> rawGetContact(String contactId,) async {
+    final response = await rawGetContactWithHttpInfo(contactId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -597,7 +597,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> getContactsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawGetContactsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byIds';
 
@@ -632,7 +632,7 @@ class ContactApi {
   Future<List<ContactDto>?> rawGetContacts(
     ListOfIdsDto listOfIdsDto,
   ) async {
-    final response = await getContactsWithHttpInfo(
+    final response = await rawGetContactsWithHttpInfo(
       listOfIdsDto,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -653,7 +653,7 @@ class ContactApi {
   /// Get an empty content
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getEmptyContentWithHttpInfo() async {
+  Future<Response> rawGetEmptyContentWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/content/empty';
 
@@ -681,8 +681,8 @@ class ContactApi {
   }
 
   /// Get an empty content
-  Future<ContentDto?> getEmptyContent() async {
-    final response = await getEmptyContentWithHttpInfo();
+  Future<ContentDto?> rawGetEmptyContent() async {
+    final response = await rawGetEmptyContentWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -705,7 +705,7 @@ class ContactApi {
   /// * [String] codeType (required):
   ///
   /// * [int] minOccurences (required):
-  Future<Response> getServiceCodesOccurencesWithHttpInfo(String codeType, int minOccurences,) async {
+  Future<Response> rawGetServiceCodesOccurencesWithHttpInfo(String codeType, int minOccurences,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/codes/{codeType}/{minOccurences}'
       .replaceAll('{codeType}', codeType)
@@ -741,8 +741,8 @@ class ContactApi {
   /// * [String] codeType (required):
   ///
   /// * [int] minOccurences (required):
-  Future<List<LabelledOccurenceDto>?> getServiceCodesOccurences(String codeType, int minOccurences,) async {
-    final response = await getServiceCodesOccurencesWithHttpInfo(codeType, minOccurences,);
+  Future<List<LabelledOccurenceDto>?> rawGetServiceCodesOccurences(String codeType, int minOccurences,) async {
+    final response = await rawGetServiceCodesOccurencesWithHttpInfo(codeType, minOccurences,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -768,7 +768,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> getServicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawGetServicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service';
 
@@ -802,8 +802,8 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<ServiceDto>?> getServices(ListOfIdsDto listOfIdsDto,) async {
-    final response = await getServicesWithHttpInfo(listOfIdsDto,);
+  Future<List<ServiceDto>?> rawGetServices(ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawGetServicesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -832,7 +832,7 @@ class ContactApi {
   ///
   /// * [String] linkType:
   ///   The type of the link
-  Future<Response> getServicesLinkedToWithHttpInfo(ListOfIdsDto listOfIdsDto, { String? linkType, }) async {
+  Future<Response> rawGetServicesLinkedToWithHttpInfo(ListOfIdsDto listOfIdsDto, { String? linkType, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/linkedTo';
 
@@ -873,8 +873,8 @@ class ContactApi {
   ///
   /// * [String] linkType:
   ///   The type of the link
-  Future<List<ServiceDto>?> getServicesLinkedTo(ListOfIdsDto listOfIdsDto, { String? linkType, }) async {
-    final response = await getServicesLinkedToWithHttpInfo(listOfIdsDto,  linkType: linkType, );
+  Future<List<ServiceDto>?> rawGetServicesLinkedTo(ListOfIdsDto listOfIdsDto, { String? linkType, }) async {
+    final response = await rawGetServicesLinkedToWithHttpInfo(listOfIdsDto,  linkType: linkType, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -900,7 +900,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] serviceId (required):
-  Future<Response> listContactByHCPartyServiceIdWithHttpInfo(String hcPartyId, String serviceId,) async {
+  Future<Response> rawListContactByHCPartyServiceIdWithHttpInfo(String hcPartyId, String serviceId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartyServiceId';
 
@@ -937,8 +937,8 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] serviceId (required):
-  Future<List<ContactDto>?> listContactByHCPartyServiceId(String hcPartyId, String serviceId,) async {
-    final response = await listContactByHCPartyServiceIdWithHttpInfo(hcPartyId, serviceId,);
+  Future<List<ContactDto>?> rawListContactByHCPartyServiceId(String hcPartyId, String serviceId,) async {
+    final response = await rawListContactByHCPartyServiceIdWithHttpInfo(hcPartyId, serviceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -962,7 +962,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] externalId (required):
-  Future<Response> listContactsByExternalIdWithHttpInfo(String externalId,) async {
+  Future<Response> rawListContactsByExternalIdWithHttpInfo(String externalId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byExternalId';
 
@@ -996,8 +996,8 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] externalId (required):
-  Future<List<ContactDto>?> listContactsByExternalId(String externalId,) async {
-    final response = await listContactsByExternalIdWithHttpInfo(externalId,);
+  Future<List<ContactDto>?> rawListContactsByExternalId(String externalId,) async {
+    final response = await rawListContactsByExternalIdWithHttpInfo(externalId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1023,7 +1023,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] formId (required):
-  Future<Response> listContactsByHCPartyAndFormIdWithHttpInfo(String hcPartyId, String formId,) async {
+  Future<Response> rawListContactsByHCPartyAndFormIdWithHttpInfo(String hcPartyId, String formId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartyFormId';
 
@@ -1060,8 +1060,8 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] formId (required):
-  Future<List<ContactDto>?> listContactsByHCPartyAndFormId(String hcPartyId, String formId,) async {
-    final response = await listContactsByHCPartyAndFormIdWithHttpInfo(hcPartyId, formId,);
+  Future<List<ContactDto>?> rawListContactsByHCPartyAndFormId(String hcPartyId, String formId,) async {
+    final response = await rawListContactsByHCPartyAndFormIdWithHttpInfo(hcPartyId, formId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1087,7 +1087,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> listContactsByHCPartyAndFormIdsWithHttpInfo(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawListContactsByHCPartyAndFormIdsWithHttpInfo(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartyFormIds';
 
@@ -1123,8 +1123,8 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<ContactDto>?> listContactsByHCPartyAndFormIds(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
-    final response = await listContactsByHCPartyAndFormIdsWithHttpInfo(hcPartyId, listOfIdsDto,);
+  Future<List<ContactDto>?> rawListContactsByHCPartyAndFormIds(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawListContactsByHCPartyAndFormIdsWithHttpInfo(hcPartyId, listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1150,7 +1150,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<Response> listContactsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
+  Future<Response> rawListContactsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartyPatientForeignKeys';
 
@@ -1186,8 +1186,8 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [ListOfIdsDto] listOfIdsDto (required):
-  Future<List<ContactDto>?> listContactsByHCPartyAndPatientForeignKeys(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
-    final response = await listContactsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, listOfIdsDto,);
+  Future<List<ContactDto>?> rawListContactsByHCPartyAndPatientForeignKeys(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
+    final response = await rawListContactsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1219,7 +1219,7 @@ class ContactApi {
   /// * [String] planOfActionsIds:
   ///
   /// * [bool] skipClosedContacts:
-  Future<Response> listContactsByHCPartyAndPatientSecretFKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String? planOfActionsIds, bool? skipClosedContacts, }) async {
+  Future<Response> rawListContactsByHCPartyAndPatientSecretFKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String? planOfActionsIds, bool? skipClosedContacts, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartySecretForeignKeys';
 
@@ -1268,8 +1268,8 @@ class ContactApi {
   /// * [String] planOfActionsIds:
   ///
   /// * [bool] skipClosedContacts:
-  Future<List<ContactDto>?> listContactsByHCPartyAndPatientSecretFKeys(String hcPartyId, String secretFKeys, { String? planOfActionsIds, bool? skipClosedContacts, }) async {
-    final response = await listContactsByHCPartyAndPatientSecretFKeysWithHttpInfo(hcPartyId, secretFKeys,  planOfActionsIds: planOfActionsIds, skipClosedContacts: skipClosedContacts, );
+  Future<List<ContactDto>?> rawListContactsByHCPartyAndPatientSecretFKeys(String hcPartyId, String secretFKeys, { String? planOfActionsIds, bool? skipClosedContacts, }) async {
+    final response = await rawListContactsByHCPartyAndPatientSecretFKeysWithHttpInfo(hcPartyId, secretFKeys,  planOfActionsIds: planOfActionsIds, skipClosedContacts: skipClosedContacts, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1297,7 +1297,7 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<Response> listContactsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
+  Future<Response> rawListContactsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/byHcPartySecretForeignKeys/delegations';
 
@@ -1336,8 +1336,8 @@ class ContactApi {
   /// * [String] hcPartyId (required):
   ///
   /// * [String] secretFKeys (required):
-  Future<List<IcureStubDto>?> listContactsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
-    final response = await listContactsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
+  Future<List<IcureStubDto>?> rawListContactsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
+    final response = await rawListContactsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1363,7 +1363,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] associationId (required):
-  Future<Response> listServicesByAssociationIdWithHttpInfo(String associationId,) async {
+  Future<Response> rawListServicesByAssociationIdWithHttpInfo(String associationId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/associationId';
 
@@ -1399,8 +1399,8 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] associationId (required):
-  Future<List<ServiceDto>?> listServicesByAssociationId(String associationId,) async {
-    final response = await listServicesByAssociationIdWithHttpInfo(associationId,);
+  Future<List<ServiceDto>?> rawListServicesByAssociationId(String associationId,) async {
+    final response = await rawListServicesByAssociationIdWithHttpInfo(associationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1426,7 +1426,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] healthElementId (required):
-  Future<Response> listServicesByHealthElementIdWithHttpInfo(String healthElementId,) async {
+  Future<Response> rawListServicesByHealthElementIdWithHttpInfo(String healthElementId,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/healthElementId/{healthElementId}'
       .replaceAll('{healthElementId}', healthElementId);
@@ -1461,8 +1461,8 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [String] healthElementId (required):
-  Future<List<ServiceDto>?> listServicesByHealthElementId(String healthElementId,) async {
-    final response = await listServicesByHealthElementIdWithHttpInfo(healthElementId,);
+  Future<List<ServiceDto>?> rawListServicesByHealthElementId(String healthElementId,) async {
+    final response = await rawListServicesByHealthElementIdWithHttpInfo(healthElementId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1485,7 +1485,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDto<ContactDto>] abstractFilterDtoContact (required):
-  Future<Response> matchContactsByWithHttpInfo(
+  Future<Response> rawMatchContactsByWithHttpInfo(
     AbstractFilterDto<ContactDto> abstractFilterDtoContact,
   ) async {
     // ignore: prefer_const_declarations
@@ -1519,10 +1519,10 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDto<ContactDto>] abstractFilterDtoContact (required):
-  Future<List<String>?> matchContactsBy(
+  Future<List<String>?> rawMatchContactsBy(
     AbstractFilterDto<ContactDto> abstractFilterDtoContact,
   ) async {
-    final response = await matchContactsByWithHttpInfo(
+    final response = await rawMatchContactsByWithHttpInfo(
       abstractFilterDtoContact,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1549,7 +1549,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [ContactDto] contactDto (required):
-  Future<Response> modifyContactWithHttpInfo(ContactDto contactDto,) async {
+  Future<Response> rawModifyContactWithHttpInfo(ContactDto contactDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact';
 
@@ -1584,7 +1584,7 @@ class ContactApi {
   ///
   /// * [ContactDto] contactDto (required):
   Future<ContactDto?> rawModifyContact(ContactDto contactDto,) async {
-    final response = await modifyContactWithHttpInfo(contactDto,);
+    final response = await rawModifyContactWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1607,7 +1607,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<ContactDto>] contactDto (required):
-  Future<Response> modifyContactsWithHttpInfo(List<ContactDto> contactDto,) async {
+  Future<Response> rawModifyContactsWithHttpInfo(List<ContactDto> contactDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/batch';
 
@@ -1642,7 +1642,7 @@ class ContactApi {
   ///
   /// * [List<ContactDto>] contactDto (required):
   Future<List<ContactDto>?> rawModifyContacts(List<ContactDto> contactDto,) async {
-    final response = await modifyContactsWithHttpInfo(contactDto,);
+    final response = await rawModifyContactsWithHttpInfo(contactDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1668,7 +1668,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<Response> modifyContactsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
+  Future<Response> rawModifyContactsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/delegations';
 
@@ -1702,8 +1702,8 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<ContactDto>?> modifyContactsDelegations(List<IcureStubDto> icureStubDto,) async {
-    final response = await modifyContactsDelegationsWithHttpInfo(icureStubDto,);
+  Future<List<ContactDto>?> rawModifyContactsDelegations(List<IcureStubDto> icureStubDto,) async {
+    final response = await rawModifyContactsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1731,7 +1731,7 @@ class ContactApi {
   /// * [String] contactId (required):
   ///
   /// * [DelegationDto] delegationDto (required):
-  Future<Response> newContactDelegationsWithHttpInfo(String contactId, DelegationDto delegationDto,) async {
+  Future<Response> rawNewContactDelegationsWithHttpInfo(String contactId, DelegationDto delegationDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/{contactId}/delegate'
       .replaceAll('{contactId}', contactId);
@@ -1768,8 +1768,8 @@ class ContactApi {
   /// * [String] contactId (required):
   ///
   /// * [DelegationDto] delegationDto (required):
-  Future<ContactDto?> newContactDelegations(String contactId, DelegationDto delegationDto,) async {
-    final response = await newContactDelegationsWithHttpInfo(contactId, delegationDto,);
+  Future<ContactDto?> rawNewContactDelegations(String contactId, DelegationDto delegationDto,) async {
+    final response = await rawNewContactDelegationsWithHttpInfo(contactId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1791,7 +1791,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<Response> setContactsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
+  Future<Response> rawSetContactsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/delegations';
 
@@ -1825,8 +1825,8 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [List<IcureStubDto>] icureStubDto (required):
-  Future<List<ContactDto>?> setContactsDelegations(List<IcureStubDto> icureStubDto,) async {
-    final response = await setContactsDelegationsWithHttpInfo(icureStubDto,);
+  Future<List<ContactDto>?> rawSetContactsDelegations(List<IcureStubDto> icureStubDto,) async {
+    final response = await rawSetContactsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
