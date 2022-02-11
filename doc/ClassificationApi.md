@@ -1,8 +1,8 @@
-# openapi.api.ClassificationApi
+# icure_dart_sdk.api.ClassificationApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -28,7 +28,7 @@ Returns an instance of created classification Template.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationApi();
 final classificationDto = ClassificationDto(); // ClassificationDto | 
@@ -71,7 +71,7 @@ Response is a set containing the ID's of deleted classification Templates.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -114,7 +114,7 @@ Keys hast to delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -157,7 +157,7 @@ Get a classification Template
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationApi();
 final classificationId = classificationId_example; // String | 
@@ -200,7 +200,7 @@ Ids are seperated by a coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationApi();
 final ids = ids_example; // String | 
@@ -243,7 +243,7 @@ Returns the modified classification Template.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationApi();
 final classificationDto = ClassificationDto(); // ClassificationDto | 
@@ -286,7 +286,7 @@ It delegates a classification to a healthcare party (By current healthcare party
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationApi();
 final classificationId = classificationId_example; // String | 
@@ -331,7 +331,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationApi();
 final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 

@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of icure_dart_sdk.api;
 
 class AddressDto {
   /// Returns a new [AddressDto] instance.
@@ -27,7 +27,7 @@ class AddressDto {
     this.encryptedSelf,
   });
 
-  /// The type of place the address represents, ex: home, office, hospital, clinic, etc. 
+  /// The type of place the address represents, ex: home, office, hospital, clinic, etc.
   AddressDtoAddressTypeEnum? addressType;
 
   /// Descriptive notes about the address
@@ -280,7 +280,7 @@ class AddressDto {
   };
 }
 
-/// The type of place the address represents, ex: home, office, hospital, clinic, etc. 
+/// The type of place the address represents, ex: home, office, hospital, clinic, etc.
 class AddressDtoAddressTypeEnum {
   /// Instantiate a new enum with the provided [value].
   const AddressDtoAddressTypeEnum._(this.value);

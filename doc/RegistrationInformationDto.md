@@ -1,8 +1,8 @@
-# openapi.model.RegistrationInformationDto
+# icure_dart_sdk.model.RegistrationInformationDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

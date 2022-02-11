@@ -1,8 +1,8 @@
-# openapi.model.PaginatedListAccessLogDto
+# icure_dart_sdk.model.PaginatedListAccessLogDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

@@ -1,8 +1,8 @@
-# openapi.model.AbstractFilterDtoHealthcareParty
+# icure_dart_sdk.model.AbstractFilterDtoHealthcareParty
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

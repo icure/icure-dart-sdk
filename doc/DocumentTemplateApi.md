@@ -1,8 +1,8 @@
-# openapi.api.DocumentTemplateApi
+# icure_dart_sdk.api.DocumentTemplateApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -33,7 +33,7 @@ Returns an instance of created document template.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final documentTemplateDto = DocumentTemplateDto(); // DocumentTemplateDto | 
@@ -74,7 +74,7 @@ Deletes document templates
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -115,7 +115,7 @@ Download a the document template attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final documentTemplateId = documentTemplateId_example; // String | 
@@ -158,7 +158,7 @@ Gets a document template
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final documentTemplateId = documentTemplateId_example; // String | 
@@ -199,7 +199,7 @@ Download a the document template attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final documentTemplateId = documentTemplateId_example; // String | 
@@ -242,7 +242,7 @@ Gets all document templates for all users
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 
@@ -279,7 +279,7 @@ Gets all document templates for current user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 
@@ -316,7 +316,7 @@ Gets all document templates by Type
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final documentTypeCode = documentTypeCode_example; // String | 
@@ -357,7 +357,7 @@ Gets all document templates by Type For currentUser
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final documentTypeCode = documentTypeCode_example; // String | 
@@ -398,7 +398,7 @@ Gets all document templates
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final specialityCode = specialityCode_example; // String | 
@@ -441,7 +441,7 @@ Returns an instance of created document template.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final documentTemplateId = documentTemplateId_example; // String | 
@@ -484,7 +484,7 @@ Creates a document's attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final documentTemplateId = documentTemplateId_example; // String | 
@@ -527,7 +527,7 @@ Creates a document's attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
 final documentTemplateId = documentTemplateId_example; // String | 

@@ -1,8 +1,8 @@
-# openapi.api.InsuranceApi
+# icure_dart_sdk.api.InsuranceApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -25,7 +25,7 @@ Creates an insurance
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
 final insuranceDto = InsuranceDto(); // InsuranceDto | 
@@ -66,7 +66,7 @@ Deletes an insurance
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
 final insuranceId = insuranceId_example; // String | 
@@ -107,7 +107,7 @@ Gets an insurance
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
 final insuranceId = insuranceId_example; // String | 
@@ -148,7 +148,7 @@ Gets insurances by id
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -189,7 +189,7 @@ Gets an insurance
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
 final insuranceCode = insuranceCode_example; // String | 
@@ -230,7 +230,7 @@ Gets an insurance
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
 final insuranceName = insuranceName_example; // String | 
@@ -271,7 +271,7 @@ Modifies an insurance
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
 final insuranceDto = InsuranceDto(); // InsuranceDto | 

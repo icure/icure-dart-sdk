@@ -1,8 +1,8 @@
-# openapi.api.FrontEndMigrationApi
+# icure_dart_sdk.api.FrontEndMigrationApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -24,7 +24,7 @@ Creates a front end migration
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
 final frontEndMigrationDto = FrontEndMigrationDto(); // FrontEndMigrationDto | 
@@ -65,7 +65,7 @@ Deletes a front end migration
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
 final frontEndMigrationId = frontEndMigrationId_example; // String | 
@@ -106,7 +106,7 @@ Gets a front end migration
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
 final frontEndMigrationId = frontEndMigrationId_example; // String | 
@@ -147,7 +147,7 @@ Gets an front end migration
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
 final frontEndMigrationName = frontEndMigrationName_example; // String | 
@@ -188,7 +188,7 @@ Gets a front end migration
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
 
@@ -225,7 +225,7 @@ Modifies a front end migration
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
 final frontEndMigrationDto = FrontEndMigrationDto(); // FrontEndMigrationDto | 

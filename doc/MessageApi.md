@@ -1,8 +1,8 @@
-# openapi.api.MessageApi
+# icure_dart_sdk.api.MessageApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -36,7 +36,7 @@ Creates a message
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final messageDto = MessageDto(); // MessageDto | 
@@ -77,7 +77,7 @@ Deletes a message delegation
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final messageId = messageId_example; // String | 
@@ -120,7 +120,7 @@ Deletes multiple messages
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -161,7 +161,7 @@ Get all messages (paginated) for current HC Party
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final startKey = startKey_example; // String | 
@@ -206,7 +206,7 @@ Get all messages (paginated) for current HC Party and provided from address
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final fromAddress = fromAddress_example; // String | 
@@ -257,7 +257,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final secretFKeys = secretFKeys_example; // String | 
@@ -298,7 +298,7 @@ Get all messages (paginated) for current HC Party and provided to address
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final toAddress = toAddress_example; // String | 
@@ -349,7 +349,7 @@ Get all messages (paginated) for current HC Party and provided transportGuid
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final transportGuid = transportGuid_example; // String | 
@@ -400,7 +400,7 @@ Get all messages starting by a prefix between two date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final transportGuid = transportGuid_example; // String | 
@@ -453,7 +453,7 @@ Get children messages of provided message
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final messageId = messageId_example; // String | 
@@ -494,7 +494,7 @@ Gets a message
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final messageId = messageId_example; // String | 
@@ -535,7 +535,7 @@ Get children messages of provided message
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -576,7 +576,7 @@ Get children messages of provided message
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -617,7 +617,7 @@ Get all messages for current HC Party and provided transportGuids
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final hcpId = hcpId_example; // String | 
@@ -660,7 +660,7 @@ Updates a message
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final messageDto = MessageDto(); // MessageDto | 
@@ -701,7 +701,7 @@ Adds a delegation to a message
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final messageId = messageId_example; // String | 
@@ -744,7 +744,7 @@ Set read status for given list of messages
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final messagesReadStatusUpdate = MessagesReadStatusUpdate(); // MessagesReadStatusUpdate | 
@@ -785,7 +785,7 @@ Set status bits for given list of messages
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
 final status = 56; // int | 

@@ -1,8 +1,8 @@
-# openapi.api.ArticleApi
+# icure_dart_sdk.api.ArticleApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -23,7 +23,7 @@ Creates a article
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ArticleApi();
 final articleDto = ArticleDto(); // ArticleDto | 
@@ -64,7 +64,7 @@ Deletes articles
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ArticleApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -105,7 +105,7 @@ Gets an article
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ArticleApi();
 final articleId = articleId_example; // String | 
@@ -146,7 +146,7 @@ Gets all articles
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ArticleApi();
 
@@ -183,7 +183,7 @@ Modifies an article
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ArticleApi();
 final articleDto = ArticleDto(); // ArticleDto | 

@@ -1,6 +1,6 @@
 // @dart=2.12
 
-part of openapi.api;
+part of icure_dart_sdk.api;
 
 
 class AllDevicesFilter extends AbstractFilterDto<DeviceDto> {

@@ -1,8 +1,8 @@
-# openapi.api.HealthElementApi
+# icure_dart_sdk.api.HealthElementApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -33,7 +33,7 @@ Returns an instance of created health element.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final healthElementDto = HealthElementDto(); // HealthElementDto | 
@@ -76,7 +76,7 @@ Returns the created healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> | 
@@ -119,7 +119,7 @@ Response is a set containing the ID's of deleted health elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -162,7 +162,7 @@ Returns a list of health elements along with next start keys and Document ID. If
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final filterChainHealthElement = FilterChainHealthElement(); // FilterChainHealthElement | 
@@ -207,7 +207,7 @@ Get a health element
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final healthElementId = healthElementId_example; // String | 
@@ -250,7 +250,7 @@ Get a list of healthElement by ids/keys.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -293,7 +293,7 @@ Keys hast to delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -338,7 +338,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -381,7 +381,7 @@ Get ids of health element matching the provided filter for the current user (HcP
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final abstractFilterDtoHealthElement = AbstractFilterDtoHealthElement(); // AbstractFilterDtoHealthElement | 
@@ -424,7 +424,7 @@ Returns the modified health element.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final healthElementDto = HealthElementDto(); // HealthElementDto | 
@@ -467,7 +467,7 @@ Returns the modified health elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> | 
@@ -510,7 +510,7 @@ It delegates a health element to a healthcare party (By current healthcare party
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final healthElementId = healthElementId_example; // String | 
@@ -555,7 +555,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
 final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 

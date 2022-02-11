@@ -1,8 +1,8 @@
-# openapi.api.ContactApi
+# icure_dart_sdk.api.ContactApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -48,7 +48,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -93,7 +93,7 @@ Returns an instance of created contact.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final contactDto = ContactDto(); // ContactDto | 
@@ -136,7 +136,7 @@ Returns the modified contacts.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final contactDto = [List<ContactDto>()]; // List<ContactDto> | 
@@ -179,7 +179,7 @@ Response is a set containing the ID's of deleted contacts.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -222,7 +222,7 @@ Returns a list of contacts along with next start keys and Document ID. If the ne
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final filterChainContact = FilterChainContact(); // FilterChainContact | 
@@ -269,7 +269,7 @@ Returns a list of contacts along with next start keys and Document ID. If the ne
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final filterChainService = FilterChainService(); // FilterChainService | 
@@ -316,7 +316,7 @@ Returns a list of contacts.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final startKey = 789; // int | The contact openingDate
@@ -365,7 +365,7 @@ Get a contact
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final contactId = contactId_example; // String | 
@@ -406,7 +406,7 @@ Get contacts
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -447,7 +447,7 @@ Get an empty content
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 
@@ -484,7 +484,7 @@ Get the list of all used codes frequencies in services
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final codeType = codeType_example; // String | 
@@ -529,7 +529,7 @@ Returns a list of services
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -572,7 +572,7 @@ Returns a list of services
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -615,7 +615,7 @@ List contacts found By Healthcare Party and service Id.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -658,7 +658,7 @@ List contacts found By externalId.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final externalId = externalId_example; // String | 
@@ -699,7 +699,7 @@ List contacts found By Healthcare Party and form Id.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -742,7 +742,7 @@ List contacts found By Healthcare Party and form Id.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -785,7 +785,7 @@ List contacts found By Healthcare Party and Patient foreign keys.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -830,7 +830,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -879,7 +879,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -924,7 +924,7 @@ Returns a list of services
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final associationId = associationId_example; // String | 
@@ -967,7 +967,7 @@ Returns the list of services linked to the provided health element id
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final healthElementId = healthElementId_example; // String | 
@@ -1008,7 +1008,7 @@ Get ids of contacts matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final abstractFilterDtoContact = AbstractFilterDtoContact(); // AbstractFilterDtoContact | 
@@ -1051,7 +1051,7 @@ Returns the modified contact.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final contactDto = ContactDto(); // ContactDto | 
@@ -1094,7 +1094,7 @@ Returns the modified contacts.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final contactDto = [List<ContactDto>()]; // List<ContactDto> | 
@@ -1137,7 +1137,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
@@ -1180,7 +1180,7 @@ It delegates a contact to a healthcare party (By current healthcare party). Retu
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final contactId = contactId_example; // String | 
@@ -1225,7 +1225,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
 final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 

@@ -1,8 +1,8 @@
-# openapi.api.PlaceApi
+# icure_dart_sdk.api.PlaceApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -23,7 +23,7 @@ Creates a place
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PlaceApi();
 final placeDto = PlaceDto(); // PlaceDto | 
@@ -64,7 +64,7 @@ Deletes places
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PlaceApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -105,7 +105,7 @@ Gets an place
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PlaceApi();
 final placeId = placeId_example; // String | 
@@ -146,7 +146,7 @@ Gets all places
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PlaceApi();
 
@@ -183,7 +183,7 @@ Modifies an place
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PlaceApi();
 final placeDto = PlaceDto(); // PlaceDto | 

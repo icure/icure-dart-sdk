@@ -1,8 +1,8 @@
-# openapi.model.MessageReadStatusDto
+# icure_dart_sdk.model.MessageReadStatusDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

@@ -1,8 +1,8 @@
-# openapi.api.AuthApi
+# icure_dart_sdk.api.AuthApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -24,7 +24,7 @@ Login using username and password
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AuthApi();
 final loginCredentials = LoginCredentials(); // LoginCredentials | 
@@ -67,7 +67,7 @@ Logout
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AuthApi();
 
@@ -106,7 +106,7 @@ Logout
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AuthApi();
 
@@ -145,7 +145,7 @@ Get token for subsequent operation
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AuthApi();
 final method = method_example; // String | 

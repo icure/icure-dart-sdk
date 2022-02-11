@@ -1,8 +1,8 @@
-# openapi.model.IngredientDto
+# icure_dart_sdk.model.IngredientDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

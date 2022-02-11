@@ -1,8 +1,8 @@
-# openapi.api.HealthcarePartyApi
+# icure_dart_sdk.api.HealthcarePartyApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -39,7 +39,7 @@ One of Name or Last name+First name, Nihii, and Public key are required.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto | 
@@ -82,7 +82,7 @@ One of Name or Last name+First name, Nihii, and Public key are required.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final groupId = groupId_example; // String | 
@@ -127,7 +127,7 @@ Deleting healthcareParties. Response is an array containing the id of deleted he
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -170,7 +170,7 @@ Deleting a healthcareParty. Response is an array containing the id of deleted he
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final groupId = groupId_example; // String | 
@@ -215,7 +215,7 @@ Returns a list of healthcare party along with next start keys and Document ID. I
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final filterChainHealthcareParty = FilterChainHealthcareParty(); // FilterChainHealthcareParty | 
@@ -262,7 +262,7 @@ Returns a list of healthcare parties.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final startKey = startKey_example; // String | A healthcare party Last name
@@ -311,7 +311,7 @@ Returns a list of healthcare parties.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final name = name_example; // String | The Last name search value
@@ -362,7 +362,7 @@ Returns a list of healthcare parties.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final type = type_example; // String | The type of the HCP (persphysician)
@@ -413,7 +413,7 @@ Returns a list of healthcare parties.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final searchValue = searchValue_example; // String | 
@@ -464,7 +464,7 @@ General information about the current healthcare Party
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 
@@ -503,7 +503,7 @@ Get the HcParty encrypted AES keys indexed by owner
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final healthcarePartyId = healthcarePartyId_example; // String | 
@@ -546,7 +546,7 @@ General information about the healthcare Party
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -589,7 +589,7 @@ General information about the healthcare Party
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final healthcarePartyId = healthcarePartyId_example; // String | 
@@ -632,7 +632,7 @@ Returns the public key of a healthcare party in Hex
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final healthcarePartyId = healthcarePartyId_example; // String | 
@@ -675,7 +675,7 @@ Returns a list of healthcare parties.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final name = name_example; // String | The Last name search value
@@ -718,7 +718,7 @@ Return a list of children hcp.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final parentId = parentId_example; // String | 
@@ -759,7 +759,7 @@ Get ids of healthcare party matching the provided filter for the current user (H
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final abstractFilterDtoHealthcareParty = AbstractFilterDtoHealthcareParty(); // AbstractFilterDtoHealthcareParty | 
@@ -802,7 +802,7 @@ No particular return value. It's just a message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto | 
@@ -845,7 +845,7 @@ No particular return value. It's just a message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
 final groupId = groupId_example; // String | 

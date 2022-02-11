@@ -1,8 +1,8 @@
-# openapi.model.PlanOfActionDto
+# icure_dart_sdk.model.PlanOfActionDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

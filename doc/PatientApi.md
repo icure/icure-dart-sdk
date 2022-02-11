@@ -1,8 +1,8 @@
-# openapi.api.PatientApi
+# icure_dart_sdk.api.PatientApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -49,7 +49,7 @@ Returns the count of patients
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final hcPartyId = hcPartyId_example; // String | Healthcare party id
@@ -92,7 +92,7 @@ Name, last name, date of birth, and gender are required. After creation of the p
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final patientDto = PatientDto(); // PatientDto | 
@@ -135,7 +135,7 @@ Returns the id and _rev of created patients
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final patientDto = [List<PatientDto>()]; // List<PatientDto> | 
@@ -178,7 +178,7 @@ Response is an array containing the ID of deleted patient..
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -221,7 +221,7 @@ Returns a list of patients along with next start keys and Document ID. If the ne
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final filterChainPatient = FilterChainPatient(); // FilterChainPatient | 
@@ -276,7 +276,7 @@ Returns a list of deleted patients, within the specified time period, if any.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final startDate = 789; // int | Filter deletions after this date (unix epoch), included
@@ -325,7 +325,7 @@ Provides a paginated list of patients with duplicate name for an hecparty
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final hcPartyId = hcPartyId_example; // String | Healthcare party id
@@ -372,7 +372,7 @@ Provides a paginated list of patients with duplicate ssin for an hecparty
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final hcPartyId = hcPartyId_example; // String | Healthcare party id
@@ -419,7 +419,7 @@ Get Paginated List of Patients sorted by Access logs descending
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final userId = userId_example; // String | A User ID
@@ -472,7 +472,7 @@ Returns a list of patients along with next start keys and Document ID. If the ne
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final hcPartyId = hcPartyId_example; // String | Healthcare party id
@@ -525,7 +525,7 @@ Returns a list of patients along with next start keys and Document ID. If the ne
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final healthcarePartyId = healthcarePartyId_example; // String | HealthcareParty Id, if unset will user user's hcpId
@@ -578,7 +578,7 @@ Returns a list of patients along with next start keys and Document ID. If the ne
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final hcPartyId = hcPartyId_example; // String | Healthcare party id
@@ -627,7 +627,7 @@ Returns a list of patients that have been modified after the provided date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final date = 789; // int | 
@@ -676,7 +676,7 @@ Returns a list of patients
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final firstName = firstName_example; // String | The first name
@@ -723,7 +723,7 @@ It gets patient administrative data.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final patientId = patientId_example; // String | 
@@ -764,7 +764,7 @@ Get the patient having the provided externalId
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final externalId = externalId_example; // String | A external ID
@@ -807,7 +807,7 @@ It gets patient administrative data based on the identifier (root & extension) p
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -854,7 +854,7 @@ This endpoint is used to recover all keys that have already been created and tha
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final patientId = patientId_example; // String | The patient Id for which information is shared
@@ -897,7 +897,7 @@ It gets patient administrative data.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -940,7 +940,7 @@ Returns a list of deleted patients, by name and/or firstname prefix, if any.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final firstName = firstName_example; // String | First name prefix
@@ -985,7 +985,7 @@ Returns a list of patients that have been merged after the provided date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final date = 789; // int | 
@@ -1026,7 +1026,7 @@ Get ids of patients matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final abstractFilterDtoPatient = AbstractFilterDtoPatient(); // AbstractFilterDtoPatient | 
@@ -1067,7 +1067,7 @@ Merge a series of patients into another patient
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final toId = toId_example; // String | 
@@ -1112,7 +1112,7 @@ No particular return value. It's just a message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final patientDto = PatientDto(); // PatientDto | 
@@ -1153,7 +1153,7 @@ Set a patient referral doctor
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final patientId = patientId_example; // String | 
@@ -1202,7 +1202,7 @@ Returns the id and _rev of modified patients
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final patientDto = [List<PatientDto>()]; // List<PatientDto> | 
@@ -1245,7 +1245,7 @@ It delegates a patient to a healthcare party (By current healthcare party). A mo
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final patientId = patientId_example; // String | 
@@ -1290,7 +1290,7 @@ Register a new patient into the system
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -1341,7 +1341,7 @@ Response is an array containing the ID of undeleted patient..
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
 final patientIds = patientIds_example; // String | 

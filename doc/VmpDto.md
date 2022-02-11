@@ -1,8 +1,8 @@
-# openapi.model.VmpDto
+# icure_dart_sdk.model.VmpDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

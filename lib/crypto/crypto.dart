@@ -7,10 +7,10 @@ import 'dart:typed_data';
 import 'package:crypton/crypton.dart';
 import 'package:pointycastle/export.dart' as pointy;
 
-import 'package:openapi/api.dart';
-import 'package:openapi/util/binary_utils.dart';
-import 'package:openapi/util/collection_utils.dart';
-import 'package:openapi/util/functional_utils.dart';
+import 'package:icure_dart_sdk/api.dart';
+import 'package:icure_dart_sdk/util/binary_utils.dart';
+import 'package:icure_dart_sdk/util/collection_utils.dart';
+import 'package:icure_dart_sdk/util/functional_utils.dart';
 import 'package:steel_crypt/steel_crypt.dart';
 import 'package:tuple/tuple.dart';
 

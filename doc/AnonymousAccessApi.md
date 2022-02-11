@@ -1,8 +1,8 @@
-# openapi.api.AnonymousAccessApi
+# icure_dart_sdk.api.AnonymousAccessApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -23,7 +23,7 @@ The start of the slot is returned in YYYYDDMMHHmmss format and only slots belong
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AnonymousAccessApi();
 final groupId = groupId_example; // String | 
@@ -78,7 +78,7 @@ Returns a list of Calendar Item types. In order to be returned, the Calendar Ite
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AnonymousAccessApi();
 final groupId = groupId_example; // String | Healthcare parties group id
@@ -127,7 +127,7 @@ Returns a list of Users/healthcare parties contained in the group owning the pro
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AnonymousAccessApi();
 final groupId = groupId_example; // String | Healthcare parties group id

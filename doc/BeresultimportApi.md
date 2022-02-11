@@ -1,8 +1,8 @@
-# openapi.api.BeresultimportApi
+# icure_dart_sdk.api.BeresultimportApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -21,7 +21,7 @@ Can we handle this document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultimportApi();
 final id = id_example; // String | 
@@ -64,7 +64,7 @@ import document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultimportApi();
 final documentId = documentId_example; // String | 
@@ -119,7 +119,7 @@ Extract general infos from document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultimportApi();
 final id = id_example; // String | 

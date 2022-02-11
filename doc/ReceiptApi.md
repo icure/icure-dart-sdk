@@ -1,8 +1,8 @@
-# openapi.api.ReceiptApi
+# icure_dart_sdk.api.ReceiptApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -25,7 +25,7 @@ Creates a receipt
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
 final receiptDto = ReceiptDto(); // ReceiptDto | 
@@ -66,7 +66,7 @@ Deletes receipts
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -107,7 +107,7 @@ Gets a receipt
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
 final receiptId = receiptId_example; // String | 
@@ -148,7 +148,7 @@ Get an attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
 final receiptId = receiptId_example; // String | 
@@ -193,7 +193,7 @@ Gets a receipt
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
 final ref = ref_example; // String | 
@@ -234,7 +234,7 @@ Updates a receipt
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
 final receiptDto = ReceiptDto(); // ReceiptDto | 
@@ -275,7 +275,7 @@ Creates a receipt's attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
 final receiptId = receiptId_example; // String | 

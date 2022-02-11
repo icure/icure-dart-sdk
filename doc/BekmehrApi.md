@@ -1,8 +1,8 @@
-# openapi.api.BekmehrApi
+# icure_dart_sdk.api.BekmehrApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -44,7 +44,7 @@ Check whether patients in SMF already exists in DB
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final documentId = documentId_example; // String | 
@@ -93,7 +93,7 @@ Get Kmehr contactreport
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -152,7 +152,7 @@ Generate diarynote
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -197,7 +197,7 @@ Get Kmehr labresult
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -256,7 +256,7 @@ Get Medicationscheme export
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -305,7 +305,7 @@ Get Kmehr note
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -364,7 +364,7 @@ Get KMEHR Patient Info export
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -407,7 +407,7 @@ Get Kmehr prescription
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -466,7 +466,7 @@ Get Kmehr report
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -525,7 +525,7 @@ Get Kmehr request
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -584,7 +584,7 @@ Get Kmehr result
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -643,7 +643,7 @@ Get SMF (Software Medical File) export
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -688,7 +688,7 @@ Generate sumehr
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -733,7 +733,7 @@ Generate sumehr
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -778,7 +778,7 @@ Get sumehr elements
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -821,7 +821,7 @@ Check sumehr signature
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -864,7 +864,7 @@ Get sumehr elements
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -907,7 +907,7 @@ Check sumehr signature
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -950,7 +950,7 @@ Import MedicationScheme into patient(s) using existing document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final documentId = documentId_example; // String | 
@@ -1001,7 +1001,7 @@ Import SMF into patient(s) using existing document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final documentId = documentId_example; // String | 
@@ -1052,7 +1052,7 @@ Import sumehr into patient(s) using existing document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final documentId = documentId_example; // String | 
@@ -1103,7 +1103,7 @@ Import sumehr into patient(s) using existing document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final documentId = documentId_example; // String | 
@@ -1156,7 +1156,7 @@ Get sumehr validity
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -1199,7 +1199,7 @@ Get sumehr validity
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -1242,7 +1242,7 @@ Validate sumehr
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 
@@ -1287,7 +1287,7 @@ Validate sumehr
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
 final patientId = patientId_example; // String | 

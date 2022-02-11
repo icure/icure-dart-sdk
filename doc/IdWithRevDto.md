@@ -1,8 +1,8 @@
-# openapi.model.IdWithRevDto
+# icure_dart_sdk.model.IdWithRevDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

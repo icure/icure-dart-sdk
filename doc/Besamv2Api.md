@@ -1,8 +1,8 @@
-# openapi.api.Besamv2Api
+# icure_dart_sdk.api.Besamv2Api
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -46,7 +46,7 @@ Returns a list of amps matched with given input. If several types are provided, 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final dmppCode = dmppCode_example; // String | dmppCode
@@ -89,7 +89,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final atcCode = atcCode_example; // String | atcCode
@@ -138,7 +138,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final vmpgCode = vmpgCode_example; // String | vmpgCode
@@ -187,7 +187,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final vmpgId = vmpgId_example; // String | vmpgCode
@@ -236,7 +236,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final language = language_example; // String | language
@@ -287,7 +287,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final vmpCode = vmpCode_example; // String | vmpCode
@@ -336,7 +336,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final vmpId = vmpId_example; // String | vmpgCode
@@ -385,7 +385,7 @@ Returns a paginated list of NMPs by matching label. Matches occur per word
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final language = language_example; // String | language
@@ -436,7 +436,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final language = language_example; // String | language
@@ -487,7 +487,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final vmpgCode = vmpgCode_example; // String | vmpgCode
@@ -536,7 +536,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final vmpgCode = vmpgCode_example; // String | vmpgCode
@@ -585,7 +585,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final vmpgId = vmpgId_example; // String | vmpgId
@@ -634,7 +634,7 @@ Returns a paginated list of VMPs by matching label. Matches occur per word
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final language = language_example; // String | language
@@ -685,7 +685,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final vmpCode = vmpCode_example; // String | vmpCode
@@ -734,7 +734,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 
@@ -773,7 +773,7 @@ Returns a list of amps matched with given input. If several types are provided, 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -816,7 +816,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -859,7 +859,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -902,7 +902,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -945,7 +945,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -988,7 +988,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -1029,7 +1029,7 @@ List all pharmaceutical forms.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 
@@ -1066,7 +1066,7 @@ List all substances.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 
@@ -1105,7 +1105,7 @@ Returns a list of group codes matched with given input. If several types are pro
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -1148,7 +1148,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -1191,7 +1191,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 

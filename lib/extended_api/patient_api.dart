@@ -159,3 +159,4 @@ extension PatientApiCrypto on PatientApi {
     return patient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, patient) : null;
   }
 }
+

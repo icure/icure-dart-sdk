@@ -1,8 +1,8 @@
-# openapi.api.CalendarItemApi
+# icure_dart_sdk.api.CalendarItemApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -30,7 +30,7 @@ Creates a calendarItem
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final calendarItemDto = CalendarItemDto(); // CalendarItemDto | 
@@ -71,7 +71,7 @@ Deletes an calendarItem
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final calendarItemIds = calendarItemIds_example; // String | 
@@ -112,7 +112,7 @@ Deletes calendarItems
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -153,7 +153,7 @@ Find CalendarItems by hcparty and patient
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -196,7 +196,7 @@ Find CalendarItems by recurrenceId
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final recurrenceId = recurrenceId_example; // String | 
@@ -237,7 +237,7 @@ Gets an calendarItem
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final calendarItemId = calendarItemId_example; // String | 
@@ -278,7 +278,7 @@ Gets all calendarItems
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 
@@ -315,7 +315,7 @@ Get CalendarItems by Period and HcPartyId
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final startDate = 789; // int | 
@@ -360,7 +360,7 @@ Get calendarItems by ids
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -401,7 +401,7 @@ Get CalendarItems by Period and AgendaId
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final startDate = 789; // int | 
@@ -446,7 +446,7 @@ Modifies an calendarItem
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final calendarItemDto = CalendarItemDto(); // CalendarItemDto | 
@@ -487,7 +487,7 @@ Update delegations in calendarItems
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
 final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 

@@ -1,8 +1,8 @@
-# openapi.api.BeefactApi
+# icure_dart_sdk.api.BeefactApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -19,7 +19,7 @@ create batch and message
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeefactApi();
 final insuranceId = insuranceId_example; // String | 

@@ -1,8 +1,8 @@
-# openapi.api.AgendaApi
+# icure_dart_sdk.api.AgendaApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -25,7 +25,7 @@ Creates a agenda
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
 final agendaDto = AgendaDto(); // AgendaDto | 
@@ -66,7 +66,7 @@ Deletes agendas
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -107,7 +107,7 @@ Gets an agenda
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
 final agendaId = agendaId_example; // String | 
@@ -148,7 +148,7 @@ Gets all agendas
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
 
@@ -185,7 +185,7 @@ Gets all agendas for user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
 final userId = userId_example; // String | 
@@ -226,7 +226,7 @@ Gets readable agendas for user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
 final userId = userId_example; // String | 
@@ -267,7 +267,7 @@ Modifies an agenda
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
 final agendaDto = AgendaDto(); // AgendaDto | 

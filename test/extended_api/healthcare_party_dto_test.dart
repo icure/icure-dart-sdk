@@ -1,6 +1,6 @@
 
 import 'dart:convert';
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 import "package:test/test.dart";
 
 class A {

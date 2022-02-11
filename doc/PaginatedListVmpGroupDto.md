@@ -1,8 +1,8 @@
-# openapi.model.PaginatedListVmpGroupDto
+# icure_dart_sdk.model.PaginatedListVmpGroupDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties
