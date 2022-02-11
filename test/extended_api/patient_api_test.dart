@@ -1,5 +1,4 @@
 @Timeout(Duration(hours: 1))
-
 import 'dart:convert';
 import 'dart:io';
 
@@ -8,6 +7,7 @@ import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/crypto/crypto.dart';
 import "package:test/test.dart";
 import 'package:icure_dart_sdk/util/binary_utils.dart';
+import "package:test/test.dart";
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
@@ -27,15 +27,12 @@ void main() {
     var hcpPrivateKey = (await hcpKeyFile.readAsString(encoding: utf8)).toPrivateKey();
     var hcpPublicKey = hcp.publicKey!.toPublicKey();
 
-    var keyPairs = {
-      user.healthcarePartyId! : RSAKeypair(hcpPrivateKey)
-    };
+    var keyPairs = {user.healthcarePartyId!: RSAKeypair(hcpPrivateKey)};
 
     return LocalCrypto(hcpApi, keyPairs);
   }
 
-  group('tests for PatientApi', ()
-  {
+  group('tests for PatientApi', () {
     test('test createPatient', () async {
       // Init
       var currentUser = await userApi.getCurrentUser();
@@ -51,8 +48,7 @@ void main() {
           id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
           firstName: 'John',
           lastName: 'Doe',
-          note: 'Premature optimization is the root of all evil'
-      );
+          note: 'Premature optimization is the root of all evil');
 
       // When
       var createdPatient = await patientApi.createPatient(currentUser, patient, patientCryptoConfig(lc));
