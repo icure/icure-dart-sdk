@@ -173,5 +173,15 @@ extension PatientApiCrypto on PatientApi {
     var modifiedPatient = await this.rawModifyPatient(encryptedPatient);
     return modifiedPatient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, modifiedPatient) : null;
   }
+
+  Future<List<IdWithRevDto>> deletePatients(
+      UserDto user, List<DecryptedPatientDto> patients, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    final int currentTime = DateTime.now().millisecondsSinceEpoch;
+    final List<DecryptedPatientDto> updatedPatients = patients.map((patient) {
+      patient.endOfLife = currentTime;
+      return patient;
+    }).toList();
+    return modifyPatients(user, updatedPatients, config);
+  }
 }
 
