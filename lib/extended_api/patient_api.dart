@@ -156,13 +156,21 @@ extension PatientApiCrypto on PatientApi {
     return patient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, patient) : null;
   }
 
-  Future<List<IdWithRevDto>> modifyHealthElements(
+  Future<List<IdWithRevDto>> modifyPatients(
       UserDto user, List<DecryptedPatientDto> patients, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
     final Set<String> delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
     final List<PatientDto> encryptedPatients = await Future.wait(patients.map((patient) => PatientCryptoConfiguration(config)
         .encryptPatient(user.healthcarePartyId!, delegations, DecryptedPatientDtoExtensions(patient).initPatient())));
     final List<IdWithRevDto>? modifiedIdsWithRevs = await this.rawModifyPatients(encryptedPatients);
     return modifiedIdsWithRevs != null ? modifiedIdsWithRevs : List<IdWithRevDto>.empty();
+  }
+
+  Future<DecryptedHealthElementDto?> modifyHealthElement(
+      UserDto user, DecryptedHealthElementDto healthElementDto, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
+    final HealthElementDto encryptedHealthElement = await config.encryptHealthElement(user.healthcarePartyId!,
+        <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, healthElementDto);
+    var modifiedHealthElement = await this.rawModifyHealthElement(encryptedHealthElement);
+    return modifiedHealthElement != null ? await config.decryptHealthElement(user.healthcarePartyId!, modifiedHealthElement) : null;
   }
 }
 
