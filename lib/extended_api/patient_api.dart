@@ -13,8 +13,8 @@ import 'package:uuid/uuid_util.dart';
 
 extension CryptoSupport on PatientApi {}
 
-extension InitDto on PatientDto {
-  Future<PatientDto> initDelegations(UserDto user, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+extension InitDto on DecryptedPatientDto {
+  Future<DecryptedPatientDto> initDelegations(UserDto user, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
     final Uuid uuid = Uuid();
 
     Set<String> delegationKeys = Set.from(user.autoDelegations["all"] ?? <String>{})
@@ -139,15 +139,23 @@ extension DecryptedPatientDtoExtensions on DecryptedPatientDto {
 }
 
 extension PatientApiCrypto on PatientApi {
-  Future<DecryptedPatientDto?> createPatient(UserDto user, DecryptedPatientDto patient,
-      CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
-
-    var newPatient = await this.rawCreatePatient(
-        await PatientCryptoConfiguration(config).encryptPatient(
-            user.healthcarePartyId!,
-            <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
-            DecryptedPatientDtoExtensions(patient).initPatient()));
+  Future<DecryptedPatientDto?> createPatient(UserDto user, DecryptedPatientDto patient, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    var newPatient = await this.rawCreatePatient(await PatientCryptoConfiguration(config).encryptPatient(
+        user.healthcarePartyId!,
+        <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
+        DecryptedPatientDtoExtensions(patient).initPatient()));
     return newPatient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, newPatient) : null;
+  }
+
+  Future<List<IdWithRevDto>> createPatients(
+      UserDto user, List<DecryptedPatientDto> patients, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    final Set<String> delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
+    final List<PatientDto> encryptedPatients = await Future.wait(patients.map((patient) async {
+      final initialisedPatient = await InitDto(DecryptedPatientDtoExtensions(patient).initPatient()).initDelegations(user, config);
+      return PatientCryptoConfiguration(config).encryptPatient(user.healthcarePartyId!, delegations, initialisedPatient);
+    }));
+    final List<IdWithRevDto>? createdIdsAndRevs = await this.rawCreatePatients(encryptedPatients);
+    return createdIdsAndRevs != null ? createdIdsAndRevs : List<IdWithRevDto>.empty();
   }
 
   Future<DecryptedPatientDto?> getPatient(UserDto user, String patientId, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
