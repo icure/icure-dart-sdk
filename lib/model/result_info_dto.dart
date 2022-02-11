@@ -121,40 +121,42 @@ class ResultInfoDto {
   List<ServiceDto> services;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ResultInfoDto &&
-     other.ssin == ssin &&
-     other.lastName == lastName &&
-     other.firstName == firstName &&
-     other.dateOfBirth == dateOfBirth &&
-     other.sex == sex &&
-     other.documentId == documentId &&
-     other.protocol == protocol &&
-     other.complete == complete &&
-     other.demandDate == demandDate &&
-     other.labo == labo &&
-     other.engine == engine &&
-     other.codes == codes &&
-     other.services == services;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ResultInfoDto &&
+          other.ssin == ssin &&
+          other.lastName == lastName &&
+          other.firstName == firstName &&
+          other.dateOfBirth == dateOfBirth &&
+          other.sex == sex &&
+          other.documentId == documentId &&
+          other.protocol == protocol &&
+          other.complete == complete &&
+          other.demandDate == demandDate &&
+          other.labo == labo &&
+          other.engine == engine &&
+          other.codes == codes &&
+          other.services == services;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (ssin == null ? 0 : ssin!.hashCode) +
-    (lastName == null ? 0 : lastName!.hashCode) +
-    (firstName == null ? 0 : firstName!.hashCode) +
-    (dateOfBirth == null ? 0 : dateOfBirth!.hashCode) +
-    (sex == null ? 0 : sex!.hashCode) +
-    (documentId == null ? 0 : documentId!.hashCode) +
-    (protocol == null ? 0 : protocol!.hashCode) +
-    (complete == null ? 0 : complete!.hashCode) +
-    (demandDate == null ? 0 : demandDate!.hashCode) +
-    (labo == null ? 0 : labo!.hashCode) +
-    (engine == null ? 0 : engine!.hashCode) +
-    (codes.hashCode) +
-    (services.hashCode);
+      // ignore: unnecessary_parenthesis
+  (ssin == null ? 0 : ssin!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
+      (firstName == null ? 0 : firstName!.hashCode) +
+      (dateOfBirth == null ? 0 : dateOfBirth!.hashCode) +
+      (sex == null ? 0 : sex!.hashCode) +
+      (documentId == null ? 0 : documentId!.hashCode) +
+      (protocol == null ? 0 : protocol!.hashCode) +
+      (complete == null ? 0 : complete!.hashCode) +
+      (demandDate == null ? 0 : demandDate!.hashCode) +
+      (labo == null ? 0 : labo!.hashCode) +
+      (engine == null ? 0 : engine!.hashCode) +
+      (codes.hashCode) +
+      (services.hashCode);
 
   @override
-  String toString() => 'ResultInfoDto[ssin=$ssin, lastName=$lastName, firstName=$firstName, dateOfBirth=$dateOfBirth, sex=$sex, documentId=$documentId, protocol=$protocol, complete=$complete, demandDate=$demandDate, labo=$labo, engine=$engine, codes=$codes, services=$services]';
+  String toString() =>
+      'ResultInfoDto[ssin=$ssin, lastName=$lastName, firstName=$firstName, dateOfBirth=$dateOfBirth, sex=$sex, documentId=$documentId, protocol=$protocol, complete=$complete, demandDate=$demandDate, labo=$labo, engine=$engine, codes=$codes, services=$services]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -191,8 +193,8 @@ class ResultInfoDto {
     if (engine != null) {
       json[r'engine'] = engine;
     }
-      json[r'codes'] = codes;
-      json[r'services'] = services;
+    json[r'codes'] = codes.toList();
+    json[r'services'] = services;
     return json;
   }
 

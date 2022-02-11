@@ -251,83 +251,85 @@ class HealthElementDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is HealthElementDto &&
-     other.id == id &&
-     other.identifiers == identifiers &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.deletionDate == deletionDate &&
-     other.healthElementId == healthElementId &&
-     other.valueDate == valueDate &&
-     other.openingDate == openingDate &&
-     other.closingDate == closingDate &&
-     other.descr == descr &&
-     other.note == note &&
-     other.relevant == relevant &&
-     other.idOpeningContact == idOpeningContact &&
-     other.idClosingContact == idClosingContact &&
-     other.idService == idService &&
-     other.status == status &&
-     other.laterality == laterality &&
-     other.plansOfAction == plansOfAction &&
-     other.episodes == episodes &&
-     other.careTeam == careTeam &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.cryptedForeignKeys == cryptedForeignKeys &&
-     other.delegations == delegations &&
-     other.encryptionKeys == encryptionKeys &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is HealthElementDto &&
+          other.id == id &&
+          other.identifiers == identifiers &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.healthElementId == healthElementId &&
+          other.valueDate == valueDate &&
+          other.openingDate == openingDate &&
+          other.closingDate == closingDate &&
+          other.descr == descr &&
+          other.note == note &&
+          other.relevant == relevant &&
+          other.idOpeningContact == idOpeningContact &&
+          other.idClosingContact == idClosingContact &&
+          other.idService == idService &&
+          other.status == status &&
+          other.laterality == laterality &&
+          other.plansOfAction == plansOfAction &&
+          other.episodes == episodes &&
+          other.careTeam == careTeam &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (identifiers.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (healthElementId == null ? 0 : healthElementId!.hashCode) +
-    (valueDate == null ? 0 : valueDate!.hashCode) +
-    (openingDate == null ? 0 : openingDate!.hashCode) +
-    (closingDate == null ? 0 : closingDate!.hashCode) +
-    (descr == null ? 0 : descr!.hashCode) +
-    (note == null ? 0 : note!.hashCode) +
-    (relevant.hashCode) +
-    (idOpeningContact == null ? 0 : idOpeningContact!.hashCode) +
-    (idClosingContact == null ? 0 : idClosingContact!.hashCode) +
-    (idService == null ? 0 : idService!.hashCode) +
-    (status.hashCode) +
-    (laterality == null ? 0 : laterality!.hashCode) +
-    (plansOfAction.hashCode) +
-    (episodes.hashCode) +
-    (careTeam.hashCode) +
-    (secretForeignKeys.hashCode) +
-    (cryptedForeignKeys.hashCode) +
-    (delegations.hashCode) +
-    (encryptionKeys.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (identifiers.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (healthElementId == null ? 0 : healthElementId!.hashCode) +
+      (valueDate == null ? 0 : valueDate!.hashCode) +
+      (openingDate == null ? 0 : openingDate!.hashCode) +
+      (closingDate == null ? 0 : closingDate!.hashCode) +
+      (descr == null ? 0 : descr!.hashCode) +
+      (note == null ? 0 : note!.hashCode) +
+      (relevant.hashCode) +
+      (idOpeningContact == null ? 0 : idOpeningContact!.hashCode) +
+      (idClosingContact == null ? 0 : idClosingContact!.hashCode) +
+      (idService == null ? 0 : idService!.hashCode) +
+      (status.hashCode) +
+      (laterality == null ? 0 : laterality!.hashCode) +
+      (plansOfAction.hashCode) +
+      (episodes.hashCode) +
+      (careTeam.hashCode) +
+      (secretForeignKeys.hashCode) +
+      (cryptedForeignKeys.hashCode) +
+      (delegations.hashCode) +
+      (encryptionKeys.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'HealthElementDto[id=$id, identifiers=$identifiers, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, healthElementId=$healthElementId, valueDate=$valueDate, openingDate=$openingDate, closingDate=$closingDate, descr=$descr, note=$note, relevant=$relevant, idOpeningContact=$idOpeningContact, idClosingContact=$idClosingContact, idService=$idService, status=$status, laterality=$laterality, plansOfAction=$plansOfAction, episodes=$episodes, careTeam=$careTeam, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'HealthElementDto[id=$id, identifiers=$identifiers, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, healthElementId=$healthElementId, valueDate=$valueDate, openingDate=$openingDate, closingDate=$closingDate, descr=$descr, note=$note, relevant=$relevant, idOpeningContact=$idOpeningContact, idClosingContact=$idClosingContact, idService=$idService, status=$status, laterality=$laterality, plansOfAction=$plansOfAction, episodes=$episodes, careTeam=$careTeam, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
-      json[r'identifiers'] = identifiers;
+    json[r'id'] = id;
+    json[r'identifiers'] = identifiers;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -346,8 +348,8 @@ class HealthElementDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -372,7 +374,7 @@ class HealthElementDto {
     if (note != null) {
       json[r'note'] = note;
     }
-      json[r'relevant'] = relevant;
+    json[r'relevant'] = relevant;
     if (idOpeningContact != null) {
       json[r'idOpeningContact'] = idOpeningContact;
     }
@@ -382,17 +384,17 @@ class HealthElementDto {
     if (idService != null) {
       json[r'idService'] = idService;
     }
-      json[r'status'] = status;
+    json[r'status'] = status;
     if (laterality != null) {
       json[r'laterality'] = laterality;
     }
-      json[r'plansOfAction'] = plansOfAction;
-      json[r'episodes'] = episodes;
-      json[r'careTeam'] = careTeam;
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+    json[r'plansOfAction'] = plansOfAction;
+    json[r'episodes'] = episodes;
+    json[r'careTeam'] = careTeam;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -445,17 +447,17 @@ class HealthElementDto {
         plansOfAction: PlanOfActionDto.listFromJson(json[r'plansOfAction'])!,
         episodes: EpisodeDto.listFromJson(json[r'episodes'])!,
         careTeam: CareTeamMemberDto.listFromJson(json[r'careTeam'])!,
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
@@ -581,8 +583,10 @@ class HealthElementDtoLateralityEnumTypeTransformer {
   HealthElementDtoLateralityEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'left': return HealthElementDtoLateralityEnum.left;
-        case r'right': return HealthElementDtoLateralityEnum.right;
+        case r'left':
+          return HealthElementDtoLateralityEnum.left;
+        case r'right':
+          return HealthElementDtoLateralityEnum.right;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

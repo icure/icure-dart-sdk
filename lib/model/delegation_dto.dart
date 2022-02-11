@@ -46,19 +46,20 @@ class DelegationDto {
   List<String> tags;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DelegationDto &&
-     other.owner == owner &&
-     other.delegatedTo == delegatedTo &&
-     other.key == key &&
-     other.tags == tags;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is DelegationDto &&
+          other.owner == owner &&
+          other.delegatedTo == delegatedTo &&
+          other.key == key &&
+          other.tags == tags;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (owner == null ? 0 : owner!.hashCode) +
-    (delegatedTo == null ? 0 : delegatedTo!.hashCode) +
-    (key == null ? 0 : key!.hashCode) +
-    (tags.hashCode);
+      // ignore: unnecessary_parenthesis
+  (owner == null ? 0 : owner!.hashCode) +
+      (delegatedTo == null ? 0 : delegatedTo!.hashCode) +
+      (key == null ? 0 : key!.hashCode) +
+      (tags.hashCode);
 
   @override
   String toString() => 'DelegationDto[owner=$owner, delegatedTo=$delegatedTo, key=$key, tags=$tags]';
@@ -74,7 +75,7 @@ class DelegationDto {
     if (key != null) {
       json[r'key'] = key;
     }
-      json[r'tags'] = tags;
+    json[r'tags'] = tags.toList();
     return json;
   }
 

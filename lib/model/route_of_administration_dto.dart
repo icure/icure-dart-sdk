@@ -28,15 +28,16 @@ class RouteOfAdministrationDto {
   List<CodeStubDto> standardRoutes;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RouteOfAdministrationDto &&
-     other.name == name &&
-     other.standardRoutes == standardRoutes;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is RouteOfAdministrationDto &&
+          other.name == name &&
+          other.standardRoutes == standardRoutes;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name == null ? 0 : name!.hashCode) +
-    (standardRoutes.hashCode);
+      // ignore: unnecessary_parenthesis
+  (name == null ? 0 : name!.hashCode) +
+      (standardRoutes.hashCode);
 
   @override
   String toString() => 'RouteOfAdministrationDto[name=$name, standardRoutes=$standardRoutes]';
@@ -46,7 +47,7 @@ class RouteOfAdministrationDto {
     if (name != null) {
       json[r'name'] = name;
     }
-      json[r'standardRoutes'] = standardRoutes;
+    json[r'standardRoutes'] = standardRoutes;
     return json;
   }
 

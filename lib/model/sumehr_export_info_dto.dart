@@ -67,37 +67,39 @@ class SumehrExportInfoDto {
   List<HealthElementDto> healthElements;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SumehrExportInfoDto &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.excludedIds == excludedIds &&
-     other.recipient == recipient &&
-     other.softwareName == softwareName &&
-     other.softwareVersion == softwareVersion &&
-     other.comment == comment &&
-     other.includeIrrelevantInformation == includeIrrelevantInformation &&
-     other.services == services &&
-     other.healthElements == healthElements;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SumehrExportInfoDto &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.excludedIds == excludedIds &&
+          other.recipient == recipient &&
+          other.softwareName == softwareName &&
+          other.softwareVersion == softwareVersion &&
+          other.comment == comment &&
+          other.includeIrrelevantInformation == includeIrrelevantInformation &&
+          other.services == services &&
+          other.healthElements == healthElements;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (secretForeignKeys.hashCode) +
-    (excludedIds.hashCode) +
-    (recipient == null ? 0 : recipient!.hashCode) +
-    (softwareName == null ? 0 : softwareName!.hashCode) +
-    (softwareVersion == null ? 0 : softwareVersion!.hashCode) +
-    (comment.hashCode) +
-    (includeIrrelevantInformation == null ? 0 : includeIrrelevantInformation!.hashCode) +
-    (services.hashCode) +
-    (healthElements.hashCode);
+      // ignore: unnecessary_parenthesis
+  (secretForeignKeys.hashCode) +
+      (excludedIds.hashCode) +
+      (recipient == null ? 0 : recipient!.hashCode) +
+      (softwareName == null ? 0 : softwareName!.hashCode) +
+      (softwareVersion == null ? 0 : softwareVersion!.hashCode) +
+      (comment.hashCode) +
+      (includeIrrelevantInformation == null ? 0 : includeIrrelevantInformation!.hashCode) +
+      (services.hashCode) +
+      (healthElements.hashCode);
 
   @override
-  String toString() => 'SumehrExportInfoDto[secretForeignKeys=$secretForeignKeys, excludedIds=$excludedIds, recipient=$recipient, softwareName=$softwareName, softwareVersion=$softwareVersion, comment=$comment, includeIrrelevantInformation=$includeIrrelevantInformation, services=$services, healthElements=$healthElements]';
+  String toString() =>
+      'SumehrExportInfoDto[secretForeignKeys=$secretForeignKeys, excludedIds=$excludedIds, recipient=$recipient, softwareName=$softwareName, softwareVersion=$softwareVersion, comment=$comment, includeIrrelevantInformation=$includeIrrelevantInformation, services=$services, healthElements=$healthElements]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'excludedIds'] = excludedIds;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'excludedIds'] = excludedIds;
     if (recipient != null) {
       json[r'recipient'] = recipient;
     }
@@ -107,12 +109,12 @@ class SumehrExportInfoDto {
     if (softwareVersion != null) {
       json[r'softwareVersion'] = softwareVersion;
     }
-      json[r'comment'] = comment;
+    json[r'comment'] = comment;
     if (includeIrrelevantInformation != null) {
       json[r'includeIrrelevantInformation'] = includeIrrelevantInformation;
     }
-      json[r'services'] = services;
-      json[r'healthElements'] = healthElements;
+    json[r'services'] = services;
+    json[r'healthElements'] = healthElements;
     return json;
   }
 

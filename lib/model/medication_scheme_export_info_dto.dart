@@ -40,27 +40,29 @@ class MedicationSchemeExportInfoDto {
   String? comment;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MedicationSchemeExportInfoDto &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.services == services &&
-     other.recipient == recipient &&
-     other.comment == comment;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MedicationSchemeExportInfoDto &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.services == services &&
+          other.recipient == recipient &&
+          other.comment == comment;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (secretForeignKeys.hashCode) +
-    (services.hashCode) +
-    (recipient == null ? 0 : recipient!.hashCode) +
-    (comment == null ? 0 : comment!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (secretForeignKeys.hashCode) +
+      (services.hashCode) +
+      (recipient == null ? 0 : recipient!.hashCode) +
+      (comment == null ? 0 : comment!.hashCode);
 
   @override
-  String toString() => 'MedicationSchemeExportInfoDto[secretForeignKeys=$secretForeignKeys, services=$services, recipient=$recipient, comment=$comment]';
+  String toString() =>
+      'MedicationSchemeExportInfoDto[secretForeignKeys=$secretForeignKeys, services=$services, recipient=$recipient, comment=$comment]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'services'] = services;
+    json[r'secretForeignKeys'] = secretForeignKeys;
+    json[r'services'] = services;
     if (recipient != null) {
       json[r'recipient'] = recipient;
     }

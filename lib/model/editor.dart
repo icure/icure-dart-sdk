@@ -91,32 +91,34 @@ class Editor {
   String? key;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Editor &&
-     other.left == left &&
-     other.top == top &&
-     other.width == width &&
-     other.height == height &&
-     other.multiline == multiline &&
-     other.labelPosition == labelPosition &&
-     other.readOnly == readOnly &&
-     other.defaultValue == defaultValue &&
-     other.key == key;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is Editor &&
+          other.left == left &&
+          other.top == top &&
+          other.width == width &&
+          other.height == height &&
+          other.multiline == multiline &&
+          other.labelPosition == labelPosition &&
+          other.readOnly == readOnly &&
+          other.defaultValue == defaultValue &&
+          other.key == key;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (left == null ? 0 : left!.hashCode) +
-    (top == null ? 0 : top!.hashCode) +
-    (width == null ? 0 : width!.hashCode) +
-    (height == null ? 0 : height!.hashCode) +
-    (multiline == null ? 0 : multiline!.hashCode) +
-    (labelPosition == null ? 0 : labelPosition!.hashCode) +
-    (readOnly == null ? 0 : readOnly!.hashCode) +
-    (defaultValue == null ? 0 : defaultValue!.hashCode) +
-    (key == null ? 0 : key!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (left == null ? 0 : left!.hashCode) +
+      (top == null ? 0 : top!.hashCode) +
+      (width == null ? 0 : width!.hashCode) +
+      (height == null ? 0 : height!.hashCode) +
+      (multiline == null ? 0 : multiline!.hashCode) +
+      (labelPosition == null ? 0 : labelPosition!.hashCode) +
+      (readOnly == null ? 0 : readOnly!.hashCode) +
+      (defaultValue == null ? 0 : defaultValue!.hashCode) +
+      (key == null ? 0 : key!.hashCode);
 
   @override
-  String toString() => 'Editor[left=$left, top=$top, width=$width, height=$height, multiline=$multiline, labelPosition=$labelPosition, readOnly=$readOnly, defaultValue=$defaultValue, key=$key]';
+  String toString() =>
+      'Editor[left=$left, top=$top, width=$width, height=$height, multiline=$multiline, labelPosition=$labelPosition, readOnly=$readOnly, defaultValue=$defaultValue, key=$key]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -292,10 +294,14 @@ class EditorLabelPositionEnumTypeTransformer {
   EditorLabelPositionEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'Up': return EditorLabelPositionEnum.up;
-        case r'Down': return EditorLabelPositionEnum.down;
-        case r'Left': return EditorLabelPositionEnum.left;
-        case r'Right': return EditorLabelPositionEnum.right;
+        case r'Up':
+          return EditorLabelPositionEnum.up;
+        case r'Down':
+          return EditorLabelPositionEnum.down;
+        case r'Left':
+          return EditorLabelPositionEnum.left;
+        case r'Right':
+          return EditorLabelPositionEnum.right;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -260,114 +260,116 @@ class ServiceDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ServiceDto &&
-     other.id == id &&
-     other.transactionId == transactionId &&
-     other.identifier == identifier &&
-     other.contactId == contactId &&
-     other.subContactIds == subContactIds &&
-     other.plansOfActionIds == plansOfActionIds &&
-     other.healthElementsIds == healthElementsIds &&
-     other.formIds == formIds &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.cryptedForeignKeys == cryptedForeignKeys &&
-     other.delegations == delegations &&
-     other.encryptionKeys == encryptionKeys &&
-     other.label == label &&
-     other.index == index &&
-     other.content == content &&
-     other.encryptedContent == encryptedContent &&
-     other.textIndexes == textIndexes &&
-     other.valueDate == valueDate &&
-     other.openingDate == openingDate &&
-     other.closingDate == closingDate &&
-     other.formId == formId &&
-     other.created == created &&
-     other.modified == modified &&
-     other.endOfLife == endOfLife &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.comment == comment &&
-     other.status == status &&
-     other.invoicingCodes == invoicingCodes &&
-     other.notes == notes &&
-     other.qualifiedLinks == qualifiedLinks &&
-     other.codes == codes &&
-     other.tags == tags &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ServiceDto &&
+          other.id == id &&
+          other.transactionId == transactionId &&
+          other.identifier == identifier &&
+          other.contactId == contactId &&
+          other.subContactIds == subContactIds &&
+          other.plansOfActionIds == plansOfActionIds &&
+          other.healthElementsIds == healthElementsIds &&
+          other.formIds == formIds &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.label == label &&
+          other.index == index &&
+          other.content == content &&
+          other.encryptedContent == encryptedContent &&
+          other.textIndexes == textIndexes &&
+          other.valueDate == valueDate &&
+          other.openingDate == openingDate &&
+          other.closingDate == closingDate &&
+          other.formId == formId &&
+          other.created == created &&
+          other.modified == modified &&
+          other.endOfLife == endOfLife &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.comment == comment &&
+          other.status == status &&
+          other.invoicingCodes == invoicingCodes &&
+          other.notes == notes &&
+          other.qualifiedLinks == qualifiedLinks &&
+          other.codes == codes &&
+          other.tags == tags &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (transactionId == null ? 0 : transactionId!.hashCode) +
-    (identifier.hashCode) +
-    (contactId == null ? 0 : contactId!.hashCode) +
-    (subContactIds.hashCode) +
-    (plansOfActionIds.hashCode) +
-    (healthElementsIds.hashCode) +
-    (formIds.hashCode) +
-    (secretForeignKeys.hashCode) +
-    (cryptedForeignKeys.hashCode) +
-    (delegations.hashCode) +
-    (encryptionKeys.hashCode) +
-    (label == null ? 0 : label!.hashCode) +
-    (index == null ? 0 : index!.hashCode) +
-    (content.hashCode) +
-    (encryptedContent == null ? 0 : encryptedContent!.hashCode) +
-    (textIndexes.hashCode) +
-    (valueDate == null ? 0 : valueDate!.hashCode) +
-    (openingDate == null ? 0 : openingDate!.hashCode) +
-    (closingDate == null ? 0 : closingDate!.hashCode) +
-    (formId == null ? 0 : formId!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (comment == null ? 0 : comment!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (invoicingCodes.hashCode) +
-    (notes.hashCode) +
-    (qualifiedLinks.hashCode) +
-    (codes.hashCode) +
-    (tags.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (transactionId == null ? 0 : transactionId!.hashCode) +
+      (identifier.hashCode) +
+      (contactId == null ? 0 : contactId!.hashCode) +
+      (subContactIds.hashCode) +
+      (plansOfActionIds.hashCode) +
+      (healthElementsIds.hashCode) +
+      (formIds.hashCode) +
+      (secretForeignKeys.hashCode) +
+      (cryptedForeignKeys.hashCode) +
+      (delegations.hashCode) +
+      (encryptionKeys.hashCode) +
+      (label == null ? 0 : label!.hashCode) +
+      (index == null ? 0 : index!.hashCode) +
+      (content.hashCode) +
+      (encryptedContent == null ? 0 : encryptedContent!.hashCode) +
+      (textIndexes.hashCode) +
+      (valueDate == null ? 0 : valueDate!.hashCode) +
+      (openingDate == null ? 0 : openingDate!.hashCode) +
+      (closingDate == null ? 0 : closingDate!.hashCode) +
+      (formId == null ? 0 : formId!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (comment == null ? 0 : comment!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (invoicingCodes.hashCode) +
+      (notes.hashCode) +
+      (qualifiedLinks.hashCode) +
+      (codes.hashCode) +
+      (tags.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'ServiceDto[id=$id, transactionId=$transactionId, identifier=$identifier, contactId=$contactId, subContactIds=$subContactIds, plansOfActionIds=$plansOfActionIds, healthElementsIds=$healthElementsIds, formIds=$formIds, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, label=$label, index=$index, content=$content, encryptedContent=$encryptedContent, textIndexes=$textIndexes, valueDate=$valueDate, openingDate=$openingDate, closingDate=$closingDate, formId=$formId, created=$created, modified=$modified, endOfLife=$endOfLife, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, comment=$comment, status=$status, invoicingCodes=$invoicingCodes, notes=$notes, qualifiedLinks=$qualifiedLinks, codes=$codes, tags=$tags, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'ServiceDto[id=$id, transactionId=$transactionId, identifier=$identifier, contactId=$contactId, subContactIds=$subContactIds, plansOfActionIds=$plansOfActionIds, healthElementsIds=$healthElementsIds, formIds=$formIds, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, label=$label, index=$index, content=$content, encryptedContent=$encryptedContent, textIndexes=$textIndexes, valueDate=$valueDate, openingDate=$openingDate, closingDate=$closingDate, formId=$formId, created=$created, modified=$modified, endOfLife=$endOfLife, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, comment=$comment, status=$status, invoicingCodes=$invoicingCodes, notes=$notes, qualifiedLinks=$qualifiedLinks, codes=$codes, tags=$tags, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (transactionId != null) {
       json[r'transactionId'] = transactionId;
     }
-      json[r'identifier'] = identifier;
+    json[r'identifier'] = identifier;
     if (contactId != null) {
       json[r'contactId'] = contactId;
     }
-      json[r'subContactIds'] = subContactIds;
-      json[r'plansOfActionIds'] = plansOfActionIds;
-      json[r'healthElementsIds'] = healthElementsIds;
-      json[r'formIds'] = formIds;
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+    json[r'subContactIds'] = subContactIds.toList();
+    json[r'plansOfActionIds'] = plansOfActionIds.toList();
+    json[r'healthElementsIds'] = healthElementsIds.toList();
+    json[r'formIds'] = formIds.toList();
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (label != null) {
       json[r'label'] = label;
     }
     if (index != null) {
       json[r'index'] = index;
     }
-      json[r'content'] = content;
+    json[r'content'] = content;
     if (encryptedContent != null) {
       json[r'encryptedContent'] = encryptedContent;
     }
-      json[r'textIndexes'] = textIndexes;
+    json[r'textIndexes'] = textIndexes;
     if (valueDate != null) {
       json[r'valueDate'] = valueDate;
     }
@@ -404,11 +406,11 @@ class ServiceDto {
     if (status != null) {
       json[r'status'] = status;
     }
-      json[r'invoicingCodes'] = invoicingCodes;
-      json[r'notes'] = notes;
-      json[r'qualifiedLinks'] = qualifiedLinks;
-      json[r'codes'] = codes;
-      json[r'tags'] = tags;
+    json[r'invoicingCodes'] = invoicingCodes.toList();
+    json[r'notes'] = notes;
+    json[r'qualifiedLinks'] = qualifiedLinks;
+    json[r'codes'] = codes.toList();
+    json[r'tags'] = tags.toList();
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -438,29 +440,28 @@ class ServiceDto {
         transactionId: mapValueOfType<String>(json, r'transactionId'),
         identifier: IdentifierDto.listFromJson(json[r'identifier'])!,
         contactId: mapValueOfType<String>(json, r'contactId'),
-        subContactIds: json[r'subContactIds'] is Set
-            ? (json[r'subContactIds'] as Set).cast<String>()
+        subContactIds: json[r'subContactIds'] is Set ? (json[r'subContactIds'] as Set).cast<String>() : json[r'subContactIds'] is List
+            ? ((json[r'subContactIds'] as List).toSet()).cast<String>()
             : const {},
-        plansOfActionIds: json[r'plansOfActionIds'] is Set
-            ? (json[r'plansOfActionIds'] as Set).cast<String>()
+        plansOfActionIds: json[r'plansOfActionIds'] is Set ? (json[r'plansOfActionIds'] as Set).cast<String>() : json[r'plansOfActionIds'] is List
+            ? ((json[r'plansOfActionIds'] as List).toSet()).cast<String>()
             : const {},
-        healthElementsIds: json[r'healthElementsIds'] is Set
-            ? (json[r'healthElementsIds'] as Set).cast<String>()
+        healthElementsIds: json[r'healthElementsIds'] is Set ? (json[r'healthElementsIds'] as Set).cast<String>() : json[r'healthElementsIds'] is List
+            ? ((json[r'healthElementsIds'] as List).toSet()).cast<String>()
             : const {},
-        formIds: json[r'formIds'] is Set
-            ? (json[r'formIds'] as Set).cast<String>()
-            : const {},
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        formIds: json[r'formIds'] is Set ? (json[r'formIds'] as Set).cast<String>() : json[r'formIds'] is List ? ((json[r'formIds'] as List).toSet())
+            .cast<String>() : const {},
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         label: mapValueOfType<String>(json, r'label'),
         index: mapValueOfType<int>(json, r'index'),
@@ -479,8 +480,8 @@ class ServiceDto {
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
         comment: mapValueOfType<String>(json, r'comment'),
         status: mapValueOfType<int>(json, r'status'),
-        invoicingCodes: json[r'invoicingCodes'] is Set
-            ? (json[r'invoicingCodes'] as Set).cast<String>()
+        invoicingCodes: json[r'invoicingCodes'] is Set ? (json[r'invoicingCodes'] as Set).cast<String>() : json[r'invoicingCodes'] is List
+            ? ((json[r'invoicingCodes'] as List).toSet()).cast<String>()
             : const {},
         notes: AnnotationDto.listFromJson(json[r'notes'])!,
         qualifiedLinks: mapCastOfType<String, Map<String, String>>(json, r'qualifiedLinks')!,

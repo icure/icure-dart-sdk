@@ -52,19 +52,20 @@ class CalendarItemTagDto {
   String? userName;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CalendarItemTagDto &&
-     other.code == code &&
-     other.date == date &&
-     other.userId == userId &&
-     other.userName == userName;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is CalendarItemTagDto &&
+          other.code == code &&
+          other.date == date &&
+          other.userId == userId &&
+          other.userName == userName;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code == null ? 0 : code!.hashCode) +
-    (date == null ? 0 : date!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (userName == null ? 0 : userName!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (code == null ? 0 : code!.hashCode) +
+      (date == null ? 0 : date!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (userName == null ? 0 : userName!.hashCode);
 
   @override
   String toString() => 'CalendarItemTagDto[code=$code, date=$date, userId=$userId, userName=$userName]';

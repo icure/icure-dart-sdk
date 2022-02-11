@@ -73,28 +73,30 @@ class AmppComponentDto {
   PackagingTypeDto? packagingType;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AmppComponentDto &&
-     other.from == from &&
-     other.to == to &&
-     other.contentType == contentType &&
-     other.contentMultiplier == contentMultiplier &&
-     other.packSpecification == packSpecification &&
-     other.deviceType == deviceType &&
-     other.packagingType == packagingType;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is AmppComponentDto &&
+          other.from == from &&
+          other.to == to &&
+          other.contentType == contentType &&
+          other.contentMultiplier == contentMultiplier &&
+          other.packSpecification == packSpecification &&
+          other.deviceType == deviceType &&
+          other.packagingType == packagingType;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (contentType == null ? 0 : contentType!.hashCode) +
-    (contentMultiplier == null ? 0 : contentMultiplier!.hashCode) +
-    (packSpecification == null ? 0 : packSpecification!.hashCode) +
-    (deviceType == null ? 0 : deviceType!.hashCode) +
-    (packagingType == null ? 0 : packagingType!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (contentType == null ? 0 : contentType!.hashCode) +
+      (contentMultiplier == null ? 0 : contentMultiplier!.hashCode) +
+      (packSpecification == null ? 0 : packSpecification!.hashCode) +
+      (deviceType == null ? 0 : deviceType!.hashCode) +
+      (packagingType == null ? 0 : packagingType!.hashCode);
 
   @override
-  String toString() => 'AmppComponentDto[from=$from, to=$to, contentType=$contentType, contentMultiplier=$contentMultiplier, packSpecification=$packSpecification, deviceType=$deviceType, packagingType=$packagingType]';
+  String toString() =>
+      'AmppComponentDto[from=$from, to=$to, contentType=$contentType, contentMultiplier=$contentMultiplier, packSpecification=$packSpecification, deviceType=$deviceType, packagingType=$packagingType]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -262,10 +264,14 @@ class AmppComponentDtoContentTypeEnumTypeTransformer {
   AmppComponentDtoContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'ACTIVE_COMPONENT': return AmppComponentDtoContentTypeEnum.ACTIVE_COMPONENT;
-        case r'SOLVENT': return AmppComponentDtoContentTypeEnum.SOLVENT;
-        case r'DEVICE': return AmppComponentDtoContentTypeEnum.DEVICE;
-        case r'EXCIPIENT': return AmppComponentDtoContentTypeEnum.EXCIPIENT;
+        case r'ACTIVE_COMPONENT':
+          return AmppComponentDtoContentTypeEnum.ACTIVE_COMPONENT;
+        case r'SOLVENT':
+          return AmppComponentDtoContentTypeEnum.SOLVENT;
+        case r'DEVICE':
+          return AmppComponentDtoContentTypeEnum.DEVICE;
+        case r'EXCIPIENT':
+          return AmppComponentDtoContentTypeEnum.EXCIPIENT;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

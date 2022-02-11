@@ -34,28 +34,29 @@ class RegistrationInformationDto {
   String? userOptions;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RegistrationInformationDto &&
-     other.firstName == firstName &&
-     other.lastName == lastName &&
-     other.emailAddress == emailAddress &&
-     other.userOptions == userOptions;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is RegistrationInformationDto &&
+          other.firstName == firstName &&
+          other.lastName == lastName &&
+          other.emailAddress == emailAddress &&
+          other.userOptions == userOptions;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (firstName.hashCode) +
-    (lastName.hashCode) +
-    (emailAddress.hashCode) +
-    (userOptions == null ? 0 : userOptions!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (firstName.hashCode) +
+      (lastName.hashCode) +
+      (emailAddress.hashCode) +
+      (userOptions == null ? 0 : userOptions!.hashCode);
 
   @override
   String toString() => 'RegistrationInformationDto[firstName=$firstName, lastName=$lastName, emailAddress=$emailAddress, userOptions=$userOptions]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'firstName'] = firstName;
-      json[r'lastName'] = lastName;
-      json[r'emailAddress'] = emailAddress;
+    json[r'firstName'] = firstName;
+    json[r'lastName'] = lastName;
+    json[r'emailAddress'] = emailAddress;
     if (userOptions != null) {
       json[r'userOptions'] = userOptions;
     }

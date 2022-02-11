@@ -331,96 +331,99 @@ class AmppDto {
   List<String> vaccineIndicationCodes;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AmppDto &&
-     other.from == from &&
-     other.to == to &&
-     other.index == index &&
-     other.ctiExtended == ctiExtended &&
-     other.orphan == orphan &&
-     other.leafletLink == leafletLink &&
-     other.spcLink == spcLink &&
-     other.rmaPatientLink == rmaPatientLink &&
-     other.rmaProfessionalLink == rmaProfessionalLink &&
-     other.parallelCircuit == parallelCircuit &&
-     other.parallelDistributor == parallelDistributor &&
-     other.packMultiplier == packMultiplier &&
-     other.packAmount == packAmount &&
-     other.packDisplayValue == packDisplayValue &&
-     other.status == status &&
-     other.atcs == atcs &&
-     other.crmLink == crmLink &&
-     other.deliveryModusCode == deliveryModusCode &&
-     other.deliveryModus == deliveryModus &&
-     other.deliveryModusSpecificationCode == deliveryModusSpecificationCode &&
-     other.deliveryModusSpecification == deliveryModusSpecification &&
-     other.dhpcLink == dhpcLink &&
-     other.distributorCompany == distributorCompany &&
-     other.singleUse == singleUse &&
-     other.speciallyRegulated == speciallyRegulated &&
-     other.abbreviatedName == abbreviatedName &&
-     other.prescriptionName == prescriptionName &&
-     other.note == note &&
-     other.posologyNote == posologyNote &&
-     other.noGenericPrescriptionReasons == noGenericPrescriptionReasons &&
-     other.exFactoryPrice == exFactoryPrice &&
-     other.reimbursementCode == reimbursementCode &&
-     other.definedDailyDose == definedDailyDose &&
-     other.officialExFactoryPrice == officialExFactoryPrice &&
-     other.realExFactoryPrice == realExFactoryPrice &&
-     other.pricingInformationDecisionDate == pricingInformationDecisionDate &&
-     other.components == components &&
-     other.commercializations == commercializations &&
-     other.supplyProblems == supplyProblems &&
-     other.dmpps == dmpps &&
-     other.vaccineIndicationCodes == vaccineIndicationCodes;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AmppDto &&
+          other.from == from &&
+          other.to == to &&
+          other.index == index &&
+          other.ctiExtended == ctiExtended &&
+          other.orphan == orphan &&
+          other.leafletLink == leafletLink &&
+          other.spcLink == spcLink &&
+          other.rmaPatientLink == rmaPatientLink &&
+          other.rmaProfessionalLink == rmaProfessionalLink &&
+          other.parallelCircuit == parallelCircuit &&
+          other.parallelDistributor == parallelDistributor &&
+          other.packMultiplier == packMultiplier &&
+          other.packAmount == packAmount &&
+          other.packDisplayValue == packDisplayValue &&
+          other.status == status &&
+          other.atcs == atcs &&
+          other.crmLink == crmLink &&
+          other.deliveryModusCode == deliveryModusCode &&
+          other.deliveryModus == deliveryModus &&
+          other.deliveryModusSpecificationCode == deliveryModusSpecificationCode &&
+          other.deliveryModusSpecification == deliveryModusSpecification &&
+          other.dhpcLink == dhpcLink &&
+          other.distributorCompany == distributorCompany &&
+          other.singleUse == singleUse &&
+          other.speciallyRegulated == speciallyRegulated &&
+          other.abbreviatedName == abbreviatedName &&
+          other.prescriptionName == prescriptionName &&
+          other.note == note &&
+          other.posologyNote == posologyNote &&
+          other.noGenericPrescriptionReasons == noGenericPrescriptionReasons &&
+          other.exFactoryPrice == exFactoryPrice &&
+          other.reimbursementCode == reimbursementCode &&
+          other.definedDailyDose == definedDailyDose &&
+          other.officialExFactoryPrice == officialExFactoryPrice &&
+          other.realExFactoryPrice == realExFactoryPrice &&
+          other.pricingInformationDecisionDate == pricingInformationDecisionDate &&
+          other.components == components &&
+          other.commercializations == commercializations &&
+          other.supplyProblems == supplyProblems &&
+          other.dmpps == dmpps &&
+          other.vaccineIndicationCodes == vaccineIndicationCodes;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (index == null ? 0 : index!.hashCode) +
-    (ctiExtended == null ? 0 : ctiExtended!.hashCode) +
-    (orphan.hashCode) +
-    (leafletLink == null ? 0 : leafletLink!.hashCode) +
-    (spcLink == null ? 0 : spcLink!.hashCode) +
-    (rmaPatientLink == null ? 0 : rmaPatientLink!.hashCode) +
-    (rmaProfessionalLink == null ? 0 : rmaProfessionalLink!.hashCode) +
-    (parallelCircuit == null ? 0 : parallelCircuit!.hashCode) +
-    (parallelDistributor == null ? 0 : parallelDistributor!.hashCode) +
-    (packMultiplier == null ? 0 : packMultiplier!.hashCode) +
-    (packAmount == null ? 0 : packAmount!.hashCode) +
-    (packDisplayValue == null ? 0 : packDisplayValue!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (atcs.hashCode) +
-    (crmLink == null ? 0 : crmLink!.hashCode) +
-    (deliveryModusCode == null ? 0 : deliveryModusCode!.hashCode) +
-    (deliveryModus == null ? 0 : deliveryModus!.hashCode) +
-    (deliveryModusSpecificationCode == null ? 0 : deliveryModusSpecificationCode!.hashCode) +
-    (deliveryModusSpecification == null ? 0 : deliveryModusSpecification!.hashCode) +
-    (dhpcLink == null ? 0 : dhpcLink!.hashCode) +
-    (distributorCompany == null ? 0 : distributorCompany!.hashCode) +
-    (singleUse == null ? 0 : singleUse!.hashCode) +
-    (speciallyRegulated == null ? 0 : speciallyRegulated!.hashCode) +
-    (abbreviatedName == null ? 0 : abbreviatedName!.hashCode) +
-    (prescriptionName == null ? 0 : prescriptionName!.hashCode) +
-    (note == null ? 0 : note!.hashCode) +
-    (posologyNote == null ? 0 : posologyNote!.hashCode) +
-    (noGenericPrescriptionReasons.hashCode) +
-    (exFactoryPrice == null ? 0 : exFactoryPrice!.hashCode) +
-    (reimbursementCode == null ? 0 : reimbursementCode!.hashCode) +
-    (definedDailyDose == null ? 0 : definedDailyDose!.hashCode) +
-    (officialExFactoryPrice == null ? 0 : officialExFactoryPrice!.hashCode) +
-    (realExFactoryPrice == null ? 0 : realExFactoryPrice!.hashCode) +
-    (pricingInformationDecisionDate == null ? 0 : pricingInformationDecisionDate!.hashCode) +
-    (components.hashCode) +
-    (commercializations.hashCode) +
-    (supplyProblems.hashCode) +
-    (dmpps.hashCode) +
-    (vaccineIndicationCodes.hashCode);
+      // ignore: unnecessary_parenthesis
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (index == null ? 0 : index!.hashCode) +
+      (ctiExtended == null ? 0 : ctiExtended!.hashCode) +
+      (orphan.hashCode) +
+      (leafletLink == null ? 0 : leafletLink!.hashCode) +
+      (spcLink == null ? 0 : spcLink!.hashCode) +
+      (rmaPatientLink == null ? 0 : rmaPatientLink!.hashCode) +
+      (rmaProfessionalLink == null ? 0 : rmaProfessionalLink!.hashCode) +
+      (parallelCircuit == null ? 0 : parallelCircuit!.hashCode) +
+      (parallelDistributor == null ? 0 : parallelDistributor!.hashCode) +
+      (packMultiplier == null ? 0 : packMultiplier!.hashCode) +
+      (packAmount == null ? 0 : packAmount!.hashCode) +
+      (packDisplayValue == null ? 0 : packDisplayValue!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (atcs.hashCode) +
+      (crmLink == null ? 0 : crmLink!.hashCode) +
+      (deliveryModusCode == null ? 0 : deliveryModusCode!.hashCode) +
+      (deliveryModus == null ? 0 : deliveryModus!.hashCode) +
+      (deliveryModusSpecificationCode == null ? 0 : deliveryModusSpecificationCode!.hashCode) +
+      (deliveryModusSpecification == null ? 0 : deliveryModusSpecification!.hashCode) +
+      (dhpcLink == null ? 0 : dhpcLink!.hashCode) +
+      (distributorCompany == null ? 0 : distributorCompany!.hashCode) +
+      (singleUse == null ? 0 : singleUse!.hashCode) +
+      (speciallyRegulated == null ? 0 : speciallyRegulated!.hashCode) +
+      (abbreviatedName == null ? 0 : abbreviatedName!.hashCode) +
+      (prescriptionName == null ? 0 : prescriptionName!.hashCode) +
+      (note == null ? 0 : note!.hashCode) +
+      (posologyNote == null ? 0 : posologyNote!.hashCode) +
+      (noGenericPrescriptionReasons.hashCode) +
+      (exFactoryPrice == null ? 0 : exFactoryPrice!.hashCode) +
+      (reimbursementCode == null ? 0 : reimbursementCode!.hashCode) +
+      (definedDailyDose == null ? 0 : definedDailyDose!.hashCode) +
+      (officialExFactoryPrice == null ? 0 : officialExFactoryPrice!.hashCode) +
+      (realExFactoryPrice == null ? 0 : realExFactoryPrice!.hashCode) +
+      (pricingInformationDecisionDate == null ? 0 : pricingInformationDecisionDate!.hashCode) +
+      (components.hashCode) +
+      (commercializations.hashCode) +
+      (supplyProblems.hashCode) +
+      (dmpps.hashCode) +
+      (vaccineIndicationCodes.hashCode);
 
   @override
-  String toString() => 'AmppDto[from=$from, to=$to, index=$index, ctiExtended=$ctiExtended, orphan=$orphan, leafletLink=$leafletLink, spcLink=$spcLink, rmaPatientLink=$rmaPatientLink, rmaProfessionalLink=$rmaProfessionalLink, parallelCircuit=$parallelCircuit, parallelDistributor=$parallelDistributor, packMultiplier=$packMultiplier, packAmount=$packAmount, packDisplayValue=$packDisplayValue, status=$status, atcs=$atcs, crmLink=$crmLink, deliveryModusCode=$deliveryModusCode, deliveryModus=$deliveryModus, deliveryModusSpecificationCode=$deliveryModusSpecificationCode, deliveryModusSpecification=$deliveryModusSpecification, dhpcLink=$dhpcLink, distributorCompany=$distributorCompany, singleUse=$singleUse, speciallyRegulated=$speciallyRegulated, abbreviatedName=$abbreviatedName, prescriptionName=$prescriptionName, note=$note, posologyNote=$posologyNote, noGenericPrescriptionReasons=$noGenericPrescriptionReasons, exFactoryPrice=$exFactoryPrice, reimbursementCode=$reimbursementCode, definedDailyDose=$definedDailyDose, officialExFactoryPrice=$officialExFactoryPrice, realExFactoryPrice=$realExFactoryPrice, pricingInformationDecisionDate=$pricingInformationDecisionDate, components=$components, commercializations=$commercializations, supplyProblems=$supplyProblems, dmpps=$dmpps, vaccineIndicationCodes=$vaccineIndicationCodes]';
+  String toString() =>
+      'AmppDto[from=$from, to=$to, index=$index, ctiExtended=$ctiExtended, orphan=$orphan, leafletLink=$leafletLink, spcLink=$spcLink, rmaPatientLink=$rmaPatientLink, rmaProfessionalLink=$rmaProfessionalLink, parallelCircuit=$parallelCircuit, parallelDistributor=$parallelDistributor, packMultiplier=$packMultiplier, packAmount=$packAmount, packDisplayValue=$packDisplayValue, status=$status, atcs=$atcs, crmLink=$crmLink, deliveryModusCode=$deliveryModusCode, deliveryModus=$deliveryModus, deliveryModusSpecificationCode=$deliveryModusSpecificationCode, deliveryModusSpecification=$deliveryModusSpecification, dhpcLink=$dhpcLink, distributorCompany=$distributorCompany, singleUse=$singleUse, speciallyRegulated=$speciallyRegulated, abbreviatedName=$abbreviatedName, prescriptionName=$prescriptionName, note=$note, posologyNote=$posologyNote, noGenericPrescriptionReasons=$noGenericPrescriptionReasons, exFactoryPrice=$exFactoryPrice, reimbursementCode=$reimbursementCode, definedDailyDose=$definedDailyDose, officialExFactoryPrice=$officialExFactoryPrice, realExFactoryPrice=$realExFactoryPrice, pricingInformationDecisionDate=$pricingInformationDecisionDate, components=$components, commercializations=$commercializations, supplyProblems=$supplyProblems, dmpps=$dmpps, vaccineIndicationCodes=$vaccineIndicationCodes]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -436,7 +439,7 @@ class AmppDto {
     if (ctiExtended != null) {
       json[r'ctiExtended'] = ctiExtended;
     }
-      json[r'orphan'] = orphan;
+    json[r'orphan'] = orphan;
     if (leafletLink != null) {
       json[r'leafletLink'] = leafletLink;
     }
@@ -467,7 +470,7 @@ class AmppDto {
     if (status != null) {
       json[r'status'] = status;
     }
-      json[r'atcs'] = atcs;
+    json[r'atcs'] = atcs;
     if (crmLink != null) {
       json[r'crmLink'] = crmLink;
     }
@@ -507,7 +510,7 @@ class AmppDto {
     if (posologyNote != null) {
       json[r'posologyNote'] = posologyNote;
     }
-      json[r'noGenericPrescriptionReasons'] = noGenericPrescriptionReasons;
+    json[r'noGenericPrescriptionReasons'] = noGenericPrescriptionReasons;
     if (exFactoryPrice != null) {
       json[r'exFactoryPrice'] = exFactoryPrice;
     }
@@ -526,11 +529,11 @@ class AmppDto {
     if (pricingInformationDecisionDate != null) {
       json[r'pricingInformationDecisionDate'] = pricingInformationDecisionDate;
     }
-      json[r'components'] = components;
-      json[r'commercializations'] = commercializations;
-      json[r'supplyProblems'] = supplyProblems;
-      json[r'dmpps'] = dmpps;
-      json[r'vaccineIndicationCodes'] = vaccineIndicationCodes;
+    json[r'components'] = components;
+    json[r'commercializations'] = commercializations;
+    json[r'supplyProblems'] = supplyProblems;
+    json[r'dmpps'] = dmpps;
+    json[r'vaccineIndicationCodes'] = vaccineIndicationCodes;
     return json;
   }
 
@@ -593,15 +596,16 @@ class AmppDto {
         commercializations: CommercializationDto.listFromJson(json[r'commercializations']) ?? const [],
         supplyProblems: SupplyProblemDto.listFromJson(json[r'supplyProblems']) ?? const [],
         dmpps: DmppDto.listFromJson(json[r'dmpps'])!,
-        vaccineIndicationCodes: json[r'vaccineIndicationCodes'] is List
-            ? (json[r'vaccineIndicationCodes'] as List).cast<String>()
-            : const [],
+        vaccineIndicationCodes: json[r'vaccineIndicationCodes'] is List ? (json[r'vaccineIndicationCodes'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<AmppDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AmppDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AmppDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -629,12 +633,18 @@ class AmppDto {
   }
 
   // maps a json object with a list of AmppDto-objects as value to a dart map
-  static Map<String, List<AmppDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AmppDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AmppDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AmppDto.listFromJson(entry.value, growable: growable,);
+        final value = AmppDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -650,7 +660,6 @@ class AmppDto {
     'dmpps',
   };
 }
-
 
 class AmppDtoStatusEnum {
   /// Instantiate a new enum with the provided [value].
@@ -677,7 +686,10 @@ class AmppDtoStatusEnum {
 
   static AmppDtoStatusEnum? fromJson(dynamic value) => AmppDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<AmppDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AmppDtoStatusEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AmppDtoStatusEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -711,9 +723,12 @@ class AmppDtoStatusEnumTypeTransformer {
   AmppDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'AUTHORIZED': return AmppDtoStatusEnum.AUTHORIZED;
-        case r'SUSPENDED': return AmppDtoStatusEnum.SUSPENDED;
-        case r'REVOKED': return AmppDtoStatusEnum.REVOKED;
+        case r'AUTHORIZED':
+          return AmppDtoStatusEnum.AUTHORIZED;
+        case r'SUSPENDED':
+          return AmppDtoStatusEnum.SUSPENDED;
+        case r'REVOKED':
+          return AmppDtoStatusEnum.REVOKED;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -726,5 +741,3 @@ class AmppDtoStatusEnumTypeTransformer {
   /// Singleton [AmppDtoStatusEnumTypeTransformer] instance.
   static AmppDtoStatusEnumTypeTransformer? _instance;
 }
-
-

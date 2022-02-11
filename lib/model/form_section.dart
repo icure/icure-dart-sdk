@@ -46,19 +46,20 @@ class FormSection {
   List<FormColumn> formColumns;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FormSection &&
-     other.icon == icon &&
-     other.title == title &&
-     other.columns == columns &&
-     other.formColumns == formColumns;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is FormSection &&
+          other.icon == icon &&
+          other.title == title &&
+          other.columns == columns &&
+          other.formColumns == formColumns;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (icon == null ? 0 : icon!.hashCode) +
-    (title == null ? 0 : title!.hashCode) +
-    (columns == null ? 0 : columns!.hashCode) +
-    (formColumns.hashCode);
+      // ignore: unnecessary_parenthesis
+  (icon == null ? 0 : icon!.hashCode) +
+      (title == null ? 0 : title!.hashCode) +
+      (columns == null ? 0 : columns!.hashCode) +
+      (formColumns.hashCode);
 
   @override
   String toString() => 'FormSection[icon=$icon, title=$title, columns=$columns, formColumns=$formColumns]';
@@ -74,7 +75,7 @@ class FormSection {
     if (columns != null) {
       json[r'columns'] = columns;
     }
-      json[r'formColumns'] = formColumns;
+    json[r'formColumns'] = formColumns;
     return json;
   }
 

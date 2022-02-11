@@ -97,55 +97,57 @@ class MedexInfoDto {
   String? diagnosisDescr;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MedexInfoDto &&
-     other.beginDate == beginDate &&
-     other.endDate == endDate &&
-     other.author == author &&
-     other.patient == patient &&
-     other.patientLanguage == patientLanguage &&
-     other.incapacityType == incapacityType &&
-     other.incapacityReason == incapacityReason &&
-     other.outOfHomeAllowed == outOfHomeAllowed &&
-     other.certificateDate == certificateDate &&
-     other.contentDate == contentDate &&
-     other.diagnosisICPC == diagnosisICPC &&
-     other.diagnosisICD == diagnosisICD &&
-     other.diagnosisDescr == diagnosisDescr;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MedexInfoDto &&
+          other.beginDate == beginDate &&
+          other.endDate == endDate &&
+          other.author == author &&
+          other.patient == patient &&
+          other.patientLanguage == patientLanguage &&
+          other.incapacityType == incapacityType &&
+          other.incapacityReason == incapacityReason &&
+          other.outOfHomeAllowed == outOfHomeAllowed &&
+          other.certificateDate == certificateDate &&
+          other.contentDate == contentDate &&
+          other.diagnosisICPC == diagnosisICPC &&
+          other.diagnosisICD == diagnosisICD &&
+          other.diagnosisDescr == diagnosisDescr;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (beginDate.hashCode) +
-    (endDate.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (patient == null ? 0 : patient!.hashCode) +
-    (patientLanguage.hashCode) +
-    (incapacityType.hashCode) +
-    (incapacityReason.hashCode) +
-    (outOfHomeAllowed.hashCode) +
-    (certificateDate == null ? 0 : certificateDate!.hashCode) +
-    (contentDate == null ? 0 : contentDate!.hashCode) +
-    (diagnosisICPC == null ? 0 : diagnosisICPC!.hashCode) +
-    (diagnosisICD == null ? 0 : diagnosisICD!.hashCode) +
-    (diagnosisDescr == null ? 0 : diagnosisDescr!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (beginDate.hashCode) +
+      (endDate.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (patient == null ? 0 : patient!.hashCode) +
+      (patientLanguage.hashCode) +
+      (incapacityType.hashCode) +
+      (incapacityReason.hashCode) +
+      (outOfHomeAllowed.hashCode) +
+      (certificateDate == null ? 0 : certificateDate!.hashCode) +
+      (contentDate == null ? 0 : contentDate!.hashCode) +
+      (diagnosisICPC == null ? 0 : diagnosisICPC!.hashCode) +
+      (diagnosisICD == null ? 0 : diagnosisICD!.hashCode) +
+      (diagnosisDescr == null ? 0 : diagnosisDescr!.hashCode);
 
   @override
-  String toString() => 'MedexInfoDto[beginDate=$beginDate, endDate=$endDate, author=$author, patient=$patient, patientLanguage=$patientLanguage, incapacityType=$incapacityType, incapacityReason=$incapacityReason, outOfHomeAllowed=$outOfHomeAllowed, certificateDate=$certificateDate, contentDate=$contentDate, diagnosisICPC=$diagnosisICPC, diagnosisICD=$diagnosisICD, diagnosisDescr=$diagnosisDescr]';
+  String toString() =>
+      'MedexInfoDto[beginDate=$beginDate, endDate=$endDate, author=$author, patient=$patient, patientLanguage=$patientLanguage, incapacityType=$incapacityType, incapacityReason=$incapacityReason, outOfHomeAllowed=$outOfHomeAllowed, certificateDate=$certificateDate, contentDate=$contentDate, diagnosisICPC=$diagnosisICPC, diagnosisICD=$diagnosisICD, diagnosisDescr=$diagnosisDescr]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'beginDate'] = beginDate;
-      json[r'endDate'] = endDate;
+    json[r'beginDate'] = beginDate;
+    json[r'endDate'] = endDate;
     if (author != null) {
       json[r'author'] = author;
     }
     if (patient != null) {
       json[r'patient'] = patient;
     }
-      json[r'patientLanguage'] = patientLanguage;
-      json[r'incapacityType'] = incapacityType;
-      json[r'incapacityReason'] = incapacityReason;
-      json[r'outOfHomeAllowed'] = outOfHomeAllowed;
+    json[r'patientLanguage'] = patientLanguage;
+    json[r'incapacityType'] = incapacityType;
+    json[r'incapacityReason'] = incapacityReason;
+    json[r'outOfHomeAllowed'] = outOfHomeAllowed;
     if (certificateDate != null) {
       json[r'certificateDate'] = certificateDate;
     }

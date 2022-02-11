@@ -34,15 +34,16 @@ class Weekday {
   int? weekNumber;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Weekday &&
-     other.weekday == weekday &&
-     other.weekNumber == weekNumber;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is Weekday &&
+          other.weekday == weekday &&
+          other.weekNumber == weekNumber;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (weekday == null ? 0 : weekday!.hashCode) +
-    (weekNumber == null ? 0 : weekNumber!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (weekday == null ? 0 : weekday!.hashCode) +
+      (weekNumber == null ? 0 : weekNumber!.hashCode);
 
   @override
   String toString() => 'Weekday[weekday=$weekday, weekNumber=$weekNumber]';

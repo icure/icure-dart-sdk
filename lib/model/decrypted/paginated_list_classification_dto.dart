@@ -36,23 +36,19 @@ class DecryptedPaginatedListClassificationDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is DecryptedPaginatedListClassificationDto &&
-              other.pageSize == pageSize &&
-              other.totalSize == totalSize &&
-              other.rows == rows &&
-              other.nextKeyPair == nextKeyPair;
+      other is DecryptedPaginatedListClassificationDto &&
+          other.pageSize == pageSize &&
+          other.totalSize == totalSize &&
+          other.rows == rows &&
+          other.nextKeyPair == nextKeyPair;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (pageSize.hashCode) +
-      (totalSize.hashCode) +
-      (rows.hashCode) +
-      (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
+      (pageSize.hashCode) + (totalSize.hashCode) + (rows.hashCode) + (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
 
   @override
-  String toString() =>
-      'DecryptedPaginatedListClassificationDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
+  String toString() => 'DecryptedPaginatedListClassificationDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -77,10 +73,8 @@ class DecryptedPaginatedListClassificationDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedPaginatedListClassificationDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedPaginatedListClassificationDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedPaginatedListClassificationDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedPaginatedListClassificationDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -89,17 +83,16 @@ class DecryptedPaginatedListClassificationDto {
         pageSize: mapValueOfType<int>(json, r'pageSize')!,
         totalSize: mapValueOfType<int>(json, r'totalSize')!,
         rows: ClassificationDto.listFromJson(json[r'rows'])!,
-        nextKeyPair:
-        PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
+        nextKeyPair: PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
       );
     }
     return null;
   }
 
   static List<DecryptedPaginatedListClassificationDto>? listFromJson(
-      dynamic json, {
-        bool growable = false,
-      }) {
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DecryptedPaginatedListClassificationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,14 +105,12 @@ class DecryptedPaginatedListClassificationDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedPaginatedListClassificationDto> mapFromJson(
-      dynamic json) {
+  static Map<String, DecryptedPaginatedListClassificationDto> mapFromJson(dynamic json) {
     final map = <String, DecryptedPaginatedListClassificationDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DecryptedPaginatedListClassificationDto.fromJson(
-            entry.value);
+        final value = DecryptedPaginatedListClassificationDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -129,11 +120,10 @@ class DecryptedPaginatedListClassificationDto {
   }
 
   // maps a json object with a list of DecryptedPaginatedListClassificationDto-objects as value to a dart map
-  static Map<String,
-      List<DecryptedPaginatedListClassificationDto>> mapListFromJson(
-      dynamic json, {
-        bool growable = false,
-      }) {
+  static Map<String, List<DecryptedPaginatedListClassificationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DecryptedPaginatedListClassificationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments

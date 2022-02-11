@@ -28,22 +28,19 @@ class Remote {
   Authentication? auth;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Remote &&
-     other.url == url &&
-     other.auth == auth;
+  bool operator ==(Object other) => identical(this, other) || other is Remote && other.url == url && other.auth == auth;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (url.hashCode) +
-    (auth == null ? 0 : auth!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (url.hashCode) + (auth == null ? 0 : auth!.hashCode);
 
   @override
   String toString() => 'Remote[url=$url, auth=$auth]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'url'] = url;
+    json[r'url'] = url;
     if (auth != null) {
       json[r'auth'] = auth;
     }
@@ -76,7 +73,10 @@ class Remote {
     return null;
   }
 
-  static List<Remote>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Remote>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Remote>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -104,12 +104,18 @@ class Remote {
   }
 
   // maps a json object with a list of Remote-objects as value to a dart map
-  static Map<String, List<Remote>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Remote>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Remote>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = Remote.listFromJson(entry.value, growable: growable,);
+        final value = Remote.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -123,4 +129,3 @@ class Remote {
     'url',
   };
 }
-

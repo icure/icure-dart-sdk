@@ -52,19 +52,21 @@ class EmploymentInfoDto {
   EmployerDto? employer;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EmploymentInfoDto &&
-     other.startDate == startDate &&
-     other.endDate == endDate &&
-     other.professionType == professionType &&
-     other.employer == employer;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EmploymentInfoDto &&
+          other.startDate == startDate &&
+          other.endDate == endDate &&
+          other.professionType == professionType &&
+          other.employer == employer;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (startDate == null ? 0 : startDate!.hashCode) +
-    (endDate == null ? 0 : endDate!.hashCode) +
-    (professionType == null ? 0 : professionType!.hashCode) +
-    (employer == null ? 0 : employer!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (startDate == null ? 0 : startDate!.hashCode) +
+      (endDate == null ? 0 : endDate!.hashCode) +
+      (professionType == null ? 0 : professionType!.hashCode) +
+      (employer == null ? 0 : employer!.hashCode);
 
   @override
   String toString() => 'EmploymentInfoDto[startDate=$startDate, endDate=$endDate, professionType=$professionType, employer=$employer]';
@@ -114,7 +116,10 @@ class EmploymentInfoDto {
     return null;
   }
 
-  static List<EmploymentInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EmploymentInfoDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EmploymentInfoDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,12 +147,18 @@ class EmploymentInfoDto {
   }
 
   // maps a json object with a list of EmploymentInfoDto-objects as value to a dart map
-  static Map<String, List<EmploymentInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EmploymentInfoDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EmploymentInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = EmploymentInfoDto.listFromJson(entry.value, growable: growable,);
+        final value = EmploymentInfoDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -157,7 +168,5 @@ class EmploymentInfoDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

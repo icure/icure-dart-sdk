@@ -576,8 +576,7 @@ class DecryptedInvoiceDto {
           other.recipientId == recipientId &&
           other.invoiceReference == invoiceReference &&
           other.thirdPartyReference == thirdPartyReference &&
-          other.thirdPartyPaymentJustification ==
-              thirdPartyPaymentJustification &&
+          other.thirdPartyPaymentJustification == thirdPartyPaymentJustification &&
           other.thirdPartyPaymentReason == thirdPartyPaymentReason &&
           other.reason == reason &&
           other.invoiceType == invoiceType &&
@@ -648,12 +647,8 @@ class DecryptedInvoiceDto {
       (recipientId == null ? 0 : recipientId!.hashCode) +
       (invoiceReference == null ? 0 : invoiceReference!.hashCode) +
       (thirdPartyReference == null ? 0 : thirdPartyReference!.hashCode) +
-      (thirdPartyPaymentJustification == null
-          ? 0
-          : thirdPartyPaymentJustification!.hashCode) +
-      (thirdPartyPaymentReason == null
-          ? 0
-          : thirdPartyPaymentReason!.hashCode) +
+      (thirdPartyPaymentJustification == null ? 0 : thirdPartyPaymentJustification!.hashCode) +
+      (thirdPartyPaymentReason == null ? 0 : thirdPartyPaymentReason!.hashCode) +
       (reason == null ? 0 : reason!.hashCode) +
       (invoiceType == null ? 0 : invoiceType!.hashCode) +
       (sentMediumType == null ? 0 : sentMediumType!.hashCode) +
@@ -689,9 +684,7 @@ class DecryptedInvoiceDto {
       (correctiveInvoiceId == null ? 0 : correctiveInvoiceId!.hashCode) +
       (correctedInvoiceId == null ? 0 : correctedInvoiceId!.hashCode) +
       (creditNote == null ? 0 : creditNote!.hashCode) +
-      (creditNoteRelatedInvoiceId == null
-          ? 0
-          : creditNoteRelatedInvoiceId!.hashCode) +
+      (creditNoteRelatedInvoiceId == null ? 0 : creditNoteRelatedInvoiceId!.hashCode) +
       (idDocument == null ? 0 : idDocument!.hashCode) +
       (cancelReason == null ? 0 : cancelReason!.hashCode) +
       (cancelDate == null ? 0 : cancelDate!.hashCode) +
@@ -727,8 +720,10 @@ class DecryptedInvoiceDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-    json[r'tags'] = tags;
-    json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+
+    json[r'codes'] = codes.toList();
+
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -880,10 +875,10 @@ class DecryptedInvoiceDto {
       json[r'cancelDate'] = cancelDate;
     }
     json[r'options'] = options;
-    json[r'secretForeignKeys'] = secretForeignKeys;
-    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-    json[r'delegations'] = delegations;
-    json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -902,10 +897,8 @@ class DecryptedInvoiceDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DecryptedInvoiceDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DecryptedInvoiceDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedInvoiceDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedInvoiceDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -930,22 +923,15 @@ class DecryptedInvoiceDto {
         recipientType: mapValueOfType<String>(json, r'recipientType'),
         recipientId: mapValueOfType<String>(json, r'recipientId'),
         invoiceReference: mapValueOfType<String>(json, r'invoiceReference'),
-        thirdPartyReference:
-            mapValueOfType<String>(json, r'thirdPartyReference'),
-        thirdPartyPaymentJustification:
-            mapValueOfType<String>(json, r'thirdPartyPaymentJustification'),
-        thirdPartyPaymentReason:
-            mapValueOfType<String>(json, r'thirdPartyPaymentReason'),
+        thirdPartyReference: mapValueOfType<String>(json, r'thirdPartyReference'),
+        thirdPartyPaymentJustification: mapValueOfType<String>(json, r'thirdPartyPaymentJustification'),
+        thirdPartyPaymentReason: mapValueOfType<String>(json, r'thirdPartyPaymentReason'),
         reason: mapValueOfType<String>(json, r'reason'),
-        invoiceType:
-            DecryptedInvoiceDtoInvoiceTypeEnum.fromJson(json[r'invoiceType']),
-        sentMediumType: DecryptedInvoiceDtoSentMediumTypeEnum.fromJson(
-            json[r'sentMediumType']),
-        interventionType: DecryptedInvoiceDtoInterventionTypeEnum.fromJson(
-            json[r'interventionType']),
+        invoiceType: DecryptedInvoiceDtoInvoiceTypeEnum.fromJson(json[r'invoiceType']),
+        sentMediumType: DecryptedInvoiceDtoSentMediumTypeEnum.fromJson(json[r'sentMediumType']),
+        interventionType: DecryptedInvoiceDtoInterventionTypeEnum.fromJson(json[r'interventionType']),
         groupId: mapValueOfType<String>(json, r'groupId'),
-        paymentType:
-            DecryptedInvoiceDtoPaymentTypeEnum.fromJson(json[r'paymentType']),
+        paymentType: DecryptedInvoiceDtoPaymentTypeEnum.fromJson(json[r'paymentType']),
         paid: mapValueOfType<double>(json, r'paid'),
         payments: PaymentDto.listFromJson(json[r'payments']) ?? const [],
         gnotionNihii: mapValueOfType<String>(json, r'gnotionNihii'),
@@ -958,50 +944,36 @@ class DecryptedInvoiceDto {
         internshipNihii: mapValueOfType<String>(json, r'internshipNihii'),
         internshipSsin: mapValueOfType<String>(json, r'internshipSsin'),
         internshipLastName: mapValueOfType<String>(json, r'internshipLastName'),
-        internshipFirstName:
-            mapValueOfType<String>(json, r'internshipFirstName'),
-        internshipCdHcParty:
-            mapValueOfType<String>(json, r'internshipCdHcParty'),
+        internshipFirstName: mapValueOfType<String>(json, r'internshipFirstName'),
+        internshipCdHcParty: mapValueOfType<String>(json, r'internshipCdHcParty'),
         internshipCbe: mapValueOfType<String>(json, r'internshipCbe'),
         supervisorNihii: mapValueOfType<String>(json, r'supervisorNihii'),
         supervisorSsin: mapValueOfType<String>(json, r'supervisorSsin'),
         supervisorLastName: mapValueOfType<String>(json, r'supervisorLastName'),
-        supervisorFirstName:
-            mapValueOfType<String>(json, r'supervisorFirstName'),
-        supervisorCdHcParty:
-            mapValueOfType<String>(json, r'supervisorCdHcParty'),
+        supervisorFirstName: mapValueOfType<String>(json, r'supervisorFirstName'),
+        supervisorCdHcParty: mapValueOfType<String>(json, r'supervisorCdHcParty'),
         supervisorCbe: mapValueOfType<String>(json, r'supervisorCbe'),
         error: mapValueOfType<String>(json, r'error'),
-        encounterLocationName:
-            mapValueOfType<String>(json, r'encounterLocationName'),
-        encounterLocationNihii:
-            mapValueOfType<String>(json, r'encounterLocationNihii'),
-        encounterLocationNorm:
-            mapValueOfType<int>(json, r'encounterLocationNorm'),
-        longDelayJustification:
-            mapValueOfType<int>(json, r'longDelayJustification'),
-        correctiveInvoiceId:
-            mapValueOfType<String>(json, r'correctiveInvoiceId'),
+        encounterLocationName: mapValueOfType<String>(json, r'encounterLocationName'),
+        encounterLocationNihii: mapValueOfType<String>(json, r'encounterLocationNihii'),
+        encounterLocationNorm: mapValueOfType<int>(json, r'encounterLocationNorm'),
+        longDelayJustification: mapValueOfType<int>(json, r'longDelayJustification'),
+        correctiveInvoiceId: mapValueOfType<String>(json, r'correctiveInvoiceId'),
         correctedInvoiceId: mapValueOfType<String>(json, r'correctedInvoiceId'),
         creditNote: mapValueOfType<bool>(json, r'creditNote'),
-        creditNoteRelatedInvoiceId:
-            mapValueOfType<String>(json, r'creditNoteRelatedInvoiceId'),
+        creditNoteRelatedInvoiceId: mapValueOfType<String>(json, r'creditNoteRelatedInvoiceId'),
         idDocument: IdentityDocumentReaderDto.fromJson(json[r'idDocument']),
         cancelReason: mapValueOfType<String>(json, r'cancelReason'),
         cancelDate: mapValueOfType<int>(json, r'cancelDate'),
         options: mapCastOfType<String, String>(json, r'options')!,
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
@@ -1089,8 +1061,7 @@ class DecryptedInvoiceDtoInvoiceTypeEnum {
 
   static const patient = DecryptedInvoiceDtoInvoiceTypeEnum._(r'patient');
   static const mutualfund = DecryptedInvoiceDtoInvoiceTypeEnum._(r'mutualfund');
-  static const payingagency =
-      DecryptedInvoiceDtoInvoiceTypeEnum._(r'payingagency');
+  static const payingagency = DecryptedInvoiceDtoInvoiceTypeEnum._(r'payingagency');
   static const insurance = DecryptedInvoiceDtoInvoiceTypeEnum._(r'insurance');
   static const efact = DecryptedInvoiceDtoInvoiceTypeEnum._(r'efact');
   static const other = DecryptedInvoiceDtoInvoiceTypeEnum._(r'other');
@@ -1105,8 +1076,7 @@ class DecryptedInvoiceDtoInvoiceTypeEnum {
     other,
   ];
 
-  static DecryptedInvoiceDtoInvoiceTypeEnum? fromJson(dynamic value) =>
-      DecryptedInvoiceDtoInvoiceTypeEnumTypeTransformer().decode(value);
+  static DecryptedInvoiceDtoInvoiceTypeEnum? fromJson(dynamic value) => DecryptedInvoiceDtoInvoiceTypeEnumTypeTransformer().decode(value);
 
   static List<DecryptedInvoiceDtoInvoiceTypeEnum>? listFromJson(
     dynamic json, {
@@ -1128,8 +1098,7 @@ class DecryptedInvoiceDtoInvoiceTypeEnum {
 /// Transformation class that can [encode] an instance of [DecryptedInvoiceDtoInvoiceTypeEnum] to String,
 /// and [decode] dynamic data back to [DecryptedInvoiceDtoInvoiceTypeEnum].
 class DecryptedInvoiceDtoInvoiceTypeEnumTypeTransformer {
-  factory DecryptedInvoiceDtoInvoiceTypeEnumTypeTransformer() =>
-      _instance ??= const DecryptedInvoiceDtoInvoiceTypeEnumTypeTransformer._();
+  factory DecryptedInvoiceDtoInvoiceTypeEnumTypeTransformer() => _instance ??= const DecryptedInvoiceDtoInvoiceTypeEnumTypeTransformer._();
 
   const DecryptedInvoiceDtoInvoiceTypeEnumTypeTransformer._();
 
@@ -1143,8 +1112,7 @@ class DecryptedInvoiceDtoInvoiceTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DecryptedInvoiceDtoInvoiceTypeEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  DecryptedInvoiceDtoInvoiceTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'patient':
@@ -1189,8 +1157,7 @@ class DecryptedInvoiceDtoSentMediumTypeEnum {
   static const eattest = DecryptedInvoiceDtoSentMediumTypeEnum._(r'eattest');
   static const efact = DecryptedInvoiceDtoSentMediumTypeEnum._(r'efact');
   static const email = DecryptedInvoiceDtoSentMediumTypeEnum._(r'email');
-  static const mediprima =
-      DecryptedInvoiceDtoSentMediumTypeEnum._(r'mediprima');
+  static const mediprima = DecryptedInvoiceDtoSentMediumTypeEnum._(r'mediprima');
   static const paper = DecryptedInvoiceDtoSentMediumTypeEnum._(r'paper');
   static const stat = DecryptedInvoiceDtoSentMediumTypeEnum._(r'stat');
 
@@ -1205,8 +1172,7 @@ class DecryptedInvoiceDtoSentMediumTypeEnum {
     stat,
   ];
 
-  static DecryptedInvoiceDtoSentMediumTypeEnum? fromJson(dynamic value) =>
-      DecryptedInvoiceDtoSentMediumTypeEnumTypeTransformer().decode(value);
+  static DecryptedInvoiceDtoSentMediumTypeEnum? fromJson(dynamic value) => DecryptedInvoiceDtoSentMediumTypeEnumTypeTransformer().decode(value);
 
   static List<DecryptedInvoiceDtoSentMediumTypeEnum>? listFromJson(
     dynamic json, {
@@ -1228,9 +1194,7 @@ class DecryptedInvoiceDtoSentMediumTypeEnum {
 /// Transformation class that can [encode] an instance of [DecryptedInvoiceDtoSentMediumTypeEnum] to String,
 /// and [decode] dynamic data back to [DecryptedInvoiceDtoSentMediumTypeEnum].
 class DecryptedInvoiceDtoSentMediumTypeEnumTypeTransformer {
-  factory DecryptedInvoiceDtoSentMediumTypeEnumTypeTransformer() =>
-      _instance ??=
-          const DecryptedInvoiceDtoSentMediumTypeEnumTypeTransformer._();
+  factory DecryptedInvoiceDtoSentMediumTypeEnumTypeTransformer() => _instance ??= const DecryptedInvoiceDtoSentMediumTypeEnumTypeTransformer._();
 
   const DecryptedInvoiceDtoSentMediumTypeEnumTypeTransformer._();
 
@@ -1244,8 +1208,7 @@ class DecryptedInvoiceDtoSentMediumTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DecryptedInvoiceDtoSentMediumTypeEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  DecryptedInvoiceDtoSentMediumTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'cdrom':
@@ -1288,8 +1251,7 @@ class DecryptedInvoiceDtoInterventionTypeEnum {
   String toJson() => value;
 
   static const total = DecryptedInvoiceDtoInterventionTypeEnum._(r'total');
-  static const userfees =
-      DecryptedInvoiceDtoInterventionTypeEnum._(r'userfees');
+  static const userfees = DecryptedInvoiceDtoInterventionTypeEnum._(r'userfees');
 
   /// List of all possible values in this [enum][DecryptedInvoiceDtoInterventionTypeEnum].
   static const values = <DecryptedInvoiceDtoInterventionTypeEnum>[
@@ -1297,8 +1259,7 @@ class DecryptedInvoiceDtoInterventionTypeEnum {
     userfees,
   ];
 
-  static DecryptedInvoiceDtoInterventionTypeEnum? fromJson(dynamic value) =>
-      DecryptedInvoiceDtoInterventionTypeEnumTypeTransformer().decode(value);
+  static DecryptedInvoiceDtoInterventionTypeEnum? fromJson(dynamic value) => DecryptedInvoiceDtoInterventionTypeEnumTypeTransformer().decode(value);
 
   static List<DecryptedInvoiceDtoInterventionTypeEnum>? listFromJson(
     dynamic json, {
@@ -1320,9 +1281,7 @@ class DecryptedInvoiceDtoInterventionTypeEnum {
 /// Transformation class that can [encode] an instance of [DecryptedInvoiceDtoInterventionTypeEnum] to String,
 /// and [decode] dynamic data back to [DecryptedInvoiceDtoInterventionTypeEnum].
 class DecryptedInvoiceDtoInterventionTypeEnumTypeTransformer {
-  factory DecryptedInvoiceDtoInterventionTypeEnumTypeTransformer() =>
-      _instance ??=
-          const DecryptedInvoiceDtoInterventionTypeEnumTypeTransformer._();
+  factory DecryptedInvoiceDtoInterventionTypeEnumTypeTransformer() => _instance ??= const DecryptedInvoiceDtoInterventionTypeEnumTypeTransformer._();
 
   const DecryptedInvoiceDtoInterventionTypeEnumTypeTransformer._();
 
@@ -1336,8 +1295,7 @@ class DecryptedInvoiceDtoInterventionTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DecryptedInvoiceDtoInterventionTypeEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  DecryptedInvoiceDtoInterventionTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'total':
@@ -1391,8 +1349,7 @@ class DecryptedInvoiceDtoPaymentTypeEnum {
     other,
   ];
 
-  static DecryptedInvoiceDtoPaymentTypeEnum? fromJson(dynamic value) =>
-      DecryptedInvoiceDtoPaymentTypeEnumTypeTransformer().decode(value);
+  static DecryptedInvoiceDtoPaymentTypeEnum? fromJson(dynamic value) => DecryptedInvoiceDtoPaymentTypeEnumTypeTransformer().decode(value);
 
   static List<DecryptedInvoiceDtoPaymentTypeEnum>? listFromJson(
     dynamic json, {
@@ -1414,8 +1371,7 @@ class DecryptedInvoiceDtoPaymentTypeEnum {
 /// Transformation class that can [encode] an instance of [DecryptedInvoiceDtoPaymentTypeEnum] to String,
 /// and [decode] dynamic data back to [DecryptedInvoiceDtoPaymentTypeEnum].
 class DecryptedInvoiceDtoPaymentTypeEnumTypeTransformer {
-  factory DecryptedInvoiceDtoPaymentTypeEnumTypeTransformer() =>
-      _instance ??= const DecryptedInvoiceDtoPaymentTypeEnumTypeTransformer._();
+  factory DecryptedInvoiceDtoPaymentTypeEnumTypeTransformer() => _instance ??= const DecryptedInvoiceDtoPaymentTypeEnumTypeTransformer._();
 
   const DecryptedInvoiceDtoPaymentTypeEnumTypeTransformer._();
 
@@ -1429,8 +1385,7 @@ class DecryptedInvoiceDtoPaymentTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DecryptedInvoiceDtoPaymentTypeEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  DecryptedInvoiceDtoPaymentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'cash':

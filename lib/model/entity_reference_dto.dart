@@ -47,26 +47,27 @@ class EntityReferenceDto {
   String? docId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EntityReferenceDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.docId == docId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is EntityReferenceDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.docId == docId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (docId == null ? 0 : docId!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (docId == null ? 0 : docId!.hashCode);
 
   @override
   String toString() => 'EntityReferenceDto[id=$id, rev=$rev, deletionDate=$deletionDate, docId=$docId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }

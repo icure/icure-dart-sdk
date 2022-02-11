@@ -97,32 +97,34 @@ class ReplicationStats {
   String? error;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ReplicationStats &&
-     other.revisionsChecked == revisionsChecked &&
-     other.missingRevisionsFound == missingRevisionsFound &&
-     other.docsRead == docsRead &&
-     other.docsWritten == docsWritten &&
-     other.changesPending == changesPending &&
-     other.docWriteFailures == docWriteFailures &&
-     other.checkpointedSourceSeq == checkpointedSourceSeq &&
-     other.startTime == startTime &&
-     other.error == error;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ReplicationStats &&
+          other.revisionsChecked == revisionsChecked &&
+          other.missingRevisionsFound == missingRevisionsFound &&
+          other.docsRead == docsRead &&
+          other.docsWritten == docsWritten &&
+          other.changesPending == changesPending &&
+          other.docWriteFailures == docWriteFailures &&
+          other.checkpointedSourceSeq == checkpointedSourceSeq &&
+          other.startTime == startTime &&
+          other.error == error;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (revisionsChecked == null ? 0 : revisionsChecked!.hashCode) +
-    (missingRevisionsFound == null ? 0 : missingRevisionsFound!.hashCode) +
-    (docsRead == null ? 0 : docsRead!.hashCode) +
-    (docsWritten == null ? 0 : docsWritten!.hashCode) +
-    (changesPending == null ? 0 : changesPending!.hashCode) +
-    (docWriteFailures == null ? 0 : docWriteFailures!.hashCode) +
-    (checkpointedSourceSeq == null ? 0 : checkpointedSourceSeq!.hashCode) +
-    (startTime == null ? 0 : startTime!.hashCode) +
-    (error == null ? 0 : error!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (revisionsChecked == null ? 0 : revisionsChecked!.hashCode) +
+      (missingRevisionsFound == null ? 0 : missingRevisionsFound!.hashCode) +
+      (docsRead == null ? 0 : docsRead!.hashCode) +
+      (docsWritten == null ? 0 : docsWritten!.hashCode) +
+      (changesPending == null ? 0 : changesPending!.hashCode) +
+      (docWriteFailures == null ? 0 : docWriteFailures!.hashCode) +
+      (checkpointedSourceSeq == null ? 0 : checkpointedSourceSeq!.hashCode) +
+      (startTime == null ? 0 : startTime!.hashCode) +
+      (error == null ? 0 : error!.hashCode);
 
   @override
-  String toString() => 'ReplicationStats[revisionsChecked=$revisionsChecked, missingRevisionsFound=$missingRevisionsFound, docsRead=$docsRead, docsWritten=$docsWritten, changesPending=$changesPending, docWriteFailures=$docWriteFailures, checkpointedSourceSeq=$checkpointedSourceSeq, startTime=$startTime, error=$error]';
+  String toString() =>
+      'ReplicationStats[revisionsChecked=$revisionsChecked, missingRevisionsFound=$missingRevisionsFound, docsRead=$docsRead, docsWritten=$docsWritten, changesPending=$changesPending, docWriteFailures=$docWriteFailures, checkpointedSourceSeq=$checkpointedSourceSeq, startTime=$startTime, error=$error]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};

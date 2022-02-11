@@ -111,8 +111,7 @@ class DecryptedPaginatedListInvoiceDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedPaginatedListInvoiceDto> mapFromJson(
-      dynamic json) {
+  static Map<String, DecryptedPaginatedListInvoiceDto> mapFromJson(dynamic json) {
     final map = <String, DecryptedPaginatedListInvoiceDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -127,10 +126,9 @@ class DecryptedPaginatedListInvoiceDto {
   }
 
   // maps a json object with a list of DecryptedPaginatedListInvoiceDto-objects as value to a dart map
-  static Map<String, List<DecryptedPaginatedListInvoiceDto>> mapListFromJson(
-      dynamic json, {
-        bool growable = false,
-      }) {
+  static Map<String, List<DecryptedPaginatedListInvoiceDto>> mapListFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DecryptedPaginatedListInvoiceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments

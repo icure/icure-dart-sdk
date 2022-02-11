@@ -49,29 +49,31 @@ class MedicinalproductDto {
   String? productId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MedicinalproductDto &&
-     other.intendedcds == intendedcds &&
-     other.deliveredcds == deliveredcds &&
-     other.intendedname == intendedname &&
-     other.deliveredname == deliveredname &&
-     other.productId == productId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MedicinalproductDto &&
+          other.intendedcds == intendedcds &&
+          other.deliveredcds == deliveredcds &&
+          other.intendedname == intendedname &&
+          other.deliveredname == deliveredname &&
+          other.productId == productId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (intendedcds.hashCode) +
-    (deliveredcds.hashCode) +
-    (intendedname == null ? 0 : intendedname!.hashCode) +
-    (deliveredname == null ? 0 : deliveredname!.hashCode) +
-    (productId == null ? 0 : productId!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (intendedcds.hashCode) +
+      (deliveredcds.hashCode) +
+      (intendedname == null ? 0 : intendedname!.hashCode) +
+      (deliveredname == null ? 0 : deliveredname!.hashCode) +
+      (productId == null ? 0 : productId!.hashCode);
 
   @override
-  String toString() => 'MedicinalproductDto[intendedcds=$intendedcds, deliveredcds=$deliveredcds, intendedname=$intendedname, deliveredname=$deliveredname, productId=$productId]';
+  String toString() =>
+      'MedicinalproductDto[intendedcds=$intendedcds, deliveredcds=$deliveredcds, intendedname=$intendedname, deliveredname=$deliveredname, productId=$productId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'intendedcds'] = intendedcds;
-      json[r'deliveredcds'] = deliveredcds;
+    json[r'intendedcds'] = intendedcds;
+    json[r'deliveredcds'] = deliveredcds;
     if (intendedname != null) {
       json[r'intendedname'] = intendedname;
     }

@@ -43,17 +43,13 @@ class MimeAttachmentDto {
   String? mimeType;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MimeAttachmentDto &&
-     other.data == data &&
-     other.fileName == fileName &&
-     other.mimeType == mimeType;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MimeAttachmentDto && other.data == data && other.fileName == fileName && other.mimeType == mimeType;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (data == null ? 0 : data!.hashCode) +
-    (fileName == null ? 0 : fileName!.hashCode) +
-    (mimeType == null ? 0 : mimeType!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (data == null ? 0 : data!.hashCode) + (fileName == null ? 0 : fileName!.hashCode) + (mimeType == null ? 0 : mimeType!.hashCode);
 
   @override
   String toString() => 'MimeAttachmentDto[data=$data, fileName=$fileName, mimeType=$mimeType]';
@@ -99,7 +95,10 @@ class MimeAttachmentDto {
     return null;
   }
 
-  static List<MimeAttachmentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MimeAttachmentDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MimeAttachmentDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +126,18 @@ class MimeAttachmentDto {
   }
 
   // maps a json object with a list of MimeAttachmentDto-objects as value to a dart map
-  static Map<String, List<MimeAttachmentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MimeAttachmentDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MimeAttachmentDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MimeAttachmentDto.listFromJson(entry.value, growable: growable,);
+        final value = MimeAttachmentDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +147,5 @@ class MimeAttachmentDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

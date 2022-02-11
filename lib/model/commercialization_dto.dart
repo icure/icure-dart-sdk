@@ -70,26 +70,28 @@ class CommercializationDto {
   SamTextDto? additionalInformation;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CommercializationDto &&
-     other.from == from &&
-     other.to == to &&
-     other.reason == reason &&
-     other.endOfComercialization == endOfComercialization &&
-     other.impact == impact &&
-     other.additionalInformation == additionalInformation;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is CommercializationDto &&
+          other.from == from &&
+          other.to == to &&
+          other.reason == reason &&
+          other.endOfComercialization == endOfComercialization &&
+          other.impact == impact &&
+          other.additionalInformation == additionalInformation;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (reason == null ? 0 : reason!.hashCode) +
-    (endOfComercialization == null ? 0 : endOfComercialization!.hashCode) +
-    (impact == null ? 0 : impact!.hashCode) +
-    (additionalInformation == null ? 0 : additionalInformation!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (reason == null ? 0 : reason!.hashCode) +
+      (endOfComercialization == null ? 0 : endOfComercialization!.hashCode) +
+      (impact == null ? 0 : impact!.hashCode) +
+      (additionalInformation == null ? 0 : additionalInformation!.hashCode);
 
   @override
-  String toString() => 'CommercializationDto[from=$from, to=$to, reason=$reason, endOfComercialization=$endOfComercialization, impact=$impact, additionalInformation=$additionalInformation]';
+  String toString() =>
+      'CommercializationDto[from=$from, to=$to, reason=$reason, endOfComercialization=$endOfComercialization, impact=$impact, additionalInformation=$additionalInformation]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};

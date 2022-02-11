@@ -24,23 +24,24 @@ class PermissionDto {
   Set<PermissionItemDto> revokes;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PermissionDto &&
-     other.grants == grants &&
-     other.revokes == revokes;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PermissionDto &&
+          other.grants == grants &&
+          other.revokes == revokes;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (grants.hashCode) +
-    (revokes.hashCode);
+      // ignore: unnecessary_parenthesis
+  (grants.hashCode) +
+      (revokes.hashCode);
 
   @override
   String toString() => 'PermissionDto[grants=$grants, revokes=$revokes]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'grants'] = grants;
-      json[r'revokes'] = revokes;
+    json[r'grants'] = grants.toList();
+    json[r'revokes'] = revokes.toList();
     return json;
   }
 

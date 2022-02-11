@@ -318,94 +318,96 @@ class CalendarItemDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CalendarItemDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.deletionDate == deletionDate &&
-     other.title == title &&
-     other.calendarItemTypeId == calendarItemTypeId &&
-     other.masterCalendarItemId == masterCalendarItemId &&
-     other.patientId == patientId &&
-     other.important == important &&
-     other.homeVisit == homeVisit &&
-     other.phoneNumber == phoneNumber &&
-     other.placeId == placeId &&
-     other.address == address &&
-     other.addressText == addressText &&
-     other.startTime == startTime &&
-     other.endTime == endTime &&
-     other.confirmationTime == confirmationTime &&
-     other.confirmationId == confirmationId &&
-     other.duration == duration &&
-     other.allDay == allDay &&
-     other.details == details &&
-     other.wasMigrated == wasMigrated &&
-     other.agendaId == agendaId &&
-     other.recurrenceId == recurrenceId &&
-     other.meetingTags == meetingTags &&
-     other.flowItem == flowItem &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.cryptedForeignKeys == cryptedForeignKeys &&
-     other.delegations == delegations &&
-     other.encryptionKeys == encryptionKeys &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is CalendarItemDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.title == title &&
+          other.calendarItemTypeId == calendarItemTypeId &&
+          other.masterCalendarItemId == masterCalendarItemId &&
+          other.patientId == patientId &&
+          other.important == important &&
+          other.homeVisit == homeVisit &&
+          other.phoneNumber == phoneNumber &&
+          other.placeId == placeId &&
+          other.address == address &&
+          other.addressText == addressText &&
+          other.startTime == startTime &&
+          other.endTime == endTime &&
+          other.confirmationTime == confirmationTime &&
+          other.confirmationId == confirmationId &&
+          other.duration == duration &&
+          other.allDay == allDay &&
+          other.details == details &&
+          other.wasMigrated == wasMigrated &&
+          other.agendaId == agendaId &&
+          other.recurrenceId == recurrenceId &&
+          other.meetingTags == meetingTags &&
+          other.flowItem == flowItem &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (title.hashCode) +
-    (calendarItemTypeId == null ? 0 : calendarItemTypeId!.hashCode) +
-    (masterCalendarItemId == null ? 0 : masterCalendarItemId!.hashCode) +
-    (patientId == null ? 0 : patientId!.hashCode) +
-    (important == null ? 0 : important!.hashCode) +
-    (homeVisit == null ? 0 : homeVisit!.hashCode) +
-    (phoneNumber == null ? 0 : phoneNumber!.hashCode) +
-    (placeId == null ? 0 : placeId!.hashCode) +
-    (address == null ? 0 : address!.hashCode) +
-    (addressText == null ? 0 : addressText!.hashCode) +
-    (startTime == null ? 0 : startTime!.hashCode) +
-    (endTime == null ? 0 : endTime!.hashCode) +
-    (confirmationTime == null ? 0 : confirmationTime!.hashCode) +
-    (confirmationId == null ? 0 : confirmationId!.hashCode) +
-    (duration == null ? 0 : duration!.hashCode) +
-    (allDay == null ? 0 : allDay!.hashCode) +
-    (details == null ? 0 : details!.hashCode) +
-    (wasMigrated == null ? 0 : wasMigrated!.hashCode) +
-    (agendaId == null ? 0 : agendaId!.hashCode) +
-    (recurrenceId == null ? 0 : recurrenceId!.hashCode) +
-    (meetingTags.hashCode) +
-    (flowItem == null ? 0 : flowItem!.hashCode) +
-    (secretForeignKeys.hashCode) +
-    (cryptedForeignKeys.hashCode) +
-    (delegations.hashCode) +
-    (encryptionKeys.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (title.hashCode) +
+      (calendarItemTypeId == null ? 0 : calendarItemTypeId!.hashCode) +
+      (masterCalendarItemId == null ? 0 : masterCalendarItemId!.hashCode) +
+      (patientId == null ? 0 : patientId!.hashCode) +
+      (important == null ? 0 : important!.hashCode) +
+      (homeVisit == null ? 0 : homeVisit!.hashCode) +
+      (phoneNumber == null ? 0 : phoneNumber!.hashCode) +
+      (placeId == null ? 0 : placeId!.hashCode) +
+      (address == null ? 0 : address!.hashCode) +
+      (addressText == null ? 0 : addressText!.hashCode) +
+      (startTime == null ? 0 : startTime!.hashCode) +
+      (endTime == null ? 0 : endTime!.hashCode) +
+      (confirmationTime == null ? 0 : confirmationTime!.hashCode) +
+      (confirmationId == null ? 0 : confirmationId!.hashCode) +
+      (duration == null ? 0 : duration!.hashCode) +
+      (allDay == null ? 0 : allDay!.hashCode) +
+      (details == null ? 0 : details!.hashCode) +
+      (wasMigrated == null ? 0 : wasMigrated!.hashCode) +
+      (agendaId == null ? 0 : agendaId!.hashCode) +
+      (recurrenceId == null ? 0 : recurrenceId!.hashCode) +
+      (meetingTags.hashCode) +
+      (flowItem == null ? 0 : flowItem!.hashCode) +
+      (secretForeignKeys.hashCode) +
+      (cryptedForeignKeys.hashCode) +
+      (delegations.hashCode) +
+      (encryptionKeys.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'CalendarItemDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, title=$title, calendarItemTypeId=$calendarItemTypeId, masterCalendarItemId=$masterCalendarItemId, patientId=$patientId, important=$important, homeVisit=$homeVisit, phoneNumber=$phoneNumber, placeId=$placeId, address=$address, addressText=$addressText, startTime=$startTime, endTime=$endTime, confirmationTime=$confirmationTime, confirmationId=$confirmationId, duration=$duration, allDay=$allDay, details=$details, wasMigrated=$wasMigrated, agendaId=$agendaId, recurrenceId=$recurrenceId, meetingTags=$meetingTags, flowItem=$flowItem, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'CalendarItemDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, title=$title, calendarItemTypeId=$calendarItemTypeId, masterCalendarItemId=$masterCalendarItemId, patientId=$patientId, important=$important, homeVisit=$homeVisit, phoneNumber=$phoneNumber, placeId=$placeId, address=$address, addressText=$addressText, startTime=$startTime, endTime=$endTime, confirmationTime=$confirmationTime, confirmationId=$confirmationId, duration=$duration, allDay=$allDay, details=$details, wasMigrated=$wasMigrated, agendaId=$agendaId, recurrenceId=$recurrenceId, meetingTags=$meetingTags, flowItem=$flowItem, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -424,15 +426,15 @@ class CalendarItemDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-      json[r'title'] = title;
+    json[r'title'] = title;
     if (calendarItemTypeId != null) {
       json[r'calendarItemTypeId'] = calendarItemTypeId;
     }
@@ -490,14 +492,14 @@ class CalendarItemDto {
     if (recurrenceId != null) {
       json[r'recurrenceId'] = recurrenceId;
     }
-      json[r'meetingTags'] = meetingTags;
+    json[r'meetingTags'] = meetingTags.toList();
     if (flowItem != null) {
       json[r'flowItem'] = flowItem;
     }
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -556,17 +558,17 @@ class CalendarItemDto {
         recurrenceId: mapValueOfType<String>(json, r'recurrenceId'),
         meetingTags: CalendarItemTagDto.listFromJson(json[r'meetingTags'])!.toSet(),
         flowItem: FlowItemDto.fromJson(json[r'flowItem']),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );

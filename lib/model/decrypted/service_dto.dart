@@ -262,47 +262,47 @@ class DecryptedServiceDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is DecryptedServiceDto &&
-              other.id == id &&
-              other.transactionId == transactionId &&
-              other.identifier == identifier &&
-              other.contactId == contactId &&
-              other.subContactIds == subContactIds &&
-              other.plansOfActionIds == plansOfActionIds &&
-              other.healthElementsIds == healthElementsIds &&
-              other.formIds == formIds &&
-              other.secretForeignKeys == secretForeignKeys &&
-              other.cryptedForeignKeys == cryptedForeignKeys &&
-              other.delegations == delegations &&
-              other.encryptionKeys == encryptionKeys &&
-              other.label == label &&
-              other.index == index &&
-              other.content == content &&
-              other.encryptedContent == encryptedContent &&
-              other.textIndexes == textIndexes &&
-              other.valueDate == valueDate &&
-              other.openingDate == openingDate &&
-              other.closingDate == closingDate &&
-              other.formId == formId &&
-              other.created == created &&
-              other.modified == modified &&
-              other.endOfLife == endOfLife &&
-              other.author == author &&
-              other.responsible == responsible &&
-              other.medicalLocationId == medicalLocationId &&
-              other.comment == comment &&
-              other.status == status &&
-              other.invoicingCodes == invoicingCodes &&
-              other.notes == notes &&
-              other.qualifiedLinks == qualifiedLinks &&
-              other.codes == codes &&
-              other.tags == tags &&
-              other.encryptedSelf == encryptedSelf;
+      other is DecryptedServiceDto &&
+          other.id == id &&
+          other.transactionId == transactionId &&
+          other.identifier == identifier &&
+          other.contactId == contactId &&
+          other.subContactIds == subContactIds &&
+          other.plansOfActionIds == plansOfActionIds &&
+          other.healthElementsIds == healthElementsIds &&
+          other.formIds == formIds &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.label == label &&
+          other.index == index &&
+          other.content == content &&
+          other.encryptedContent == encryptedContent &&
+          other.textIndexes == textIndexes &&
+          other.valueDate == valueDate &&
+          other.openingDate == openingDate &&
+          other.closingDate == closingDate &&
+          other.formId == formId &&
+          other.created == created &&
+          other.modified == modified &&
+          other.endOfLife == endOfLife &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.comment == comment &&
+          other.status == status &&
+          other.invoicingCodes == invoicingCodes &&
+          other.notes == notes &&
+          other.qualifiedLinks == qualifiedLinks &&
+          other.codes == codes &&
+          other.tags == tags &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (transactionId == null ? 0 : transactionId!.hashCode) +
       (identifier.hashCode) +
       (contactId == null ? 0 : contactId!.hashCode) +
@@ -352,14 +352,14 @@ class DecryptedServiceDto {
     if (contactId != null) {
       json[r'contactId'] = contactId;
     }
-    json[r'subContactIds'] = subContactIds;
-    json[r'plansOfActionIds'] = plansOfActionIds;
-    json[r'healthElementsIds'] = healthElementsIds;
-    json[r'formIds'] = formIds;
-    json[r'secretForeignKeys'] = secretForeignKeys;
-    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-    json[r'delegations'] = delegations;
-    json[r'encryptionKeys'] = encryptionKeys;
+    json[r'subContactIds'] = subContactIds.toList();
+    json[r'plansOfActionIds'] = plansOfActionIds.toList();
+    json[r'healthElementsIds'] = healthElementsIds.toList();
+    json[r'formIds'] = formIds.toList();
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (label != null) {
       json[r'label'] = label;
     }
@@ -407,11 +407,13 @@ class DecryptedServiceDto {
     if (status != null) {
       json[r'status'] = status;
     }
-    json[r'invoicingCodes'] = invoicingCodes;
+    json[r'invoicingCodes'] = invoicingCodes.toList();
     json[r'notes'] = notes;
     json[r'qualifiedLinks'] = qualifiedLinks;
-    json[r'codes'] = codes;
-    json[r'tags'] = tags;
+    json[r'codes'] = codes.toList();
+
+    json[r'tags'] = tags.toList();
+
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -430,10 +432,8 @@ class DecryptedServiceDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedServiceDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedServiceDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedServiceDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedServiceDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -445,28 +445,32 @@ class DecryptedServiceDto {
         contactId: mapValueOfType<String>(json, r'contactId'),
         subContactIds: json[r'subContactIds'] is Set
             ? (json[r'subContactIds'] as Set).cast<String>()
-            : const {},
+            : json[r'subContactIds'] is List
+                ? ((json[r'subContactIds'] as List).toSet()).cast<String>()
+                : const {},
         plansOfActionIds: json[r'plansOfActionIds'] is Set
             ? (json[r'plansOfActionIds'] as Set).cast<String>()
-            : const {},
+            : json[r'plansOfActionIds'] is List
+                ? ((json[r'plansOfActionIds'] as List).toSet()).cast<String>()
+                : const {},
         healthElementsIds: json[r'healthElementsIds'] is Set
             ? (json[r'healthElementsIds'] as Set).cast<String>()
-            : const {},
+            : json[r'healthElementsIds'] is List
+                ? ((json[r'healthElementsIds'] as List).toSet()).cast<String>()
+                : const {},
         formIds: json[r'formIds'] is Set
             ? (json[r'formIds'] as Set).cast<String>()
-            : const {},
+            : json[r'formIds'] is List
+                ? ((json[r'formIds'] as List).toSet()).cast<String>()
+                : const {},
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         label: mapValueOfType<String>(json, r'label'),
         index: mapValueOfType<int>(json, r'index'),
         content: mapValueOfType<Map<String, DecryptedContentDto>>(json, r'content')!,
@@ -486,7 +490,9 @@ class DecryptedServiceDto {
         status: mapValueOfType<int>(json, r'status'),
         invoicingCodes: json[r'invoicingCodes'] is Set
             ? (json[r'invoicingCodes'] as Set).cast<String>()
-            : const {},
+            : json[r'invoicingCodes'] is List
+                ? ((json[r'invoicingCodes'] as List).toSet()).cast<String>()
+                : const {},
         notes: AnnotationDto.listFromJson(json[r'notes'])!,
         qualifiedLinks: mapWithMapOfStringsFromJson(json[r'qualifiedLinks']),
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
@@ -497,7 +503,8 @@ class DecryptedServiceDto {
     return null;
   }
 
-  static List<DecryptedServiceDto>? listFromJson(dynamic json, {
+  static List<DecryptedServiceDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedServiceDto>[];
@@ -527,7 +534,8 @@ class DecryptedServiceDto {
   }
 
   // maps a json object with a list of DecryptedServiceDto-objects as value to a dart map
-  static Map<String, List<DecryptedServiceDto>> mapListFromJson(dynamic json, {
+  static Map<String, List<DecryptedServiceDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedServiceDto>>{};

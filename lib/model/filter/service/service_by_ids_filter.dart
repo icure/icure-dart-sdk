@@ -2,6 +2,7 @@
 part of icure_dart_sdk.api;
 
 class ServiceByIdsFilter extends AbstractFilterDto<ServiceDto> {
-        @override String? desc;
-        Set<String> ids = <String>{};
+  @override
+  String? desc;
+  Set<String> ids = <String>{};
 }

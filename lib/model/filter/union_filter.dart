@@ -2,8 +2,8 @@
 
 part of icure_dart_sdk.api;
 
-
 class UnionFilter<O> extends AbstractFilterDto<O> {
-  @override String? desc;
-  List<AbstractFilterDto<O>>filters = [];
+  @override
+  String? desc;
+  List<AbstractFilterDto<O>> filters = [];
 }

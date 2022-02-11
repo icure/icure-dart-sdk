@@ -221,68 +221,70 @@ class PlanOfActionDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PlanOfActionDto &&
-     other.id == id &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.prescriberId == prescriberId &&
-     other.valueDate == valueDate &&
-     other.openingDate == openingDate &&
-     other.closingDate == closingDate &&
-     other.deadlineDate == deadlineDate &&
-     other.name == name &&
-     other.descr == descr &&
-     other.note == note &&
-     other.idOpeningContact == idOpeningContact &&
-     other.idClosingContact == idClosingContact &&
-     other.status == status &&
-     other.documentIds == documentIds &&
-     other.numberOfCares == numberOfCares &&
-     other.careTeamMemberships == careTeamMemberships &&
-     other.relevant == relevant &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PlanOfActionDto &&
+          other.id == id &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.prescriberId == prescriberId &&
+          other.valueDate == valueDate &&
+          other.openingDate == openingDate &&
+          other.closingDate == closingDate &&
+          other.deadlineDate == deadlineDate &&
+          other.name == name &&
+          other.descr == descr &&
+          other.note == note &&
+          other.idOpeningContact == idOpeningContact &&
+          other.idClosingContact == idClosingContact &&
+          other.status == status &&
+          other.documentIds == documentIds &&
+          other.numberOfCares == numberOfCares &&
+          other.careTeamMemberships == careTeamMemberships &&
+          other.relevant == relevant &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (prescriberId == null ? 0 : prescriberId!.hashCode) +
-    (valueDate == null ? 0 : valueDate!.hashCode) +
-    (openingDate == null ? 0 : openingDate!.hashCode) +
-    (closingDate == null ? 0 : closingDate!.hashCode) +
-    (deadlineDate == null ? 0 : deadlineDate!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (descr == null ? 0 : descr!.hashCode) +
-    (note == null ? 0 : note!.hashCode) +
-    (idOpeningContact == null ? 0 : idOpeningContact!.hashCode) +
-    (idClosingContact == null ? 0 : idClosingContact!.hashCode) +
-    (status.hashCode) +
-    (documentIds.hashCode) +
-    (numberOfCares == null ? 0 : numberOfCares!.hashCode) +
-    (careTeamMemberships.hashCode) +
-    (relevant.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (prescriberId == null ? 0 : prescriberId!.hashCode) +
+      (valueDate == null ? 0 : valueDate!.hashCode) +
+      (openingDate == null ? 0 : openingDate!.hashCode) +
+      (closingDate == null ? 0 : closingDate!.hashCode) +
+      (deadlineDate == null ? 0 : deadlineDate!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (descr == null ? 0 : descr!.hashCode) +
+      (note == null ? 0 : note!.hashCode) +
+      (idOpeningContact == null ? 0 : idOpeningContact!.hashCode) +
+      (idClosingContact == null ? 0 : idClosingContact!.hashCode) +
+      (status.hashCode) +
+      (documentIds.hashCode) +
+      (numberOfCares == null ? 0 : numberOfCares!.hashCode) +
+      (careTeamMemberships.hashCode) +
+      (relevant.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'PlanOfActionDto[id=$id, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, prescriberId=$prescriberId, valueDate=$valueDate, openingDate=$openingDate, closingDate=$closingDate, deadlineDate=$deadlineDate, name=$name, descr=$descr, note=$note, idOpeningContact=$idOpeningContact, idClosingContact=$idClosingContact, status=$status, documentIds=$documentIds, numberOfCares=$numberOfCares, careTeamMemberships=$careTeamMemberships, relevant=$relevant, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'PlanOfActionDto[id=$id, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, prescriberId=$prescriberId, valueDate=$valueDate, openingDate=$openingDate, closingDate=$closingDate, deadlineDate=$deadlineDate, name=$name, descr=$descr, note=$note, idOpeningContact=$idOpeningContact, idClosingContact=$idClosingContact, status=$status, documentIds=$documentIds, numberOfCares=$numberOfCares, careTeamMemberships=$careTeamMemberships, relevant=$relevant, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (created != null) {
       json[r'created'] = created;
     }
@@ -298,8 +300,8 @@ class PlanOfActionDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -333,13 +335,13 @@ class PlanOfActionDto {
     if (idClosingContact != null) {
       json[r'idClosingContact'] = idClosingContact;
     }
-      json[r'status'] = status;
-      json[r'documentIds'] = documentIds;
+    json[r'status'] = status;
+    json[r'documentIds'] = documentIds.toList();
     if (numberOfCares != null) {
       json[r'numberOfCares'] = numberOfCares;
     }
-      json[r'careTeamMemberships'] = careTeamMemberships;
-      json[r'relevant'] = relevant;
+    json[r'careTeamMemberships'] = careTeamMemberships;
+    json[r'relevant'] = relevant;
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -385,8 +387,8 @@ class PlanOfActionDto {
         idOpeningContact: mapValueOfType<String>(json, r'idOpeningContact'),
         idClosingContact: mapValueOfType<String>(json, r'idClosingContact'),
         status: mapValueOfType<int>(json, r'status')!,
-        documentIds: json[r'documentIds'] is Set
-            ? (json[r'documentIds'] as Set).cast<String>()
+        documentIds: json[r'documentIds'] is Set ? (json[r'documentIds'] as Set).cast<String>() : json[r'documentIds'] is List
+            ? ((json[r'documentIds'] as List).toSet()).cast<String>()
             : const {},
         numberOfCares: mapValueOfType<int>(json, r'numberOfCares'),
         careTeamMemberships: CareTeamMembershipDto.listFromJson(json[r'careTeamMemberships'])!,

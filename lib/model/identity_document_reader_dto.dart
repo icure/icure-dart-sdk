@@ -52,26 +52,29 @@ class IdentityDocumentReaderDto {
   int reasonUsingVignette;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is IdentityDocumentReaderDto &&
-     other.justificatifDocumentNumber == justificatifDocumentNumber &&
-     other.supportSerialNumber == supportSerialNumber &&
-     other.timeReadingEIdDocument == timeReadingEIdDocument &&
-     other.eidDocumentSupportType == eidDocumentSupportType &&
-     other.reasonManualEncoding == reasonManualEncoding &&
-     other.reasonUsingVignette == reasonUsingVignette;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is IdentityDocumentReaderDto &&
+          other.justificatifDocumentNumber == justificatifDocumentNumber &&
+          other.supportSerialNumber == supportSerialNumber &&
+          other.timeReadingEIdDocument == timeReadingEIdDocument &&
+          other.eidDocumentSupportType == eidDocumentSupportType &&
+          other.reasonManualEncoding == reasonManualEncoding &&
+          other.reasonUsingVignette == reasonUsingVignette;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (justificatifDocumentNumber == null ? 0 : justificatifDocumentNumber!.hashCode) +
-    (supportSerialNumber == null ? 0 : supportSerialNumber!.hashCode) +
-    (timeReadingEIdDocument == null ? 0 : timeReadingEIdDocument!.hashCode) +
-    (eidDocumentSupportType.hashCode) +
-    (reasonManualEncoding.hashCode) +
-    (reasonUsingVignette.hashCode);
+      // ignore: unnecessary_parenthesis
+      (justificatifDocumentNumber == null ? 0 : justificatifDocumentNumber!.hashCode) +
+      (supportSerialNumber == null ? 0 : supportSerialNumber!.hashCode) +
+      (timeReadingEIdDocument == null ? 0 : timeReadingEIdDocument!.hashCode) +
+      (eidDocumentSupportType.hashCode) +
+      (reasonManualEncoding.hashCode) +
+      (reasonUsingVignette.hashCode);
 
   @override
-  String toString() => 'IdentityDocumentReaderDto[justificatifDocumentNumber=$justificatifDocumentNumber, supportSerialNumber=$supportSerialNumber, timeReadingEIdDocument=$timeReadingEIdDocument, eidDocumentSupportType=$eidDocumentSupportType, reasonManualEncoding=$reasonManualEncoding, reasonUsingVignette=$reasonUsingVignette]';
+  String toString() =>
+      'IdentityDocumentReaderDto[justificatifDocumentNumber=$justificatifDocumentNumber, supportSerialNumber=$supportSerialNumber, timeReadingEIdDocument=$timeReadingEIdDocument, eidDocumentSupportType=$eidDocumentSupportType, reasonManualEncoding=$reasonManualEncoding, reasonUsingVignette=$reasonUsingVignette]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -84,9 +87,9 @@ class IdentityDocumentReaderDto {
     if (timeReadingEIdDocument != null) {
       json[r'timeReadingEIdDocument'] = timeReadingEIdDocument;
     }
-      json[r'eidDocumentSupportType'] = eidDocumentSupportType;
-      json[r'reasonManualEncoding'] = reasonManualEncoding;
-      json[r'reasonUsingVignette'] = reasonUsingVignette;
+    json[r'eidDocumentSupportType'] = eidDocumentSupportType;
+    json[r'reasonManualEncoding'] = reasonManualEncoding;
+    json[r'reasonUsingVignette'] = reasonUsingVignette;
     return json;
   }
 
@@ -120,7 +123,10 @@ class IdentityDocumentReaderDto {
     return null;
   }
 
-  static List<IdentityDocumentReaderDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<IdentityDocumentReaderDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <IdentityDocumentReaderDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -148,12 +154,18 @@ class IdentityDocumentReaderDto {
   }
 
   // maps a json object with a list of IdentityDocumentReaderDto-objects as value to a dart map
-  static Map<String, List<IdentityDocumentReaderDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<IdentityDocumentReaderDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<IdentityDocumentReaderDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = IdentityDocumentReaderDto.listFromJson(entry.value, growable: growable,);
+        final value = IdentityDocumentReaderDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -169,4 +181,3 @@ class IdentityDocumentReaderDto {
     'reasonUsingVignette',
   };
 }
-

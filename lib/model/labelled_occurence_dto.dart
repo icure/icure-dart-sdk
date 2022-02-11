@@ -34,15 +34,12 @@ class LabelledOccurenceDto {
   int? occurence;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is LabelledOccurenceDto &&
-     other.label == label &&
-     other.occurence == occurence;
+  bool operator ==(Object other) => identical(this, other) || other is LabelledOccurenceDto && other.label == label && other.occurence == occurence;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (label == null ? 0 : label!.hashCode) +
-    (occurence == null ? 0 : occurence!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (label == null ? 0 : label!.hashCode) + (occurence == null ? 0 : occurence!.hashCode);
 
   @override
   String toString() => 'LabelledOccurenceDto[label=$label, occurence=$occurence]';
@@ -84,7 +81,10 @@ class LabelledOccurenceDto {
     return null;
   }
 
-  static List<LabelledOccurenceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<LabelledOccurenceDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <LabelledOccurenceDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +112,18 @@ class LabelledOccurenceDto {
   }
 
   // maps a json object with a list of LabelledOccurenceDto-objects as value to a dart map
-  static Map<String, List<LabelledOccurenceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<LabelledOccurenceDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<LabelledOccurenceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = LabelledOccurenceDto.listFromJson(entry.value, growable: growable,);
+        final value = LabelledOccurenceDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +133,5 @@ class LabelledOccurenceDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

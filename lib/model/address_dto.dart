@@ -124,38 +124,41 @@ class AddressDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AddressDto &&
-     other.addressType == addressType &&
-     other.descr == descr &&
-     other.street == street &&
-     other.houseNumber == houseNumber &&
-     other.postboxNumber == postboxNumber &&
-     other.postalCode == postalCode &&
-     other.city == city &&
-     other.state == state &&
-     other.country == country &&
-     other.note == note &&
-     other.telecoms == telecoms &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AddressDto &&
+          other.addressType == addressType &&
+          other.descr == descr &&
+          other.street == street &&
+          other.houseNumber == houseNumber &&
+          other.postboxNumber == postboxNumber &&
+          other.postalCode == postalCode &&
+          other.city == city &&
+          other.state == state &&
+          other.country == country &&
+          other.note == note &&
+          other.telecoms == telecoms &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (addressType == null ? 0 : addressType!.hashCode) +
-    (descr == null ? 0 : descr!.hashCode) +
-    (street == null ? 0 : street!.hashCode) +
-    (houseNumber == null ? 0 : houseNumber!.hashCode) +
-    (postboxNumber == null ? 0 : postboxNumber!.hashCode) +
-    (postalCode == null ? 0 : postalCode!.hashCode) +
-    (city == null ? 0 : city!.hashCode) +
-    (state == null ? 0 : state!.hashCode) +
-    (country == null ? 0 : country!.hashCode) +
-    (note == null ? 0 : note!.hashCode) +
-    (telecoms.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (addressType == null ? 0 : addressType!.hashCode) +
+      (descr == null ? 0 : descr!.hashCode) +
+      (street == null ? 0 : street!.hashCode) +
+      (houseNumber == null ? 0 : houseNumber!.hashCode) +
+      (postboxNumber == null ? 0 : postboxNumber!.hashCode) +
+      (postalCode == null ? 0 : postalCode!.hashCode) +
+      (city == null ? 0 : city!.hashCode) +
+      (state == null ? 0 : state!.hashCode) +
+      (country == null ? 0 : country!.hashCode) +
+      (note == null ? 0 : note!.hashCode) +
+      (telecoms.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'AddressDto[addressType=$addressType, descr=$descr, street=$street, houseNumber=$houseNumber, postboxNumber=$postboxNumber, postalCode=$postalCode, city=$city, state=$state, country=$country, note=$note, telecoms=$telecoms, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'AddressDto[addressType=$addressType, descr=$descr, street=$street, houseNumber=$houseNumber, postboxNumber=$postboxNumber, postalCode=$postalCode, city=$city, state=$state, country=$country, note=$note, telecoms=$telecoms, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -189,7 +192,7 @@ class AddressDto {
     if (note != null) {
       json[r'note'] = note;
     }
-      json[r'telecoms'] = telecoms;
+    json[r'telecoms'] = telecoms;
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -232,7 +235,10 @@ class AddressDto {
     return null;
   }
 
-  static List<AddressDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AddressDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AddressDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -260,12 +266,18 @@ class AddressDto {
   }
 
   // maps a json object with a list of AddressDto-objects as value to a dart map
-  static Map<String, List<AddressDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AddressDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AddressDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AddressDto.listFromJson(entry.value, growable: growable,);
+        final value = AddressDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -322,7 +334,10 @@ class AddressDtoAddressTypeEnum {
 
   static AddressDtoAddressTypeEnum? fromJson(dynamic value) => AddressDtoAddressTypeEnumTypeTransformer().decode(value);
 
-  static List<AddressDtoAddressTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AddressDtoAddressTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AddressDtoAddressTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -356,17 +371,28 @@ class AddressDtoAddressTypeEnumTypeTransformer {
   AddressDtoAddressTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'home': return AddressDtoAddressTypeEnum.home;
-        case r'work': return AddressDtoAddressTypeEnum.work;
-        case r'vacation': return AddressDtoAddressTypeEnum.vacation;
-        case r'hospital': return AddressDtoAddressTypeEnum.hospital;
-        case r'clinic': return AddressDtoAddressTypeEnum.clinic;
-        case r'hq': return AddressDtoAddressTypeEnum.hq;
-        case r'other': return AddressDtoAddressTypeEnum.other;
-        case r'temporary': return AddressDtoAddressTypeEnum.temporary;
-        case r'postal': return AddressDtoAddressTypeEnum.postal;
-        case r'diplomatic': return AddressDtoAddressTypeEnum.diplomatic;
-        case r'reference': return AddressDtoAddressTypeEnum.reference;
+        case r'home':
+          return AddressDtoAddressTypeEnum.home;
+        case r'work':
+          return AddressDtoAddressTypeEnum.work;
+        case r'vacation':
+          return AddressDtoAddressTypeEnum.vacation;
+        case r'hospital':
+          return AddressDtoAddressTypeEnum.hospital;
+        case r'clinic':
+          return AddressDtoAddressTypeEnum.clinic;
+        case r'hq':
+          return AddressDtoAddressTypeEnum.hq;
+        case r'other':
+          return AddressDtoAddressTypeEnum.other;
+        case r'temporary':
+          return AddressDtoAddressTypeEnum.temporary;
+        case r'postal':
+          return AddressDtoAddressTypeEnum.postal;
+        case r'diplomatic':
+          return AddressDtoAddressTypeEnum.diplomatic;
+        case r'reference':
+          return AddressDtoAddressTypeEnum.reference;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -379,5 +405,3 @@ class AddressDtoAddressTypeEnumTypeTransformer {
   /// Singleton [AddressDtoAddressTypeEnumTypeTransformer] instance.
   static AddressDtoAddressTypeEnumTypeTransformer? _instance;
 }
-
-

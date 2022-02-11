@@ -163,48 +163,51 @@ class CompanyDto {
   String? website;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CompanyDto &&
-     other.from == from &&
-     other.to == to &&
-     other.authorisationNr == authorisationNr &&
-     other.vatNr == vatNr &&
-     other.europeanNr == europeanNr &&
-     other.denomination == denomination &&
-     other.legalForm == legalForm &&
-     other.building == building &&
-     other.streetName == streetName &&
-     other.streetNum == streetNum &&
-     other.postbox == postbox &&
-     other.postcode == postcode &&
-     other.city == city &&
-     other.countryCode == countryCode &&
-     other.phone == phone &&
-     other.language == language &&
-     other.website == website;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CompanyDto &&
+          other.from == from &&
+          other.to == to &&
+          other.authorisationNr == authorisationNr &&
+          other.vatNr == vatNr &&
+          other.europeanNr == europeanNr &&
+          other.denomination == denomination &&
+          other.legalForm == legalForm &&
+          other.building == building &&
+          other.streetName == streetName &&
+          other.streetNum == streetNum &&
+          other.postbox == postbox &&
+          other.postcode == postcode &&
+          other.city == city &&
+          other.countryCode == countryCode &&
+          other.phone == phone &&
+          other.language == language &&
+          other.website == website;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (authorisationNr == null ? 0 : authorisationNr!.hashCode) +
-    (vatNr.hashCode) +
-    (europeanNr == null ? 0 : europeanNr!.hashCode) +
-    (denomination == null ? 0 : denomination!.hashCode) +
-    (legalForm == null ? 0 : legalForm!.hashCode) +
-    (building == null ? 0 : building!.hashCode) +
-    (streetName == null ? 0 : streetName!.hashCode) +
-    (streetNum == null ? 0 : streetNum!.hashCode) +
-    (postbox == null ? 0 : postbox!.hashCode) +
-    (postcode == null ? 0 : postcode!.hashCode) +
-    (city == null ? 0 : city!.hashCode) +
-    (countryCode == null ? 0 : countryCode!.hashCode) +
-    (phone == null ? 0 : phone!.hashCode) +
-    (language == null ? 0 : language!.hashCode) +
-    (website == null ? 0 : website!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (authorisationNr == null ? 0 : authorisationNr!.hashCode) +
+      (vatNr.hashCode) +
+      (europeanNr == null ? 0 : europeanNr!.hashCode) +
+      (denomination == null ? 0 : denomination!.hashCode) +
+      (legalForm == null ? 0 : legalForm!.hashCode) +
+      (building == null ? 0 : building!.hashCode) +
+      (streetName == null ? 0 : streetName!.hashCode) +
+      (streetNum == null ? 0 : streetNum!.hashCode) +
+      (postbox == null ? 0 : postbox!.hashCode) +
+      (postcode == null ? 0 : postcode!.hashCode) +
+      (city == null ? 0 : city!.hashCode) +
+      (countryCode == null ? 0 : countryCode!.hashCode) +
+      (phone == null ? 0 : phone!.hashCode) +
+      (language == null ? 0 : language!.hashCode) +
+      (website == null ? 0 : website!.hashCode);
 
   @override
-  String toString() => 'CompanyDto[from=$from, to=$to, authorisationNr=$authorisationNr, vatNr=$vatNr, europeanNr=$europeanNr, denomination=$denomination, legalForm=$legalForm, building=$building, streetName=$streetName, streetNum=$streetNum, postbox=$postbox, postcode=$postcode, city=$city, countryCode=$countryCode, phone=$phone, language=$language, website=$website]';
+  String toString() =>
+      'CompanyDto[from=$from, to=$to, authorisationNr=$authorisationNr, vatNr=$vatNr, europeanNr=$europeanNr, denomination=$denomination, legalForm=$legalForm, building=$building, streetName=$streetName, streetNum=$streetNum, postbox=$postbox, postcode=$postcode, city=$city, countryCode=$countryCode, phone=$phone, language=$language, website=$website]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -217,7 +220,7 @@ class CompanyDto {
     if (authorisationNr != null) {
       json[r'authorisationNr'] = authorisationNr;
     }
-      json[r'vatNr'] = vatNr;
+    json[r'vatNr'] = vatNr;
     if (europeanNr != null) {
       json[r'europeanNr'] = europeanNr;
     }
@@ -301,7 +304,10 @@ class CompanyDto {
     return null;
   }
 
-  static List<CompanyDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CompanyDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CompanyDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -329,12 +335,18 @@ class CompanyDto {
   }
 
   // maps a json object with a list of CompanyDto-objects as value to a dart map
-  static Map<String, List<CompanyDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CompanyDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CompanyDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CompanyDto.listFromJson(entry.value, growable: growable,);
+        final value = CompanyDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -344,7 +356,5 @@ class CompanyDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

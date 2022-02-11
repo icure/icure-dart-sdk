@@ -31,24 +31,25 @@ class PaymentDto {
   double? paid;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PaymentDto &&
-     other.paymentDate == paymentDate &&
-     other.paymentType == paymentType &&
-     other.paid == paid;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PaymentDto &&
+          other.paymentDate == paymentDate &&
+          other.paymentType == paymentType &&
+          other.paid == paid;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (paymentDate.hashCode) +
-    (paymentType == null ? 0 : paymentType!.hashCode) +
-    (paid == null ? 0 : paid!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (paymentDate.hashCode) +
+      (paymentType == null ? 0 : paymentType!.hashCode) +
+      (paid == null ? 0 : paid!.hashCode);
 
   @override
   String toString() => 'PaymentDto[paymentDate=$paymentDate, paymentType=$paymentType, paid=$paid]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'paymentDate'] = paymentDate;
+    json[r'paymentDate'] = paymentDate;
     if (paymentType != null) {
       json[r'paymentType'] = paymentType;
     }
@@ -203,14 +204,22 @@ class PaymentDtoPaymentTypeEnumTypeTransformer {
   PaymentDtoPaymentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'cash': return PaymentDtoPaymentTypeEnum.cash;
-        case r'wired': return PaymentDtoPaymentTypeEnum.wired;
-        case r'insurance': return PaymentDtoPaymentTypeEnum.insurance;
-        case r'creditcard': return PaymentDtoPaymentTypeEnum.creditcard;
-        case r'debitcard': return PaymentDtoPaymentTypeEnum.debitcard;
-        case r'paypal': return PaymentDtoPaymentTypeEnum.paypal;
-        case r'bitcoin': return PaymentDtoPaymentTypeEnum.bitcoin;
-        case r'other': return PaymentDtoPaymentTypeEnum.other;
+        case r'cash':
+          return PaymentDtoPaymentTypeEnum.cash;
+        case r'wired':
+          return PaymentDtoPaymentTypeEnum.wired;
+        case r'insurance':
+          return PaymentDtoPaymentTypeEnum.insurance;
+        case r'creditcard':
+          return PaymentDtoPaymentTypeEnum.creditcard;
+        case r'debitcard':
+          return PaymentDtoPaymentTypeEnum.debitcard;
+        case r'paypal':
+          return PaymentDtoPaymentTypeEnum.paypal;
+        case r'bitcoin':
+          return PaymentDtoPaymentTypeEnum.bitcoin;
+        case r'other':
+          return PaymentDtoPaymentTypeEnum.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

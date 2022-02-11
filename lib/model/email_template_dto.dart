@@ -34,15 +34,16 @@ class EmailTemplateDto {
   String? body;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EmailTemplateDto &&
-     other.subject == subject &&
-     other.body == body;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is EmailTemplateDto &&
+          other.subject == subject &&
+          other.body == body;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (subject == null ? 0 : subject!.hashCode) +
-    (body == null ? 0 : body!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (subject == null ? 0 : subject!.hashCode) +
+      (body == null ? 0 : body!.hashCode);
 
   @override
   String toString() => 'EmailTemplateDto[subject=$subject, body=$body]';

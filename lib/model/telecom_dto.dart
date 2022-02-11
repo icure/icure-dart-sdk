@@ -48,22 +48,24 @@ class TelecomDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TelecomDto &&
-     other.telecomType == telecomType &&
-     other.telecomNumber == telecomNumber &&
-     other.telecomDescription == telecomDescription &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is TelecomDto &&
+          other.telecomType == telecomType &&
+          other.telecomNumber == telecomNumber &&
+          other.telecomDescription == telecomDescription &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (telecomType == null ? 0 : telecomType!.hashCode) +
-    (telecomNumber == null ? 0 : telecomNumber!.hashCode) +
-    (telecomDescription == null ? 0 : telecomDescription!.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (telecomType == null ? 0 : telecomType!.hashCode) +
+      (telecomNumber == null ? 0 : telecomNumber!.hashCode) +
+      (telecomDescription == null ? 0 : telecomDescription!.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'TelecomDto[telecomType=$telecomType, telecomNumber=$telecomNumber, telecomDescription=$telecomDescription, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'TelecomDto[telecomType=$telecomType, telecomNumber=$telecomNumber, telecomDescription=$telecomDescription, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -239,20 +241,34 @@ class TelecomDtoTelecomTypeEnumTypeTransformer {
   TelecomDtoTelecomTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'mobile': return TelecomDtoTelecomTypeEnum.mobile;
-        case r'phone': return TelecomDtoTelecomTypeEnum.phone;
-        case r'email': return TelecomDtoTelecomTypeEnum.email;
-        case r'fax': return TelecomDtoTelecomTypeEnum.fax;
-        case r'skype': return TelecomDtoTelecomTypeEnum.skype;
-        case r'im': return TelecomDtoTelecomTypeEnum.im;
-        case r'medibridge': return TelecomDtoTelecomTypeEnum.medibridge;
-        case r'ehealthbox': return TelecomDtoTelecomTypeEnum.ehealthbox;
-        case r'apicrypt': return TelecomDtoTelecomTypeEnum.apicrypt;
-        case r'web': return TelecomDtoTelecomTypeEnum.web;
-        case r'print': return TelecomDtoTelecomTypeEnum.print;
-        case r'disk': return TelecomDtoTelecomTypeEnum.disk;
-        case r'other': return TelecomDtoTelecomTypeEnum.other;
-        case r'pager': return TelecomDtoTelecomTypeEnum.pager;
+        case r'mobile':
+          return TelecomDtoTelecomTypeEnum.mobile;
+        case r'phone':
+          return TelecomDtoTelecomTypeEnum.phone;
+        case r'email':
+          return TelecomDtoTelecomTypeEnum.email;
+        case r'fax':
+          return TelecomDtoTelecomTypeEnum.fax;
+        case r'skype':
+          return TelecomDtoTelecomTypeEnum.skype;
+        case r'im':
+          return TelecomDtoTelecomTypeEnum.im;
+        case r'medibridge':
+          return TelecomDtoTelecomTypeEnum.medibridge;
+        case r'ehealthbox':
+          return TelecomDtoTelecomTypeEnum.ehealthbox;
+        case r'apicrypt':
+          return TelecomDtoTelecomTypeEnum.apicrypt;
+        case r'web':
+          return TelecomDtoTelecomTypeEnum.web;
+        case r'print':
+          return TelecomDtoTelecomTypeEnum.print;
+        case r'disk':
+          return TelecomDtoTelecomTypeEnum.disk;
+        case r'other':
+          return TelecomDtoTelecomTypeEnum.other;
+        case r'pager':
+          return TelecomDtoTelecomTypeEnum.pager;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

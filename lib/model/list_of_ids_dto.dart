@@ -19,20 +19,21 @@ class ListOfIdsDto {
   List<String> ids;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ListOfIdsDto &&
-     other.ids == ids;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ListOfIdsDto &&
+          other.ids == ids;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (ids.hashCode);
+      // ignore: unnecessary_parenthesis
+  (ids.hashCode);
 
   @override
   String toString() => 'ListOfIdsDto[ids=$ids]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'ids'] = ids;
+    json[r'ids'] = ids;
     return json;
   }
 

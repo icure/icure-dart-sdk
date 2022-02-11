@@ -19,20 +19,21 @@ class ListOfPropertiesDto {
   Set<PropertyStubDto> properties;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ListOfPropertiesDto &&
-     other.properties == properties;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ListOfPropertiesDto &&
+          other.properties == properties;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (properties.hashCode);
+      // ignore: unnecessary_parenthesis
+  (properties.hashCode);
 
   @override
   String toString() => 'ListOfPropertiesDto[properties=$properties]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'properties'] = properties;
+    json[r'properties'] = properties.toList();
     return json;
   }
 

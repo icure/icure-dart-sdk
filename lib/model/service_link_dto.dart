@@ -25,13 +25,14 @@ class ServiceLinkDto {
   String? serviceId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ServiceLinkDto &&
-     other.serviceId == serviceId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ServiceLinkDto &&
+          other.serviceId == serviceId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (serviceId == null ? 0 : serviceId!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (serviceId == null ? 0 : serviceId!.hashCode);
 
   @override
   String toString() => 'ServiceLinkDto[serviceId=$serviceId]';

@@ -43,17 +43,18 @@ class SuspensionDto {
   String? suspensionReason;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SuspensionDto &&
-     other.beginMoment == beginMoment &&
-     other.endMoment == endMoment &&
-     other.suspensionReason == suspensionReason;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SuspensionDto &&
+          other.beginMoment == beginMoment &&
+          other.endMoment == endMoment &&
+          other.suspensionReason == suspensionReason;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (beginMoment == null ? 0 : beginMoment!.hashCode) +
-    (endMoment == null ? 0 : endMoment!.hashCode) +
-    (suspensionReason == null ? 0 : suspensionReason!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (beginMoment == null ? 0 : beginMoment!.hashCode) +
+      (endMoment == null ? 0 : endMoment!.hashCode) +
+      (suspensionReason == null ? 0 : suspensionReason!.hashCode);
 
   @override
   String toString() => 'SuspensionDto[beginMoment=$beginMoment, endMoment=$endMoment, suspensionReason=$suspensionReason]';

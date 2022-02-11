@@ -62,21 +62,22 @@ class PropertyStubDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PropertyStubDto &&
-     other.id == id &&
-     other.type == type &&
-     other.typedValue == typedValue &&
-     other.deletionDate == deletionDate &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PropertyStubDto &&
+          other.id == id &&
+          other.type == type &&
+          other.typedValue == typedValue &&
+          other.deletionDate == deletionDate &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (typedValue == null ? 0 : typedValue!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id == null ? 0 : id!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (typedValue == null ? 0 : typedValue!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'PropertyStubDto[id=$id, type=$type, typedValue=$typedValue, deletionDate=$deletionDate, encryptedSelf=$encryptedSelf]';

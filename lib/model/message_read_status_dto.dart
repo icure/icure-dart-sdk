@@ -28,15 +28,16 @@ class MessageReadStatusDto {
   bool read;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MessageReadStatusDto &&
-     other.time == time &&
-     other.read == read;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MessageReadStatusDto &&
+          other.time == time &&
+          other.read == read;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (time == null ? 0 : time!.hashCode) +
-    (read.hashCode);
+      // ignore: unnecessary_parenthesis
+  (time == null ? 0 : time!.hashCode) +
+      (read.hashCode);
 
   @override
   String toString() => 'MessageReadStatusDto[time=$time, read=$read]';
@@ -46,7 +47,7 @@ class MessageReadStatusDto {
     if (time != null) {
       json[r'time'] = time;
     }
-      json[r'read'] = read;
+    json[r'read'] = read;
     return json;
   }
 

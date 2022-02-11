@@ -25,13 +25,14 @@ class Authentication {
   Basic? basic;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Authentication &&
-     other.basic == basic;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is Authentication &&
+          other.basic == basic;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (basic == null ? 0 : basic!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (basic == null ? 0 : basic!.hashCode);
 
   @override
   String toString() => 'Authentication[basic=$basic]';

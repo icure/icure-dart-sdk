@@ -49,42 +49,44 @@ class TimeTableItemDto {
   bool unavailable;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TimeTableItemDto &&
-     other.days == days &&
-     other.hours == hours &&
-     other.recurrenceTypes == recurrenceTypes &&
-     other.calendarItemTypeId == calendarItemTypeId &&
-     other.homeVisit == homeVisit &&
-     other.placeId == placeId &&
-     other.unavailable == unavailable;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is TimeTableItemDto &&
+          other.days == days &&
+          other.hours == hours &&
+          other.recurrenceTypes == recurrenceTypes &&
+          other.calendarItemTypeId == calendarItemTypeId &&
+          other.homeVisit == homeVisit &&
+          other.placeId == placeId &&
+          other.unavailable == unavailable;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (days.hashCode) +
-    (hours.hashCode) +
-    (recurrenceTypes.hashCode) +
-    (calendarItemTypeId == null ? 0 : calendarItemTypeId!.hashCode) +
-    (homeVisit.hashCode) +
-    (placeId == null ? 0 : placeId!.hashCode) +
-    (unavailable.hashCode);
+      // ignore: unnecessary_parenthesis
+  (days.hashCode) +
+      (hours.hashCode) +
+      (recurrenceTypes.hashCode) +
+      (calendarItemTypeId == null ? 0 : calendarItemTypeId!.hashCode) +
+      (homeVisit.hashCode) +
+      (placeId == null ? 0 : placeId!.hashCode) +
+      (unavailable.hashCode);
 
   @override
-  String toString() => 'TimeTableItemDto[days=$days, hours=$hours, recurrenceTypes=$recurrenceTypes, calendarItemTypeId=$calendarItemTypeId, homeVisit=$homeVisit, placeId=$placeId, unavailable=$unavailable]';
+  String toString() =>
+      'TimeTableItemDto[days=$days, hours=$hours, recurrenceTypes=$recurrenceTypes, calendarItemTypeId=$calendarItemTypeId, homeVisit=$homeVisit, placeId=$placeId, unavailable=$unavailable]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'days'] = days;
-      json[r'hours'] = hours;
-      json[r'recurrenceTypes'] = recurrenceTypes;
+    json[r'days'] = days;
+    json[r'hours'] = hours;
+    json[r'recurrenceTypes'] = recurrenceTypes;
     if (calendarItemTypeId != null) {
       json[r'calendarItemTypeId'] = calendarItemTypeId;
     }
-      json[r'homeVisit'] = homeVisit;
+    json[r'homeVisit'] = homeVisit;
     if (placeId != null) {
       json[r'placeId'] = placeId;
     }
-      json[r'unavailable'] = unavailable;
+    json[r'unavailable'] = unavailable;
     return json;
   }
 

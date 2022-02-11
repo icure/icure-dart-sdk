@@ -109,36 +109,39 @@ class MeasureDto {
   String? comparator;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MeasureDto &&
-     other.value == value &&
-     other.min == min &&
-     other.max == max &&
-     other.ref == ref &&
-     other.severity == severity &&
-     other.severityCode == severityCode &&
-     other.evolution == evolution &&
-     other.unit == unit &&
-     other.unitCodes == unitCodes &&
-     other.comment == comment &&
-     other.comparator == comparator;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MeasureDto &&
+          other.value == value &&
+          other.min == min &&
+          other.max == max &&
+          other.ref == ref &&
+          other.severity == severity &&
+          other.severityCode == severityCode &&
+          other.evolution == evolution &&
+          other.unit == unit &&
+          other.unitCodes == unitCodes &&
+          other.comment == comment &&
+          other.comparator == comparator;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (value == null ? 0 : value!.hashCode) +
-    (min == null ? 0 : min!.hashCode) +
-    (max == null ? 0 : max!.hashCode) +
-    (ref == null ? 0 : ref!.hashCode) +
-    (severity == null ? 0 : severity!.hashCode) +
-    (severityCode == null ? 0 : severityCode!.hashCode) +
-    (evolution == null ? 0 : evolution!.hashCode) +
-    (unit == null ? 0 : unit!.hashCode) +
-    (unitCodes.hashCode) +
-    (comment == null ? 0 : comment!.hashCode) +
-    (comparator == null ? 0 : comparator!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (value == null ? 0 : value!.hashCode) +
+      (min == null ? 0 : min!.hashCode) +
+      (max == null ? 0 : max!.hashCode) +
+      (ref == null ? 0 : ref!.hashCode) +
+      (severity == null ? 0 : severity!.hashCode) +
+      (severityCode == null ? 0 : severityCode!.hashCode) +
+      (evolution == null ? 0 : evolution!.hashCode) +
+      (unit == null ? 0 : unit!.hashCode) +
+      (unitCodes.hashCode) +
+      (comment == null ? 0 : comment!.hashCode) +
+      (comparator == null ? 0 : comparator!.hashCode);
 
   @override
-  String toString() => 'MeasureDto[value=$value, min=$min, max=$max, ref=$ref, severity=$severity, severityCode=$severityCode, evolution=$evolution, unit=$unit, unitCodes=$unitCodes, comment=$comment, comparator=$comparator]';
+  String toString() =>
+      'MeasureDto[value=$value, min=$min, max=$max, ref=$ref, severity=$severity, severityCode=$severityCode, evolution=$evolution, unit=$unit, unitCodes=$unitCodes, comment=$comment, comparator=$comparator]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -166,7 +169,7 @@ class MeasureDto {
     if (unit != null) {
       json[r'unit'] = unit;
     }
-      json[r'unitCodes'] = unitCodes;
+    json[r'unitCodes'] = unitCodes.toList();
     if (comment != null) {
       json[r'comment'] = comment;
     }
@@ -211,7 +214,10 @@ class MeasureDto {
     return null;
   }
 
-  static List<MeasureDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MeasureDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MeasureDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -239,12 +245,18 @@ class MeasureDto {
   }
 
   // maps a json object with a list of MeasureDto-objects as value to a dart map
-  static Map<String, List<MeasureDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MeasureDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MeasureDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MeasureDto.listFromJson(entry.value, growable: growable,);
+        final value = MeasureDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -254,7 +266,5 @@ class MeasureDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

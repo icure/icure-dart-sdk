@@ -179,58 +179,60 @@ class FormTemplateDto {
   String? layoutAttachmentId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FormTemplateDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.layout == layout &&
-     other.templateLayout == templateLayout &&
-     other.name == name &&
-     other.guid == guid &&
-     other.group == group &&
-     other.descr == descr &&
-     other.disabled == disabled &&
-     other.specialty == specialty &&
-     other.author == author &&
-     other.formInstancePreferredLocation == formInstancePreferredLocation &&
-     other.keyboardShortcut == keyboardShortcut &&
-     other.shortReport == shortReport &&
-     other.mediumReport == mediumReport &&
-     other.longReport == longReport &&
-     other.reports == reports &&
-     other.tags == tags &&
-     other.layoutAttachmentId == layoutAttachmentId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is FormTemplateDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.layout == layout &&
+          other.templateLayout == templateLayout &&
+          other.name == name &&
+          other.guid == guid &&
+          other.group == group &&
+          other.descr == descr &&
+          other.disabled == disabled &&
+          other.specialty == specialty &&
+          other.author == author &&
+          other.formInstancePreferredLocation == formInstancePreferredLocation &&
+          other.keyboardShortcut == keyboardShortcut &&
+          other.shortReport == shortReport &&
+          other.mediumReport == mediumReport &&
+          other.longReport == longReport &&
+          other.reports == reports &&
+          other.tags == tags &&
+          other.layoutAttachmentId == layoutAttachmentId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (layout == null ? 0 : layout!.hashCode) +
-    (templateLayout == null ? 0 : templateLayout!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (guid == null ? 0 : guid!.hashCode) +
-    (group == null ? 0 : group!.hashCode) +
-    (descr == null ? 0 : descr!.hashCode) +
-    (disabled == null ? 0 : disabled!.hashCode) +
-    (specialty == null ? 0 : specialty!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (formInstancePreferredLocation == null ? 0 : formInstancePreferredLocation!.hashCode) +
-    (keyboardShortcut == null ? 0 : keyboardShortcut!.hashCode) +
-    (shortReport == null ? 0 : shortReport!.hashCode) +
-    (mediumReport == null ? 0 : mediumReport!.hashCode) +
-    (longReport == null ? 0 : longReport!.hashCode) +
-    (reports.hashCode) +
-    (tags.hashCode) +
-    (layoutAttachmentId == null ? 0 : layoutAttachmentId!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (layout == null ? 0 : layout!.hashCode) +
+      (templateLayout == null ? 0 : templateLayout!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (guid == null ? 0 : guid!.hashCode) +
+      (group == null ? 0 : group!.hashCode) +
+      (descr == null ? 0 : descr!.hashCode) +
+      (disabled == null ? 0 : disabled!.hashCode) +
+      (specialty == null ? 0 : specialty!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (formInstancePreferredLocation == null ? 0 : formInstancePreferredLocation!.hashCode) +
+      (keyboardShortcut == null ? 0 : keyboardShortcut!.hashCode) +
+      (shortReport == null ? 0 : shortReport!.hashCode) +
+      (mediumReport == null ? 0 : mediumReport!.hashCode) +
+      (longReport == null ? 0 : longReport!.hashCode) +
+      (reports.hashCode) +
+      (tags.hashCode) +
+      (layoutAttachmentId == null ? 0 : layoutAttachmentId!.hashCode);
 
   @override
-  String toString() => 'FormTemplateDto[id=$id, rev=$rev, deletionDate=$deletionDate, layout=$layout, templateLayout=$templateLayout, name=$name, guid=$guid, group=$group, descr=$descr, disabled=$disabled, specialty=$specialty, author=$author, formInstancePreferredLocation=$formInstancePreferredLocation, keyboardShortcut=$keyboardShortcut, shortReport=$shortReport, mediumReport=$mediumReport, longReport=$longReport, reports=$reports, tags=$tags, layoutAttachmentId=$layoutAttachmentId]';
+  String toString() =>
+      'FormTemplateDto[id=$id, rev=$rev, deletionDate=$deletionDate, layout=$layout, templateLayout=$templateLayout, name=$name, guid=$guid, group=$group, descr=$descr, disabled=$disabled, specialty=$specialty, author=$author, formInstancePreferredLocation=$formInstancePreferredLocation, keyboardShortcut=$keyboardShortcut, shortReport=$shortReport, mediumReport=$mediumReport, longReport=$longReport, reports=$reports, tags=$tags, layoutAttachmentId=$layoutAttachmentId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -279,8 +281,8 @@ class FormTemplateDto {
     if (longReport != null) {
       json[r'longReport'] = longReport;
     }
-      json[r'reports'] = reports;
-      json[r'tags'] = tags;
+    json[r'reports'] = reports.toList();
+    json[r'tags'] = tags.toList();
     if (layoutAttachmentId != null) {
       json[r'layoutAttachmentId'] = layoutAttachmentId;
     }
@@ -323,9 +325,8 @@ class FormTemplateDto {
         shortReport: mapValueOfType<String>(json, r'shortReport'),
         mediumReport: mapValueOfType<String>(json, r'mediumReport'),
         longReport: mapValueOfType<String>(json, r'longReport'),
-        reports: json[r'reports'] is Set
-            ? (json[r'reports'] as Set).cast<String>()
-            : const {},
+        reports: json[r'reports'] is Set ? (json[r'reports'] as Set).cast<String>() : json[r'reports'] is List ? ((json[r'reports'] as List).toSet())
+            .cast<String>() : const {},
         tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
         layoutAttachmentId: mapValueOfType<String>(json, r'layoutAttachmentId'),
       );

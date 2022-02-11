@@ -185,15 +185,17 @@ class DecryptedIcureStubDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-    json[r'tags'] = tags;
-    json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+
+    json[r'codes'] = codes.toList();
+
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
-    json[r'secretForeignKeys'] = secretForeignKeys;
-    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-    json[r'delegations'] = delegations;
-    json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -231,8 +233,8 @@ class DecryptedIcureStubDto {
         tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
             ? const {}

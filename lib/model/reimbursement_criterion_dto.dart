@@ -43,17 +43,14 @@ class ReimbursementCriterionDto {
   SamTextDto? description;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ReimbursementCriterionDto &&
-     other.category == category &&
-     other.code == code &&
-     other.description == description;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ReimbursementCriterionDto && other.category == category && other.code == code && other.description == description;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (category == null ? 0 : category!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (description == null ? 0 : description!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (category == null ? 0 : category!.hashCode) + (code == null ? 0 : code!.hashCode) + (description == null ? 0 : description!.hashCode);
 
   @override
   String toString() => 'ReimbursementCriterionDto[category=$category, code=$code, description=$description]';
@@ -99,7 +96,10 @@ class ReimbursementCriterionDto {
     return null;
   }
 
-  static List<ReimbursementCriterionDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReimbursementCriterionDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReimbursementCriterionDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +127,18 @@ class ReimbursementCriterionDto {
   }
 
   // maps a json object with a list of ReimbursementCriterionDto-objects as value to a dart map
-  static Map<String, List<ReimbursementCriterionDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ReimbursementCriterionDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ReimbursementCriterionDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ReimbursementCriterionDto.listFromJson(entry.value, growable: growable,);
+        final value = ReimbursementCriterionDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +148,5 @@ class ReimbursementCriterionDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

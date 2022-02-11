@@ -145,48 +145,51 @@ class ReimbursementDto {
   List<CopaymentDto> copayments;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ReimbursementDto &&
-     other.from == from &&
-     other.to == to &&
-     other.deliveryEnvironment == deliveryEnvironment &&
-     other.code == code &&
-     other.codeType == codeType &&
-     other.multiple == multiple &&
-     other.temporary == temporary &&
-     other.reference == reference &&
-     other.legalReferencePath == legalReferencePath &&
-     other.flatRateSystem == flatRateSystem &&
-     other.reimbursementBasePrice == reimbursementBasePrice &&
-     other.referenceBasePrice == referenceBasePrice &&
-     other.copaymentSupplement == copaymentSupplement &&
-     other.pricingUnit == pricingUnit &&
-     other.pricingSlice == pricingSlice &&
-     other.reimbursementCriterion == reimbursementCriterion &&
-     other.copayments == copayments;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ReimbursementDto &&
+          other.from == from &&
+          other.to == to &&
+          other.deliveryEnvironment == deliveryEnvironment &&
+          other.code == code &&
+          other.codeType == codeType &&
+          other.multiple == multiple &&
+          other.temporary == temporary &&
+          other.reference == reference &&
+          other.legalReferencePath == legalReferencePath &&
+          other.flatRateSystem == flatRateSystem &&
+          other.reimbursementBasePrice == reimbursementBasePrice &&
+          other.referenceBasePrice == referenceBasePrice &&
+          other.copaymentSupplement == copaymentSupplement &&
+          other.pricingUnit == pricingUnit &&
+          other.pricingSlice == pricingSlice &&
+          other.reimbursementCriterion == reimbursementCriterion &&
+          other.copayments == copayments;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (deliveryEnvironment == null ? 0 : deliveryEnvironment!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (codeType == null ? 0 : codeType!.hashCode) +
-    (multiple == null ? 0 : multiple!.hashCode) +
-    (temporary == null ? 0 : temporary!.hashCode) +
-    (reference == null ? 0 : reference!.hashCode) +
-    (legalReferencePath == null ? 0 : legalReferencePath!.hashCode) +
-    (flatRateSystem == null ? 0 : flatRateSystem!.hashCode) +
-    (reimbursementBasePrice == null ? 0 : reimbursementBasePrice!.hashCode) +
-    (referenceBasePrice == null ? 0 : referenceBasePrice!.hashCode) +
-    (copaymentSupplement == null ? 0 : copaymentSupplement!.hashCode) +
-    (pricingUnit == null ? 0 : pricingUnit!.hashCode) +
-    (pricingSlice == null ? 0 : pricingSlice!.hashCode) +
-    (reimbursementCriterion == null ? 0 : reimbursementCriterion!.hashCode) +
-    (copayments.hashCode);
+      // ignore: unnecessary_parenthesis
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (deliveryEnvironment == null ? 0 : deliveryEnvironment!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (codeType == null ? 0 : codeType!.hashCode) +
+      (multiple == null ? 0 : multiple!.hashCode) +
+      (temporary == null ? 0 : temporary!.hashCode) +
+      (reference == null ? 0 : reference!.hashCode) +
+      (legalReferencePath == null ? 0 : legalReferencePath!.hashCode) +
+      (flatRateSystem == null ? 0 : flatRateSystem!.hashCode) +
+      (reimbursementBasePrice == null ? 0 : reimbursementBasePrice!.hashCode) +
+      (referenceBasePrice == null ? 0 : referenceBasePrice!.hashCode) +
+      (copaymentSupplement == null ? 0 : copaymentSupplement!.hashCode) +
+      (pricingUnit == null ? 0 : pricingUnit!.hashCode) +
+      (pricingSlice == null ? 0 : pricingSlice!.hashCode) +
+      (reimbursementCriterion == null ? 0 : reimbursementCriterion!.hashCode) +
+      (copayments.hashCode);
 
   @override
-  String toString() => 'ReimbursementDto[from=$from, to=$to, deliveryEnvironment=$deliveryEnvironment, code=$code, codeType=$codeType, multiple=$multiple, temporary=$temporary, reference=$reference, legalReferencePath=$legalReferencePath, flatRateSystem=$flatRateSystem, reimbursementBasePrice=$reimbursementBasePrice, referenceBasePrice=$referenceBasePrice, copaymentSupplement=$copaymentSupplement, pricingUnit=$pricingUnit, pricingSlice=$pricingSlice, reimbursementCriterion=$reimbursementCriterion, copayments=$copayments]';
+  String toString() =>
+      'ReimbursementDto[from=$from, to=$to, deliveryEnvironment=$deliveryEnvironment, code=$code, codeType=$codeType, multiple=$multiple, temporary=$temporary, reference=$reference, legalReferencePath=$legalReferencePath, flatRateSystem=$flatRateSystem, reimbursementBasePrice=$reimbursementBasePrice, referenceBasePrice=$referenceBasePrice, copaymentSupplement=$copaymentSupplement, pricingUnit=$pricingUnit, pricingSlice=$pricingSlice, reimbursementCriterion=$reimbursementCriterion, copayments=$copayments]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -238,7 +241,7 @@ class ReimbursementDto {
     if (reimbursementCriterion != null) {
       json[r'reimbursementCriterion'] = reimbursementCriterion;
     }
-      json[r'copayments'] = copayments;
+    json[r'copayments'] = copayments;
     return json;
   }
 
@@ -271,15 +274,9 @@ class ReimbursementDto {
         reference: mapValueOfType<bool>(json, r'reference'),
         legalReferencePath: mapValueOfType<String>(json, r'legalReferencePath'),
         flatRateSystem: mapValueOfType<bool>(json, r'flatRateSystem'),
-        reimbursementBasePrice: json[r'reimbursementBasePrice'] == null
-            ? null
-            : num.parse(json[r'reimbursementBasePrice'].toString()),
-        referenceBasePrice: json[r'referenceBasePrice'] == null
-            ? null
-            : num.parse(json[r'referenceBasePrice'].toString()),
-        copaymentSupplement: json[r'copaymentSupplement'] == null
-            ? null
-            : num.parse(json[r'copaymentSupplement'].toString()),
+        reimbursementBasePrice: json[r'reimbursementBasePrice'] == null ? null : num.parse(json[r'reimbursementBasePrice'].toString()),
+        referenceBasePrice: json[r'referenceBasePrice'] == null ? null : num.parse(json[r'referenceBasePrice'].toString()),
+        copaymentSupplement: json[r'copaymentSupplement'] == null ? null : num.parse(json[r'copaymentSupplement'].toString()),
         pricingUnit: PricingDto.fromJson(json[r'pricingUnit']),
         pricingSlice: PricingDto.fromJson(json[r'pricingSlice']),
         reimbursementCriterion: ReimbursementCriterionDto.fromJson(json[r'reimbursementCriterion']),
@@ -289,7 +286,10 @@ class ReimbursementDto {
     return null;
   }
 
-  static List<ReimbursementDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReimbursementDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReimbursementDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -317,12 +317,18 @@ class ReimbursementDto {
   }
 
   // maps a json object with a list of ReimbursementDto-objects as value to a dart map
-  static Map<String, List<ReimbursementDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ReimbursementDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ReimbursementDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ReimbursementDto.listFromJson(entry.value, growable: growable,);
+        final value = ReimbursementDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -332,10 +338,8 @@ class ReimbursementDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class ReimbursementDtoDeliveryEnvironmentEnum {
   /// Instantiate a new enum with the provided [value].
@@ -364,7 +368,10 @@ class ReimbursementDtoDeliveryEnvironmentEnum {
 
   static ReimbursementDtoDeliveryEnvironmentEnum? fromJson(dynamic value) => ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer().decode(value);
 
-  static List<ReimbursementDtoDeliveryEnvironmentEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReimbursementDtoDeliveryEnvironmentEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReimbursementDtoDeliveryEnvironmentEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -398,10 +405,14 @@ class ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer {
   ReimbursementDtoDeliveryEnvironmentEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'P': return ReimbursementDtoDeliveryEnvironmentEnum.P;
-        case r'A': return ReimbursementDtoDeliveryEnvironmentEnum.A;
-        case r'H': return ReimbursementDtoDeliveryEnvironmentEnum.H;
-        case r'R': return ReimbursementDtoDeliveryEnvironmentEnum.R;
+        case r'P':
+          return ReimbursementDtoDeliveryEnvironmentEnum.P;
+        case r'A':
+          return ReimbursementDtoDeliveryEnvironmentEnum.A;
+        case r'H':
+          return ReimbursementDtoDeliveryEnvironmentEnum.H;
+        case r'R':
+          return ReimbursementDtoDeliveryEnvironmentEnum.R;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -414,8 +425,6 @@ class ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer {
   /// Singleton [ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer] instance.
   static ReimbursementDtoDeliveryEnvironmentEnumTypeTransformer? _instance;
 }
-
-
 
 class ReimbursementDtoCodeTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -440,7 +449,10 @@ class ReimbursementDtoCodeTypeEnum {
 
   static ReimbursementDtoCodeTypeEnum? fromJson(dynamic value) => ReimbursementDtoCodeTypeEnumTypeTransformer().decode(value);
 
-  static List<ReimbursementDtoCodeTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReimbursementDtoCodeTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReimbursementDtoCodeTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -474,8 +486,10 @@ class ReimbursementDtoCodeTypeEnumTypeTransformer {
   ReimbursementDtoCodeTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'CNK': return ReimbursementDtoCodeTypeEnum.CNK;
-        case r'PSEUDO': return ReimbursementDtoCodeTypeEnum.PSEUDO;
+        case r'CNK':
+          return ReimbursementDtoCodeTypeEnum.CNK;
+        case r'PSEUDO':
+          return ReimbursementDtoCodeTypeEnum.PSEUDO;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -488,8 +502,6 @@ class ReimbursementDtoCodeTypeEnumTypeTransformer {
   /// Singleton [ReimbursementDtoCodeTypeEnumTypeTransformer] instance.
   static ReimbursementDtoCodeTypeEnumTypeTransformer? _instance;
 }
-
-
 
 class ReimbursementDtoMultipleEnum {
   /// Instantiate a new enum with the provided [value].
@@ -514,7 +526,10 @@ class ReimbursementDtoMultipleEnum {
 
   static ReimbursementDtoMultipleEnum? fromJson(dynamic value) => ReimbursementDtoMultipleEnumTypeTransformer().decode(value);
 
-  static List<ReimbursementDtoMultipleEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReimbursementDtoMultipleEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReimbursementDtoMultipleEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -548,8 +563,10 @@ class ReimbursementDtoMultipleEnumTypeTransformer {
   ReimbursementDtoMultipleEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'M': return ReimbursementDtoMultipleEnum.M;
-        case r'V': return ReimbursementDtoMultipleEnum.V;
+        case r'M':
+          return ReimbursementDtoMultipleEnum.M;
+        case r'V':
+          return ReimbursementDtoMultipleEnum.V;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -562,5 +579,3 @@ class ReimbursementDtoMultipleEnumTypeTransformer {
   /// Singleton [ReimbursementDtoMultipleEnumTypeTransformer] instance.
   static ReimbursementDtoMultipleEnumTypeTransformer? _instance;
 }
-
-

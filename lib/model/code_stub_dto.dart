@@ -64,23 +64,25 @@ class CodeStubDto {
   Map<String, String> label;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CodeStubDto &&
-     other.id == id &&
-     other.context == context &&
-     other.type == type &&
-     other.code == code &&
-     other.version == version &&
-     other.label == label;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CodeStubDto &&
+          other.id == id &&
+          other.context == context &&
+          other.type == type &&
+          other.code == code &&
+          other.version == version &&
+          other.label == label;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (context == null ? 0 : context!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (label.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (context == null ? 0 : context!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (label.hashCode);
 
   @override
   String toString() => 'CodeStubDto[id=$id, context=$context, type=$type, code=$code, version=$version, label=$label]';
@@ -102,7 +104,7 @@ class CodeStubDto {
     if (version != null) {
       json[r'version'] = version;
     }
-      json[r'label'] = label;
+    json[r'label'] = label;
     return json;
   }
 
@@ -136,7 +138,10 @@ class CodeStubDto {
     return null;
   }
 
-  static List<CodeStubDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CodeStubDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CodeStubDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -164,12 +169,18 @@ class CodeStubDto {
   }
 
   // maps a json object with a list of CodeStubDto-objects as value to a dart map
-  static Map<String, List<CodeStubDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CodeStubDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CodeStubDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CodeStubDto.listFromJson(entry.value, growable: growable,);
+        final value = CodeStubDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -179,7 +190,5 @@ class CodeStubDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

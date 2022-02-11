@@ -280,45 +280,45 @@ class DecryptedDocumentDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DecryptedDocumentDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.created == created &&
-          other.modified == modified &&
-          other.author == author &&
-          other.responsible == responsible &&
-          other.medicalLocationId == medicalLocationId &&
-          other.tags == tags &&
-          other.codes == codes &&
-          other.endOfLife == endOfLife &&
-          other.deletionDate == deletionDate &&
-          other.objectStoreReference == objectStoreReference &&
-          other.documentLocation == documentLocation &&
-          other.documentType == documentType &&
-          other.documentStatus == documentStatus &&
-          other.externalUri == externalUri &&
-          other.mainUti == mainUti &&
-          other.name == name &&
-          other.version == version &&
-          other.otherUtis == otherUtis &&
-          other.storedICureDocumentId == storedICureDocumentId &&
-          other.externalUuid == externalUuid &&
-          other.size == size &&
-          other.hash == hash &&
-          other.openingContactId == openingContactId &&
-          other.attachmentId == attachmentId &&
-          other.encryptedAttachment == encryptedAttachment &&
-          other.decryptedAttachment == decryptedAttachment &&
-          other.secretForeignKeys == secretForeignKeys &&
-          other.cryptedForeignKeys == cryptedForeignKeys &&
-          other.delegations == delegations &&
-          other.encryptionKeys == encryptionKeys &&
-          other.encryptedSelf == encryptedSelf;
+          other is DecryptedDocumentDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.created == created &&
+              other.modified == modified &&
+              other.author == author &&
+              other.responsible == responsible &&
+              other.medicalLocationId == medicalLocationId &&
+              other.tags == tags &&
+              other.codes == codes &&
+              other.endOfLife == endOfLife &&
+              other.deletionDate == deletionDate &&
+              other.objectStoreReference == objectStoreReference &&
+              other.documentLocation == documentLocation &&
+              other.documentType == documentType &&
+              other.documentStatus == documentStatus &&
+              other.externalUri == externalUri &&
+              other.mainUti == mainUti &&
+              other.name == name &&
+              other.version == version &&
+              other.otherUtis == otherUtis &&
+              other.storedICureDocumentId == storedICureDocumentId &&
+              other.externalUuid == externalUuid &&
+              other.size == size &&
+              other.hash == hash &&
+              other.openingContactId == openingContactId &&
+              other.attachmentId == attachmentId &&
+              other.encryptedAttachment == encryptedAttachment &&
+              other.decryptedAttachment == decryptedAttachment &&
+              other.secretForeignKeys == secretForeignKeys &&
+              other.cryptedForeignKeys == cryptedForeignKeys &&
+              other.delegations == delegations &&
+              other.encryptionKeys == encryptionKeys &&
+              other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (id.hashCode) +
+  (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -377,8 +377,10 @@ class DecryptedDocumentDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-    json[r'tags'] = tags;
-    json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+
+    json[r'codes'] = codes.toList();
+
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -409,7 +411,7 @@ class DecryptedDocumentDto {
     if (version != null) {
       json[r'version'] = version;
     }
-    json[r'otherUtis'] = otherUtis;
+    json[r'otherUtis'] = otherUtis.toList();
     if (storedICureDocumentId != null) {
       json[r'storedICureDocumentId'] = storedICureDocumentId;
     }
@@ -434,10 +436,10 @@ class DecryptedDocumentDto {
     if (decryptedAttachment != null) {
       json[r'decryptedAttachment'] = decryptedAttachment;
     }
-    json[r'secretForeignKeys'] = secretForeignKeys;
-    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-    json[r'delegations'] = delegations;
-    json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -457,9 +459,9 @@ class DecryptedDocumentDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DecryptedDocumentDto[$key]" is missing from JSON.');
+          'Required key "DecryptedDocumentDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DecryptedDocumentDto[$key]" has a null value in JSON.');
+          'Required key "DecryptedDocumentDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -477,7 +479,7 @@ class DecryptedDocumentDto {
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         objectStoreReference:
-            mapValueOfType<String>(json, r'objectStoreReference'),
+        mapValueOfType<String>(json, r'objectStoreReference'),
         documentLocation: DecryptedDocumentDtoDocumentLocationEnum.fromJson(
             json[r'documentLocation']),
         documentType: DecryptedDocumentDtoDocumentTypeEnum.fromJson(
@@ -488,22 +490,21 @@ class DecryptedDocumentDto {
         mainUti: mapValueOfType<String>(json, r'mainUti'),
         name: mapValueOfType<String>(json, r'name'),
         version: mapValueOfType<String>(json, r'version'),
-        otherUtis: json[r'otherUtis'] is Set
-            ? (json[r'otherUtis'] as Set).cast<String>()
-            : const {},
+        otherUtis: json[r'otherUtis'] is Set ? (json[r'otherUtis'] as Set).cast<String>() : json[r'otherUtis'] is List ? ((json[r'otherUtis'] as List)
+            .toSet()).cast<String>() : const {},
         storedICureDocumentId:
-            mapValueOfType<String>(json, r'storedICureDocumentId'),
+        mapValueOfType<String>(json, r'storedICureDocumentId'),
         externalUuid: mapValueOfType<String>(json, r'externalUuid'),
         size: mapValueOfType<int>(json, r'size'),
         hash: mapValueOfType<String>(json, r'hash'),
         openingContactId: mapValueOfType<String>(json, r'openingContactId'),
         attachmentId: mapValueOfType<String>(json, r'attachmentId'),
         encryptedAttachment:
-            mapValueOfType<String>(json, r'encryptedAttachment'),
+        mapValueOfType<String>(json, r'encryptedAttachment'),
         decryptedAttachment:
-            mapValueOfType<String>(json, r'decryptedAttachment'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        mapValueOfType<String>(json, r'decryptedAttachment'),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
             ? const {}
@@ -520,8 +521,7 @@ class DecryptedDocumentDto {
     return null;
   }
 
-  static List<DecryptedDocumentDto>? listFromJson(
-    dynamic json, {
+  static List<DecryptedDocumentDto>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedDocumentDto>[];
@@ -551,8 +551,7 @@ class DecryptedDocumentDto {
   }
 
   // maps a json object with a list of DecryptedDocumentDto-objects as value to a dart map
-  static Map<String, List<DecryptedDocumentDto>> mapListFromJson(
-    dynamic json, {
+  static Map<String, List<DecryptedDocumentDto>> mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedDocumentDto>>{};
@@ -609,8 +608,7 @@ class DecryptedDocumentDtoDocumentLocationEnum {
   static DecryptedDocumentDtoDocumentLocationEnum? fromJson(dynamic value) =>
       DecryptedDocumentDtoDocumentLocationEnumTypeTransformer().decode(value);
 
-  static List<DecryptedDocumentDtoDocumentLocationEnum>? listFromJson(
-    dynamic json, {
+  static List<DecryptedDocumentDtoDocumentLocationEnum>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedDocumentDtoDocumentLocationEnum>[];
@@ -631,7 +629,7 @@ class DecryptedDocumentDtoDocumentLocationEnum {
 class DecryptedDocumentDtoDocumentLocationEnumTypeTransformer {
   factory DecryptedDocumentDtoDocumentLocationEnumTypeTransformer() =>
       _instance ??=
-          const DecryptedDocumentDtoDocumentLocationEnumTypeTransformer._();
+      const DecryptedDocumentDtoDocumentLocationEnumTypeTransformer._();
 
   const DecryptedDocumentDtoDocumentLocationEnumTypeTransformer._();
 
@@ -682,67 +680,67 @@ class DecryptedDocumentDtoDocumentTypeEnum {
   static const admission = DecryptedDocumentDtoDocumentTypeEnum._(r'admission');
   static const alert = DecryptedDocumentDtoDocumentTypeEnum._(r'alert');
   static const bvtSample =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'bvt_sample');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'bvt_sample');
   static const clinicalpath =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'clinicalpath');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'clinicalpath');
   static const clinicalsummary =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'clinicalsummary');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'clinicalsummary');
   static const contactreport =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'contactreport');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'contactreport');
   static const quote = DecryptedDocumentDtoDocumentTypeEnum._(r'quote');
   static const invoice = DecryptedDocumentDtoDocumentTypeEnum._(r'invoice');
   static const death = DecryptedDocumentDtoDocumentTypeEnum._(r'death');
   static const discharge = DecryptedDocumentDtoDocumentTypeEnum._(r'discharge');
   static const dischargereport =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'dischargereport');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'dischargereport');
   static const ebirthBabyMedicalform =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_baby_medicalform');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_baby_medicalform');
   static const ebirthBabyNotification =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_baby_notification');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_baby_notification');
   static const ebirthMotherMedicalform =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_mother_medicalform');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_mother_medicalform');
   static const ebirthMotherNotification =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_mother_notification');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_mother_notification');
   static const ecareSafeConsultation =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'ecare_safe_consultation');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'ecare_safe_consultation');
   static const epidemiology =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'epidemiology');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'epidemiology');
   static const intervention =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'intervention');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'intervention');
   static const labrequest =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'labrequest');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'labrequest');
   static const labresult = DecryptedDocumentDtoDocumentTypeEnum._(r'labresult');
   static const medicaladvisoragreement =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'medicaladvisoragreement');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'medicaladvisoragreement');
   static const medicationschemeelement =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'medicationschemeelement');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'medicationschemeelement');
   static const note = DecryptedDocumentDtoDocumentTypeEnum._(r'note');
   static const notification =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'notification');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'notification');
   static const pharmaceuticalprescription =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'pharmaceuticalprescription');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'pharmaceuticalprescription');
   static const prescription =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'prescription');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'prescription');
   static const productdelivery =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'productdelivery');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'productdelivery');
   static const quickdischargereport =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'quickdischargereport');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'quickdischargereport');
   static const radiationexposuremonitoring =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'radiationexposuremonitoring');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'radiationexposuremonitoring');
   static const referral = DecryptedDocumentDtoDocumentTypeEnum._(r'referral');
   static const report = DecryptedDocumentDtoDocumentTypeEnum._(r'report');
   static const request = DecryptedDocumentDtoDocumentTypeEnum._(r'request');
   static const result = DecryptedDocumentDtoDocumentTypeEnum._(r'result');
   static const sumehr = DecryptedDocumentDtoDocumentTypeEnum._(r'sumehr');
   static const telemonitoring =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'telemonitoring');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'telemonitoring');
   static const template = DecryptedDocumentDtoDocumentTypeEnum._(r'template');
   static const templateAdmin =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'template_admin');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'template_admin');
   static const treatmentsuspension =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'treatmentsuspension');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'treatmentsuspension');
   static const vaccination =
-      DecryptedDocumentDtoDocumentTypeEnum._(r'vaccination');
+  DecryptedDocumentDtoDocumentTypeEnum._(r'vaccination');
 
   /// List of all possible values in this [enum][DecryptedDocumentDtoDocumentTypeEnum].
   static const values = <DecryptedDocumentDtoDocumentTypeEnum>[
@@ -790,8 +788,7 @@ class DecryptedDocumentDtoDocumentTypeEnum {
   static DecryptedDocumentDtoDocumentTypeEnum? fromJson(dynamic value) =>
       DecryptedDocumentDtoDocumentTypeEnumTypeTransformer().decode(value);
 
-  static List<DecryptedDocumentDtoDocumentTypeEnum>? listFromJson(
-    dynamic json, {
+  static List<DecryptedDocumentDtoDocumentTypeEnum>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedDocumentDtoDocumentTypeEnum>[];
@@ -810,7 +807,8 @@ class DecryptedDocumentDtoDocumentTypeEnum {
 /// Transformation class that can [encode] an instance of [DecryptedDocumentDtoDocumentTypeEnum] to String,
 /// and [decode] dynamic data back to [DecryptedDocumentDtoDocumentTypeEnum].
 class DecryptedDocumentDtoDocumentTypeEnumTypeTransformer {
-  factory DecryptedDocumentDtoDocumentTypeEnumTypeTransformer() => _instance ??=
+  factory DecryptedDocumentDtoDocumentTypeEnumTypeTransformer() =>
+      _instance ??=
       const DecryptedDocumentDtoDocumentTypeEnumTypeTransformer._();
 
   const DecryptedDocumentDtoDocumentTypeEnumTypeTransformer._();
@@ -937,17 +935,17 @@ class DecryptedDocumentDtoDocumentStatusEnum {
 
   static const draft = DecryptedDocumentDtoDocumentStatusEnum._(r'draft');
   static const finalized =
-      DecryptedDocumentDtoDocumentStatusEnum._(r'finalized');
+  DecryptedDocumentDtoDocumentStatusEnum._(r'finalized');
   static const pendingReview =
-      DecryptedDocumentDtoDocumentStatusEnum._(r'pending_review');
+  DecryptedDocumentDtoDocumentStatusEnum._(r'pending_review');
   static const reviewed = DecryptedDocumentDtoDocumentStatusEnum._(r'reviewed');
   static const pendingSignature =
-      DecryptedDocumentDtoDocumentStatusEnum._(r'pending_signature');
+  DecryptedDocumentDtoDocumentStatusEnum._(r'pending_signature');
   static const signed = DecryptedDocumentDtoDocumentStatusEnum._(r'signed');
   static const canceled = DecryptedDocumentDtoDocumentStatusEnum._(r'canceled');
   static const sent = DecryptedDocumentDtoDocumentStatusEnum._(r'sent');
   static const delivered =
-      DecryptedDocumentDtoDocumentStatusEnum._(r'delivered');
+  DecryptedDocumentDtoDocumentStatusEnum._(r'delivered');
 
   /// List of all possible values in this [enum][DecryptedDocumentDtoDocumentStatusEnum].
   static const values = <DecryptedDocumentDtoDocumentStatusEnum>[
@@ -965,8 +963,7 @@ class DecryptedDocumentDtoDocumentStatusEnum {
   static DecryptedDocumentDtoDocumentStatusEnum? fromJson(dynamic value) =>
       DecryptedDocumentDtoDocumentStatusEnumTypeTransformer().decode(value);
 
-  static List<DecryptedDocumentDtoDocumentStatusEnum>? listFromJson(
-    dynamic json, {
+  static List<DecryptedDocumentDtoDocumentStatusEnum>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedDocumentDtoDocumentStatusEnum>[];
@@ -987,7 +984,7 @@ class DecryptedDocumentDtoDocumentStatusEnum {
 class DecryptedDocumentDtoDocumentStatusEnumTypeTransformer {
   factory DecryptedDocumentDtoDocumentStatusEnumTypeTransformer() =>
       _instance ??=
-          const DecryptedDocumentDtoDocumentStatusEnumTypeTransformer._();
+      const DecryptedDocumentDtoDocumentStatusEnumTypeTransformer._();
 
   const DecryptedDocumentDtoDocumentStatusEnumTypeTransformer._();
 

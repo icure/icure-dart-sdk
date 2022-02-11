@@ -65,30 +65,31 @@ class EpisodeDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EpisodeDto &&
-     other.id == id &&
-     other.name == name &&
-     other.comment == comment &&
-     other.startDate == startDate &&
-     other.endDate == endDate &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is EpisodeDto &&
+          other.id == id &&
+          other.name == name &&
+          other.comment == comment &&
+          other.startDate == startDate &&
+          other.endDate == endDate &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (comment == null ? 0 : comment!.hashCode) +
-    (startDate == null ? 0 : startDate!.hashCode) +
-    (endDate == null ? 0 : endDate!.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (comment == null ? 0 : comment!.hashCode) +
+      (startDate == null ? 0 : startDate!.hashCode) +
+      (endDate == null ? 0 : endDate!.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
   String toString() => 'EpisodeDto[id=$id, name=$name, comment=$comment, startDate=$startDate, endDate=$endDate, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (name != null) {
       json[r'name'] = name;
     }

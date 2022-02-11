@@ -34,15 +34,16 @@ class NoGenericPrescriptionReasonDto {
   SamTextDto? description;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NoGenericPrescriptionReasonDto &&
-     other.code == code &&
-     other.description == description;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is NoGenericPrescriptionReasonDto &&
+          other.code == code &&
+          other.description == description;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code == null ? 0 : code!.hashCode) +
-    (description == null ? 0 : description!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (code == null ? 0 : code!.hashCode) +
+      (description == null ? 0 : description!.hashCode);
 
   @override
   String toString() => 'NoGenericPrescriptionReasonDto[code=$code, description=$description]';

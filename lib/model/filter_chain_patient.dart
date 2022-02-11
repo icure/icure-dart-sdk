@@ -28,22 +28,19 @@ class FilterChainPatient {
   Object? predicate;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FilterChainPatient &&
-     other.filter == filter &&
-     other.predicate == predicate;
+  bool operator ==(Object other) => identical(this, other) || other is FilterChainPatient && other.filter == filter && other.predicate == predicate;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (filter.hashCode) +
-    (predicate == null ? 0 : predicate!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (filter.hashCode) + (predicate == null ? 0 : predicate!.hashCode);
 
   @override
   String toString() => 'FilterChainPatient[filter=$filter, predicate=$predicate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'filter'] = filter;
+    json[r'filter'] = filter;
     if (predicate != null) {
       json[r'predicate'] = predicate;
     }
@@ -76,7 +73,10 @@ class FilterChainPatient {
     return null;
   }
 
-  static List<FilterChainPatient>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FilterChainPatient>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FilterChainPatient>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -104,12 +104,18 @@ class FilterChainPatient {
   }
 
   // maps a json object with a list of FilterChainPatient-objects as value to a dart map
-  static Map<String, List<FilterChainPatient>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FilterChainPatient>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FilterChainPatient>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FilterChainPatient.listFromJson(entry.value, growable: growable,);
+        final value = FilterChainPatient.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -123,4 +129,3 @@ class FilterChainPatient {
     'filter',
   };
 }
-

@@ -28,22 +28,23 @@ class FilterChainUser {
   Object? predicate;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FilterChainUser &&
-     other.filter == filter &&
-     other.predicate == predicate;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is FilterChainUser &&
+          other.filter == filter &&
+          other.predicate == predicate;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (filter.hashCode) +
-    (predicate == null ? 0 : predicate!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (filter.hashCode) +
+      (predicate == null ? 0 : predicate!.hashCode);
 
   @override
   String toString() => 'FilterChainUser[filter=$filter, predicate=$predicate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'filter'] = filter;
+    json[r'filter'] = filter;
     if (predicate != null) {
       json[r'predicate'] = predicate;
     }

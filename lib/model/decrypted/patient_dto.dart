@@ -37,8 +37,7 @@ class DecryptedPatientDto {
     this.mergedIds = const {},
     this.alias,
     this.active = true,
-    this.deactivationReason =
-        const PatientDtoDeactivationReasonEnum._('DeactivationReason.none'),
+    this.deactivationReason = const PatientDtoDeactivationReasonEnum._('DeactivationReason.none'),
     this.ssin,
     this.maidenName,
     this.spouseName,
@@ -611,8 +610,7 @@ class DecryptedPatientDto {
           other.insurabilities == insurabilities &&
           other.partnerships == partnerships &&
           other.patientHealthCareParties == patientHealthCareParties &&
-          other.financialInstitutionInformation ==
-              financialInstitutionInformation &&
+          other.financialInstitutionInformation == financialInstitutionInformation &&
           other.medicalHouseContracts == medicalHouseContracts &&
           other.patientProfessions == patientProfessions &&
           other.parameters == parameters &&
@@ -627,8 +625,7 @@ class DecryptedPatientDto {
           other.encryptedSelf == encryptedSelf &&
           other.medicalLocationId == medicalLocationId &&
           other.nonDuplicateIds == nonDuplicateIds &&
-          other.encryptedAdministrativesDocuments ==
-              encryptedAdministrativesDocuments &&
+          other.encryptedAdministrativesDocuments == encryptedAdministrativesDocuments &&
           other.comment == comment &&
           other.warning == warning &&
           other.fatherBirthCountry == fatherBirthCountry &&
@@ -642,7 +639,7 @@ class DecryptedPatientDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (identifier.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
@@ -674,9 +671,7 @@ class DecryptedPatientDto {
       (personalStatus == null ? 0 : personalStatus!.hashCode) +
       (dateOfBirth == null ? 0 : dateOfBirth!.hashCode) +
       (dateOfDeath == null ? 0 : dateOfDeath!.hashCode) +
-      (timestampOfLatestEidReading == null
-          ? 0
-          : timestampOfLatestEidReading!.hashCode) +
+      (timestampOfLatestEidReading == null ? 0 : timestampOfLatestEidReading!.hashCode) +
       (placeOfBirth == null ? 0 : placeOfBirth!.hashCode) +
       (placeOfDeath == null ? 0 : placeOfDeath!.hashCode) +
       (deceased == null ? 0 : deceased!.hashCode) +
@@ -742,8 +737,10 @@ class DecryptedPatientDto {
     if (responsible != null) {
       json[r'responsible'] = responsible;
     }
-    json[r'tags'] = tags;
-    json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+
+    json[r'codes'] = codes.toList();
+
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -774,7 +771,7 @@ class DecryptedPatientDto {
     if (mergeToPatientId != null) {
       json[r'mergeToPatientId'] = mergeToPatientId;
     }
-    json[r'mergedIds'] = mergedIds;
+    json[r'mergedIds'] = mergedIds.toList();
     if (alias != null) {
       json[r'alias'] = alias;
     }
@@ -850,25 +847,24 @@ class DecryptedPatientDto {
     json[r'medicalHouseContracts'] = medicalHouseContracts;
     json[r'patientProfessions'] = patientProfessions;
     json[r'parameters'] = parameters;
-    json[r'properties'] = properties;
+    json[r'properties'] = properties.toList();
     json[r'hcPartyKeys'] = hcPartyKeys;
     json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
     if (publicKey != null) {
       json[r'publicKey'] = publicKey;
     }
-    json[r'secretForeignKeys'] = secretForeignKeys;
-    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-    json[r'delegations'] = delegations;
-    json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-    json[r'nonDuplicateIds'] = nonDuplicateIds;
-    json[r'encryptedAdministrativesDocuments'] =
-        encryptedAdministrativesDocuments;
+    json[r'nonDuplicateIds'] = nonDuplicateIds.toList();
+    json[r'encryptedAdministrativesDocuments'] = encryptedAdministrativesDocuments.toList();
     if (comment != null) {
       json[r'comment'] = comment;
     }
@@ -907,10 +903,8 @@ class DecryptedPatientDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DecryptedPatientDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DecryptedPatientDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedPatientDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedPatientDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -931,9 +925,7 @@ class DecryptedPatientDto {
         lastName: mapValueOfType<String>(json, r'lastName'),
         names: PersonNameDto.listFromJson(json[r'names'])!,
         companyName: mapValueOfType<String>(json, r'companyName'),
-        languages: json[r'languages'] is List
-            ? (json[r'languages'] as List).cast<String>()
-            : const [],
+        languages: json[r'languages'] is List ? (json[r'languages'] as List).cast<String>() : const [],
         addresses: AddressDto.listFromJson(json[r'addresses'])!,
         civility: mapValueOfType<String>(json, r'civility'),
         gender: PatientDtoGenderEnum.fromJson(json[r'gender']),
@@ -941,21 +933,20 @@ class DecryptedPatientDto {
         mergeToPatientId: mapValueOfType<String>(json, r'mergeToPatientId'),
         mergedIds: json[r'mergedIds'] is Set
             ? (json[r'mergedIds'] as Set).cast<String>()
-            : const {},
+            : json[r'mergedIds'] is List
+                ? ((json[r'mergedIds'] as List).toSet()).cast<String>()
+                : const {},
         alias: mapValueOfType<String>(json, r'alias'),
         active: mapValueOfType<bool>(json, r'active')!,
-        deactivationReason: PatientDtoDeactivationReasonEnum.fromJson(
-            json[r'deactivationReason'])!,
+        deactivationReason: PatientDtoDeactivationReasonEnum.fromJson(json[r'deactivationReason'])!,
         ssin: mapValueOfType<String>(json, r'ssin'),
         maidenName: mapValueOfType<String>(json, r'maidenName'),
         spouseName: mapValueOfType<String>(json, r'spouseName'),
         partnerName: mapValueOfType<String>(json, r'partnerName'),
-        personalStatus:
-            PatientDtoPersonalStatusEnum.fromJson(json[r'personalStatus']),
+        personalStatus: PatientDtoPersonalStatusEnum.fromJson(json[r'personalStatus']),
         dateOfBirth: mapValueOfType<int>(json, r'dateOfBirth'),
         dateOfDeath: mapValueOfType<int>(json, r'dateOfDeath'),
-        timestampOfLatestEidReading:
-            mapValueOfType<int>(json, r'timestampOfLatestEidReading'),
+        timestampOfLatestEidReading: mapValueOfType<int>(json, r'timestampOfLatestEidReading'),
         placeOfBirth: mapValueOfType<String>(json, r'placeOfBirth'),
         placeOfDeath: mapValueOfType<String>(json, r'placeOfDeath'),
         deceased: mapValueOfType<bool>(json, r'deceased'),
@@ -971,11 +962,8 @@ class DecryptedPatientDto {
         externalId: mapValueOfType<String>(json, r'externalId'),
         insurabilities: InsurabilityDto.listFromJson(json[r'insurabilities'])!,
         partnerships: PartnershipDto.listFromJson(json[r'partnerships'])!,
-        patientHealthCareParties: PatientHealthCarePartyDto.listFromJson(
-            json[r'patientHealthCareParties'])!,
-        financialInstitutionInformation:
-            FinancialInstitutionInformationDto.listFromJson(
-                json[r'financialInstitutionInformation'])!,
+        patientHealthCareParties: PatientHealthCarePartyDto.listFromJson(json[r'patientHealthCareParties'])!,
+        financialInstitutionInformation: FinancialInstitutionInformationDto.listFromJson(json[r'financialInstitutionInformation'])!,
         medicalHouseContracts: MedicalHouseContractDto.listFromJson(json[r'medicalHouseContracts'])!,
         patientProfessions: CodeStubDto.listFromJson(json[r'patientProfessions'])!,
         parameters: json[r'parameters'] == null ? const {} : mapWithListOfStringsFromJson(json[r'parameters']),
@@ -985,26 +973,21 @@ class DecryptedPatientDto {
         publicKey: mapValueOfType<String>(json, r'publicKey'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
         nonDuplicateIds: json[r'nonDuplicateIds'] is Set
             ? (json[r'nonDuplicateIds'] as Set).cast<String>()
-            : const {},
-        encryptedAdministrativesDocuments:
-            json[r'encryptedAdministrativesDocuments'] is Set
-                ? (json[r'encryptedAdministrativesDocuments'] as Set)
-                    .cast<String>()
+            : json[r'nonDuplicateIds'] is List
+                ? ((json[r'nonDuplicateIds'] as List).toSet()).cast<String>()
                 : const {},
+        encryptedAdministrativesDocuments:
+            json[r'encryptedAdministrativesDocuments'] is Set ? (json[r'encryptedAdministrativesDocuments'] as Set).cast<String>() : const {},
         comment: mapValueOfType<String>(json, r'comment'),
         warning: mapValueOfType<String>(json, r'warning'),
         fatherBirthCountry: CodeStubDto.fromJson(json[r'fatherBirthCountry']),
@@ -1013,8 +996,7 @@ class DecryptedPatientDto {
         socialStatus: CodeStubDto.fromJson(json[r'socialStatus']),
         mainSourceOfIncome: CodeStubDto.fromJson(json[r'mainSourceOfIncome']),
         schoolingInfos: SchoolingInfoDto.listFromJson(json[r'schoolingInfos'])!,
-        employementInfos:
-            EmploymentInfoDto.listFromJson(json[r'employementInfos'])!,
+        employementInfos: EmploymentInfoDto.listFromJson(json[r'employementInfos'])!,
       );
     }
     return null;
@@ -1051,7 +1033,8 @@ class DecryptedPatientDto {
   }
 
   // maps a json object with a list of DecryptedPatientDto-objects as value to a dart map
-  static Map<String, List<DecryptedPatientDto>> mapListFromJson(dynamic json, {
+  static Map<String, List<DecryptedPatientDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedPatientDto>>{};

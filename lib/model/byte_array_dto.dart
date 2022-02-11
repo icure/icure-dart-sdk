@@ -19,20 +19,21 @@ class ByteArrayDto {
   List<String> data;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ByteArrayDto &&
-     other.data == data;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ByteArrayDto &&
+          other.data == data;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (data.hashCode);
+      // ignore: unnecessary_parenthesis
+  (data.hashCode);
 
   @override
   String toString() => 'ByteArrayDto[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'data'] = data;
+    json[r'data'] = data;
     return json;
   }
 

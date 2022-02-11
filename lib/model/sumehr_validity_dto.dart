@@ -19,20 +19,21 @@ class SumehrValidityDto {
   SumehrValidityDtoSumehrValidEnum sumehrValid;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SumehrValidityDto &&
-     other.sumehrValid == sumehrValid;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SumehrValidityDto &&
+          other.sumehrValid == sumehrValid;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (sumehrValid.hashCode);
+      // ignore: unnecessary_parenthesis
+  (sumehrValid.hashCode);
 
   @override
   String toString() => 'SumehrValidityDto[sumehrValid=$sumehrValid]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'sumehrValid'] = sumehrValid;
+    json[r'sumehrValid'] = sumehrValid;
     return json;
   }
 
@@ -169,9 +170,12 @@ class SumehrValidityDtoSumehrValidEnumTypeTransformer {
   SumehrValidityDtoSumehrValidEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'absent': return SumehrValidityDtoSumehrValidEnum.absent;
-        case r'uptodate': return SumehrValidityDtoSumehrValidEnum.uptodate;
-        case r'outdated': return SumehrValidityDtoSumehrValidEnum.outdated;
+        case r'absent':
+          return SumehrValidityDtoSumehrValidEnum.absent;
+        case r'uptodate':
+          return SumehrValidityDtoSumehrValidEnum.uptodate;
+        case r'outdated':
+          return SumehrValidityDtoSumehrValidEnum.outdated;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

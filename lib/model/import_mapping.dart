@@ -49,21 +49,23 @@ class ImportMapping {
   Set<CodeStub> tags;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ImportMapping &&
-     other.lifecycle == lifecycle &&
-     other.content == content &&
-     other.cdLocal == cdLocal &&
-     other.label == label &&
-     other.tags == tags;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ImportMapping &&
+          other.lifecycle == lifecycle &&
+          other.content == content &&
+          other.cdLocal == cdLocal &&
+          other.label == label &&
+          other.tags == tags;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (lifecycle == null ? 0 : lifecycle!.hashCode) +
-    (content == null ? 0 : content!.hashCode) +
-    (cdLocal == null ? 0 : cdLocal!.hashCode) +
-    (label.hashCode) +
-    (tags.hashCode);
+      // ignore: unnecessary_parenthesis
+      (lifecycle == null ? 0 : lifecycle!.hashCode) +
+      (content == null ? 0 : content!.hashCode) +
+      (cdLocal == null ? 0 : cdLocal!.hashCode) +
+      (label.hashCode) +
+      (tags.hashCode);
 
   @override
   String toString() => 'ImportMapping[lifecycle=$lifecycle, content=$content, cdLocal=$cdLocal, label=$label, tags=$tags]';
@@ -79,8 +81,8 @@ class ImportMapping {
     if (cdLocal != null) {
       json[r'cdLocal'] = cdLocal;
     }
-      json[r'label'] = label;
-      json[r'tags'] = tags;
+    json[r'label'] = label;
+    json[r'tags'] = tags.toList();
     return json;
   }
 
@@ -113,7 +115,10 @@ class ImportMapping {
     return null;
   }
 
-  static List<ImportMapping>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ImportMapping>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ImportMapping>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -141,12 +146,18 @@ class ImportMapping {
   }
 
   // maps a json object with a list of ImportMapping-objects as value to a dart map
-  static Map<String, List<ImportMapping>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ImportMapping>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ImportMapping>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ImportMapping.listFromJson(entry.value, growable: growable,);
+        final value = ImportMapping.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,4 +172,3 @@ class ImportMapping {
     'tags',
   };
 }
-

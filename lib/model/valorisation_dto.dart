@@ -101,34 +101,36 @@ class ValorisationDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ValorisationDto &&
-     other.startOfValidity == startOfValidity &&
-     other.endOfValidity == endOfValidity &&
-     other.predicate == predicate &&
-     other.totalAmount == totalAmount &&
-     other.reimbursement == reimbursement &&
-     other.patientIntervention == patientIntervention &&
-     other.doctorSupplement == doctorSupplement &&
-     other.vat == vat &&
-     other.label == label &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ValorisationDto &&
+          other.startOfValidity == startOfValidity &&
+          other.endOfValidity == endOfValidity &&
+          other.predicate == predicate &&
+          other.totalAmount == totalAmount &&
+          other.reimbursement == reimbursement &&
+          other.patientIntervention == patientIntervention &&
+          other.doctorSupplement == doctorSupplement &&
+          other.vat == vat &&
+          other.label == label &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (startOfValidity == null ? 0 : startOfValidity!.hashCode) +
-    (endOfValidity == null ? 0 : endOfValidity!.hashCode) +
-    (predicate == null ? 0 : predicate!.hashCode) +
-    (totalAmount == null ? 0 : totalAmount!.hashCode) +
-    (reimbursement == null ? 0 : reimbursement!.hashCode) +
-    (patientIntervention == null ? 0 : patientIntervention!.hashCode) +
-    (doctorSupplement == null ? 0 : doctorSupplement!.hashCode) +
-    (vat == null ? 0 : vat!.hashCode) +
-    (label.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (startOfValidity == null ? 0 : startOfValidity!.hashCode) +
+      (endOfValidity == null ? 0 : endOfValidity!.hashCode) +
+      (predicate == null ? 0 : predicate!.hashCode) +
+      (totalAmount == null ? 0 : totalAmount!.hashCode) +
+      (reimbursement == null ? 0 : reimbursement!.hashCode) +
+      (patientIntervention == null ? 0 : patientIntervention!.hashCode) +
+      (doctorSupplement == null ? 0 : doctorSupplement!.hashCode) +
+      (vat == null ? 0 : vat!.hashCode) +
+      (label.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'ValorisationDto[startOfValidity=$startOfValidity, endOfValidity=$endOfValidity, predicate=$predicate, totalAmount=$totalAmount, reimbursement=$reimbursement, patientIntervention=$patientIntervention, doctorSupplement=$doctorSupplement, vat=$vat, label=$label, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'ValorisationDto[startOfValidity=$startOfValidity, endOfValidity=$endOfValidity, predicate=$predicate, totalAmount=$totalAmount, reimbursement=$reimbursement, patientIntervention=$patientIntervention, doctorSupplement=$doctorSupplement, vat=$vat, label=$label, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -156,7 +158,7 @@ class ValorisationDto {
     if (vat != null) {
       json[r'vat'] = vat;
     }
-      json[r'label'] = label;
+    json[r'label'] = label;
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }

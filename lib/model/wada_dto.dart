@@ -43,17 +43,18 @@ class WadaDto {
   SamTextDto? description;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is WadaDto &&
-     other.code == code &&
-     other.name == name &&
-     other.description == description;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is WadaDto &&
+          other.code == code &&
+          other.name == name &&
+          other.description == description;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code == null ? 0 : code!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (description == null ? 0 : description!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (code == null ? 0 : code!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (description == null ? 0 : description!.hashCode);
 
   @override
   String toString() => 'WadaDto[code=$code, name=$name, description=$description]';

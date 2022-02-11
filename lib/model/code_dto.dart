@@ -128,56 +128,58 @@ class CodeDto {
   bool disabled;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CodeDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.context == context &&
-     other.type == type &&
-     other.code == code &&
-     other.version == version &&
-     other.label == label &&
-     other.author == author &&
-     other.regions == regions &&
-     other.periodicity == periodicity &&
-     other.level == level &&
-     other.links == links &&
-     other.qualifiedLinks == qualifiedLinks &&
-     other.flags == flags &&
-     other.searchTerms == searchTerms &&
-     other.data == data &&
-     other.appendices == appendices &&
-     other.disabled == disabled;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is CodeDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.context == context &&
+          other.type == type &&
+          other.code == code &&
+          other.version == version &&
+          other.label == label &&
+          other.author == author &&
+          other.regions == regions &&
+          other.periodicity == periodicity &&
+          other.level == level &&
+          other.links == links &&
+          other.qualifiedLinks == qualifiedLinks &&
+          other.flags == flags &&
+          other.searchTerms == searchTerms &&
+          other.data == data &&
+          other.appendices == appendices &&
+          other.disabled == disabled;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (context == null ? 0 : context!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (label.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (regions.hashCode) +
-    (periodicity.hashCode) +
-    (level == null ? 0 : level!.hashCode) +
-    (links.hashCode) +
-    (qualifiedLinks.hashCode) +
-    (flags.hashCode) +
-    (searchTerms.hashCode) +
-    (data == null ? 0 : data!.hashCode) +
-    (appendices.hashCode) +
-    (disabled.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (context == null ? 0 : context!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (label.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (regions.hashCode) +
+      (periodicity.hashCode) +
+      (level == null ? 0 : level!.hashCode) +
+      (links.hashCode) +
+      (qualifiedLinks.hashCode) +
+      (flags.hashCode) +
+      (searchTerms.hashCode) +
+      (data == null ? 0 : data!.hashCode) +
+      (appendices.hashCode) +
+      (disabled.hashCode);
 
   @override
-  String toString() => 'CodeDto[id=$id, rev=$rev, deletionDate=$deletionDate, context=$context, type=$type, code=$code, version=$version, label=$label, author=$author, regions=$regions, periodicity=$periodicity, level=$level, links=$links, qualifiedLinks=$qualifiedLinks, flags=$flags, searchTerms=$searchTerms, data=$data, appendices=$appendices, disabled=$disabled]';
+  String toString() =>
+      'CodeDto[id=$id, rev=$rev, deletionDate=$deletionDate, context=$context, type=$type, code=$code, version=$version, label=$label, author=$author, regions=$regions, periodicity=$periodicity, level=$level, links=$links, qualifiedLinks=$qualifiedLinks, flags=$flags, searchTerms=$searchTerms, data=$data, appendices=$appendices, disabled=$disabled]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -196,24 +198,24 @@ class CodeDto {
     if (version != null) {
       json[r'version'] = version;
     }
-      json[r'label'] = label;
+    json[r'label'] = label;
     if (author != null) {
       json[r'author'] = author;
     }
-      json[r'regions'] = regions;
-      json[r'periodicity'] = periodicity;
+    json[r'regions'] = regions.toList();
+    json[r'periodicity'] = periodicity.toList();
     if (level != null) {
       json[r'level'] = level;
     }
-      json[r'links'] = links;
-      json[r'qualifiedLinks'] = qualifiedLinks;
-      json[r'flags'] = flags;
-      json[r'searchTerms'] = searchTerms;
+    json[r'links'] = links.toList();
+    json[r'qualifiedLinks'] = qualifiedLinks;
+    json[r'flags'] = flags.toList();
+    json[r'searchTerms'] = searchTerms.map((k, v) => MapEntry(k, v.toList()));
     if (data != null) {
       json[r'data'] = data;
     }
-      json[r'appendices'] = appendices;
-      json[r'disabled'] = disabled;
+    json[r'appendices'] = appendices;
+    json[r'disabled'] = disabled;
     return json;
   }
 
@@ -245,14 +247,12 @@ class CodeDto {
         version: mapValueOfType<String>(json, r'version'),
         label: mapCastOfType<String, String>(json, r'label') ?? const {},
         author: mapValueOfType<String>(json, r'author'),
-        regions: json[r'regions'] is Set
-            ? (json[r'regions'] as Set).cast<String>()
-            : const {},
+        regions: json[r'regions'] is Set ? (json[r'regions'] as Set).cast<String>() : json[r'regions'] is List ? ((json[r'regions'] as List).toSet())
+            .cast<String>() : const {},
         periodicity: PeriodicityDto.listFromJson(json[r'periodicity'])!.toSet(),
         level: mapValueOfType<int>(json, r'level'),
-        links: json[r'links'] is Set
-            ? (json[r'links'] as Set).cast<String>()
-            : const {},
+        links: json[r'links'] is Set ? (json[r'links'] as Set).cast<String>() : json[r'links'] is List ? ((json[r'links'] as List).toSet()).cast<
+            String>() : const {},
         qualifiedLinks: json[r'qualifiedLinks'] == null ? const {} : mapWithListOfStringsFromJson(json[r'qualifiedLinks']),
         flags: CodeDtoFlagsEnum.listFromJson(json[r'flags'])!.toSet(),
         searchTerms: json[r'searchTerms'] == null ? const {} : mapWithSetOfStringsFromJson(json[r'searchTerms']),
@@ -530,84 +530,162 @@ class CodeDtoFlagsEnumTypeTransformer {
   CodeDtoFlagsEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'male_only': return CodeDtoFlagsEnum.maleOnly;
-        case r'female_only': return CodeDtoFlagsEnum.femaleOnly;
-        case r'deptkinesitherapy': return CodeDtoFlagsEnum.deptkinesitherapy;
-        case r'deptnursing': return CodeDtoFlagsEnum.deptnursing;
-        case r'deptgeneralpractice': return CodeDtoFlagsEnum.deptgeneralpractice;
-        case r'deptsocialworker': return CodeDtoFlagsEnum.deptsocialworker;
-        case r'deptpsychology': return CodeDtoFlagsEnum.deptpsychology;
-        case r'deptadministrative': return CodeDtoFlagsEnum.deptadministrative;
-        case r'deptdietetics': return CodeDtoFlagsEnum.deptdietetics;
-        case r'deptspeechtherapy': return CodeDtoFlagsEnum.deptspeechtherapy;
-        case r'deptdentistry': return CodeDtoFlagsEnum.deptdentistry;
-        case r'deptoccupationaltherapy': return CodeDtoFlagsEnum.deptoccupationaltherapy;
-        case r'depthealthcare': return CodeDtoFlagsEnum.depthealthcare;
-        case r'deptgynecology': return CodeDtoFlagsEnum.deptgynecology;
-        case r'deptpediatry': return CodeDtoFlagsEnum.deptpediatry;
-        case r'deptalgology': return CodeDtoFlagsEnum.deptalgology;
-        case r'deptanatomopathology': return CodeDtoFlagsEnum.deptanatomopathology;
-        case r'deptanesthesiology': return CodeDtoFlagsEnum.deptanesthesiology;
-        case r'deptbacteriology': return CodeDtoFlagsEnum.deptbacteriology;
-        case r'deptcardiacsurgery': return CodeDtoFlagsEnum.deptcardiacsurgery;
-        case r'deptcardiology': return CodeDtoFlagsEnum.deptcardiology;
-        case r'deptchildandadolescentpsychiatry': return CodeDtoFlagsEnum.deptchildandadolescentpsychiatry;
-        case r'deptdermatology': return CodeDtoFlagsEnum.deptdermatology;
-        case r'deptdiabetology': return CodeDtoFlagsEnum.deptdiabetology;
-        case r'deptemergency': return CodeDtoFlagsEnum.deptemergency;
-        case r'deptendocrinology': return CodeDtoFlagsEnum.deptendocrinology;
-        case r'deptgastroenterology': return CodeDtoFlagsEnum.deptgastroenterology;
-        case r'deptgenetics': return CodeDtoFlagsEnum.deptgenetics;
-        case r'deptgeriatry': return CodeDtoFlagsEnum.deptgeriatry;
-        case r'depthandsurgery': return CodeDtoFlagsEnum.depthandsurgery;
-        case r'depthematology': return CodeDtoFlagsEnum.depthematology;
-        case r'deptinfectiousdisease': return CodeDtoFlagsEnum.deptinfectiousdisease;
-        case r'deptintensivecare': return CodeDtoFlagsEnum.deptintensivecare;
-        case r'deptlaboratory': return CodeDtoFlagsEnum.deptlaboratory;
-        case r'deptmajorburns': return CodeDtoFlagsEnum.deptmajorburns;
-        case r'deptmaxillofacialsurgery': return CodeDtoFlagsEnum.deptmaxillofacialsurgery;
-        case r'deptmedicine': return CodeDtoFlagsEnum.deptmedicine;
-        case r'deptmolecularbiology': return CodeDtoFlagsEnum.deptmolecularbiology;
-        case r'deptneonatalogy': return CodeDtoFlagsEnum.deptneonatalogy;
-        case r'deptnephrology': return CodeDtoFlagsEnum.deptnephrology;
-        case r'deptneurology': return CodeDtoFlagsEnum.deptneurology;
-        case r'deptneurosurgery': return CodeDtoFlagsEnum.deptneurosurgery;
-        case r'deptnte': return CodeDtoFlagsEnum.deptnte;
-        case r'deptnuclear': return CodeDtoFlagsEnum.deptnuclear;
-        case r'deptnutritiondietetics': return CodeDtoFlagsEnum.deptnutritiondietetics;
-        case r'deptobstetrics': return CodeDtoFlagsEnum.deptobstetrics;
-        case r'deptoncology': return CodeDtoFlagsEnum.deptoncology;
-        case r'deptophtalmology': return CodeDtoFlagsEnum.deptophtalmology;
-        case r'deptorthopedy': return CodeDtoFlagsEnum.deptorthopedy;
-        case r'deptpalliativecare': return CodeDtoFlagsEnum.deptpalliativecare;
-        case r'deptpediatricintensivecare': return CodeDtoFlagsEnum.deptpediatricintensivecare;
-        case r'deptpediatricsurgery': return CodeDtoFlagsEnum.deptpediatricsurgery;
-        case r'deptpharmacy': return CodeDtoFlagsEnum.deptpharmacy;
-        case r'deptphysicalmedecine': return CodeDtoFlagsEnum.deptphysicalmedecine;
-        case r'deptphysiotherapy': return CodeDtoFlagsEnum.deptphysiotherapy;
-        case r'deptplasticandreparatorysurgery': return CodeDtoFlagsEnum.deptplasticandreparatorysurgery;
-        case r'deptpneumology': return CodeDtoFlagsEnum.deptpneumology;
-        case r'deptpodiatry': return CodeDtoFlagsEnum.deptpodiatry;
-        case r'deptpsychiatry': return CodeDtoFlagsEnum.deptpsychiatry;
-        case r'deptradiology': return CodeDtoFlagsEnum.deptradiology;
-        case r'deptradiotherapy': return CodeDtoFlagsEnum.deptradiotherapy;
-        case r'deptrevalidation': return CodeDtoFlagsEnum.deptrevalidation;
-        case r'deptrheumatology': return CodeDtoFlagsEnum.deptrheumatology;
-        case r'deptrhumatology': return CodeDtoFlagsEnum.deptrhumatology;
-        case r'deptsenology': return CodeDtoFlagsEnum.deptsenology;
-        case r'deptsocialservice': return CodeDtoFlagsEnum.deptsocialservice;
-        case r'deptsportsmedecine': return CodeDtoFlagsEnum.deptsportsmedecine;
-        case r'deptstomatology': return CodeDtoFlagsEnum.deptstomatology;
-        case r'deptsurgery': return CodeDtoFlagsEnum.deptsurgery;
-        case r'deptthoracicsurgery': return CodeDtoFlagsEnum.deptthoracicsurgery;
-        case r'depttoxicology': return CodeDtoFlagsEnum.depttoxicology;
-        case r'depttropicalmedecine': return CodeDtoFlagsEnum.depttropicalmedecine;
-        case r'depturology': return CodeDtoFlagsEnum.depturology;
-        case r'deptvascularsurgery': return CodeDtoFlagsEnum.deptvascularsurgery;
-        case r'deptvisceraldigestiveabdominalsurgery': return CodeDtoFlagsEnum.deptvisceraldigestiveabdominalsurgery;
-        case r'depttransplantsurgery': return CodeDtoFlagsEnum.depttransplantsurgery;
-        case r'deptpercutaneous': return CodeDtoFlagsEnum.deptpercutaneous;
-        case r'deptchildbirth': return CodeDtoFlagsEnum.deptchildbirth;
+        case r'male_only':
+          return CodeDtoFlagsEnum.maleOnly;
+        case r'female_only':
+          return CodeDtoFlagsEnum.femaleOnly;
+        case r'deptkinesitherapy':
+          return CodeDtoFlagsEnum.deptkinesitherapy;
+        case r'deptnursing':
+          return CodeDtoFlagsEnum.deptnursing;
+        case r'deptgeneralpractice':
+          return CodeDtoFlagsEnum.deptgeneralpractice;
+        case r'deptsocialworker':
+          return CodeDtoFlagsEnum.deptsocialworker;
+        case r'deptpsychology':
+          return CodeDtoFlagsEnum.deptpsychology;
+        case r'deptadministrative':
+          return CodeDtoFlagsEnum.deptadministrative;
+        case r'deptdietetics':
+          return CodeDtoFlagsEnum.deptdietetics;
+        case r'deptspeechtherapy':
+          return CodeDtoFlagsEnum.deptspeechtherapy;
+        case r'deptdentistry':
+          return CodeDtoFlagsEnum.deptdentistry;
+        case r'deptoccupationaltherapy':
+          return CodeDtoFlagsEnum.deptoccupationaltherapy;
+        case r'depthealthcare':
+          return CodeDtoFlagsEnum.depthealthcare;
+        case r'deptgynecology':
+          return CodeDtoFlagsEnum.deptgynecology;
+        case r'deptpediatry':
+          return CodeDtoFlagsEnum.deptpediatry;
+        case r'deptalgology':
+          return CodeDtoFlagsEnum.deptalgology;
+        case r'deptanatomopathology':
+          return CodeDtoFlagsEnum.deptanatomopathology;
+        case r'deptanesthesiology':
+          return CodeDtoFlagsEnum.deptanesthesiology;
+        case r'deptbacteriology':
+          return CodeDtoFlagsEnum.deptbacteriology;
+        case r'deptcardiacsurgery':
+          return CodeDtoFlagsEnum.deptcardiacsurgery;
+        case r'deptcardiology':
+          return CodeDtoFlagsEnum.deptcardiology;
+        case r'deptchildandadolescentpsychiatry':
+          return CodeDtoFlagsEnum.deptchildandadolescentpsychiatry;
+        case r'deptdermatology':
+          return CodeDtoFlagsEnum.deptdermatology;
+        case r'deptdiabetology':
+          return CodeDtoFlagsEnum.deptdiabetology;
+        case r'deptemergency':
+          return CodeDtoFlagsEnum.deptemergency;
+        case r'deptendocrinology':
+          return CodeDtoFlagsEnum.deptendocrinology;
+        case r'deptgastroenterology':
+          return CodeDtoFlagsEnum.deptgastroenterology;
+        case r'deptgenetics':
+          return CodeDtoFlagsEnum.deptgenetics;
+        case r'deptgeriatry':
+          return CodeDtoFlagsEnum.deptgeriatry;
+        case r'depthandsurgery':
+          return CodeDtoFlagsEnum.depthandsurgery;
+        case r'depthematology':
+          return CodeDtoFlagsEnum.depthematology;
+        case r'deptinfectiousdisease':
+          return CodeDtoFlagsEnum.deptinfectiousdisease;
+        case r'deptintensivecare':
+          return CodeDtoFlagsEnum.deptintensivecare;
+        case r'deptlaboratory':
+          return CodeDtoFlagsEnum.deptlaboratory;
+        case r'deptmajorburns':
+          return CodeDtoFlagsEnum.deptmajorburns;
+        case r'deptmaxillofacialsurgery':
+          return CodeDtoFlagsEnum.deptmaxillofacialsurgery;
+        case r'deptmedicine':
+          return CodeDtoFlagsEnum.deptmedicine;
+        case r'deptmolecularbiology':
+          return CodeDtoFlagsEnum.deptmolecularbiology;
+        case r'deptneonatalogy':
+          return CodeDtoFlagsEnum.deptneonatalogy;
+        case r'deptnephrology':
+          return CodeDtoFlagsEnum.deptnephrology;
+        case r'deptneurology':
+          return CodeDtoFlagsEnum.deptneurology;
+        case r'deptneurosurgery':
+          return CodeDtoFlagsEnum.deptneurosurgery;
+        case r'deptnte':
+          return CodeDtoFlagsEnum.deptnte;
+        case r'deptnuclear':
+          return CodeDtoFlagsEnum.deptnuclear;
+        case r'deptnutritiondietetics':
+          return CodeDtoFlagsEnum.deptnutritiondietetics;
+        case r'deptobstetrics':
+          return CodeDtoFlagsEnum.deptobstetrics;
+        case r'deptoncology':
+          return CodeDtoFlagsEnum.deptoncology;
+        case r'deptophtalmology':
+          return CodeDtoFlagsEnum.deptophtalmology;
+        case r'deptorthopedy':
+          return CodeDtoFlagsEnum.deptorthopedy;
+        case r'deptpalliativecare':
+          return CodeDtoFlagsEnum.deptpalliativecare;
+        case r'deptpediatricintensivecare':
+          return CodeDtoFlagsEnum.deptpediatricintensivecare;
+        case r'deptpediatricsurgery':
+          return CodeDtoFlagsEnum.deptpediatricsurgery;
+        case r'deptpharmacy':
+          return CodeDtoFlagsEnum.deptpharmacy;
+        case r'deptphysicalmedecine':
+          return CodeDtoFlagsEnum.deptphysicalmedecine;
+        case r'deptphysiotherapy':
+          return CodeDtoFlagsEnum.deptphysiotherapy;
+        case r'deptplasticandreparatorysurgery':
+          return CodeDtoFlagsEnum.deptplasticandreparatorysurgery;
+        case r'deptpneumology':
+          return CodeDtoFlagsEnum.deptpneumology;
+        case r'deptpodiatry':
+          return CodeDtoFlagsEnum.deptpodiatry;
+        case r'deptpsychiatry':
+          return CodeDtoFlagsEnum.deptpsychiatry;
+        case r'deptradiology':
+          return CodeDtoFlagsEnum.deptradiology;
+        case r'deptradiotherapy':
+          return CodeDtoFlagsEnum.deptradiotherapy;
+        case r'deptrevalidation':
+          return CodeDtoFlagsEnum.deptrevalidation;
+        case r'deptrheumatology':
+          return CodeDtoFlagsEnum.deptrheumatology;
+        case r'deptrhumatology':
+          return CodeDtoFlagsEnum.deptrhumatology;
+        case r'deptsenology':
+          return CodeDtoFlagsEnum.deptsenology;
+        case r'deptsocialservice':
+          return CodeDtoFlagsEnum.deptsocialservice;
+        case r'deptsportsmedecine':
+          return CodeDtoFlagsEnum.deptsportsmedecine;
+        case r'deptstomatology':
+          return CodeDtoFlagsEnum.deptstomatology;
+        case r'deptsurgery':
+          return CodeDtoFlagsEnum.deptsurgery;
+        case r'deptthoracicsurgery':
+          return CodeDtoFlagsEnum.deptthoracicsurgery;
+        case r'depttoxicology':
+          return CodeDtoFlagsEnum.depttoxicology;
+        case r'depttropicalmedecine':
+          return CodeDtoFlagsEnum.depttropicalmedecine;
+        case r'depturology':
+          return CodeDtoFlagsEnum.depturology;
+        case r'deptvascularsurgery':
+          return CodeDtoFlagsEnum.deptvascularsurgery;
+        case r'deptvisceraldigestiveabdominalsurgery':
+          return CodeDtoFlagsEnum.deptvisceraldigestiveabdominalsurgery;
+        case r'depttransplantsurgery':
+          return CodeDtoFlagsEnum.depttransplantsurgery;
+        case r'deptpercutaneous':
+          return CodeDtoFlagsEnum.deptpercutaneous;
+        case r'deptchildbirth':
+          return CodeDtoFlagsEnum.deptchildbirth;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

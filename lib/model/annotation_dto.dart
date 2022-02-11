@@ -69,30 +69,32 @@ class AnnotationDto {
   String? location;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AnnotationDto &&
-     other.id == id &&
-     other.author == author &&
-     other.created == created &&
-     other.modified == modified &&
-     other.text == text &&
-     other.location == location;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AnnotationDto &&
+          other.id == id &&
+          other.author == author &&
+          other.created == created &&
+          other.modified == modified &&
+          other.text == text &&
+          other.location == location;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (text == null ? 0 : text!.hashCode) +
-    (location == null ? 0 : location!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (text == null ? 0 : text!.hashCode) +
+      (location == null ? 0 : location!.hashCode);
 
   @override
   String toString() => 'AnnotationDto[id=$id, author=$author, created=$created, modified=$modified, text=$text, location=$location]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (author != null) {
       json[r'author'] = author;
     }
@@ -141,7 +143,10 @@ class AnnotationDto {
     return null;
   }
 
-  static List<AnnotationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AnnotationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AnnotationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -169,12 +174,18 @@ class AnnotationDto {
   }
 
   // maps a json object with a list of AnnotationDto-objects as value to a dart map
-  static Map<String, List<AnnotationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AnnotationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AnnotationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AnnotationDto.listFromJson(entry.value, growable: growable,);
+        final value = AnnotationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -188,4 +199,3 @@ class AnnotationDto {
     'id',
   };
 }
-

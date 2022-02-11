@@ -45,14 +45,10 @@ class DecryptedPaginatedListContactDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (pageSize.hashCode) +
-      (totalSize.hashCode) +
-      (rows.hashCode) +
-      (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
+      (pageSize.hashCode) + (totalSize.hashCode) + (rows.hashCode) + (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
 
   @override
-  String toString() =>
-      'DecryptedPaginatedListContactDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
+  String toString() => 'DecryptedPaginatedListContactDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -77,10 +73,8 @@ class DecryptedPaginatedListContactDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DecryptedPaginatedListContactDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DecryptedPaginatedListContactDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedPaginatedListContactDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedPaginatedListContactDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -89,8 +83,7 @@ class DecryptedPaginatedListContactDto {
         pageSize: mapValueOfType<int>(json, r'pageSize')!,
         totalSize: mapValueOfType<int>(json, r'totalSize')!,
         rows: DecryptedContactDto.listFromJson(json[r'rows'])!,
-        nextKeyPair:
-        PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
+        nextKeyPair: PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
       );
     }
     return null;
@@ -112,8 +105,7 @@ class DecryptedPaginatedListContactDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedPaginatedListContactDto> mapFromJson(
-      dynamic json) {
+  static Map<String, DecryptedPaginatedListContactDto> mapFromJson(dynamic json) {
     final map = <String, DecryptedPaginatedListContactDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments

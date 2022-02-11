@@ -28,15 +28,16 @@ class Formula {
   FormulaLifecycleEnum? lifecycle;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Formula &&
-     other.value == value &&
-     other.lifecycle == lifecycle;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is Formula &&
+          other.value == value &&
+          other.lifecycle == lifecycle;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (value == null ? 0 : value!.hashCode) +
-    (lifecycle == null ? 0 : lifecycle!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (value == null ? 0 : value!.hashCode) +
+      (lifecycle == null ? 0 : lifecycle!.hashCode);
 
   @override
   String toString() => 'Formula[value=$value, lifecycle=$lifecycle]';
@@ -191,12 +192,18 @@ class FormulaLifecycleEnumTypeTransformer {
   FormulaLifecycleEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'OnCreate': return FormulaLifecycleEnum.onCreate;
-        case r'OnLoad': return FormulaLifecycleEnum.onLoad;
-        case r'OnChange': return FormulaLifecycleEnum.onChange;
-        case r'OnSave': return FormulaLifecycleEnum.onSave;
-        case r'OnDestroy': return FormulaLifecycleEnum.onDestroy;
-        case r'OnLoadPropertiesEditor': return FormulaLifecycleEnum.onLoadPropertiesEditor;
+        case r'OnCreate':
+          return FormulaLifecycleEnum.onCreate;
+        case r'OnLoad':
+          return FormulaLifecycleEnum.onLoad;
+        case r'OnChange':
+          return FormulaLifecycleEnum.onChange;
+        case r'OnSave':
+          return FormulaLifecycleEnum.onSave;
+        case r'OnDestroy':
+          return FormulaLifecycleEnum.onDestroy;
+        case r'OnLoadPropertiesEditor':
+          return FormulaLifecycleEnum.onLoadPropertiesEditor;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

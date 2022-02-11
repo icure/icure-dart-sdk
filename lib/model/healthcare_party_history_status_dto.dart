@@ -28,29 +28,31 @@ class HealthcarePartyHistoryStatusDto {
   bool active;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is HealthcarePartyHistoryStatusDto &&
-     other.status == status &&
-     other.specialisationCode == specialisationCode &&
-     other.startDate == startDate &&
-     other.active == active;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is HealthcarePartyHistoryStatusDto &&
+          other.status == status &&
+          other.specialisationCode == specialisationCode &&
+          other.startDate == startDate &&
+          other.active == active;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (status.hashCode) +
-    (specialisationCode.hashCode) +
-    (startDate.hashCode) +
-    (active.hashCode);
+      // ignore: unnecessary_parenthesis
+  (status.hashCode) +
+      (specialisationCode.hashCode) +
+      (startDate.hashCode) +
+      (active.hashCode);
 
   @override
-  String toString() => 'HealthcarePartyHistoryStatusDto[status=$status, specialisationCode=$specialisationCode, startDate=$startDate, active=$active]';
+  String toString() =>
+      'HealthcarePartyHistoryStatusDto[status=$status, specialisationCode=$specialisationCode, startDate=$startDate, active=$active]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'status'] = status;
-      json[r'specialisationCode'] = specialisationCode;
-      json[r'startDate'] = startDate;
-      json[r'active'] = active;
+    json[r'status'] = status;
+    json[r'specialisationCode'] = specialisationCode;
+    json[r'startDate'] = startDate;
+    json[r'active'] = active;
     return json;
   }
 
@@ -157,7 +159,8 @@ class HealthcarePartyHistoryStatusDtoStatusEnum {
     accreditated,
   ];
 
-  static HealthcarePartyHistoryStatusDtoStatusEnum? fromJson(dynamic value) => HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer().decode(value);
+  static HealthcarePartyHistoryStatusDtoStatusEnum? fromJson(dynamic value) =>
+      HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer().decode(value);
 
   static List<HealthcarePartyHistoryStatusDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
     final result = <HealthcarePartyHistoryStatusDtoStatusEnum>[];
@@ -176,7 +179,8 @@ class HealthcarePartyHistoryStatusDtoStatusEnum {
 /// Transformation class that can [encode] an instance of [HealthcarePartyHistoryStatusDtoStatusEnum] to String,
 /// and [decode] dynamic data back to [HealthcarePartyHistoryStatusDtoStatusEnum].
 class HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer {
-  factory HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer() => _instance ??= const HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer._();
+  factory HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer() =>
+      _instance ??= const HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer._();
 
   const HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer._();
 
@@ -193,9 +197,12 @@ class HealthcarePartyHistoryStatusDtoStatusEnumTypeTransformer {
   HealthcarePartyHistoryStatusDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'trainee': return HealthcarePartyHistoryStatusDtoStatusEnum.trainee;
-        case r'withconvention': return HealthcarePartyHistoryStatusDtoStatusEnum.withconvention;
-        case r'accreditated': return HealthcarePartyHistoryStatusDtoStatusEnum.accreditated;
+        case r'trainee':
+          return HealthcarePartyHistoryStatusDtoStatusEnum.trainee;
+        case r'withconvention':
+          return HealthcarePartyHistoryStatusDtoStatusEnum.withconvention;
+        case r'accreditated':
+          return HealthcarePartyHistoryStatusDtoStatusEnum.accreditated;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

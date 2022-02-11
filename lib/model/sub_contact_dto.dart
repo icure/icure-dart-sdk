@@ -176,50 +176,52 @@ class SubContactDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SubContactDto &&
-     other.id == id &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.descr == descr &&
-     other.protocol == protocol &&
-     other.status == status &&
-     other.formId == formId &&
-     other.planOfActionId == planOfActionId &&
-     other.healthElementId == healthElementId &&
-     other.classificationId == classificationId &&
-     other.services == services &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SubContactDto &&
+          other.id == id &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.descr == descr &&
+          other.protocol == protocol &&
+          other.status == status &&
+          other.formId == formId &&
+          other.planOfActionId == planOfActionId &&
+          other.healthElementId == healthElementId &&
+          other.classificationId == classificationId &&
+          other.services == services &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (descr == null ? 0 : descr!.hashCode) +
-    (protocol == null ? 0 : protocol!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (formId == null ? 0 : formId!.hashCode) +
-    (planOfActionId == null ? 0 : planOfActionId!.hashCode) +
-    (healthElementId == null ? 0 : healthElementId!.hashCode) +
-    (classificationId == null ? 0 : classificationId!.hashCode) +
-    (services.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id == null ? 0 : id!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (descr == null ? 0 : descr!.hashCode) +
+      (protocol == null ? 0 : protocol!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (formId == null ? 0 : formId!.hashCode) +
+      (planOfActionId == null ? 0 : planOfActionId!.hashCode) +
+      (healthElementId == null ? 0 : healthElementId!.hashCode) +
+      (classificationId == null ? 0 : classificationId!.hashCode) +
+      (services.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'SubContactDto[id=$id, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, descr=$descr, protocol=$protocol, status=$status, formId=$formId, planOfActionId=$planOfActionId, healthElementId=$healthElementId, classificationId=$classificationId, services=$services, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'SubContactDto[id=$id, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, descr=$descr, protocol=$protocol, status=$status, formId=$formId, planOfActionId=$planOfActionId, healthElementId=$healthElementId, classificationId=$classificationId, services=$services, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -241,8 +243,8 @@ class SubContactDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -267,7 +269,7 @@ class SubContactDto {
     if (classificationId != null) {
       json[r'classificationId'] = classificationId;
     }
-      json[r'services'] = services;
+    json[r'services'] = services;
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }

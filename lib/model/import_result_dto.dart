@@ -49,46 +49,48 @@ class ImportResultDto {
   Map<String, MimeAttachmentDto> attachments;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ImportResultDto &&
-     other.patient == patient &&
-     other.hes == hes &&
-     other.ctcs == ctcs &&
-     other.warnings == warnings &&
-     other.errors == errors &&
-     other.forms == forms &&
-     other.hcps == hcps &&
-     other.documents == documents &&
-     other.attachments == attachments;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ImportResultDto &&
+          other.patient == patient &&
+          other.hes == hes &&
+          other.ctcs == ctcs &&
+          other.warnings == warnings &&
+          other.errors == errors &&
+          other.forms == forms &&
+          other.hcps == hcps &&
+          other.documents == documents &&
+          other.attachments == attachments;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (patient == null ? 0 : patient!.hashCode) +
-    (hes.hashCode) +
-    (ctcs.hashCode) +
-    (warnings.hashCode) +
-    (errors.hashCode) +
-    (forms.hashCode) +
-    (hcps.hashCode) +
-    (documents.hashCode) +
-    (attachments.hashCode);
+      // ignore: unnecessary_parenthesis
+  (patient == null ? 0 : patient!.hashCode) +
+      (hes.hashCode) +
+      (ctcs.hashCode) +
+      (warnings.hashCode) +
+      (errors.hashCode) +
+      (forms.hashCode) +
+      (hcps.hashCode) +
+      (documents.hashCode) +
+      (attachments.hashCode);
 
   @override
-  String toString() => 'ImportResultDto[patient=$patient, hes=$hes, ctcs=$ctcs, warnings=$warnings, errors=$errors, forms=$forms, hcps=$hcps, documents=$documents, attachments=$attachments]';
+  String toString() =>
+      'ImportResultDto[patient=$patient, hes=$hes, ctcs=$ctcs, warnings=$warnings, errors=$errors, forms=$forms, hcps=$hcps, documents=$documents, attachments=$attachments]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     if (patient != null) {
       json[r'patient'] = patient;
     }
-      json[r'hes'] = hes;
-      json[r'ctcs'] = ctcs;
-      json[r'warnings'] = warnings;
-      json[r'errors'] = errors;
-      json[r'forms'] = forms;
-      json[r'hcps'] = hcps;
-      json[r'documents'] = documents;
-      json[r'attachments'] = attachments;
+    json[r'hes'] = hes;
+    json[r'ctcs'] = ctcs;
+    json[r'warnings'] = warnings;
+    json[r'errors'] = errors;
+    json[r'forms'] = forms;
+    json[r'hcps'] = hcps;
+    json[r'documents'] = documents;
+    json[r'attachments'] = attachments;
     return json;
   }
 

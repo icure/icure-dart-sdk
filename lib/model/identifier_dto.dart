@@ -88,27 +88,28 @@ class IdentifierDto {
   String? value;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is IdentifierDto &&
-     other.id == id &&
-     other.assigner == assigner &&
-     other.start == start &&
-     other.end == end &&
-     other.system == system &&
-     other.type == type &&
-     other.use == use &&
-     other.value == value;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is IdentifierDto &&
+          other.id == id &&
+          other.assigner == assigner &&
+          other.start == start &&
+          other.end == end &&
+          other.system == system &&
+          other.type == type &&
+          other.use == use &&
+          other.value == value;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (assigner == null ? 0 : assigner!.hashCode) +
-    (start == null ? 0 : start!.hashCode) +
-    (end == null ? 0 : end!.hashCode) +
-    (system == null ? 0 : system!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (use == null ? 0 : use!.hashCode) +
-    (value == null ? 0 : value!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id == null ? 0 : id!.hashCode) +
+      (assigner == null ? 0 : assigner!.hashCode) +
+      (start == null ? 0 : start!.hashCode) +
+      (end == null ? 0 : end!.hashCode) +
+      (system == null ? 0 : system!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (use == null ? 0 : use!.hashCode) +
+      (value == null ? 0 : value!.hashCode);
 
   @override
   String toString() => 'IdentifierDto[id=$id, assigner=$assigner, start=$start, end=$end, system=$system, type=$type, use=$use, value=$value]';

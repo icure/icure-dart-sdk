@@ -121,44 +121,46 @@ class AmpComponentDto {
   SamTextDto? note;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AmpComponentDto &&
-     other.from == from &&
-     other.to == to &&
-     other.ingredients == ingredients &&
-     other.pharmaceuticalForms == pharmaceuticalForms &&
-     other.routeOfAdministrations == routeOfAdministrations &&
-     other.dividable == dividable &&
-     other.scored == scored &&
-     other.crushable == crushable &&
-     other.containsAlcohol == containsAlcohol &&
-     other.sugarFree == sugarFree &&
-     other.modifiedReleaseType == modifiedReleaseType &&
-     other.specificDrugDevice == specificDrugDevice &&
-     other.dimensions == dimensions &&
-     other.name == name &&
-     other.note == note;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is AmpComponentDto &&
+          other.from == from &&
+          other.to == to &&
+          other.ingredients == ingredients &&
+          other.pharmaceuticalForms == pharmaceuticalForms &&
+          other.routeOfAdministrations == routeOfAdministrations &&
+          other.dividable == dividable &&
+          other.scored == scored &&
+          other.crushable == crushable &&
+          other.containsAlcohol == containsAlcohol &&
+          other.sugarFree == sugarFree &&
+          other.modifiedReleaseType == modifiedReleaseType &&
+          other.specificDrugDevice == specificDrugDevice &&
+          other.dimensions == dimensions &&
+          other.name == name &&
+          other.note == note;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (ingredients.hashCode) +
-    (pharmaceuticalForms.hashCode) +
-    (routeOfAdministrations.hashCode) +
-    (dividable == null ? 0 : dividable!.hashCode) +
-    (scored == null ? 0 : scored!.hashCode) +
-    (crushable == null ? 0 : crushable!.hashCode) +
-    (containsAlcohol == null ? 0 : containsAlcohol!.hashCode) +
-    (sugarFree == null ? 0 : sugarFree!.hashCode) +
-    (modifiedReleaseType == null ? 0 : modifiedReleaseType!.hashCode) +
-    (specificDrugDevice == null ? 0 : specificDrugDevice!.hashCode) +
-    (dimensions == null ? 0 : dimensions!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (note == null ? 0 : note!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (ingredients.hashCode) +
+      (pharmaceuticalForms.hashCode) +
+      (routeOfAdministrations.hashCode) +
+      (dividable == null ? 0 : dividable!.hashCode) +
+      (scored == null ? 0 : scored!.hashCode) +
+      (crushable == null ? 0 : crushable!.hashCode) +
+      (containsAlcohol == null ? 0 : containsAlcohol!.hashCode) +
+      (sugarFree == null ? 0 : sugarFree!.hashCode) +
+      (modifiedReleaseType == null ? 0 : modifiedReleaseType!.hashCode) +
+      (specificDrugDevice == null ? 0 : specificDrugDevice!.hashCode) +
+      (dimensions == null ? 0 : dimensions!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (note == null ? 0 : note!.hashCode);
 
   @override
-  String toString() => 'AmpComponentDto[from=$from, to=$to, ingredients=$ingredients, pharmaceuticalForms=$pharmaceuticalForms, routeOfAdministrations=$routeOfAdministrations, dividable=$dividable, scored=$scored, crushable=$crushable, containsAlcohol=$containsAlcohol, sugarFree=$sugarFree, modifiedReleaseType=$modifiedReleaseType, specificDrugDevice=$specificDrugDevice, dimensions=$dimensions, name=$name, note=$note]';
+  String toString() =>
+      'AmpComponentDto[from=$from, to=$to, ingredients=$ingredients, pharmaceuticalForms=$pharmaceuticalForms, routeOfAdministrations=$routeOfAdministrations, dividable=$dividable, scored=$scored, crushable=$crushable, containsAlcohol=$containsAlcohol, sugarFree=$sugarFree, modifiedReleaseType=$modifiedReleaseType, specificDrugDevice=$specificDrugDevice, dimensions=$dimensions, name=$name, note=$note]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -168,9 +170,9 @@ class AmpComponentDto {
     if (to != null) {
       json[r'to'] = to;
     }
-      json[r'ingredients'] = ingredients;
-      json[r'pharmaceuticalForms'] = pharmaceuticalForms;
-      json[r'routeOfAdministrations'] = routeOfAdministrations;
+    json[r'ingredients'] = ingredients;
+    json[r'pharmaceuticalForms'] = pharmaceuticalForms;
+    json[r'routeOfAdministrations'] = routeOfAdministrations;
     if (dividable != null) {
       json[r'dividable'] = dividable;
     }
@@ -350,9 +352,12 @@ class AmpComponentDtoCrushableEnumTypeTransformer {
   AmpComponentDtoCrushableEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'Y': return AmpComponentDtoCrushableEnum.Y;
-        case r'N': return AmpComponentDtoCrushableEnum.N;
-        case r'X': return AmpComponentDtoCrushableEnum.X;
+        case r'Y':
+          return AmpComponentDtoCrushableEnum.Y;
+        case r'N':
+          return AmpComponentDtoCrushableEnum.N;
+        case r'X':
+          return AmpComponentDtoCrushableEnum.X;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -365,7 +370,6 @@ class AmpComponentDtoCrushableEnumTypeTransformer {
   /// Singleton [AmpComponentDtoCrushableEnumTypeTransformer] instance.
   static AmpComponentDtoCrushableEnumTypeTransformer? _instance;
 }
-
 
 
 class AmpComponentDtoContainsAlcoholEnum {
@@ -427,9 +431,12 @@ class AmpComponentDtoContainsAlcoholEnumTypeTransformer {
   AmpComponentDtoContainsAlcoholEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'Y': return AmpComponentDtoContainsAlcoholEnum.Y;
-        case r'N': return AmpComponentDtoContainsAlcoholEnum.N;
-        case r'X': return AmpComponentDtoContainsAlcoholEnum.X;
+        case r'Y':
+          return AmpComponentDtoContainsAlcoholEnum.Y;
+        case r'N':
+          return AmpComponentDtoContainsAlcoholEnum.N;
+        case r'X':
+          return AmpComponentDtoContainsAlcoholEnum.X;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

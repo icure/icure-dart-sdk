@@ -34,15 +34,16 @@ class QuantityDto {
   String? unit;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is QuantityDto &&
-     other.value == value &&
-     other.unit == unit;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is QuantityDto &&
+          other.value == value &&
+          other.unit == unit;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (value == null ? 0 : value!.hashCode) +
-    (unit == null ? 0 : unit!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (value == null ? 0 : value!.hashCode) +
+      (unit == null ? 0 : unit!.hashCode);
 
   @override
   String toString() => 'QuantityDto[value=$value, unit=$unit]';

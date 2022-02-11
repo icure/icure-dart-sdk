@@ -112,42 +112,44 @@ class ReplicatorDocument {
   int? errorCount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ReplicatorDocument &&
-     other.id == id &&
-     other.rev == rev &&
-     other.source_ == source_ &&
-     other.target == target &&
-     other.owner == owner &&
-     other.createTarget == createTarget &&
-     other.continuous == continuous &&
-     other.docIds == docIds &&
-     other.replicationState == replicationState &&
-     other.replicationStateTime == replicationStateTime &&
-     other.replicationStats == replicationStats &&
-     other.errorCount == errorCount;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ReplicatorDocument &&
+          other.id == id &&
+          other.rev == rev &&
+          other.source_ == source_ &&
+          other.target == target &&
+          other.owner == owner &&
+          other.createTarget == createTarget &&
+          other.continuous == continuous &&
+          other.docIds == docIds &&
+          other.replicationState == replicationState &&
+          other.replicationStateTime == replicationStateTime &&
+          other.replicationStats == replicationStats &&
+          other.errorCount == errorCount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (source_ == null ? 0 : source_!.hashCode) +
-    (target == null ? 0 : target!.hashCode) +
-    (owner == null ? 0 : owner!.hashCode) +
-    (createTarget == null ? 0 : createTarget!.hashCode) +
-    (continuous == null ? 0 : continuous!.hashCode) +
-    (docIds.hashCode) +
-    (replicationState == null ? 0 : replicationState!.hashCode) +
-    (replicationStateTime == null ? 0 : replicationStateTime!.hashCode) +
-    (replicationStats == null ? 0 : replicationStats!.hashCode) +
-    (errorCount == null ? 0 : errorCount!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (source_ == null ? 0 : source_!.hashCode) +
+      (target == null ? 0 : target!.hashCode) +
+      (owner == null ? 0 : owner!.hashCode) +
+      (createTarget == null ? 0 : createTarget!.hashCode) +
+      (continuous == null ? 0 : continuous!.hashCode) +
+      (docIds.hashCode) +
+      (replicationState == null ? 0 : replicationState!.hashCode) +
+      (replicationStateTime == null ? 0 : replicationStateTime!.hashCode) +
+      (replicationStats == null ? 0 : replicationStats!.hashCode) +
+      (errorCount == null ? 0 : errorCount!.hashCode);
 
   @override
-  String toString() => 'ReplicatorDocument[id=$id, rev=$rev, source_=$source_, target=$target, owner=$owner, createTarget=$createTarget, continuous=$continuous, docIds=$docIds, replicationState=$replicationState, replicationStateTime=$replicationStateTime, replicationStats=$replicationStats, errorCount=$errorCount]';
+  String toString() =>
+      'ReplicatorDocument[id=$id, rev=$rev, source_=$source_, target=$target, owner=$owner, createTarget=$createTarget, continuous=$continuous, docIds=$docIds, replicationState=$replicationState, replicationStateTime=$replicationStateTime, replicationStats=$replicationStats, errorCount=$errorCount]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'_id'] = id;
+    json[r'_id'] = id;
     if (rev != null) {
       json[r'_rev'] = rev;
     }
@@ -166,7 +168,7 @@ class ReplicatorDocument {
     if (continuous != null) {
       json[r'continuous'] = continuous;
     }
-      json[r'doc_ids'] = docIds;
+    json[r'doc_ids'] = docIds;
     if (replicationState != null) {
       json[r'_replication_state'] = replicationState;
     }

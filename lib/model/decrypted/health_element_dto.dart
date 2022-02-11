@@ -253,44 +253,44 @@ class DecryptedHealthElementDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DecryptedHealthElementDto &&
-          other.id == id &&
-          other.identifiers == identifiers &&
-          other.rev == rev &&
-          other.created == created &&
-          other.modified == modified &&
-          other.author == author &&
-          other.responsible == responsible &&
-          other.medicalLocationId == medicalLocationId &&
-          other.tags == tags &&
-          other.codes == codes &&
-          other.endOfLife == endOfLife &&
-          other.deletionDate == deletionDate &&
-          other.healthElementId == healthElementId &&
-          other.valueDate == valueDate &&
-          other.openingDate == openingDate &&
-          other.closingDate == closingDate &&
-          other.descr == descr &&
-          other.note == note &&
-          other.relevant == relevant &&
-          other.idOpeningContact == idOpeningContact &&
-          other.idClosingContact == idClosingContact &&
-          other.idService == idService &&
-          other.status == status &&
-          other.laterality == laterality &&
-          other.plansOfAction == plansOfAction &&
-          other.episodes == episodes &&
-          other.careTeam == careTeam &&
-          other.secretForeignKeys == secretForeignKeys &&
-          other.cryptedForeignKeys == cryptedForeignKeys &&
-          other.delegations == delegations &&
-          other.encryptionKeys == encryptionKeys &&
-          other.encryptedSelf == encryptedSelf;
+          other is DecryptedHealthElementDto &&
+              other.id == id &&
+              other.identifiers == identifiers &&
+              other.rev == rev &&
+              other.created == created &&
+              other.modified == modified &&
+              other.author == author &&
+              other.responsible == responsible &&
+              other.medicalLocationId == medicalLocationId &&
+              other.tags == tags &&
+              other.codes == codes &&
+              other.endOfLife == endOfLife &&
+              other.deletionDate == deletionDate &&
+              other.healthElementId == healthElementId &&
+              other.valueDate == valueDate &&
+              other.openingDate == openingDate &&
+              other.closingDate == closingDate &&
+              other.descr == descr &&
+              other.note == note &&
+              other.relevant == relevant &&
+              other.idOpeningContact == idOpeningContact &&
+              other.idClosingContact == idClosingContact &&
+              other.idService == idService &&
+              other.status == status &&
+              other.laterality == laterality &&
+              other.plansOfAction == plansOfAction &&
+              other.episodes == episodes &&
+              other.careTeam == careTeam &&
+              other.secretForeignKeys == secretForeignKeys &&
+              other.cryptedForeignKeys == cryptedForeignKeys &&
+              other.delegations == delegations &&
+              other.encryptionKeys == encryptionKeys &&
+              other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (id.hashCode) +
+  (id.hashCode) +
       (identifiers.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
@@ -349,8 +349,10 @@ class DecryptedHealthElementDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-    json[r'tags'] = tags;
-    json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+
+    json[r'codes'] = codes.toList();
+
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -392,10 +394,10 @@ class DecryptedHealthElementDto {
     json[r'plansOfAction'] = plansOfAction;
     json[r'episodes'] = episodes;
     json[r'careTeam'] = careTeam;
-    json[r'secretForeignKeys'] = secretForeignKeys;
-    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-    json[r'delegations'] = delegations;
-    json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -415,9 +417,9 @@ class DecryptedHealthElementDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DecryptedHealthElementDto[$key]" is missing from JSON.');
+          'Required key "DecryptedHealthElementDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DecryptedHealthElementDto[$key]" has a null value in JSON.');
+          'Required key "DecryptedHealthElementDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -451,8 +453,8 @@ class DecryptedHealthElementDto {
         plansOfAction: PlanOfActionDto.listFromJson(json[r'plansOfAction'])!,
         episodes: EpisodeDto.listFromJson(json[r'episodes'])!,
         careTeam: CareTeamMemberDto.listFromJson(json[r'careTeam'])!,
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
             ? const {}
@@ -469,8 +471,7 @@ class DecryptedHealthElementDto {
     return null;
   }
 
-  static List<DecryptedHealthElementDto>? listFromJson(
-    dynamic json, {
+  static List<DecryptedHealthElementDto>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedHealthElementDto>[];
@@ -500,8 +501,7 @@ class DecryptedHealthElementDto {
   }
 
   // maps a json object with a list of DecryptedHealthElementDto-objects as value to a dart map
-  static Map<String, List<DecryptedHealthElementDto>> mapListFromJson(
-    dynamic json, {
+  static Map<String, List<DecryptedHealthElementDto>> mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedHealthElementDto>>{};
@@ -563,8 +563,7 @@ class DecryptedHealthElementDtoLateralityEnum {
   static DecryptedHealthElementDtoLateralityEnum? fromJson(dynamic value) =>
       DecryptedHealthElementDtoLateralityEnumTypeTransformer().decode(value);
 
-  static List<DecryptedHealthElementDtoLateralityEnum>? listFromJson(
-    dynamic json, {
+  static List<DecryptedHealthElementDtoLateralityEnum>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedHealthElementDtoLateralityEnum>[];
@@ -585,7 +584,7 @@ class DecryptedHealthElementDtoLateralityEnum {
 class DecryptedHealthElementDtoLateralityEnumTypeTransformer {
   factory DecryptedHealthElementDtoLateralityEnumTypeTransformer() =>
       _instance ??=
-          const DecryptedHealthElementDtoLateralityEnumTypeTransformer._();
+      const DecryptedHealthElementDtoLateralityEnumTypeTransformer._();
 
   const DecryptedHealthElementDtoLateralityEnumTypeTransformer._();
 

@@ -28,22 +28,19 @@ class FilterChainDevice {
   Object? predicate;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FilterChainDevice &&
-     other.filter == filter &&
-     other.predicate == predicate;
+  bool operator ==(Object other) => identical(this, other) || other is FilterChainDevice && other.filter == filter && other.predicate == predicate;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (filter.hashCode) +
-    (predicate == null ? 0 : predicate!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (filter.hashCode) + (predicate == null ? 0 : predicate!.hashCode);
 
   @override
   String toString() => 'FilterChainDevice[filter=$filter, predicate=$predicate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'filter'] = filter;
+    json[r'filter'] = filter;
     if (predicate != null) {
       json[r'predicate'] = predicate;
     }
@@ -76,7 +73,10 @@ class FilterChainDevice {
     return null;
   }
 
-  static List<FilterChainDevice>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FilterChainDevice>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FilterChainDevice>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -104,12 +104,18 @@ class FilterChainDevice {
   }
 
   // maps a json object with a list of FilterChainDevice-objects as value to a dart map
-  static Map<String, List<FilterChainDevice>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FilterChainDevice>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FilterChainDevice>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FilterChainDevice.listFromJson(entry.value, growable: growable,);
+        final value = FilterChainDevice.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -123,4 +129,3 @@ class FilterChainDevice {
     'filter',
   };
 }
-

@@ -28,15 +28,16 @@ class VirtualFormDto {
   List<CodeStubDto> standardForms;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is VirtualFormDto &&
-     other.name == name &&
-     other.standardForms == standardForms;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is VirtualFormDto &&
+          other.name == name &&
+          other.standardForms == standardForms;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name == null ? 0 : name!.hashCode) +
-    (standardForms.hashCode);
+      // ignore: unnecessary_parenthesis
+  (name == null ? 0 : name!.hashCode) +
+      (standardForms.hashCode);
 
   @override
   String toString() => 'VirtualFormDto[name=$name, standardForms=$standardForms]';
@@ -46,7 +47,7 @@ class VirtualFormDto {
     if (name != null) {
       json[r'name'] = name;
     }
-      json[r'standardForms'] = standardForms;
+    json[r'standardForms'] = standardForms;
     return json;
   }
 

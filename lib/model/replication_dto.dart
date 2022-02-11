@@ -59,30 +59,32 @@ class ReplicationDto {
   List<DatabaseSynchronizationDto> databaseSynchronizations;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ReplicationDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.name == name &&
-     other.context == context &&
-     other.databaseSynchronizations == databaseSynchronizations;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ReplicationDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.name == name &&
+          other.context == context &&
+          other.databaseSynchronizations == databaseSynchronizations;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (context == null ? 0 : context!.hashCode) +
-    (databaseSynchronizations.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (context == null ? 0 : context!.hashCode) +
+      (databaseSynchronizations.hashCode);
 
   @override
-  String toString() => 'ReplicationDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, context=$context, databaseSynchronizations=$databaseSynchronizations]';
+  String toString() =>
+      'ReplicationDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, context=$context, databaseSynchronizations=$databaseSynchronizations]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -95,7 +97,7 @@ class ReplicationDto {
     if (context != null) {
       json[r'context'] = context;
     }
-      json[r'databaseSynchronizations'] = databaseSynchronizations;
+    json[r'databaseSynchronizations'] = databaseSynchronizations;
     return json;
   }
 

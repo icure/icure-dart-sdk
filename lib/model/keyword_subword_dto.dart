@@ -28,15 +28,16 @@ class KeywordSubwordDto {
   List<KeywordSubwordDto> subWords;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is KeywordSubwordDto &&
-     other.value == value &&
-     other.subWords == subWords;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is KeywordSubwordDto &&
+          other.value == value &&
+          other.subWords == subWords;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (value == null ? 0 : value!.hashCode) +
-    (subWords.hashCode);
+      // ignore: unnecessary_parenthesis
+  (value == null ? 0 : value!.hashCode) +
+      (subWords.hashCode);
 
   @override
   String toString() => 'KeywordSubwordDto[value=$value, subWords=$subWords]';
@@ -46,7 +47,7 @@ class KeywordSubwordDto {
     if (value != null) {
       json[r'value'] = value;
     }
-      json[r'subWords'] = subWords;
+    json[r'subWords'] = subWords;
     return json;
   }
 

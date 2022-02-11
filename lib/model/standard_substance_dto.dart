@@ -55,21 +55,23 @@ class StandardSubstanceDto {
   String? url;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is StandardSubstanceDto &&
-     other.code == code &&
-     other.type == type &&
-     other.name == name &&
-     other.definition == definition &&
-     other.url == url;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is StandardSubstanceDto &&
+          other.code == code &&
+          other.type == type &&
+          other.name == name &&
+          other.definition == definition &&
+          other.url == url;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code == null ? 0 : code!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (definition == null ? 0 : definition!.hashCode) +
-    (url == null ? 0 : url!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (code == null ? 0 : code!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (definition == null ? 0 : definition!.hashCode) +
+      (url == null ? 0 : url!.hashCode);
 
   @override
   String toString() => 'StandardSubstanceDto[code=$code, type=$type, name=$name, definition=$definition, url=$url]';
@@ -123,7 +125,10 @@ class StandardSubstanceDto {
     return null;
   }
 
-  static List<StandardSubstanceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<StandardSubstanceDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <StandardSubstanceDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -151,12 +156,18 @@ class StandardSubstanceDto {
   }
 
   // maps a json object with a list of StandardSubstanceDto-objects as value to a dart map
-  static Map<String, List<StandardSubstanceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<StandardSubstanceDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<StandardSubstanceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = StandardSubstanceDto.listFromJson(entry.value, growable: growable,);
+        final value = StandardSubstanceDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -166,10 +177,8 @@ class StandardSubstanceDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class StandardSubstanceDtoTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -198,7 +207,10 @@ class StandardSubstanceDtoTypeEnum {
 
   static StandardSubstanceDtoTypeEnum? fromJson(dynamic value) => StandardSubstanceDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<StandardSubstanceDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<StandardSubstanceDtoTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <StandardSubstanceDtoTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -232,10 +244,14 @@ class StandardSubstanceDtoTypeEnumTypeTransformer {
   StandardSubstanceDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'CAS': return StandardSubstanceDtoTypeEnum.CAS;
-        case r'DM_D': return StandardSubstanceDtoTypeEnum.DM_D;
-        case r'EDQM': return StandardSubstanceDtoTypeEnum.EDQM;
-        case r'SNOMED_CT': return StandardSubstanceDtoTypeEnum.SNOMED_CT;
+        case r'CAS':
+          return StandardSubstanceDtoTypeEnum.CAS;
+        case r'DM_D':
+          return StandardSubstanceDtoTypeEnum.DM_D;
+        case r'EDQM':
+          return StandardSubstanceDtoTypeEnum.EDQM;
+        case r'SNOMED_CT':
+          return StandardSubstanceDtoTypeEnum.SNOMED_CT;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -248,5 +264,3 @@ class StandardSubstanceDtoTypeEnumTypeTransformer {
   /// Singleton [StandardSubstanceDtoTypeEnumTypeTransformer] instance.
   static StandardSubstanceDtoTypeEnumTypeTransformer? _instance;
 }
-
-

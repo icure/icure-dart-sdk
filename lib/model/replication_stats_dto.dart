@@ -97,32 +97,35 @@ class ReplicationStatsDto {
   String? error;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ReplicationStatsDto &&
-     other.revisionsChecked == revisionsChecked &&
-     other.missingRevisionsFound == missingRevisionsFound &&
-     other.docsRead == docsRead &&
-     other.docsWritten == docsWritten &&
-     other.changesPending == changesPending &&
-     other.docWriteFailures == docWriteFailures &&
-     other.checkpointedSourceSeq == checkpointedSourceSeq &&
-     other.startTime == startTime &&
-     other.error == error;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ReplicationStatsDto &&
+          other.revisionsChecked == revisionsChecked &&
+          other.missingRevisionsFound == missingRevisionsFound &&
+          other.docsRead == docsRead &&
+          other.docsWritten == docsWritten &&
+          other.changesPending == changesPending &&
+          other.docWriteFailures == docWriteFailures &&
+          other.checkpointedSourceSeq == checkpointedSourceSeq &&
+          other.startTime == startTime &&
+          other.error == error;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (revisionsChecked == null ? 0 : revisionsChecked!.hashCode) +
-    (missingRevisionsFound == null ? 0 : missingRevisionsFound!.hashCode) +
-    (docsRead == null ? 0 : docsRead!.hashCode) +
-    (docsWritten == null ? 0 : docsWritten!.hashCode) +
-    (changesPending == null ? 0 : changesPending!.hashCode) +
-    (docWriteFailures == null ? 0 : docWriteFailures!.hashCode) +
-    (checkpointedSourceSeq == null ? 0 : checkpointedSourceSeq!.hashCode) +
-    (startTime == null ? 0 : startTime!.hashCode) +
-    (error == null ? 0 : error!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (revisionsChecked == null ? 0 : revisionsChecked!.hashCode) +
+      (missingRevisionsFound == null ? 0 : missingRevisionsFound!.hashCode) +
+      (docsRead == null ? 0 : docsRead!.hashCode) +
+      (docsWritten == null ? 0 : docsWritten!.hashCode) +
+      (changesPending == null ? 0 : changesPending!.hashCode) +
+      (docWriteFailures == null ? 0 : docWriteFailures!.hashCode) +
+      (checkpointedSourceSeq == null ? 0 : checkpointedSourceSeq!.hashCode) +
+      (startTime == null ? 0 : startTime!.hashCode) +
+      (error == null ? 0 : error!.hashCode);
 
   @override
-  String toString() => 'ReplicationStatsDto[revisionsChecked=$revisionsChecked, missingRevisionsFound=$missingRevisionsFound, docsRead=$docsRead, docsWritten=$docsWritten, changesPending=$changesPending, docWriteFailures=$docWriteFailures, checkpointedSourceSeq=$checkpointedSourceSeq, startTime=$startTime, error=$error]';
+  String toString() =>
+      'ReplicationStatsDto[revisionsChecked=$revisionsChecked, missingRevisionsFound=$missingRevisionsFound, docsRead=$docsRead, docsWritten=$docsWritten, changesPending=$changesPending, docWriteFailures=$docWriteFailures, checkpointedSourceSeq=$checkpointedSourceSeq, startTime=$startTime, error=$error]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -189,7 +192,10 @@ class ReplicationStatsDto {
     return null;
   }
 
-  static List<ReplicationStatsDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReplicationStatsDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReplicationStatsDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -217,12 +223,18 @@ class ReplicationStatsDto {
   }
 
   // maps a json object with a list of ReplicationStatsDto-objects as value to a dart map
-  static Map<String, List<ReplicationStatsDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ReplicationStatsDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ReplicationStatsDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ReplicationStatsDto.listFromJson(entry.value, growable: growable,);
+        final value = ReplicationStatsDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -232,7 +244,5 @@ class ReplicationStatsDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

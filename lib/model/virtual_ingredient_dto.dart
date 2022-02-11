@@ -64,23 +64,24 @@ class VirtualIngredientDto {
   SubstanceStubDto? substance;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is VirtualIngredientDto &&
-     other.from == from &&
-     other.to == to &&
-     other.rank == rank &&
-     other.type == type &&
-     other.strengthRange == strengthRange &&
-     other.substance == substance;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is VirtualIngredientDto &&
+          other.from == from &&
+          other.to == to &&
+          other.rank == rank &&
+          other.type == type &&
+          other.strengthRange == strengthRange &&
+          other.substance == substance;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (rank == null ? 0 : rank!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (strengthRange == null ? 0 : strengthRange!.hashCode) +
-    (substance == null ? 0 : substance!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (rank == null ? 0 : rank!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (strengthRange == null ? 0 : strengthRange!.hashCode) +
+      (substance == null ? 0 : substance!.hashCode);
 
   @override
   String toString() => 'VirtualIngredientDto[from=$from, to=$to, rank=$rank, type=$type, strengthRange=$strengthRange, substance=$substance]';
@@ -243,8 +244,10 @@ class VirtualIngredientDtoTypeEnumTypeTransformer {
   VirtualIngredientDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'ACTIVE_SUBSTANCE': return VirtualIngredientDtoTypeEnum.ACTIVE_SUBSTANCE;
-        case r'EXCIPIENT': return VirtualIngredientDtoTypeEnum.EXCIPIENT;
+        case r'ACTIVE_SUBSTANCE':
+          return VirtualIngredientDtoTypeEnum.ACTIVE_SUBSTANCE;
+        case r'EXCIPIENT':
+          return VirtualIngredientDtoTypeEnum.EXCIPIENT;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

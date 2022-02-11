@@ -70,26 +70,29 @@ class RegimenItemDto {
   AdministrationQuantity? administratedQuantity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RegimenItemDto &&
-     other.date == date &&
-     other.dayNumber == dayNumber &&
-     other.weekday == weekday &&
-     other.dayPeriod == dayPeriod &&
-     other.timeOfDay == timeOfDay &&
-     other.administratedQuantity == administratedQuantity;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RegimenItemDto &&
+          other.date == date &&
+          other.dayNumber == dayNumber &&
+          other.weekday == weekday &&
+          other.dayPeriod == dayPeriod &&
+          other.timeOfDay == timeOfDay &&
+          other.administratedQuantity == administratedQuantity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (date == null ? 0 : date!.hashCode) +
-    (dayNumber == null ? 0 : dayNumber!.hashCode) +
-    (weekday == null ? 0 : weekday!.hashCode) +
-    (dayPeriod == null ? 0 : dayPeriod!.hashCode) +
-    (timeOfDay == null ? 0 : timeOfDay!.hashCode) +
-    (administratedQuantity == null ? 0 : administratedQuantity!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (date == null ? 0 : date!.hashCode) +
+      (dayNumber == null ? 0 : dayNumber!.hashCode) +
+      (weekday == null ? 0 : weekday!.hashCode) +
+      (dayPeriod == null ? 0 : dayPeriod!.hashCode) +
+      (timeOfDay == null ? 0 : timeOfDay!.hashCode) +
+      (administratedQuantity == null ? 0 : administratedQuantity!.hashCode);
 
   @override
-  String toString() => 'RegimenItemDto[date=$date, dayNumber=$dayNumber, weekday=$weekday, dayPeriod=$dayPeriod, timeOfDay=$timeOfDay, administratedQuantity=$administratedQuantity]';
+  String toString() =>
+      'RegimenItemDto[date=$date, dayNumber=$dayNumber, weekday=$weekday, dayPeriod=$dayPeriod, timeOfDay=$timeOfDay, administratedQuantity=$administratedQuantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -144,7 +147,10 @@ class RegimenItemDto {
     return null;
   }
 
-  static List<RegimenItemDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<RegimenItemDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <RegimenItemDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -172,12 +178,18 @@ class RegimenItemDto {
   }
 
   // maps a json object with a list of RegimenItemDto-objects as value to a dart map
-  static Map<String, List<RegimenItemDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<RegimenItemDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<RegimenItemDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RegimenItemDto.listFromJson(entry.value, growable: growable,);
+        final value = RegimenItemDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,7 +199,5 @@ class RegimenItemDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

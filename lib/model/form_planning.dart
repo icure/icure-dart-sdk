@@ -88,30 +88,33 @@ class FormPlanning {
   String? descr;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FormPlanning &&
-     other.planninfForAnyDoctor == planninfForAnyDoctor &&
-     other.planningForDelegate == planningForDelegate &&
-     other.planningForPatientDoctor == planningForPatientDoctor &&
-     other.planningForMe == planningForMe &&
-     other.codedDelayInDays == codedDelayInDays &&
-     other.repetitions == repetitions &&
-     other.repetitionsUnit == repetitionsUnit &&
-     other.descr == descr;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FormPlanning &&
+          other.planninfForAnyDoctor == planninfForAnyDoctor &&
+          other.planningForDelegate == planningForDelegate &&
+          other.planningForPatientDoctor == planningForPatientDoctor &&
+          other.planningForMe == planningForMe &&
+          other.codedDelayInDays == codedDelayInDays &&
+          other.repetitions == repetitions &&
+          other.repetitionsUnit == repetitionsUnit &&
+          other.descr == descr;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (planninfForAnyDoctor == null ? 0 : planninfForAnyDoctor!.hashCode) +
-    (planningForDelegate == null ? 0 : planningForDelegate!.hashCode) +
-    (planningForPatientDoctor == null ? 0 : planningForPatientDoctor!.hashCode) +
-    (planningForMe == null ? 0 : planningForMe!.hashCode) +
-    (codedDelayInDays == null ? 0 : codedDelayInDays!.hashCode) +
-    (repetitions == null ? 0 : repetitions!.hashCode) +
-    (repetitionsUnit == null ? 0 : repetitionsUnit!.hashCode) +
-    (descr == null ? 0 : descr!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (planninfForAnyDoctor == null ? 0 : planninfForAnyDoctor!.hashCode) +
+      (planningForDelegate == null ? 0 : planningForDelegate!.hashCode) +
+      (planningForPatientDoctor == null ? 0 : planningForPatientDoctor!.hashCode) +
+      (planningForMe == null ? 0 : planningForMe!.hashCode) +
+      (codedDelayInDays == null ? 0 : codedDelayInDays!.hashCode) +
+      (repetitions == null ? 0 : repetitions!.hashCode) +
+      (repetitionsUnit == null ? 0 : repetitionsUnit!.hashCode) +
+      (descr == null ? 0 : descr!.hashCode);
 
   @override
-  String toString() => 'FormPlanning[planninfForAnyDoctor=$planninfForAnyDoctor, planningForDelegate=$planningForDelegate, planningForPatientDoctor=$planningForPatientDoctor, planningForMe=$planningForMe, codedDelayInDays=$codedDelayInDays, repetitions=$repetitions, repetitionsUnit=$repetitionsUnit, descr=$descr]';
+  String toString() =>
+      'FormPlanning[planninfForAnyDoctor=$planninfForAnyDoctor, planningForDelegate=$planningForDelegate, planningForPatientDoctor=$planningForPatientDoctor, planningForMe=$planningForMe, codedDelayInDays=$codedDelayInDays, repetitions=$repetitions, repetitionsUnit=$repetitionsUnit, descr=$descr]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -174,7 +177,10 @@ class FormPlanning {
     return null;
   }
 
-  static List<FormPlanning>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FormPlanning>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FormPlanning>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -202,12 +208,18 @@ class FormPlanning {
   }
 
   // maps a json object with a list of FormPlanning-objects as value to a dart map
-  static Map<String, List<FormPlanning>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FormPlanning>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FormPlanning>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FormPlanning.listFromJson(entry.value, growable: growable,);
+        final value = FormPlanning.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -217,7 +229,5 @@ class FormPlanning {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

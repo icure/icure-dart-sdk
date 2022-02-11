@@ -34,15 +34,16 @@ class RenewalDto {
   DurationDto? duration;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RenewalDto &&
-     other.decimal == decimal &&
-     other.duration == duration;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is RenewalDto &&
+          other.decimal == decimal &&
+          other.duration == duration;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (decimal == null ? 0 : decimal!.hashCode) +
-    (duration == null ? 0 : duration!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (decimal == null ? 0 : decimal!.hashCode) +
+      (duration == null ? 0 : duration!.hashCode);
 
   @override
   String toString() => 'RenewalDto[decimal=$decimal, duration=$duration]';

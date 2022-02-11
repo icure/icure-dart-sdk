@@ -28,26 +28,27 @@ class AuthenticationTokenDto {
   int validity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AuthenticationTokenDto &&
-     other.token == token &&
-     other.creationTime == creationTime &&
-     other.validity == validity;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is AuthenticationTokenDto &&
+          other.token == token &&
+          other.creationTime == creationTime &&
+          other.validity == validity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (token.hashCode) +
-    (creationTime.hashCode) +
-    (validity.hashCode);
+      // ignore: unnecessary_parenthesis
+  (token.hashCode) +
+      (creationTime.hashCode) +
+      (validity.hashCode);
 
   @override
   String toString() => 'AuthenticationTokenDto[token=$token, creationTime=$creationTime, validity=$validity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'token'] = token;
-      json[r'creationTime'] = creationTime;
-      json[r'validity'] = validity;
+    json[r'token'] = token;
+    json[r'creationTime'] = creationTime;
+    json[r'validity'] = validity;
     return json;
   }
 

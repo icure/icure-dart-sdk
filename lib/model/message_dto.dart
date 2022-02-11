@@ -287,92 +287,94 @@ class MessageDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MessageDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.deletionDate == deletionDate &&
-     other.fromAddress == fromAddress &&
-     other.fromHealthcarePartyId == fromHealthcarePartyId &&
-     other.formId == formId &&
-     other.status == status &&
-     other.recipientsType == recipientsType &&
-     other.recipients == recipients &&
-     other.toAddresses == toAddresses &&
-     other.received == received &&
-     other.sent == sent &&
-     other.metas == metas &&
-     other.readStatus == readStatus &&
-     other.transportGuid == transportGuid &&
-     other.remark == remark &&
-     other.conversationGuid == conversationGuid &&
-     other.subject == subject &&
-     other.invoiceIds == invoiceIds &&
-     other.parentId == parentId &&
-     other.externalRef == externalRef &&
-     other.unassignedResults == unassignedResults &&
-     other.assignedResults == assignedResults &&
-     other.senderReferences == senderReferences &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.cryptedForeignKeys == cryptedForeignKeys &&
-     other.delegations == delegations &&
-     other.encryptionKeys == encryptionKeys &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MessageDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.fromAddress == fromAddress &&
+          other.fromHealthcarePartyId == fromHealthcarePartyId &&
+          other.formId == formId &&
+          other.status == status &&
+          other.recipientsType == recipientsType &&
+          other.recipients == recipients &&
+          other.toAddresses == toAddresses &&
+          other.received == received &&
+          other.sent == sent &&
+          other.metas == metas &&
+          other.readStatus == readStatus &&
+          other.transportGuid == transportGuid &&
+          other.remark == remark &&
+          other.conversationGuid == conversationGuid &&
+          other.subject == subject &&
+          other.invoiceIds == invoiceIds &&
+          other.parentId == parentId &&
+          other.externalRef == externalRef &&
+          other.unassignedResults == unassignedResults &&
+          other.assignedResults == assignedResults &&
+          other.senderReferences == senderReferences &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (fromAddress == null ? 0 : fromAddress!.hashCode) +
-    (fromHealthcarePartyId == null ? 0 : fromHealthcarePartyId!.hashCode) +
-    (formId == null ? 0 : formId!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (recipientsType == null ? 0 : recipientsType!.hashCode) +
-    (recipients.hashCode) +
-    (toAddresses.hashCode) +
-    (received == null ? 0 : received!.hashCode) +
-    (sent == null ? 0 : sent!.hashCode) +
-    (metas.hashCode) +
-    (readStatus.hashCode) +
-    (transportGuid == null ? 0 : transportGuid!.hashCode) +
-    (remark == null ? 0 : remark!.hashCode) +
-    (conversationGuid == null ? 0 : conversationGuid!.hashCode) +
-    (subject == null ? 0 : subject!.hashCode) +
-    (invoiceIds.hashCode) +
-    (parentId == null ? 0 : parentId!.hashCode) +
-    (externalRef == null ? 0 : externalRef!.hashCode) +
-    (unassignedResults.hashCode) +
-    (assignedResults.hashCode) +
-    (senderReferences.hashCode) +
-    (secretForeignKeys.hashCode) +
-    (cryptedForeignKeys.hashCode) +
-    (delegations.hashCode) +
-    (encryptionKeys.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (fromAddress == null ? 0 : fromAddress!.hashCode) +
+      (fromHealthcarePartyId == null ? 0 : fromHealthcarePartyId!.hashCode) +
+      (formId == null ? 0 : formId!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (recipientsType == null ? 0 : recipientsType!.hashCode) +
+      (recipients.hashCode) +
+      (toAddresses.hashCode) +
+      (received == null ? 0 : received!.hashCode) +
+      (sent == null ? 0 : sent!.hashCode) +
+      (metas.hashCode) +
+      (readStatus.hashCode) +
+      (transportGuid == null ? 0 : transportGuid!.hashCode) +
+      (remark == null ? 0 : remark!.hashCode) +
+      (conversationGuid == null ? 0 : conversationGuid!.hashCode) +
+      (subject == null ? 0 : subject!.hashCode) +
+      (invoiceIds.hashCode) +
+      (parentId == null ? 0 : parentId!.hashCode) +
+      (externalRef == null ? 0 : externalRef!.hashCode) +
+      (unassignedResults.hashCode) +
+      (assignedResults.hashCode) +
+      (senderReferences.hashCode) +
+      (secretForeignKeys.hashCode) +
+      (cryptedForeignKeys.hashCode) +
+      (delegations.hashCode) +
+      (encryptionKeys.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'MessageDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, fromAddress=$fromAddress, fromHealthcarePartyId=$fromHealthcarePartyId, formId=$formId, status=$status, recipientsType=$recipientsType, recipients=$recipients, toAddresses=$toAddresses, received=$received, sent=$sent, metas=$metas, readStatus=$readStatus, transportGuid=$transportGuid, remark=$remark, conversationGuid=$conversationGuid, subject=$subject, invoiceIds=$invoiceIds, parentId=$parentId, externalRef=$externalRef, unassignedResults=$unassignedResults, assignedResults=$assignedResults, senderReferences=$senderReferences, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'MessageDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, fromAddress=$fromAddress, fromHealthcarePartyId=$fromHealthcarePartyId, formId=$formId, status=$status, recipientsType=$recipientsType, recipients=$recipients, toAddresses=$toAddresses, received=$received, sent=$sent, metas=$metas, readStatus=$readStatus, transportGuid=$transportGuid, remark=$remark, conversationGuid=$conversationGuid, subject=$subject, invoiceIds=$invoiceIds, parentId=$parentId, externalRef=$externalRef, unassignedResults=$unassignedResults, assignedResults=$assignedResults, senderReferences=$senderReferences, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -391,8 +393,8 @@ class MessageDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -414,16 +416,16 @@ class MessageDto {
     if (recipientsType != null) {
       json[r'recipientsType'] = recipientsType;
     }
-      json[r'recipients'] = recipients;
-      json[r'toAddresses'] = toAddresses;
+    json[r'recipients'] = recipients.toList();
+    json[r'toAddresses'] = toAddresses.toList();
     if (received != null) {
       json[r'received'] = received;
     }
     if (sent != null) {
       json[r'sent'] = sent;
     }
-      json[r'metas'] = metas;
-      json[r'readStatus'] = readStatus;
+    json[r'metas'] = metas;
+    json[r'readStatus'] = readStatus;
     if (transportGuid != null) {
       json[r'transportGuid'] = transportGuid;
     }
@@ -436,20 +438,20 @@ class MessageDto {
     if (subject != null) {
       json[r'subject'] = subject;
     }
-      json[r'invoiceIds'] = invoiceIds;
+    json[r'invoiceIds'] = invoiceIds.toList();
     if (parentId != null) {
       json[r'parentId'] = parentId;
     }
     if (externalRef != null) {
       json[r'externalRef'] = externalRef;
     }
-      json[r'unassignedResults'] = unassignedResults;
-      json[r'assignedResults'] = assignedResults;
-      json[r'senderReferences'] = senderReferences;
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+    json[r'unassignedResults'] = unassignedResults.toList();
+    json[r'assignedResults'] = assignedResults;
+    json[r'senderReferences'] = senderReferences;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -491,11 +493,11 @@ class MessageDto {
         formId: mapValueOfType<String>(json, r'formId'),
         status: mapValueOfType<int>(json, r'status'),
         recipientsType: mapValueOfType<String>(json, r'recipientsType'),
-        recipients: json[r'recipients'] is Set
-            ? (json[r'recipients'] as Set).cast<String>()
+        recipients: json[r'recipients'] is Set ? (json[r'recipients'] as Set).cast<String>() : json[r'recipients'] is List
+            ? ((json[r'recipients'] as List).toSet()).cast<String>()
             : const {},
-        toAddresses: json[r'toAddresses'] is Set
-            ? (json[r'toAddresses'] as Set).cast<String>()
+        toAddresses: json[r'toAddresses'] is Set ? (json[r'toAddresses'] as Set).cast<String>() : json[r'toAddresses'] is List
+            ? ((json[r'toAddresses'] as List).toSet()).cast<String>()
             : const {},
         received: mapValueOfType<int>(json, r'received'),
         sent: mapValueOfType<int>(json, r'sent'),
@@ -505,27 +507,27 @@ class MessageDto {
         remark: mapValueOfType<String>(json, r'remark'),
         conversationGuid: mapValueOfType<String>(json, r'conversationGuid'),
         subject: mapValueOfType<String>(json, r'subject'),
-        invoiceIds: json[r'invoiceIds'] is Set
-            ? (json[r'invoiceIds'] as Set).cast<String>()
+        invoiceIds: json[r'invoiceIds'] is Set ? (json[r'invoiceIds'] as Set).cast<String>() : json[r'invoiceIds'] is List
+            ? ((json[r'invoiceIds'] as List).toSet()).cast<String>()
             : const {},
         parentId: mapValueOfType<String>(json, r'parentId'),
         externalRef: mapValueOfType<String>(json, r'externalRef'),
-        unassignedResults: json[r'unassignedResults'] is Set
-            ? (json[r'unassignedResults'] as Set).cast<String>()
+        unassignedResults: json[r'unassignedResults'] is Set ? (json[r'unassignedResults'] as Set).cast<String>() : json[r'unassignedResults'] is List
+            ? ((json[r'unassignedResults'] as List).toSet()).cast<String>()
             : const {},
         assignedResults: mapCastOfType<String, String>(json, r'assignedResults')!,
         senderReferences: mapCastOfType<String, String>(json, r'senderReferences')!,
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );

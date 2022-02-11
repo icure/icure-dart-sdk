@@ -70,26 +70,29 @@ class SupplyProblemDto {
   SamTextDto? additionalInformation;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SupplyProblemDto &&
-     other.from == from &&
-     other.to == to &&
-     other.reason == reason &&
-     other.expectedEndOn == expectedEndOn &&
-     other.impact == impact &&
-     other.additionalInformation == additionalInformation;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SupplyProblemDto &&
+          other.from == from &&
+          other.to == to &&
+          other.reason == reason &&
+          other.expectedEndOn == expectedEndOn &&
+          other.impact == impact &&
+          other.additionalInformation == additionalInformation;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (reason == null ? 0 : reason!.hashCode) +
-    (expectedEndOn == null ? 0 : expectedEndOn!.hashCode) +
-    (impact == null ? 0 : impact!.hashCode) +
-    (additionalInformation == null ? 0 : additionalInformation!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (reason == null ? 0 : reason!.hashCode) +
+      (expectedEndOn == null ? 0 : expectedEndOn!.hashCode) +
+      (impact == null ? 0 : impact!.hashCode) +
+      (additionalInformation == null ? 0 : additionalInformation!.hashCode);
 
   @override
-  String toString() => 'SupplyProblemDto[from=$from, to=$to, reason=$reason, expectedEndOn=$expectedEndOn, impact=$impact, additionalInformation=$additionalInformation]';
+  String toString() =>
+      'SupplyProblemDto[from=$from, to=$to, reason=$reason, expectedEndOn=$expectedEndOn, impact=$impact, additionalInformation=$additionalInformation]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -144,7 +147,10 @@ class SupplyProblemDto {
     return null;
   }
 
-  static List<SupplyProblemDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SupplyProblemDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SupplyProblemDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -172,12 +178,18 @@ class SupplyProblemDto {
   }
 
   // maps a json object with a list of SupplyProblemDto-objects as value to a dart map
-  static Map<String, List<SupplyProblemDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SupplyProblemDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SupplyProblemDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SupplyProblemDto.listFromJson(entry.value, growable: growable,);
+        final value = SupplyProblemDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,7 +199,5 @@ class SupplyProblemDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

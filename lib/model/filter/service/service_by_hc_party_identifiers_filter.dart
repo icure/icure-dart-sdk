@@ -3,7 +3,7 @@ part of icure_dart_sdk.api;
 
 
 class ServiceByHcPartyIdentifiersFilter extends AbstractFilterDto<ServiceDto> {
-        @override String? desc;
-        String? healthcarePartyId;
-        List<IdentifierDto> identifiers = [];
+  @override String? desc;
+  String? healthcarePartyId;
+  List<IdentifierDto> identifiers = [];
 }

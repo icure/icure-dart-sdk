@@ -34,15 +34,16 @@ class MessageWithBatch {
   MessageDto? message;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MessageWithBatch &&
-     other.invoicesBatch == invoicesBatch &&
-     other.message == message;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MessageWithBatch &&
+          other.invoicesBatch == invoicesBatch &&
+          other.message == message;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (invoicesBatch == null ? 0 : invoicesBatch!.hashCode) +
-    (message == null ? 0 : message!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (invoicesBatch == null ? 0 : invoicesBatch!.hashCode) +
+      (message == null ? 0 : message!.hashCode);
 
   @override
   String toString() => 'MessageWithBatch[invoicesBatch=$invoicesBatch, message=$message]';

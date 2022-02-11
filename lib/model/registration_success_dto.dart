@@ -25,26 +25,22 @@ class RegistrationSuccessDto {
   String token;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RegistrationSuccessDto &&
-     other.groupId == groupId &&
-     other.userId == userId &&
-     other.token == token;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is RegistrationSuccessDto && other.groupId == groupId && other.userId == userId && other.token == token;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (groupId.hashCode) +
-    (userId.hashCode) +
-    (token.hashCode);
+      // ignore: unnecessary_parenthesis
+      (groupId.hashCode) + (userId.hashCode) + (token.hashCode);
 
   @override
   String toString() => 'RegistrationSuccessDto[groupId=$groupId, userId=$userId, token=$token]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'groupId'] = groupId;
-      json[r'userId'] = userId;
-      json[r'token'] = token;
+    json[r'groupId'] = groupId;
+    json[r'userId'] = userId;
+    json[r'token'] = token;
     return json;
   }
 
@@ -75,7 +71,10 @@ class RegistrationSuccessDto {
     return null;
   }
 
-  static List<RegistrationSuccessDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<RegistrationSuccessDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <RegistrationSuccessDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -103,12 +102,18 @@ class RegistrationSuccessDto {
   }
 
   // maps a json object with a list of RegistrationSuccessDto-objects as value to a dart map
-  static Map<String, List<RegistrationSuccessDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<RegistrationSuccessDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<RegistrationSuccessDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RegistrationSuccessDto.listFromJson(entry.value, growable: growable,);
+        final value = RegistrationSuccessDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -124,4 +129,3 @@ class RegistrationSuccessDto {
     'token',
   };
 }
-

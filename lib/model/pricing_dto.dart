@@ -34,15 +34,12 @@ class PricingDto {
   SamTextDto? label;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PricingDto &&
-     other.quantity == quantity &&
-     other.label == label;
+  bool operator ==(Object other) => identical(this, other) || other is PricingDto && other.quantity == quantity && other.label == label;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (quantity == null ? 0 : quantity!.hashCode) +
-    (label == null ? 0 : label!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (quantity == null ? 0 : quantity!.hashCode) + (label == null ? 0 : label!.hashCode);
 
   @override
   String toString() => 'PricingDto[quantity=$quantity, label=$label]';
@@ -77,16 +74,17 @@ class PricingDto {
       }());
 
       return PricingDto(
-        quantity: json[r'quantity'] == null
-            ? null
-            : num.parse(json[r'quantity'].toString()),
+        quantity: json[r'quantity'] == null ? null : num.parse(json[r'quantity'].toString()),
         label: SamTextDto.fromJson(json[r'label']),
       );
     }
     return null;
   }
 
-  static List<PricingDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PricingDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PricingDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +112,18 @@ class PricingDto {
   }
 
   // maps a json object with a list of PricingDto-objects as value to a dart map
-  static Map<String, List<PricingDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PricingDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PricingDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PricingDto.listFromJson(entry.value, growable: growable,);
+        final value = PricingDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -129,7 +133,5 @@ class PricingDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

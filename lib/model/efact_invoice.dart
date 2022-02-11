@@ -103,40 +103,43 @@ class EfactInvoice {
   int? relatedBatchYearMonth;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EfactInvoice &&
-     other.patient == patient &&
-     other.ioCode == ioCode &&
-     other.items == items &&
-     other.reason == reason &&
-     other.invoiceRef == invoiceRef &&
-     other.invoiceNumber == invoiceNumber &&
-     other.ignorePrescriptionDate == ignorePrescriptionDate &&
-     other.hospitalisedPatient == hospitalisedPatient &&
-     other.creditNote == creditNote &&
-     other.relatedInvoiceIoCode == relatedInvoiceIoCode &&
-     other.relatedInvoiceNumber == relatedInvoiceNumber &&
-     other.relatedBatchSendNumber == relatedBatchSendNumber &&
-     other.relatedBatchYearMonth == relatedBatchYearMonth;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EfactInvoice &&
+          other.patient == patient &&
+          other.ioCode == ioCode &&
+          other.items == items &&
+          other.reason == reason &&
+          other.invoiceRef == invoiceRef &&
+          other.invoiceNumber == invoiceNumber &&
+          other.ignorePrescriptionDate == ignorePrescriptionDate &&
+          other.hospitalisedPatient == hospitalisedPatient &&
+          other.creditNote == creditNote &&
+          other.relatedInvoiceIoCode == relatedInvoiceIoCode &&
+          other.relatedInvoiceNumber == relatedInvoiceNumber &&
+          other.relatedBatchSendNumber == relatedBatchSendNumber &&
+          other.relatedBatchYearMonth == relatedBatchYearMonth;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (patient == null ? 0 : patient!.hashCode) +
-    (ioCode == null ? 0 : ioCode!.hashCode) +
-    (items.hashCode) +
-    (reason == null ? 0 : reason!.hashCode) +
-    (invoiceRef == null ? 0 : invoiceRef!.hashCode) +
-    (invoiceNumber == null ? 0 : invoiceNumber!.hashCode) +
-    (ignorePrescriptionDate.hashCode) +
-    (hospitalisedPatient.hashCode) +
-    (creditNote.hashCode) +
-    (relatedInvoiceIoCode == null ? 0 : relatedInvoiceIoCode!.hashCode) +
-    (relatedInvoiceNumber == null ? 0 : relatedInvoiceNumber!.hashCode) +
-    (relatedBatchSendNumber == null ? 0 : relatedBatchSendNumber!.hashCode) +
-    (relatedBatchYearMonth == null ? 0 : relatedBatchYearMonth!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (patient == null ? 0 : patient!.hashCode) +
+      (ioCode == null ? 0 : ioCode!.hashCode) +
+      (items.hashCode) +
+      (reason == null ? 0 : reason!.hashCode) +
+      (invoiceRef == null ? 0 : invoiceRef!.hashCode) +
+      (invoiceNumber == null ? 0 : invoiceNumber!.hashCode) +
+      (ignorePrescriptionDate.hashCode) +
+      (hospitalisedPatient.hashCode) +
+      (creditNote.hashCode) +
+      (relatedInvoiceIoCode == null ? 0 : relatedInvoiceIoCode!.hashCode) +
+      (relatedInvoiceNumber == null ? 0 : relatedInvoiceNumber!.hashCode) +
+      (relatedBatchSendNumber == null ? 0 : relatedBatchSendNumber!.hashCode) +
+      (relatedBatchYearMonth == null ? 0 : relatedBatchYearMonth!.hashCode);
 
   @override
-  String toString() => 'EfactInvoice[patient=$patient, ioCode=$ioCode, items=$items, reason=$reason, invoiceRef=$invoiceRef, invoiceNumber=$invoiceNumber, ignorePrescriptionDate=$ignorePrescriptionDate, hospitalisedPatient=$hospitalisedPatient, creditNote=$creditNote, relatedInvoiceIoCode=$relatedInvoiceIoCode, relatedInvoiceNumber=$relatedInvoiceNumber, relatedBatchSendNumber=$relatedBatchSendNumber, relatedBatchYearMonth=$relatedBatchYearMonth]';
+  String toString() =>
+      'EfactInvoice[patient=$patient, ioCode=$ioCode, items=$items, reason=$reason, invoiceRef=$invoiceRef, invoiceNumber=$invoiceNumber, ignorePrescriptionDate=$ignorePrescriptionDate, hospitalisedPatient=$hospitalisedPatient, creditNote=$creditNote, relatedInvoiceIoCode=$relatedInvoiceIoCode, relatedInvoiceNumber=$relatedInvoiceNumber, relatedBatchSendNumber=$relatedBatchSendNumber, relatedBatchYearMonth=$relatedBatchYearMonth]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -146,7 +149,7 @@ class EfactInvoice {
     if (ioCode != null) {
       json[r'ioCode'] = ioCode;
     }
-      json[r'items'] = items;
+    json[r'items'] = items;
     if (reason != null) {
       json[r'reason'] = reason;
     }
@@ -156,9 +159,9 @@ class EfactInvoice {
     if (invoiceNumber != null) {
       json[r'invoiceNumber'] = invoiceNumber;
     }
-      json[r'ignorePrescriptionDate'] = ignorePrescriptionDate;
-      json[r'hospitalisedPatient'] = hospitalisedPatient;
-      json[r'creditNote'] = creditNote;
+    json[r'ignorePrescriptionDate'] = ignorePrescriptionDate;
+    json[r'hospitalisedPatient'] = hospitalisedPatient;
+    json[r'creditNote'] = creditNote;
     if (relatedInvoiceIoCode != null) {
       json[r'relatedInvoiceIoCode'] = relatedInvoiceIoCode;
     }
@@ -211,7 +214,10 @@ class EfactInvoice {
     return null;
   }
 
-  static List<EfactInvoice>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EfactInvoice>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EfactInvoice>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -239,12 +245,18 @@ class EfactInvoice {
   }
 
   // maps a json object with a list of EfactInvoice-objects as value to a dart map
-  static Map<String, List<EfactInvoice>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EfactInvoice>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EfactInvoice>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = EfactInvoice.listFromJson(entry.value, growable: growable,);
+        final value = EfactInvoice.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -261,7 +273,6 @@ class EfactInvoice {
     'creditNote',
   };
 }
-
 
 class EfactInvoiceReasonEnum {
   /// Instantiate a new enum with the provided [value].
@@ -292,7 +303,10 @@ class EfactInvoiceReasonEnum {
 
   static EfactInvoiceReasonEnum? fromJson(dynamic value) => EfactInvoiceReasonEnumTypeTransformer().decode(value);
 
-  static List<EfactInvoiceReasonEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EfactInvoiceReasonEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EfactInvoiceReasonEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -326,11 +340,16 @@ class EfactInvoiceReasonEnumTypeTransformer {
   EfactInvoiceReasonEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'Chimiotherapy': return EfactInvoiceReasonEnum.chimiotherapy;
-        case r'ProfessionalDisease': return EfactInvoiceReasonEnum.professionalDisease;
-        case r'WorkAccident': return EfactInvoiceReasonEnum.workAccident;
-        case r'Accident': return EfactInvoiceReasonEnum.accident;
-        case r'Other': return EfactInvoiceReasonEnum.other;
+        case r'Chimiotherapy':
+          return EfactInvoiceReasonEnum.chimiotherapy;
+        case r'ProfessionalDisease':
+          return EfactInvoiceReasonEnum.professionalDisease;
+        case r'WorkAccident':
+          return EfactInvoiceReasonEnum.workAccident;
+        case r'Accident':
+          return EfactInvoiceReasonEnum.accident;
+        case r'Other':
+          return EfactInvoiceReasonEnum.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -343,5 +362,3 @@ class EfactInvoiceReasonEnumTypeTransformer {
   /// Singleton [EfactInvoiceReasonEnumTypeTransformer] instance.
   static EfactInvoiceReasonEnumTypeTransformer? _instance;
 }
-
-

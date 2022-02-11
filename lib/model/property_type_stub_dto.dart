@@ -28,15 +28,16 @@ class PropertyTypeStubDto {
   PropertyTypeStubDtoTypeEnum? type;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PropertyTypeStubDto &&
-     other.identifier == identifier &&
-     other.type == type;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PropertyTypeStubDto &&
+          other.identifier == identifier &&
+          other.type == type;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (identifier == null ? 0 : identifier!.hashCode) +
-    (type == null ? 0 : type!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (identifier == null ? 0 : identifier!.hashCode) +
+      (type == null ? 0 : type!.hashCode);
 
   @override
   String toString() => 'PropertyTypeStubDto[identifier=$identifier, type=$type]';
@@ -193,13 +194,20 @@ class PropertyTypeStubDtoTypeEnumTypeTransformer {
   PropertyTypeStubDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'BOOLEAN': return PropertyTypeStubDtoTypeEnum.BOOLEAN;
-        case r'INTEGER': return PropertyTypeStubDtoTypeEnum.INTEGER;
-        case r'DOUBLE': return PropertyTypeStubDtoTypeEnum.DOUBLE;
-        case r'STRING': return PropertyTypeStubDtoTypeEnum.STRING;
-        case r'DATE': return PropertyTypeStubDtoTypeEnum.DATE;
-        case r'CLOB': return PropertyTypeStubDtoTypeEnum.CLOB;
-        case r'JSON': return PropertyTypeStubDtoTypeEnum.JSON;
+        case r'BOOLEAN':
+          return PropertyTypeStubDtoTypeEnum.BOOLEAN;
+        case r'INTEGER':
+          return PropertyTypeStubDtoTypeEnum.INTEGER;
+        case r'DOUBLE':
+          return PropertyTypeStubDtoTypeEnum.DOUBLE;
+        case r'STRING':
+          return PropertyTypeStubDtoTypeEnum.STRING;
+        case r'DATE':
+          return PropertyTypeStubDtoTypeEnum.DATE;
+        case r'CLOB':
+          return PropertyTypeStubDtoTypeEnum.CLOB;
+        case r'JSON':
+          return PropertyTypeStubDtoTypeEnum.JSON;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

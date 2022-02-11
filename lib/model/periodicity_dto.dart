@@ -34,15 +34,16 @@ class PeriodicityDto {
   CodeStubDto? relatedPeriodicity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PeriodicityDto &&
-     other.relatedCode == relatedCode &&
-     other.relatedPeriodicity == relatedPeriodicity;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PeriodicityDto &&
+          other.relatedCode == relatedCode &&
+          other.relatedPeriodicity == relatedPeriodicity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (relatedCode == null ? 0 : relatedCode!.hashCode) +
-    (relatedPeriodicity == null ? 0 : relatedPeriodicity!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (relatedCode == null ? 0 : relatedCode!.hashCode) +
+      (relatedPeriodicity == null ? 0 : relatedPeriodicity!.hashCode);
 
   @override
   String toString() => 'PeriodicityDto[relatedCode=$relatedCode, relatedPeriodicity=$relatedPeriodicity]';

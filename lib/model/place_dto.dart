@@ -56,28 +56,29 @@ class PlaceDto {
   AddressDto? address;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PlaceDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.name == name &&
-     other.address == address;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PlaceDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.name == name &&
+          other.address == address;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (address == null ? 0 : address!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (address == null ? 0 : address!.hashCode);
 
   @override
   String toString() => 'PlaceDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, address=$address]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }

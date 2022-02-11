@@ -85,32 +85,34 @@ class FormLayout {
   List<String> importedServiceXPaths;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FormLayout &&
-     other.name == name &&
-     other.width == width &&
-     other.height == height &&
-     other.descr == descr &&
-     other.tag == tag &&
-     other.guid == guid &&
-     other.group == group &&
-     other.sections == sections &&
-     other.importedServiceXPaths == importedServiceXPaths;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is FormLayout &&
+          other.name == name &&
+          other.width == width &&
+          other.height == height &&
+          other.descr == descr &&
+          other.tag == tag &&
+          other.guid == guid &&
+          other.group == group &&
+          other.sections == sections &&
+          other.importedServiceXPaths == importedServiceXPaths;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name == null ? 0 : name!.hashCode) +
-    (width == null ? 0 : width!.hashCode) +
-    (height == null ? 0 : height!.hashCode) +
-    (descr == null ? 0 : descr!.hashCode) +
-    (tag == null ? 0 : tag!.hashCode) +
-    (guid == null ? 0 : guid!.hashCode) +
-    (group == null ? 0 : group!.hashCode) +
-    (sections.hashCode) +
-    (importedServiceXPaths.hashCode);
+      // ignore: unnecessary_parenthesis
+  (name == null ? 0 : name!.hashCode) +
+      (width == null ? 0 : width!.hashCode) +
+      (height == null ? 0 : height!.hashCode) +
+      (descr == null ? 0 : descr!.hashCode) +
+      (tag == null ? 0 : tag!.hashCode) +
+      (guid == null ? 0 : guid!.hashCode) +
+      (group == null ? 0 : group!.hashCode) +
+      (sections.hashCode) +
+      (importedServiceXPaths.hashCode);
 
   @override
-  String toString() => 'FormLayout[name=$name, width=$width, height=$height, descr=$descr, tag=$tag, guid=$guid, group=$group, sections=$sections, importedServiceXPaths=$importedServiceXPaths]';
+  String toString() =>
+      'FormLayout[name=$name, width=$width, height=$height, descr=$descr, tag=$tag, guid=$guid, group=$group, sections=$sections, importedServiceXPaths=$importedServiceXPaths]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -135,8 +137,8 @@ class FormLayout {
     if (group != null) {
       json[r'group'] = group;
     }
-      json[r'sections'] = sections;
-      json[r'importedServiceXPaths'] = importedServiceXPaths;
+    json[r'sections'] = sections;
+    json[r'importedServiceXPaths'] = importedServiceXPaths;
     return json;
   }
 

@@ -43,17 +43,18 @@ class UserGroupDto {
   String? groupName;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is UserGroupDto &&
-     other.groupId == groupId &&
-     other.userId == userId &&
-     other.groupName == groupName;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is UserGroupDto &&
+          other.groupId == groupId &&
+          other.userId == userId &&
+          other.groupName == groupName;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (groupId == null ? 0 : groupId!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (groupName == null ? 0 : groupName!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (groupId == null ? 0 : groupId!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (groupName == null ? 0 : groupName!.hashCode);
 
   @override
   String toString() => 'UserGroupDto[groupId=$groupId, userId=$userId, groupName=$groupName]';

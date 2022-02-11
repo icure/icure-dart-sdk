@@ -81,36 +81,39 @@ class GroupDto {
   String? superGroup;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GroupDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.name == name &&
-     other.password == password &&
-     other.servers == servers &&
-     other.superAdmin == superAdmin &&
-     other.properties == properties &&
-     other.superGroup == superGroup;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GroupDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.name == name &&
+          other.password == password &&
+          other.servers == servers &&
+          other.superAdmin == superAdmin &&
+          other.properties == properties &&
+          other.superGroup == superGroup;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (password == null ? 0 : password!.hashCode) +
-    (servers.hashCode) +
-    (superAdmin.hashCode) +
-    (properties.hashCode) +
-    (superGroup == null ? 0 : superGroup!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (password == null ? 0 : password!.hashCode) +
+      (servers.hashCode) +
+      (superAdmin.hashCode) +
+      (properties.hashCode) +
+      (superGroup == null ? 0 : superGroup!.hashCode);
 
   @override
-  String toString() => 'GroupDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, password=$password, servers=$servers, superAdmin=$superAdmin, properties=$properties, superGroup=$superGroup]';
+  String toString() =>
+      'GroupDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, password=$password, servers=$servers, superAdmin=$superAdmin, properties=$properties, superGroup=$superGroup]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -123,9 +126,9 @@ class GroupDto {
     if (password != null) {
       json[r'password'] = password;
     }
-      json[r'servers'] = servers;
-      json[r'superAdmin'] = superAdmin;
-      json[r'properties'] = properties;
+    json[r'servers'] = servers;
+    json[r'superAdmin'] = superAdmin;
+    json[r'properties'] = properties.toList();
     if (superGroup != null) {
       json[r'superGroup'] = superGroup;
     }
@@ -156,9 +159,7 @@ class GroupDto {
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         name: mapValueOfType<String>(json, r'name'),
         password: mapValueOfType<String>(json, r'password'),
-        servers: json[r'servers'] is List
-            ? (json[r'servers'] as List).cast<String>()
-            : const [],
+        servers: json[r'servers'] is List ? (json[r'servers'] as List).cast<String>() : const [],
         superAdmin: mapValueOfType<bool>(json, r'superAdmin')!,
         properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
         superGroup: mapValueOfType<String>(json, r'superGroup'),
@@ -167,7 +168,10 @@ class GroupDto {
     return null;
   }
 
-  static List<GroupDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GroupDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GroupDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -195,12 +199,18 @@ class GroupDto {
   }
 
   // maps a json object with a list of GroupDto-objects as value to a dart map
-  static Map<String, List<GroupDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GroupDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GroupDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GroupDto.listFromJson(entry.value, growable: growable,);
+        final value = GroupDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -216,4 +226,3 @@ class GroupDto {
     'properties',
   };
 }
-

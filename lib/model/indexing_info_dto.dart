@@ -19,20 +19,21 @@ class IndexingInfoDto {
   Map<String, num> statuses;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is IndexingInfoDto &&
-     other.statuses == statuses;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is IndexingInfoDto &&
+          other.statuses == statuses;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (statuses.hashCode);
+      // ignore: unnecessary_parenthesis
+  (statuses.hashCode);
 
   @override
   String toString() => 'IndexingInfoDto[statuses=$statuses]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'statuses'] = statuses;
+    json[r'statuses'] = statuses;
     return json;
   }
 

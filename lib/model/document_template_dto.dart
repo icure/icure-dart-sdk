@@ -206,66 +206,68 @@ class DocumentTemplateDto {
   CodeStubDto? specialty;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DocumentTemplateDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.deletionDate == deletionDate &&
-     other.attachment == attachment &&
-     other.documentType == documentType &&
-     other.mainUti == mainUti &&
-     other.name == name &&
-     other.otherUtis == otherUtis &&
-     other.attachmentId == attachmentId &&
-     other.version == version &&
-     other.owner == owner &&
-     other.guid == guid &&
-     other.group == group &&
-     other.descr == descr &&
-     other.disabled == disabled &&
-     other.specialty == specialty;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is DocumentTemplateDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.attachment == attachment &&
+          other.documentType == documentType &&
+          other.mainUti == mainUti &&
+          other.name == name &&
+          other.otherUtis == otherUtis &&
+          other.attachmentId == attachmentId &&
+          other.version == version &&
+          other.owner == owner &&
+          other.guid == guid &&
+          other.group == group &&
+          other.descr == descr &&
+          other.disabled == disabled &&
+          other.specialty == specialty;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (attachment == null ? 0 : attachment!.hashCode) +
-    (documentType == null ? 0 : documentType!.hashCode) +
-    (mainUti == null ? 0 : mainUti!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (otherUtis.hashCode) +
-    (attachmentId == null ? 0 : attachmentId!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (owner == null ? 0 : owner!.hashCode) +
-    (guid == null ? 0 : guid!.hashCode) +
-    (group == null ? 0 : group!.hashCode) +
-    (descr == null ? 0 : descr!.hashCode) +
-    (disabled == null ? 0 : disabled!.hashCode) +
-    (specialty == null ? 0 : specialty!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (attachment == null ? 0 : attachment!.hashCode) +
+      (documentType == null ? 0 : documentType!.hashCode) +
+      (mainUti == null ? 0 : mainUti!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (otherUtis.hashCode) +
+      (attachmentId == null ? 0 : attachmentId!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (owner == null ? 0 : owner!.hashCode) +
+      (guid == null ? 0 : guid!.hashCode) +
+      (group == null ? 0 : group!.hashCode) +
+      (descr == null ? 0 : descr!.hashCode) +
+      (disabled == null ? 0 : disabled!.hashCode) +
+      (specialty == null ? 0 : specialty!.hashCode);
 
   @override
-  String toString() => 'DocumentTemplateDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, attachment=$attachment, documentType=$documentType, mainUti=$mainUti, name=$name, otherUtis=$otherUtis, attachmentId=$attachmentId, version=$version, owner=$owner, guid=$guid, group=$group, descr=$descr, disabled=$disabled, specialty=$specialty]';
+  String toString() =>
+      'DocumentTemplateDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, attachment=$attachment, documentType=$documentType, mainUti=$mainUti, name=$name, otherUtis=$otherUtis, attachmentId=$attachmentId, version=$version, owner=$owner, guid=$guid, group=$group, descr=$descr, disabled=$disabled, specialty=$specialty]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -284,8 +286,8 @@ class DocumentTemplateDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -304,7 +306,7 @@ class DocumentTemplateDto {
     if (name != null) {
       json[r'name'] = name;
     }
-      json[r'otherUtis'] = otherUtis;
+    json[r'otherUtis'] = otherUtis.toList();
     if (attachmentId != null) {
       json[r'attachmentId'] = attachmentId;
     }
@@ -366,9 +368,8 @@ class DocumentTemplateDto {
         documentType: DocumentTemplateDtoDocumentTypeEnum.fromJson(json[r'documentType']),
         mainUti: mapValueOfType<String>(json, r'mainUti'),
         name: mapValueOfType<String>(json, r'name'),
-        otherUtis: json[r'otherUtis'] is Set
-            ? (json[r'otherUtis'] as Set).cast<String>()
-            : const {},
+        otherUtis: json[r'otherUtis'] is Set ? (json[r'otherUtis'] as Set).cast<String>() : json[r'otherUtis'] is List ? ((json[r'otherUtis'] as List)
+            .toSet()).cast<String>() : const {},
         attachmentId: mapValueOfType<String>(json, r'attachmentId'),
         version: DocumentTemplateDtoVersionEnum.fromJson(json[r'version']),
         owner: mapValueOfType<String>(json, r'owner'),
@@ -565,45 +566,84 @@ class DocumentTemplateDtoDocumentTypeEnumTypeTransformer {
   DocumentTemplateDtoDocumentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'admission': return DocumentTemplateDtoDocumentTypeEnum.admission;
-        case r'alert': return DocumentTemplateDtoDocumentTypeEnum.alert;
-        case r'bvt_sample': return DocumentTemplateDtoDocumentTypeEnum.bvtSample;
-        case r'clinicalpath': return DocumentTemplateDtoDocumentTypeEnum.clinicalpath;
-        case r'clinicalsummary': return DocumentTemplateDtoDocumentTypeEnum.clinicalsummary;
-        case r'contactreport': return DocumentTemplateDtoDocumentTypeEnum.contactreport;
-        case r'quote': return DocumentTemplateDtoDocumentTypeEnum.quote;
-        case r'invoice': return DocumentTemplateDtoDocumentTypeEnum.invoice;
-        case r'death': return DocumentTemplateDtoDocumentTypeEnum.death;
-        case r'discharge': return DocumentTemplateDtoDocumentTypeEnum.discharge;
-        case r'dischargereport': return DocumentTemplateDtoDocumentTypeEnum.dischargereport;
-        case r'ebirth_baby_medicalform': return DocumentTemplateDtoDocumentTypeEnum.ebirthBabyMedicalform;
-        case r'ebirth_baby_notification': return DocumentTemplateDtoDocumentTypeEnum.ebirthBabyNotification;
-        case r'ebirth_mother_medicalform': return DocumentTemplateDtoDocumentTypeEnum.ebirthMotherMedicalform;
-        case r'ebirth_mother_notification': return DocumentTemplateDtoDocumentTypeEnum.ebirthMotherNotification;
-        case r'ecare_safe_consultation': return DocumentTemplateDtoDocumentTypeEnum.ecareSafeConsultation;
-        case r'epidemiology': return DocumentTemplateDtoDocumentTypeEnum.epidemiology;
-        case r'intervention': return DocumentTemplateDtoDocumentTypeEnum.intervention;
-        case r'labrequest': return DocumentTemplateDtoDocumentTypeEnum.labrequest;
-        case r'labresult': return DocumentTemplateDtoDocumentTypeEnum.labresult;
-        case r'medicaladvisoragreement': return DocumentTemplateDtoDocumentTypeEnum.medicaladvisoragreement;
-        case r'medicationschemeelement': return DocumentTemplateDtoDocumentTypeEnum.medicationschemeelement;
-        case r'note': return DocumentTemplateDtoDocumentTypeEnum.note;
-        case r'notification': return DocumentTemplateDtoDocumentTypeEnum.notification;
-        case r'pharmaceuticalprescription': return DocumentTemplateDtoDocumentTypeEnum.pharmaceuticalprescription;
-        case r'prescription': return DocumentTemplateDtoDocumentTypeEnum.prescription;
-        case r'productdelivery': return DocumentTemplateDtoDocumentTypeEnum.productdelivery;
-        case r'quickdischargereport': return DocumentTemplateDtoDocumentTypeEnum.quickdischargereport;
-        case r'radiationexposuremonitoring': return DocumentTemplateDtoDocumentTypeEnum.radiationexposuremonitoring;
-        case r'referral': return DocumentTemplateDtoDocumentTypeEnum.referral;
-        case r'report': return DocumentTemplateDtoDocumentTypeEnum.report;
-        case r'request': return DocumentTemplateDtoDocumentTypeEnum.request;
-        case r'result': return DocumentTemplateDtoDocumentTypeEnum.result;
-        case r'sumehr': return DocumentTemplateDtoDocumentTypeEnum.sumehr;
-        case r'telemonitoring': return DocumentTemplateDtoDocumentTypeEnum.telemonitoring;
-        case r'template': return DocumentTemplateDtoDocumentTypeEnum.template;
-        case r'template_admin': return DocumentTemplateDtoDocumentTypeEnum.templateAdmin;
-        case r'treatmentsuspension': return DocumentTemplateDtoDocumentTypeEnum.treatmentsuspension;
-        case r'vaccination': return DocumentTemplateDtoDocumentTypeEnum.vaccination;
+        case r'admission':
+          return DocumentTemplateDtoDocumentTypeEnum.admission;
+        case r'alert':
+          return DocumentTemplateDtoDocumentTypeEnum.alert;
+        case r'bvt_sample':
+          return DocumentTemplateDtoDocumentTypeEnum.bvtSample;
+        case r'clinicalpath':
+          return DocumentTemplateDtoDocumentTypeEnum.clinicalpath;
+        case r'clinicalsummary':
+          return DocumentTemplateDtoDocumentTypeEnum.clinicalsummary;
+        case r'contactreport':
+          return DocumentTemplateDtoDocumentTypeEnum.contactreport;
+        case r'quote':
+          return DocumentTemplateDtoDocumentTypeEnum.quote;
+        case r'invoice':
+          return DocumentTemplateDtoDocumentTypeEnum.invoice;
+        case r'death':
+          return DocumentTemplateDtoDocumentTypeEnum.death;
+        case r'discharge':
+          return DocumentTemplateDtoDocumentTypeEnum.discharge;
+        case r'dischargereport':
+          return DocumentTemplateDtoDocumentTypeEnum.dischargereport;
+        case r'ebirth_baby_medicalform':
+          return DocumentTemplateDtoDocumentTypeEnum.ebirthBabyMedicalform;
+        case r'ebirth_baby_notification':
+          return DocumentTemplateDtoDocumentTypeEnum.ebirthBabyNotification;
+        case r'ebirth_mother_medicalform':
+          return DocumentTemplateDtoDocumentTypeEnum.ebirthMotherMedicalform;
+        case r'ebirth_mother_notification':
+          return DocumentTemplateDtoDocumentTypeEnum.ebirthMotherNotification;
+        case r'ecare_safe_consultation':
+          return DocumentTemplateDtoDocumentTypeEnum.ecareSafeConsultation;
+        case r'epidemiology':
+          return DocumentTemplateDtoDocumentTypeEnum.epidemiology;
+        case r'intervention':
+          return DocumentTemplateDtoDocumentTypeEnum.intervention;
+        case r'labrequest':
+          return DocumentTemplateDtoDocumentTypeEnum.labrequest;
+        case r'labresult':
+          return DocumentTemplateDtoDocumentTypeEnum.labresult;
+        case r'medicaladvisoragreement':
+          return DocumentTemplateDtoDocumentTypeEnum.medicaladvisoragreement;
+        case r'medicationschemeelement':
+          return DocumentTemplateDtoDocumentTypeEnum.medicationschemeelement;
+        case r'note':
+          return DocumentTemplateDtoDocumentTypeEnum.note;
+        case r'notification':
+          return DocumentTemplateDtoDocumentTypeEnum.notification;
+        case r'pharmaceuticalprescription':
+          return DocumentTemplateDtoDocumentTypeEnum.pharmaceuticalprescription;
+        case r'prescription':
+          return DocumentTemplateDtoDocumentTypeEnum.prescription;
+        case r'productdelivery':
+          return DocumentTemplateDtoDocumentTypeEnum.productdelivery;
+        case r'quickdischargereport':
+          return DocumentTemplateDtoDocumentTypeEnum.quickdischargereport;
+        case r'radiationexposuremonitoring':
+          return DocumentTemplateDtoDocumentTypeEnum.radiationexposuremonitoring;
+        case r'referral':
+          return DocumentTemplateDtoDocumentTypeEnum.referral;
+        case r'report':
+          return DocumentTemplateDtoDocumentTypeEnum.report;
+        case r'request':
+          return DocumentTemplateDtoDocumentTypeEnum.request;
+        case r'result':
+          return DocumentTemplateDtoDocumentTypeEnum.result;
+        case r'sumehr':
+          return DocumentTemplateDtoDocumentTypeEnum.sumehr;
+        case r'telemonitoring':
+          return DocumentTemplateDtoDocumentTypeEnum.telemonitoring;
+        case r'template':
+          return DocumentTemplateDtoDocumentTypeEnum.template;
+        case r'template_admin':
+          return DocumentTemplateDtoDocumentTypeEnum.templateAdmin;
+        case r'treatmentsuspension':
+          return DocumentTemplateDtoDocumentTypeEnum.treatmentsuspension;
+        case r'vaccination':
+          return DocumentTemplateDtoDocumentTypeEnum.vaccination;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -616,7 +656,6 @@ class DocumentTemplateDtoDocumentTypeEnumTypeTransformer {
   /// Singleton [DocumentTemplateDtoDocumentTypeEnumTypeTransformer] instance.
   static DocumentTemplateDtoDocumentTypeEnumTypeTransformer? _instance;
 }
-
 
 
 class DocumentTemplateDtoVersionEnum {
@@ -674,7 +713,8 @@ class DocumentTemplateDtoVersionEnumTypeTransformer {
   DocumentTemplateDtoVersionEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'V1_0_0': return DocumentTemplateDtoVersionEnum.v100;
+        case r'V1_0_0':
+          return DocumentTemplateDtoVersionEnum.v100;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -22,23 +22,24 @@ class PermissionItemDto {
   Object predicate;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PermissionItemDto &&
-     other.type == type &&
-     other.predicate == predicate;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PermissionItemDto &&
+          other.type == type &&
+          other.predicate == predicate;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (type.hashCode) +
-    (predicate.hashCode);
+      // ignore: unnecessary_parenthesis
+  (type.hashCode) +
+      (predicate.hashCode);
 
   @override
   String toString() => 'PermissionItemDto[type=$type, predicate=$predicate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'type'] = type;
-      json[r'predicate'] = predicate;
+    json[r'type'] = type;
+    json[r'predicate'] = predicate;
     return json;
   }
 
@@ -193,17 +194,28 @@ class PermissionItemDtoTypeEnumTypeTransformer {
   PermissionItemDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'AUTHENTICATE': return PermissionItemDtoTypeEnum.AUTHENTICATE;
-        case r'ADMIN': return PermissionItemDtoTypeEnum.ADMIN;
-        case r'PATIENT_VIEW': return PermissionItemDtoTypeEnum.PATIENT_VIEW;
-        case r'PATIENT_CREATE': return PermissionItemDtoTypeEnum.PATIENT_CREATE;
-        case r'PATIENT_CHANGE_DELETE': return PermissionItemDtoTypeEnum.PATIENT_CHANGE_DELETE;
-        case r'MEDICAL_DATA_VIEW': return PermissionItemDtoTypeEnum.MEDICAL_DATA_VIEW;
-        case r'MEDICAL_DATA_CREATE': return PermissionItemDtoTypeEnum.MEDICAL_DATA_CREATE;
-        case r'MEDICAL_CHANGE_DELETE': return PermissionItemDtoTypeEnum.MEDICAL_CHANGE_DELETE;
-        case r'FINANCIAL_DATA_VIEW': return PermissionItemDtoTypeEnum.FINANCIAL_DATA_VIEW;
-        case r'FINANCIAL_DATA_CREATE': return PermissionItemDtoTypeEnum.FINANCIAL_DATA_CREATE;
-        case r'FINANCIAL_CHANGE_DELETE': return PermissionItemDtoTypeEnum.FINANCIAL_CHANGE_DELETE;
+        case r'AUTHENTICATE':
+          return PermissionItemDtoTypeEnum.AUTHENTICATE;
+        case r'ADMIN':
+          return PermissionItemDtoTypeEnum.ADMIN;
+        case r'PATIENT_VIEW':
+          return PermissionItemDtoTypeEnum.PATIENT_VIEW;
+        case r'PATIENT_CREATE':
+          return PermissionItemDtoTypeEnum.PATIENT_CREATE;
+        case r'PATIENT_CHANGE_DELETE':
+          return PermissionItemDtoTypeEnum.PATIENT_CHANGE_DELETE;
+        case r'MEDICAL_DATA_VIEW':
+          return PermissionItemDtoTypeEnum.MEDICAL_DATA_VIEW;
+        case r'MEDICAL_DATA_CREATE':
+          return PermissionItemDtoTypeEnum.MEDICAL_DATA_CREATE;
+        case r'MEDICAL_CHANGE_DELETE':
+          return PermissionItemDtoTypeEnum.MEDICAL_CHANGE_DELETE;
+        case r'FINANCIAL_DATA_VIEW':
+          return PermissionItemDtoTypeEnum.FINANCIAL_DATA_VIEW;
+        case r'FINANCIAL_DATA_CREATE':
+          return PermissionItemDtoTypeEnum.FINANCIAL_DATA_CREATE;
+        case r'FINANCIAL_CHANGE_DELETE':
+          return PermissionItemDtoTypeEnum.FINANCIAL_CHANGE_DELETE;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

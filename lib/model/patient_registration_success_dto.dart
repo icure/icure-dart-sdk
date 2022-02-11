@@ -25,26 +25,27 @@ class PatientRegistrationSuccessDto {
   String token;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PatientRegistrationSuccessDto &&
-     other.userLogin == userLogin &&
-     other.userId == userId &&
-     other.token == token;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PatientRegistrationSuccessDto &&
+          other.userLogin == userLogin &&
+          other.userId == userId &&
+          other.token == token;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (userLogin.hashCode) +
-    (userId.hashCode) +
-    (token.hashCode);
+      // ignore: unnecessary_parenthesis
+  (userLogin.hashCode) +
+      (userId.hashCode) +
+      (token.hashCode);
 
   @override
   String toString() => 'PatientRegistrationSuccessDto[userLogin=$userLogin, userId=$userId, token=$token]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'userLogin'] = userLogin;
-      json[r'userId'] = userId;
-      json[r'token'] = token;
+    json[r'userLogin'] = userLogin;
+    json[r'userId'] = userId;
+    json[r'token'] = token;
     return json;
   }
 

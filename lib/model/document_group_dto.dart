@@ -34,15 +34,16 @@ class DocumentGroupDto {
   String? name;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DocumentGroupDto &&
-     other.guid == guid &&
-     other.name == name;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is DocumentGroupDto &&
+          other.guid == guid &&
+          other.name == name;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (guid == null ? 0 : guid!.hashCode) +
-    (name == null ? 0 : name!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (guid == null ? 0 : guid!.hashCode) +
+      (name == null ? 0 : name!.hashCode);
 
   @override
   String toString() => 'DocumentGroupDto[guid=$guid, name=$name]';

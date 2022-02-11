@@ -28,22 +28,23 @@ class RemoteDto {
   RemoteAuthenticationDto? auth;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RemoteDto &&
-     other.url == url &&
-     other.auth == auth;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is RemoteDto &&
+          other.url == url &&
+          other.auth == auth;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (url.hashCode) +
-    (auth == null ? 0 : auth!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (url.hashCode) +
+      (auth == null ? 0 : auth!.hashCode);
 
   @override
   String toString() => 'RemoteDto[url=$url, auth=$auth]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'url'] = url;
+    json[r'url'] = url;
     if (auth != null) {
       json[r'auth'] = auth;
     }

@@ -34,15 +34,16 @@ class FormDataOption {
   String? value;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FormDataOption &&
-     other.key == key &&
-     other.value == value;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is FormDataOption &&
+          other.key == key &&
+          other.value == value;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (key == null ? 0 : key!.hashCode) +
-    (value == null ? 0 : value!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (key == null ? 0 : key!.hashCode) +
+      (value == null ? 0 : value!.hashCode);
 
   @override
   String toString() => 'FormDataOption[key=$key, value=$value]';

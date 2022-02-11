@@ -46,26 +46,27 @@ class MessagesReadStatusUpdate {
   String? userId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MessagesReadStatusUpdate &&
-     other.ids == ids &&
-     other.time == time &&
-     other.status == status &&
-     other.userId == userId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MessagesReadStatusUpdate &&
+          other.ids == ids &&
+          other.time == time &&
+          other.status == status &&
+          other.userId == userId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (ids.hashCode) +
-    (time == null ? 0 : time!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (ids.hashCode) +
+      (time == null ? 0 : time!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode);
 
   @override
   String toString() => 'MessagesReadStatusUpdate[ids=$ids, time=$time, status=$status, userId=$userId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'ids'] = ids;
+    json[r'ids'] = ids;
     if (time != null) {
       json[r'time'] = time;
     }

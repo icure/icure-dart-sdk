@@ -51,26 +51,29 @@ class PatientHealthCarePartyDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PatientHealthCarePartyDto &&
-     other.type == type &&
-     other.healthcarePartyId == healthcarePartyId &&
-     other.sendFormats == sendFormats &&
-     other.referralPeriods == referralPeriods &&
-     other.referral == referral &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PatientHealthCarePartyDto &&
+          other.type == type &&
+          other.healthcarePartyId == healthcarePartyId &&
+          other.sendFormats == sendFormats &&
+          other.referralPeriods == referralPeriods &&
+          other.referral == referral &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (type == null ? 0 : type!.hashCode) +
-    (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
-    (sendFormats.hashCode) +
-    (referralPeriods.hashCode) +
-    (referral.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (type == null ? 0 : type!.hashCode) +
+      (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
+      (sendFormats.hashCode) +
+      (referralPeriods.hashCode) +
+      (referral.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'PatientHealthCarePartyDto[type=$type, healthcarePartyId=$healthcarePartyId, sendFormats=$sendFormats, referralPeriods=$referralPeriods, referral=$referral, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'PatientHealthCarePartyDto[type=$type, healthcarePartyId=$healthcarePartyId, sendFormats=$sendFormats, referralPeriods=$referralPeriods, referral=$referral, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -80,9 +83,9 @@ class PatientHealthCarePartyDto {
     if (healthcarePartyId != null) {
       json[r'healthcarePartyId'] = healthcarePartyId;
     }
-      json[r'sendFormats'] = sendFormats;
-      json[r'referralPeriods'] = referralPeriods;
-      json[r'referral'] = referral;
+    json[r'sendFormats'] = sendFormats;
+    json[r'referralPeriods'] = referralPeriods.toList();
+    json[r'referral'] = referral;
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -119,7 +122,10 @@ class PatientHealthCarePartyDto {
     return null;
   }
 
-  static List<PatientHealthCarePartyDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PatientHealthCarePartyDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PatientHealthCarePartyDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -147,12 +153,18 @@ class PatientHealthCarePartyDto {
   }
 
   // maps a json object with a list of PatientHealthCarePartyDto-objects as value to a dart map
-  static Map<String, List<PatientHealthCarePartyDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PatientHealthCarePartyDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PatientHealthCarePartyDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PatientHealthCarePartyDto.listFromJson(entry.value, growable: growable,);
+        final value = PatientHealthCarePartyDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -205,7 +217,10 @@ class PatientHealthCarePartyDtoTypeEnum {
 
   static PatientHealthCarePartyDtoTypeEnum? fromJson(dynamic value) => PatientHealthCarePartyDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<PatientHealthCarePartyDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PatientHealthCarePartyDtoTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PatientHealthCarePartyDtoTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -239,14 +254,22 @@ class PatientHealthCarePartyDtoTypeEnumTypeTransformer {
   PatientHealthCarePartyDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'doctor': return PatientHealthCarePartyDtoTypeEnum.doctor;
-        case r'referral': return PatientHealthCarePartyDtoTypeEnum.referral;
-        case r'medicalhouse': return PatientHealthCarePartyDtoTypeEnum.medicalhouse;
-        case r'retirementhome': return PatientHealthCarePartyDtoTypeEnum.retirementhome;
-        case r'hospital': return PatientHealthCarePartyDtoTypeEnum.hospital;
-        case r'other': return PatientHealthCarePartyDtoTypeEnum.other;
-        case r'referringphysician': return PatientHealthCarePartyDtoTypeEnum.referringphysician;
-        case r'managingorganization': return PatientHealthCarePartyDtoTypeEnum.managingorganization;
+        case r'doctor':
+          return PatientHealthCarePartyDtoTypeEnum.doctor;
+        case r'referral':
+          return PatientHealthCarePartyDtoTypeEnum.referral;
+        case r'medicalhouse':
+          return PatientHealthCarePartyDtoTypeEnum.medicalhouse;
+        case r'retirementhome':
+          return PatientHealthCarePartyDtoTypeEnum.retirementhome;
+        case r'hospital':
+          return PatientHealthCarePartyDtoTypeEnum.hospital;
+        case r'other':
+          return PatientHealthCarePartyDtoTypeEnum.other;
+        case r'referringphysician':
+          return PatientHealthCarePartyDtoTypeEnum.referringphysician;
+        case r'managingorganization':
+          return PatientHealthCarePartyDtoTypeEnum.managingorganization;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -259,5 +282,3 @@ class PatientHealthCarePartyDtoTypeEnumTypeTransformer {
   /// Singleton [PatientHealthCarePartyDtoTypeEnumTypeTransformer] instance.
   static PatientHealthCarePartyDtoTypeEnumTypeTransformer? _instance;
 }
-
-

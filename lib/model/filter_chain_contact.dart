@@ -28,22 +28,19 @@ class FilterChainContact {
   Object? predicate;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FilterChainContact &&
-     other.filter == filter &&
-     other.predicate == predicate;
+  bool operator ==(Object other) => identical(this, other) || other is FilterChainContact && other.filter == filter && other.predicate == predicate;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (filter.hashCode) +
-    (predicate == null ? 0 : predicate!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (filter.hashCode) + (predicate == null ? 0 : predicate!.hashCode);
 
   @override
   String toString() => 'FilterChainContact[filter=$filter, predicate=$predicate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'filter'] = filter;
+    json[r'filter'] = filter;
     if (predicate != null) {
       json[r'predicate'] = predicate;
     }
@@ -76,7 +73,10 @@ class FilterChainContact {
     return null;
   }
 
-  static List<FilterChainContact>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FilterChainContact>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FilterChainContact>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -104,12 +104,18 @@ class FilterChainContact {
   }
 
   // maps a json object with a list of FilterChainContact-objects as value to a dart map
-  static Map<String, List<FilterChainContact>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FilterChainContact>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FilterChainContact>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FilterChainContact.listFromJson(entry.value, growable: growable,);
+        final value = FilterChainContact.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -123,4 +129,3 @@ class FilterChainContact {
     'filter',
   };
 }
-

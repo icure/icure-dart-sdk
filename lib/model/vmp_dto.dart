@@ -110,44 +110,46 @@ class VmpDto {
   List<CommentedClassificationDto> commentedClassifications;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is VmpDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.from == from &&
-     other.to == to &&
-     other.code == code &&
-     other.vmpGroup == vmpGroup &&
-     other.name == name &&
-     other.abbreviation == abbreviation &&
-     other.vtm == vtm &&
-     other.wadas == wadas &&
-     other.components == components &&
-     other.commentedClassifications == commentedClassifications;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is VmpDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.from == from &&
+          other.to == to &&
+          other.code == code &&
+          other.vmpGroup == vmpGroup &&
+          other.name == name &&
+          other.abbreviation == abbreviation &&
+          other.vtm == vtm &&
+          other.wadas == wadas &&
+          other.components == components &&
+          other.commentedClassifications == commentedClassifications;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (vmpGroup == null ? 0 : vmpGroup!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (abbreviation == null ? 0 : abbreviation!.hashCode) +
-    (vtm == null ? 0 : vtm!.hashCode) +
-    (wadas.hashCode) +
-    (components.hashCode) +
-    (commentedClassifications.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (vmpGroup == null ? 0 : vmpGroup!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (abbreviation == null ? 0 : abbreviation!.hashCode) +
+      (vtm == null ? 0 : vtm!.hashCode) +
+      (wadas.hashCode) +
+      (components.hashCode) +
+      (commentedClassifications.hashCode);
 
   @override
-  String toString() => 'VmpDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, code=$code, vmpGroup=$vmpGroup, name=$name, abbreviation=$abbreviation, vtm=$vtm, wadas=$wadas, components=$components, commentedClassifications=$commentedClassifications]';
+  String toString() =>
+      'VmpDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, code=$code, vmpGroup=$vmpGroup, name=$name, abbreviation=$abbreviation, vtm=$vtm, wadas=$wadas, components=$components, commentedClassifications=$commentedClassifications]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -175,9 +177,9 @@ class VmpDto {
     if (vtm != null) {
       json[r'vtm'] = vtm;
     }
-      json[r'wadas'] = wadas;
-      json[r'components'] = components;
-      json[r'commentedClassifications'] = commentedClassifications;
+    json[r'wadas'] = wadas;
+    json[r'components'] = components;
+    json[r'commentedClassifications'] = commentedClassifications;
     return json;
   }
 

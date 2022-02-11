@@ -52,19 +52,16 @@ class VtmDto {
   SamTextDto? name;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is VtmDto &&
-     other.from == from &&
-     other.to == to &&
-     other.code == code &&
-     other.name == name;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is VtmDto && other.from == from && other.to == to && other.code == code && other.name == name;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (name == null ? 0 : name!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (name == null ? 0 : name!.hashCode);
 
   @override
   String toString() => 'VtmDto[from=$from, to=$to, code=$code, name=$name]';
@@ -114,7 +111,10 @@ class VtmDto {
     return null;
   }
 
-  static List<VtmDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<VtmDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <VtmDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,12 +142,18 @@ class VtmDto {
   }
 
   // maps a json object with a list of VtmDto-objects as value to a dart map
-  static Map<String, List<VtmDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<VtmDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<VtmDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = VtmDto.listFromJson(entry.value, growable: growable,);
+        final value = VtmDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -157,7 +163,5 @@ class VtmDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

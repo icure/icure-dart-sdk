@@ -52,19 +52,21 @@ class SchoolingInfoDto {
   CodeStubDto? typeOfEducation;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SchoolingInfoDto &&
-     other.startDate == startDate &&
-     other.endDate == endDate &&
-     other.school == school &&
-     other.typeOfEducation == typeOfEducation;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SchoolingInfoDto &&
+          other.startDate == startDate &&
+          other.endDate == endDate &&
+          other.school == school &&
+          other.typeOfEducation == typeOfEducation;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (startDate == null ? 0 : startDate!.hashCode) +
-    (endDate == null ? 0 : endDate!.hashCode) +
-    (school == null ? 0 : school!.hashCode) +
-    (typeOfEducation == null ? 0 : typeOfEducation!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (startDate == null ? 0 : startDate!.hashCode) +
+      (endDate == null ? 0 : endDate!.hashCode) +
+      (school == null ? 0 : school!.hashCode) +
+      (typeOfEducation == null ? 0 : typeOfEducation!.hashCode);
 
   @override
   String toString() => 'SchoolingInfoDto[startDate=$startDate, endDate=$endDate, school=$school, typeOfEducation=$typeOfEducation]';
@@ -114,7 +116,10 @@ class SchoolingInfoDto {
     return null;
   }
 
-  static List<SchoolingInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SchoolingInfoDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SchoolingInfoDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,12 +147,18 @@ class SchoolingInfoDto {
   }
 
   // maps a json object with a list of SchoolingInfoDto-objects as value to a dart map
-  static Map<String, List<SchoolingInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SchoolingInfoDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SchoolingInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SchoolingInfoDto.listFromJson(entry.value, growable: growable,);
+        final value = SchoolingInfoDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -157,7 +168,5 @@ class SchoolingInfoDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

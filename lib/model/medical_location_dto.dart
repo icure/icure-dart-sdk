@@ -134,48 +134,51 @@ class MedicalLocationDto {
   Map<String, String> options;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MedicalLocationDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.name == name &&
-     other.description == description &&
-     other.responsible == responsible &&
-     other.guardPost == guardPost &&
-     other.cbe == cbe &&
-     other.bic == bic &&
-     other.bankAccount == bankAccount &&
-     other.nihii == nihii &&
-     other.ssin == ssin &&
-     other.address == address &&
-     other.agendaIds == agendaIds &&
-     other.options == options;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MedicalLocationDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.name == name &&
+          other.description == description &&
+          other.responsible == responsible &&
+          other.guardPost == guardPost &&
+          other.cbe == cbe &&
+          other.bic == bic &&
+          other.bankAccount == bankAccount &&
+          other.nihii == nihii &&
+          other.ssin == ssin &&
+          other.address == address &&
+          other.agendaIds == agendaIds &&
+          other.options == options;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (guardPost == null ? 0 : guardPost!.hashCode) +
-    (cbe == null ? 0 : cbe!.hashCode) +
-    (bic == null ? 0 : bic!.hashCode) +
-    (bankAccount == null ? 0 : bankAccount!.hashCode) +
-    (nihii == null ? 0 : nihii!.hashCode) +
-    (ssin == null ? 0 : ssin!.hashCode) +
-    (address == null ? 0 : address!.hashCode) +
-    (agendaIds.hashCode) +
-    (options.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (guardPost == null ? 0 : guardPost!.hashCode) +
+      (cbe == null ? 0 : cbe!.hashCode) +
+      (bic == null ? 0 : bic!.hashCode) +
+      (bankAccount == null ? 0 : bankAccount!.hashCode) +
+      (nihii == null ? 0 : nihii!.hashCode) +
+      (ssin == null ? 0 : ssin!.hashCode) +
+      (address == null ? 0 : address!.hashCode) +
+      (agendaIds.hashCode) +
+      (options.hashCode);
 
   @override
-  String toString() => 'MedicalLocationDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, description=$description, responsible=$responsible, guardPost=$guardPost, cbe=$cbe, bic=$bic, bankAccount=$bankAccount, nihii=$nihii, ssin=$ssin, address=$address, agendaIds=$agendaIds, options=$options]';
+  String toString() =>
+      'MedicalLocationDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, description=$description, responsible=$responsible, guardPost=$guardPost, cbe=$cbe, bic=$bic, bankAccount=$bankAccount, nihii=$nihii, ssin=$ssin, address=$address, agendaIds=$agendaIds, options=$options]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -212,8 +215,8 @@ class MedicalLocationDto {
     if (address != null) {
       json[r'address'] = address;
     }
-      json[r'agendaIds'] = agendaIds;
-      json[r'options'] = options;
+    json[r'agendaIds'] = agendaIds.toList();
+    json[r'options'] = options;
     return json;
   }
 
@@ -251,14 +254,19 @@ class MedicalLocationDto {
         address: AddressDto.fromJson(json[r'address']),
         agendaIds: json[r'agendaIds'] is Set
             ? (json[r'agendaIds'] as Set).cast<String>()
-            : const {},
+            : json[r'agendaIds'] is List
+                ? ((json[r'agendaIds'] as List).toSet()).cast<String>()
+                : const {},
         options: mapCastOfType<String, String>(json, r'options')!,
       );
     }
     return null;
   }
 
-  static List<MedicalLocationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MedicalLocationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MedicalLocationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -286,12 +294,18 @@ class MedicalLocationDto {
   }
 
   // maps a json object with a list of MedicalLocationDto-objects as value to a dart map
-  static Map<String, List<MedicalLocationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MedicalLocationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MedicalLocationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MedicalLocationDto.listFromJson(entry.value, growable: growable,);
+        final value = MedicalLocationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -307,4 +321,3 @@ class MedicalLocationDto {
     'options',
   };
 }
-

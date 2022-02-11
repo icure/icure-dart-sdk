@@ -320,50 +320,50 @@ class DecryptedCalendarItemDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DecryptedCalendarItemDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.created == created &&
-          other.modified == modified &&
-          other.author == author &&
-          other.responsible == responsible &&
-          other.medicalLocationId == medicalLocationId &&
-          other.tags == tags &&
-          other.codes == codes &&
-          other.endOfLife == endOfLife &&
-          other.deletionDate == deletionDate &&
-          other.title == title &&
-          other.calendarItemTypeId == calendarItemTypeId &&
-          other.masterCalendarItemId == masterCalendarItemId &&
-          other.patientId == patientId &&
-          other.important == important &&
-          other.homeVisit == homeVisit &&
-          other.phoneNumber == phoneNumber &&
-          other.placeId == placeId &&
-          other.address == address &&
-          other.addressText == addressText &&
-          other.startTime == startTime &&
-          other.endTime == endTime &&
-          other.confirmationTime == confirmationTime &&
-          other.confirmationId == confirmationId &&
-          other.duration == duration &&
-          other.allDay == allDay &&
-          other.details == details &&
-          other.wasMigrated == wasMigrated &&
-          other.agendaId == agendaId &&
-          other.recurrenceId == recurrenceId &&
-          other.meetingTags == meetingTags &&
-          other.flowItem == flowItem &&
-          other.secretForeignKeys == secretForeignKeys &&
-          other.cryptedForeignKeys == cryptedForeignKeys &&
-          other.delegations == delegations &&
-          other.encryptionKeys == encryptionKeys &&
-          other.encryptedSelf == encryptedSelf;
+          other is DecryptedCalendarItemDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.created == created &&
+              other.modified == modified &&
+              other.author == author &&
+              other.responsible == responsible &&
+              other.medicalLocationId == medicalLocationId &&
+              other.tags == tags &&
+              other.codes == codes &&
+              other.endOfLife == endOfLife &&
+              other.deletionDate == deletionDate &&
+              other.title == title &&
+              other.calendarItemTypeId == calendarItemTypeId &&
+              other.masterCalendarItemId == masterCalendarItemId &&
+              other.patientId == patientId &&
+              other.important == important &&
+              other.homeVisit == homeVisit &&
+              other.phoneNumber == phoneNumber &&
+              other.placeId == placeId &&
+              other.address == address &&
+              other.addressText == addressText &&
+              other.startTime == startTime &&
+              other.endTime == endTime &&
+              other.confirmationTime == confirmationTime &&
+              other.confirmationId == confirmationId &&
+              other.duration == duration &&
+              other.allDay == allDay &&
+              other.details == details &&
+              other.wasMigrated == wasMigrated &&
+              other.agendaId == agendaId &&
+              other.recurrenceId == recurrenceId &&
+              other.meetingTags == meetingTags &&
+              other.flowItem == flowItem &&
+              other.secretForeignKeys == secretForeignKeys &&
+              other.cryptedForeignKeys == cryptedForeignKeys &&
+              other.delegations == delegations &&
+              other.encryptionKeys == encryptionKeys &&
+              other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (id.hashCode) +
+  (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -427,8 +427,10 @@ class DecryptedCalendarItemDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-    json[r'tags'] = tags;
-    json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+
+    json[r'codes'] = codes.toList();
+
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -493,14 +495,14 @@ class DecryptedCalendarItemDto {
     if (recurrenceId != null) {
       json[r'recurrenceId'] = recurrenceId;
     }
-    json[r'meetingTags'] = meetingTags;
+    json[r'meetingTags'] = meetingTags.toList();
     if (flowItem != null) {
       json[r'flowItem'] = flowItem;
     }
-    json[r'secretForeignKeys'] = secretForeignKeys;
-    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-    json[r'delegations'] = delegations;
-    json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -520,9 +522,9 @@ class DecryptedCalendarItemDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DecryptedCalendarItemDto[$key]" is missing from JSON.');
+          'Required key "DecryptedCalendarItemDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DecryptedCalendarItemDto[$key]" has a null value in JSON.');
+          'Required key "DecryptedCalendarItemDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -542,7 +544,7 @@ class DecryptedCalendarItemDto {
         title: mapValueOfType<String>(json, r'title')!,
         calendarItemTypeId: mapValueOfType<String>(json, r'calendarItemTypeId'),
         masterCalendarItemId:
-            mapValueOfType<String>(json, r'masterCalendarItemId'),
+        mapValueOfType<String>(json, r'masterCalendarItemId'),
         patientId: mapValueOfType<String>(json, r'patientId'),
         important: mapValueOfType<bool>(json, r'important'),
         homeVisit: mapValueOfType<bool>(json, r'homeVisit'),
@@ -561,10 +563,10 @@ class DecryptedCalendarItemDto {
         agendaId: mapValueOfType<String>(json, r'agendaId'),
         recurrenceId: mapValueOfType<String>(json, r'recurrenceId'),
         meetingTags:
-            CalendarItemTagDto.listFromJson(json[r'meetingTags'])!.toSet(),
+        CalendarItemTagDto.listFromJson(json[r'meetingTags'])!.toSet(),
         flowItem: FlowItemDto.fromJson(json[r'flowItem']),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
             ? const {}
@@ -581,8 +583,7 @@ class DecryptedCalendarItemDto {
     return null;
   }
 
-  static List<DecryptedCalendarItemDto>? listFromJson(
-    dynamic json, {
+  static List<DecryptedCalendarItemDto>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedCalendarItemDto>[];
@@ -612,8 +613,7 @@ class DecryptedCalendarItemDto {
   }
 
   // maps a json object with a list of DecryptedCalendarItemDto-objects as value to a dart map
-  static Map<String, List<DecryptedCalendarItemDto>> mapListFromJson(
-    dynamic json, {
+  static Map<String, List<DecryptedCalendarItemDto>> mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedCalendarItemDto>>{};

@@ -34,19 +34,14 @@ class RightDto {
   bool administration;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RightDto &&
-     other.userId == userId &&
-     other.read == read &&
-     other.write == write &&
-     other.administration == administration;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RightDto && other.userId == userId && other.read == read && other.write == write && other.administration == administration;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (userId == null ? 0 : userId!.hashCode) +
-    (read.hashCode) +
-    (write.hashCode) +
-    (administration.hashCode);
+      // ignore: unnecessary_parenthesis
+      (userId == null ? 0 : userId!.hashCode) + (read.hashCode) + (write.hashCode) + (administration.hashCode);
 
   @override
   String toString() => 'RightDto[userId=$userId, read=$read, write=$write, administration=$administration]';
@@ -56,9 +51,9 @@ class RightDto {
     if (userId != null) {
       json[r'userId'] = userId;
     }
-      json[r'read'] = read;
-      json[r'write'] = write;
-      json[r'administration'] = administration;
+    json[r'read'] = read;
+    json[r'write'] = write;
+    json[r'administration'] = administration;
     return json;
   }
 
@@ -90,7 +85,10 @@ class RightDto {
     return null;
   }
 
-  static List<RightDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<RightDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <RightDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -118,12 +116,18 @@ class RightDto {
   }
 
   // maps a json object with a list of RightDto-objects as value to a dart map
-  static Map<String, List<RightDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<RightDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<RightDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RightDto.listFromJson(entry.value, growable: growable,);
+        final value = RightDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -139,4 +143,3 @@ class RightDto {
     'administration',
   };
 }
-

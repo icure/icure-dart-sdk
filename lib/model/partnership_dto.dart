@@ -52,24 +52,27 @@ class PartnershipDto {
   String? otherToMeRelationshipDescription;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PartnershipDto &&
-     other.type == type &&
-     other.status == status &&
-     other.partnerId == partnerId &&
-     other.meToOtherRelationshipDescription == meToOtherRelationshipDescription &&
-     other.otherToMeRelationshipDescription == otherToMeRelationshipDescription;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PartnershipDto &&
+          other.type == type &&
+          other.status == status &&
+          other.partnerId == partnerId &&
+          other.meToOtherRelationshipDescription == meToOtherRelationshipDescription &&
+          other.otherToMeRelationshipDescription == otherToMeRelationshipDescription;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (type == null ? 0 : type!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (partnerId == null ? 0 : partnerId!.hashCode) +
-    (meToOtherRelationshipDescription == null ? 0 : meToOtherRelationshipDescription!.hashCode) +
-    (otherToMeRelationshipDescription == null ? 0 : otherToMeRelationshipDescription!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (type == null ? 0 : type!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (partnerId == null ? 0 : partnerId!.hashCode) +
+      (meToOtherRelationshipDescription == null ? 0 : meToOtherRelationshipDescription!.hashCode) +
+      (otherToMeRelationshipDescription == null ? 0 : otherToMeRelationshipDescription!.hashCode);
 
   @override
-  String toString() => 'PartnershipDto[type=$type, status=$status, partnerId=$partnerId, meToOtherRelationshipDescription=$meToOtherRelationshipDescription, otherToMeRelationshipDescription=$otherToMeRelationshipDescription]';
+  String toString() =>
+      'PartnershipDto[type=$type, status=$status, partnerId=$partnerId, meToOtherRelationshipDescription=$meToOtherRelationshipDescription, otherToMeRelationshipDescription=$otherToMeRelationshipDescription]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -120,7 +123,10 @@ class PartnershipDto {
     return null;
   }
 
-  static List<PartnershipDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PartnershipDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PartnershipDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -148,12 +154,18 @@ class PartnershipDto {
   }
 
   // maps a json object with a list of PartnershipDto-objects as value to a dart map
-  static Map<String, List<PartnershipDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PartnershipDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PartnershipDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PartnershipDto.listFromJson(entry.value, growable: growable,);
+        final value = PartnershipDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -163,8 +175,7 @@ class PartnershipDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
 
 /// Type of relationship.
@@ -259,7 +270,10 @@ class PartnershipDtoTypeEnum {
 
   static PartnershipDtoTypeEnum? fromJson(dynamic value) => PartnershipDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<PartnershipDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PartnershipDtoTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PartnershipDtoTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -293,42 +307,78 @@ class PartnershipDtoTypeEnumTypeTransformer {
   PartnershipDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'primary_contact': return PartnershipDtoTypeEnum.primaryContact;
-        case r'primary_contact_for': return PartnershipDtoTypeEnum.primaryContactFor;
-        case r'family': return PartnershipDtoTypeEnum.family;
-        case r'friend': return PartnershipDtoTypeEnum.friend;
-        case r'counselor': return PartnershipDtoTypeEnum.counselor;
-        case r'contact': return PartnershipDtoTypeEnum.contact;
-        case r'brother': return PartnershipDtoTypeEnum.brother;
-        case r'brotherinlaw': return PartnershipDtoTypeEnum.brotherinlaw;
-        case r'child': return PartnershipDtoTypeEnum.child;
-        case r'daughter': return PartnershipDtoTypeEnum.daughter;
-        case r'employer': return PartnershipDtoTypeEnum.employer;
-        case r'father': return PartnershipDtoTypeEnum.father;
-        case r'grandchild': return PartnershipDtoTypeEnum.grandchild;
-        case r'grandparent': return PartnershipDtoTypeEnum.grandparent;
-        case r'husband': return PartnershipDtoTypeEnum.husband;
-        case r'lawyer': return PartnershipDtoTypeEnum.lawyer;
-        case r'mother': return PartnershipDtoTypeEnum.mother;
-        case r'neighbour': return PartnershipDtoTypeEnum.neighbour;
-        case r'notary': return PartnershipDtoTypeEnum.notary;
-        case r'partner': return PartnershipDtoTypeEnum.partner;
-        case r'sister': return PartnershipDtoTypeEnum.sister;
-        case r'sisterinlaw': return PartnershipDtoTypeEnum.sisterinlaw;
-        case r'son': return PartnershipDtoTypeEnum.son;
-        case r'spouse': return PartnershipDtoTypeEnum.spouse;
-        case r'stepdaughter': return PartnershipDtoTypeEnum.stepdaughter;
-        case r'stepfather': return PartnershipDtoTypeEnum.stepfather;
-        case r'stepmother': return PartnershipDtoTypeEnum.stepmother;
-        case r'stepson': return PartnershipDtoTypeEnum.stepson;
-        case r'tutor': return PartnershipDtoTypeEnum.tutor;
-        case r'next_of_kin': return PartnershipDtoTypeEnum.nextOfKin;
-        case r'federal_agency': return PartnershipDtoTypeEnum.federalAgency;
-        case r'insurance_company': return PartnershipDtoTypeEnum.insuranceCompany;
-        case r'state_agency': return PartnershipDtoTypeEnum.stateAgency;
-        case r'unknown': return PartnershipDtoTypeEnum.unknown;
-        case r'seealso': return PartnershipDtoTypeEnum.seealso;
-        case r'refer': return PartnershipDtoTypeEnum.refer;
+        case r'primary_contact':
+          return PartnershipDtoTypeEnum.primaryContact;
+        case r'primary_contact_for':
+          return PartnershipDtoTypeEnum.primaryContactFor;
+        case r'family':
+          return PartnershipDtoTypeEnum.family;
+        case r'friend':
+          return PartnershipDtoTypeEnum.friend;
+        case r'counselor':
+          return PartnershipDtoTypeEnum.counselor;
+        case r'contact':
+          return PartnershipDtoTypeEnum.contact;
+        case r'brother':
+          return PartnershipDtoTypeEnum.brother;
+        case r'brotherinlaw':
+          return PartnershipDtoTypeEnum.brotherinlaw;
+        case r'child':
+          return PartnershipDtoTypeEnum.child;
+        case r'daughter':
+          return PartnershipDtoTypeEnum.daughter;
+        case r'employer':
+          return PartnershipDtoTypeEnum.employer;
+        case r'father':
+          return PartnershipDtoTypeEnum.father;
+        case r'grandchild':
+          return PartnershipDtoTypeEnum.grandchild;
+        case r'grandparent':
+          return PartnershipDtoTypeEnum.grandparent;
+        case r'husband':
+          return PartnershipDtoTypeEnum.husband;
+        case r'lawyer':
+          return PartnershipDtoTypeEnum.lawyer;
+        case r'mother':
+          return PartnershipDtoTypeEnum.mother;
+        case r'neighbour':
+          return PartnershipDtoTypeEnum.neighbour;
+        case r'notary':
+          return PartnershipDtoTypeEnum.notary;
+        case r'partner':
+          return PartnershipDtoTypeEnum.partner;
+        case r'sister':
+          return PartnershipDtoTypeEnum.sister;
+        case r'sisterinlaw':
+          return PartnershipDtoTypeEnum.sisterinlaw;
+        case r'son':
+          return PartnershipDtoTypeEnum.son;
+        case r'spouse':
+          return PartnershipDtoTypeEnum.spouse;
+        case r'stepdaughter':
+          return PartnershipDtoTypeEnum.stepdaughter;
+        case r'stepfather':
+          return PartnershipDtoTypeEnum.stepfather;
+        case r'stepmother':
+          return PartnershipDtoTypeEnum.stepmother;
+        case r'stepson':
+          return PartnershipDtoTypeEnum.stepson;
+        case r'tutor':
+          return PartnershipDtoTypeEnum.tutor;
+        case r'next_of_kin':
+          return PartnershipDtoTypeEnum.nextOfKin;
+        case r'federal_agency':
+          return PartnershipDtoTypeEnum.federalAgency;
+        case r'insurance_company':
+          return PartnershipDtoTypeEnum.insuranceCompany;
+        case r'state_agency':
+          return PartnershipDtoTypeEnum.stateAgency;
+        case r'unknown':
+          return PartnershipDtoTypeEnum.unknown;
+        case r'seealso':
+          return PartnershipDtoTypeEnum.seealso;
+        case r'refer':
+          return PartnershipDtoTypeEnum.refer;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -341,7 +391,6 @@ class PartnershipDtoTypeEnumTypeTransformer {
   /// Singleton [PartnershipDtoTypeEnumTypeTransformer] instance.
   static PartnershipDtoTypeEnumTypeTransformer? _instance;
 }
-
 
 /// Status of the relationship.
 class PartnershipDtoStatusEnum {
@@ -369,7 +418,10 @@ class PartnershipDtoStatusEnum {
 
   static PartnershipDtoStatusEnum? fromJson(dynamic value) => PartnershipDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<PartnershipDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PartnershipDtoStatusEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PartnershipDtoStatusEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -403,9 +455,12 @@ class PartnershipDtoStatusEnumTypeTransformer {
   PartnershipDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'active': return PartnershipDtoStatusEnum.active;
-        case r'complicated': return PartnershipDtoStatusEnum.complicated;
-        case r'past': return PartnershipDtoStatusEnum.past;
+        case r'active':
+          return PartnershipDtoStatusEnum.active;
+        case r'complicated':
+          return PartnershipDtoStatusEnum.complicated;
+        case r'past':
+          return PartnershipDtoStatusEnum.past;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -418,5 +473,3 @@ class PartnershipDtoStatusEnumTypeTransformer {
   /// Singleton [PartnershipDtoStatusEnumTypeTransformer] instance.
   static PartnershipDtoStatusEnumTypeTransformer? _instance;
 }
-
-

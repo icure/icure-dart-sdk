@@ -109,42 +109,45 @@ class ApplicationSettingsDto {
   Map<String, String> settings;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ApplicationSettingsDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.deletionDate == deletionDate &&
-     other.settings == settings;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ApplicationSettingsDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.settings == settings;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (settings.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (settings.hashCode);
 
   @override
-  String toString() => 'ApplicationSettingsDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, settings=$settings]';
+  String toString() =>
+      'ApplicationSettingsDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, settings=$settings]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -163,15 +166,15 @@ class ApplicationSettingsDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-      json[r'settings'] = settings;
+    json[r'settings'] = settings;
     return json;
   }
 
@@ -211,7 +214,10 @@ class ApplicationSettingsDto {
     return null;
   }
 
-  static List<ApplicationSettingsDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ApplicationSettingsDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ApplicationSettingsDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -239,12 +245,18 @@ class ApplicationSettingsDto {
   }
 
   // maps a json object with a list of ApplicationSettingsDto-objects as value to a dart map
-  static Map<String, List<ApplicationSettingsDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ApplicationSettingsDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ApplicationSettingsDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ApplicationSettingsDto.listFromJson(entry.value, growable: growable,);
+        final value = ApplicationSettingsDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -261,4 +273,3 @@ class ApplicationSettingsDto {
     'settings',
   };
 }
-

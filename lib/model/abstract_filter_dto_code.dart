@@ -25,13 +25,12 @@ class AbstractFilterDtoCode {
   String? desc;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AbstractFilterDtoCode &&
-     other.desc == desc;
+  bool operator ==(Object other) => identical(this, other) || other is AbstractFilterDtoCode && other.desc == desc;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (desc == null ? 0 : desc!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (desc == null ? 0 : desc!.hashCode);
 
   @override
   String toString() => 'AbstractFilterDtoCode[desc=$desc]';
@@ -69,7 +68,10 @@ class AbstractFilterDtoCode {
     return null;
   }
 
-  static List<AbstractFilterDtoCode>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AbstractFilterDtoCode>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AbstractFilterDtoCode>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +99,18 @@ class AbstractFilterDtoCode {
   }
 
   // maps a json object with a list of AbstractFilterDtoCode-objects as value to a dart map
-  static Map<String, List<AbstractFilterDtoCode>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AbstractFilterDtoCode>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AbstractFilterDtoCode>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AbstractFilterDtoCode.listFromJson(entry.value, growable: growable,);
+        final value = AbstractFilterDtoCode.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,7 +120,5 @@ class AbstractFilterDtoCode {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -31,25 +31,26 @@ class DatabaseInitialisationDto {
   ReplicationDto? replication;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DatabaseInitialisationDto &&
-     other.users == users &&
-     other.healthcareParties == healthcareParties &&
-     other.replication == replication;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is DatabaseInitialisationDto &&
+          other.users == users &&
+          other.healthcareParties == healthcareParties &&
+          other.replication == replication;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (users.hashCode) +
-    (healthcareParties.hashCode) +
-    (replication == null ? 0 : replication!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (users.hashCode) +
+      (healthcareParties.hashCode) +
+      (replication == null ? 0 : replication!.hashCode);
 
   @override
   String toString() => 'DatabaseInitialisationDto[users=$users, healthcareParties=$healthcareParties, replication=$replication]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'users'] = users;
-      json[r'healthcareParties'] = healthcareParties;
+    json[r'users'] = users;
+    json[r'healthcareParties'] = healthcareParties;
     if (replication != null) {
       json[r'replication'] = replication;
     }

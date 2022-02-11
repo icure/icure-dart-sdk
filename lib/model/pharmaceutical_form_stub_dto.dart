@@ -46,19 +46,14 @@ class PharmaceuticalFormStubDto {
   List<CodeStubDto> standardForms;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PharmaceuticalFormStubDto &&
-     other.id == id &&
-     other.code == code &&
-     other.name == name &&
-     other.standardForms == standardForms;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PharmaceuticalFormStubDto && other.id == id && other.code == code && other.name == name && other.standardForms == standardForms;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (standardForms.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) + (code == null ? 0 : code!.hashCode) + (name == null ? 0 : name!.hashCode) + (standardForms.hashCode);
 
   @override
   String toString() => 'PharmaceuticalFormStubDto[id=$id, code=$code, name=$name, standardForms=$standardForms]';
@@ -74,7 +69,7 @@ class PharmaceuticalFormStubDto {
     if (name != null) {
       json[r'name'] = name;
     }
-      json[r'standardForms'] = standardForms;
+    json[r'standardForms'] = standardForms;
     return json;
   }
 
@@ -106,7 +101,10 @@ class PharmaceuticalFormStubDto {
     return null;
   }
 
-  static List<PharmaceuticalFormStubDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PharmaceuticalFormStubDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PharmaceuticalFormStubDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -134,12 +132,18 @@ class PharmaceuticalFormStubDto {
   }
 
   // maps a json object with a list of PharmaceuticalFormStubDto-objects as value to a dart map
-  static Map<String, List<PharmaceuticalFormStubDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PharmaceuticalFormStubDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PharmaceuticalFormStubDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PharmaceuticalFormStubDto.listFromJson(entry.value, growable: growable,);
+        final value = PharmaceuticalFormStubDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -153,4 +157,3 @@ class PharmaceuticalFormStubDto {
     'standardForms',
   };
 }
-

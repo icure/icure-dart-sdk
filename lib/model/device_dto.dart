@@ -196,73 +196,76 @@ class DeviceDto {
   String? publicKey;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DeviceDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.identifiers == identifiers &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.medicalLocationId == medicalLocationId &&
-     other.externalId == externalId &&
-     other.name == name &&
-     other.type == type &&
-     other.brand == brand &&
-     other.model == model &&
-     other.serialNumber == serialNumber &&
-     other.parentId == parentId &&
-     other.picture == picture &&
-     other.properties == properties &&
-     other.hcPartyKeys == hcPartyKeys &&
-     other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
-     other.publicKey == publicKey;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DeviceDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.identifiers == identifiers &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.medicalLocationId == medicalLocationId &&
+          other.externalId == externalId &&
+          other.name == name &&
+          other.type == type &&
+          other.brand == brand &&
+          other.model == model &&
+          other.serialNumber == serialNumber &&
+          other.parentId == parentId &&
+          other.picture == picture &&
+          other.properties == properties &&
+          other.hcPartyKeys == hcPartyKeys &&
+          other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
+          other.publicKey == publicKey;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (identifiers.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (externalId == null ? 0 : externalId!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (brand == null ? 0 : brand!.hashCode) +
-    (model == null ? 0 : model!.hashCode) +
-    (serialNumber == null ? 0 : serialNumber!.hashCode) +
-    (parentId == null ? 0 : parentId!.hashCode) +
-    (picture.hashCode) +
-    (properties.hashCode) +
-    (hcPartyKeys.hashCode) +
-    (privateKeyShamirPartitions.hashCode) +
-    (publicKey == null ? 0 : publicKey!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (identifiers.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (externalId == null ? 0 : externalId!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (brand == null ? 0 : brand!.hashCode) +
+      (model == null ? 0 : model!.hashCode) +
+      (serialNumber == null ? 0 : serialNumber!.hashCode) +
+      (parentId == null ? 0 : parentId!.hashCode) +
+      (picture.hashCode) +
+      (properties.hashCode) +
+      (hcPartyKeys.hashCode) +
+      (privateKeyShamirPartitions.hashCode) +
+      (publicKey == null ? 0 : publicKey!.hashCode);
 
   @override
-  String toString() => 'DeviceDto[id=$id, rev=$rev, deletionDate=$deletionDate, identifiers=$identifiers, created=$created, modified=$modified, author=$author, responsible=$responsible, tags=$tags, codes=$codes, endOfLife=$endOfLife, medicalLocationId=$medicalLocationId, externalId=$externalId, name=$name, type=$type, brand=$brand, model=$model, serialNumber=$serialNumber, parentId=$parentId, picture=$picture, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey]';
+  String toString() =>
+      'DeviceDto[id=$id, rev=$rev, deletionDate=$deletionDate, identifiers=$identifiers, created=$created, modified=$modified, author=$author, responsible=$responsible, tags=$tags, codes=$codes, endOfLife=$endOfLife, medicalLocationId=$medicalLocationId, externalId=$externalId, name=$name, type=$type, brand=$brand, model=$model, serialNumber=$serialNumber, parentId=$parentId, picture=$picture, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-      json[r'identifiers'] = identifiers;
+    json[r'identifiers'] = identifiers;
     if (created != null) {
       json[r'created'] = created;
     }
@@ -275,8 +278,8 @@ class DeviceDto {
     if (responsible != null) {
       json[r'responsible'] = responsible;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -304,10 +307,10 @@ class DeviceDto {
     if (parentId != null) {
       json[r'parentId'] = parentId;
     }
-      json[r'picture'] = picture;
-      json[r'properties'] = properties;
-      json[r'hcPartyKeys'] = hcPartyKeys;
-      json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
+    json[r'picture'] = picture;
+    json[r'properties'] = properties.toList();
+    json[r'hcPartyKeys'] = hcPartyKeys;
+    json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
     if (publicKey != null) {
       json[r'publicKey'] = publicKey;
     }
@@ -352,9 +355,7 @@ class DeviceDto {
         model: mapValueOfType<String>(json, r'model'),
         serialNumber: mapValueOfType<String>(json, r'serialNumber'),
         parentId: mapValueOfType<String>(json, r'parentId'),
-        picture: json[r'picture'] is List
-            ? (json[r'picture'] as List).cast<String>()
-            : const [],
+        picture: json[r'picture'] is List ? (json[r'picture'] as List).cast<String>() : const [],
         properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null ? const {} : mapWithListOfStringsFromJson(json[r'hcPartyKeys']),
         privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
@@ -364,7 +365,10 @@ class DeviceDto {
     return null;
   }
 
-  static List<DeviceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DeviceDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DeviceDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -392,12 +396,18 @@ class DeviceDto {
   }
 
   // maps a json object with a list of DeviceDto-objects as value to a dart map
-  static Map<String, List<DeviceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DeviceDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DeviceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DeviceDto.listFromJson(entry.value, growable: growable,);
+        final value = DeviceDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -417,4 +427,3 @@ class DeviceDto {
     'privateKeyShamirPartitions',
   };
 }
-

@@ -61,24 +61,27 @@ class Suggest {
   String? fieldDisplay;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Suggest &&
-     other.filterKey == filterKey &&
-     other.filterValue == filterValue &&
-     other.entityClass == entityClass &&
-     other.fieldValue == fieldValue &&
-     other.fieldDisplay == fieldDisplay;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Suggest &&
+          other.filterKey == filterKey &&
+          other.filterValue == filterValue &&
+          other.entityClass == entityClass &&
+          other.fieldValue == fieldValue &&
+          other.fieldDisplay == fieldDisplay;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (filterKey == null ? 0 : filterKey!.hashCode) +
-    (filterValue == null ? 0 : filterValue!.hashCode) +
-    (entityClass == null ? 0 : entityClass!.hashCode) +
-    (fieldValue == null ? 0 : fieldValue!.hashCode) +
-    (fieldDisplay == null ? 0 : fieldDisplay!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (filterKey == null ? 0 : filterKey!.hashCode) +
+      (filterValue == null ? 0 : filterValue!.hashCode) +
+      (entityClass == null ? 0 : entityClass!.hashCode) +
+      (fieldValue == null ? 0 : fieldValue!.hashCode) +
+      (fieldDisplay == null ? 0 : fieldDisplay!.hashCode);
 
   @override
-  String toString() => 'Suggest[filterKey=$filterKey, filterValue=$filterValue, entityClass=$entityClass, fieldValue=$fieldValue, fieldDisplay=$fieldDisplay]';
+  String toString() =>
+      'Suggest[filterKey=$filterKey, filterValue=$filterValue, entityClass=$entityClass, fieldValue=$fieldValue, fieldDisplay=$fieldDisplay]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -129,7 +132,10 @@ class Suggest {
     return null;
   }
 
-  static List<Suggest>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Suggest>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Suggest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -157,12 +163,18 @@ class Suggest {
   }
 
   // maps a json object with a list of Suggest-objects as value to a dart map
-  static Map<String, List<Suggest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Suggest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Suggest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = Suggest.listFromJson(entry.value, growable: growable,);
+        final value = Suggest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -172,7 +184,5 @@ class Suggest {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

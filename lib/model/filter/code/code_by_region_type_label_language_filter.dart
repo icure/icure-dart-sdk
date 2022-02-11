@@ -2,9 +2,9 @@
 
 part of icure_dart_sdk.api;
 
-
 class CodeByRegionTypeLabelLanguageFilter extends AbstractFilterDto<CodeDto> {
-  @override String? desc;
+  @override
+  String? desc;
   String? region;
   String? type;
   String? language;

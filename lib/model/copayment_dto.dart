@@ -52,19 +52,20 @@ class CopaymentDto {
   String? feeAmount;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CopaymentDto &&
-     other.regimeType == regimeType &&
-     other.from == from &&
-     other.to == to &&
-     other.feeAmount == feeAmount;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is CopaymentDto &&
+          other.regimeType == regimeType &&
+          other.from == from &&
+          other.to == to &&
+          other.feeAmount == feeAmount;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (regimeType == null ? 0 : regimeType!.hashCode) +
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (feeAmount == null ? 0 : feeAmount!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (regimeType == null ? 0 : regimeType!.hashCode) +
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (feeAmount == null ? 0 : feeAmount!.hashCode);
 
   @override
   String toString() => 'CopaymentDto[regimeType=$regimeType, from=$from, to=$to, feeAmount=$feeAmount]';

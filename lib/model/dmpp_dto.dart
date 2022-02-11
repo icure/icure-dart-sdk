@@ -106,38 +106,41 @@ class DmppDto {
   String? productId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DmppDto &&
-     other.id == id &&
-     other.from == from &&
-     other.to == to &&
-     other.deliveryEnvironment == deliveryEnvironment &&
-     other.code == code &&
-     other.codeType == codeType &&
-     other.price == price &&
-     other.cheap == cheap &&
-     other.cheapest == cheapest &&
-     other.reimbursable == reimbursable &&
-     other.reimbursements == reimbursements &&
-     other.productId == productId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DmppDto &&
+          other.id == id &&
+          other.from == from &&
+          other.to == to &&
+          other.deliveryEnvironment == deliveryEnvironment &&
+          other.code == code &&
+          other.codeType == codeType &&
+          other.price == price &&
+          other.cheap == cheap &&
+          other.cheapest == cheapest &&
+          other.reimbursable == reimbursable &&
+          other.reimbursements == reimbursements &&
+          other.productId == productId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (deliveryEnvironment == null ? 0 : deliveryEnvironment!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (codeType == null ? 0 : codeType!.hashCode) +
-    (price == null ? 0 : price!.hashCode) +
-    (cheap == null ? 0 : cheap!.hashCode) +
-    (cheapest == null ? 0 : cheapest!.hashCode) +
-    (reimbursable == null ? 0 : reimbursable!.hashCode) +
-    (reimbursements.hashCode) +
-    (productId == null ? 0 : productId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (deliveryEnvironment == null ? 0 : deliveryEnvironment!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (codeType == null ? 0 : codeType!.hashCode) +
+      (price == null ? 0 : price!.hashCode) +
+      (cheap == null ? 0 : cheap!.hashCode) +
+      (cheapest == null ? 0 : cheapest!.hashCode) +
+      (reimbursable == null ? 0 : reimbursable!.hashCode) +
+      (reimbursements.hashCode) +
+      (productId == null ? 0 : productId!.hashCode);
 
   @override
-  String toString() => 'DmppDto[id=$id, from=$from, to=$to, deliveryEnvironment=$deliveryEnvironment, code=$code, codeType=$codeType, price=$price, cheap=$cheap, cheapest=$cheapest, reimbursable=$reimbursable, reimbursements=$reimbursements, productId=$productId]';
+  String toString() =>
+      'DmppDto[id=$id, from=$from, to=$to, deliveryEnvironment=$deliveryEnvironment, code=$code, codeType=$codeType, price=$price, cheap=$cheap, cheapest=$cheapest, reimbursable=$reimbursable, reimbursements=$reimbursements, productId=$productId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -171,7 +174,7 @@ class DmppDto {
     if (reimbursable != null) {
       json[r'reimbursable'] = reimbursable;
     }
-      json[r'reimbursements'] = reimbursements;
+    json[r'reimbursements'] = reimbursements;
     if (productId != null) {
       json[r'productId'] = productId;
     }
@@ -214,7 +217,10 @@ class DmppDto {
     return null;
   }
 
-  static List<DmppDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DmppDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DmppDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -242,12 +248,18 @@ class DmppDto {
   }
 
   // maps a json object with a list of DmppDto-objects as value to a dart map
-  static Map<String, List<DmppDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DmppDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DmppDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DmppDto.listFromJson(entry.value, growable: growable,);
+        final value = DmppDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -257,10 +269,8 @@ class DmppDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class DmppDtoDeliveryEnvironmentEnum {
   /// Instantiate a new enum with the provided [value].
@@ -289,7 +299,10 @@ class DmppDtoDeliveryEnvironmentEnum {
 
   static DmppDtoDeliveryEnvironmentEnum? fromJson(dynamic value) => DmppDtoDeliveryEnvironmentEnumTypeTransformer().decode(value);
 
-  static List<DmppDtoDeliveryEnvironmentEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DmppDtoDeliveryEnvironmentEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DmppDtoDeliveryEnvironmentEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -323,10 +336,14 @@ class DmppDtoDeliveryEnvironmentEnumTypeTransformer {
   DmppDtoDeliveryEnvironmentEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'P': return DmppDtoDeliveryEnvironmentEnum.P;
-        case r'A': return DmppDtoDeliveryEnvironmentEnum.A;
-        case r'H': return DmppDtoDeliveryEnvironmentEnum.H;
-        case r'R': return DmppDtoDeliveryEnvironmentEnum.R;
+        case r'P':
+          return DmppDtoDeliveryEnvironmentEnum.P;
+        case r'A':
+          return DmppDtoDeliveryEnvironmentEnum.A;
+        case r'H':
+          return DmppDtoDeliveryEnvironmentEnum.H;
+        case r'R':
+          return DmppDtoDeliveryEnvironmentEnum.R;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -339,8 +356,6 @@ class DmppDtoDeliveryEnvironmentEnumTypeTransformer {
   /// Singleton [DmppDtoDeliveryEnvironmentEnumTypeTransformer] instance.
   static DmppDtoDeliveryEnvironmentEnumTypeTransformer? _instance;
 }
-
-
 
 class DmppDtoCodeTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -365,7 +380,10 @@ class DmppDtoCodeTypeEnum {
 
   static DmppDtoCodeTypeEnum? fromJson(dynamic value) => DmppDtoCodeTypeEnumTypeTransformer().decode(value);
 
-  static List<DmppDtoCodeTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DmppDtoCodeTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DmppDtoCodeTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -399,8 +417,10 @@ class DmppDtoCodeTypeEnumTypeTransformer {
   DmppDtoCodeTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'CNK': return DmppDtoCodeTypeEnum.CNK;
-        case r'PSEUDO': return DmppDtoCodeTypeEnum.PSEUDO;
+        case r'CNK':
+          return DmppDtoCodeTypeEnum.CNK;
+        case r'PSEUDO':
+          return DmppDtoCodeTypeEnum.PSEUDO;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -413,5 +433,3 @@ class DmppDtoCodeTypeEnumTypeTransformer {
   /// Singleton [DmppDtoCodeTypeEnumTypeTransformer] instance.
   static DmppDtoCodeTypeEnumTypeTransformer? _instance;
 }
-
-

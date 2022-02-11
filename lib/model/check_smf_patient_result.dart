@@ -46,36 +46,38 @@ class CheckSMFPatientResult {
   String? existingPatientId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CheckSMFPatientResult &&
-     other.firstName == firstName &&
-     other.lastName == lastName &&
-     other.ssin == ssin &&
-     other.dateOfBirth == dateOfBirth &&
-     other.exists == exists &&
-     other.existingPatientId == existingPatientId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is CheckSMFPatientResult &&
+          other.firstName == firstName &&
+          other.lastName == lastName &&
+          other.ssin == ssin &&
+          other.dateOfBirth == dateOfBirth &&
+          other.exists == exists &&
+          other.existingPatientId == existingPatientId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (firstName.hashCode) +
-    (lastName.hashCode) +
-    (ssin.hashCode) +
-    (dateOfBirth == null ? 0 : dateOfBirth!.hashCode) +
-    (exists.hashCode) +
-    (existingPatientId == null ? 0 : existingPatientId!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (firstName.hashCode) +
+      (lastName.hashCode) +
+      (ssin.hashCode) +
+      (dateOfBirth == null ? 0 : dateOfBirth!.hashCode) +
+      (exists.hashCode) +
+      (existingPatientId == null ? 0 : existingPatientId!.hashCode);
 
   @override
-  String toString() => 'CheckSMFPatientResult[firstName=$firstName, lastName=$lastName, ssin=$ssin, dateOfBirth=$dateOfBirth, exists=$exists, existingPatientId=$existingPatientId]';
+  String toString() =>
+      'CheckSMFPatientResult[firstName=$firstName, lastName=$lastName, ssin=$ssin, dateOfBirth=$dateOfBirth, exists=$exists, existingPatientId=$existingPatientId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'firstName'] = firstName;
-      json[r'lastName'] = lastName;
-      json[r'ssin'] = ssin;
+    json[r'firstName'] = firstName;
+    json[r'lastName'] = lastName;
+    json[r'ssin'] = ssin;
     if (dateOfBirth != null) {
       json[r'dateOfBirth'] = dateOfBirth;
     }
-      json[r'exists'] = exists;
+    json[r'exists'] = exists;
     if (existingPatientId != null) {
       json[r'existingPatientId'] = existingPatientId;
     }

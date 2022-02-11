@@ -37,24 +37,21 @@ class FormColumn {
   bool? shouldDisplay;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FormColumn &&
-     other.formDataList == formDataList &&
-     other.columns == columns &&
-     other.shouldDisplay == shouldDisplay;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FormColumn && other.formDataList == formDataList && other.columns == columns && other.shouldDisplay == shouldDisplay;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (formDataList.hashCode) +
-    (columns == null ? 0 : columns!.hashCode) +
-    (shouldDisplay == null ? 0 : shouldDisplay!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (formDataList.hashCode) + (columns == null ? 0 : columns!.hashCode) + (shouldDisplay == null ? 0 : shouldDisplay!.hashCode);
 
   @override
   String toString() => 'FormColumn[formDataList=$formDataList, columns=$columns, shouldDisplay=$shouldDisplay]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'formDataList'] = formDataList;
+    json[r'formDataList'] = formDataList;
     if (columns != null) {
       json[r'columns'] = columns;
     }
@@ -91,7 +88,10 @@ class FormColumn {
     return null;
   }
 
-  static List<FormColumn>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FormColumn>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FormColumn>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -119,12 +119,18 @@ class FormColumn {
   }
 
   // maps a json object with a list of FormColumn-objects as value to a dart map
-  static Map<String, List<FormColumn>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FormColumn>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FormColumn>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FormColumn.listFromJson(entry.value, growable: growable,);
+        final value = FormColumn.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -134,7 +140,5 @@ class FormColumn {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

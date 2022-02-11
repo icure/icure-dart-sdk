@@ -28,29 +28,31 @@ class SumehrContentDto {
   List<PatientHealthCarePartyDto> patientHealthcareParties;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SumehrContentDto &&
-     other.services == services &&
-     other.healthElements == healthElements &&
-     other.partnerships == partnerships &&
-     other.patientHealthcareParties == patientHealthcareParties;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SumehrContentDto &&
+          other.services == services &&
+          other.healthElements == healthElements &&
+          other.partnerships == partnerships &&
+          other.patientHealthcareParties == patientHealthcareParties;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (services.hashCode) +
-    (healthElements.hashCode) +
-    (partnerships.hashCode) +
-    (patientHealthcareParties.hashCode);
+      // ignore: unnecessary_parenthesis
+  (services.hashCode) +
+      (healthElements.hashCode) +
+      (partnerships.hashCode) +
+      (patientHealthcareParties.hashCode);
 
   @override
-  String toString() => 'SumehrContentDto[services=$services, healthElements=$healthElements, partnerships=$partnerships, patientHealthcareParties=$patientHealthcareParties]';
+  String toString() =>
+      'SumehrContentDto[services=$services, healthElements=$healthElements, partnerships=$partnerships, patientHealthcareParties=$patientHealthcareParties]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'services'] = services;
-      json[r'healthElements'] = healthElements;
-      json[r'partnerships'] = partnerships;
-      json[r'patientHealthcareParties'] = patientHealthcareParties;
+    json[r'services'] = services;
+    json[r'healthElements'] = healthElements;
+    json[r'partnerships'] = partnerships;
+    json[r'patientHealthcareParties'] = patientHealthcareParties;
     return json;
   }
 

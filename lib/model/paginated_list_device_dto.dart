@@ -34,28 +34,29 @@ class PaginatedListDeviceDto {
   PaginatedDocumentKeyIdPairObject? nextKeyPair;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PaginatedListDeviceDto &&
-     other.pageSize == pageSize &&
-     other.totalSize == totalSize &&
-     other.rows == rows &&
-     other.nextKeyPair == nextKeyPair;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PaginatedListDeviceDto &&
+          other.pageSize == pageSize &&
+          other.totalSize == totalSize &&
+          other.rows == rows &&
+          other.nextKeyPair == nextKeyPair;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (pageSize.hashCode) +
-    (totalSize.hashCode) +
-    (rows.hashCode) +
-    (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (pageSize.hashCode) +
+      (totalSize.hashCode) +
+      (rows.hashCode) +
+      (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
 
   @override
   String toString() => 'PaginatedListDeviceDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'pageSize'] = pageSize;
-      json[r'totalSize'] = totalSize;
-      json[r'rows'] = rows;
+    json[r'pageSize'] = pageSize;
+    json[r'totalSize'] = totalSize;
+    json[r'rows'] = rows;
     if (nextKeyPair != null) {
       json[r'nextKeyPair'] = nextKeyPair;
     }

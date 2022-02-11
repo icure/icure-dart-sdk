@@ -36,16 +36,16 @@ class DecryptedPaginatedListHealthElementDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DecryptedPaginatedListHealthElementDto &&
-          other.pageSize == pageSize &&
-          other.totalSize == totalSize &&
-          other.rows == rows &&
-          other.nextKeyPair == nextKeyPair;
+          other is DecryptedPaginatedListHealthElementDto &&
+              other.pageSize == pageSize &&
+              other.totalSize == totalSize &&
+              other.rows == rows &&
+              other.nextKeyPair == nextKeyPair;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (pageSize.hashCode) +
+  (pageSize.hashCode) +
       (totalSize.hashCode) +
       (rows.hashCode) +
       (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
@@ -78,9 +78,9 @@ class DecryptedPaginatedListHealthElementDto {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DecryptedPaginatedListHealthElementDto[$key]" is missing from JSON.');
+          'Required key "DecryptedPaginatedListHealthElementDto[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DecryptedPaginatedListHealthElementDto[$key]" has a null value in JSON.');
+          'Required key "DecryptedPaginatedListHealthElementDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -95,8 +95,7 @@ class DecryptedPaginatedListHealthElementDto {
     return null;
   }
 
-  static List<DecryptedPaginatedListHealthElementDto>? listFromJson(
-    dynamic json, {
+  static List<DecryptedPaginatedListHealthElementDto>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedPaginatedListHealthElementDto>[];
@@ -111,14 +110,13 @@ class DecryptedPaginatedListHealthElementDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DecryptedPaginatedListHealthElementDto> mapFromJson(
-      dynamic json) {
+  static Map<String, DecryptedPaginatedListHealthElementDto> mapFromJson(dynamic json) {
     final map = <String, DecryptedPaginatedListHealthElementDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
         final value =
-            DecryptedPaginatedListHealthElementDto.fromJson(entry.value);
+        DecryptedPaginatedListHealthElementDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -129,8 +127,7 @@ class DecryptedPaginatedListHealthElementDto {
 
   // maps a json object with a list of DecryptedPaginatedListHealthElementDto-objects as value to a dart map
   static Map<String, List<DecryptedPaginatedListHealthElementDto>>
-      mapListFromJson(
-    dynamic json, {
+  mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedPaginatedListHealthElementDto>>{};

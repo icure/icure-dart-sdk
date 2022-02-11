@@ -358,94 +358,96 @@ class MedicationDto {
   int? status;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MedicationDto &&
-     other.compoundPrescription == compoundPrescription &&
-     other.substanceProduct == substanceProduct &&
-     other.medicinalProduct == medicinalProduct &&
-     other.numberOfPackages == numberOfPackages &&
-     other.batch == batch &&
-     other.instructionForPatient == instructionForPatient &&
-     other.commentForDelivery == commentForDelivery &&
-     other.drugRoute == drugRoute &&
-     other.temporality == temporality &&
-     other.frequency == frequency &&
-     other.reimbursementReason == reimbursementReason &&
-     other.substitutionAllowed == substitutionAllowed &&
-     other.beginMoment == beginMoment &&
-     other.endMoment == endMoment &&
-     other.deliveryMoment == deliveryMoment &&
-     other.endExecutionMoment == endExecutionMoment &&
-     other.duration == duration &&
-     other.renewal == renewal &&
-     other.knownUsage == knownUsage &&
-     other.regimen == regimen &&
-     other.posology == posology &&
-     other.agreements == agreements &&
-     other.medicationSchemeIdOnSafe == medicationSchemeIdOnSafe &&
-     other.medicationSchemeSafeVersion == medicationSchemeSafeVersion &&
-     other.medicationSchemeTimeStampOnSafe == medicationSchemeTimeStampOnSafe &&
-     other.medicationSchemeDocumentId == medicationSchemeDocumentId &&
-     other.safeIdName == safeIdName &&
-     other.idOnSafes == idOnSafes &&
-     other.timestampOnSafe == timestampOnSafe &&
-     other.changeValidated == changeValidated &&
-     other.newSafeMedication == newSafeMedication &&
-     other.medicationUse == medicationUse &&
-     other.beginCondition == beginCondition &&
-     other.endCondition == endCondition &&
-     other.origin == origin &&
-     other.medicationChanged == medicationChanged &&
-     other.posologyChanged == posologyChanged &&
-     other.suspension == suspension &&
-     other.prescriptionRID == prescriptionRID &&
-     other.status == status;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MedicationDto &&
+          other.compoundPrescription == compoundPrescription &&
+          other.substanceProduct == substanceProduct &&
+          other.medicinalProduct == medicinalProduct &&
+          other.numberOfPackages == numberOfPackages &&
+          other.batch == batch &&
+          other.instructionForPatient == instructionForPatient &&
+          other.commentForDelivery == commentForDelivery &&
+          other.drugRoute == drugRoute &&
+          other.temporality == temporality &&
+          other.frequency == frequency &&
+          other.reimbursementReason == reimbursementReason &&
+          other.substitutionAllowed == substitutionAllowed &&
+          other.beginMoment == beginMoment &&
+          other.endMoment == endMoment &&
+          other.deliveryMoment == deliveryMoment &&
+          other.endExecutionMoment == endExecutionMoment &&
+          other.duration == duration &&
+          other.renewal == renewal &&
+          other.knownUsage == knownUsage &&
+          other.regimen == regimen &&
+          other.posology == posology &&
+          other.agreements == agreements &&
+          other.medicationSchemeIdOnSafe == medicationSchemeIdOnSafe &&
+          other.medicationSchemeSafeVersion == medicationSchemeSafeVersion &&
+          other.medicationSchemeTimeStampOnSafe == medicationSchemeTimeStampOnSafe &&
+          other.medicationSchemeDocumentId == medicationSchemeDocumentId &&
+          other.safeIdName == safeIdName &&
+          other.idOnSafes == idOnSafes &&
+          other.timestampOnSafe == timestampOnSafe &&
+          other.changeValidated == changeValidated &&
+          other.newSafeMedication == newSafeMedication &&
+          other.medicationUse == medicationUse &&
+          other.beginCondition == beginCondition &&
+          other.endCondition == endCondition &&
+          other.origin == origin &&
+          other.medicationChanged == medicationChanged &&
+          other.posologyChanged == posologyChanged &&
+          other.suspension == suspension &&
+          other.prescriptionRID == prescriptionRID &&
+          other.status == status;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (compoundPrescription == null ? 0 : compoundPrescription!.hashCode) +
-    (substanceProduct == null ? 0 : substanceProduct!.hashCode) +
-    (medicinalProduct == null ? 0 : medicinalProduct!.hashCode) +
-    (numberOfPackages == null ? 0 : numberOfPackages!.hashCode) +
-    (batch == null ? 0 : batch!.hashCode) +
-    (instructionForPatient == null ? 0 : instructionForPatient!.hashCode) +
-    (commentForDelivery == null ? 0 : commentForDelivery!.hashCode) +
-    (drugRoute == null ? 0 : drugRoute!.hashCode) +
-    (temporality == null ? 0 : temporality!.hashCode) +
-    (frequency == null ? 0 : frequency!.hashCode) +
-    (reimbursementReason == null ? 0 : reimbursementReason!.hashCode) +
-    (substitutionAllowed == null ? 0 : substitutionAllowed!.hashCode) +
-    (beginMoment == null ? 0 : beginMoment!.hashCode) +
-    (endMoment == null ? 0 : endMoment!.hashCode) +
-    (deliveryMoment == null ? 0 : deliveryMoment!.hashCode) +
-    (endExecutionMoment == null ? 0 : endExecutionMoment!.hashCode) +
-    (duration == null ? 0 : duration!.hashCode) +
-    (renewal == null ? 0 : renewal!.hashCode) +
-    (knownUsage == null ? 0 : knownUsage!.hashCode) +
-    (regimen.hashCode) +
-    (posology == null ? 0 : posology!.hashCode) +
-    (agreements.hashCode) +
-    (medicationSchemeIdOnSafe == null ? 0 : medicationSchemeIdOnSafe!.hashCode) +
-    (medicationSchemeSafeVersion == null ? 0 : medicationSchemeSafeVersion!.hashCode) +
-    (medicationSchemeTimeStampOnSafe == null ? 0 : medicationSchemeTimeStampOnSafe!.hashCode) +
-    (medicationSchemeDocumentId == null ? 0 : medicationSchemeDocumentId!.hashCode) +
-    (safeIdName == null ? 0 : safeIdName!.hashCode) +
-    (idOnSafes == null ? 0 : idOnSafes!.hashCode) +
-    (timestampOnSafe == null ? 0 : timestampOnSafe!.hashCode) +
-    (changeValidated == null ? 0 : changeValidated!.hashCode) +
-    (newSafeMedication == null ? 0 : newSafeMedication!.hashCode) +
-    (medicationUse == null ? 0 : medicationUse!.hashCode) +
-    (beginCondition == null ? 0 : beginCondition!.hashCode) +
-    (endCondition == null ? 0 : endCondition!.hashCode) +
-    (origin == null ? 0 : origin!.hashCode) +
-    (medicationChanged == null ? 0 : medicationChanged!.hashCode) +
-    (posologyChanged == null ? 0 : posologyChanged!.hashCode) +
-    (suspension.hashCode) +
-    (prescriptionRID == null ? 0 : prescriptionRID!.hashCode) +
-    (status == null ? 0 : status!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (compoundPrescription == null ? 0 : compoundPrescription!.hashCode) +
+      (substanceProduct == null ? 0 : substanceProduct!.hashCode) +
+      (medicinalProduct == null ? 0 : medicinalProduct!.hashCode) +
+      (numberOfPackages == null ? 0 : numberOfPackages!.hashCode) +
+      (batch == null ? 0 : batch!.hashCode) +
+      (instructionForPatient == null ? 0 : instructionForPatient!.hashCode) +
+      (commentForDelivery == null ? 0 : commentForDelivery!.hashCode) +
+      (drugRoute == null ? 0 : drugRoute!.hashCode) +
+      (temporality == null ? 0 : temporality!.hashCode) +
+      (frequency == null ? 0 : frequency!.hashCode) +
+      (reimbursementReason == null ? 0 : reimbursementReason!.hashCode) +
+      (substitutionAllowed == null ? 0 : substitutionAllowed!.hashCode) +
+      (beginMoment == null ? 0 : beginMoment!.hashCode) +
+      (endMoment == null ? 0 : endMoment!.hashCode) +
+      (deliveryMoment == null ? 0 : deliveryMoment!.hashCode) +
+      (endExecutionMoment == null ? 0 : endExecutionMoment!.hashCode) +
+      (duration == null ? 0 : duration!.hashCode) +
+      (renewal == null ? 0 : renewal!.hashCode) +
+      (knownUsage == null ? 0 : knownUsage!.hashCode) +
+      (regimen.hashCode) +
+      (posology == null ? 0 : posology!.hashCode) +
+      (agreements.hashCode) +
+      (medicationSchemeIdOnSafe == null ? 0 : medicationSchemeIdOnSafe!.hashCode) +
+      (medicationSchemeSafeVersion == null ? 0 : medicationSchemeSafeVersion!.hashCode) +
+      (medicationSchemeTimeStampOnSafe == null ? 0 : medicationSchemeTimeStampOnSafe!.hashCode) +
+      (medicationSchemeDocumentId == null ? 0 : medicationSchemeDocumentId!.hashCode) +
+      (safeIdName == null ? 0 : safeIdName!.hashCode) +
+      (idOnSafes == null ? 0 : idOnSafes!.hashCode) +
+      (timestampOnSafe == null ? 0 : timestampOnSafe!.hashCode) +
+      (changeValidated == null ? 0 : changeValidated!.hashCode) +
+      (newSafeMedication == null ? 0 : newSafeMedication!.hashCode) +
+      (medicationUse == null ? 0 : medicationUse!.hashCode) +
+      (beginCondition == null ? 0 : beginCondition!.hashCode) +
+      (endCondition == null ? 0 : endCondition!.hashCode) +
+      (origin == null ? 0 : origin!.hashCode) +
+      (medicationChanged == null ? 0 : medicationChanged!.hashCode) +
+      (posologyChanged == null ? 0 : posologyChanged!.hashCode) +
+      (suspension.hashCode) +
+      (prescriptionRID == null ? 0 : prescriptionRID!.hashCode) +
+      (status == null ? 0 : status!.hashCode);
 
   @override
-  String toString() => 'MedicationDto[compoundPrescription=$compoundPrescription, substanceProduct=$substanceProduct, medicinalProduct=$medicinalProduct, numberOfPackages=$numberOfPackages, batch=$batch, instructionForPatient=$instructionForPatient, commentForDelivery=$commentForDelivery, drugRoute=$drugRoute, temporality=$temporality, frequency=$frequency, reimbursementReason=$reimbursementReason, substitutionAllowed=$substitutionAllowed, beginMoment=$beginMoment, endMoment=$endMoment, deliveryMoment=$deliveryMoment, endExecutionMoment=$endExecutionMoment, duration=$duration, renewal=$renewal, knownUsage=$knownUsage, regimen=$regimen, posology=$posology, agreements=$agreements, medicationSchemeIdOnSafe=$medicationSchemeIdOnSafe, medicationSchemeSafeVersion=$medicationSchemeSafeVersion, medicationSchemeTimeStampOnSafe=$medicationSchemeTimeStampOnSafe, medicationSchemeDocumentId=$medicationSchemeDocumentId, safeIdName=$safeIdName, idOnSafes=$idOnSafes, timestampOnSafe=$timestampOnSafe, changeValidated=$changeValidated, newSafeMedication=$newSafeMedication, medicationUse=$medicationUse, beginCondition=$beginCondition, endCondition=$endCondition, origin=$origin, medicationChanged=$medicationChanged, posologyChanged=$posologyChanged, suspension=$suspension, prescriptionRID=$prescriptionRID, status=$status]';
+  String toString() =>
+      'MedicationDto[compoundPrescription=$compoundPrescription, substanceProduct=$substanceProduct, medicinalProduct=$medicinalProduct, numberOfPackages=$numberOfPackages, batch=$batch, instructionForPatient=$instructionForPatient, commentForDelivery=$commentForDelivery, drugRoute=$drugRoute, temporality=$temporality, frequency=$frequency, reimbursementReason=$reimbursementReason, substitutionAllowed=$substitutionAllowed, beginMoment=$beginMoment, endMoment=$endMoment, deliveryMoment=$deliveryMoment, endExecutionMoment=$endExecutionMoment, duration=$duration, renewal=$renewal, knownUsage=$knownUsage, regimen=$regimen, posology=$posology, agreements=$agreements, medicationSchemeIdOnSafe=$medicationSchemeIdOnSafe, medicationSchemeSafeVersion=$medicationSchemeSafeVersion, medicationSchemeTimeStampOnSafe=$medicationSchemeTimeStampOnSafe, medicationSchemeDocumentId=$medicationSchemeDocumentId, safeIdName=$safeIdName, idOnSafes=$idOnSafes, timestampOnSafe=$timestampOnSafe, changeValidated=$changeValidated, newSafeMedication=$newSafeMedication, medicationUse=$medicationUse, beginCondition=$beginCondition, endCondition=$endCondition, origin=$origin, medicationChanged=$medicationChanged, posologyChanged=$posologyChanged, suspension=$suspension, prescriptionRID=$prescriptionRID, status=$status]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -506,11 +508,11 @@ class MedicationDto {
     if (knownUsage != null) {
       json[r'knownUsage'] = knownUsage;
     }
-      json[r'regimen'] = regimen;
+    json[r'regimen'] = regimen;
     if (posology != null) {
       json[r'posology'] = posology;
     }
-      json[r'agreements'] = agreements;
+    json[r'agreements'] = agreements;
     if (medicationSchemeIdOnSafe != null) {
       json[r'medicationSchemeIdOnSafe'] = medicationSchemeIdOnSafe;
     }
@@ -556,7 +558,7 @@ class MedicationDto {
     if (posologyChanged != null) {
       json[r'posologyChanged'] = posologyChanged;
     }
-      json[r'suspension'] = suspension;
+    json[r'suspension'] = suspension;
     if (prescriptionRID != null) {
       json[r'prescriptionRID'] = prescriptionRID;
     }

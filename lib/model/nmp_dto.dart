@@ -119,42 +119,45 @@ class NmpDto {
   SamTextDto? distributor;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NmpDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.from == from &&
-     other.to == to &&
-     other.code == code &&
-     other.productId == productId &&
-     other.category == category &&
-     other.commercialStatus == commercialStatus &&
-     other.name == name &&
-     other.producer == producer &&
-     other.distributor == distributor;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is NmpDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.from == from &&
+          other.to == to &&
+          other.code == code &&
+          other.productId == productId &&
+          other.category == category &&
+          other.commercialStatus == commercialStatus &&
+          other.name == name &&
+          other.producer == producer &&
+          other.distributor == distributor;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (productId == null ? 0 : productId!.hashCode) +
-    (category == null ? 0 : category!.hashCode) +
-    (commercialStatus == null ? 0 : commercialStatus!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (producer == null ? 0 : producer!.hashCode) +
-    (distributor == null ? 0 : distributor!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (productId == null ? 0 : productId!.hashCode) +
+      (category == null ? 0 : category!.hashCode) +
+      (commercialStatus == null ? 0 : commercialStatus!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (producer == null ? 0 : producer!.hashCode) +
+      (distributor == null ? 0 : distributor!.hashCode);
 
   @override
-  String toString() => 'NmpDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, code=$code, productId=$productId, category=$category, commercialStatus=$commercialStatus, name=$name, producer=$producer, distributor=$distributor]';
+  String toString() =>
+      'NmpDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, code=$code, productId=$productId, category=$category, commercialStatus=$commercialStatus, name=$name, producer=$producer, distributor=$distributor]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -227,7 +230,10 @@ class NmpDto {
     return null;
   }
 
-  static List<NmpDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<NmpDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <NmpDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -255,12 +261,18 @@ class NmpDto {
   }
 
   // maps a json object with a list of NmpDto-objects as value to a dart map
-  static Map<String, List<NmpDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<NmpDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<NmpDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NmpDto.listFromJson(entry.value, growable: growable,);
+        final value = NmpDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -274,4 +286,3 @@ class NmpDto {
     'id',
   };
 }
-

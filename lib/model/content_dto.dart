@@ -117,40 +117,43 @@ class ContentDto {
   List<MeasureDto> range;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ContentDto &&
-     other.stringValue == stringValue &&
-     other.numberValue == numberValue &&
-     other.booleanValue == booleanValue &&
-     other.instantValue == instantValue &&
-     other.fuzzyDateValue == fuzzyDateValue &&
-     other.binaryValue == binaryValue &&
-     other.documentId == documentId &&
-     other.measureValue == measureValue &&
-     other.medicationValue == medicationValue &&
-     other.timeSeries == timeSeries &&
-     other.compoundValue == compoundValue &&
-     other.ratio == ratio &&
-     other.range == range;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ContentDto &&
+          other.stringValue == stringValue &&
+          other.numberValue == numberValue &&
+          other.booleanValue == booleanValue &&
+          other.instantValue == instantValue &&
+          other.fuzzyDateValue == fuzzyDateValue &&
+          other.binaryValue == binaryValue &&
+          other.documentId == documentId &&
+          other.measureValue == measureValue &&
+          other.medicationValue == medicationValue &&
+          other.timeSeries == timeSeries &&
+          other.compoundValue == compoundValue &&
+          other.ratio == ratio &&
+          other.range == range;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (stringValue == null ? 0 : stringValue!.hashCode) +
-    (numberValue == null ? 0 : numberValue!.hashCode) +
-    (booleanValue == null ? 0 : booleanValue!.hashCode) +
-    (instantValue == null ? 0 : instantValue!.hashCode) +
-    (fuzzyDateValue == null ? 0 : fuzzyDateValue!.hashCode) +
-    (binaryValue == null ? 0 : binaryValue!.hashCode) +
-    (documentId == null ? 0 : documentId!.hashCode) +
-    (measureValue == null ? 0 : measureValue!.hashCode) +
-    (medicationValue == null ? 0 : medicationValue!.hashCode) +
-    (timeSeries == null ? 0 : timeSeries!.hashCode) +
-    (compoundValue.hashCode) +
-    (ratio.hashCode) +
-    (range.hashCode);
+      // ignore: unnecessary_parenthesis
+      (stringValue == null ? 0 : stringValue!.hashCode) +
+      (numberValue == null ? 0 : numberValue!.hashCode) +
+      (booleanValue == null ? 0 : booleanValue!.hashCode) +
+      (instantValue == null ? 0 : instantValue!.hashCode) +
+      (fuzzyDateValue == null ? 0 : fuzzyDateValue!.hashCode) +
+      (binaryValue == null ? 0 : binaryValue!.hashCode) +
+      (documentId == null ? 0 : documentId!.hashCode) +
+      (measureValue == null ? 0 : measureValue!.hashCode) +
+      (medicationValue == null ? 0 : medicationValue!.hashCode) +
+      (timeSeries == null ? 0 : timeSeries!.hashCode) +
+      (compoundValue.hashCode) +
+      (ratio.hashCode) +
+      (range.hashCode);
 
   @override
-  String toString() => 'ContentDto[stringValue=$stringValue, numberValue=$numberValue, booleanValue=$booleanValue, instantValue=$instantValue, fuzzyDateValue=$fuzzyDateValue, binaryValue=$binaryValue, documentId=$documentId, measureValue=$measureValue, medicationValue=$medicationValue, timeSeries=$timeSeries, compoundValue=$compoundValue, ratio=$ratio, range=$range]';
+  String toString() =>
+      'ContentDto[stringValue=$stringValue, numberValue=$numberValue, booleanValue=$booleanValue, instantValue=$instantValue, fuzzyDateValue=$fuzzyDateValue, binaryValue=$binaryValue, documentId=$documentId, measureValue=$measureValue, medicationValue=$medicationValue, timeSeries=$timeSeries, compoundValue=$compoundValue, ratio=$ratio, range=$range]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -184,9 +187,9 @@ class ContentDto {
     if (timeSeries != null) {
       json[r'timeSeries'] = timeSeries;
     }
-      json[r'compoundValue'] = compoundValue;
-      json[r'ratio'] = ratio;
-      json[r'range'] = range;
+    json[r'compoundValue'] = compoundValue;
+    json[r'ratio'] = ratio;
+    json[r'range'] = range;
     return json;
   }
 
@@ -227,7 +230,10 @@ class ContentDto {
     return null;
   }
 
-  static List<ContentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ContentDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ContentDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -255,12 +261,18 @@ class ContentDto {
   }
 
   // maps a json object with a list of ContentDto-objects as value to a dart map
-  static Map<String, List<ContentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ContentDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ContentDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ContentDto.listFromJson(entry.value, growable: growable,);
+        final value = ContentDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -270,7 +282,5 @@ class ContentDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

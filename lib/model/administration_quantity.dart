@@ -43,17 +43,16 @@ class AdministrationQuantity {
   String? unit;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AdministrationQuantity &&
-     other.quantity == quantity &&
-     other.administrationUnit == administrationUnit &&
-     other.unit == unit;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AdministrationQuantity && other.quantity == quantity && other.administrationUnit == administrationUnit && other.unit == unit;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (quantity == null ? 0 : quantity!.hashCode) +
-    (administrationUnit == null ? 0 : administrationUnit!.hashCode) +
-    (unit == null ? 0 : unit!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (quantity == null ? 0 : quantity!.hashCode) +
+      (administrationUnit == null ? 0 : administrationUnit!.hashCode) +
+      (unit == null ? 0 : unit!.hashCode);
 
   @override
   String toString() => 'AdministrationQuantity[quantity=$quantity, administrationUnit=$administrationUnit, unit=$unit]';
@@ -99,7 +98,10 @@ class AdministrationQuantity {
     return null;
   }
 
-  static List<AdministrationQuantity>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AdministrationQuantity>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AdministrationQuantity>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -127,12 +129,18 @@ class AdministrationQuantity {
   }
 
   // maps a json object with a list of AdministrationQuantity-objects as value to a dart map
-  static Map<String, List<AdministrationQuantity>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AdministrationQuantity>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AdministrationQuantity>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AdministrationQuantity.listFromJson(entry.value, growable: growable,);
+        final value = AdministrationQuantity.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,7 +150,5 @@ class AdministrationQuantity {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

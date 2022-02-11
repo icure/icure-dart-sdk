@@ -80,50 +80,52 @@ class InsuranceDto {
   AddressDto address;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InsuranceDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.name == name &&
-     other.privateInsurance == privateInsurance &&
-     other.hospitalisationInsurance == hospitalisationInsurance &&
-     other.ambulatoryInsurance == ambulatoryInsurance &&
-     other.code == code &&
-     other.agreementNumber == agreementNumber &&
-     other.parent == parent &&
-     other.address == address;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is InsuranceDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.name == name &&
+          other.privateInsurance == privateInsurance &&
+          other.hospitalisationInsurance == hospitalisationInsurance &&
+          other.ambulatoryInsurance == ambulatoryInsurance &&
+          other.code == code &&
+          other.agreementNumber == agreementNumber &&
+          other.parent == parent &&
+          other.address == address;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (name.hashCode) +
-    (privateInsurance.hashCode) +
-    (hospitalisationInsurance.hashCode) +
-    (ambulatoryInsurance.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (agreementNumber == null ? 0 : agreementNumber!.hashCode) +
-    (parent == null ? 0 : parent!.hashCode) +
-    (address.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (name.hashCode) +
+      (privateInsurance.hashCode) +
+      (hospitalisationInsurance.hashCode) +
+      (ambulatoryInsurance.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (agreementNumber == null ? 0 : agreementNumber!.hashCode) +
+      (parent == null ? 0 : parent!.hashCode) +
+      (address.hashCode);
 
   @override
-  String toString() => 'InsuranceDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, privateInsurance=$privateInsurance, hospitalisationInsurance=$hospitalisationInsurance, ambulatoryInsurance=$ambulatoryInsurance, code=$code, agreementNumber=$agreementNumber, parent=$parent, address=$address]';
+  String toString() =>
+      'InsuranceDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, privateInsurance=$privateInsurance, hospitalisationInsurance=$hospitalisationInsurance, ambulatoryInsurance=$ambulatoryInsurance, code=$code, agreementNumber=$agreementNumber, parent=$parent, address=$address]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
     if (deletionDate != null) {
       json[r'deletionDate'] = deletionDate;
     }
-      json[r'name'] = name;
-      json[r'privateInsurance'] = privateInsurance;
-      json[r'hospitalisationInsurance'] = hospitalisationInsurance;
-      json[r'ambulatoryInsurance'] = ambulatoryInsurance;
+    json[r'name'] = name;
+    json[r'privateInsurance'] = privateInsurance;
+    json[r'hospitalisationInsurance'] = hospitalisationInsurance;
+    json[r'ambulatoryInsurance'] = ambulatoryInsurance;
     if (code != null) {
       json[r'code'] = code;
     }
@@ -133,7 +135,7 @@ class InsuranceDto {
     if (parent != null) {
       json[r'parent'] = parent;
     }
-      json[r'address'] = address;
+    json[r'address'] = address;
     return json;
   }
 

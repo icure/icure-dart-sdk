@@ -72,45 +72,47 @@ class PersonNameDto {
   PersonNameDtoUseEnum? use;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PersonNameDto &&
-     other.lastName == lastName &&
-     other.firstNames == firstNames &&
-     other.start == start &&
-     other.end == end &&
-     other.prefix == prefix &&
-     other.suffix == suffix &&
-     other.text == text &&
-     other.use == use;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PersonNameDto &&
+          other.lastName == lastName &&
+          other.firstNames == firstNames &&
+          other.start == start &&
+          other.end == end &&
+          other.prefix == prefix &&
+          other.suffix == suffix &&
+          other.text == text &&
+          other.use == use;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (lastName == null ? 0 : lastName!.hashCode) +
-    (firstNames.hashCode) +
-    (start == null ? 0 : start!.hashCode) +
-    (end == null ? 0 : end!.hashCode) +
-    (prefix.hashCode) +
-    (suffix.hashCode) +
-    (text == null ? 0 : text!.hashCode) +
-    (use == null ? 0 : use!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (lastName == null ? 0 : lastName!.hashCode) +
+      (firstNames.hashCode) +
+      (start == null ? 0 : start!.hashCode) +
+      (end == null ? 0 : end!.hashCode) +
+      (prefix.hashCode) +
+      (suffix.hashCode) +
+      (text == null ? 0 : text!.hashCode) +
+      (use == null ? 0 : use!.hashCode);
 
   @override
-  String toString() => 'PersonNameDto[lastName=$lastName, firstNames=$firstNames, start=$start, end=$end, prefix=$prefix, suffix=$suffix, text=$text, use=$use]';
+  String toString() =>
+      'PersonNameDto[lastName=$lastName, firstNames=$firstNames, start=$start, end=$end, prefix=$prefix, suffix=$suffix, text=$text, use=$use]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     if (lastName != null) {
       json[r'lastName'] = lastName;
     }
-      json[r'firstNames'] = firstNames;
+    json[r'firstNames'] = firstNames;
     if (start != null) {
       json[r'start'] = start;
     }
     if (end != null) {
       json[r'end'] = end;
     }
-      json[r'prefix'] = prefix;
-      json[r'suffix'] = suffix;
+    json[r'prefix'] = prefix;
+    json[r'suffix'] = suffix;
     if (text != null) {
       json[r'text'] = text;
     }
@@ -278,14 +280,22 @@ class PersonNameDtoUseEnumTypeTransformer {
   PersonNameDtoUseEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'usual': return PersonNameDtoUseEnum.usual;
-        case r'official': return PersonNameDtoUseEnum.official;
-        case r'temp': return PersonNameDtoUseEnum.temp;
-        case r'nickname': return PersonNameDtoUseEnum.nickname;
-        case r'anonymous': return PersonNameDtoUseEnum.anonymous;
-        case r'maiden': return PersonNameDtoUseEnum.maiden;
-        case r'old': return PersonNameDtoUseEnum.old;
-        case r'other': return PersonNameDtoUseEnum.other;
+        case r'usual':
+          return PersonNameDtoUseEnum.usual;
+        case r'official':
+          return PersonNameDtoUseEnum.official;
+        case r'temp':
+          return PersonNameDtoUseEnum.temp;
+        case r'nickname':
+          return PersonNameDtoUseEnum.nickname;
+        case r'anonymous':
+          return PersonNameDtoUseEnum.anonymous;
+        case r'maiden':
+          return PersonNameDtoUseEnum.maiden;
+        case r'old':
+          return PersonNameDtoUseEnum.old;
+        case r'other':
+          return PersonNameDtoUseEnum.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

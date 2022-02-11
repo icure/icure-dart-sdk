@@ -34,15 +34,16 @@ class TimeTableHourDto {
   int? endHour;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TimeTableHourDto &&
-     other.startHour == startHour &&
-     other.endHour == endHour;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is TimeTableHourDto &&
+          other.startHour == startHour &&
+          other.endHour == endHour;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (startHour == null ? 0 : startHour!.hashCode) +
-    (endHour == null ? 0 : endHour!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (startHour == null ? 0 : startHour!.hashCode) +
+      (endHour == null ? 0 : endHour!.hashCode);
 
   @override
   String toString() => 'TimeTableHourDto[startHour=$startHour, endHour=$endHour]';

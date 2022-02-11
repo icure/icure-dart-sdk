@@ -101,38 +101,41 @@ class VmpGroupDto {
   NoSwitchReasonDto? noSwitchReason;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is VmpGroupDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.from == from &&
-     other.to == to &&
-     other.productId == productId &&
-     other.code == code &&
-     other.name == name &&
-     other.noGenericPrescriptionReason == noGenericPrescriptionReason &&
-     other.noSwitchReason == noSwitchReason;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is VmpGroupDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.from == from &&
+          other.to == to &&
+          other.productId == productId &&
+          other.code == code &&
+          other.name == name &&
+          other.noGenericPrescriptionReason == noGenericPrescriptionReason &&
+          other.noSwitchReason == noSwitchReason;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (productId == null ? 0 : productId!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (noGenericPrescriptionReason == null ? 0 : noGenericPrescriptionReason!.hashCode) +
-    (noSwitchReason == null ? 0 : noSwitchReason!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (productId == null ? 0 : productId!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (noGenericPrescriptionReason == null ? 0 : noGenericPrescriptionReason!.hashCode) +
+      (noSwitchReason == null ? 0 : noSwitchReason!.hashCode);
 
   @override
-  String toString() => 'VmpGroupDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, productId=$productId, code=$code, name=$name, noGenericPrescriptionReason=$noGenericPrescriptionReason, noSwitchReason=$noSwitchReason]';
+  String toString() =>
+      'VmpGroupDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, productId=$productId, code=$code, name=$name, noGenericPrescriptionReason=$noGenericPrescriptionReason, noSwitchReason=$noSwitchReason]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -197,7 +200,10 @@ class VmpGroupDto {
     return null;
   }
 
-  static List<VmpGroupDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<VmpGroupDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <VmpGroupDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -225,12 +231,18 @@ class VmpGroupDto {
   }
 
   // maps a json object with a list of VmpGroupDto-objects as value to a dart map
-  static Map<String, List<VmpGroupDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<VmpGroupDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<VmpGroupDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = VmpGroupDto.listFromJson(entry.value, growable: growable,);
+        final value = VmpGroupDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -244,4 +256,3 @@ class VmpGroupDto {
     'id',
   };
 }
-

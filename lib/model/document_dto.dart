@@ -278,84 +278,86 @@ class DocumentDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DocumentDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.deletionDate == deletionDate &&
-     other.objectStoreReference == objectStoreReference &&
-     other.documentLocation == documentLocation &&
-     other.documentType == documentType &&
-     other.documentStatus == documentStatus &&
-     other.externalUri == externalUri &&
-     other.mainUti == mainUti &&
-     other.name == name &&
-     other.version == version &&
-     other.otherUtis == otherUtis &&
-     other.storedICureDocumentId == storedICureDocumentId &&
-     other.externalUuid == externalUuid &&
-     other.size == size &&
-     other.hash == hash &&
-     other.openingContactId == openingContactId &&
-     other.attachmentId == attachmentId &&
-     other.encryptedAttachment == encryptedAttachment &&
-     other.decryptedAttachment == decryptedAttachment &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.cryptedForeignKeys == cryptedForeignKeys &&
-     other.delegations == delegations &&
-     other.encryptionKeys == encryptionKeys &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is DocumentDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.objectStoreReference == objectStoreReference &&
+          other.documentLocation == documentLocation &&
+          other.documentType == documentType &&
+          other.documentStatus == documentStatus &&
+          other.externalUri == externalUri &&
+          other.mainUti == mainUti &&
+          other.name == name &&
+          other.version == version &&
+          other.otherUtis == otherUtis &&
+          other.storedICureDocumentId == storedICureDocumentId &&
+          other.externalUuid == externalUuid &&
+          other.size == size &&
+          other.hash == hash &&
+          other.openingContactId == openingContactId &&
+          other.attachmentId == attachmentId &&
+          other.encryptedAttachment == encryptedAttachment &&
+          other.decryptedAttachment == decryptedAttachment &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (objectStoreReference == null ? 0 : objectStoreReference!.hashCode) +
-    (documentLocation == null ? 0 : documentLocation!.hashCode) +
-    (documentType == null ? 0 : documentType!.hashCode) +
-    (documentStatus == null ? 0 : documentStatus!.hashCode) +
-    (externalUri == null ? 0 : externalUri!.hashCode) +
-    (mainUti == null ? 0 : mainUti!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (otherUtis.hashCode) +
-    (storedICureDocumentId == null ? 0 : storedICureDocumentId!.hashCode) +
-    (externalUuid == null ? 0 : externalUuid!.hashCode) +
-    (size == null ? 0 : size!.hashCode) +
-    (hash == null ? 0 : hash!.hashCode) +
-    (openingContactId == null ? 0 : openingContactId!.hashCode) +
-    (attachmentId == null ? 0 : attachmentId!.hashCode) +
-    (encryptedAttachment == null ? 0 : encryptedAttachment!.hashCode) +
-    (decryptedAttachment == null ? 0 : decryptedAttachment!.hashCode) +
-    (secretForeignKeys.hashCode) +
-    (cryptedForeignKeys.hashCode) +
-    (delegations.hashCode) +
-    (encryptionKeys.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (objectStoreReference == null ? 0 : objectStoreReference!.hashCode) +
+      (documentLocation == null ? 0 : documentLocation!.hashCode) +
+      (documentType == null ? 0 : documentType!.hashCode) +
+      (documentStatus == null ? 0 : documentStatus!.hashCode) +
+      (externalUri == null ? 0 : externalUri!.hashCode) +
+      (mainUti == null ? 0 : mainUti!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (otherUtis.hashCode) +
+      (storedICureDocumentId == null ? 0 : storedICureDocumentId!.hashCode) +
+      (externalUuid == null ? 0 : externalUuid!.hashCode) +
+      (size == null ? 0 : size!.hashCode) +
+      (hash == null ? 0 : hash!.hashCode) +
+      (openingContactId == null ? 0 : openingContactId!.hashCode) +
+      (attachmentId == null ? 0 : attachmentId!.hashCode) +
+      (encryptedAttachment == null ? 0 : encryptedAttachment!.hashCode) +
+      (decryptedAttachment == null ? 0 : decryptedAttachment!.hashCode) +
+      (secretForeignKeys.hashCode) +
+      (cryptedForeignKeys.hashCode) +
+      (delegations.hashCode) +
+      (encryptionKeys.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'DocumentDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, objectStoreReference=$objectStoreReference, documentLocation=$documentLocation, documentType=$documentType, documentStatus=$documentStatus, externalUri=$externalUri, mainUti=$mainUti, name=$name, version=$version, otherUtis=$otherUtis, storedICureDocumentId=$storedICureDocumentId, externalUuid=$externalUuid, size=$size, hash=$hash, openingContactId=$openingContactId, attachmentId=$attachmentId, encryptedAttachment=$encryptedAttachment, decryptedAttachment=$decryptedAttachment, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'DocumentDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, objectStoreReference=$objectStoreReference, documentLocation=$documentLocation, documentType=$documentType, documentStatus=$documentStatus, externalUri=$externalUri, mainUti=$mainUti, name=$name, version=$version, otherUtis=$otherUtis, storedICureDocumentId=$storedICureDocumentId, externalUuid=$externalUuid, size=$size, hash=$hash, openingContactId=$openingContactId, attachmentId=$attachmentId, encryptedAttachment=$encryptedAttachment, decryptedAttachment=$decryptedAttachment, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -374,8 +376,8 @@ class DocumentDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -406,7 +408,7 @@ class DocumentDto {
     if (version != null) {
       json[r'version'] = version;
     }
-      json[r'otherUtis'] = otherUtis;
+    json[r'otherUtis'] = otherUtis.toList();
     if (storedICureDocumentId != null) {
       json[r'storedICureDocumentId'] = storedICureDocumentId;
     }
@@ -431,10 +433,10 @@ class DocumentDto {
     if (decryptedAttachment != null) {
       json[r'decryptedAttachment'] = decryptedAttachment;
     }
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -479,9 +481,8 @@ class DocumentDto {
         mainUti: mapValueOfType<String>(json, r'mainUti'),
         name: mapValueOfType<String>(json, r'name'),
         version: mapValueOfType<String>(json, r'version'),
-        otherUtis: json[r'otherUtis'] is Set
-            ? (json[r'otherUtis'] as Set).cast<String>()
-            : const {},
+        otherUtis: json[r'otherUtis'] is Set ? (json[r'otherUtis'] as Set).cast<String>() : json[r'otherUtis'] is List ? ((json[r'otherUtis'] as List)
+            .toSet()).cast<String>() : const {},
         storedICureDocumentId: mapValueOfType<String>(json, r'storedICureDocumentId'),
         externalUuid: mapValueOfType<String>(json, r'externalUuid'),
         size: mapValueOfType<int>(json, r'size'),
@@ -490,17 +491,17 @@ class DocumentDto {
         attachmentId: mapValueOfType<String>(json, r'attachmentId'),
         encryptedAttachment: mapValueOfType<String>(json, r'encryptedAttachment'),
         decryptedAttachment: mapValueOfType<String>(json, r'decryptedAttachment'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null
-          ? const {}
+            ? const {}
             : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
@@ -621,8 +622,10 @@ class DocumentDtoDocumentLocationEnumTypeTransformer {
   DocumentDtoDocumentLocationEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'annex': return DocumentDtoDocumentLocationEnum.annex;
-        case r'body': return DocumentDtoDocumentLocationEnum.body;
+        case r'annex':
+          return DocumentDtoDocumentLocationEnum.annex;
+        case r'body':
+          return DocumentDtoDocumentLocationEnum.body;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -769,45 +772,84 @@ class DocumentDtoDocumentTypeEnumTypeTransformer {
   DocumentDtoDocumentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'admission': return DocumentDtoDocumentTypeEnum.admission;
-        case r'alert': return DocumentDtoDocumentTypeEnum.alert;
-        case r'bvt_sample': return DocumentDtoDocumentTypeEnum.bvtSample;
-        case r'clinicalpath': return DocumentDtoDocumentTypeEnum.clinicalpath;
-        case r'clinicalsummary': return DocumentDtoDocumentTypeEnum.clinicalsummary;
-        case r'contactreport': return DocumentDtoDocumentTypeEnum.contactreport;
-        case r'quote': return DocumentDtoDocumentTypeEnum.quote;
-        case r'invoice': return DocumentDtoDocumentTypeEnum.invoice;
-        case r'death': return DocumentDtoDocumentTypeEnum.death;
-        case r'discharge': return DocumentDtoDocumentTypeEnum.discharge;
-        case r'dischargereport': return DocumentDtoDocumentTypeEnum.dischargereport;
-        case r'ebirth_baby_medicalform': return DocumentDtoDocumentTypeEnum.ebirthBabyMedicalform;
-        case r'ebirth_baby_notification': return DocumentDtoDocumentTypeEnum.ebirthBabyNotification;
-        case r'ebirth_mother_medicalform': return DocumentDtoDocumentTypeEnum.ebirthMotherMedicalform;
-        case r'ebirth_mother_notification': return DocumentDtoDocumentTypeEnum.ebirthMotherNotification;
-        case r'ecare_safe_consultation': return DocumentDtoDocumentTypeEnum.ecareSafeConsultation;
-        case r'epidemiology': return DocumentDtoDocumentTypeEnum.epidemiology;
-        case r'intervention': return DocumentDtoDocumentTypeEnum.intervention;
-        case r'labrequest': return DocumentDtoDocumentTypeEnum.labrequest;
-        case r'labresult': return DocumentDtoDocumentTypeEnum.labresult;
-        case r'medicaladvisoragreement': return DocumentDtoDocumentTypeEnum.medicaladvisoragreement;
-        case r'medicationschemeelement': return DocumentDtoDocumentTypeEnum.medicationschemeelement;
-        case r'note': return DocumentDtoDocumentTypeEnum.note;
-        case r'notification': return DocumentDtoDocumentTypeEnum.notification;
-        case r'pharmaceuticalprescription': return DocumentDtoDocumentTypeEnum.pharmaceuticalprescription;
-        case r'prescription': return DocumentDtoDocumentTypeEnum.prescription;
-        case r'productdelivery': return DocumentDtoDocumentTypeEnum.productdelivery;
-        case r'quickdischargereport': return DocumentDtoDocumentTypeEnum.quickdischargereport;
-        case r'radiationexposuremonitoring': return DocumentDtoDocumentTypeEnum.radiationexposuremonitoring;
-        case r'referral': return DocumentDtoDocumentTypeEnum.referral;
-        case r'report': return DocumentDtoDocumentTypeEnum.report;
-        case r'request': return DocumentDtoDocumentTypeEnum.request;
-        case r'result': return DocumentDtoDocumentTypeEnum.result;
-        case r'sumehr': return DocumentDtoDocumentTypeEnum.sumehr;
-        case r'telemonitoring': return DocumentDtoDocumentTypeEnum.telemonitoring;
-        case r'template': return DocumentDtoDocumentTypeEnum.template;
-        case r'template_admin': return DocumentDtoDocumentTypeEnum.templateAdmin;
-        case r'treatmentsuspension': return DocumentDtoDocumentTypeEnum.treatmentsuspension;
-        case r'vaccination': return DocumentDtoDocumentTypeEnum.vaccination;
+        case r'admission':
+          return DocumentDtoDocumentTypeEnum.admission;
+        case r'alert':
+          return DocumentDtoDocumentTypeEnum.alert;
+        case r'bvt_sample':
+          return DocumentDtoDocumentTypeEnum.bvtSample;
+        case r'clinicalpath':
+          return DocumentDtoDocumentTypeEnum.clinicalpath;
+        case r'clinicalsummary':
+          return DocumentDtoDocumentTypeEnum.clinicalsummary;
+        case r'contactreport':
+          return DocumentDtoDocumentTypeEnum.contactreport;
+        case r'quote':
+          return DocumentDtoDocumentTypeEnum.quote;
+        case r'invoice':
+          return DocumentDtoDocumentTypeEnum.invoice;
+        case r'death':
+          return DocumentDtoDocumentTypeEnum.death;
+        case r'discharge':
+          return DocumentDtoDocumentTypeEnum.discharge;
+        case r'dischargereport':
+          return DocumentDtoDocumentTypeEnum.dischargereport;
+        case r'ebirth_baby_medicalform':
+          return DocumentDtoDocumentTypeEnum.ebirthBabyMedicalform;
+        case r'ebirth_baby_notification':
+          return DocumentDtoDocumentTypeEnum.ebirthBabyNotification;
+        case r'ebirth_mother_medicalform':
+          return DocumentDtoDocumentTypeEnum.ebirthMotherMedicalform;
+        case r'ebirth_mother_notification':
+          return DocumentDtoDocumentTypeEnum.ebirthMotherNotification;
+        case r'ecare_safe_consultation':
+          return DocumentDtoDocumentTypeEnum.ecareSafeConsultation;
+        case r'epidemiology':
+          return DocumentDtoDocumentTypeEnum.epidemiology;
+        case r'intervention':
+          return DocumentDtoDocumentTypeEnum.intervention;
+        case r'labrequest':
+          return DocumentDtoDocumentTypeEnum.labrequest;
+        case r'labresult':
+          return DocumentDtoDocumentTypeEnum.labresult;
+        case r'medicaladvisoragreement':
+          return DocumentDtoDocumentTypeEnum.medicaladvisoragreement;
+        case r'medicationschemeelement':
+          return DocumentDtoDocumentTypeEnum.medicationschemeelement;
+        case r'note':
+          return DocumentDtoDocumentTypeEnum.note;
+        case r'notification':
+          return DocumentDtoDocumentTypeEnum.notification;
+        case r'pharmaceuticalprescription':
+          return DocumentDtoDocumentTypeEnum.pharmaceuticalprescription;
+        case r'prescription':
+          return DocumentDtoDocumentTypeEnum.prescription;
+        case r'productdelivery':
+          return DocumentDtoDocumentTypeEnum.productdelivery;
+        case r'quickdischargereport':
+          return DocumentDtoDocumentTypeEnum.quickdischargereport;
+        case r'radiationexposuremonitoring':
+          return DocumentDtoDocumentTypeEnum.radiationexposuremonitoring;
+        case r'referral':
+          return DocumentDtoDocumentTypeEnum.referral;
+        case r'report':
+          return DocumentDtoDocumentTypeEnum.report;
+        case r'request':
+          return DocumentDtoDocumentTypeEnum.request;
+        case r'result':
+          return DocumentDtoDocumentTypeEnum.result;
+        case r'sumehr':
+          return DocumentDtoDocumentTypeEnum.sumehr;
+        case r'telemonitoring':
+          return DocumentDtoDocumentTypeEnum.telemonitoring;
+        case r'template':
+          return DocumentDtoDocumentTypeEnum.template;
+        case r'template_admin':
+          return DocumentDtoDocumentTypeEnum.templateAdmin;
+        case r'treatmentsuspension':
+          return DocumentDtoDocumentTypeEnum.treatmentsuspension;
+        case r'vaccination':
+          return DocumentDtoDocumentTypeEnum.vaccination;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -894,15 +936,24 @@ class DocumentDtoDocumentStatusEnumTypeTransformer {
   DocumentDtoDocumentStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'draft': return DocumentDtoDocumentStatusEnum.draft;
-        case r'finalized': return DocumentDtoDocumentStatusEnum.finalized;
-        case r'pending_review': return DocumentDtoDocumentStatusEnum.pendingReview;
-        case r'reviewed': return DocumentDtoDocumentStatusEnum.reviewed;
-        case r'pending_signature': return DocumentDtoDocumentStatusEnum.pendingSignature;
-        case r'signed': return DocumentDtoDocumentStatusEnum.signed;
-        case r'canceled': return DocumentDtoDocumentStatusEnum.canceled;
-        case r'sent': return DocumentDtoDocumentStatusEnum.sent;
-        case r'delivered': return DocumentDtoDocumentStatusEnum.delivered;
+        case r'draft':
+          return DocumentDtoDocumentStatusEnum.draft;
+        case r'finalized':
+          return DocumentDtoDocumentStatusEnum.finalized;
+        case r'pending_review':
+          return DocumentDtoDocumentStatusEnum.pendingReview;
+        case r'reviewed':
+          return DocumentDtoDocumentStatusEnum.reviewed;
+        case r'pending_signature':
+          return DocumentDtoDocumentStatusEnum.pendingSignature;
+        case r'signed':
+          return DocumentDtoDocumentStatusEnum.signed;
+        case r'canceled':
+          return DocumentDtoDocumentStatusEnum.canceled;
+        case r'sent':
+          return DocumentDtoDocumentStatusEnum.sent;
+        case r'delivered':
+          return DocumentDtoDocumentStatusEnum.delivered;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

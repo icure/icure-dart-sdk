@@ -3,7 +3,7 @@ part of icure_dart_sdk.api;
 
 
 class PatientByHcPartyNameContainsFuzzyFilter extends AbstractFilterDto<PatientDto> {
-         @override String? desc;
-        String? searchString;
-        String? healthcarePartyId;
+  @override String? desc;
+  String? searchString;
+  String? healthcarePartyId;
 }

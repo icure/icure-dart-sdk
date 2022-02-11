@@ -470,116 +470,119 @@ class InvoicingCodeDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InvoicingCodeDto &&
-     other.id == id &&
-     other.dateCode == dateCode &&
-     other.logicalId == logicalId &&
-     other.label == label &&
-     other.userId == userId &&
-     other.contactId == contactId &&
-     other.serviceId == serviceId &&
-     other.tarificationId == tarificationId &&
-     other.code == code &&
-     other.paymentType == paymentType &&
-     other.paid == paid &&
-     other.totalAmount == totalAmount &&
-     other.reimbursement == reimbursement &&
-     other.patientIntervention == patientIntervention &&
-     other.doctorSupplement == doctorSupplement &&
-     other.conventionAmount == conventionAmount &&
-     other.vat == vat &&
-     other.error == error &&
-     other.contract == contract &&
-     other.contractDate == contractDate &&
-     other.units == units &&
-     other.side == side &&
-     other.timeOfDay == timeOfDay &&
-     other.eidReadingHour == eidReadingHour &&
-     other.eidReadingValue == eidReadingValue &&
-     other.override3rdPayerCode == override3rdPayerCode &&
-     other.override3rdPayerReason == override3rdPayerReason &&
-     other.transplantationCode == transplantationCode &&
-     other.prescriberNorm == prescriberNorm &&
-     other.percentNorm == percentNorm &&
-     other.prescriberNihii == prescriberNihii &&
-     other.relatedCode == relatedCode &&
-     other.prescriptionDate == prescriptionDate &&
-     other.derogationMaxNumber == derogationMaxNumber &&
-     other.prescriberSsin == prescriberSsin &&
-     other.prescriberLastName == prescriberLastName &&
-     other.prescriberFirstName == prescriberFirstName &&
-     other.prescriberCdHcParty == prescriberCdHcParty &&
-     other.locationNihii == locationNihii &&
-     other.locationCdHcParty == locationCdHcParty &&
-     other.locationService == locationService &&
-     other.canceled == canceled &&
-     other.accepted == accepted &&
-     other.pending == pending &&
-     other.resent == resent &&
-     other.archived == archived &&
-     other.lost == lost &&
-     other.insuranceJustification == insuranceJustification &&
-     other.cancelPatientInterventionReason == cancelPatientInterventionReason &&
-     other.status == status &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is InvoicingCodeDto &&
+          other.id == id &&
+          other.dateCode == dateCode &&
+          other.logicalId == logicalId &&
+          other.label == label &&
+          other.userId == userId &&
+          other.contactId == contactId &&
+          other.serviceId == serviceId &&
+          other.tarificationId == tarificationId &&
+          other.code == code &&
+          other.paymentType == paymentType &&
+          other.paid == paid &&
+          other.totalAmount == totalAmount &&
+          other.reimbursement == reimbursement &&
+          other.patientIntervention == patientIntervention &&
+          other.doctorSupplement == doctorSupplement &&
+          other.conventionAmount == conventionAmount &&
+          other.vat == vat &&
+          other.error == error &&
+          other.contract == contract &&
+          other.contractDate == contractDate &&
+          other.units == units &&
+          other.side == side &&
+          other.timeOfDay == timeOfDay &&
+          other.eidReadingHour == eidReadingHour &&
+          other.eidReadingValue == eidReadingValue &&
+          other.override3rdPayerCode == override3rdPayerCode &&
+          other.override3rdPayerReason == override3rdPayerReason &&
+          other.transplantationCode == transplantationCode &&
+          other.prescriberNorm == prescriberNorm &&
+          other.percentNorm == percentNorm &&
+          other.prescriberNihii == prescriberNihii &&
+          other.relatedCode == relatedCode &&
+          other.prescriptionDate == prescriptionDate &&
+          other.derogationMaxNumber == derogationMaxNumber &&
+          other.prescriberSsin == prescriberSsin &&
+          other.prescriberLastName == prescriberLastName &&
+          other.prescriberFirstName == prescriberFirstName &&
+          other.prescriberCdHcParty == prescriberCdHcParty &&
+          other.locationNihii == locationNihii &&
+          other.locationCdHcParty == locationCdHcParty &&
+          other.locationService == locationService &&
+          other.canceled == canceled &&
+          other.accepted == accepted &&
+          other.pending == pending &&
+          other.resent == resent &&
+          other.archived == archived &&
+          other.lost == lost &&
+          other.insuranceJustification == insuranceJustification &&
+          other.cancelPatientInterventionReason == cancelPatientInterventionReason &&
+          other.status == status &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (dateCode == null ? 0 : dateCode!.hashCode) +
-    (logicalId == null ? 0 : logicalId!.hashCode) +
-    (label == null ? 0 : label!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (contactId == null ? 0 : contactId!.hashCode) +
-    (serviceId == null ? 0 : serviceId!.hashCode) +
-    (tarificationId == null ? 0 : tarificationId!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (paymentType == null ? 0 : paymentType!.hashCode) +
-    (paid == null ? 0 : paid!.hashCode) +
-    (totalAmount == null ? 0 : totalAmount!.hashCode) +
-    (reimbursement == null ? 0 : reimbursement!.hashCode) +
-    (patientIntervention == null ? 0 : patientIntervention!.hashCode) +
-    (doctorSupplement == null ? 0 : doctorSupplement!.hashCode) +
-    (conventionAmount == null ? 0 : conventionAmount!.hashCode) +
-    (vat == null ? 0 : vat!.hashCode) +
-    (error == null ? 0 : error!.hashCode) +
-    (contract == null ? 0 : contract!.hashCode) +
-    (contractDate == null ? 0 : contractDate!.hashCode) +
-    (units == null ? 0 : units!.hashCode) +
-    (side == null ? 0 : side!.hashCode) +
-    (timeOfDay == null ? 0 : timeOfDay!.hashCode) +
-    (eidReadingHour == null ? 0 : eidReadingHour!.hashCode) +
-    (eidReadingValue == null ? 0 : eidReadingValue!.hashCode) +
-    (override3rdPayerCode == null ? 0 : override3rdPayerCode!.hashCode) +
-    (override3rdPayerReason == null ? 0 : override3rdPayerReason!.hashCode) +
-    (transplantationCode == null ? 0 : transplantationCode!.hashCode) +
-    (prescriberNorm == null ? 0 : prescriberNorm!.hashCode) +
-    (percentNorm == null ? 0 : percentNorm!.hashCode) +
-    (prescriberNihii == null ? 0 : prescriberNihii!.hashCode) +
-    (relatedCode == null ? 0 : relatedCode!.hashCode) +
-    (prescriptionDate == null ? 0 : prescriptionDate!.hashCode) +
-    (derogationMaxNumber == null ? 0 : derogationMaxNumber!.hashCode) +
-    (prescriberSsin == null ? 0 : prescriberSsin!.hashCode) +
-    (prescriberLastName == null ? 0 : prescriberLastName!.hashCode) +
-    (prescriberFirstName == null ? 0 : prescriberFirstName!.hashCode) +
-    (prescriberCdHcParty == null ? 0 : prescriberCdHcParty!.hashCode) +
-    (locationNihii == null ? 0 : locationNihii!.hashCode) +
-    (locationCdHcParty == null ? 0 : locationCdHcParty!.hashCode) +
-    (locationService == null ? 0 : locationService!.hashCode) +
-    (canceled == null ? 0 : canceled!.hashCode) +
-    (accepted == null ? 0 : accepted!.hashCode) +
-    (pending == null ? 0 : pending!.hashCode) +
-    (resent == null ? 0 : resent!.hashCode) +
-    (archived == null ? 0 : archived!.hashCode) +
-    (lost == null ? 0 : lost!.hashCode) +
-    (insuranceJustification == null ? 0 : insuranceJustification!.hashCode) +
-    (cancelPatientInterventionReason == null ? 0 : cancelPatientInterventionReason!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id!.hashCode) +
+      (dateCode == null ? 0 : dateCode!.hashCode) +
+      (logicalId == null ? 0 : logicalId!.hashCode) +
+      (label == null ? 0 : label!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (contactId == null ? 0 : contactId!.hashCode) +
+      (serviceId == null ? 0 : serviceId!.hashCode) +
+      (tarificationId == null ? 0 : tarificationId!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (paymentType == null ? 0 : paymentType!.hashCode) +
+      (paid == null ? 0 : paid!.hashCode) +
+      (totalAmount == null ? 0 : totalAmount!.hashCode) +
+      (reimbursement == null ? 0 : reimbursement!.hashCode) +
+      (patientIntervention == null ? 0 : patientIntervention!.hashCode) +
+      (doctorSupplement == null ? 0 : doctorSupplement!.hashCode) +
+      (conventionAmount == null ? 0 : conventionAmount!.hashCode) +
+      (vat == null ? 0 : vat!.hashCode) +
+      (error == null ? 0 : error!.hashCode) +
+      (contract == null ? 0 : contract!.hashCode) +
+      (contractDate == null ? 0 : contractDate!.hashCode) +
+      (units == null ? 0 : units!.hashCode) +
+      (side == null ? 0 : side!.hashCode) +
+      (timeOfDay == null ? 0 : timeOfDay!.hashCode) +
+      (eidReadingHour == null ? 0 : eidReadingHour!.hashCode) +
+      (eidReadingValue == null ? 0 : eidReadingValue!.hashCode) +
+      (override3rdPayerCode == null ? 0 : override3rdPayerCode!.hashCode) +
+      (override3rdPayerReason == null ? 0 : override3rdPayerReason!.hashCode) +
+      (transplantationCode == null ? 0 : transplantationCode!.hashCode) +
+      (prescriberNorm == null ? 0 : prescriberNorm!.hashCode) +
+      (percentNorm == null ? 0 : percentNorm!.hashCode) +
+      (prescriberNihii == null ? 0 : prescriberNihii!.hashCode) +
+      (relatedCode == null ? 0 : relatedCode!.hashCode) +
+      (prescriptionDate == null ? 0 : prescriptionDate!.hashCode) +
+      (derogationMaxNumber == null ? 0 : derogationMaxNumber!.hashCode) +
+      (prescriberSsin == null ? 0 : prescriberSsin!.hashCode) +
+      (prescriberLastName == null ? 0 : prescriberLastName!.hashCode) +
+      (prescriberFirstName == null ? 0 : prescriberFirstName!.hashCode) +
+      (prescriberCdHcParty == null ? 0 : prescriberCdHcParty!.hashCode) +
+      (locationNihii == null ? 0 : locationNihii!.hashCode) +
+      (locationCdHcParty == null ? 0 : locationCdHcParty!.hashCode) +
+      (locationService == null ? 0 : locationService!.hashCode) +
+      (canceled == null ? 0 : canceled!.hashCode) +
+      (accepted == null ? 0 : accepted!.hashCode) +
+      (pending == null ? 0 : pending!.hashCode) +
+      (resent == null ? 0 : resent!.hashCode) +
+      (archived == null ? 0 : archived!.hashCode) +
+      (lost == null ? 0 : lost!.hashCode) +
+      (insuranceJustification == null ? 0 : insuranceJustification!.hashCode) +
+      (cancelPatientInterventionReason == null ? 0 : cancelPatientInterventionReason!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'InvoicingCodeDto[id=$id, dateCode=$dateCode, logicalId=$logicalId, label=$label, userId=$userId, contactId=$contactId, serviceId=$serviceId, tarificationId=$tarificationId, code=$code, paymentType=$paymentType, paid=$paid, totalAmount=$totalAmount, reimbursement=$reimbursement, patientIntervention=$patientIntervention, doctorSupplement=$doctorSupplement, conventionAmount=$conventionAmount, vat=$vat, error=$error, contract=$contract, contractDate=$contractDate, units=$units, side=$side, timeOfDay=$timeOfDay, eidReadingHour=$eidReadingHour, eidReadingValue=$eidReadingValue, override3rdPayerCode=$override3rdPayerCode, override3rdPayerReason=$override3rdPayerReason, transplantationCode=$transplantationCode, prescriberNorm=$prescriberNorm, percentNorm=$percentNorm, prescriberNihii=$prescriberNihii, relatedCode=$relatedCode, prescriptionDate=$prescriptionDate, derogationMaxNumber=$derogationMaxNumber, prescriberSsin=$prescriberSsin, prescriberLastName=$prescriberLastName, prescriberFirstName=$prescriberFirstName, prescriberCdHcParty=$prescriberCdHcParty, locationNihii=$locationNihii, locationCdHcParty=$locationCdHcParty, locationService=$locationService, canceled=$canceled, accepted=$accepted, pending=$pending, resent=$resent, archived=$archived, lost=$lost, insuranceJustification=$insuranceJustification, cancelPatientInterventionReason=$cancelPatientInterventionReason, status=$status, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'InvoicingCodeDto[id=$id, dateCode=$dateCode, logicalId=$logicalId, label=$label, userId=$userId, contactId=$contactId, serviceId=$serviceId, tarificationId=$tarificationId, code=$code, paymentType=$paymentType, paid=$paid, totalAmount=$totalAmount, reimbursement=$reimbursement, patientIntervention=$patientIntervention, doctorSupplement=$doctorSupplement, conventionAmount=$conventionAmount, vat=$vat, error=$error, contract=$contract, contractDate=$contractDate, units=$units, side=$side, timeOfDay=$timeOfDay, eidReadingHour=$eidReadingHour, eidReadingValue=$eidReadingValue, override3rdPayerCode=$override3rdPayerCode, override3rdPayerReason=$override3rdPayerReason, transplantationCode=$transplantationCode, prescriberNorm=$prescriberNorm, percentNorm=$percentNorm, prescriberNihii=$prescriberNihii, relatedCode=$relatedCode, prescriptionDate=$prescriptionDate, derogationMaxNumber=$derogationMaxNumber, prescriberSsin=$prescriberSsin, prescriberLastName=$prescriberLastName, prescriberFirstName=$prescriberFirstName, prescriberCdHcParty=$prescriberCdHcParty, locationNihii=$locationNihii, locationCdHcParty=$locationCdHcParty, locationService=$locationService, canceled=$canceled, accepted=$accepted, pending=$pending, resent=$resent, archived=$archived, lost=$lost, insuranceJustification=$insuranceJustification, cancelPatientInterventionReason=$cancelPatientInterventionReason, status=$status, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -814,7 +817,10 @@ class InvoicingCodeDto {
     return null;
   }
 
-  static List<InvoicingCodeDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoicingCodeDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoicingCodeDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -842,12 +848,18 @@ class InvoicingCodeDto {
   }
 
   // maps a json object with a list of InvoicingCodeDto-objects as value to a dart map
-  static Map<String, List<InvoicingCodeDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<InvoicingCodeDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<InvoicingCodeDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = InvoicingCodeDto.listFromJson(entry.value, growable: growable,);
+        final value = InvoicingCodeDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -857,10 +869,8 @@ class InvoicingCodeDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class InvoicingCodeDtoPaymentTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -897,7 +907,10 @@ class InvoicingCodeDtoPaymentTypeEnum {
 
   static InvoicingCodeDtoPaymentTypeEnum? fromJson(dynamic value) => InvoicingCodeDtoPaymentTypeEnumTypeTransformer().decode(value);
 
-  static List<InvoicingCodeDtoPaymentTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoicingCodeDtoPaymentTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoicingCodeDtoPaymentTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -931,14 +944,22 @@ class InvoicingCodeDtoPaymentTypeEnumTypeTransformer {
   InvoicingCodeDtoPaymentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'cash': return InvoicingCodeDtoPaymentTypeEnum.cash;
-        case r'wired': return InvoicingCodeDtoPaymentTypeEnum.wired;
-        case r'insurance': return InvoicingCodeDtoPaymentTypeEnum.insurance;
-        case r'creditcard': return InvoicingCodeDtoPaymentTypeEnum.creditcard;
-        case r'debitcard': return InvoicingCodeDtoPaymentTypeEnum.debitcard;
-        case r'paypal': return InvoicingCodeDtoPaymentTypeEnum.paypal;
-        case r'bitcoin': return InvoicingCodeDtoPaymentTypeEnum.bitcoin;
-        case r'other': return InvoicingCodeDtoPaymentTypeEnum.other;
+        case r'cash':
+          return InvoicingCodeDtoPaymentTypeEnum.cash;
+        case r'wired':
+          return InvoicingCodeDtoPaymentTypeEnum.wired;
+        case r'insurance':
+          return InvoicingCodeDtoPaymentTypeEnum.insurance;
+        case r'creditcard':
+          return InvoicingCodeDtoPaymentTypeEnum.creditcard;
+        case r'debitcard':
+          return InvoicingCodeDtoPaymentTypeEnum.debitcard;
+        case r'paypal':
+          return InvoicingCodeDtoPaymentTypeEnum.paypal;
+        case r'bitcoin':
+          return InvoicingCodeDtoPaymentTypeEnum.bitcoin;
+        case r'other':
+          return InvoicingCodeDtoPaymentTypeEnum.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -951,5 +972,3 @@ class InvoicingCodeDtoPaymentTypeEnumTypeTransformer {
   /// Singleton [InvoicingCodeDtoPaymentTypeEnumTypeTransformer] instance.
   static InvoicingCodeDtoPaymentTypeEnumTypeTransformer? _instance;
 }
-
-

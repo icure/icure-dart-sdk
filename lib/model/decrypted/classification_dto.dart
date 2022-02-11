@@ -155,31 +155,31 @@ class DecryptedClassificationDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is DecryptedClassificationDto &&
-              other.id == id &&
-              other.rev == rev &&
-              other.created == created &&
-              other.modified == modified &&
-              other.author == author &&
-              other.responsible == responsible &&
-              other.medicalLocationId == medicalLocationId &&
-              other.tags == tags &&
-              other.codes == codes &&
-              other.endOfLife == endOfLife &&
-              other.deletionDate == deletionDate &&
-              other.parentId == parentId &&
-              other.label == label &&
-              other.templateId == templateId &&
-              other.secretForeignKeys == secretForeignKeys &&
-              other.cryptedForeignKeys == cryptedForeignKeys &&
-              other.delegations == delegations &&
-              other.encryptionKeys == encryptionKeys &&
-              other.encryptedSelf == encryptedSelf;
+      other is DecryptedClassificationDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.parentId == parentId &&
+          other.label == label &&
+          other.templateId == templateId &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -224,8 +224,10 @@ class DecryptedClassificationDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-    json[r'tags'] = tags;
-    json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+
+    json[r'codes'] = codes.toList();
+
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -239,10 +241,10 @@ class DecryptedClassificationDto {
     if (templateId != null) {
       json[r'templateId'] = templateId;
     }
-    json[r'secretForeignKeys'] = secretForeignKeys;
-    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-    json[r'delegations'] = delegations;
-    json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -261,10 +263,8 @@ class DecryptedClassificationDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedClassificationDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedClassificationDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedClassificationDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedClassificationDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -286,23 +286,20 @@ class DecryptedClassificationDto {
         templateId: mapValueOfType<String>(json, r'templateId'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<DecryptedClassificationDto>? listFromJson(dynamic json, {
+  static List<DecryptedClassificationDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedClassificationDto>[];
@@ -333,9 +330,9 @@ class DecryptedClassificationDto {
 
   // maps a json object with a list of DecryptedClassificationDto-objects as value to a dart map
   static Map<String, List<DecryptedClassificationDto>> mapListFromJson(
-      dynamic json, {
-        bool growable = false,
-      }) {
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DecryptedClassificationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments

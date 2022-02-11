@@ -43,17 +43,18 @@ class NumeratorRangeDto {
   String? unit;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NumeratorRangeDto &&
-     other.min == min &&
-     other.max == max &&
-     other.unit == unit;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is NumeratorRangeDto &&
+          other.min == min &&
+          other.max == max &&
+          other.unit == unit;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (min == null ? 0 : min!.hashCode) +
-    (max == null ? 0 : max!.hashCode) +
-    (unit == null ? 0 : unit!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (min == null ? 0 : min!.hashCode) +
+      (max == null ? 0 : max!.hashCode) +
+      (unit == null ? 0 : unit!.hashCode);
 
   @override
   String toString() => 'NumeratorRangeDto[min=$min, max=$max, unit=$unit]';

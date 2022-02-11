@@ -25,13 +25,14 @@ class AbstractFilterDtoDevice {
   String? desc;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AbstractFilterDtoDevice &&
-     other.desc == desc;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is AbstractFilterDtoDevice &&
+          other.desc == desc;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (desc == null ? 0 : desc!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (desc == null ? 0 : desc!.hashCode);
 
   @override
   String toString() => 'AbstractFilterDtoDevice[desc=$desc]';

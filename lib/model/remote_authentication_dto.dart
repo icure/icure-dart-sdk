@@ -25,13 +25,12 @@ class RemoteAuthenticationDto {
   BasicDto? basic;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RemoteAuthenticationDto &&
-     other.basic == basic;
+  bool operator ==(Object other) => identical(this, other) || other is RemoteAuthenticationDto && other.basic == basic;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (basic == null ? 0 : basic!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (basic == null ? 0 : basic!.hashCode);
 
   @override
   String toString() => 'RemoteAuthenticationDto[basic=$basic]';
@@ -69,7 +68,10 @@ class RemoteAuthenticationDto {
     return null;
   }
 
-  static List<RemoteAuthenticationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<RemoteAuthenticationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <RemoteAuthenticationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +99,18 @@ class RemoteAuthenticationDto {
   }
 
   // maps a json object with a list of RemoteAuthenticationDto-objects as value to a dart map
-  static Map<String, List<RemoteAuthenticationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<RemoteAuthenticationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<RemoteAuthenticationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RemoteAuthenticationDto.listFromJson(entry.value, growable: growable,);
+        final value = RemoteAuthenticationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,7 +120,5 @@ class RemoteAuthenticationDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

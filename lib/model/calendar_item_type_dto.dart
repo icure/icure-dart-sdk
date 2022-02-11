@@ -86,40 +86,42 @@ class CalendarItemTypeDto {
   Map<String, String> subjectByLanguage;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CalendarItemTypeDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.name == name &&
-     other.color == color &&
-     other.duration == duration &&
-     other.externalRef == externalRef &&
-     other.mikronoId == mikronoId &&
-     other.docIds == docIds &&
-     other.otherInfos == otherInfos &&
-     other.subjectByLanguage == subjectByLanguage;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is CalendarItemTypeDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.name == name &&
+          other.color == color &&
+          other.duration == duration &&
+          other.externalRef == externalRef &&
+          other.mikronoId == mikronoId &&
+          other.docIds == docIds &&
+          other.otherInfos == otherInfos &&
+          other.subjectByLanguage == subjectByLanguage;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (color == null ? 0 : color!.hashCode) +
-    (duration.hashCode) +
-    (externalRef == null ? 0 : externalRef!.hashCode) +
-    (mikronoId == null ? 0 : mikronoId!.hashCode) +
-    (docIds.hashCode) +
-    (otherInfos.hashCode) +
-    (subjectByLanguage.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (color == null ? 0 : color!.hashCode) +
+      (duration.hashCode) +
+      (externalRef == null ? 0 : externalRef!.hashCode) +
+      (mikronoId == null ? 0 : mikronoId!.hashCode) +
+      (docIds.hashCode) +
+      (otherInfos.hashCode) +
+      (subjectByLanguage.hashCode);
 
   @override
-  String toString() => 'CalendarItemTypeDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, color=$color, duration=$duration, externalRef=$externalRef, mikronoId=$mikronoId, docIds=$docIds, otherInfos=$otherInfos, subjectByLanguage=$subjectByLanguage]';
+  String toString() =>
+      'CalendarItemTypeDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, color=$color, duration=$duration, externalRef=$externalRef, mikronoId=$mikronoId, docIds=$docIds, otherInfos=$otherInfos, subjectByLanguage=$subjectByLanguage]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -132,16 +134,16 @@ class CalendarItemTypeDto {
     if (color != null) {
       json[r'color'] = color;
     }
-      json[r'duration'] = duration;
+    json[r'duration'] = duration;
     if (externalRef != null) {
       json[r'externalRef'] = externalRef;
     }
     if (mikronoId != null) {
       json[r'mikronoId'] = mikronoId;
     }
-      json[r'docIds'] = docIds;
-      json[r'otherInfos'] = otherInfos;
-      json[r'subjectByLanguage'] = subjectByLanguage;
+    json[r'docIds'] = docIds.toList();
+    json[r'otherInfos'] = otherInfos;
+    json[r'subjectByLanguage'] = subjectByLanguage;
     return json;
   }
 
@@ -172,9 +174,8 @@ class CalendarItemTypeDto {
         duration: mapValueOfType<int>(json, r'duration')!,
         externalRef: mapValueOfType<String>(json, r'externalRef'),
         mikronoId: mapValueOfType<String>(json, r'mikronoId'),
-        docIds: json[r'docIds'] is Set
-            ? (json[r'docIds'] as Set).cast<String>()
-            : const {},
+        docIds: json[r'docIds'] is Set ? (json[r'docIds'] as Set).cast<String>() : json[r'docIds'] is List ? ((json[r'docIds'] as List).toSet()).cast<
+            String>() : const {},
         otherInfos: mapCastOfType<String, String>(json, r'otherInfos')!,
         subjectByLanguage: mapCastOfType<String, String>(json, r'subjectByLanguage')!,
       );

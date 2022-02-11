@@ -40,27 +40,28 @@ class ReplicationInfoDto {
   int? pendingTo;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ReplicationInfoDto &&
-     other.active == active &&
-     other.running == running &&
-     other.pendingFrom == pendingFrom &&
-     other.pendingTo == pendingTo;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ReplicationInfoDto &&
+          other.active == active &&
+          other.running == running &&
+          other.pendingFrom == pendingFrom &&
+          other.pendingTo == pendingTo;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (active.hashCode) +
-    (running.hashCode) +
-    (pendingFrom == null ? 0 : pendingFrom!.hashCode) +
-    (pendingTo == null ? 0 : pendingTo!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (active.hashCode) +
+      (running.hashCode) +
+      (pendingFrom == null ? 0 : pendingFrom!.hashCode) +
+      (pendingTo == null ? 0 : pendingTo!.hashCode);
 
   @override
   String toString() => 'ReplicationInfoDto[active=$active, running=$running, pendingFrom=$pendingFrom, pendingTo=$pendingTo]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'active'] = active;
-      json[r'running'] = running;
+    json[r'active'] = active;
+    json[r'running'] = running;
     if (pendingFrom != null) {
       json[r'pendingFrom'] = pendingFrom;
     }

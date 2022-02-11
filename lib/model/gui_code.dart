@@ -34,15 +34,16 @@ class GuiCode {
   String? code;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GuiCode &&
-     other.type == type &&
-     other.code == code;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is GuiCode &&
+          other.type == type &&
+          other.code == code;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (type == null ? 0 : type!.hashCode) +
-    (code == null ? 0 : code!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (type == null ? 0 : type!.hashCode) +
+      (code == null ? 0 : code!.hashCode);
 
   @override
   String toString() => 'GuiCode[type=$type, code=$code]';

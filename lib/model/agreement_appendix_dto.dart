@@ -52,19 +52,20 @@ class AgreementAppendixDto {
   String? path;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AgreementAppendixDto &&
-     other.docSeq == docSeq &&
-     other.verseSeq == verseSeq &&
-     other.documentId == documentId &&
-     other.path == path;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is AgreementAppendixDto &&
+          other.docSeq == docSeq &&
+          other.verseSeq == verseSeq &&
+          other.documentId == documentId &&
+          other.path == path;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (docSeq == null ? 0 : docSeq!.hashCode) +
-    (verseSeq == null ? 0 : verseSeq!.hashCode) +
-    (documentId == null ? 0 : documentId!.hashCode) +
-    (path == null ? 0 : path!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (docSeq == null ? 0 : docSeq!.hashCode) +
+      (verseSeq == null ? 0 : verseSeq!.hashCode) +
+      (documentId == null ? 0 : documentId!.hashCode) +
+      (path == null ? 0 : path!.hashCode);
 
   @override
   String toString() => 'AgreementAppendixDto[docSeq=$docSeq, verseSeq=$verseSeq, documentId=$documentId, path=$path]';

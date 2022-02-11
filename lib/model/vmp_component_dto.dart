@@ -58,26 +58,29 @@ class VmpComponentDto {
   List<VirtualIngredientDto> virtualIngredients;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is VmpComponentDto &&
-     other.code == code &&
-     other.virtualForm == virtualForm &&
-     other.routeOfAdministrations == routeOfAdministrations &&
-     other.name == name &&
-     other.phaseNumber == phaseNumber &&
-     other.virtualIngredients == virtualIngredients;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is VmpComponentDto &&
+          other.code == code &&
+          other.virtualForm == virtualForm &&
+          other.routeOfAdministrations == routeOfAdministrations &&
+          other.name == name &&
+          other.phaseNumber == phaseNumber &&
+          other.virtualIngredients == virtualIngredients;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code == null ? 0 : code!.hashCode) +
-    (virtualForm == null ? 0 : virtualForm!.hashCode) +
-    (routeOfAdministrations.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (phaseNumber == null ? 0 : phaseNumber!.hashCode) +
-    (virtualIngredients.hashCode);
+      // ignore: unnecessary_parenthesis
+      (code == null ? 0 : code!.hashCode) +
+      (virtualForm == null ? 0 : virtualForm!.hashCode) +
+      (routeOfAdministrations.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (phaseNumber == null ? 0 : phaseNumber!.hashCode) +
+      (virtualIngredients.hashCode);
 
   @override
-  String toString() => 'VmpComponentDto[code=$code, virtualForm=$virtualForm, routeOfAdministrations=$routeOfAdministrations, name=$name, phaseNumber=$phaseNumber, virtualIngredients=$virtualIngredients]';
+  String toString() =>
+      'VmpComponentDto[code=$code, virtualForm=$virtualForm, routeOfAdministrations=$routeOfAdministrations, name=$name, phaseNumber=$phaseNumber, virtualIngredients=$virtualIngredients]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -87,14 +90,14 @@ class VmpComponentDto {
     if (virtualForm != null) {
       json[r'virtualForm'] = virtualForm;
     }
-      json[r'routeOfAdministrations'] = routeOfAdministrations;
+    json[r'routeOfAdministrations'] = routeOfAdministrations;
     if (name != null) {
       json[r'name'] = name;
     }
     if (phaseNumber != null) {
       json[r'phaseNumber'] = phaseNumber;
     }
-      json[r'virtualIngredients'] = virtualIngredients;
+    json[r'virtualIngredients'] = virtualIngredients;
     return json;
   }
 
@@ -128,7 +131,10 @@ class VmpComponentDto {
     return null;
   }
 
-  static List<VmpComponentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<VmpComponentDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <VmpComponentDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -156,12 +162,18 @@ class VmpComponentDto {
   }
 
   // maps a json object with a list of VmpComponentDto-objects as value to a dart map
-  static Map<String, List<VmpComponentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<VmpComponentDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<VmpComponentDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = VmpComponentDto.listFromJson(entry.value, growable: growable,);
+        final value = VmpComponentDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -171,7 +183,5 @@ class VmpComponentDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

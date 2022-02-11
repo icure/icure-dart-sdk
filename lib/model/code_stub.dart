@@ -58,30 +58,31 @@ class CodeStub {
   Map<String, String> label;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CodeStub &&
-     other.id == id &&
-     other.context == context &&
-     other.type == type &&
-     other.code == code &&
-     other.version == version &&
-     other.label == label;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is CodeStub &&
+          other.id == id &&
+          other.context == context &&
+          other.type == type &&
+          other.code == code &&
+          other.version == version &&
+          other.label == label;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (context == null ? 0 : context!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (label.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (context == null ? 0 : context!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (label.hashCode);
 
   @override
   String toString() => 'CodeStub[id=$id, context=$context, type=$type, code=$code, version=$version, label=$label]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'_id'] = id;
+    json[r'_id'] = id;
     if (context != null) {
       json[r'context'] = context;
     }
@@ -94,7 +95,7 @@ class CodeStub {
     if (version != null) {
       json[r'version'] = version;
     }
-      json[r'label'] = label;
+    json[r'label'] = label;
     return json;
   }
 

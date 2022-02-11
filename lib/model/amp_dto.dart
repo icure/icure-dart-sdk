@@ -143,54 +143,56 @@ class AmpDto {
   List<AmpComponentDto> components;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AmpDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.from == from &&
-     other.to == to &&
-     other.code == code &&
-     other.vmp == vmp &&
-     other.officialName == officialName &&
-     other.status == status &&
-     other.name == name &&
-     other.blackTriangle == blackTriangle &&
-     other.medicineType == medicineType &&
-     other.company == company &&
-     other.abbreviatedName == abbreviatedName &&
-     other.proprietarySuffix == proprietarySuffix &&
-     other.prescriptionName == prescriptionName &&
-     other.ampps == ampps &&
-     other.components == components;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is AmpDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.from == from &&
+          other.to == to &&
+          other.code == code &&
+          other.vmp == vmp &&
+          other.officialName == officialName &&
+          other.status == status &&
+          other.name == name &&
+          other.blackTriangle == blackTriangle &&
+          other.medicineType == medicineType &&
+          other.company == company &&
+          other.abbreviatedName == abbreviatedName &&
+          other.proprietarySuffix == proprietarySuffix &&
+          other.prescriptionName == prescriptionName &&
+          other.ampps == ampps &&
+          other.components == components;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (vmp == null ? 0 : vmp!.hashCode) +
-    (officialName == null ? 0 : officialName!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (blackTriangle.hashCode) +
-    (medicineType == null ? 0 : medicineType!.hashCode) +
-    (company == null ? 0 : company!.hashCode) +
-    (abbreviatedName == null ? 0 : abbreviatedName!.hashCode) +
-    (proprietarySuffix == null ? 0 : proprietarySuffix!.hashCode) +
-    (prescriptionName == null ? 0 : prescriptionName!.hashCode) +
-    (ampps.hashCode) +
-    (components.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (vmp == null ? 0 : vmp!.hashCode) +
+      (officialName == null ? 0 : officialName!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (blackTriangle.hashCode) +
+      (medicineType == null ? 0 : medicineType!.hashCode) +
+      (company == null ? 0 : company!.hashCode) +
+      (abbreviatedName == null ? 0 : abbreviatedName!.hashCode) +
+      (proprietarySuffix == null ? 0 : proprietarySuffix!.hashCode) +
+      (prescriptionName == null ? 0 : prescriptionName!.hashCode) +
+      (ampps.hashCode) +
+      (components.hashCode);
 
   @override
-  String toString() => 'AmpDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, code=$code, vmp=$vmp, officialName=$officialName, status=$status, name=$name, blackTriangle=$blackTriangle, medicineType=$medicineType, company=$company, abbreviatedName=$abbreviatedName, proprietarySuffix=$proprietarySuffix, prescriptionName=$prescriptionName, ampps=$ampps, components=$components]';
+  String toString() =>
+      'AmpDto[id=$id, rev=$rev, deletionDate=$deletionDate, from=$from, to=$to, code=$code, vmp=$vmp, officialName=$officialName, status=$status, name=$name, blackTriangle=$blackTriangle, medicineType=$medicineType, company=$company, abbreviatedName=$abbreviatedName, proprietarySuffix=$proprietarySuffix, prescriptionName=$prescriptionName, ampps=$ampps, components=$components]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -218,7 +220,7 @@ class AmpDto {
     if (name != null) {
       json[r'name'] = name;
     }
-      json[r'blackTriangle'] = blackTriangle;
+    json[r'blackTriangle'] = blackTriangle;
     if (medicineType != null) {
       json[r'medicineType'] = medicineType;
     }
@@ -234,8 +236,8 @@ class AmpDto {
     if (prescriptionName != null) {
       json[r'prescriptionName'] = prescriptionName;
     }
-      json[r'ampps'] = ampps;
-      json[r'components'] = components;
+    json[r'ampps'] = ampps;
+    json[r'components'] = components;
     return json;
   }
 
@@ -392,9 +394,12 @@ class AmpDtoStatusEnumTypeTransformer {
   AmpDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'AUTHORIZED': return AmpDtoStatusEnum.AUTHORIZED;
-        case r'SUSPENDED': return AmpDtoStatusEnum.SUSPENDED;
-        case r'REVOKED': return AmpDtoStatusEnum.REVOKED;
+        case r'AUTHORIZED':
+          return AmpDtoStatusEnum.AUTHORIZED;
+        case r'SUSPENDED':
+          return AmpDtoStatusEnum.SUSPENDED;
+        case r'REVOKED':
+          return AmpDtoStatusEnum.REVOKED;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -407,7 +412,6 @@ class AmpDtoStatusEnumTypeTransformer {
   /// Singleton [AmpDtoStatusEnumTypeTransformer] instance.
   static AmpDtoStatusEnumTypeTransformer? _instance;
 }
-
 
 
 class AmpDtoMedicineTypeEnum {
@@ -467,8 +471,10 @@ class AmpDtoMedicineTypeEnumTypeTransformer {
   AmpDtoMedicineTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'ALLOPATHIC': return AmpDtoMedicineTypeEnum.ALLOPATHIC;
-        case r'HOMEOPATHIC': return AmpDtoMedicineTypeEnum.HOMEOPATHIC;
+        case r'ALLOPATHIC':
+          return AmpDtoMedicineTypeEnum.ALLOPATHIC;
+        case r'HOMEOPATHIC':
+          return AmpDtoMedicineTypeEnum.HOMEOPATHIC;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

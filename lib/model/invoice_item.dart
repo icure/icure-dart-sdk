@@ -154,65 +154,67 @@ class InvoiceItem {
   InvoiceItemPercentNormEnum? percentNorm;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InvoiceItem &&
-     other.dateCode == dateCode &&
-     other.codeNomenclature == codeNomenclature &&
-     other.relatedCode == relatedCode &&
-     other.eidItem == eidItem &&
-     other.insuranceRef == insuranceRef &&
-     other.insuranceRefDate == insuranceRefDate &&
-     other.units == units &&
-     other.reimbursedAmount == reimbursedAmount &&
-     other.patientFee == patientFee &&
-     other.doctorSupplement == doctorSupplement &&
-     other.sideCode == sideCode &&
-     other.timeOfDay == timeOfDay &&
-     other.override3rdPayerCode == override3rdPayerCode &&
-     other.gnotionNihii == gnotionNihii &&
-     other.derogationMaxNumber == derogationMaxNumber &&
-     other.prescriberNorm == prescriberNorm &&
-     other.prescriberNihii == prescriberNihii &&
-     other.prescriptionDate == prescriptionDate &&
-     other.personalInterventionCoveredByThirdPartyCode == personalInterventionCoveredByThirdPartyCode &&
-     other.doctorIdentificationNumber == doctorIdentificationNumber &&
-     other.invoiceRef == invoiceRef &&
-     other.percentNorm == percentNorm;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is InvoiceItem &&
+          other.dateCode == dateCode &&
+          other.codeNomenclature == codeNomenclature &&
+          other.relatedCode == relatedCode &&
+          other.eidItem == eidItem &&
+          other.insuranceRef == insuranceRef &&
+          other.insuranceRefDate == insuranceRefDate &&
+          other.units == units &&
+          other.reimbursedAmount == reimbursedAmount &&
+          other.patientFee == patientFee &&
+          other.doctorSupplement == doctorSupplement &&
+          other.sideCode == sideCode &&
+          other.timeOfDay == timeOfDay &&
+          other.override3rdPayerCode == override3rdPayerCode &&
+          other.gnotionNihii == gnotionNihii &&
+          other.derogationMaxNumber == derogationMaxNumber &&
+          other.prescriberNorm == prescriberNorm &&
+          other.prescriberNihii == prescriberNihii &&
+          other.prescriptionDate == prescriptionDate &&
+          other.personalInterventionCoveredByThirdPartyCode == personalInterventionCoveredByThirdPartyCode &&
+          other.doctorIdentificationNumber == doctorIdentificationNumber &&
+          other.invoiceRef == invoiceRef &&
+          other.percentNorm == percentNorm;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (dateCode == null ? 0 : dateCode!.hashCode) +
-    (codeNomenclature.hashCode) +
-    (relatedCode == null ? 0 : relatedCode!.hashCode) +
-    (eidItem == null ? 0 : eidItem!.hashCode) +
-    (insuranceRef == null ? 0 : insuranceRef!.hashCode) +
-    (insuranceRefDate == null ? 0 : insuranceRefDate!.hashCode) +
-    (units.hashCode) +
-    (reimbursedAmount.hashCode) +
-    (patientFee.hashCode) +
-    (doctorSupplement.hashCode) +
-    (sideCode == null ? 0 : sideCode!.hashCode) +
-    (timeOfDay == null ? 0 : timeOfDay!.hashCode) +
-    (override3rdPayerCode == null ? 0 : override3rdPayerCode!.hashCode) +
-    (gnotionNihii == null ? 0 : gnotionNihii!.hashCode) +
-    (derogationMaxNumber == null ? 0 : derogationMaxNumber!.hashCode) +
-    (prescriberNorm == null ? 0 : prescriberNorm!.hashCode) +
-    (prescriberNihii == null ? 0 : prescriberNihii!.hashCode) +
-    (prescriptionDate == null ? 0 : prescriptionDate!.hashCode) +
-    (personalInterventionCoveredByThirdPartyCode == null ? 0 : personalInterventionCoveredByThirdPartyCode!.hashCode) +
-    (doctorIdentificationNumber == null ? 0 : doctorIdentificationNumber!.hashCode) +
-    (invoiceRef == null ? 0 : invoiceRef!.hashCode) +
-    (percentNorm == null ? 0 : percentNorm!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (dateCode == null ? 0 : dateCode!.hashCode) +
+      (codeNomenclature.hashCode) +
+      (relatedCode == null ? 0 : relatedCode!.hashCode) +
+      (eidItem == null ? 0 : eidItem!.hashCode) +
+      (insuranceRef == null ? 0 : insuranceRef!.hashCode) +
+      (insuranceRefDate == null ? 0 : insuranceRefDate!.hashCode) +
+      (units.hashCode) +
+      (reimbursedAmount.hashCode) +
+      (patientFee.hashCode) +
+      (doctorSupplement.hashCode) +
+      (sideCode == null ? 0 : sideCode!.hashCode) +
+      (timeOfDay == null ? 0 : timeOfDay!.hashCode) +
+      (override3rdPayerCode == null ? 0 : override3rdPayerCode!.hashCode) +
+      (gnotionNihii == null ? 0 : gnotionNihii!.hashCode) +
+      (derogationMaxNumber == null ? 0 : derogationMaxNumber!.hashCode) +
+      (prescriberNorm == null ? 0 : prescriberNorm!.hashCode) +
+      (prescriberNihii == null ? 0 : prescriberNihii!.hashCode) +
+      (prescriptionDate == null ? 0 : prescriptionDate!.hashCode) +
+      (personalInterventionCoveredByThirdPartyCode == null ? 0 : personalInterventionCoveredByThirdPartyCode!.hashCode) +
+      (doctorIdentificationNumber == null ? 0 : doctorIdentificationNumber!.hashCode) +
+      (invoiceRef == null ? 0 : invoiceRef!.hashCode) +
+      (percentNorm == null ? 0 : percentNorm!.hashCode);
 
   @override
-  String toString() => 'InvoiceItem[dateCode=$dateCode, codeNomenclature=$codeNomenclature, relatedCode=$relatedCode, eidItem=$eidItem, insuranceRef=$insuranceRef, insuranceRefDate=$insuranceRefDate, units=$units, reimbursedAmount=$reimbursedAmount, patientFee=$patientFee, doctorSupplement=$doctorSupplement, sideCode=$sideCode, timeOfDay=$timeOfDay, override3rdPayerCode=$override3rdPayerCode, gnotionNihii=$gnotionNihii, derogationMaxNumber=$derogationMaxNumber, prescriberNorm=$prescriberNorm, prescriberNihii=$prescriberNihii, prescriptionDate=$prescriptionDate, personalInterventionCoveredByThirdPartyCode=$personalInterventionCoveredByThirdPartyCode, doctorIdentificationNumber=$doctorIdentificationNumber, invoiceRef=$invoiceRef, percentNorm=$percentNorm]';
+  String toString() =>
+      'InvoiceItem[dateCode=$dateCode, codeNomenclature=$codeNomenclature, relatedCode=$relatedCode, eidItem=$eidItem, insuranceRef=$insuranceRef, insuranceRefDate=$insuranceRefDate, units=$units, reimbursedAmount=$reimbursedAmount, patientFee=$patientFee, doctorSupplement=$doctorSupplement, sideCode=$sideCode, timeOfDay=$timeOfDay, override3rdPayerCode=$override3rdPayerCode, gnotionNihii=$gnotionNihii, derogationMaxNumber=$derogationMaxNumber, prescriberNorm=$prescriberNorm, prescriberNihii=$prescriberNihii, prescriptionDate=$prescriptionDate, personalInterventionCoveredByThirdPartyCode=$personalInterventionCoveredByThirdPartyCode, doctorIdentificationNumber=$doctorIdentificationNumber, invoiceRef=$invoiceRef, percentNorm=$percentNorm]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     if (dateCode != null) {
       json[r'dateCode'] = dateCode;
     }
-      json[r'codeNomenclature'] = codeNomenclature;
+    json[r'codeNomenclature'] = codeNomenclature;
     if (relatedCode != null) {
       json[r'relatedCode'] = relatedCode;
     }
@@ -225,10 +227,10 @@ class InvoiceItem {
     if (insuranceRefDate != null) {
       json[r'insuranceRefDate'] = insuranceRefDate;
     }
-      json[r'units'] = units;
-      json[r'reimbursedAmount'] = reimbursedAmount;
-      json[r'patientFee'] = patientFee;
-      json[r'doctorSupplement'] = doctorSupplement;
+    json[r'units'] = units;
+    json[r'reimbursedAmount'] = reimbursedAmount;
+    json[r'patientFee'] = patientFee;
+    json[r'doctorSupplement'] = doctorSupplement;
     if (sideCode != null) {
       json[r'sideCode'] = sideCode;
     }
@@ -426,9 +428,12 @@ class InvoiceItemSideCodeEnumTypeTransformer {
   InvoiceItemSideCodeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'None': return InvoiceItemSideCodeEnum.none;
-        case r'Left': return InvoiceItemSideCodeEnum.left;
-        case r'Right': return InvoiceItemSideCodeEnum.right;
+        case r'None':
+          return InvoiceItemSideCodeEnum.none;
+        case r'Left':
+          return InvoiceItemSideCodeEnum.left;
+        case r'Right':
+          return InvoiceItemSideCodeEnum.right;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -441,7 +446,6 @@ class InvoiceItemSideCodeEnumTypeTransformer {
   /// Singleton [InvoiceItemSideCodeEnumTypeTransformer] instance.
   static InvoiceItemSideCodeEnumTypeTransformer? _instance;
 }
-
 
 
 class InvoiceItemTimeOfDayEnum {
@@ -507,11 +511,16 @@ class InvoiceItemTimeOfDayEnumTypeTransformer {
   InvoiceItemTimeOfDayEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'Other': return InvoiceItemTimeOfDayEnum.other;
-        case r'Night': return InvoiceItemTimeOfDayEnum.night;
-        case r'Weekend': return InvoiceItemTimeOfDayEnum.weekend;
-        case r'Bankholiday': return InvoiceItemTimeOfDayEnum.bankholiday;
-        case r'Urgent': return InvoiceItemTimeOfDayEnum.urgent;
+        case r'Other':
+          return InvoiceItemTimeOfDayEnum.other;
+        case r'Night':
+          return InvoiceItemTimeOfDayEnum.night;
+        case r'Weekend':
+          return InvoiceItemTimeOfDayEnum.weekend;
+        case r'Bankholiday':
+          return InvoiceItemTimeOfDayEnum.bankholiday;
+        case r'Urgent':
+          return InvoiceItemTimeOfDayEnum.urgent;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -524,7 +533,6 @@ class InvoiceItemTimeOfDayEnumTypeTransformer {
   /// Singleton [InvoiceItemTimeOfDayEnumTypeTransformer] instance.
   static InvoiceItemTimeOfDayEnumTypeTransformer? _instance;
 }
-
 
 
 class InvoiceItemDerogationMaxNumberEnum {
@@ -590,11 +598,16 @@ class InvoiceItemDerogationMaxNumberEnumTypeTransformer {
   InvoiceItemDerogationMaxNumberEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'Other': return InvoiceItemDerogationMaxNumberEnum.other;
-        case r'DerogationMaxNumber': return InvoiceItemDerogationMaxNumberEnum.derogationMaxNumber;
-        case r'OtherPrescription': return InvoiceItemDerogationMaxNumberEnum.otherPrescription;
-        case r'SecondPrestationOfDay': return InvoiceItemDerogationMaxNumberEnum.secondPrestationOfDay;
-        case r'ThirdAndNextPrestationOfDay': return InvoiceItemDerogationMaxNumberEnum.thirdAndNextPrestationOfDay;
+        case r'Other':
+          return InvoiceItemDerogationMaxNumberEnum.other;
+        case r'DerogationMaxNumber':
+          return InvoiceItemDerogationMaxNumberEnum.derogationMaxNumber;
+        case r'OtherPrescription':
+          return InvoiceItemDerogationMaxNumberEnum.otherPrescription;
+        case r'SecondPrestationOfDay':
+          return InvoiceItemDerogationMaxNumberEnum.secondPrestationOfDay;
+        case r'ThirdAndNextPrestationOfDay':
+          return InvoiceItemDerogationMaxNumberEnum.thirdAndNextPrestationOfDay;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -607,7 +620,6 @@ class InvoiceItemDerogationMaxNumberEnumTypeTransformer {
   /// Singleton [InvoiceItemDerogationMaxNumberEnumTypeTransformer] instance.
   static InvoiceItemDerogationMaxNumberEnumTypeTransformer? _instance;
 }
-
 
 
 class InvoiceItemPrescriberNormEnum {
@@ -673,11 +685,16 @@ class InvoiceItemPrescriberNormEnumTypeTransformer {
   InvoiceItemPrescriberNormEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'None': return InvoiceItemPrescriberNormEnum.none;
-        case r'OnePrescriber': return InvoiceItemPrescriberNormEnum.onePrescriber;
-        case r'SelfPrescriber': return InvoiceItemPrescriberNormEnum.selfPrescriber;
-        case r'AddedCode': return InvoiceItemPrescriberNormEnum.addedCode;
-        case r'ManyPrescribers': return InvoiceItemPrescriberNormEnum.manyPrescribers;
+        case r'None':
+          return InvoiceItemPrescriberNormEnum.none;
+        case r'OnePrescriber':
+          return InvoiceItemPrescriberNormEnum.onePrescriber;
+        case r'SelfPrescriber':
+          return InvoiceItemPrescriberNormEnum.selfPrescriber;
+        case r'AddedCode':
+          return InvoiceItemPrescriberNormEnum.addedCode;
+        case r'ManyPrescribers':
+          return InvoiceItemPrescriberNormEnum.manyPrescribers;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -690,7 +707,6 @@ class InvoiceItemPrescriberNormEnumTypeTransformer {
   /// Singleton [InvoiceItemPrescriberNormEnumTypeTransformer] instance.
   static InvoiceItemPrescriberNormEnumTypeTransformer? _instance;
 }
-
 
 
 class InvoiceItemPercentNormEnum {
@@ -762,14 +778,22 @@ class InvoiceItemPercentNormEnumTypeTransformer {
   InvoiceItemPercentNormEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'None': return InvoiceItemPercentNormEnum.none;
-        case r'SurgicalAid1': return InvoiceItemPercentNormEnum.surgicalAid1;
-        case r'SurgicalAid2': return InvoiceItemPercentNormEnum.surgicalAid2;
-        case r'ReducedFee': return InvoiceItemPercentNormEnum.reducedFee;
-        case r'Ah1n1': return InvoiceItemPercentNormEnum.ah1n1;
-        case r'HalfPriceSecondAct': return InvoiceItemPercentNormEnum.halfPriceSecondAct;
-        case r'InvoiceException': return InvoiceItemPercentNormEnum.invoiceException;
-        case r'ForInformation': return InvoiceItemPercentNormEnum.forInformation;
+        case r'None':
+          return InvoiceItemPercentNormEnum.none;
+        case r'SurgicalAid1':
+          return InvoiceItemPercentNormEnum.surgicalAid1;
+        case r'SurgicalAid2':
+          return InvoiceItemPercentNormEnum.surgicalAid2;
+        case r'ReducedFee':
+          return InvoiceItemPercentNormEnum.reducedFee;
+        case r'Ah1n1':
+          return InvoiceItemPercentNormEnum.ah1n1;
+        case r'HalfPriceSecondAct':
+          return InvoiceItemPercentNormEnum.halfPriceSecondAct;
+        case r'InvoiceException':
+          return InvoiceItemPercentNormEnum.invoiceException;
+        case r'ForInformation':
+          return InvoiceItemPercentNormEnum.forInformation;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

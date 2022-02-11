@@ -52,19 +52,20 @@ class LetterValueDto {
   double? value;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is LetterValueDto &&
-     other.letter == letter &&
-     other.index == index &&
-     other.coefficient == coefficient &&
-     other.value == value;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is LetterValueDto &&
+          other.letter == letter &&
+          other.index == index &&
+          other.coefficient == coefficient &&
+          other.value == value;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (letter == null ? 0 : letter!.hashCode) +
-    (index == null ? 0 : index!.hashCode) +
-    (coefficient == null ? 0 : coefficient!.hashCode) +
-    (value == null ? 0 : value!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (letter == null ? 0 : letter!.hashCode) +
+      (index == null ? 0 : index!.hashCode) +
+      (coefficient == null ? 0 : coefficient!.hashCode) +
+      (value == null ? 0 : value!.hashCode);
 
   @override
   String toString() => 'LetterValueDto[letter=$letter, index=$index, coefficient=$coefficient, value=$value]';

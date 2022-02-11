@@ -34,31 +34,32 @@ class Section {
   List<String> keywords;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Section &&
-     other.section == section &&
-     other.fields == fields &&
-     other.description == description &&
-     other.keywords == keywords;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is Section &&
+          other.section == section &&
+          other.fields == fields &&
+          other.description == description &&
+          other.keywords == keywords;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (section.hashCode) +
-    (fields.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (keywords.hashCode);
+      // ignore: unnecessary_parenthesis
+  (section.hashCode) +
+      (fields.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (keywords.hashCode);
 
   @override
   String toString() => 'Section[section=$section, fields=$fields, description=$description, keywords=$keywords]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'section'] = section;
-      json[r'fields'] = fields;
+    json[r'section'] = section;
+    json[r'fields'] = fields;
     if (description != null) {
       json[r'description'] = description;
     }
-      json[r'keywords'] = keywords;
+    json[r'keywords'] = keywords;
     return json;
   }
 

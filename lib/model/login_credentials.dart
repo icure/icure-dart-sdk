@@ -34,15 +34,16 @@ class LoginCredentials {
   String? password;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is LoginCredentials &&
-     other.username == username &&
-     other.password == password;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is LoginCredentials &&
+          other.username == username &&
+          other.password == password;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (username == null ? 0 : username!.hashCode) +
-    (password == null ? 0 : password!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (username == null ? 0 : username!.hashCode) +
+      (password == null ? 0 : password!.hashCode);
 
   @override
   String toString() => 'LoginCredentials[username=$username, password=$password]';

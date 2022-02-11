@@ -110,38 +110,40 @@ class InsurabilityDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InsurabilityDto &&
-     other.parameters == parameters &&
-     other.hospitalisation == hospitalisation &&
-     other.ambulatory == ambulatory &&
-     other.dental == dental &&
-     other.identificationNumber == identificationNumber &&
-     other.insuranceId == insuranceId &&
-     other.startDate == startDate &&
-     other.endDate == endDate &&
-     other.titularyId == titularyId &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is InsurabilityDto &&
+          other.parameters == parameters &&
+          other.hospitalisation == hospitalisation &&
+          other.ambulatory == ambulatory &&
+          other.dental == dental &&
+          other.identificationNumber == identificationNumber &&
+          other.insuranceId == insuranceId &&
+          other.startDate == startDate &&
+          other.endDate == endDate &&
+          other.titularyId == titularyId &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (parameters.hashCode) +
-    (hospitalisation == null ? 0 : hospitalisation!.hashCode) +
-    (ambulatory == null ? 0 : ambulatory!.hashCode) +
-    (dental == null ? 0 : dental!.hashCode) +
-    (identificationNumber == null ? 0 : identificationNumber!.hashCode) +
-    (insuranceId == null ? 0 : insuranceId!.hashCode) +
-    (startDate == null ? 0 : startDate!.hashCode) +
-    (endDate == null ? 0 : endDate!.hashCode) +
-    (titularyId == null ? 0 : titularyId!.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (parameters.hashCode) +
+      (hospitalisation == null ? 0 : hospitalisation!.hashCode) +
+      (ambulatory == null ? 0 : ambulatory!.hashCode) +
+      (dental == null ? 0 : dental!.hashCode) +
+      (identificationNumber == null ? 0 : identificationNumber!.hashCode) +
+      (insuranceId == null ? 0 : insuranceId!.hashCode) +
+      (startDate == null ? 0 : startDate!.hashCode) +
+      (endDate == null ? 0 : endDate!.hashCode) +
+      (titularyId == null ? 0 : titularyId!.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'InsurabilityDto[parameters=$parameters, hospitalisation=$hospitalisation, ambulatory=$ambulatory, dental=$dental, identificationNumber=$identificationNumber, insuranceId=$insuranceId, startDate=$startDate, endDate=$endDate, titularyId=$titularyId, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'InsurabilityDto[parameters=$parameters, hospitalisation=$hospitalisation, ambulatory=$ambulatory, dental=$dental, identificationNumber=$identificationNumber, insuranceId=$insuranceId, startDate=$startDate, endDate=$endDate, titularyId=$titularyId, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'parameters'] = parameters;
+    json[r'parameters'] = parameters;
     if (hospitalisation != null) {
       json[r'hospitalisation'] = hospitalisation;
     }

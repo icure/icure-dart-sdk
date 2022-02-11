@@ -56,24 +56,27 @@ class CareTeamMembershipDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CareTeamMembershipDto &&
-     other.startDate == startDate &&
-     other.endDate == endDate &&
-     other.careTeamMemberId == careTeamMemberId &&
-     other.membershipType == membershipType &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CareTeamMembershipDto &&
+          other.startDate == startDate &&
+          other.endDate == endDate &&
+          other.careTeamMemberId == careTeamMemberId &&
+          other.membershipType == membershipType &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (startDate == null ? 0 : startDate!.hashCode) +
-    (endDate == null ? 0 : endDate!.hashCode) +
-    (careTeamMemberId == null ? 0 : careTeamMemberId!.hashCode) +
-    (membershipType == null ? 0 : membershipType!.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (startDate == null ? 0 : startDate!.hashCode) +
+      (endDate == null ? 0 : endDate!.hashCode) +
+      (careTeamMemberId == null ? 0 : careTeamMemberId!.hashCode) +
+      (membershipType == null ? 0 : membershipType!.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'CareTeamMembershipDto[startDate=$startDate, endDate=$endDate, careTeamMemberId=$careTeamMemberId, membershipType=$membershipType, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'CareTeamMembershipDto[startDate=$startDate, endDate=$endDate, careTeamMemberId=$careTeamMemberId, membershipType=$membershipType, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -124,7 +127,10 @@ class CareTeamMembershipDto {
     return null;
   }
 
-  static List<CareTeamMembershipDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CareTeamMembershipDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CareTeamMembershipDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -152,12 +158,18 @@ class CareTeamMembershipDto {
   }
 
   // maps a json object with a list of CareTeamMembershipDto-objects as value to a dart map
-  static Map<String, List<CareTeamMembershipDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CareTeamMembershipDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CareTeamMembershipDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CareTeamMembershipDto.listFromJson(entry.value, growable: growable,);
+        final value = CareTeamMembershipDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -167,10 +179,8 @@ class CareTeamMembershipDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class CareTeamMembershipDtoMembershipTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -201,7 +211,10 @@ class CareTeamMembershipDtoMembershipTypeEnum {
 
   static CareTeamMembershipDtoMembershipTypeEnum? fromJson(dynamic value) => CareTeamMembershipDtoMembershipTypeEnumTypeTransformer().decode(value);
 
-  static List<CareTeamMembershipDtoMembershipTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CareTeamMembershipDtoMembershipTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CareTeamMembershipDtoMembershipTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -235,11 +248,16 @@ class CareTeamMembershipDtoMembershipTypeEnumTypeTransformer {
   CareTeamMembershipDtoMembershipTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'doctor': return CareTeamMembershipDtoMembershipTypeEnum.doctor;
-        case r'mutuality': return CareTeamMembershipDtoMembershipTypeEnum.mutuality;
-        case r'patient': return CareTeamMembershipDtoMembershipTypeEnum.patient;
-        case r'specialist': return CareTeamMembershipDtoMembershipTypeEnum.specialist;
-        case r'other': return CareTeamMembershipDtoMembershipTypeEnum.other;
+        case r'doctor':
+          return CareTeamMembershipDtoMembershipTypeEnum.doctor;
+        case r'mutuality':
+          return CareTeamMembershipDtoMembershipTypeEnum.mutuality;
+        case r'patient':
+          return CareTeamMembershipDtoMembershipTypeEnum.patient;
+        case r'specialist':
+          return CareTeamMembershipDtoMembershipTypeEnum.specialist;
+        case r'other':
+          return CareTeamMembershipDtoMembershipTypeEnum.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -252,5 +270,3 @@ class CareTeamMembershipDtoMembershipTypeEnumTypeTransformer {
   /// Singleton [CareTeamMembershipDtoMembershipTypeEnumTypeTransformer] instance.
   static CareTeamMembershipDtoMembershipTypeEnumTypeTransformer? _instance;
 }
-
-

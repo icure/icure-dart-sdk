@@ -22,23 +22,20 @@ class BasicDto {
   String password;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is BasicDto &&
-     other.username == username &&
-     other.password == password;
+  bool operator ==(Object other) => identical(this, other) || other is BasicDto && other.username == username && other.password == password;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (username.hashCode) +
-    (password.hashCode);
+      // ignore: unnecessary_parenthesis
+      (username.hashCode) + (password.hashCode);
 
   @override
   String toString() => 'BasicDto[username=$username, password=$password]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'username'] = username;
-      json[r'password'] = password;
+    json[r'username'] = username;
+    json[r'password'] = password;
     return json;
   }
 
@@ -68,7 +65,10 @@ class BasicDto {
     return null;
   }
 
-  static List<BasicDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<BasicDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <BasicDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -96,12 +96,18 @@ class BasicDto {
   }
 
   // maps a json object with a list of BasicDto-objects as value to a dart map
-  static Map<String, List<BasicDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<BasicDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<BasicDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = BasicDto.listFromJson(entry.value, growable: growable,);
+        final value = BasicDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -116,4 +122,3 @@ class BasicDto {
     'password',
   };
 }
-

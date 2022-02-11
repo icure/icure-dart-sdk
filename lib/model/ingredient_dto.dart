@@ -91,32 +91,34 @@ class IngredientDto {
   SubstanceStubDto? substance;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is IngredientDto &&
-     other.from == from &&
-     other.to == to &&
-     other.rank == rank &&
-     other.type == type &&
-     other.knownEffect == knownEffect &&
-     other.strengthDescription == strengthDescription &&
-     other.strength == strength &&
-     other.additionalInformation == additionalInformation &&
-     other.substance == substance;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is IngredientDto &&
+          other.from == from &&
+          other.to == to &&
+          other.rank == rank &&
+          other.type == type &&
+          other.knownEffect == knownEffect &&
+          other.strengthDescription == strengthDescription &&
+          other.strength == strength &&
+          other.additionalInformation == additionalInformation &&
+          other.substance == substance;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (from == null ? 0 : from!.hashCode) +
-    (to == null ? 0 : to!.hashCode) +
-    (rank == null ? 0 : rank!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (knownEffect == null ? 0 : knownEffect!.hashCode) +
-    (strengthDescription == null ? 0 : strengthDescription!.hashCode) +
-    (strength == null ? 0 : strength!.hashCode) +
-    (additionalInformation == null ? 0 : additionalInformation!.hashCode) +
-    (substance == null ? 0 : substance!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (from == null ? 0 : from!.hashCode) +
+      (to == null ? 0 : to!.hashCode) +
+      (rank == null ? 0 : rank!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (knownEffect == null ? 0 : knownEffect!.hashCode) +
+      (strengthDescription == null ? 0 : strengthDescription!.hashCode) +
+      (strength == null ? 0 : strength!.hashCode) +
+      (additionalInformation == null ? 0 : additionalInformation!.hashCode) +
+      (substance == null ? 0 : substance!.hashCode);
 
   @override
-  String toString() => 'IngredientDto[from=$from, to=$to, rank=$rank, type=$type, knownEffect=$knownEffect, strengthDescription=$strengthDescription, strength=$strength, additionalInformation=$additionalInformation, substance=$substance]';
+  String toString() =>
+      'IngredientDto[from=$from, to=$to, rank=$rank, type=$type, knownEffect=$knownEffect, strengthDescription=$strengthDescription, strength=$strength, additionalInformation=$additionalInformation, substance=$substance]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -288,8 +290,10 @@ class IngredientDtoTypeEnumTypeTransformer {
   IngredientDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'ACTIVE_SUBSTANCE': return IngredientDtoTypeEnum.ACTIVE_SUBSTANCE;
-        case r'EXCIPIENT': return IngredientDtoTypeEnum.EXCIPIENT;
+        case r'ACTIVE_SUBSTANCE':
+          return IngredientDtoTypeEnum.ACTIVE_SUBSTANCE;
+        case r'EXCIPIENT':
+          return IngredientDtoTypeEnum.EXCIPIENT;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

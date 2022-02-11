@@ -34,15 +34,12 @@ class PublicKeyDto {
   String? hexString;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PublicKeyDto &&
-     other.hcPartyId == hcPartyId &&
-     other.hexString == hexString;
+  bool operator ==(Object other) => identical(this, other) || other is PublicKeyDto && other.hcPartyId == hcPartyId && other.hexString == hexString;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (hcPartyId == null ? 0 : hcPartyId!.hashCode) +
-    (hexString == null ? 0 : hexString!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (hcPartyId == null ? 0 : hcPartyId!.hashCode) + (hexString == null ? 0 : hexString!.hashCode);
 
   @override
   String toString() => 'PublicKeyDto[hcPartyId=$hcPartyId, hexString=$hexString]';
@@ -84,7 +81,10 @@ class PublicKeyDto {
     return null;
   }
 
-  static List<PublicKeyDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PublicKeyDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PublicKeyDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +112,18 @@ class PublicKeyDto {
   }
 
   // maps a json object with a list of PublicKeyDto-objects as value to a dart map
-  static Map<String, List<PublicKeyDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PublicKeyDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PublicKeyDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PublicKeyDto.listFromJson(entry.value, growable: growable,);
+        final value = PublicKeyDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +133,5 @@ class PublicKeyDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

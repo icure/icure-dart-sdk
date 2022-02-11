@@ -34,15 +34,16 @@ class DocIdentifier {
   String? rev;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DocIdentifier &&
-     other.id == id &&
-     other.rev == rev;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is DocIdentifier &&
+          other.id == id &&
+          other.rev == rev;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (rev == null ? 0 : rev!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id == null ? 0 : id!.hashCode) +
+      (rev == null ? 0 : rev!.hashCode);
 
   @override
   String toString() => 'DocIdentifier[id=$id, rev=$rev]';

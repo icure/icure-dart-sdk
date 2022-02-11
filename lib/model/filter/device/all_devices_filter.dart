@@ -2,7 +2,7 @@
 
 part of icure_dart_sdk.api;
 
-
 class AllDevicesFilter extends AbstractFilterDto<DeviceDto> {
-  @override String? desc;
+  @override
+  String? desc;
 }

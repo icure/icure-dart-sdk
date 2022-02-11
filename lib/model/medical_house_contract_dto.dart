@@ -236,80 +236,82 @@ class MedicalHouseContractDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MedicalHouseContractDto &&
-     other.contractId == contractId &&
-     other.validFrom == validFrom &&
-     other.validTo == validTo &&
-     other.mmNihii == mmNihii &&
-     other.hcpId == hcpId &&
-     other.changeType == changeType &&
-     other.parentContractId == parentContractId &&
-     other.changedBy == changedBy &&
-     other.startOfContract == startOfContract &&
-     other.startOfCoverage == startOfCoverage &&
-     other.endOfContract == endOfContract &&
-     other.endOfCoverage == endOfCoverage &&
-     other.kine == kine &&
-     other.gp == gp &&
-     other.ptd == ptd &&
-     other.nurse == nurse &&
-     other.noKine == noKine &&
-     other.noGp == noGp &&
-     other.noNurse == noNurse &&
-     other.unsubscriptionReasonId == unsubscriptionReasonId &&
-     other.ptdStart == ptdStart &&
-     other.ptdEnd == ptdEnd &&
-     other.ptdLastInvoiced == ptdLastInvoiced &&
-     other.startOfSuspension == startOfSuspension &&
-     other.endOfSuspension == endOfSuspension &&
-     other.suspensionReason == suspensionReason &&
-     other.suspensionSource == suspensionSource &&
-     other.forcedSuspension == forcedSuspension &&
-     other.signatureType == signatureType &&
-     other.status == status &&
-     other.options == options &&
-     other.receipts == receipts &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MedicalHouseContractDto &&
+          other.contractId == contractId &&
+          other.validFrom == validFrom &&
+          other.validTo == validTo &&
+          other.mmNihii == mmNihii &&
+          other.hcpId == hcpId &&
+          other.changeType == changeType &&
+          other.parentContractId == parentContractId &&
+          other.changedBy == changedBy &&
+          other.startOfContract == startOfContract &&
+          other.startOfCoverage == startOfCoverage &&
+          other.endOfContract == endOfContract &&
+          other.endOfCoverage == endOfCoverage &&
+          other.kine == kine &&
+          other.gp == gp &&
+          other.ptd == ptd &&
+          other.nurse == nurse &&
+          other.noKine == noKine &&
+          other.noGp == noGp &&
+          other.noNurse == noNurse &&
+          other.unsubscriptionReasonId == unsubscriptionReasonId &&
+          other.ptdStart == ptdStart &&
+          other.ptdEnd == ptdEnd &&
+          other.ptdLastInvoiced == ptdLastInvoiced &&
+          other.startOfSuspension == startOfSuspension &&
+          other.endOfSuspension == endOfSuspension &&
+          other.suspensionReason == suspensionReason &&
+          other.suspensionSource == suspensionSource &&
+          other.forcedSuspension == forcedSuspension &&
+          other.signatureType == signatureType &&
+          other.status == status &&
+          other.options == options &&
+          other.receipts == receipts &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (contractId == null ? 0 : contractId!.hashCode) +
-    (validFrom == null ? 0 : validFrom!.hashCode) +
-    (validTo == null ? 0 : validTo!.hashCode) +
-    (mmNihii == null ? 0 : mmNihii!.hashCode) +
-    (hcpId == null ? 0 : hcpId!.hashCode) +
-    (changeType == null ? 0 : changeType!.hashCode) +
-    (parentContractId == null ? 0 : parentContractId!.hashCode) +
-    (changedBy == null ? 0 : changedBy!.hashCode) +
-    (startOfContract == null ? 0 : startOfContract!.hashCode) +
-    (startOfCoverage == null ? 0 : startOfCoverage!.hashCode) +
-    (endOfContract == null ? 0 : endOfContract!.hashCode) +
-    (endOfCoverage == null ? 0 : endOfCoverage!.hashCode) +
-    (kine.hashCode) +
-    (gp.hashCode) +
-    (ptd.hashCode) +
-    (nurse.hashCode) +
-    (noKine.hashCode) +
-    (noGp.hashCode) +
-    (noNurse.hashCode) +
-    (unsubscriptionReasonId == null ? 0 : unsubscriptionReasonId!.hashCode) +
-    (ptdStart == null ? 0 : ptdStart!.hashCode) +
-    (ptdEnd == null ? 0 : ptdEnd!.hashCode) +
-    (ptdLastInvoiced == null ? 0 : ptdLastInvoiced!.hashCode) +
-    (startOfSuspension == null ? 0 : startOfSuspension!.hashCode) +
-    (endOfSuspension == null ? 0 : endOfSuspension!.hashCode) +
-    (suspensionReason == null ? 0 : suspensionReason!.hashCode) +
-    (suspensionSource == null ? 0 : suspensionSource!.hashCode) +
-    (forcedSuspension.hashCode) +
-    (signatureType == null ? 0 : signatureType!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (options.hashCode) +
-    (receipts.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (contractId == null ? 0 : contractId!.hashCode) +
+      (validFrom == null ? 0 : validFrom!.hashCode) +
+      (validTo == null ? 0 : validTo!.hashCode) +
+      (mmNihii == null ? 0 : mmNihii!.hashCode) +
+      (hcpId == null ? 0 : hcpId!.hashCode) +
+      (changeType == null ? 0 : changeType!.hashCode) +
+      (parentContractId == null ? 0 : parentContractId!.hashCode) +
+      (changedBy == null ? 0 : changedBy!.hashCode) +
+      (startOfContract == null ? 0 : startOfContract!.hashCode) +
+      (startOfCoverage == null ? 0 : startOfCoverage!.hashCode) +
+      (endOfContract == null ? 0 : endOfContract!.hashCode) +
+      (endOfCoverage == null ? 0 : endOfCoverage!.hashCode) +
+      (kine.hashCode) +
+      (gp.hashCode) +
+      (ptd.hashCode) +
+      (nurse.hashCode) +
+      (noKine.hashCode) +
+      (noGp.hashCode) +
+      (noNurse.hashCode) +
+      (unsubscriptionReasonId == null ? 0 : unsubscriptionReasonId!.hashCode) +
+      (ptdStart == null ? 0 : ptdStart!.hashCode) +
+      (ptdEnd == null ? 0 : ptdEnd!.hashCode) +
+      (ptdLastInvoiced == null ? 0 : ptdLastInvoiced!.hashCode) +
+      (startOfSuspension == null ? 0 : startOfSuspension!.hashCode) +
+      (endOfSuspension == null ? 0 : endOfSuspension!.hashCode) +
+      (suspensionReason == null ? 0 : suspensionReason!.hashCode) +
+      (suspensionSource == null ? 0 : suspensionSource!.hashCode) +
+      (forcedSuspension.hashCode) +
+      (signatureType == null ? 0 : signatureType!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (options.hashCode) +
+      (receipts.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'MedicalHouseContractDto[contractId=$contractId, validFrom=$validFrom, validTo=$validTo, mmNihii=$mmNihii, hcpId=$hcpId, changeType=$changeType, parentContractId=$parentContractId, changedBy=$changedBy, startOfContract=$startOfContract, startOfCoverage=$startOfCoverage, endOfContract=$endOfContract, endOfCoverage=$endOfCoverage, kine=$kine, gp=$gp, ptd=$ptd, nurse=$nurse, noKine=$noKine, noGp=$noGp, noNurse=$noNurse, unsubscriptionReasonId=$unsubscriptionReasonId, ptdStart=$ptdStart, ptdEnd=$ptdEnd, ptdLastInvoiced=$ptdLastInvoiced, startOfSuspension=$startOfSuspension, endOfSuspension=$endOfSuspension, suspensionReason=$suspensionReason, suspensionSource=$suspensionSource, forcedSuspension=$forcedSuspension, signatureType=$signatureType, status=$status, options=$options, receipts=$receipts, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'MedicalHouseContractDto[contractId=$contractId, validFrom=$validFrom, validTo=$validTo, mmNihii=$mmNihii, hcpId=$hcpId, changeType=$changeType, parentContractId=$parentContractId, changedBy=$changedBy, startOfContract=$startOfContract, startOfCoverage=$startOfCoverage, endOfContract=$endOfContract, endOfCoverage=$endOfCoverage, kine=$kine, gp=$gp, ptd=$ptd, nurse=$nurse, noKine=$noKine, noGp=$noGp, noNurse=$noNurse, unsubscriptionReasonId=$unsubscriptionReasonId, ptdStart=$ptdStart, ptdEnd=$ptdEnd, ptdLastInvoiced=$ptdLastInvoiced, startOfSuspension=$startOfSuspension, endOfSuspension=$endOfSuspension, suspensionReason=$suspensionReason, suspensionSource=$suspensionSource, forcedSuspension=$forcedSuspension, signatureType=$signatureType, status=$status, options=$options, receipts=$receipts, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -349,13 +351,13 @@ class MedicalHouseContractDto {
     if (endOfCoverage != null) {
       json[r'endOfCoverage'] = endOfCoverage;
     }
-      json[r'kine'] = kine;
-      json[r'gp'] = gp;
-      json[r'ptd'] = ptd;
-      json[r'nurse'] = nurse;
-      json[r'noKine'] = noKine;
-      json[r'noGp'] = noGp;
-      json[r'noNurse'] = noNurse;
+    json[r'kine'] = kine;
+    json[r'gp'] = gp;
+    json[r'ptd'] = ptd;
+    json[r'nurse'] = nurse;
+    json[r'noKine'] = noKine;
+    json[r'noGp'] = noGp;
+    json[r'noNurse'] = noNurse;
     if (unsubscriptionReasonId != null) {
       json[r'unsubscriptionReasonId'] = unsubscriptionReasonId;
     }
@@ -380,15 +382,15 @@ class MedicalHouseContractDto {
     if (suspensionSource != null) {
       json[r'suspensionSource'] = suspensionSource;
     }
-      json[r'forcedSuspension'] = forcedSuspension;
+    json[r'forcedSuspension'] = forcedSuspension;
     if (signatureType != null) {
       json[r'signatureType'] = signatureType;
     }
     if (status != null) {
       json[r'status'] = status;
     }
-      json[r'options'] = options;
-      json[r'receipts'] = receipts;
+    json[r'options'] = options;
+    json[r'receipts'] = receipts;
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -571,10 +573,14 @@ class MedicalHouseContractDtoChangeTypeEnumTypeTransformer {
   MedicalHouseContractDtoChangeTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'inscriptionStart': return MedicalHouseContractDtoChangeTypeEnum.inscriptionStart;
-        case r'inscriptionEnd': return MedicalHouseContractDtoChangeTypeEnum.inscriptionEnd;
-        case r'suspension': return MedicalHouseContractDtoChangeTypeEnum.suspension;
-        case r'coverageChange': return MedicalHouseContractDtoChangeTypeEnum.coverageChange;
+        case r'inscriptionStart':
+          return MedicalHouseContractDtoChangeTypeEnum.inscriptionStart;
+        case r'inscriptionEnd':
+          return MedicalHouseContractDtoChangeTypeEnum.inscriptionEnd;
+        case r'suspension':
+          return MedicalHouseContractDtoChangeTypeEnum.suspension;
+        case r'coverageChange':
+          return MedicalHouseContractDtoChangeTypeEnum.coverageChange;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -587,7 +593,6 @@ class MedicalHouseContractDtoChangeTypeEnumTypeTransformer {
   /// Singleton [MedicalHouseContractDtoChangeTypeEnumTypeTransformer] instance.
   static MedicalHouseContractDtoChangeTypeEnumTypeTransformer? _instance;
 }
-
 
 
 class MedicalHouseContractDtoSuspensionReasonEnum {
@@ -617,7 +622,8 @@ class MedicalHouseContractDtoSuspensionReasonEnum {
     changeOfMutuality,
   ];
 
-  static MedicalHouseContractDtoSuspensionReasonEnum? fromJson(dynamic value) => MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer().decode(value);
+  static MedicalHouseContractDtoSuspensionReasonEnum? fromJson(dynamic value) =>
+      MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer().decode(value);
 
   static List<MedicalHouseContractDtoSuspensionReasonEnum>? listFromJson(dynamic json, {bool growable = false,}) {
     final result = <MedicalHouseContractDtoSuspensionReasonEnum>[];
@@ -636,7 +642,8 @@ class MedicalHouseContractDtoSuspensionReasonEnum {
 /// Transformation class that can [encode] an instance of [MedicalHouseContractDtoSuspensionReasonEnum] to String,
 /// and [decode] dynamic data back to [MedicalHouseContractDtoSuspensionReasonEnum].
 class MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer {
-  factory MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer() => _instance ??= const MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer._();
+  factory MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer() =>
+      _instance ??= const MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer._();
 
   const MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer._();
 
@@ -653,11 +660,16 @@ class MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer {
   MedicalHouseContractDtoSuspensionReasonEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'notInsured': return MedicalHouseContractDtoSuspensionReasonEnum.notInsured;
-        case r'noReasonGiven': return MedicalHouseContractDtoSuspensionReasonEnum.noReasonGiven;
-        case r'isHospitalized': return MedicalHouseContractDtoSuspensionReasonEnum.isHospitalized;
-        case r'outsideOfCountry': return MedicalHouseContractDtoSuspensionReasonEnum.outsideOfCountry;
-        case r'changeOfMutuality': return MedicalHouseContractDtoSuspensionReasonEnum.changeOfMutuality;
+        case r'notInsured':
+          return MedicalHouseContractDtoSuspensionReasonEnum.notInsured;
+        case r'noReasonGiven':
+          return MedicalHouseContractDtoSuspensionReasonEnum.noReasonGiven;
+        case r'isHospitalized':
+          return MedicalHouseContractDtoSuspensionReasonEnum.isHospitalized;
+        case r'outsideOfCountry':
+          return MedicalHouseContractDtoSuspensionReasonEnum.outsideOfCountry;
+        case r'changeOfMutuality':
+          return MedicalHouseContractDtoSuspensionReasonEnum.changeOfMutuality;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -670,7 +682,6 @@ class MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer {
   /// Singleton [MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer] instance.
   static MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer? _instance;
 }
-
 
 
 class MedicalHouseContractDtoSignatureTypeEnum {
@@ -717,7 +728,8 @@ class MedicalHouseContractDtoSignatureTypeEnum {
 /// Transformation class that can [encode] an instance of [MedicalHouseContractDtoSignatureTypeEnum] to String,
 /// and [decode] dynamic data back to [MedicalHouseContractDtoSignatureTypeEnum].
 class MedicalHouseContractDtoSignatureTypeEnumTypeTransformer {
-  factory MedicalHouseContractDtoSignatureTypeEnumTypeTransformer() => _instance ??= const MedicalHouseContractDtoSignatureTypeEnumTypeTransformer._();
+  factory MedicalHouseContractDtoSignatureTypeEnumTypeTransformer() =>
+      _instance ??= const MedicalHouseContractDtoSignatureTypeEnumTypeTransformer._();
 
   const MedicalHouseContractDtoSignatureTypeEnumTypeTransformer._();
 
@@ -734,10 +746,14 @@ class MedicalHouseContractDtoSignatureTypeEnumTypeTransformer {
   MedicalHouseContractDtoSignatureTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'holderEid': return MedicalHouseContractDtoSignatureTypeEnum.holderEid;
-        case r'holderPaper': return MedicalHouseContractDtoSignatureTypeEnum.holderPaper;
-        case r'legalrepresentativeEid': return MedicalHouseContractDtoSignatureTypeEnum.legalrepresentativeEid;
-        case r'legalrepresentativePaper': return MedicalHouseContractDtoSignatureTypeEnum.legalrepresentativePaper;
+        case r'holderEid':
+          return MedicalHouseContractDtoSignatureTypeEnum.holderEid;
+        case r'holderPaper':
+          return MedicalHouseContractDtoSignatureTypeEnum.holderPaper;
+        case r'legalrepresentativeEid':
+          return MedicalHouseContractDtoSignatureTypeEnum.legalrepresentativeEid;
+        case r'legalrepresentativePaper':
+          return MedicalHouseContractDtoSignatureTypeEnum.legalrepresentativePaper;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

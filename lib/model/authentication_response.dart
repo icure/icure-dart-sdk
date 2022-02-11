@@ -46,19 +46,20 @@ class AuthenticationResponse {
   String? username;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AuthenticationResponse &&
-     other.healthcarePartyId == healthcarePartyId &&
-     other.reason == reason &&
-     other.successful == successful &&
-     other.username == username;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is AuthenticationResponse &&
+          other.healthcarePartyId == healthcarePartyId &&
+          other.reason == reason &&
+          other.successful == successful &&
+          other.username == username;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
-    (reason == null ? 0 : reason!.hashCode) +
-    (successful.hashCode) +
-    (username == null ? 0 : username!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
+      (reason == null ? 0 : reason!.hashCode) +
+      (successful.hashCode) +
+      (username == null ? 0 : username!.hashCode);
 
   @override
   String toString() => 'AuthenticationResponse[healthcarePartyId=$healthcarePartyId, reason=$reason, successful=$successful, username=$username]';
@@ -71,7 +72,7 @@ class AuthenticationResponse {
     if (reason != null) {
       json[r'reason'] = reason;
     }
-      json[r'successful'] = successful;
+    json[r'successful'] = successful;
     if (username != null) {
       json[r'username'] = username;
     }

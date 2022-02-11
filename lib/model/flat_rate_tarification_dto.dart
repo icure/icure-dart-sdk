@@ -44,24 +44,26 @@ class FlatRateTarificationDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FlatRateTarificationDto &&
-     other.code == code &&
-     other.flatRateType == flatRateType &&
-     other.label == label &&
-     other.valorisations == valorisations &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is FlatRateTarificationDto &&
+          other.code == code &&
+          other.flatRateType == flatRateType &&
+          other.label == label &&
+          other.valorisations == valorisations &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code == null ? 0 : code!.hashCode) +
-    (flatRateType == null ? 0 : flatRateType!.hashCode) +
-    (label.hashCode) +
-    (valorisations.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (code == null ? 0 : code!.hashCode) +
+      (flatRateType == null ? 0 : flatRateType!.hashCode) +
+      (label.hashCode) +
+      (valorisations.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'FlatRateTarificationDto[code=$code, flatRateType=$flatRateType, label=$label, valorisations=$valorisations, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'FlatRateTarificationDto[code=$code, flatRateType=$flatRateType, label=$label, valorisations=$valorisations, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -71,8 +73,8 @@ class FlatRateTarificationDto {
     if (flatRateType != null) {
       json[r'flatRateType'] = flatRateType;
     }
-      json[r'label'] = label;
-      json[r'valorisations'] = valorisations;
+    json[r'label'] = label;
+    json[r'valorisations'] = valorisations;
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -218,10 +220,14 @@ class FlatRateTarificationDtoFlatRateTypeEnumTypeTransformer {
   FlatRateTarificationDtoFlatRateTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'physician': return FlatRateTarificationDtoFlatRateTypeEnum.physician;
-        case r'physiotherapist': return FlatRateTarificationDtoFlatRateTypeEnum.physiotherapist;
-        case r'nurse': return FlatRateTarificationDtoFlatRateTypeEnum.nurse;
-        case r'ptd': return FlatRateTarificationDtoFlatRateTypeEnum.ptd;
+        case r'physician':
+          return FlatRateTarificationDtoFlatRateTypeEnum.physician;
+        case r'physiotherapist':
+          return FlatRateTarificationDtoFlatRateTypeEnum.physiotherapist;
+        case r'nurse':
+          return FlatRateTarificationDtoFlatRateTypeEnum.nurse;
+        case r'ptd':
+          return FlatRateTarificationDtoFlatRateTypeEnum.ptd;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -378,112 +378,114 @@ class HealthcarePartyDto {
   String? publicKey;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is HealthcarePartyDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.deletionDate == deletionDate &&
-     other.name == name &&
-     other.lastName == lastName &&
-     other.firstName == firstName &&
-     other.names == names &&
-     other.gender == gender &&
-     other.civility == civility &&
-     other.companyName == companyName &&
-     other.speciality == speciality &&
-     other.bankAccount == bankAccount &&
-     other.bic == bic &&
-     other.proxyBankAccount == proxyBankAccount &&
-     other.proxyBic == proxyBic &&
-     other.invoiceHeader == invoiceHeader &&
-     other.cbe == cbe &&
-     other.ehp == ehp &&
-     other.userId == userId &&
-     other.parentId == parentId &&
-     other.convention == convention &&
-     other.nihii == nihii &&
-     other.nihiiSpecCode == nihiiSpecCode &&
-     other.ssin == ssin &&
-     other.addresses == addresses &&
-     other.languages == languages &&
-     other.picture == picture &&
-     other.statuses == statuses &&
-     other.statusHistory == statusHistory &&
-     other.specialityCodes == specialityCodes &&
-     other.sendFormats == sendFormats &&
-     other.notes == notes &&
-     other.financialInstitutionInformation == financialInstitutionInformation &&
-     other.billingType == billingType &&
-     other.type == type &&
-     other.contactPerson == contactPerson &&
-     other.contactPersonHcpId == contactPersonHcpId &&
-     other.supervisorId == supervisorId &&
-     other.flatRateTarifications == flatRateTarifications &&
-     other.importedData == importedData &&
-     other.options == options &&
-     other.properties == properties &&
-     other.hcPartyKeys == hcPartyKeys &&
-     other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
-     other.publicKey == publicKey;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is HealthcarePartyDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.deletionDate == deletionDate &&
+          other.name == name &&
+          other.lastName == lastName &&
+          other.firstName == firstName &&
+          other.names == names &&
+          other.gender == gender &&
+          other.civility == civility &&
+          other.companyName == companyName &&
+          other.speciality == speciality &&
+          other.bankAccount == bankAccount &&
+          other.bic == bic &&
+          other.proxyBankAccount == proxyBankAccount &&
+          other.proxyBic == proxyBic &&
+          other.invoiceHeader == invoiceHeader &&
+          other.cbe == cbe &&
+          other.ehp == ehp &&
+          other.userId == userId &&
+          other.parentId == parentId &&
+          other.convention == convention &&
+          other.nihii == nihii &&
+          other.nihiiSpecCode == nihiiSpecCode &&
+          other.ssin == ssin &&
+          other.addresses == addresses &&
+          other.languages == languages &&
+          other.picture == picture &&
+          other.statuses == statuses &&
+          other.statusHistory == statusHistory &&
+          other.specialityCodes == specialityCodes &&
+          other.sendFormats == sendFormats &&
+          other.notes == notes &&
+          other.financialInstitutionInformation == financialInstitutionInformation &&
+          other.billingType == billingType &&
+          other.type == type &&
+          other.contactPerson == contactPerson &&
+          other.contactPersonHcpId == contactPersonHcpId &&
+          other.supervisorId == supervisorId &&
+          other.flatRateTarifications == flatRateTarifications &&
+          other.importedData == importedData &&
+          other.options == options &&
+          other.properties == properties &&
+          other.hcPartyKeys == hcPartyKeys &&
+          other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
+          other.publicKey == publicKey;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (lastName == null ? 0 : lastName!.hashCode) +
-    (firstName == null ? 0 : firstName!.hashCode) +
-    (names.hashCode) +
-    (gender == null ? 0 : gender!.hashCode) +
-    (civility == null ? 0 : civility!.hashCode) +
-    (companyName == null ? 0 : companyName!.hashCode) +
-    (speciality == null ? 0 : speciality!.hashCode) +
-    (bankAccount == null ? 0 : bankAccount!.hashCode) +
-    (bic == null ? 0 : bic!.hashCode) +
-    (proxyBankAccount == null ? 0 : proxyBankAccount!.hashCode) +
-    (proxyBic == null ? 0 : proxyBic!.hashCode) +
-    (invoiceHeader == null ? 0 : invoiceHeader!.hashCode) +
-    (cbe == null ? 0 : cbe!.hashCode) +
-    (ehp == null ? 0 : ehp!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (parentId == null ? 0 : parentId!.hashCode) +
-    (convention == null ? 0 : convention!.hashCode) +
-    (nihii == null ? 0 : nihii!.hashCode) +
-    (nihiiSpecCode == null ? 0 : nihiiSpecCode!.hashCode) +
-    (ssin == null ? 0 : ssin!.hashCode) +
-    (addresses.hashCode) +
-    (languages.hashCode) +
-    (picture == null ? 0 : picture!.hashCode) +
-    (statuses.hashCode) +
-    (statusHistory.hashCode) +
-    (specialityCodes.hashCode) +
-    (sendFormats.hashCode) +
-    (notes == null ? 0 : notes!.hashCode) +
-    (financialInstitutionInformation.hashCode) +
-    (billingType == null ? 0 : billingType!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (contactPerson == null ? 0 : contactPerson!.hashCode) +
-    (contactPersonHcpId == null ? 0 : contactPersonHcpId!.hashCode) +
-    (supervisorId == null ? 0 : supervisorId!.hashCode) +
-    (flatRateTarifications.hashCode) +
-    (importedData.hashCode) +
-    (options.hashCode) +
-    (properties.hashCode) +
-    (hcPartyKeys.hashCode) +
-    (privateKeyShamirPartitions.hashCode) +
-    (publicKey == null ? 0 : publicKey!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
+      (firstName == null ? 0 : firstName!.hashCode) +
+      (names.hashCode) +
+      (gender == null ? 0 : gender!.hashCode) +
+      (civility == null ? 0 : civility!.hashCode) +
+      (companyName == null ? 0 : companyName!.hashCode) +
+      (speciality == null ? 0 : speciality!.hashCode) +
+      (bankAccount == null ? 0 : bankAccount!.hashCode) +
+      (bic == null ? 0 : bic!.hashCode) +
+      (proxyBankAccount == null ? 0 : proxyBankAccount!.hashCode) +
+      (proxyBic == null ? 0 : proxyBic!.hashCode) +
+      (invoiceHeader == null ? 0 : invoiceHeader!.hashCode) +
+      (cbe == null ? 0 : cbe!.hashCode) +
+      (ehp == null ? 0 : ehp!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (parentId == null ? 0 : parentId!.hashCode) +
+      (convention == null ? 0 : convention!.hashCode) +
+      (nihii == null ? 0 : nihii!.hashCode) +
+      (nihiiSpecCode == null ? 0 : nihiiSpecCode!.hashCode) +
+      (ssin == null ? 0 : ssin!.hashCode) +
+      (addresses.hashCode) +
+      (languages.hashCode) +
+      (picture == null ? 0 : picture!.hashCode) +
+      (statuses.hashCode) +
+      (statusHistory.hashCode) +
+      (specialityCodes.hashCode) +
+      (sendFormats.hashCode) +
+      (notes == null ? 0 : notes!.hashCode) +
+      (financialInstitutionInformation.hashCode) +
+      (billingType == null ? 0 : billingType!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (contactPerson == null ? 0 : contactPerson!.hashCode) +
+      (contactPersonHcpId == null ? 0 : contactPersonHcpId!.hashCode) +
+      (supervisorId == null ? 0 : supervisorId!.hashCode) +
+      (flatRateTarifications.hashCode) +
+      (importedData.hashCode) +
+      (options.hashCode) +
+      (properties.hashCode) +
+      (hcPartyKeys.hashCode) +
+      (privateKeyShamirPartitions.hashCode) +
+      (publicKey == null ? 0 : publicKey!.hashCode);
 
   @override
-  String toString() => 'HealthcarePartyDto[id=$id, rev=$rev, created=$created, modified=$modified, deletionDate=$deletionDate, name=$name, lastName=$lastName, firstName=$firstName, names=$names, gender=$gender, civility=$civility, companyName=$companyName, speciality=$speciality, bankAccount=$bankAccount, bic=$bic, proxyBankAccount=$proxyBankAccount, proxyBic=$proxyBic, invoiceHeader=$invoiceHeader, cbe=$cbe, ehp=$ehp, userId=$userId, parentId=$parentId, convention=$convention, nihii=$nihii, nihiiSpecCode=$nihiiSpecCode, ssin=$ssin, addresses=$addresses, languages=$languages, picture=$picture, statuses=$statuses, statusHistory=$statusHistory, specialityCodes=$specialityCodes, sendFormats=$sendFormats, notes=$notes, financialInstitutionInformation=$financialInstitutionInformation, billingType=$billingType, type=$type, contactPerson=$contactPerson, contactPersonHcpId=$contactPersonHcpId, supervisorId=$supervisorId, flatRateTarifications=$flatRateTarifications, importedData=$importedData, options=$options, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey]';
+  String toString() =>
+      'HealthcarePartyDto[id=$id, rev=$rev, created=$created, modified=$modified, deletionDate=$deletionDate, name=$name, lastName=$lastName, firstName=$firstName, names=$names, gender=$gender, civility=$civility, companyName=$companyName, speciality=$speciality, bankAccount=$bankAccount, bic=$bic, proxyBankAccount=$proxyBankAccount, proxyBic=$proxyBic, invoiceHeader=$invoiceHeader, cbe=$cbe, ehp=$ehp, userId=$userId, parentId=$parentId, convention=$convention, nihii=$nihii, nihiiSpecCode=$nihiiSpecCode, ssin=$ssin, addresses=$addresses, languages=$languages, picture=$picture, statuses=$statuses, statusHistory=$statusHistory, specialityCodes=$specialityCodes, sendFormats=$sendFormats, notes=$notes, financialInstitutionInformation=$financialInstitutionInformation, billingType=$billingType, type=$type, contactPerson=$contactPerson, contactPersonHcpId=$contactPersonHcpId, supervisorId=$supervisorId, flatRateTarifications=$flatRateTarifications, importedData=$importedData, options=$options, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -505,7 +507,7 @@ class HealthcarePartyDto {
     if (firstName != null) {
       json[r'firstName'] = firstName;
     }
-      json[r'names'] = names;
+    json[r'names'] = names;
     if (gender != null) {
       json[r'gender'] = gender;
     }
@@ -557,19 +559,19 @@ class HealthcarePartyDto {
     if (ssin != null) {
       json[r'ssin'] = ssin;
     }
-      json[r'addresses'] = addresses;
-      json[r'languages'] = languages;
+    json[r'addresses'] = addresses;
+    json[r'languages'] = languages;
     if (picture != null) {
       json[r'picture'] = picture;
     }
-      json[r'statuses'] = statuses;
-      json[r'statusHistory'] = statusHistory;
-      json[r'specialityCodes'] = specialityCodes;
-      json[r'sendFormats'] = sendFormats;
+    json[r'statuses'] = statuses.toList();
+    json[r'statusHistory'] = statusHistory;
+    json[r'specialityCodes'] = specialityCodes.toList();
+    json[r'sendFormats'] = sendFormats;
     if (notes != null) {
       json[r'notes'] = notes;
     }
-      json[r'financialInstitutionInformation'] = financialInstitutionInformation;
+    json[r'financialInstitutionInformation'] = financialInstitutionInformation;
     if (billingType != null) {
       json[r'billingType'] = billingType;
     }
@@ -585,12 +587,12 @@ class HealthcarePartyDto {
     if (supervisorId != null) {
       json[r'supervisorId'] = supervisorId;
     }
-      json[r'flatRateTarifications'] = flatRateTarifications;
-      json[r'importedData'] = importedData;
-      json[r'options'] = options;
-      json[r'properties'] = properties;
-      json[r'hcPartyKeys'] = hcPartyKeys;
-      json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
+    json[r'flatRateTarifications'] = flatRateTarifications;
+    json[r'importedData'] = importedData;
+    json[r'options'] = options;
+    json[r'properties'] = properties.toList();
+    json[r'hcPartyKeys'] = hcPartyKeys;
+    json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
     if (publicKey != null) {
       json[r'publicKey'] = publicKey;
     }
@@ -800,13 +802,20 @@ class HealthcarePartyDtoGenderEnumTypeTransformer {
   HealthcarePartyDtoGenderEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'male': return HealthcarePartyDtoGenderEnum.male;
-        case r'female': return HealthcarePartyDtoGenderEnum.female;
-        case r'indeterminate': return HealthcarePartyDtoGenderEnum.indeterminate;
-        case r'changed': return HealthcarePartyDtoGenderEnum.changed;
-        case r'changedToMale': return HealthcarePartyDtoGenderEnum.changedToMale;
-        case r'changedToFemale': return HealthcarePartyDtoGenderEnum.changedToFemale;
-        case r'unknown': return HealthcarePartyDtoGenderEnum.unknown;
+        case r'male':
+          return HealthcarePartyDtoGenderEnum.male;
+        case r'female':
+          return HealthcarePartyDtoGenderEnum.female;
+        case r'indeterminate':
+          return HealthcarePartyDtoGenderEnum.indeterminate;
+        case r'changed':
+          return HealthcarePartyDtoGenderEnum.changed;
+        case r'changedToMale':
+          return HealthcarePartyDtoGenderEnum.changedToMale;
+        case r'changedToFemale':
+          return HealthcarePartyDtoGenderEnum.changedToFemale;
+        case r'unknown':
+          return HealthcarePartyDtoGenderEnum.unknown;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -881,9 +890,12 @@ class HealthcarePartyDtoStatusesEnumTypeTransformer {
   HealthcarePartyDtoStatusesEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'trainee': return HealthcarePartyDtoStatusesEnum.trainee;
-        case r'withconvention': return HealthcarePartyDtoStatusesEnum.withconvention;
-        case r'accreditated': return HealthcarePartyDtoStatusesEnum.accreditated;
+        case r'trainee':
+          return HealthcarePartyDtoStatusesEnum.trainee;
+        case r'withconvention':
+          return HealthcarePartyDtoStatusesEnum.withconvention;
+        case r'accreditated':
+          return HealthcarePartyDtoStatusesEnum.accreditated;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

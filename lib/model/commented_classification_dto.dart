@@ -34,15 +34,12 @@ class CommentedClassificationDto {
   SamTextDto? url;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CommentedClassificationDto &&
-     other.title == title &&
-     other.url == url;
+  bool operator ==(Object other) => identical(this, other) || other is CommentedClassificationDto && other.title == title && other.url == url;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (title == null ? 0 : title!.hashCode) +
-    (url == null ? 0 : url!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (title == null ? 0 : title!.hashCode) + (url == null ? 0 : url!.hashCode);
 
   @override
   String toString() => 'CommentedClassificationDto[title=$title, url=$url]';
@@ -84,7 +81,10 @@ class CommentedClassificationDto {
     return null;
   }
 
-  static List<CommentedClassificationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CommentedClassificationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CommentedClassificationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +112,18 @@ class CommentedClassificationDto {
   }
 
   // maps a json object with a list of CommentedClassificationDto-objects as value to a dart map
-  static Map<String, List<CommentedClassificationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CommentedClassificationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CommentedClassificationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CommentedClassificationDto.listFromJson(entry.value, growable: growable,);
+        final value = CommentedClassificationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +133,5 @@ class CommentedClassificationDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

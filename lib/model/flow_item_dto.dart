@@ -313,80 +313,82 @@ class FlowItemDto {
   String? interventionCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FlowItemDto &&
-     other.id == id &&
-     other.title == title &&
-     other.comment == comment &&
-     other.receptionDate == receptionDate &&
-     other.processingDate == processingDate &&
-     other.processer == processer &&
-     other.cancellationDate == cancellationDate &&
-     other.canceller == canceller &&
-     other.cancellationReason == cancellationReason &&
-     other.cancellationNote == cancellationNote &&
-     other.status == status &&
-     other.homeVisit == homeVisit &&
-     other.municipality == municipality &&
-     other.town == town &&
-     other.zipCode == zipCode &&
-     other.street == street &&
-     other.building == building &&
-     other.buildingNumber == buildingNumber &&
-     other.doorbellName == doorbellName &&
-     other.floor == floor &&
-     other.letterBox == letterBox &&
-     other.notesOps == notesOps &&
-     other.notesContact == notesContact &&
-     other.latitude == latitude &&
-     other.longitude == longitude &&
-     other.type == type &&
-     other.emergency == emergency &&
-     other.phoneNumber == phoneNumber &&
-     other.patientId == patientId &&
-     other.patientLastName == patientLastName &&
-     other.patientFirstName == patientFirstName &&
-     other.description == description &&
-     other.interventionCode == interventionCode;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is FlowItemDto &&
+          other.id == id &&
+          other.title == title &&
+          other.comment == comment &&
+          other.receptionDate == receptionDate &&
+          other.processingDate == processingDate &&
+          other.processer == processer &&
+          other.cancellationDate == cancellationDate &&
+          other.canceller == canceller &&
+          other.cancellationReason == cancellationReason &&
+          other.cancellationNote == cancellationNote &&
+          other.status == status &&
+          other.homeVisit == homeVisit &&
+          other.municipality == municipality &&
+          other.town == town &&
+          other.zipCode == zipCode &&
+          other.street == street &&
+          other.building == building &&
+          other.buildingNumber == buildingNumber &&
+          other.doorbellName == doorbellName &&
+          other.floor == floor &&
+          other.letterBox == letterBox &&
+          other.notesOps == notesOps &&
+          other.notesContact == notesContact &&
+          other.latitude == latitude &&
+          other.longitude == longitude &&
+          other.type == type &&
+          other.emergency == emergency &&
+          other.phoneNumber == phoneNumber &&
+          other.patientId == patientId &&
+          other.patientLastName == patientLastName &&
+          other.patientFirstName == patientFirstName &&
+          other.description == description &&
+          other.interventionCode == interventionCode;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (title == null ? 0 : title!.hashCode) +
-    (comment == null ? 0 : comment!.hashCode) +
-    (receptionDate == null ? 0 : receptionDate!.hashCode) +
-    (processingDate == null ? 0 : processingDate!.hashCode) +
-    (processer == null ? 0 : processer!.hashCode) +
-    (cancellationDate == null ? 0 : cancellationDate!.hashCode) +
-    (canceller == null ? 0 : canceller!.hashCode) +
-    (cancellationReason == null ? 0 : cancellationReason!.hashCode) +
-    (cancellationNote == null ? 0 : cancellationNote!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (homeVisit == null ? 0 : homeVisit!.hashCode) +
-    (municipality == null ? 0 : municipality!.hashCode) +
-    (town == null ? 0 : town!.hashCode) +
-    (zipCode == null ? 0 : zipCode!.hashCode) +
-    (street == null ? 0 : street!.hashCode) +
-    (building == null ? 0 : building!.hashCode) +
-    (buildingNumber == null ? 0 : buildingNumber!.hashCode) +
-    (doorbellName == null ? 0 : doorbellName!.hashCode) +
-    (floor == null ? 0 : floor!.hashCode) +
-    (letterBox == null ? 0 : letterBox!.hashCode) +
-    (notesOps == null ? 0 : notesOps!.hashCode) +
-    (notesContact == null ? 0 : notesContact!.hashCode) +
-    (latitude == null ? 0 : latitude!.hashCode) +
-    (longitude == null ? 0 : longitude!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (emergency == null ? 0 : emergency!.hashCode) +
-    (phoneNumber == null ? 0 : phoneNumber!.hashCode) +
-    (patientId == null ? 0 : patientId!.hashCode) +
-    (patientLastName == null ? 0 : patientLastName!.hashCode) +
-    (patientFirstName == null ? 0 : patientFirstName!.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (interventionCode == null ? 0 : interventionCode!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id == null ? 0 : id!.hashCode) +
+      (title == null ? 0 : title!.hashCode) +
+      (comment == null ? 0 : comment!.hashCode) +
+      (receptionDate == null ? 0 : receptionDate!.hashCode) +
+      (processingDate == null ? 0 : processingDate!.hashCode) +
+      (processer == null ? 0 : processer!.hashCode) +
+      (cancellationDate == null ? 0 : cancellationDate!.hashCode) +
+      (canceller == null ? 0 : canceller!.hashCode) +
+      (cancellationReason == null ? 0 : cancellationReason!.hashCode) +
+      (cancellationNote == null ? 0 : cancellationNote!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (homeVisit == null ? 0 : homeVisit!.hashCode) +
+      (municipality == null ? 0 : municipality!.hashCode) +
+      (town == null ? 0 : town!.hashCode) +
+      (zipCode == null ? 0 : zipCode!.hashCode) +
+      (street == null ? 0 : street!.hashCode) +
+      (building == null ? 0 : building!.hashCode) +
+      (buildingNumber == null ? 0 : buildingNumber!.hashCode) +
+      (doorbellName == null ? 0 : doorbellName!.hashCode) +
+      (floor == null ? 0 : floor!.hashCode) +
+      (letterBox == null ? 0 : letterBox!.hashCode) +
+      (notesOps == null ? 0 : notesOps!.hashCode) +
+      (notesContact == null ? 0 : notesContact!.hashCode) +
+      (latitude == null ? 0 : latitude!.hashCode) +
+      (longitude == null ? 0 : longitude!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (emergency == null ? 0 : emergency!.hashCode) +
+      (phoneNumber == null ? 0 : phoneNumber!.hashCode) +
+      (patientId == null ? 0 : patientId!.hashCode) +
+      (patientLastName == null ? 0 : patientLastName!.hashCode) +
+      (patientFirstName == null ? 0 : patientFirstName!.hashCode) +
+      (description == null ? 0 : description!.hashCode) +
+      (interventionCode == null ? 0 : interventionCode!.hashCode);
 
   @override
-  String toString() => 'FlowItemDto[id=$id, title=$title, comment=$comment, receptionDate=$receptionDate, processingDate=$processingDate, processer=$processer, cancellationDate=$cancellationDate, canceller=$canceller, cancellationReason=$cancellationReason, cancellationNote=$cancellationNote, status=$status, homeVisit=$homeVisit, municipality=$municipality, town=$town, zipCode=$zipCode, street=$street, building=$building, buildingNumber=$buildingNumber, doorbellName=$doorbellName, floor=$floor, letterBox=$letterBox, notesOps=$notesOps, notesContact=$notesContact, latitude=$latitude, longitude=$longitude, type=$type, emergency=$emergency, phoneNumber=$phoneNumber, patientId=$patientId, patientLastName=$patientLastName, patientFirstName=$patientFirstName, description=$description, interventionCode=$interventionCode]';
+  String toString() =>
+      'FlowItemDto[id=$id, title=$title, comment=$comment, receptionDate=$receptionDate, processingDate=$processingDate, processer=$processer, cancellationDate=$cancellationDate, canceller=$canceller, cancellationReason=$cancellationReason, cancellationNote=$cancellationNote, status=$status, homeVisit=$homeVisit, municipality=$municipality, town=$town, zipCode=$zipCode, street=$street, building=$building, buildingNumber=$buildingNumber, doorbellName=$doorbellName, floor=$floor, letterBox=$letterBox, notesOps=$notesOps, notesContact=$notesContact, latitude=$latitude, longitude=$longitude, type=$type, emergency=$emergency, phoneNumber=$phoneNumber, patientId=$patientId, patientLastName=$patientLastName, patientFirstName=$patientFirstName, description=$description, interventionCode=$interventionCode]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};

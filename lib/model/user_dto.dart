@@ -210,68 +210,71 @@ class UserDto {
   Map<String, AuthenticationTokenDto> authenticationTokens;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is UserDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.created == created &&
-     other.name == name &&
-     other.properties == properties &&
-     other.permissions == permissions &&
-     other.roles == roles &&
-     other.type == type &&
-     other.status == status &&
-     other.login == login &&
-     other.passwordHash == passwordHash &&
-     other.secret == secret &&
-     other.use2fa == use2fa &&
-     other.groupId == groupId &&
-     other.healthcarePartyId == healthcarePartyId &&
-     other.patientId == patientId &&
-     other.deviceId == deviceId &&
-     other.autoDelegations == autoDelegations &&
-     other.createdDate == createdDate &&
-     other.termsOfUseDate == termsOfUseDate &&
-     other.email == email &&
-     other.mobilePhone == mobilePhone &&
-     other.applicationTokens == applicationTokens &&
-     other.authenticationTokens == authenticationTokens;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UserDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.created == created &&
+          other.name == name &&
+          other.properties == properties &&
+          other.permissions == permissions &&
+          other.roles == roles &&
+          other.type == type &&
+          other.status == status &&
+          other.login == login &&
+          other.passwordHash == passwordHash &&
+          other.secret == secret &&
+          other.use2fa == use2fa &&
+          other.groupId == groupId &&
+          other.healthcarePartyId == healthcarePartyId &&
+          other.patientId == patientId &&
+          other.deviceId == deviceId &&
+          other.autoDelegations == autoDelegations &&
+          other.createdDate == createdDate &&
+          other.termsOfUseDate == termsOfUseDate &&
+          other.email == email &&
+          other.mobilePhone == mobilePhone &&
+          other.applicationTokens == applicationTokens &&
+          other.authenticationTokens == authenticationTokens;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (properties.hashCode) +
-    (permissions.hashCode) +
-    (roles.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (login == null ? 0 : login!.hashCode) +
-    (passwordHash == null ? 0 : passwordHash!.hashCode) +
-    (secret == null ? 0 : secret!.hashCode) +
-    (use2fa == null ? 0 : use2fa!.hashCode) +
-    (groupId == null ? 0 : groupId!.hashCode) +
-    (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
-    (patientId == null ? 0 : patientId!.hashCode) +
-    (deviceId == null ? 0 : deviceId!.hashCode) +
-    (autoDelegations.hashCode) +
-    (createdDate == null ? 0 : createdDate!.hashCode) +
-    (termsOfUseDate == null ? 0 : termsOfUseDate!.hashCode) +
-    (email == null ? 0 : email!.hashCode) +
-    (mobilePhone == null ? 0 : mobilePhone!.hashCode) +
-    (applicationTokens.hashCode) +
-    (authenticationTokens.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (properties.hashCode) +
+      (permissions.hashCode) +
+      (roles.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (login == null ? 0 : login!.hashCode) +
+      (passwordHash == null ? 0 : passwordHash!.hashCode) +
+      (secret == null ? 0 : secret!.hashCode) +
+      (use2fa == null ? 0 : use2fa!.hashCode) +
+      (groupId == null ? 0 : groupId!.hashCode) +
+      (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
+      (patientId == null ? 0 : patientId!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode) +
+      (autoDelegations.hashCode) +
+      (createdDate == null ? 0 : createdDate!.hashCode) +
+      (termsOfUseDate == null ? 0 : termsOfUseDate!.hashCode) +
+      (email == null ? 0 : email!.hashCode) +
+      (mobilePhone == null ? 0 : mobilePhone!.hashCode) +
+      (applicationTokens.hashCode) +
+      (authenticationTokens.hashCode);
 
   @override
-  String toString() => 'UserDto[id=$id, rev=$rev, deletionDate=$deletionDate, created=$created, name=$name, properties=$properties, permissions=$permissions, roles=$roles, type=$type, status=$status, login=$login, passwordHash=$passwordHash, secret=$secret, use2fa=$use2fa, groupId=$groupId, healthcarePartyId=$healthcarePartyId, patientId=$patientId, deviceId=$deviceId, autoDelegations=$autoDelegations, createdDate=$createdDate, termsOfUseDate=$termsOfUseDate, email=$email, mobilePhone=$mobilePhone, applicationTokens=$applicationTokens, authenticationTokens=$authenticationTokens]';
+  String toString() =>
+      'UserDto[id=$id, rev=$rev, deletionDate=$deletionDate, created=$created, name=$name, properties=$properties, permissions=$permissions, roles=$roles, type=$type, status=$status, login=$login, passwordHash=$passwordHash, secret=$secret, use2fa=$use2fa, groupId=$groupId, healthcarePartyId=$healthcarePartyId, patientId=$patientId, deviceId=$deviceId, autoDelegations=$autoDelegations, createdDate=$createdDate, termsOfUseDate=$termsOfUseDate, email=$email, mobilePhone=$mobilePhone, applicationTokens=$applicationTokens, authenticationTokens=$authenticationTokens]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -284,9 +287,9 @@ class UserDto {
     if (name != null) {
       json[r'name'] = name;
     }
-      json[r'properties'] = properties;
-      json[r'permissions'] = permissions;
-      json[r'roles'] = roles;
+    json[r'properties'] = properties.toList();
+    json[r'permissions'] = permissions.toList();
+    json[r'roles'] = roles.toList();
     if (type != null) {
       json[r'type'] = type;
     }
@@ -317,7 +320,7 @@ class UserDto {
     if (deviceId != null) {
       json[r'deviceId'] = deviceId;
     }
-      json[r'autoDelegations'] = autoDelegations;
+    json[r'autoDelegations'] = autoDelegations.map((k, v) => MapEntry(k, v.toList()));
     if (createdDate != null) {
       json[r'createdDate'] = createdDate!.toUtc().toIso8601String();
     }
@@ -330,8 +333,8 @@ class UserDto {
     if (mobilePhone != null) {
       json[r'mobilePhone'] = mobilePhone;
     }
-      json[r'applicationTokens'] = applicationTokens;
-      json[r'authenticationTokens'] = authenticationTokens;
+    json[r'applicationTokens'] = applicationTokens;
+    json[r'authenticationTokens'] = authenticationTokens;
     return json;
   }
 
@@ -363,7 +366,9 @@ class UserDto {
         permissions: PermissionDto.listFromJson(json[r'permissions'])!.toSet(),
         roles: json[r'roles'] is Set
             ? (json[r'roles'] as Set).cast<String>()
-            : const {},
+            : json[r'roles'] is List
+                ? ((json[r'roles'] as List).toSet()).cast<String>()
+                : const {},
         type: UserDtoTypeEnum.fromJson(json[r'type']),
         status: UserDtoStatusEnum.fromJson(json[r'status']),
         login: mapValueOfType<String>(json, r'login'),
@@ -386,7 +391,10 @@ class UserDto {
     return null;
   }
 
-  static List<UserDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<UserDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <UserDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -414,12 +422,18 @@ class UserDto {
   }
 
   // maps a json object with a list of UserDto-objects as value to a dart map
-  static Map<String, List<UserDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<UserDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<UserDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = UserDto.listFromJson(entry.value, growable: growable,);
+        final value = UserDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -466,7 +480,10 @@ class UserDtoTypeEnum {
 
   static UserDtoTypeEnum? fromJson(dynamic value) => UserDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<UserDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<UserDtoTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <UserDtoTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -500,9 +517,12 @@ class UserDtoTypeEnumTypeTransformer {
   UserDtoTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'database': return UserDtoTypeEnum.database;
-        case r'ldap': return UserDtoTypeEnum.ldap;
-        case r'token': return UserDtoTypeEnum.token;
+        case r'database':
+          return UserDtoTypeEnum.database;
+        case r'ldap':
+          return UserDtoTypeEnum.ldap;
+        case r'token':
+          return UserDtoTypeEnum.token;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -515,7 +535,6 @@ class UserDtoTypeEnumTypeTransformer {
   /// Singleton [UserDtoTypeEnumTypeTransformer] instance.
   static UserDtoTypeEnumTypeTransformer? _instance;
 }
-
 
 /// State of user's activeness: 'Active', 'Disabled' or 'Registering'
 class UserDtoStatusEnum {
@@ -543,7 +562,10 @@ class UserDtoStatusEnum {
 
   static UserDtoStatusEnum? fromJson(dynamic value) => UserDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<UserDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<UserDtoStatusEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <UserDtoStatusEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -577,9 +599,12 @@ class UserDtoStatusEnumTypeTransformer {
   UserDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'ACTIVE': return UserDtoStatusEnum.ACTIVE;
-        case r'DISABLED': return UserDtoStatusEnum.DISABLED;
-        case r'REGISTERING': return UserDtoStatusEnum.REGISTERING;
+        case r'ACTIVE':
+          return UserDtoStatusEnum.ACTIVE;
+        case r'DISABLED':
+          return UserDtoStatusEnum.DISABLED;
+        case r'REGISTERING':
+          return UserDtoStatusEnum.REGISTERING;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -592,5 +617,3 @@ class UserDtoStatusEnumTypeTransformer {
   /// Singleton [UserDtoStatusEnumTypeTransformer] instance.
   static UserDtoStatusEnumTypeTransformer? _instance;
 }
-
-

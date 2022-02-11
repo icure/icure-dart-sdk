@@ -34,15 +34,16 @@ class StrengthRangeDto {
   QuantityDto? denominator;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is StrengthRangeDto &&
-     other.numeratorRange == numeratorRange &&
-     other.denominator == denominator;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is StrengthRangeDto &&
+          other.numeratorRange == numeratorRange &&
+          other.denominator == denominator;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (numeratorRange == null ? 0 : numeratorRange!.hashCode) +
-    (denominator == null ? 0 : denominator!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (numeratorRange == null ? 0 : numeratorRange!.hashCode) +
+      (denominator == null ? 0 : denominator!.hashCode);
 
   @override
   String toString() => 'StrengthRangeDto[numeratorRange=$numeratorRange, denominator=$denominator]';

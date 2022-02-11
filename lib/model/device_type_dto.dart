@@ -52,19 +52,20 @@ class DeviceTypeDto {
   String? edqmDefinition;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DeviceTypeDto &&
-     other.code == code &&
-     other.name == name &&
-     other.edqmCode == edqmCode &&
-     other.edqmDefinition == edqmDefinition;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is DeviceTypeDto &&
+          other.code == code &&
+          other.name == name &&
+          other.edqmCode == edqmCode &&
+          other.edqmDefinition == edqmDefinition;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code == null ? 0 : code!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (edqmCode == null ? 0 : edqmCode!.hashCode) +
-    (edqmDefinition == null ? 0 : edqmDefinition!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (code == null ? 0 : code!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (edqmCode == null ? 0 : edqmCode!.hashCode) +
+      (edqmDefinition == null ? 0 : edqmDefinition!.hashCode);
 
   @override
   String toString() => 'DeviceTypeDto[code=$code, name=$name, edqmCode=$edqmCode, edqmDefinition=$edqmDefinition]';

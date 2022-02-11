@@ -117,44 +117,47 @@ class FrontEndMigrationDto {
   Set<PropertyStubDto> properties;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FrontEndMigrationDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.name == name &&
-     other.startDate == startDate &&
-     other.endDate == endDate &&
-     other.status == status &&
-     other.logs == logs &&
-     other.userId == userId &&
-     other.startKey == startKey &&
-     other.startKeyDocId == startKeyDocId &&
-     other.processCount == processCount &&
-     other.properties == properties;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FrontEndMigrationDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.name == name &&
+          other.startDate == startDate &&
+          other.endDate == endDate &&
+          other.status == status &&
+          other.logs == logs &&
+          other.userId == userId &&
+          other.startKey == startKey &&
+          other.startKeyDocId == startKeyDocId &&
+          other.processCount == processCount &&
+          other.properties == properties;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (startDate == null ? 0 : startDate!.hashCode) +
-    (endDate == null ? 0 : endDate!.hashCode) +
-    (status == null ? 0 : status!.hashCode) +
-    (logs == null ? 0 : logs!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (startKey == null ? 0 : startKey!.hashCode) +
-    (startKeyDocId == null ? 0 : startKeyDocId!.hashCode) +
-    (processCount == null ? 0 : processCount!.hashCode) +
-    (properties.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (startDate == null ? 0 : startDate!.hashCode) +
+      (endDate == null ? 0 : endDate!.hashCode) +
+      (status == null ? 0 : status!.hashCode) +
+      (logs == null ? 0 : logs!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (startKey == null ? 0 : startKey!.hashCode) +
+      (startKeyDocId == null ? 0 : startKeyDocId!.hashCode) +
+      (processCount == null ? 0 : processCount!.hashCode) +
+      (properties.hashCode);
 
   @override
-  String toString() => 'FrontEndMigrationDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, startDate=$startDate, endDate=$endDate, status=$status, logs=$logs, userId=$userId, startKey=$startKey, startKeyDocId=$startKeyDocId, processCount=$processCount, properties=$properties]';
+  String toString() =>
+      'FrontEndMigrationDto[id=$id, rev=$rev, deletionDate=$deletionDate, name=$name, startDate=$startDate, endDate=$endDate, status=$status, logs=$logs, userId=$userId, startKey=$startKey, startKeyDocId=$startKeyDocId, processCount=$processCount, properties=$properties]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -188,7 +191,7 @@ class FrontEndMigrationDto {
     if (processCount != null) {
       json[r'processCount'] = processCount;
     }
-      json[r'properties'] = properties;
+    json[r'properties'] = properties.toList();
     return json;
   }
 
@@ -229,7 +232,10 @@ class FrontEndMigrationDto {
     return null;
   }
 
-  static List<FrontEndMigrationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FrontEndMigrationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FrontEndMigrationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -257,12 +263,18 @@ class FrontEndMigrationDto {
   }
 
   // maps a json object with a list of FrontEndMigrationDto-objects as value to a dart map
-  static Map<String, List<FrontEndMigrationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FrontEndMigrationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FrontEndMigrationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FrontEndMigrationDto.listFromJson(entry.value, growable: growable,);
+        final value = FrontEndMigrationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -277,7 +289,6 @@ class FrontEndMigrationDto {
     'properties',
   };
 }
-
 
 class FrontEndMigrationDtoStatusEnum {
   /// Instantiate a new enum with the provided [value].
@@ -306,7 +317,10 @@ class FrontEndMigrationDtoStatusEnum {
 
   static FrontEndMigrationDtoStatusEnum? fromJson(dynamic value) => FrontEndMigrationDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<FrontEndMigrationDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FrontEndMigrationDtoStatusEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FrontEndMigrationDtoStatusEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -340,10 +354,14 @@ class FrontEndMigrationDtoStatusEnumTypeTransformer {
   FrontEndMigrationDtoStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'STARTED': return FrontEndMigrationDtoStatusEnum.STARTED;
-        case r'PAUSED': return FrontEndMigrationDtoStatusEnum.PAUSED;
-        case r'ERROR': return FrontEndMigrationDtoStatusEnum.ERROR;
-        case r'SUCCESS': return FrontEndMigrationDtoStatusEnum.SUCCESS;
+        case r'STARTED':
+          return FrontEndMigrationDtoStatusEnum.STARTED;
+        case r'PAUSED':
+          return FrontEndMigrationDtoStatusEnum.PAUSED;
+        case r'ERROR':
+          return FrontEndMigrationDtoStatusEnum.ERROR;
+        case r'SUCCESS':
+          return FrontEndMigrationDtoStatusEnum.SUCCESS;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -356,5 +374,3 @@ class FrontEndMigrationDtoStatusEnumTypeTransformer {
   /// Singleton [FrontEndMigrationDtoStatusEnumTypeTransformer] instance.
   static FrontEndMigrationDtoStatusEnumTypeTransformer? _instance;
 }
-
-

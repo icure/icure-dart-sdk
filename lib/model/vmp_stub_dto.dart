@@ -46,26 +46,27 @@ class VmpStubDto {
   SamTextDto? name;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is VmpStubDto &&
-     other.id == id &&
-     other.code == code &&
-     other.vmpGroup == vmpGroup &&
-     other.name == name;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is VmpStubDto &&
+          other.id == id &&
+          other.code == code &&
+          other.vmpGroup == vmpGroup &&
+          other.name == name;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (vmpGroup == null ? 0 : vmpGroup!.hashCode) +
-    (name == null ? 0 : name!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (vmpGroup == null ? 0 : vmpGroup!.hashCode) +
+      (name == null ? 0 : name!.hashCode);
 
   @override
   String toString() => 'VmpStubDto[id=$id, code=$code, vmpGroup=$vmpGroup, name=$name]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (code != null) {
       json[r'code'] = code;
     }

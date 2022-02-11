@@ -196,58 +196,60 @@ class ParagraphAgreementDto {
   String? documentId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ParagraphAgreementDto &&
-     other.timestamp == timestamp &&
-     other.paragraph == paragraph &&
-     other.accepted == accepted &&
-     other.inTreatment == inTreatment &&
-     other.canceled == canceled &&
-     other.careProviderReference == careProviderReference &&
-     other.decisionReference == decisionReference &&
-     other.start == start &&
-     other.end == end &&
-     other.cancelationDate == cancelationDate &&
-     other.quantityValue == quantityValue &&
-     other.quantityUnit == quantityUnit &&
-     other.ioRequestReference == ioRequestReference &&
-     other.responseType == responseType &&
-     other.refusalJustification == refusalJustification &&
-     other.verses == verses &&
-     other.coverageType == coverageType &&
-     other.unitNumber == unitNumber &&
-     other.strength == strength &&
-     other.strengthUnit == strengthUnit &&
-     other.agreementAppendices == agreementAppendices &&
-     other.documentId == documentId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ParagraphAgreementDto &&
+          other.timestamp == timestamp &&
+          other.paragraph == paragraph &&
+          other.accepted == accepted &&
+          other.inTreatment == inTreatment &&
+          other.canceled == canceled &&
+          other.careProviderReference == careProviderReference &&
+          other.decisionReference == decisionReference &&
+          other.start == start &&
+          other.end == end &&
+          other.cancelationDate == cancelationDate &&
+          other.quantityValue == quantityValue &&
+          other.quantityUnit == quantityUnit &&
+          other.ioRequestReference == ioRequestReference &&
+          other.responseType == responseType &&
+          other.refusalJustification == refusalJustification &&
+          other.verses == verses &&
+          other.coverageType == coverageType &&
+          other.unitNumber == unitNumber &&
+          other.strength == strength &&
+          other.strengthUnit == strengthUnit &&
+          other.agreementAppendices == agreementAppendices &&
+          other.documentId == documentId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (timestamp == null ? 0 : timestamp!.hashCode) +
-    (paragraph == null ? 0 : paragraph!.hashCode) +
-    (accepted == null ? 0 : accepted!.hashCode) +
-    (inTreatment == null ? 0 : inTreatment!.hashCode) +
-    (canceled == null ? 0 : canceled!.hashCode) +
-    (careProviderReference == null ? 0 : careProviderReference!.hashCode) +
-    (decisionReference == null ? 0 : decisionReference!.hashCode) +
-    (start == null ? 0 : start!.hashCode) +
-    (end == null ? 0 : end!.hashCode) +
-    (cancelationDate == null ? 0 : cancelationDate!.hashCode) +
-    (quantityValue == null ? 0 : quantityValue!.hashCode) +
-    (quantityUnit == null ? 0 : quantityUnit!.hashCode) +
-    (ioRequestReference == null ? 0 : ioRequestReference!.hashCode) +
-    (responseType == null ? 0 : responseType!.hashCode) +
-    (refusalJustification.hashCode) +
-    (verses.hashCode) +
-    (coverageType == null ? 0 : coverageType!.hashCode) +
-    (unitNumber == null ? 0 : unitNumber!.hashCode) +
-    (strength == null ? 0 : strength!.hashCode) +
-    (strengthUnit == null ? 0 : strengthUnit!.hashCode) +
-    (agreementAppendices.hashCode) +
-    (documentId == null ? 0 : documentId!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (timestamp == null ? 0 : timestamp!.hashCode) +
+      (paragraph == null ? 0 : paragraph!.hashCode) +
+      (accepted == null ? 0 : accepted!.hashCode) +
+      (inTreatment == null ? 0 : inTreatment!.hashCode) +
+      (canceled == null ? 0 : canceled!.hashCode) +
+      (careProviderReference == null ? 0 : careProviderReference!.hashCode) +
+      (decisionReference == null ? 0 : decisionReference!.hashCode) +
+      (start == null ? 0 : start!.hashCode) +
+      (end == null ? 0 : end!.hashCode) +
+      (cancelationDate == null ? 0 : cancelationDate!.hashCode) +
+      (quantityValue == null ? 0 : quantityValue!.hashCode) +
+      (quantityUnit == null ? 0 : quantityUnit!.hashCode) +
+      (ioRequestReference == null ? 0 : ioRequestReference!.hashCode) +
+      (responseType == null ? 0 : responseType!.hashCode) +
+      (refusalJustification.hashCode) +
+      (verses.hashCode) +
+      (coverageType == null ? 0 : coverageType!.hashCode) +
+      (unitNumber == null ? 0 : unitNumber!.hashCode) +
+      (strength == null ? 0 : strength!.hashCode) +
+      (strengthUnit == null ? 0 : strengthUnit!.hashCode) +
+      (agreementAppendices.hashCode) +
+      (documentId == null ? 0 : documentId!.hashCode);
 
   @override
-  String toString() => 'ParagraphAgreementDto[timestamp=$timestamp, paragraph=$paragraph, accepted=$accepted, inTreatment=$inTreatment, canceled=$canceled, careProviderReference=$careProviderReference, decisionReference=$decisionReference, start=$start, end=$end, cancelationDate=$cancelationDate, quantityValue=$quantityValue, quantityUnit=$quantityUnit, ioRequestReference=$ioRequestReference, responseType=$responseType, refusalJustification=$refusalJustification, verses=$verses, coverageType=$coverageType, unitNumber=$unitNumber, strength=$strength, strengthUnit=$strengthUnit, agreementAppendices=$agreementAppendices, documentId=$documentId]';
+  String toString() =>
+      'ParagraphAgreementDto[timestamp=$timestamp, paragraph=$paragraph, accepted=$accepted, inTreatment=$inTreatment, canceled=$canceled, careProviderReference=$careProviderReference, decisionReference=$decisionReference, start=$start, end=$end, cancelationDate=$cancelationDate, quantityValue=$quantityValue, quantityUnit=$quantityUnit, ioRequestReference=$ioRequestReference, responseType=$responseType, refusalJustification=$refusalJustification, verses=$verses, coverageType=$coverageType, unitNumber=$unitNumber, strength=$strength, strengthUnit=$strengthUnit, agreementAppendices=$agreementAppendices, documentId=$documentId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -293,8 +295,8 @@ class ParagraphAgreementDto {
     if (responseType != null) {
       json[r'responseType'] = responseType;
     }
-      json[r'refusalJustification'] = refusalJustification;
-      json[r'verses'] = verses;
+    json[r'refusalJustification'] = refusalJustification;
+    json[r'verses'] = verses.toList();
     if (coverageType != null) {
       json[r'coverageType'] = coverageType;
     }
@@ -307,7 +309,7 @@ class ParagraphAgreementDto {
     if (strengthUnit != null) {
       json[r'strengthUnit'] = strengthUnit;
     }
-      json[r'agreementAppendices'] = agreementAppendices;
+    json[r'agreementAppendices'] = agreementAppendices;
     if (documentId != null) {
       json[r'documentId'] = documentId;
     }

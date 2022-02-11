@@ -49,29 +49,32 @@ class SubstanceproductDto {
   String? productId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SubstanceproductDto &&
-     other.intendedcds == intendedcds &&
-     other.deliveredcds == deliveredcds &&
-     other.intendedname == intendedname &&
-     other.deliveredname == deliveredname &&
-     other.productId == productId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SubstanceproductDto &&
+          other.intendedcds == intendedcds &&
+          other.deliveredcds == deliveredcds &&
+          other.intendedname == intendedname &&
+          other.deliveredname == deliveredname &&
+          other.productId == productId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (intendedcds.hashCode) +
-    (deliveredcds.hashCode) +
-    (intendedname == null ? 0 : intendedname!.hashCode) +
-    (deliveredname == null ? 0 : deliveredname!.hashCode) +
-    (productId == null ? 0 : productId!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (intendedcds.hashCode) +
+      (deliveredcds.hashCode) +
+      (intendedname == null ? 0 : intendedname!.hashCode) +
+      (deliveredname == null ? 0 : deliveredname!.hashCode) +
+      (productId == null ? 0 : productId!.hashCode);
 
   @override
-  String toString() => 'SubstanceproductDto[intendedcds=$intendedcds, deliveredcds=$deliveredcds, intendedname=$intendedname, deliveredname=$deliveredname, productId=$productId]';
+  String toString() =>
+      'SubstanceproductDto[intendedcds=$intendedcds, deliveredcds=$deliveredcds, intendedname=$intendedname, deliveredname=$deliveredname, productId=$productId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'intendedcds'] = intendedcds;
-      json[r'deliveredcds'] = deliveredcds;
+    json[r'intendedcds'] = intendedcds;
+    json[r'deliveredcds'] = deliveredcds;
     if (intendedname != null) {
       json[r'intendedname'] = intendedname;
     }
@@ -113,7 +116,10 @@ class SubstanceproductDto {
     return null;
   }
 
-  static List<SubstanceproductDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SubstanceproductDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SubstanceproductDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -141,12 +147,18 @@ class SubstanceproductDto {
   }
 
   // maps a json object with a list of SubstanceproductDto-objects as value to a dart map
-  static Map<String, List<SubstanceproductDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SubstanceproductDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SubstanceproductDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SubstanceproductDto.listFromJson(entry.value, growable: growable,);
+        final value = SubstanceproductDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -161,4 +173,3 @@ class SubstanceproductDto {
     'deliveredcds',
   };
 }
-

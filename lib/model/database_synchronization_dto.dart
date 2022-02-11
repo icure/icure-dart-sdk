@@ -46,19 +46,20 @@ class DatabaseSynchronizationDto {
   DatabaseSynchronizationDtoLocalTargetEnum? localTarget;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DatabaseSynchronizationDto &&
-     other.source_ == source_ &&
-     other.target == target &&
-     other.filter == filter &&
-     other.localTarget == localTarget;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is DatabaseSynchronizationDto &&
+          other.source_ == source_ &&
+          other.target == target &&
+          other.filter == filter &&
+          other.localTarget == localTarget;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (source_ == null ? 0 : source_!.hashCode) +
-    (target == null ? 0 : target!.hashCode) +
-    (filter == null ? 0 : filter!.hashCode) +
-    (localTarget == null ? 0 : localTarget!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (source_ == null ? 0 : source_!.hashCode) +
+      (target == null ? 0 : target!.hashCode) +
+      (filter == null ? 0 : filter!.hashCode) +
+      (localTarget == null ? 0 : localTarget!.hashCode);
 
   @override
   String toString() => 'DatabaseSynchronizationDto[source_=$source_, target=$target, filter=$filter, localTarget=$localTarget]';
@@ -179,7 +180,8 @@ class DatabaseSynchronizationDtoLocalTargetEnum {
     patient,
   ];
 
-  static DatabaseSynchronizationDtoLocalTargetEnum? fromJson(dynamic value) => DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer().decode(value);
+  static DatabaseSynchronizationDtoLocalTargetEnum? fromJson(dynamic value) =>
+      DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer().decode(value);
 
   static List<DatabaseSynchronizationDtoLocalTargetEnum>? listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DatabaseSynchronizationDtoLocalTargetEnum>[];
@@ -198,7 +200,8 @@ class DatabaseSynchronizationDtoLocalTargetEnum {
 /// Transformation class that can [encode] an instance of [DatabaseSynchronizationDtoLocalTargetEnum] to String,
 /// and [decode] dynamic data back to [DatabaseSynchronizationDtoLocalTargetEnum].
 class DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer {
-  factory DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer() => _instance ??= const DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer._();
+  factory DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer() =>
+      _instance ??= const DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer._();
 
   const DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer._();
 
@@ -215,9 +218,12 @@ class DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer {
   DatabaseSynchronizationDtoLocalTargetEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'base': return DatabaseSynchronizationDtoLocalTargetEnum.base;
-        case r'healthdata': return DatabaseSynchronizationDtoLocalTargetEnum.healthdata;
-        case r'patient': return DatabaseSynchronizationDtoLocalTargetEnum.patient;
+        case r'base':
+          return DatabaseSynchronizationDtoLocalTargetEnum.base;
+        case r'healthdata':
+          return DatabaseSynchronizationDtoLocalTargetEnum.healthdata;
+        case r'patient':
+          return DatabaseSynchronizationDtoLocalTargetEnum.patient;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

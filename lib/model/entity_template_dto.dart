@@ -89,38 +89,40 @@ class EntityTemplateDto {
   List<Map<String, Object>> entity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EntityTemplateDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.userId == userId &&
-     other.descr == descr &&
-     other.keywords == keywords &&
-     other.entityType == entityType &&
-     other.subType == subType &&
-     other.defaultTemplate == defaultTemplate &&
-     other.entity == entity;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is EntityTemplateDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.userId == userId &&
+          other.descr == descr &&
+          other.keywords == keywords &&
+          other.entityType == entityType &&
+          other.subType == subType &&
+          other.defaultTemplate == defaultTemplate &&
+          other.entity == entity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (userId == null ? 0 : userId!.hashCode) +
-    (descr == null ? 0 : descr!.hashCode) +
-    (keywords.hashCode) +
-    (entityType == null ? 0 : entityType!.hashCode) +
-    (subType == null ? 0 : subType!.hashCode) +
-    (defaultTemplate == null ? 0 : defaultTemplate!.hashCode) +
-    (entity.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (userId == null ? 0 : userId!.hashCode) +
+      (descr == null ? 0 : descr!.hashCode) +
+      (keywords.hashCode) +
+      (entityType == null ? 0 : entityType!.hashCode) +
+      (subType == null ? 0 : subType!.hashCode) +
+      (defaultTemplate == null ? 0 : defaultTemplate!.hashCode) +
+      (entity.hashCode);
 
   @override
-  String toString() => 'EntityTemplateDto[id=$id, rev=$rev, deletionDate=$deletionDate, userId=$userId, descr=$descr, keywords=$keywords, entityType=$entityType, subType=$subType, defaultTemplate=$defaultTemplate, entity=$entity]';
+  String toString() =>
+      'EntityTemplateDto[id=$id, rev=$rev, deletionDate=$deletionDate, userId=$userId, descr=$descr, keywords=$keywords, entityType=$entityType, subType=$subType, defaultTemplate=$defaultTemplate, entity=$entity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -133,7 +135,7 @@ class EntityTemplateDto {
     if (descr != null) {
       json[r'descr'] = descr;
     }
-      json[r'keywords'] = keywords;
+    json[r'keywords'] = keywords.toList();
     if (entityType != null) {
       json[r'entityType'] = entityType;
     }
@@ -143,7 +145,7 @@ class EntityTemplateDto {
     if (defaultTemplate != null) {
       json[r'defaultTemplate'] = defaultTemplate;
     }
-      json[r'entity'] = entity;
+    json[r'entity'] = entity;
     return json;
   }
 
@@ -171,14 +173,13 @@ class EntityTemplateDto {
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         userId: mapValueOfType<String>(json, r'userId'),
         descr: mapValueOfType<String>(json, r'descr'),
-        keywords: json[r'keywords'] is Set
-            ? (json[r'keywords'] as Set).cast<String>()
-            : const {},
+        keywords: json[r'keywords'] is Set ? (json[r'keywords'] as Set).cast<String>() : json[r'keywords'] is List ? ((json[r'keywords'] as List)
+            .toSet()).cast<String>() : const {},
         entityType: mapValueOfType<String>(json, r'entityType'),
         subType: mapValueOfType<String>(json, r'subType'),
         defaultTemplate: mapValueOfType<bool>(json, r'defaultTemplate'),
         entity:
-            List.from((json[r'entity' as List].cast<Map<String, Object>>())),
+        List.from((json[r'entity' as List].cast<Map<String, Object>>())),
       );
     }
     return null;

@@ -394,8 +394,10 @@ class DecryptedMessageDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-    json[r'tags'] = tags;
-    json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+
+    json[r'codes'] = codes.toList();
+
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -417,8 +419,8 @@ class DecryptedMessageDto {
     if (recipientsType != null) {
       json[r'recipientsType'] = recipientsType;
     }
-    json[r'recipients'] = recipients;
-    json[r'toAddresses'] = toAddresses;
+    json[r'recipients'] = recipients.toList();
+    json[r'toAddresses'] = toAddresses.toList();
     if (received != null) {
       json[r'received'] = received;
     }
@@ -439,20 +441,20 @@ class DecryptedMessageDto {
     if (subject != null) {
       json[r'subject'] = subject;
     }
-    json[r'invoiceIds'] = invoiceIds;
+    json[r'invoiceIds'] = invoiceIds.toList();
     if (parentId != null) {
       json[r'parentId'] = parentId;
     }
     if (externalRef != null) {
       json[r'externalRef'] = externalRef;
     }
-    json[r'unassignedResults'] = unassignedResults;
+    json[r'unassignedResults'] = unassignedResults.toList();
     json[r'assignedResults'] = assignedResults;
     json[r'senderReferences'] = senderReferences;
-    json[r'secretForeignKeys'] = secretForeignKeys;
-    json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-    json[r'delegations'] = delegations;
-    json[r'encryptionKeys'] = encryptionKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -497,11 +499,11 @@ class DecryptedMessageDto {
         formId: mapValueOfType<String>(json, r'formId'),
         status: mapValueOfType<int>(json, r'status'),
         recipientsType: mapValueOfType<String>(json, r'recipientsType'),
-        recipients: json[r'recipients'] is Set
-            ? (json[r'recipients'] as Set).cast<String>()
+        recipients: json[r'recipients'] is Set ? (json[r'recipients'] as Set).cast<String>() : json[r'recipients'] is List
+            ? ((json[r'recipients'] as List).toSet()).cast<String>()
             : const {},
-        toAddresses: json[r'toAddresses'] is Set
-            ? (json[r'toAddresses'] as Set).cast<String>()
+        toAddresses: json[r'toAddresses'] is Set ? (json[r'toAddresses'] as Set).cast<String>() : json[r'toAddresses'] is List
+            ? ((json[r'toAddresses'] as List).toSet()).cast<String>()
             : const {},
         received: mapValueOfType<int>(json, r'received'),
         sent: mapValueOfType<int>(json, r'sent'),
@@ -512,20 +514,20 @@ class DecryptedMessageDto {
         remark: mapValueOfType<String>(json, r'remark'),
         conversationGuid: mapValueOfType<String>(json, r'conversationGuid'),
         subject: mapValueOfType<String>(json, r'subject'),
-        invoiceIds: json[r'invoiceIds'] is Set
-            ? (json[r'invoiceIds'] as Set).cast<String>()
+        invoiceIds: json[r'invoiceIds'] is Set ? (json[r'invoiceIds'] as Set).cast<String>() : json[r'invoiceIds'] is List
+            ? ((json[r'invoiceIds'] as List).toSet()).cast<String>()
             : const {},
         parentId: mapValueOfType<String>(json, r'parentId'),
         externalRef: mapValueOfType<String>(json, r'externalRef'),
-        unassignedResults: json[r'unassignedResults'] is Set
-            ? (json[r'unassignedResults'] as Set).cast<String>()
+        unassignedResults: json[r'unassignedResults'] is Set ? (json[r'unassignedResults'] as Set).cast<String>() : json[r'unassignedResults'] is List
+            ? ((json[r'unassignedResults'] as List).toSet()).cast<String>()
             : const {},
         assignedResults:
         mapCastOfType<String, String>(json, r'assignedResults')!,
         senderReferences:
         mapCastOfType<String, String>(json, r'senderReferences')!,
-        secretForeignKeys: json[r'secretForeignKeys'] is Set
-            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
             : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
             ? const {}

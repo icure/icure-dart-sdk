@@ -130,50 +130,52 @@ class FormLayoutData {
   List<Formula> formulas;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FormLayoutData &&
-     other.subForm == subForm &&
-     other.irrelevant == irrelevant &&
-     other.determinesSscontactName == determinesSscontactName &&
-     other.type == type &&
-     other.name == name &&
-     other.sortOrder == sortOrder &&
-     other.options == options &&
-     other.descr == descr &&
-     other.label == label &&
-     other.editor == editor &&
-     other.defaultValue == defaultValue &&
-     other.defaultStatus == defaultStatus &&
-     other.suggest == suggest &&
-     other.plannings == plannings &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.codeTypes == codeTypes &&
-     other.formulas == formulas;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is FormLayoutData &&
+          other.subForm == subForm &&
+          other.irrelevant == irrelevant &&
+          other.determinesSscontactName == determinesSscontactName &&
+          other.type == type &&
+          other.name == name &&
+          other.sortOrder == sortOrder &&
+          other.options == options &&
+          other.descr == descr &&
+          other.label == label &&
+          other.editor == editor &&
+          other.defaultValue == defaultValue &&
+          other.defaultStatus == defaultStatus &&
+          other.suggest == suggest &&
+          other.plannings == plannings &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.codeTypes == codeTypes &&
+          other.formulas == formulas;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (subForm == null ? 0 : subForm!.hashCode) +
-    (irrelevant == null ? 0 : irrelevant!.hashCode) +
-    (determinesSscontactName == null ? 0 : determinesSscontactName!.hashCode) +
-    (type == null ? 0 : type!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (sortOrder == null ? 0 : sortOrder!.hashCode) +
-    (options.hashCode) +
-    (descr == null ? 0 : descr!.hashCode) +
-    (label == null ? 0 : label!.hashCode) +
-    (editor == null ? 0 : editor!.hashCode) +
-    (defaultValue.hashCode) +
-    (defaultStatus == null ? 0 : defaultStatus!.hashCode) +
-    (suggest.hashCode) +
-    (plannings.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (codeTypes.hashCode) +
-    (formulas.hashCode);
+      // ignore: unnecessary_parenthesis
+  (subForm == null ? 0 : subForm!.hashCode) +
+      (irrelevant == null ? 0 : irrelevant!.hashCode) +
+      (determinesSscontactName == null ? 0 : determinesSscontactName!.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (sortOrder == null ? 0 : sortOrder!.hashCode) +
+      (options.hashCode) +
+      (descr == null ? 0 : descr!.hashCode) +
+      (label == null ? 0 : label!.hashCode) +
+      (editor == null ? 0 : editor!.hashCode) +
+      (defaultValue.hashCode) +
+      (defaultStatus == null ? 0 : defaultStatus!.hashCode) +
+      (suggest.hashCode) +
+      (plannings.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (codeTypes.hashCode) +
+      (formulas.hashCode);
 
   @override
-  String toString() => 'FormLayoutData[subForm=$subForm, irrelevant=$irrelevant, determinesSscontactName=$determinesSscontactName, type=$type, name=$name, sortOrder=$sortOrder, options=$options, descr=$descr, label=$label, editor=$editor, defaultValue=$defaultValue, defaultStatus=$defaultStatus, suggest=$suggest, plannings=$plannings, tags=$tags, codes=$codes, codeTypes=$codeTypes, formulas=$formulas]';
+  String toString() =>
+      'FormLayoutData[subForm=$subForm, irrelevant=$irrelevant, determinesSscontactName=$determinesSscontactName, type=$type, name=$name, sortOrder=$sortOrder, options=$options, descr=$descr, label=$label, editor=$editor, defaultValue=$defaultValue, defaultStatus=$defaultStatus, suggest=$suggest, plannings=$plannings, tags=$tags, codes=$codes, codeTypes=$codeTypes, formulas=$formulas]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -195,7 +197,7 @@ class FormLayoutData {
     if (sortOrder != null) {
       json[r'sortOrder'] = sortOrder;
     }
-      json[r'options'] = options;
+    json[r'options'] = options;
     if (descr != null) {
       json[r'descr'] = descr;
     }
@@ -205,16 +207,16 @@ class FormLayoutData {
     if (editor != null) {
       json[r'editor'] = editor;
     }
-      json[r'defaultValue'] = defaultValue;
+    json[r'defaultValue'] = defaultValue;
     if (defaultStatus != null) {
       json[r'defaultStatus'] = defaultStatus;
     }
-      json[r'suggest'] = suggest;
-      json[r'plannings'] = plannings;
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
-      json[r'codeTypes'] = codeTypes;
-      json[r'formulas'] = formulas;
+    json[r'suggest'] = suggest;
+    json[r'plannings'] = plannings;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
+    json[r'codeTypes'] = codeTypes;
+    json[r'formulas'] = formulas;
     return json;
   }
 

@@ -46,17 +46,18 @@ class ReferralPeriodDto {
   String? comment;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ReferralPeriodDto &&
-     other.startDate == startDate &&
-     other.endDate == endDate &&
-     other.comment == comment;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is ReferralPeriodDto &&
+          other.startDate == startDate &&
+          other.endDate == endDate &&
+          other.comment == comment;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (startDate == null ? 0 : startDate!.hashCode) +
-    (endDate == null ? 0 : endDate!.hashCode) +
-    (comment == null ? 0 : comment!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (startDate == null ? 0 : startDate!.hashCode) +
+      (endDate == null ? 0 : endDate!.hashCode) +
+      (comment == null ? 0 : comment!.hashCode);
 
   @override
   String toString() => 'ReferralPeriodDto[startDate=$startDate, endDate=$endDate, comment=$comment]';

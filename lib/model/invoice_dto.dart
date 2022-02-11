@@ -553,152 +553,155 @@ class InvoiceDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InvoiceDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.created == created &&
-     other.modified == modified &&
-     other.author == author &&
-     other.responsible == responsible &&
-     other.medicalLocationId == medicalLocationId &&
-     other.tags == tags &&
-     other.codes == codes &&
-     other.endOfLife == endOfLife &&
-     other.deletionDate == deletionDate &&
-     other.invoiceDate == invoiceDate &&
-     other.sentDate == sentDate &&
-     other.printedDate == printedDate &&
-     other.invoicingCodes == invoicingCodes &&
-     other.receipts == receipts &&
-     other.recipientType == recipientType &&
-     other.recipientId == recipientId &&
-     other.invoiceReference == invoiceReference &&
-     other.thirdPartyReference == thirdPartyReference &&
-     other.thirdPartyPaymentJustification == thirdPartyPaymentJustification &&
-     other.thirdPartyPaymentReason == thirdPartyPaymentReason &&
-     other.reason == reason &&
-     other.invoiceType == invoiceType &&
-     other.sentMediumType == sentMediumType &&
-     other.interventionType == interventionType &&
-     other.groupId == groupId &&
-     other.paymentType == paymentType &&
-     other.paid == paid &&
-     other.payments == payments &&
-     other.gnotionNihii == gnotionNihii &&
-     other.gnotionSsin == gnotionSsin &&
-     other.gnotionLastName == gnotionLastName &&
-     other.gnotionFirstName == gnotionFirstName &&
-     other.gnotionCdHcParty == gnotionCdHcParty &&
-     other.invoicePeriod == invoicePeriod &&
-     other.careProviderType == careProviderType &&
-     other.internshipNihii == internshipNihii &&
-     other.internshipSsin == internshipSsin &&
-     other.internshipLastName == internshipLastName &&
-     other.internshipFirstName == internshipFirstName &&
-     other.internshipCdHcParty == internshipCdHcParty &&
-     other.internshipCbe == internshipCbe &&
-     other.supervisorNihii == supervisorNihii &&
-     other.supervisorSsin == supervisorSsin &&
-     other.supervisorLastName == supervisorLastName &&
-     other.supervisorFirstName == supervisorFirstName &&
-     other.supervisorCdHcParty == supervisorCdHcParty &&
-     other.supervisorCbe == supervisorCbe &&
-     other.error == error &&
-     other.encounterLocationName == encounterLocationName &&
-     other.encounterLocationNihii == encounterLocationNihii &&
-     other.encounterLocationNorm == encounterLocationNorm &&
-     other.longDelayJustification == longDelayJustification &&
-     other.correctiveInvoiceId == correctiveInvoiceId &&
-     other.correctedInvoiceId == correctedInvoiceId &&
-     other.creditNote == creditNote &&
-     other.creditNoteRelatedInvoiceId == creditNoteRelatedInvoiceId &&
-     other.idDocument == idDocument &&
-     other.cancelReason == cancelReason &&
-     other.cancelDate == cancelDate &&
-     other.options == options &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.cryptedForeignKeys == cryptedForeignKeys &&
-     other.delegations == delegations &&
-     other.encryptionKeys == encryptionKeys &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is InvoiceDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.invoiceDate == invoiceDate &&
+          other.sentDate == sentDate &&
+          other.printedDate == printedDate &&
+          other.invoicingCodes == invoicingCodes &&
+          other.receipts == receipts &&
+          other.recipientType == recipientType &&
+          other.recipientId == recipientId &&
+          other.invoiceReference == invoiceReference &&
+          other.thirdPartyReference == thirdPartyReference &&
+          other.thirdPartyPaymentJustification == thirdPartyPaymentJustification &&
+          other.thirdPartyPaymentReason == thirdPartyPaymentReason &&
+          other.reason == reason &&
+          other.invoiceType == invoiceType &&
+          other.sentMediumType == sentMediumType &&
+          other.interventionType == interventionType &&
+          other.groupId == groupId &&
+          other.paymentType == paymentType &&
+          other.paid == paid &&
+          other.payments == payments &&
+          other.gnotionNihii == gnotionNihii &&
+          other.gnotionSsin == gnotionSsin &&
+          other.gnotionLastName == gnotionLastName &&
+          other.gnotionFirstName == gnotionFirstName &&
+          other.gnotionCdHcParty == gnotionCdHcParty &&
+          other.invoicePeriod == invoicePeriod &&
+          other.careProviderType == careProviderType &&
+          other.internshipNihii == internshipNihii &&
+          other.internshipSsin == internshipSsin &&
+          other.internshipLastName == internshipLastName &&
+          other.internshipFirstName == internshipFirstName &&
+          other.internshipCdHcParty == internshipCdHcParty &&
+          other.internshipCbe == internshipCbe &&
+          other.supervisorNihii == supervisorNihii &&
+          other.supervisorSsin == supervisorSsin &&
+          other.supervisorLastName == supervisorLastName &&
+          other.supervisorFirstName == supervisorFirstName &&
+          other.supervisorCdHcParty == supervisorCdHcParty &&
+          other.supervisorCbe == supervisorCbe &&
+          other.error == error &&
+          other.encounterLocationName == encounterLocationName &&
+          other.encounterLocationNihii == encounterLocationNihii &&
+          other.encounterLocationNorm == encounterLocationNorm &&
+          other.longDelayJustification == longDelayJustification &&
+          other.correctiveInvoiceId == correctiveInvoiceId &&
+          other.correctedInvoiceId == correctedInvoiceId &&
+          other.creditNote == creditNote &&
+          other.creditNoteRelatedInvoiceId == creditNoteRelatedInvoiceId &&
+          other.idDocument == idDocument &&
+          other.cancelReason == cancelReason &&
+          other.cancelDate == cancelDate &&
+          other.options == options &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (created == null ? 0 : created!.hashCode) +
-    (modified == null ? 0 : modified!.hashCode) +
-    (author == null ? 0 : author!.hashCode) +
-    (responsible == null ? 0 : responsible!.hashCode) +
-    (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
-    (tags.hashCode) +
-    (codes.hashCode) +
-    (endOfLife == null ? 0 : endOfLife!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (invoiceDate == null ? 0 : invoiceDate!.hashCode) +
-    (sentDate == null ? 0 : sentDate!.hashCode) +
-    (printedDate == null ? 0 : printedDate!.hashCode) +
-    (invoicingCodes.hashCode) +
-    (receipts.hashCode) +
-    (recipientType == null ? 0 : recipientType!.hashCode) +
-    (recipientId == null ? 0 : recipientId!.hashCode) +
-    (invoiceReference == null ? 0 : invoiceReference!.hashCode) +
-    (thirdPartyReference == null ? 0 : thirdPartyReference!.hashCode) +
-    (thirdPartyPaymentJustification == null ? 0 : thirdPartyPaymentJustification!.hashCode) +
-    (thirdPartyPaymentReason == null ? 0 : thirdPartyPaymentReason!.hashCode) +
-    (reason == null ? 0 : reason!.hashCode) +
-    (invoiceType == null ? 0 : invoiceType!.hashCode) +
-    (sentMediumType == null ? 0 : sentMediumType!.hashCode) +
-    (interventionType == null ? 0 : interventionType!.hashCode) +
-    (groupId == null ? 0 : groupId!.hashCode) +
-    (paymentType == null ? 0 : paymentType!.hashCode) +
-    (paid == null ? 0 : paid!.hashCode) +
-    (payments.hashCode) +
-    (gnotionNihii == null ? 0 : gnotionNihii!.hashCode) +
-    (gnotionSsin == null ? 0 : gnotionSsin!.hashCode) +
-    (gnotionLastName == null ? 0 : gnotionLastName!.hashCode) +
-    (gnotionFirstName == null ? 0 : gnotionFirstName!.hashCode) +
-    (gnotionCdHcParty == null ? 0 : gnotionCdHcParty!.hashCode) +
-    (invoicePeriod == null ? 0 : invoicePeriod!.hashCode) +
-    (careProviderType == null ? 0 : careProviderType!.hashCode) +
-    (internshipNihii == null ? 0 : internshipNihii!.hashCode) +
-    (internshipSsin == null ? 0 : internshipSsin!.hashCode) +
-    (internshipLastName == null ? 0 : internshipLastName!.hashCode) +
-    (internshipFirstName == null ? 0 : internshipFirstName!.hashCode) +
-    (internshipCdHcParty == null ? 0 : internshipCdHcParty!.hashCode) +
-    (internshipCbe == null ? 0 : internshipCbe!.hashCode) +
-    (supervisorNihii == null ? 0 : supervisorNihii!.hashCode) +
-    (supervisorSsin == null ? 0 : supervisorSsin!.hashCode) +
-    (supervisorLastName == null ? 0 : supervisorLastName!.hashCode) +
-    (supervisorFirstName == null ? 0 : supervisorFirstName!.hashCode) +
-    (supervisorCdHcParty == null ? 0 : supervisorCdHcParty!.hashCode) +
-    (supervisorCbe == null ? 0 : supervisorCbe!.hashCode) +
-    (error == null ? 0 : error!.hashCode) +
-    (encounterLocationName == null ? 0 : encounterLocationName!.hashCode) +
-    (encounterLocationNihii == null ? 0 : encounterLocationNihii!.hashCode) +
-    (encounterLocationNorm == null ? 0 : encounterLocationNorm!.hashCode) +
-    (longDelayJustification == null ? 0 : longDelayJustification!.hashCode) +
-    (correctiveInvoiceId == null ? 0 : correctiveInvoiceId!.hashCode) +
-    (correctedInvoiceId == null ? 0 : correctedInvoiceId!.hashCode) +
-    (creditNote == null ? 0 : creditNote!.hashCode) +
-    (creditNoteRelatedInvoiceId == null ? 0 : creditNoteRelatedInvoiceId!.hashCode) +
-    (idDocument == null ? 0 : idDocument!.hashCode) +
-    (cancelReason == null ? 0 : cancelReason!.hashCode) +
-    (cancelDate == null ? 0 : cancelDate!.hashCode) +
-    (options.hashCode) +
-    (secretForeignKeys.hashCode) +
-    (cryptedForeignKeys.hashCode) +
-    (delegations.hashCode) +
-    (encryptionKeys.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (created == null ? 0 : created!.hashCode) +
+      (modified == null ? 0 : modified!.hashCode) +
+      (author == null ? 0 : author!.hashCode) +
+      (responsible == null ? 0 : responsible!.hashCode) +
+      (medicalLocationId == null ? 0 : medicalLocationId!.hashCode) +
+      (tags.hashCode) +
+      (codes.hashCode) +
+      (endOfLife == null ? 0 : endOfLife!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (invoiceDate == null ? 0 : invoiceDate!.hashCode) +
+      (sentDate == null ? 0 : sentDate!.hashCode) +
+      (printedDate == null ? 0 : printedDate!.hashCode) +
+      (invoicingCodes.hashCode) +
+      (receipts.hashCode) +
+      (recipientType == null ? 0 : recipientType!.hashCode) +
+      (recipientId == null ? 0 : recipientId!.hashCode) +
+      (invoiceReference == null ? 0 : invoiceReference!.hashCode) +
+      (thirdPartyReference == null ? 0 : thirdPartyReference!.hashCode) +
+      (thirdPartyPaymentJustification == null ? 0 : thirdPartyPaymentJustification!.hashCode) +
+      (thirdPartyPaymentReason == null ? 0 : thirdPartyPaymentReason!.hashCode) +
+      (reason == null ? 0 : reason!.hashCode) +
+      (invoiceType == null ? 0 : invoiceType!.hashCode) +
+      (sentMediumType == null ? 0 : sentMediumType!.hashCode) +
+      (interventionType == null ? 0 : interventionType!.hashCode) +
+      (groupId == null ? 0 : groupId!.hashCode) +
+      (paymentType == null ? 0 : paymentType!.hashCode) +
+      (paid == null ? 0 : paid!.hashCode) +
+      (payments.hashCode) +
+      (gnotionNihii == null ? 0 : gnotionNihii!.hashCode) +
+      (gnotionSsin == null ? 0 : gnotionSsin!.hashCode) +
+      (gnotionLastName == null ? 0 : gnotionLastName!.hashCode) +
+      (gnotionFirstName == null ? 0 : gnotionFirstName!.hashCode) +
+      (gnotionCdHcParty == null ? 0 : gnotionCdHcParty!.hashCode) +
+      (invoicePeriod == null ? 0 : invoicePeriod!.hashCode) +
+      (careProviderType == null ? 0 : careProviderType!.hashCode) +
+      (internshipNihii == null ? 0 : internshipNihii!.hashCode) +
+      (internshipSsin == null ? 0 : internshipSsin!.hashCode) +
+      (internshipLastName == null ? 0 : internshipLastName!.hashCode) +
+      (internshipFirstName == null ? 0 : internshipFirstName!.hashCode) +
+      (internshipCdHcParty == null ? 0 : internshipCdHcParty!.hashCode) +
+      (internshipCbe == null ? 0 : internshipCbe!.hashCode) +
+      (supervisorNihii == null ? 0 : supervisorNihii!.hashCode) +
+      (supervisorSsin == null ? 0 : supervisorSsin!.hashCode) +
+      (supervisorLastName == null ? 0 : supervisorLastName!.hashCode) +
+      (supervisorFirstName == null ? 0 : supervisorFirstName!.hashCode) +
+      (supervisorCdHcParty == null ? 0 : supervisorCdHcParty!.hashCode) +
+      (supervisorCbe == null ? 0 : supervisorCbe!.hashCode) +
+      (error == null ? 0 : error!.hashCode) +
+      (encounterLocationName == null ? 0 : encounterLocationName!.hashCode) +
+      (encounterLocationNihii == null ? 0 : encounterLocationNihii!.hashCode) +
+      (encounterLocationNorm == null ? 0 : encounterLocationNorm!.hashCode) +
+      (longDelayJustification == null ? 0 : longDelayJustification!.hashCode) +
+      (correctiveInvoiceId == null ? 0 : correctiveInvoiceId!.hashCode) +
+      (correctedInvoiceId == null ? 0 : correctedInvoiceId!.hashCode) +
+      (creditNote == null ? 0 : creditNote!.hashCode) +
+      (creditNoteRelatedInvoiceId == null ? 0 : creditNoteRelatedInvoiceId!.hashCode) +
+      (idDocument == null ? 0 : idDocument!.hashCode) +
+      (cancelReason == null ? 0 : cancelReason!.hashCode) +
+      (cancelDate == null ? 0 : cancelDate!.hashCode) +
+      (options.hashCode) +
+      (secretForeignKeys.hashCode) +
+      (cryptedForeignKeys.hashCode) +
+      (delegations.hashCode) +
+      (encryptionKeys.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'InvoiceDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, invoiceDate=$invoiceDate, sentDate=$sentDate, printedDate=$printedDate, invoicingCodes=$invoicingCodes, receipts=$receipts, recipientType=$recipientType, recipientId=$recipientId, invoiceReference=$invoiceReference, thirdPartyReference=$thirdPartyReference, thirdPartyPaymentJustification=$thirdPartyPaymentJustification, thirdPartyPaymentReason=$thirdPartyPaymentReason, reason=$reason, invoiceType=$invoiceType, sentMediumType=$sentMediumType, interventionType=$interventionType, groupId=$groupId, paymentType=$paymentType, paid=$paid, payments=$payments, gnotionNihii=$gnotionNihii, gnotionSsin=$gnotionSsin, gnotionLastName=$gnotionLastName, gnotionFirstName=$gnotionFirstName, gnotionCdHcParty=$gnotionCdHcParty, invoicePeriod=$invoicePeriod, careProviderType=$careProviderType, internshipNihii=$internshipNihii, internshipSsin=$internshipSsin, internshipLastName=$internshipLastName, internshipFirstName=$internshipFirstName, internshipCdHcParty=$internshipCdHcParty, internshipCbe=$internshipCbe, supervisorNihii=$supervisorNihii, supervisorSsin=$supervisorSsin, supervisorLastName=$supervisorLastName, supervisorFirstName=$supervisorFirstName, supervisorCdHcParty=$supervisorCdHcParty, supervisorCbe=$supervisorCbe, error=$error, encounterLocationName=$encounterLocationName, encounterLocationNihii=$encounterLocationNihii, encounterLocationNorm=$encounterLocationNorm, longDelayJustification=$longDelayJustification, correctiveInvoiceId=$correctiveInvoiceId, correctedInvoiceId=$correctedInvoiceId, creditNote=$creditNote, creditNoteRelatedInvoiceId=$creditNoteRelatedInvoiceId, idDocument=$idDocument, cancelReason=$cancelReason, cancelDate=$cancelDate, options=$options, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'InvoiceDto[id=$id, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, medicalLocationId=$medicalLocationId, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, invoiceDate=$invoiceDate, sentDate=$sentDate, printedDate=$printedDate, invoicingCodes=$invoicingCodes, receipts=$receipts, recipientType=$recipientType, recipientId=$recipientId, invoiceReference=$invoiceReference, thirdPartyReference=$thirdPartyReference, thirdPartyPaymentJustification=$thirdPartyPaymentJustification, thirdPartyPaymentReason=$thirdPartyPaymentReason, reason=$reason, invoiceType=$invoiceType, sentMediumType=$sentMediumType, interventionType=$interventionType, groupId=$groupId, paymentType=$paymentType, paid=$paid, payments=$payments, gnotionNihii=$gnotionNihii, gnotionSsin=$gnotionSsin, gnotionLastName=$gnotionLastName, gnotionFirstName=$gnotionFirstName, gnotionCdHcParty=$gnotionCdHcParty, invoicePeriod=$invoicePeriod, careProviderType=$careProviderType, internshipNihii=$internshipNihii, internshipSsin=$internshipSsin, internshipLastName=$internshipLastName, internshipFirstName=$internshipFirstName, internshipCdHcParty=$internshipCdHcParty, internshipCbe=$internshipCbe, supervisorNihii=$supervisorNihii, supervisorSsin=$supervisorSsin, supervisorLastName=$supervisorLastName, supervisorFirstName=$supervisorFirstName, supervisorCdHcParty=$supervisorCdHcParty, supervisorCbe=$supervisorCbe, error=$error, encounterLocationName=$encounterLocationName, encounterLocationNihii=$encounterLocationNihii, encounterLocationNorm=$encounterLocationNorm, longDelayJustification=$longDelayJustification, correctiveInvoiceId=$correctiveInvoiceId, correctedInvoiceId=$correctedInvoiceId, creditNote=$creditNote, creditNoteRelatedInvoiceId=$creditNoteRelatedInvoiceId, idDocument=$idDocument, cancelReason=$cancelReason, cancelDate=$cancelDate, options=$options, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -717,8 +720,8 @@ class InvoiceDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -734,8 +737,8 @@ class InvoiceDto {
     if (printedDate != null) {
       json[r'printedDate'] = printedDate;
     }
-      json[r'invoicingCodes'] = invoicingCodes;
-      json[r'receipts'] = receipts;
+    json[r'invoicingCodes'] = invoicingCodes;
+    json[r'receipts'] = receipts;
     if (recipientType != null) {
       json[r'recipientType'] = recipientType;
     }
@@ -775,7 +778,7 @@ class InvoiceDto {
     if (paid != null) {
       json[r'paid'] = paid;
     }
-      json[r'payments'] = payments;
+    json[r'payments'] = payments;
     if (gnotionNihii != null) {
       json[r'gnotionNihii'] = gnotionNihii;
     }
@@ -869,11 +872,11 @@ class InvoiceDto {
     if (cancelDate != null) {
       json[r'cancelDate'] = cancelDate;
     }
-      json[r'options'] = options;
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+    json[r'options'] = options;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -963,23 +966,22 @@ class InvoiceDto {
         options: mapCastOfType<String, String>(json, r'options')!,
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-          ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-          ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-          ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<InvoiceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -1007,12 +1009,18 @@ class InvoiceDto {
   }
 
   // maps a json object with a list of InvoiceDto-objects as value to a dart map
-  static Map<String, List<InvoiceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<InvoiceDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<InvoiceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = InvoiceDto.listFromJson(entry.value, growable: growable,);
+        final value = InvoiceDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -1068,7 +1076,10 @@ class InvoiceDtoInvoiceTypeEnum {
 
   static InvoiceDtoInvoiceTypeEnum? fromJson(dynamic value) => InvoiceDtoInvoiceTypeEnumTypeTransformer().decode(value);
 
-  static List<InvoiceDtoInvoiceTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceDtoInvoiceTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceDtoInvoiceTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -1102,12 +1113,18 @@ class InvoiceDtoInvoiceTypeEnumTypeTransformer {
   InvoiceDtoInvoiceTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'patient': return InvoiceDtoInvoiceTypeEnum.patient;
-        case r'mutualfund': return InvoiceDtoInvoiceTypeEnum.mutualfund;
-        case r'payingagency': return InvoiceDtoInvoiceTypeEnum.payingagency;
-        case r'insurance': return InvoiceDtoInvoiceTypeEnum.insurance;
-        case r'efact': return InvoiceDtoInvoiceTypeEnum.efact;
-        case r'other': return InvoiceDtoInvoiceTypeEnum.other;
+        case r'patient':
+          return InvoiceDtoInvoiceTypeEnum.patient;
+        case r'mutualfund':
+          return InvoiceDtoInvoiceTypeEnum.mutualfund;
+        case r'payingagency':
+          return InvoiceDtoInvoiceTypeEnum.payingagency;
+        case r'insurance':
+          return InvoiceDtoInvoiceTypeEnum.insurance;
+        case r'efact':
+          return InvoiceDtoInvoiceTypeEnum.efact;
+        case r'other':
+          return InvoiceDtoInvoiceTypeEnum.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -1120,7 +1137,6 @@ class InvoiceDtoInvoiceTypeEnumTypeTransformer {
   /// Singleton [InvoiceDtoInvoiceTypeEnumTypeTransformer] instance.
   static InvoiceDtoInvoiceTypeEnumTypeTransformer? _instance;
 }
-
 
 /// Medium of the invoice: CD ROM, Email, paper, etc.
 class InvoiceDtoSentMediumTypeEnum {
@@ -1156,7 +1172,10 @@ class InvoiceDtoSentMediumTypeEnum {
 
   static InvoiceDtoSentMediumTypeEnum? fromJson(dynamic value) => InvoiceDtoSentMediumTypeEnumTypeTransformer().decode(value);
 
-  static List<InvoiceDtoSentMediumTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceDtoSentMediumTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceDtoSentMediumTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -1190,13 +1209,20 @@ class InvoiceDtoSentMediumTypeEnumTypeTransformer {
   InvoiceDtoSentMediumTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'cdrom': return InvoiceDtoSentMediumTypeEnum.cdrom;
-        case r'eattest': return InvoiceDtoSentMediumTypeEnum.eattest;
-        case r'efact': return InvoiceDtoSentMediumTypeEnum.efact;
-        case r'email': return InvoiceDtoSentMediumTypeEnum.email;
-        case r'mediprima': return InvoiceDtoSentMediumTypeEnum.mediprima;
-        case r'paper': return InvoiceDtoSentMediumTypeEnum.paper;
-        case r'stat': return InvoiceDtoSentMediumTypeEnum.stat;
+        case r'cdrom':
+          return InvoiceDtoSentMediumTypeEnum.cdrom;
+        case r'eattest':
+          return InvoiceDtoSentMediumTypeEnum.eattest;
+        case r'efact':
+          return InvoiceDtoSentMediumTypeEnum.efact;
+        case r'email':
+          return InvoiceDtoSentMediumTypeEnum.email;
+        case r'mediprima':
+          return InvoiceDtoSentMediumTypeEnum.mediprima;
+        case r'paper':
+          return InvoiceDtoSentMediumTypeEnum.paper;
+        case r'stat':
+          return InvoiceDtoSentMediumTypeEnum.stat;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -1209,8 +1235,6 @@ class InvoiceDtoSentMediumTypeEnumTypeTransformer {
   /// Singleton [InvoiceDtoSentMediumTypeEnumTypeTransformer] instance.
   static InvoiceDtoSentMediumTypeEnumTypeTransformer? _instance;
 }
-
-
 
 class InvoiceDtoInterventionTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -1235,7 +1259,10 @@ class InvoiceDtoInterventionTypeEnum {
 
   static InvoiceDtoInterventionTypeEnum? fromJson(dynamic value) => InvoiceDtoInterventionTypeEnumTypeTransformer().decode(value);
 
-  static List<InvoiceDtoInterventionTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceDtoInterventionTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceDtoInterventionTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -1269,8 +1296,10 @@ class InvoiceDtoInterventionTypeEnumTypeTransformer {
   InvoiceDtoInterventionTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'total': return InvoiceDtoInterventionTypeEnum.total;
-        case r'userfees': return InvoiceDtoInterventionTypeEnum.userfees;
+        case r'total':
+          return InvoiceDtoInterventionTypeEnum.total;
+        case r'userfees':
+          return InvoiceDtoInterventionTypeEnum.userfees;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -1283,7 +1312,6 @@ class InvoiceDtoInterventionTypeEnumTypeTransformer {
   /// Singleton [InvoiceDtoInterventionTypeEnumTypeTransformer] instance.
   static InvoiceDtoInterventionTypeEnumTypeTransformer? _instance;
 }
-
 
 /// Type of payment, ex: cash, wired, insurance, debit card, etc.
 class InvoiceDtoPaymentTypeEnum {
@@ -1321,7 +1349,10 @@ class InvoiceDtoPaymentTypeEnum {
 
   static InvoiceDtoPaymentTypeEnum? fromJson(dynamic value) => InvoiceDtoPaymentTypeEnumTypeTransformer().decode(value);
 
-  static List<InvoiceDtoPaymentTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceDtoPaymentTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceDtoPaymentTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -1355,14 +1386,22 @@ class InvoiceDtoPaymentTypeEnumTypeTransformer {
   InvoiceDtoPaymentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'cash': return InvoiceDtoPaymentTypeEnum.cash;
-        case r'wired': return InvoiceDtoPaymentTypeEnum.wired;
-        case r'insurance': return InvoiceDtoPaymentTypeEnum.insurance;
-        case r'creditcard': return InvoiceDtoPaymentTypeEnum.creditcard;
-        case r'debitcard': return InvoiceDtoPaymentTypeEnum.debitcard;
-        case r'paypal': return InvoiceDtoPaymentTypeEnum.paypal;
-        case r'bitcoin': return InvoiceDtoPaymentTypeEnum.bitcoin;
-        case r'other': return InvoiceDtoPaymentTypeEnum.other;
+        case r'cash':
+          return InvoiceDtoPaymentTypeEnum.cash;
+        case r'wired':
+          return InvoiceDtoPaymentTypeEnum.wired;
+        case r'insurance':
+          return InvoiceDtoPaymentTypeEnum.insurance;
+        case r'creditcard':
+          return InvoiceDtoPaymentTypeEnum.creditcard;
+        case r'debitcard':
+          return InvoiceDtoPaymentTypeEnum.debitcard;
+        case r'paypal':
+          return InvoiceDtoPaymentTypeEnum.paypal;
+        case r'bitcoin':
+          return InvoiceDtoPaymentTypeEnum.bitcoin;
+        case r'other':
+          return InvoiceDtoPaymentTypeEnum.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -1375,5 +1414,3 @@ class InvoiceDtoPaymentTypeEnumTypeTransformer {
   /// Singleton [InvoiceDtoPaymentTypeEnumTypeTransformer] instance.
   static InvoiceDtoPaymentTypeEnumTypeTransformer? _instance;
 }
-
-

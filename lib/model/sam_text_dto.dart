@@ -52,19 +52,13 @@ class SamTextDto {
   String? en;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SamTextDto &&
-     other.fr == fr &&
-     other.nl == nl &&
-     other.de == de &&
-     other.en == en;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SamTextDto && other.fr == fr && other.nl == nl && other.de == de && other.en == en;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (fr == null ? 0 : fr!.hashCode) +
-    (nl == null ? 0 : nl!.hashCode) +
-    (de == null ? 0 : de!.hashCode) +
-    (en == null ? 0 : en!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (fr == null ? 0 : fr!.hashCode) + (nl == null ? 0 : nl!.hashCode) + (de == null ? 0 : de!.hashCode) + (en == null ? 0 : en!.hashCode);
 
   @override
   String toString() => 'SamTextDto[fr=$fr, nl=$nl, de=$de, en=$en]';
@@ -114,7 +108,10 @@ class SamTextDto {
     return null;
   }
 
-  static List<SamTextDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SamTextDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SamTextDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,12 +139,18 @@ class SamTextDto {
   }
 
   // maps a json object with a list of SamTextDto-objects as value to a dart map
-  static Map<String, List<SamTextDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SamTextDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SamTextDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SamTextDto.listFromJson(entry.value, growable: growable,);
+        final value = SamTextDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -157,7 +160,5 @@ class SamTextDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -49,32 +49,34 @@ class SoftwareMedicalFileExportDto {
   String? softwareVersion;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SoftwareMedicalFileExportDto &&
-     other.secretForeignKeys == secretForeignKeys &&
-     other.comment == comment &&
-     other.exportAsPMF == exportAsPMF &&
-     other.softwareName == softwareName &&
-     other.softwareVersion == softwareVersion;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SoftwareMedicalFileExportDto &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.comment == comment &&
+          other.exportAsPMF == exportAsPMF &&
+          other.softwareName == softwareName &&
+          other.softwareVersion == softwareVersion;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (secretForeignKeys.hashCode) +
-    (comment == null ? 0 : comment!.hashCode) +
-    (exportAsPMF.hashCode) +
-    (softwareName == null ? 0 : softwareName!.hashCode) +
-    (softwareVersion == null ? 0 : softwareVersion!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (secretForeignKeys.hashCode) +
+      (comment == null ? 0 : comment!.hashCode) +
+      (exportAsPMF.hashCode) +
+      (softwareName == null ? 0 : softwareName!.hashCode) +
+      (softwareVersion == null ? 0 : softwareVersion!.hashCode);
 
   @override
-  String toString() => 'SoftwareMedicalFileExportDto[secretForeignKeys=$secretForeignKeys, comment=$comment, exportAsPMF=$exportAsPMF, softwareName=$softwareName, softwareVersion=$softwareVersion]';
+  String toString() =>
+      'SoftwareMedicalFileExportDto[secretForeignKeys=$secretForeignKeys, comment=$comment, exportAsPMF=$exportAsPMF, softwareName=$softwareName, softwareVersion=$softwareVersion]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'secretForeignKeys'] = secretForeignKeys;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
     if (comment != null) {
       json[r'comment'] = comment;
     }
-      json[r'exportAsPMF'] = exportAsPMF;
+    json[r'exportAsPMF'] = exportAsPMF;
     if (softwareName != null) {
       json[r'softwareName'] = softwareName;
     }

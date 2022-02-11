@@ -34,31 +34,30 @@ class FormTemplateLayout {
   List<String> keywords;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FormTemplateLayout &&
-     other.form == form &&
-     other.sections == sections &&
-     other.description == description &&
-     other.keywords == keywords;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FormTemplateLayout &&
+          other.form == form &&
+          other.sections == sections &&
+          other.description == description &&
+          other.keywords == keywords;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (form.hashCode) +
-    (sections.hashCode) +
-    (description == null ? 0 : description!.hashCode) +
-    (keywords.hashCode);
+      // ignore: unnecessary_parenthesis
+      (form.hashCode) + (sections.hashCode) + (description == null ? 0 : description!.hashCode) + (keywords.hashCode);
 
   @override
   String toString() => 'FormTemplateLayout[form=$form, sections=$sections, description=$description, keywords=$keywords]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'form'] = form;
-      json[r'sections'] = sections;
+    json[r'form'] = form;
+    json[r'sections'] = sections;
     if (description != null) {
       json[r'description'] = description;
     }
-      json[r'keywords'] = keywords;
+    json[r'keywords'] = keywords;
     return json;
   }
 
@@ -84,15 +83,16 @@ class FormTemplateLayout {
         form: mapValueOfType<String>(json, r'form')!,
         sections: Section.listFromJson(json[r'sections'])!,
         description: mapValueOfType<String>(json, r'description'),
-        keywords: json[r'keywords'] is List
-            ? (json[r'keywords'] as List).cast<String>()
-            : const [],
+        keywords: json[r'keywords'] is List ? (json[r'keywords'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<FormTemplateLayout>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FormTemplateLayout>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FormTemplateLayout>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -120,12 +120,18 @@ class FormTemplateLayout {
   }
 
   // maps a json object with a list of FormTemplateLayout-objects as value to a dart map
-  static Map<String, List<FormTemplateLayout>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FormTemplateLayout>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FormTemplateLayout>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FormTemplateLayout.listFromJson(entry.value, growable: growable,);
+        final value = FormTemplateLayout.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -140,4 +146,3 @@ class FormTemplateLayout {
     'sections',
   };
 }
-

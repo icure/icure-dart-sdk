@@ -34,15 +34,16 @@ class PaginatedDocumentKeyIdPairObject {
   String? startKeyDocId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PaginatedDocumentKeyIdPairObject &&
-     other.startKey == startKey &&
-     other.startKeyDocId == startKeyDocId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is PaginatedDocumentKeyIdPairObject &&
+          other.startKey == startKey &&
+          other.startKeyDocId == startKeyDocId;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (startKey == null ? 0 : startKey!.hashCode) +
-    (startKeyDocId == null ? 0 : startKeyDocId!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (startKey == null ? 0 : startKey!.hashCode) +
+      (startKeyDocId == null ? 0 : startKeyDocId!.hashCode);
 
   @override
   String toString() => 'PaginatedDocumentKeyIdPairObject[startKey=$startKey, startKeyDocId=$startKeyDocId]';

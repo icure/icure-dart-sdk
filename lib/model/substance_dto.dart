@@ -77,34 +77,36 @@ class SubstanceDto {
   List<StandardSubstanceDto> standardSubstances;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SubstanceDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.code == code &&
-     other.chemicalForm == chemicalForm &&
-     other.name == name &&
-     other.note == note &&
-     other.standardSubstances == standardSubstances;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SubstanceDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.code == code &&
+          other.chemicalForm == chemicalForm &&
+          other.name == name &&
+          other.note == note &&
+          other.standardSubstances == standardSubstances;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (chemicalForm == null ? 0 : chemicalForm!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (note == null ? 0 : note!.hashCode) +
-    (standardSubstances.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (chemicalForm == null ? 0 : chemicalForm!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (note == null ? 0 : note!.hashCode) +
+      (standardSubstances.hashCode);
 
   @override
-  String toString() => 'SubstanceDto[id=$id, rev=$rev, deletionDate=$deletionDate, code=$code, chemicalForm=$chemicalForm, name=$name, note=$note, standardSubstances=$standardSubstances]';
+  String toString() =>
+      'SubstanceDto[id=$id, rev=$rev, deletionDate=$deletionDate, code=$code, chemicalForm=$chemicalForm, name=$name, note=$note, standardSubstances=$standardSubstances]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
@@ -123,7 +125,7 @@ class SubstanceDto {
     if (note != null) {
       json[r'note'] = note;
     }
-      json[r'standardSubstances'] = standardSubstances;
+    json[r'standardSubstances'] = standardSubstances;
     return json;
   }
 

@@ -2,10 +2,9 @@
 
 part of icure_dart_sdk.api;
 
-
-
 class PatientByHcPartyNameFilter extends AbstractFilterDto<PatientDto> {
-         @override String? desc;
-        String? name;
-        String? healthcarePartyId;
+  @override
+  String? desc;
+  String? name;
+  String? healthcarePartyId;
 }

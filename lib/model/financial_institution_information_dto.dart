@@ -83,30 +83,32 @@ class FinancialInstitutionInformationDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FinancialInstitutionInformationDto &&
-     other.name == name &&
-     other.key == key &&
-     other.bankAccount == bankAccount &&
-     other.bic == bic &&
-     other.proxyBankAccount == proxyBankAccount &&
-     other.proxyBic == proxyBic &&
-     other.preferredFiiForPartners == preferredFiiForPartners &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is FinancialInstitutionInformationDto &&
+          other.name == name &&
+          other.key == key &&
+          other.bankAccount == bankAccount &&
+          other.bic == bic &&
+          other.proxyBankAccount == proxyBankAccount &&
+          other.proxyBic == proxyBic &&
+          other.preferredFiiForPartners == preferredFiiForPartners &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name == null ? 0 : name!.hashCode) +
-    (key == null ? 0 : key!.hashCode) +
-    (bankAccount == null ? 0 : bankAccount!.hashCode) +
-    (bic == null ? 0 : bic!.hashCode) +
-    (proxyBankAccount == null ? 0 : proxyBankAccount!.hashCode) +
-    (proxyBic == null ? 0 : proxyBic!.hashCode) +
-    (preferredFiiForPartners.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (name == null ? 0 : name!.hashCode) +
+      (key == null ? 0 : key!.hashCode) +
+      (bankAccount == null ? 0 : bankAccount!.hashCode) +
+      (bic == null ? 0 : bic!.hashCode) +
+      (proxyBankAccount == null ? 0 : proxyBankAccount!.hashCode) +
+      (proxyBic == null ? 0 : proxyBic!.hashCode) +
+      (preferredFiiForPartners.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'FinancialInstitutionInformationDto[name=$name, key=$key, bankAccount=$bankAccount, bic=$bic, proxyBankAccount=$proxyBankAccount, proxyBic=$proxyBic, preferredFiiForPartners=$preferredFiiForPartners, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'FinancialInstitutionInformationDto[name=$name, key=$key, bankAccount=$bankAccount, bic=$bic, proxyBankAccount=$proxyBankAccount, proxyBic=$proxyBic, preferredFiiForPartners=$preferredFiiForPartners, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -128,7 +130,7 @@ class FinancialInstitutionInformationDto {
     if (proxyBic != null) {
       json[r'proxyBic'] = proxyBic;
     }
-      json[r'preferredFiiForPartners'] = preferredFiiForPartners;
+    json[r'preferredFiiForPartners'] = preferredFiiForPartners.toList();
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -162,7 +164,7 @@ class FinancialInstitutionInformationDto {
         proxyBic: mapValueOfType<String>(json, r'proxyBic'),
         preferredFiiForPartners: json[r'preferredFiiForPartners'] is Set
             ? (json[r'preferredFiiForPartners'] as Set).cast<String>()
-            : const {},
+            : json[r'preferredFiiForPartners'] is List ? ((json[r'preferredFiiForPartners'] as List).toSet()).cast<String>() : const {},
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }

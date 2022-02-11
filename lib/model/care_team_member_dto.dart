@@ -50,28 +50,30 @@ class CareTeamMemberDto {
   String? encryptedSelf;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CareTeamMemberDto &&
-     other.id == id &&
-     other.careTeamMemberType == careTeamMemberType &&
-     other.healthcarePartyId == healthcarePartyId &&
-     other.quality == quality &&
-     other.encryptedSelf == encryptedSelf;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is CareTeamMemberDto &&
+          other.id == id &&
+          other.careTeamMemberType == careTeamMemberType &&
+          other.healthcarePartyId == healthcarePartyId &&
+          other.quality == quality &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (careTeamMemberType == null ? 0 : careTeamMemberType!.hashCode) +
-    (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
-    (quality == null ? 0 : quality!.hashCode) +
-    (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (careTeamMemberType == null ? 0 : careTeamMemberType!.hashCode) +
+      (healthcarePartyId == null ? 0 : healthcarePartyId!.hashCode) +
+      (quality == null ? 0 : quality!.hashCode) +
+      (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
 
   @override
-  String toString() => 'CareTeamMemberDto[id=$id, careTeamMemberType=$careTeamMemberType, healthcarePartyId=$healthcarePartyId, quality=$quality, encryptedSelf=$encryptedSelf]';
+  String toString() =>
+      'CareTeamMemberDto[id=$id, careTeamMemberType=$careTeamMemberType, healthcarePartyId=$healthcarePartyId, quality=$quality, encryptedSelf=$encryptedSelf]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (careTeamMemberType != null) {
       json[r'careTeamMemberType'] = careTeamMemberType;
     }
@@ -224,9 +226,12 @@ class CareTeamMemberDtoCareTeamMemberTypeEnumTypeTransformer {
   CareTeamMemberDtoCareTeamMemberTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'physician': return CareTeamMemberDtoCareTeamMemberTypeEnum.physician;
-        case r'specialist': return CareTeamMemberDtoCareTeamMemberTypeEnum.specialist;
-        case r'other': return CareTeamMemberDtoCareTeamMemberTypeEnum.other;
+        case r'physician':
+          return CareTeamMemberDtoCareTeamMemberTypeEnum.physician;
+        case r'specialist':
+          return CareTeamMemberDtoCareTeamMemberTypeEnum.specialist;
+        case r'other':
+          return CareTeamMemberDtoCareTeamMemberTypeEnum.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

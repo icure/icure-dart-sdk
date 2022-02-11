@@ -64,26 +64,28 @@ class SubstanceStubDto {
   List<StandardSubstanceDto> standardSubstances;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SubstanceStubDto &&
-     other.id == id &&
-     other.code == code &&
-     other.chemicalForm == chemicalForm &&
-     other.name == name &&
-     other.note == note &&
-     other.standardSubstances == standardSubstances;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SubstanceStubDto &&
+          other.id == id &&
+          other.code == code &&
+          other.chemicalForm == chemicalForm &&
+          other.name == name &&
+          other.note == note &&
+          other.standardSubstances == standardSubstances;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id == null ? 0 : id!.hashCode) +
-    (code == null ? 0 : code!.hashCode) +
-    (chemicalForm == null ? 0 : chemicalForm!.hashCode) +
-    (name == null ? 0 : name!.hashCode) +
-    (note == null ? 0 : note!.hashCode) +
-    (standardSubstances.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id == null ? 0 : id!.hashCode) +
+      (code == null ? 0 : code!.hashCode) +
+      (chemicalForm == null ? 0 : chemicalForm!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
+      (note == null ? 0 : note!.hashCode) +
+      (standardSubstances.hashCode);
 
   @override
-  String toString() => 'SubstanceStubDto[id=$id, code=$code, chemicalForm=$chemicalForm, name=$name, note=$note, standardSubstances=$standardSubstances]';
+  String toString() =>
+      'SubstanceStubDto[id=$id, code=$code, chemicalForm=$chemicalForm, name=$name, note=$note, standardSubstances=$standardSubstances]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -102,7 +104,7 @@ class SubstanceStubDto {
     if (note != null) {
       json[r'note'] = note;
     }
-      json[r'standardSubstances'] = standardSubstances;
+    json[r'standardSubstances'] = standardSubstances;
     return json;
   }
 

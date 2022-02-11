@@ -100,34 +100,36 @@ class InvoiceSender {
   bool isSpecialist;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InvoiceSender &&
-     other.nihii == nihii &&
-     other.bic == bic &&
-     other.iban == iban &&
-     other.bce == bce &&
-     other.ssin == ssin &&
-     other.lastName == lastName &&
-     other.firstName == firstName &&
-     other.phoneNumber == phoneNumber &&
-     other.conventionCode == conventionCode &&
-     other.isSpecialist == isSpecialist;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is InvoiceSender &&
+          other.nihii == nihii &&
+          other.bic == bic &&
+          other.iban == iban &&
+          other.bce == bce &&
+          other.ssin == ssin &&
+          other.lastName == lastName &&
+          other.firstName == firstName &&
+          other.phoneNumber == phoneNumber &&
+          other.conventionCode == conventionCode &&
+          other.isSpecialist == isSpecialist;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (nihii == null ? 0 : nihii!.hashCode) +
-    (bic == null ? 0 : bic!.hashCode) +
-    (iban == null ? 0 : iban!.hashCode) +
-    (bce == null ? 0 : bce!.hashCode) +
-    (ssin == null ? 0 : ssin!.hashCode) +
-    (lastName == null ? 0 : lastName!.hashCode) +
-    (firstName == null ? 0 : firstName!.hashCode) +
-    (phoneNumber == null ? 0 : phoneNumber!.hashCode) +
-    (conventionCode == null ? 0 : conventionCode!.hashCode) +
-    (isSpecialist.hashCode);
+      // ignore: unnecessary_parenthesis
+  (nihii == null ? 0 : nihii!.hashCode) +
+      (bic == null ? 0 : bic!.hashCode) +
+      (iban == null ? 0 : iban!.hashCode) +
+      (bce == null ? 0 : bce!.hashCode) +
+      (ssin == null ? 0 : ssin!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
+      (firstName == null ? 0 : firstName!.hashCode) +
+      (phoneNumber == null ? 0 : phoneNumber!.hashCode) +
+      (conventionCode == null ? 0 : conventionCode!.hashCode) +
+      (isSpecialist.hashCode);
 
   @override
-  String toString() => 'InvoiceSender[nihii=$nihii, bic=$bic, iban=$iban, bce=$bce, ssin=$ssin, lastName=$lastName, firstName=$firstName, phoneNumber=$phoneNumber, conventionCode=$conventionCode, isSpecialist=$isSpecialist]';
+  String toString() =>
+      'InvoiceSender[nihii=$nihii, bic=$bic, iban=$iban, bce=$bce, ssin=$ssin, lastName=$lastName, firstName=$firstName, phoneNumber=$phoneNumber, conventionCode=$conventionCode, isSpecialist=$isSpecialist]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -158,7 +160,7 @@ class InvoiceSender {
     if (conventionCode != null) {
       json[r'conventionCode'] = conventionCode;
     }
-      json[r'isSpecialist'] = isSpecialist;
+    json[r'isSpecialist'] = isSpecialist;
     return json;
   }
 

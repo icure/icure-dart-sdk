@@ -79,37 +79,39 @@ class InvoicesBatch {
   List<EfactInvoice> invoices;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InvoicesBatch &&
-     other.invoicingYear == invoicingYear &&
-     other.invoicingMonth == invoicingMonth &&
-     other.fileRef == fileRef &&
-     other.batchRef == batchRef &&
-     other.ioFederationCode == ioFederationCode &&
-     other.uniqueSendNumber == uniqueSendNumber &&
-     other.sender == sender &&
-     other.numericalRef == numericalRef &&
-     other.invoices == invoices;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is InvoicesBatch &&
+          other.invoicingYear == invoicingYear &&
+          other.invoicingMonth == invoicingMonth &&
+          other.fileRef == fileRef &&
+          other.batchRef == batchRef &&
+          other.ioFederationCode == ioFederationCode &&
+          other.uniqueSendNumber == uniqueSendNumber &&
+          other.sender == sender &&
+          other.numericalRef == numericalRef &&
+          other.invoices == invoices;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (invoicingYear.hashCode) +
-    (invoicingMonth.hashCode) +
-    (fileRef == null ? 0 : fileRef!.hashCode) +
-    (batchRef == null ? 0 : batchRef!.hashCode) +
-    (ioFederationCode == null ? 0 : ioFederationCode!.hashCode) +
-    (uniqueSendNumber == null ? 0 : uniqueSendNumber!.hashCode) +
-    (sender == null ? 0 : sender!.hashCode) +
-    (numericalRef == null ? 0 : numericalRef!.hashCode) +
-    (invoices.hashCode);
+      // ignore: unnecessary_parenthesis
+  (invoicingYear.hashCode) +
+      (invoicingMonth.hashCode) +
+      (fileRef == null ? 0 : fileRef!.hashCode) +
+      (batchRef == null ? 0 : batchRef!.hashCode) +
+      (ioFederationCode == null ? 0 : ioFederationCode!.hashCode) +
+      (uniqueSendNumber == null ? 0 : uniqueSendNumber!.hashCode) +
+      (sender == null ? 0 : sender!.hashCode) +
+      (numericalRef == null ? 0 : numericalRef!.hashCode) +
+      (invoices.hashCode);
 
   @override
-  String toString() => 'InvoicesBatch[invoicingYear=$invoicingYear, invoicingMonth=$invoicingMonth, fileRef=$fileRef, batchRef=$batchRef, ioFederationCode=$ioFederationCode, uniqueSendNumber=$uniqueSendNumber, sender=$sender, numericalRef=$numericalRef, invoices=$invoices]';
+  String toString() =>
+      'InvoicesBatch[invoicingYear=$invoicingYear, invoicingMonth=$invoicingMonth, fileRef=$fileRef, batchRef=$batchRef, ioFederationCode=$ioFederationCode, uniqueSendNumber=$uniqueSendNumber, sender=$sender, numericalRef=$numericalRef, invoices=$invoices]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'invoicingYear'] = invoicingYear;
-      json[r'invoicingMonth'] = invoicingMonth;
+    json[r'invoicingYear'] = invoicingYear;
+    json[r'invoicingMonth'] = invoicingMonth;
     if (fileRef != null) {
       json[r'fileRef'] = fileRef;
     }
@@ -128,7 +130,7 @@ class InvoicesBatch {
     if (numericalRef != null) {
       json[r'numericalRef'] = numericalRef;
     }
-      json[r'invoices'] = invoices;
+    json[r'invoices'] = invoices;
     return json;
   }
 

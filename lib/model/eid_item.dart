@@ -55,21 +55,22 @@ class EIDItem {
   String? readvalue;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EIDItem &&
-     other.deviceType == deviceType &&
-     other.readDate == readDate &&
-     other.readHour == readHour &&
-     other.readType == readType &&
-     other.readvalue == readvalue;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is EIDItem &&
+          other.deviceType == deviceType &&
+          other.readDate == readDate &&
+          other.readHour == readHour &&
+          other.readType == readType &&
+          other.readvalue == readvalue;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (deviceType == null ? 0 : deviceType!.hashCode) +
-    (readDate == null ? 0 : readDate!.hashCode) +
-    (readHour.hashCode) +
-    (readType == null ? 0 : readType!.hashCode) +
-    (readvalue == null ? 0 : readvalue!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (deviceType == null ? 0 : deviceType!.hashCode) +
+      (readDate == null ? 0 : readDate!.hashCode) +
+      (readHour.hashCode) +
+      (readType == null ? 0 : readType!.hashCode) +
+      (readvalue == null ? 0 : readvalue!.hashCode);
 
   @override
   String toString() => 'EIDItem[deviceType=$deviceType, readDate=$readDate, readHour=$readHour, readType=$readType, readvalue=$readvalue]';
@@ -82,7 +83,7 @@ class EIDItem {
     if (readDate != null) {
       json[r'readDate'] = readDate;
     }
-      json[r'readHour'] = readHour;
+    json[r'readHour'] = readHour;
     if (readType != null) {
       json[r'readType'] = readType;
     }

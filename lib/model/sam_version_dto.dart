@@ -56,28 +56,29 @@ class SamVersionDto {
   int? date;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SamVersionDto &&
-     other.id == id &&
-     other.rev == rev &&
-     other.deletionDate == deletionDate &&
-     other.version == version &&
-     other.date == date;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is SamVersionDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.deletionDate == deletionDate &&
+          other.version == version &&
+          other.date == date;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (rev == null ? 0 : rev!.hashCode) +
-    (deletionDate == null ? 0 : deletionDate!.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (date == null ? 0 : date!.hashCode);
+      // ignore: unnecessary_parenthesis
+  (id.hashCode) +
+      (rev == null ? 0 : rev!.hashCode) +
+      (deletionDate == null ? 0 : deletionDate!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (date == null ? 0 : date!.hashCode);
 
   @override
   String toString() => 'SamVersionDto[id=$id, rev=$rev, deletionDate=$deletionDate, version=$version, date=$date]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
