@@ -1,8 +1,8 @@
-# openapi.api.BeresultexportApi
+# icure_dart_sdk.api.BeresultexportApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -21,7 +21,7 @@ Export data
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultexportApi();
 final fromHcpId = fromHcpId_example; // String | 
@@ -72,7 +72,7 @@ Export data
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultexportApi();
 final fromHcpId = fromHcpId_example; // String | 
@@ -125,7 +125,7 @@ Export data
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultexportApi();
 final fromHcpId = fromHcpId_example; // String | 

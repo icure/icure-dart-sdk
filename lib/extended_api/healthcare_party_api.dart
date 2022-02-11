@@ -1,5 +1,5 @@
-import 'package:openapi/api.dart';
-import 'package:openapi/util/collection_utils.dart';
+import 'package:icure_dart_sdk/api.dart';
+import 'package:icure_dart_sdk/util/collection_utils.dart';
 
 extension HealthCarePartyDtoExtension on HealthcarePartyDto {
   HealthcarePartyDto initHcParty() {

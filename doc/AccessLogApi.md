@@ -1,8 +1,8 @@
-# openapi.api.AccessLogApi
+# icure_dart_sdk.api.AccessLogApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -25,7 +25,7 @@ Creates an access log
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
 final accessLogDto = AccessLogDto(); // AccessLogDto | 
@@ -66,7 +66,7 @@ Deletes an access log
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -107,7 +107,7 @@ Get Paginated List of Access logs
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
 final fromEpoch = 789; // int | 
@@ -158,7 +158,7 @@ Get Paginated List of Access logs by user after date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
 final userId = userId_example; // String | A User ID
@@ -211,7 +211,7 @@ Gets an access log
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
 final accessLogId = accessLogId_example; // String | 
@@ -252,7 +252,7 @@ List access logs found By Healthcare Party and secret foreign keyelementIds.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -295,7 +295,7 @@ Modifies an access log
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
 final accessLogDto = AccessLogDto(); // AccessLogDto | 

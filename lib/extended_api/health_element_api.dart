@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:openapi/api.dart';
-import 'package:openapi/crypto/crypto.dart';
-import 'package:openapi/util/binary_utils.dart';
-import 'package:openapi/util/collection_utils.dart';
+import 'package:icure_dart_sdk/api.dart';
+import 'package:icure_dart_sdk/crypto/crypto.dart';
+import 'package:icure_dart_sdk/util/binary_utils.dart';
+import 'package:icure_dart_sdk/util/collection_utils.dart';
 import 'package:tuple/tuple.dart';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';

@@ -1,8 +1,8 @@
-# openapi.api.TarificationApi
+# icure_dart_sdk.api.TarificationApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -28,7 +28,7 @@ Type, Tarification and Version are required.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
 final tarificationDto = TarificationDto(); // TarificationDto | 
@@ -71,7 +71,7 @@ Returns a list of tarifications matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
 final region = region_example; // String | 
@@ -124,7 +124,7 @@ Returns a list of tarifications matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
 final region = region_example; // String | Tarification region
@@ -173,7 +173,7 @@ Returns a list of tarifications matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
 final region = region_example; // String | 
@@ -226,7 +226,7 @@ Get a tarification based on ID or (tarification,type,version) as query strings. 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
 final tarificationId = tarificationId_example; // String | Tarification id
@@ -269,7 +269,7 @@ Get a tarification based on ID or (tarification,type,version) as query strings. 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
 final type = type_example; // String | Tarification type
@@ -316,7 +316,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -359,7 +359,7 @@ Modification of (type, tarification, version) is not allowed.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
 final tarificationDto = TarificationDto(); // TarificationDto | 

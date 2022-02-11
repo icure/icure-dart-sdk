@@ -1,8 +1,8 @@
-# openapi.api.MedexApi
+# icure_dart_sdk.api.MedexApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -19,7 +19,7 @@ Generate a Medex XML String
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedexApi();
 final medexInfoDto = MedexInfoDto(); // MedexInfoDto | 

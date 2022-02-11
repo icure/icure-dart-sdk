@@ -1,8 +1,8 @@
-# openapi.model.PersonNameDto
+# icure_dart_sdk.model.PersonNameDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

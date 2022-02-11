@@ -1,8 +1,8 @@
-# openapi.model.EpisodeDto
+# icure_dart_sdk.model.EpisodeDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

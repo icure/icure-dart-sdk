@@ -1,8 +1,8 @@
-# openapi.api.PermissionApi
+# icure_dart_sdk.api.PermissionApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -21,7 +21,7 @@ Add a list of granted and revoked permissions to user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PermissionApi();
 final userId = userId_example; // String | 

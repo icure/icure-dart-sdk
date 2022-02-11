@@ -1,8 +1,8 @@
-# openapi.api.TimeTableApi
+# icure_dart_sdk.api.TimeTableApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -24,7 +24,7 @@ Creates a timeTable
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
 final timeTableDto = TimeTableDto(); // TimeTableDto | 
@@ -65,7 +65,7 @@ Deletes an timeTable
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -106,7 +106,7 @@ Gets a timeTable
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
 final timeTableId = timeTableId_example; // String | 
@@ -147,7 +147,7 @@ Get TimeTables by AgendaId
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
 final agendaId = agendaId_example; // String | 
@@ -188,7 +188,7 @@ Get TimeTables by Period and AgendaId
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
 final startDate = 789; // int | 
@@ -233,7 +233,7 @@ Modifies an timeTable
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
 final timeTableDto = TimeTableDto(); // TimeTableDto | 

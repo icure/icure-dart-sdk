@@ -1,8 +1,8 @@
-# openapi.api.InvoiceApi
+# icure_dart_sdk.api.InvoiceApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -49,7 +49,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final userId = userId_example; // String | 
@@ -104,7 +104,7 @@ Creates an invoice
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceDto = InvoiceDto(); // InvoiceDto | 
@@ -147,7 +147,7 @@ Returns the created invoices.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> | 
@@ -188,7 +188,7 @@ Deletes an invoice
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceId = invoiceId_example; // String | 
@@ -231,7 +231,7 @@ Returns a list of invoices along with next start keys and Document ID. If the ne
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final filterChainInvoice = FilterChainInvoice(); // FilterChainInvoice | 
@@ -272,7 +272,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -323,7 +323,7 @@ Gets an invoice
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceId = invoiceId_example; // String | 
@@ -364,7 +364,7 @@ Gets an invoice
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -405,7 +405,7 @@ Get the list of all used tarifications frequencies in invoices
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final minOccurences = 789; // int | 
@@ -446,7 +446,7 @@ Gets all invoices per status
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final status = status_example; // String | 
@@ -493,7 +493,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -536,7 +536,7 @@ Keys have to delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -581,7 +581,7 @@ Keys have to delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -626,7 +626,7 @@ Keys have to delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -677,7 +677,7 @@ Get all invoices by author, by sending mode, by status and by date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -726,7 +726,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceIds = invoiceIds_example; // String | 
@@ -767,7 +767,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final recipientIds = recipientIds_example; // String | 
@@ -808,7 +808,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final serviceIds = serviceIds_example; // String | 
@@ -851,7 +851,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -894,7 +894,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final userIds = userIds_example; // String | 
@@ -935,7 +935,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final userIds = userIds_example; // String | 
@@ -976,7 +976,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -1017,7 +1017,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -1058,7 +1058,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceId = invoiceId_example; // String | 
@@ -1101,7 +1101,7 @@ Modifies an invoice
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceDto = InvoiceDto(); // InvoiceDto | 
@@ -1144,7 +1144,7 @@ Returns the modified invoices.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> | 
@@ -1185,7 +1185,7 @@ Adds a delegation to a invoice
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceId = invoiceId_example; // String | 
@@ -1228,7 +1228,7 @@ Modifies an invoice
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceDto = InvoiceDto(); // InvoiceDto | 
@@ -1269,7 +1269,7 @@ Remove an invoice of an user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final userId = userId_example; // String | 
@@ -1318,7 +1318,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
@@ -1359,7 +1359,7 @@ Gets all invoices for author at date
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
 final invoiceId = invoiceId_example; // String | 

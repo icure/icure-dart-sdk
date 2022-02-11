@@ -1,8 +1,8 @@
-# openapi.api.DocumentApi
+# icure_dart_sdk.api.DocumentApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -35,7 +35,7 @@ Creates a document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentDto = DocumentDto(); // DocumentDto | 
@@ -76,7 +76,7 @@ Deletes a document's attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentId = documentId_example; // String | 
@@ -117,7 +117,7 @@ Deletes documents
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -160,7 +160,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final limit = 56; // int | 
@@ -201,7 +201,7 @@ Gets a document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentId = documentId_example; // String | 
@@ -242,7 +242,7 @@ Load document's attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentId = documentId_example; // String | 
@@ -289,7 +289,7 @@ Gets a document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final externalUuid = externalUuid_example; // String | 
@@ -330,7 +330,7 @@ Gets a document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -371,7 +371,7 @@ Get all documents with externalUuid
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final externalUuid = externalUuid_example; // String | 
@@ -414,7 +414,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentTypeCode = documentTypeCode_example; // String | 
@@ -461,7 +461,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -504,7 +504,7 @@ Updates a document
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentDto = DocumentDto(); // DocumentDto | 
@@ -547,7 +547,7 @@ Returns the modified documents.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentDto = [List<DocumentDto>()]; // List<DocumentDto> | 
@@ -588,7 +588,7 @@ Creates a document's attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentId = documentId_example; // String | 
@@ -633,7 +633,7 @@ Creates a document's attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentId = documentId_example; // String | 
@@ -680,7 +680,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
@@ -721,7 +721,7 @@ Creates a document's attachment
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
 final documentId = documentId_example; // String | 

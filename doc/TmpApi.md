@@ -1,8 +1,8 @@
-# openapi.api.TmpApi
+# icure_dart_sdk.api.TmpApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -88,7 +88,7 @@ Returns an instance of created classification.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final classificationDto = ClassificationDto(); // ClassificationDto | 
@@ -131,7 +131,7 @@ Returns an instance of created classification.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final classificationDto = [List<ClassificationDto>()]; // List<ClassificationDto> | 
@@ -174,7 +174,7 @@ Returns an instance of created contact.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final contactDto = ContactDto(); // ContactDto | 
@@ -217,7 +217,7 @@ Returns an instance of created contact.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final contactDto = [List<ContactDto>()]; // List<ContactDto> | 
@@ -260,7 +260,7 @@ Nothing happens if the database already exists
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 
@@ -299,7 +299,7 @@ Returns an instance of created document.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final documentDto = DocumentDto(); // DocumentDto | 
@@ -342,7 +342,7 @@ Returns an instance of created document.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final documentDto = [List<DocumentDto>()]; // List<DocumentDto> | 
@@ -385,7 +385,7 @@ Returns an instance of created entityTemplate.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto | 
@@ -428,7 +428,7 @@ Returns an instance of created entityTemplate.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> | 
@@ -471,7 +471,7 @@ Returns an instance of created form.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final formDto = FormDto(); // FormDto | 
@@ -514,7 +514,7 @@ Returns an instance of created form.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final formDto = [List<FormDto>()]; // List<FormDto> | 
@@ -557,7 +557,7 @@ Returns an instance of created healthElement.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final healthElementDto = HealthElementDto(); // HealthElementDto | 
@@ -600,7 +600,7 @@ Returns an instance of created healthElement.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> | 
@@ -643,7 +643,7 @@ Returns an instance of created invoice.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final invoiceDto = InvoiceDto(); // InvoiceDto | 
@@ -686,7 +686,7 @@ Returns an instance of created invoice.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> | 
@@ -729,7 +729,7 @@ Returns an instance of created message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final messageDto = MessageDto(); // MessageDto | 
@@ -772,7 +772,7 @@ Returns an instance of created message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final messageDto = [List<MessageDto>()]; // List<MessageDto> | 
@@ -815,7 +815,7 @@ Returns an instance of created patient.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final patientDto = PatientDto(); // PatientDto | 
@@ -858,7 +858,7 @@ Returns an instance of created patient.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final patientDto = [List<PatientDto>()]; // List<PatientDto> | 
@@ -901,7 +901,7 @@ Response is a set containing the ID's of deleted items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -944,7 +944,7 @@ Nothing happens if the database does not exists
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 
@@ -983,7 +983,7 @@ Returns an instance of classification.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final id = id_example; // String | 
@@ -1026,7 +1026,7 @@ Returns an instance of created classification.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -1069,7 +1069,7 @@ Returns an instance of contact.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final id = id_example; // String | 
@@ -1112,7 +1112,7 @@ Returns an instance of created contact.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -1155,7 +1155,7 @@ Returns an instance of document.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final id = id_example; // String | 
@@ -1198,7 +1198,7 @@ Returns an instance of created document.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -1241,7 +1241,7 @@ Returns an instance of entityTemplate.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final id = id_example; // String | 
@@ -1284,7 +1284,7 @@ Returns an instance of created entityTemplate.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -1327,7 +1327,7 @@ Returns an instance of form.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final id = id_example; // String | 
@@ -1370,7 +1370,7 @@ Returns an instance of created form.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -1413,7 +1413,7 @@ Returns an instance of healthElement.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final id = id_example; // String | 
@@ -1456,7 +1456,7 @@ Returns an instance of created healthElement.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -1499,7 +1499,7 @@ Returns an instance of invoice.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final id = id_example; // String | 
@@ -1542,7 +1542,7 @@ Returns an instance of created invoice.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -1585,7 +1585,7 @@ Returns an instance of message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final id = id_example; // String | 
@@ -1628,7 +1628,7 @@ Returns an instance of created message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -1671,7 +1671,7 @@ Returns an instance of patient.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final id = id_example; // String | 
@@ -1714,7 +1714,7 @@ Returns an instance of created patient.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -1757,7 +1757,7 @@ Returns paginated classifications.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final firstClassificationId = firstClassificationId_example; // String | 
@@ -1802,7 +1802,7 @@ Returns paginated contacts.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final firstContactId = firstContactId_example; // String | 
@@ -1847,7 +1847,7 @@ Returns paginated documents.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final firstDocumentId = firstDocumentId_example; // String | 
@@ -1892,7 +1892,7 @@ Returns paginated entityTemplates.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final firstEntityTemplateId = firstEntityTemplateId_example; // String | 
@@ -1937,7 +1937,7 @@ Returns paginated forms.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final firstFormId = firstFormId_example; // String | 
@@ -1982,7 +1982,7 @@ Returns paginated healthElements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final firstHealthElementId = firstHealthElementId_example; // String | 
@@ -2027,7 +2027,7 @@ Returns paginated invoices.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final firstInvoiceId = firstInvoiceId_example; // String | 
@@ -2072,7 +2072,7 @@ Returns paginated messages.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final firstMessageId = firstMessageId_example; // String | 
@@ -2117,7 +2117,7 @@ Returns paginated patients.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final firstPatientId = firstPatientId_example; // String | 
@@ -2162,7 +2162,7 @@ Returns the modified classification.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final classificationDto = ClassificationDto(); // ClassificationDto | 
@@ -2205,7 +2205,7 @@ Returns the modified healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final classificationDto = [List<ClassificationDto>()]; // List<ClassificationDto> | 
@@ -2248,7 +2248,7 @@ Returns the modified contact.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final contactDto = ContactDto(); // ContactDto | 
@@ -2291,7 +2291,7 @@ Returns the modified healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final contactDto = [List<ContactDto>()]; // List<ContactDto> | 
@@ -2334,7 +2334,7 @@ Returns the modified document.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final documentDto = DocumentDto(); // DocumentDto | 
@@ -2377,7 +2377,7 @@ Returns the modified healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final documentDto = [List<DocumentDto>()]; // List<DocumentDto> | 
@@ -2420,7 +2420,7 @@ Returns the modified entityTemplate.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto | 
@@ -2463,7 +2463,7 @@ Returns the modified healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> | 
@@ -2506,7 +2506,7 @@ Returns the modified form.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final formDto = FormDto(); // FormDto | 
@@ -2549,7 +2549,7 @@ Returns the modified healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final formDto = [List<FormDto>()]; // List<FormDto> | 
@@ -2592,7 +2592,7 @@ Returns the modified healthElement.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final healthElementDto = HealthElementDto(); // HealthElementDto | 
@@ -2635,7 +2635,7 @@ Returns the modified healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> | 
@@ -2678,7 +2678,7 @@ Returns the modified invoice.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final invoiceDto = InvoiceDto(); // InvoiceDto | 
@@ -2721,7 +2721,7 @@ Returns the modified healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> | 
@@ -2764,7 +2764,7 @@ Returns the modified message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final messageDto = MessageDto(); // MessageDto | 
@@ -2807,7 +2807,7 @@ Returns the modified healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final messageDto = [List<MessageDto>()]; // List<MessageDto> | 
@@ -2850,7 +2850,7 @@ Returns the modified patient.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final patientDto = PatientDto(); // PatientDto | 
@@ -2893,7 +2893,7 @@ Returns the modified healthcare elements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final patientDto = [List<PatientDto>()]; // List<PatientDto> | 
@@ -2936,7 +2936,7 @@ Response is a set containing the ID's of deleted items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final requestBody = [List<String>()]; // List<String> | 
@@ -2977,7 +2977,7 @@ No authorization required
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
 final from = from_example; // String | 

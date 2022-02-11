@@ -1,8 +1,8 @@
-# openapi.model.ByteArrayDto
+# icure_dart_sdk.model.ByteArrayDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

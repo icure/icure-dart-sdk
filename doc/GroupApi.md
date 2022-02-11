@@ -1,8 +1,8 @@
-# openapi.api.GroupApi
+# icure_dart_sdk.api.GroupApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -31,7 +31,7 @@ Create a new group and associated dbs.  The created group will be manageable by 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group, also used for subsequent authentication against the db (can only contain digits, letters, - and _)
@@ -86,7 +86,7 @@ Get a group by id
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group
@@ -127,7 +127,7 @@ Get index info
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group
@@ -170,7 +170,7 @@ Init design docs for provided group
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group
@@ -217,7 +217,7 @@ List existing groups
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 
@@ -256,7 +256,7 @@ Update existing group name
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group
@@ -301,7 +301,7 @@ Update existing group properties
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group
@@ -346,7 +346,7 @@ Create a new group and associated dbs.  The created group will be manageable by 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final registrationInformationDto = RegistrationInformationDto(); // RegistrationInformationDto | 
@@ -389,7 +389,7 @@ Reset storage
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group
@@ -438,7 +438,7 @@ Update password for provided group
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group
@@ -483,7 +483,7 @@ Solve conflicts for group
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group

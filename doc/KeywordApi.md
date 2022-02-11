@@ -1,8 +1,8 @@
-# openapi.api.KeywordApi
+# icure_dart_sdk.api.KeywordApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -26,7 +26,7 @@ Returns an instance of created keyword.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
 final keywordDto = KeywordDto(); // KeywordDto | 
@@ -69,7 +69,7 @@ Response is a set containing the ID's of deleted keywords.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -110,7 +110,7 @@ Get a keyword
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
 final keywordId = keywordId_example; // String | 
@@ -151,7 +151,7 @@ Gets all keywords
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
 
@@ -188,7 +188,7 @@ Get keywords by user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
 final userId = userId_example; // String | 
@@ -231,7 +231,7 @@ Returns the modified keyword.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
 final keywordDto = KeywordDto(); // KeywordDto | 

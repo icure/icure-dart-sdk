@@ -1,8 +1,8 @@
-# openapi.api.CodeApi
+# icure_dart_sdk.api.CodeApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -34,7 +34,7 @@ Type, Code and Version are required.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final codeDto = CodeDto(); // CodeDto | 
@@ -77,7 +77,7 @@ Returns a list of codes along with next start keys and Document ID. If the nextS
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final startKey = startKey_example; // String | The start key for pagination, depends on the filters used
@@ -132,7 +132,7 @@ Returns a list of codes matched with given input. If several types are provided,
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final region = region_example; // String | 
@@ -187,7 +187,7 @@ Returns a list of codes matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final linkType = linkType_example; // String | 
@@ -238,7 +238,7 @@ Returns a list of codes matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final region = region_example; // String | 
@@ -293,7 +293,7 @@ Get a code based on ID or (code,type,version) as query strings. (code,type,versi
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final codeId = codeId_example; // String | Code id
@@ -336,7 +336,7 @@ Get a code based on ID or (code,type,version) as query strings. (code,type,versi
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final type = type_example; // String | Code type
@@ -383,7 +383,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -426,7 +426,7 @@ Import codes from the resources XML file depending on the passed pathVariable
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final codeType = codeType_example; // String | 
@@ -469,7 +469,7 @@ Returns a list of code types matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final region = region_example; // String | Code region
@@ -514,7 +514,7 @@ Returns a list of codes matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final region = region_example; // String | Code region
@@ -563,7 +563,7 @@ Returns a list of tag types matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final region = region_example; // String | Code region
@@ -606,7 +606,7 @@ Get ids of code matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final abstractFilterDtoCode = AbstractFilterDtoCode(); // AbstractFilterDtoCode | 
@@ -649,7 +649,7 @@ Modification of (type, code, version) is not allowed.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
 final codeDto = CodeDto(); // CodeDto | 

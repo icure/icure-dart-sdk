@@ -1,8 +1,8 @@
-# openapi.api.CalendarItemTypeApi
+# icure_dart_sdk.api.CalendarItemTypeApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -24,7 +24,7 @@ Creates a calendarItemType
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
 final calendarItemTypeDto = CalendarItemTypeDto(); // CalendarItemTypeDto | 
@@ -65,7 +65,7 @@ Deletes calendarItemTypes
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -106,7 +106,7 @@ Gets a calendarItemType
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
 final calendarItemTypeId = calendarItemTypeId_example; // String | 
@@ -147,7 +147,7 @@ Gets all calendarItemTypes
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
 
@@ -184,7 +184,7 @@ Gets all calendarItemTypes include deleted
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
 
@@ -221,7 +221,7 @@ Modifies an calendarItemType
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
 final calendarItemTypeDto = CalendarItemTypeDto(); // CalendarItemTypeDto | 

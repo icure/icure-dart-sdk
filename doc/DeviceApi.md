@@ -1,8 +1,8 @@
-# openapi.api.DeviceApi
+# icure_dart_sdk.api.DeviceApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -32,7 +32,7 @@ Name, last name, date of birth, and gender are required. After creation of the d
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final deviceDto = DeviceDto(); // DeviceDto | 
@@ -75,7 +75,7 @@ Returns the id and _rev of created devices
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> | 
@@ -118,7 +118,7 @@ Returns the id and _rev of created devices
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> | 
@@ -161,7 +161,7 @@ Response contains the id/rev of deleted device.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final deviceId = deviceId_example; // String | 
@@ -204,7 +204,7 @@ Response is an array containing the id/rev of deleted devices.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -247,7 +247,7 @@ Returns a list of devices along with next start keys and Document ID. If the nex
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final filterChainDevice = FilterChainDevice(); // FilterChainDevice | 
@@ -294,7 +294,7 @@ It gets device administrative data.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final deviceId = deviceId_example; // String | 
@@ -337,7 +337,7 @@ It gets device administrative data.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -378,7 +378,7 @@ Get ids of devices matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final abstractFilterDtoDevice = AbstractFilterDtoDevice(); // AbstractFilterDtoDevice | 
@@ -421,7 +421,7 @@ Returns the updated device
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final deviceDto = DeviceDto(); // DeviceDto | 
@@ -464,7 +464,7 @@ Returns the id and _rev of modified devices
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> | 
@@ -507,7 +507,7 @@ Returns the id and _rev of modified devices
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
 final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> | 

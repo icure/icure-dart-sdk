@@ -1,8 +1,8 @@
-# openapi.model.IndexingInfoDto
+# icure_dart_sdk.model.IndexingInfoDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

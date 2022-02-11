@@ -1,8 +1,8 @@
-# openapi.model.Authentication
+# icure_dart_sdk.model.Authentication
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

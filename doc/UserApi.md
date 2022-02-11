@@ -1,8 +1,8 @@
-# openapi.api.UserApi
+# icure_dart_sdk.api.UserApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -43,7 +43,7 @@ UserDto gets returned.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final healthcarePartyId = healthcarePartyId_example; // String | 
@@ -84,7 +84,7 @@ No authorization required
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final password = password_example; // String | 
@@ -125,7 +125,7 @@ Check token validity
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final userId = userId_example; // String | 
@@ -170,7 +170,7 @@ Create a user. HealthcareParty ID should be set. Email or Login have to be set. 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final userDto = UserDto(); // UserDto | 
@@ -213,7 +213,7 @@ Create a user. HealthcareParty ID should be set. Email has to be set and the Log
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final groupId = groupId_example; // String | 
@@ -258,7 +258,7 @@ Delete a User based on his/her ID. The return value is an array containing the I
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final userId = userId_example; // String | 
@@ -301,7 +301,7 @@ Delete a User based on his/her ID. The return value is an array containing the I
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final groupId = groupId_example; // String | 
@@ -344,7 +344,7 @@ No authorization required
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final password = password_example; // String | 
@@ -387,7 +387,7 @@ Returns a list of users along with next start keys and Document ID. If the nextS
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final filterChainUser = FilterChainUser(); // FilterChainUser | 
@@ -432,7 +432,7 @@ Get the list of users by healthcare party id
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final id = id_example; // String | 
@@ -473,7 +473,7 @@ Send a forgotten email message to an user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final email = email_example; // String | the email of the user 
@@ -518,7 +518,7 @@ Get current user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 
@@ -557,7 +557,7 @@ Get current user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 
@@ -596,7 +596,7 @@ Get current user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 
@@ -633,7 +633,7 @@ Request a new temporary token for authentication
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final userId = userId_example; // String | 
@@ -680,7 +680,7 @@ General information about the user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final userId = userId_example; // String | 
@@ -723,7 +723,7 @@ General information about the user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final email = email_example; // String | 
@@ -766,7 +766,7 @@ Returns a list of users.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final startKey = startKey_example; // String | An user email
@@ -813,7 +813,7 @@ Returns a list of users.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final groupId = groupId_example; // String | 
@@ -860,7 +860,7 @@ Get ids of healthcare party matching the provided filter for the current user (H
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final abstractFilterDtoUser = AbstractFilterDtoUser(); // AbstractFilterDtoUser | 
@@ -903,7 +903,7 @@ Modify a User properties based on his/her ID. The return value is the modified u
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final userId = userId_example; // String | 
@@ -948,7 +948,7 @@ No particular return value. It's just a message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final userDto = UserDto(); // UserDto | 
@@ -991,7 +991,7 @@ No particular return value. It's just a message.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
 final groupId = groupId_example; // String | 

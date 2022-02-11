@@ -1,8 +1,8 @@
-# openapi.api.MedicalLocationApi
+# icure_dart_sdk.api.MedicalLocationApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -23,7 +23,7 @@ Creates a medical location
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedicalLocationApi();
 final medicalLocationDto = MedicalLocationDto(); // MedicalLocationDto | 
@@ -64,7 +64,7 @@ Deletes medical locations
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedicalLocationApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -105,7 +105,7 @@ Gets a medical location
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedicalLocationApi();
 final locationId = locationId_example; // String | 
@@ -146,7 +146,7 @@ Gets all medical locations
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedicalLocationApi();
 
@@ -183,7 +183,7 @@ Modifies a medical location
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedicalLocationApi();
 final medicalLocationDto = MedicalLocationDto(); // MedicalLocationDto | 

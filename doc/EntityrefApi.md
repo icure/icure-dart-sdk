@@ -1,8 +1,8 @@
-# openapi.api.EntityrefApi
+# icure_dart_sdk.api.EntityrefApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -20,7 +20,7 @@ Create an entity reference
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityrefApi();
 final entityReferenceDto = EntityReferenceDto(); // EntityReferenceDto | 
@@ -61,7 +61,7 @@ Find latest reference for a prefix
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityrefApi();
 final prefix = prefix_example; // String | 

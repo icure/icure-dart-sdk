@@ -1,8 +1,8 @@
-# openapi.model.EIDItem
+# icure_dart_sdk.model.EIDItem
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 ## Properties

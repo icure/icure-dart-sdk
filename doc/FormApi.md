@@ -1,8 +1,8 @@
-# openapi.api.FormApi
+# icure_dart_sdk.api.FormApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -44,7 +44,7 @@ Returns an instance of created form.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formDto = FormDto(); // FormDto | 
@@ -87,7 +87,7 @@ Returns an instance of created form template.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formTemplateDto = FormTemplateDto(); // FormTemplateDto | 
@@ -130,7 +130,7 @@ Returns the created forms.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formDto = [List<FormDto>()]; // List<FormDto> | 
@@ -171,7 +171,7 @@ Delete a form template
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formTemplateId = formTemplateId_example; // String | 
@@ -214,7 +214,7 @@ Response is a set containing the ID's of deleted forms.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -257,7 +257,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formId = formId_example; // String | 
@@ -300,7 +300,7 @@ Gets a form
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formId = formId_example; // String | 
@@ -341,7 +341,7 @@ Gets the most recent form with the given logicalUuid
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final logicalUuid = logicalUuid_example; // String | 
@@ -382,7 +382,7 @@ Gets the most recent form with the given uniqueId
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final uniqueId = uniqueId_example; // String | 
@@ -423,7 +423,7 @@ Gets a form template by guid
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formTemplateId = formTemplateId_example; // String | 
@@ -464,7 +464,7 @@ Gets all form templates for current user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final loadLayout = true; // bool | 
@@ -505,7 +505,7 @@ Gets a form template
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formTemplateGuid = formTemplateGuid_example; // String | 
@@ -550,7 +550,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -591,7 +591,7 @@ Gets all forms with given logicalUuid
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final logicalUuid = logicalUuid_example; // String | 
@@ -632,7 +632,7 @@ Gets all forms by uniqueId
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final uniqueId = uniqueId_example; // String | 
@@ -673,7 +673,7 @@ Gets all form templates
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final specialityCode = specialityCode_example; // String | 
@@ -718,7 +718,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -769,7 +769,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final hcPartyId = hcPartyId_example; // String | 
@@ -814,7 +814,7 @@ Returns the modified form.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formDto = FormDto(); // FormDto | 
@@ -857,7 +857,7 @@ Returns the modified forms.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formDto = [List<FormDto>()]; // List<FormDto> | 
@@ -900,7 +900,7 @@ It delegates a form to a healthcare party. Returns the form with the new delegat
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formId = formId_example; // String | 
@@ -945,7 +945,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
@@ -986,7 +986,7 @@ Update a form template's layout
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formTemplateId = formTemplateId_example; // String | 
@@ -1031,7 +1031,7 @@ Returns an instance of created form template.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
 final formTemplateId = formTemplateId_example; // String | 

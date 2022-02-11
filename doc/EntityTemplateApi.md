@@ -1,8 +1,8 @@
-# openapi.api.EntityTemplateApi
+# icure_dart_sdk.api.EntityTemplateApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -31,7 +31,7 @@ Type, EntityTemplate and Version are required.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto | 
@@ -74,7 +74,7 @@ Returns the modified entityTemplates.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> | 
@@ -115,7 +115,7 @@ Delete entity templates
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -158,7 +158,7 @@ Returns a list of entityTemplates matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final type = type_example; // String | 
@@ -205,7 +205,7 @@ Get a entityTemplate based on ID or (entityTemplate,type,version) as query strin
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final entityTemplateId = entityTemplateId_example; // String | EntityTemplate id
@@ -248,7 +248,7 @@ Keys must be delimited by coma
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
@@ -291,7 +291,7 @@ Returns a list of entityTemplates matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final type = type_example; // String | 
@@ -338,7 +338,7 @@ Returns a list of entityTemplates matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final userId = userId_example; // String | 
@@ -387,7 +387,7 @@ Returns a list of entityTemplates matched with given input.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final userId = userId_example; // String | 
@@ -436,7 +436,7 @@ Modification of (type, entityTemplate, version) is not allowed.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto | 
@@ -479,7 +479,7 @@ Returns the modified entityTemplates.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
 final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> | 

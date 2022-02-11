@@ -1,8 +1,8 @@
-# openapi.api.IcureApi
+# icure_dart_sdk.api.IcureApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 ```
 
 All URIs are relative to *https://kraken.icure.dev*
@@ -32,7 +32,7 @@ Get index info
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 
@@ -69,7 +69,7 @@ Get process info
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 
@@ -106,7 +106,7 @@ Get replication info
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 
@@ -143,7 +143,7 @@ Get replication info
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 final id = id_example; // String | 
@@ -184,7 +184,7 @@ Get version
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 
@@ -221,7 +221,7 @@ Check if a user exists
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 
@@ -258,7 +258,7 @@ Resolve contacts conflicts
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 final limit = 56; // int | 
@@ -299,7 +299,7 @@ resolve documents conflicts
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 final ids = ids_example; // String | 
@@ -342,7 +342,7 @@ resolve forms conflicts
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 final limit = 56; // int | 
@@ -383,7 +383,7 @@ resolve healthcare elements conflicts
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 final limit = 56; // int | 
@@ -424,7 +424,7 @@ resolve invoices conflicts
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 final limit = 56; // int | 
@@ -465,7 +465,7 @@ resolve messages conflicts
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 final limit = 56; // int | 
@@ -506,7 +506,7 @@ Resolve patients conflicts
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 final limit = 56; // int | 
@@ -547,7 +547,7 @@ Force update design doc
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
 final entityName = entityName_example; // String | 
