@@ -1,5 +1,4 @@
 // @dart=2.12
-
 part of icure_dart_sdk.api;
 
 extension CryptoSupport on PatientApi {}
@@ -160,6 +159,7 @@ extension PatientApiCrypto on PatientApi {
     final List<PatientDto> encryptedPatients = await Future.wait(patients.map((patient) => PatientCryptoConfiguration(config)
         .encryptPatient(user.healthcarePartyId!, delegations, DecryptedPatientDtoExtensions(patient).initPatient())));
     final List<IdWithRevDto>? modifiedIdsWithRevs = await this.rawModifyPatients(encryptedPatients);
+
     return modifiedIdsWithRevs != null ? modifiedIdsWithRevs : List<IdWithRevDto>.empty();
   }
 
@@ -182,5 +182,128 @@ extension PatientApiCrypto on PatientApi {
     }).toList();
     return modifyPatients(user, updatedPatients, config);
   }
+
+  Future<DecryptedPaginatedListPatientDto?> filterPatientsBy(UserDto user, FilterChainPatient filterChain, String? startKey, String? startDocumentId,
+      int? limit, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+
+    return await (await this.rawFilterPatientsBy(filterChain, startKey: startKey, startDocumentId: startDocumentId, limit: limit))?.let((it) async =>
+        DecryptedPaginatedListPatientDto(
+            rows: await Future.wait(it.rows.map((it) => config.decryptPatient(user.healthcarePartyId!, it))),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair)
+    );
+  }
+
+  Future<DecryptedPaginatedListPatientDto?> findByAccessLogUserAfterDate(UserDto user, String userId, String? accessType, int? startDate,
+      String? startDocumentId, int? limit, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+
+    return await (await this.rawFindPatientsByAccessLogUserAfterDate(userId, accessType: accessType, startDocumentId: startDocumentId, startDate: startDate, limit: limit))?.let((it) async =>
+        DecryptedPaginatedListPatientDto(
+            rows: await Future.wait(it.rows.map((it) => config.decryptPatient(user.healthcarePartyId!, it))),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair)
+    );
+  }
+
+  Future<DecryptedPaginatedListPatientDto?> findByNameBirthSsinAuto(UserDto user, String? healthcarePartyId, String? filterValue, String? startKey,
+      String? startDocumentId, int? limit, String? sortDirection, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+
+    return await (await this.rawFindPatientsByNameBirthSsinAuto(healthcarePartyId: healthcarePartyId, filterValue: filterValue,
+        startKey: startKey, startDocumentId: startDocumentId, limit: limit, sortDirection: sortDirection))?.let((it) async =>
+        DecryptedPaginatedListPatientDto(
+            rows: await Future.wait(it.rows.map((it) => config.decryptPatient(user.healthcarePartyId!, it))),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair)
+    );
+  }
+
+  Future<DecryptedPatientDto?> findByExternalId(UserDto user, String externalId, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    var patient = await this.rawGetPatientByExternalId(externalId);
+    return patient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, patient) : null;
+  }
+
+  Future<List<DecryptedPatientDto>> fuzzySearch(UserDto user, String? firstName, String? lastName, int? dateOfBirth, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    return Future.wait(
+        (await this.rawFuzzySearch(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth))!.map((it) => config.decryptPatient(user.healthcarePartyId!, it)));
+  }
+
+  Future<List<DecryptedPatientDto>> getPatients(UserDto user, ListOfIdsDto listOfIdsDto, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    return Future.wait((await this.rawGetPatients(listOfIdsDto))!.map((it) => config.decryptPatient(user.healthcarePartyId!, it)));
+  }
+
+  Future<DecryptedPaginatedListPatientDto?> listAllDeleted(UserDto user, int? startDate, int? endDate, bool? desc, String? startDocumentId,
+      int? limit , CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+
+    return await (await this.rawFindDeletedPatients(startDate: startDate, endDate: endDate, desc: desc, startDocumentId: startDocumentId, limit: limit))?.let((it) async =>
+        DecryptedPaginatedListPatientDto(
+            rows: await Future.wait(it.rows.map((it) => config.decryptPatient(user.healthcarePartyId!, it))),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair)
+    );
+  }
+
+  Future<List<DecryptedPatientDto>> listDeletedByName(UserDto user, String? firstName, String? lastName, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    return Future.wait((await this.rawListDeletedPatientsByName(firstName: firstName, lastName: lastName))!.map((it) => config.decryptPatient(user.healthcarePartyId!, it)));
+  }
+
+  Future<List<DecryptedPatientDto>> listOfMergesAfter(UserDto user, int date, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    return Future.wait((await this.rawListOfMergesAfter(date))!.map((it) => config.decryptPatient(user.healthcarePartyId!, it)));
+  }
+
+  Future<DecryptedPaginatedListPatientDto?> listModifiedAfter(UserDto user, int date, int? startKey, String? startDocumentId, int? limit,
+      CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+
+    return await (await this.rawFindPatientsModifiedAfter(date, startKey: startKey, startDocumentId: startDocumentId, limit: limit))?.let((it) async =>
+        DecryptedPaginatedListPatientDto(
+            rows: await Future.wait(it.rows.map((it) => config.decryptPatient(user.healthcarePartyId!, it))),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair)
+    );
+  }
+
+  Future<DecryptedPaginatedListPatientDto?> listPatients(UserDto user, String? hcPartyId, String? sortField, String? startKey, String? startDocumentId, int? limit, String? sortDirection,
+      CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+
+    return await (await this.rawFindPatientsByHealthcareParty(hcPartyId: hcPartyId, sortField: sortField, startKey: startKey, startDocumentId: startDocumentId, limit: limit, sortDirection: sortDirection))?.let((it) async =>
+        DecryptedPaginatedListPatientDto(
+            rows: await Future.wait(it.rows.map((it) => config.decryptPatient(user.healthcarePartyId!, it))),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair)
+    );
+  }
+
+  Future<DecryptedPaginatedListPatientDto?> listByHealthcareParty(UserDto user, String hcPartyId, String? sortField, String? startKey, String? startDocumentId, int? limit, String? sortDirection,
+      CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+
+    return await (await this.rawFindPatientsByHealthcareParty(hcPartyId: hcPartyId, sortField: sortField, startKey: startKey, startDocumentId: startDocumentId, limit: limit, sortDirection: sortDirection))?.let((it) async =>
+        DecryptedPaginatedListPatientDto(
+            rows: await Future.wait(it.rows.map((it) => config.decryptPatient(user.healthcarePartyId!, it))),
+            pageSize: it.pageSize,
+            totalSize: it.totalSize,
+            nextKeyPair: it.nextKeyPair)
+    );
+  }
+
+  Future<DecryptedPatientDto?> mergeInto(UserDto user, String toId, String fromIds, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    var patient = await this.rawMergeInto(toId, fromIds);
+    return patient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, patient) : null;
+  }
+
+  Future<DecryptedPatientDto?> modifyReferral(UserDto user, String patientId, String referralId, int? start, int? end, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    var patient = await this.rawModifyPatientReferral(patientId, referralId, start: start, end: end);
+    return patient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, patient) : null;
+  }
+
+  Future<DecryptedPatientDto?> newPatientDelegations(UserDto user, String patientId, List<DelegationDto> delegationDto, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+    var patient = await this.rawNewPatientDelegations(patientId, delegationDto);
+    return patient != null ? await PatientCryptoConfiguration(config).decryptPatient(user.healthcarePartyId!, patient) : null;
+  }
+
 }
 
