@@ -531,8 +531,8 @@ class HealthElementApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoHealthElement] abstractFilterDtoHealthElement (required):
-  Future<Response> rawMatchHealthElementsByWithHttpInfo(AbstractFilterDtoHealthElement abstractFilterDtoHealthElement,) async {
+  /// * [AbstractFilterDto<HealthElementDto>] abstractFilterDtoHealthElement (required):
+  Future<Response> rawMatchHealthElementsByWithHttpInfo(AbstractFilterDto<HealthElementDto> abstractFilterDtoHealthElement,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/match';
 
@@ -563,8 +563,8 @@ class HealthElementApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoHealthElement] abstractFilterDtoHealthElement (required):
-  Future<List<String>?> rawMatchHealthElementsBy(AbstractFilterDtoHealthElement abstractFilterDtoHealthElement,) async {
+  /// * [AbstractFilterDto<HealthElementDto>] abstractFilterDtoHealthElement (required):
+  Future<List<String>?> rawMatchHealthElementsBy(AbstractFilterDto<HealthElementDto> abstractFilterDtoHealthElement,) async {
     final response = await rawMatchHealthElementsByWithHttpInfo(abstractFilterDtoHealthElement,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

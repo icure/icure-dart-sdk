@@ -1140,8 +1140,8 @@ class HealthcarePartyApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoHealthcareParty] abstractFilterDtoHealthcareParty (required):
-  Future<Response> matchHealthcarePartiesByWithHttpInfo(AbstractFilterDtoHealthcareParty abstractFilterDtoHealthcareParty,) async {
+  /// * [AbstractFilterDto<HealthcarePartyDto>] abstractFilterDtoHealthcareParty (required):
+  Future<Response> matchHealthcarePartiesByWithHttpInfo(AbstractFilterDto<HealthcarePartyDto> abstractFilterDtoHealthcareParty,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/hcparty/match';
 
@@ -1172,8 +1172,8 @@ class HealthcarePartyApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoHealthcareParty] abstractFilterDtoHealthcareParty (required):
-  Future<List<String>?> matchHealthcarePartiesBy(AbstractFilterDtoHealthcareParty abstractFilterDtoHealthcareParty,) async {
+  /// * [AbstractFilterDto<HealthcarePartyDto>] abstractFilterDtoHealthcareParty (required):
+  Future<List<String>?> matchHealthcarePartiesBy(AbstractFilterDto<HealthcarePartyDto> abstractFilterDtoHealthcareParty,) async {
     final response = await matchHealthcarePartiesByWithHttpInfo(abstractFilterDtoHealthcareParty,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

@@ -1196,8 +1196,8 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoUser] abstractFilterDtoUser (required):
-  Future<Response> matchUsersByWithHttpInfo(AbstractFilterDtoUser abstractFilterDtoUser,) async {
+  /// * [AbstractFilterDto<UserDto>] abstractFilterDtoUser (required):
+  Future<Response> matchUsersByWithHttpInfo(AbstractFilterDto<UserDto> abstractFilterDtoUser,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/user/match';
 
@@ -1228,8 +1228,8 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoUser] abstractFilterDtoUser (required):
-  Future<List<String>?> matchUsersBy(AbstractFilterDtoUser abstractFilterDtoUser,) async {
+  /// * [AbstractFilterDto<UserDto>] abstractFilterDtoUser (required):
+  Future<List<String>?> matchUsersBy(AbstractFilterDto<UserDto> abstractFilterDtoUser,) async {
     final response = await matchUsersByWithHttpInfo(abstractFilterDtoUser,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

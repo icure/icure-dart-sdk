@@ -519,8 +519,8 @@ class DeviceApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoDevice] abstractFilterDtoDevice (required):
-  Future<Response> matchDevicesByWithHttpInfo(AbstractFilterDtoDevice abstractFilterDtoDevice,) async {
+  /// * [AbstractFilterDto<DeviceDto>] abstractFilterDtoDevice (required):
+  Future<Response> matchDevicesByWithHttpInfo(AbstractFilterDto<DeviceDto> abstractFilterDtoDevice,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/match';
 
@@ -551,8 +551,8 @@ class DeviceApi {
   ///
   /// Parameters:
   ///
-  /// * [AbstractFilterDtoDevice] abstractFilterDtoDevice (required):
-  Future<List<String>?> matchDevicesBy(AbstractFilterDtoDevice abstractFilterDtoDevice,) async {
+  /// * [AbstractFilterDto<DeviceDto>] abstractFilterDtoDevice (required):
+  Future<List<String>?> matchDevicesBy(AbstractFilterDto<DeviceDto> abstractFilterDtoDevice,) async {
     final response = await matchDevicesByWithHttpInfo(abstractFilterDtoDevice,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
