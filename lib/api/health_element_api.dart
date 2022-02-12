@@ -204,14 +204,14 @@ class HealthElementApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainHealthElement] filterChainHealthElement (required):
+  /// * [FilterChain<HealthElementDto>] filterChainHealthElement (required):
   ///
   /// * [String] startDocumentId:
   ///   A HealthElement document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> rawFilterHealthElementsByWithHttpInfo(FilterChainHealthElement filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFilterHealthElementsByWithHttpInfo(FilterChain<HealthElementDto> filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/helement/filter';
 
@@ -251,14 +251,14 @@ class HealthElementApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainHealthElement] filterChainHealthElement (required):
+  /// * [FilterChain<HealthElementDto>] filterChainHealthElement (required):
   ///
   /// * [String] startDocumentId:
   ///   A HealthElement document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListHealthElementDto?> rawFilterHealthElementsBy(FilterChainHealthElement filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
+  Future<PaginatedListHealthElementDto?> rawFilterHealthElementsBy(FilterChain<HealthElementDto> filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
     final response = await rawFilterHealthElementsByWithHttpInfo(filterChainHealthElement,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

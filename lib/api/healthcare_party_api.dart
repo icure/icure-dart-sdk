@@ -272,14 +272,14 @@ class HealthcarePartyApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainHealthcareParty] filterChainHealthcareParty (required):
+  /// * [FilterChain<HealthcarePartyDto>] filterChainHealthcareParty (required):
   ///
   /// * [String] startDocumentId:
   ///   A HealthcareParty document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterHealthPartiesByWithHttpInfo(FilterChainHealthcareParty filterChainHealthcareParty, { String? startDocumentId, int? limit, }) async {
+  Future<Response> filterHealthPartiesByWithHttpInfo(FilterChain<HealthcarePartyDto> filterChainHealthcareParty, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/hcparty/filter';
 
@@ -319,14 +319,14 @@ class HealthcarePartyApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainHealthcareParty] filterChainHealthcareParty (required):
+  /// * [FilterChain<HealthcarePartyDto>] filterChainHealthcareParty (required):
   ///
   /// * [String] startDocumentId:
   ///   A HealthcareParty document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListHealthcarePartyDto?> filterHealthPartiesBy(FilterChainHealthcareParty filterChainHealthcareParty, { String? startDocumentId, int? limit, }) async {
+  Future<PaginatedListHealthcarePartyDto?> filterHealthPartiesBy(FilterChain<HealthcarePartyDto> filterChainHealthcareParty, { String? startDocumentId, int? limit, }) async {
     final response = await filterHealthPartiesByWithHttpInfo(filterChainHealthcareParty,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

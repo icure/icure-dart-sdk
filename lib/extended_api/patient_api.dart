@@ -183,7 +183,7 @@ extension PatientApiCrypto on PatientApi {
     return modifyPatients(user, updatedPatients, config);
   }
 
-  Future<DecryptedPaginatedListPatientDto?> filterPatientsBy(UserDto user, FilterChainPatient filterChain, String? startKey, String? startDocumentId,
+  Future<DecryptedPaginatedListPatientDto?> filterPatientsBy(UserDto user, FilterChain<PatientDto> filterChain, String? startKey, String? startDocumentId,
       int? limit, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
 
     return await (await this.rawFilterPatientsBy(filterChain, startKey: startKey, startDocumentId: startDocumentId, limit: limit))?.let((it) async =>

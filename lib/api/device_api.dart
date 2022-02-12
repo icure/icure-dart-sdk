@@ -324,14 +324,14 @@ class DeviceApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainDevice] filterChainDevice (required):
+  /// * [FilterChain<DeviceDto>] filterChainDevice (required):
   ///
   /// * [String] startDocumentId:
   ///   A device document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterDevicesByWithHttpInfo(FilterChainDevice filterChainDevice, { String? startDocumentId, int? limit, }) async {
+  Future<Response> filterDevicesByWithHttpInfo(FilterChain<DeviceDto> filterChainDevice, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/device/filter';
 
@@ -371,14 +371,14 @@ class DeviceApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainDevice] filterChainDevice (required):
+  /// * [FilterChain<DeviceDto>] filterChainDevice (required):
   ///
   /// * [String] startDocumentId:
   ///   A device document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListDeviceDto?> filterDevicesBy(FilterChainDevice filterChainDevice, { String? startDocumentId, int? limit, }) async {
+  Future<PaginatedListDeviceDto?> filterDevicesBy(FilterChain<DeviceDto> filterChainDevice, { String? startDocumentId, int? limit, }) async {
     final response = await filterDevicesByWithHttpInfo(filterChainDevice,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

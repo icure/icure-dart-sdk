@@ -211,7 +211,7 @@ extension HealthElementApiCrypto on HealthElementApi {
         : List<DecryptedHealthElementDto>.empty();
   }
 
-  Future<DecryptedPaginatedListHealthElementDto> filterHealthElements(UserDto user, FilterChainHealthElement filterChainHealthElement,
+  Future<DecryptedPaginatedListHealthElementDto> filterHealthElements(UserDto user, FilterChain<HealthElementDto> filterChainHealthElement,
       CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config, String? startDocumentId, int? limit) async {
     final PaginatedListHealthElementDto? paginatedListHealthElement =
         await this.rawFilterHealthElementsBy(filterChainHealthElement, startDocumentId: startDocumentId, limit: limit);

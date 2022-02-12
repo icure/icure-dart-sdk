@@ -293,8 +293,8 @@ class InvoiceApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainInvoice] filterChainInvoice (required):
-  Future<Response> rawFilterInvoicesByWithHttpInfo(FilterChainInvoice filterChainInvoice,) async {
+  /// * [FilterChain<InvoiceDto>] filterChainInvoice (required):
+  Future<Response> rawFilterInvoicesByWithHttpInfo(FilterChain<InvoiceDto> filterChainInvoice,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/invoice/filter';
 
@@ -327,8 +327,8 @@ class InvoiceApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainInvoice] filterChainInvoice (required):
-  Future<List<InvoiceDto>?> rawFilterInvoicesBy(FilterChainInvoice filterChainInvoice,) async {
+  /// * [FilterChain<InvoiceDto>] filterChainInvoice (required):
+  Future<List<InvoiceDto>?> rawFilterInvoicesBy(FilterChain<InvoiceDto> filterChainInvoice,) async {
     final response = await rawFilterInvoicesByWithHttpInfo(filterChainInvoice,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

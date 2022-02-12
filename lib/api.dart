@@ -377,8 +377,6 @@ part 'model/filter/contact/contact_by_hc_party_patient_tag_code_date_filter.dart
 
 part 'model/filter/contact/contact_by_hc_party_tag_code_date_filter.dart';
 
-part 'model/filter/constant_filter.dart';
-
 part 'model/filter/hcparty/healthcare_party_by_ids_filter.dart';
 
 part 'model/filter/hcparty/all_healthcare_parties_filter.dart';

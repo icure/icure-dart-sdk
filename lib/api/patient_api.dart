@@ -265,7 +265,7 @@ class PatientApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainPatient] filterChainPatient (required):
+  /// * [FilterChain<PatientDto>] filterChainPatient (required):
   ///
   /// * [String] startKey:
   ///   The start key for pagination, depends on the filters used
@@ -284,7 +284,7 @@ class PatientApi {
   ///
   /// * [bool] desc:
   ///   Descending
-  Future<Response> rawFilterPatientsByWithHttpInfo(FilterChainPatient filterChainPatient, { String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, }) async {
+  Future<Response> rawFilterPatientsByWithHttpInfo(FilterChain<PatientDto> filterChainPatient, { String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/patient/filter';
 
@@ -336,7 +336,7 @@ class PatientApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainPatient] filterChainPatient (required):
+  /// * [FilterChain<PatientDto>] filterChainPatient (required):
   ///
   /// * [String] startKey:
   ///   The start key for pagination, depends on the filters used
@@ -355,7 +355,7 @@ class PatientApi {
   ///
   /// * [bool] desc:
   ///   Descending
-  Future<PaginatedListPatientDto?> rawFilterPatientsBy(FilterChainPatient filterChainPatient, { String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, }) async {
+  Future<PaginatedListPatientDto?> rawFilterPatientsBy(FilterChain<PatientDto> filterChainPatient, { String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, }) async {
     final response = await rawFilterPatientsByWithHttpInfo(filterChainPatient,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, skip: skip, sort: sort, desc: desc, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

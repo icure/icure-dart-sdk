@@ -272,14 +272,14 @@ class ContactApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainContact] filterChainContact (required):
+  /// * [FilterChain<ContactDto>] filterChainContact (required):
   ///
   /// * [String] startDocumentId:
   ///   A Contact document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> rawFilterContactsByWithHttpInfo(FilterChainContact filterChainContact, { String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFilterContactsByWithHttpInfo(FilterChain<ContactDto> filterChainContact, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/filter';
 
@@ -319,7 +319,7 @@ class ContactApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainContact] filterChainContact (required):
+  /// * [FilterChain<ContactDto>] filterChainContact (required):
   ///
   /// * [String] startDocumentId:
   ///   A Contact document ID
@@ -327,7 +327,7 @@ class ContactApi {
   /// * [int] limit:
   ///   Number of rows
   Future<PaginatedListContactDto?> rawFilterContactsBy(
-    FilterChainContact filterChainContact, {
+    FilterChain<ContactDto> filterChainContact, {
     String? startDocumentId,
     int? limit,
   }) async {
@@ -359,14 +359,14 @@ class ContactApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainService] filterChainService (required):
+  /// * [FilterChain<ServiceDto>] filterChainService (required):
   ///
   /// * [String] startDocumentId:
   ///   A Contact document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> rawFilterServicesByWithHttpInfo(FilterChainService filterChainService, { String? startDocumentId, int? limit, }) async {
+  Future<Response> rawFilterServicesByWithHttpInfo(FilterChain<ServiceDto> filterChainService, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/filter';
 
@@ -406,14 +406,14 @@ class ContactApi {
   ///
   /// Parameters:
   ///
-  /// * [FilterChainService] filterChainService (required):
+  /// * [FilterChain<ServiceDto>] filterChainService (required):
   ///
   /// * [String] startDocumentId:
   ///   A Contact document ID
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListServiceDto?> rawFilterServicesBy(FilterChainService filterChainService, { String? startDocumentId, int? limit,}) async {
+  Future<PaginatedListServiceDto?> rawFilterServicesBy(FilterChain<ServiceDto> filterChainService, { String? startDocumentId, int? limit,}) async {
     final response = await rawFilterServicesByWithHttpInfo(filterChainService, startDocumentId: startDocumentId, limit: limit,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

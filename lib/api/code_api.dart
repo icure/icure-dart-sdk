@@ -100,8 +100,8 @@ class CodeApi {
   /// * [bool] desc:
   ///   Descending
   ///
-  /// * [FilterChainCode] filterChainCode:
-  Future<Response> filterCodesByWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, FilterChainCode? filterChainCode, }) async {
+  /// * [FilterChain<CodeDto>] filterChainCode:
+  Future<Response> filterCodesByWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, FilterChain<CodeDto>? filterChainCode, }) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/code/filter';
 
@@ -171,8 +171,8 @@ class CodeApi {
   /// * [bool] desc:
   ///   Descending
   ///
-  /// * [FilterChainCode] filterChainCode:
-  Future<PaginatedListCodeDto?> filterCodesBy({ String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, FilterChainCode? filterChainCode, }) async {
+  /// * [FilterChain<CodeDto>] filterChainCode:
+  Future<PaginatedListCodeDto?> filterCodesBy({ String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, FilterChain<CodeDto>? filterChainCode, }) async {
     final response = await filterCodesByWithHttpInfo( startKey: startKey, startDocumentId: startDocumentId, limit: limit, skip: skip, sort: sort, desc: desc, filterChainCode: filterChainCode, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

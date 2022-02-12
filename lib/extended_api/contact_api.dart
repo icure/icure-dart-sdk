@@ -174,7 +174,7 @@ extension ContactApiCrypto on ContactApi {
         config);
   }
 
-  Future<DecryptedPaginatedListContactDto?> filterContactsBy(UserDto user, FilterChainContact filterChain, String? startKey, String? startDocumentId,
+  Future<DecryptedPaginatedListContactDto?> filterContactsBy(UserDto user, FilterChain<ContactDto> filterChain, String? startKey, String? startDocumentId,
       int? limit, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     return await (await this.rawFilterContactsBy(filterChain, startDocumentId: startDocumentId, limit: limit))?.let((it) async =>
         DecryptedPaginatedListContactDto(
@@ -185,7 +185,7 @@ extension ContactApiCrypto on ContactApi {
   }
 
   Future<DecryptedPaginatedListServiceDto?> filterServicesBy(
-      UserDto user, FilterChainService filterChain, String? startKey, String? startDocumentId, int? limit, Crypto crypto) async {
+      UserDto user, FilterChain<ServiceDto> filterChain, String? startKey, String? startDocumentId, int? limit, Crypto crypto) async {
     return await (await this.rawFilterServicesBy(filterChain, startDocumentId: startDocumentId, limit: limit))?.let((it) async =>
         DecryptedPaginatedListServiceDto(
             rows: await crypto.decryptServices(user.healthcarePartyId!, null, it.rows),
