@@ -3,6 +3,12 @@ import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/util/collection_utils.dart';
 import 'package:icure_dart_sdk/util/functional_utils.dart';
 
+extension UserDataOwner on UserDto {
+  String? dataOwnerId() {
+    return this.healthcarePartyId ?? this.patientId ?? this.deviceId;
+  }
+}
+
 class DataOwnerResolver {
   DataOwnerResolver(this.healthcarePartyApi, this.patientApi, this.deviceApi);
 

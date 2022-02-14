@@ -1,19 +1,9 @@
 // @dart=2.12
-import 'dart:async';
-import 'dart:convert';
-import 'dart:typed_data';
+part of icure_dart_sdk.api;
 
-import 'package:icure_dart_sdk/api.dart';
-import 'package:icure_dart_sdk/crypto/crypto.dart';
-import 'package:icure_dart_sdk/util/binary_utils.dart';
-import 'package:icure_dart_sdk/util/collection_utils.dart';
-import 'package:tuple/tuple.dart';
-import 'package:uuid/uuid.dart';
-import 'package:uuid/uuid_util.dart';
+extension AccessLogCryptoSupport on AccessLogApi {}
 
-extension CryptoSupport on AccessLogApi {}
-
-extension InitDto on DecryptedAccessLogDto {
+extension AccessLogInitDto on DecryptedAccessLogDto {
   Future<DecryptedAccessLogDto> initDelegations(UserDto user, CryptoConfig<DecryptedAccessLogDto, AccessLogDto> config) async {
     final Uuid uuid = Uuid();
 
@@ -22,24 +12,24 @@ extension InitDto on DecryptedAccessLogDto {
     final ek = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
     final sfk = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
 
-    responsible = user.healthcarePartyId!;
+    responsible = user.dataOwnerId()!;
     author = user.id;
-    delegations = await (delegationKeys..add(user.healthcarePartyId!)).fold(
+    delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
         Future.value(delegations),
         (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
-                  owner: user.healthcarePartyId, delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.healthcarePartyId!, d, id, sfk))
+                  owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
             })
           ]));
 
-    encryptionKeys = await (delegationKeys..add(user.healthcarePartyId!)).fold(Future.value(encryptionKeys), (m, d) async =>
+    encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(Future.value(encryptionKeys), (m, d) async =>
     (await m)
       ..addEntries([
         MapEntry(d, {
           DelegationDto(
-              owner: user.healthcarePartyId, delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.healthcarePartyId!, d, id, ek))
+              owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek))
         })
       ]));
     return this;
@@ -90,16 +80,16 @@ extension AccessLogCryptoConfig on CryptoConfig<DecryptedAccessLogDto, AccessLog
   }
 }
 
-extension AccessLogExtendedApi on AccessLogApi {
+extension AccessLogApiCrypto on AccessLogApi {
 
   Future<DecryptedAccessLogDto?> createAccessLog(UserDto user, DecryptedAccessLogDto accessLogDto,
       CryptoConfig<DecryptedAccessLogDto, AccessLogDto> config) async {
 
-    final AccessLogDto encryptedAccessLog = await config.encryptAccessLog(user.healthcarePartyId!, (user.autoDelegations["all"] ?? <String>{})
+    final AccessLogDto encryptedAccessLog = await config.encryptAccessLog(user.dataOwnerId()!, (user.autoDelegations["all"] ?? <String>{})
       ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{}), accessLogDto);
     final AccessLogDto? createdAccessLog = await this.rawCreateAccessLog(encryptedAccessLog);
 
-    return createdAccessLog != null ? await config.decryptAccessLog(user.healthcarePartyId!, createdAccessLog) : null;
+    return createdAccessLog != null ? await config.decryptAccessLog(user.dataOwnerId()!, createdAccessLog) : null;
   }
 }
 
