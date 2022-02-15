@@ -84,15 +84,18 @@ extension PatientInitDto on DecryptedPatientDto {
 
 extension PatientCryptoConfig on CryptoConfig<DecryptedPatientDto, PatientDto> {
   Future<DecryptedPatientDto> decryptPatient(String dataOwnerId, PatientDto patient) async {
-    final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, patient.encryptionKeys))
-        .firstOrNull()?.formatAsKey().fromHexString();
-
-    if (secret == null) {
-      throw FormatException("Cannot get encryption key for ${patient.id} and hcp $dataOwnerId");
-    }
     final es = patient.encryptedSelf;
+    if (es != null) {
+      final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, patient.encryptionKeys))
+          .firstOrNull()?.formatAsKey().fromHexString();
 
-    return this.unmarshaller(patient, es != null ? base64.decoder.convert(es).decryptAES(secret) : null);
+      if (secret == null) {
+        throw FormatException("Cannot get encryption key for ${patient.id} and hcp $dataOwnerId");
+      }
+      return this.unmarshaller(patient, base64.decoder.convert(es).decryptAES(secret));
+    } else {
+      return this.unmarshaller(patient, null);
+    }
   }
 
   Future<PatientDto> encryptPatient(String dataOwnerId, Set<String> delegations, DecryptedPatientDto patient) async {

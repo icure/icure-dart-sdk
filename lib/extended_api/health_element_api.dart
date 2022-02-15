@@ -67,13 +67,18 @@ extension HealthElementCryptoConfig on CryptoConfig<DecryptedHealthElementDto, H
   }
 
   Future<DecryptedHealthElementDto> decryptHealthElement(String myId, HealthElementDto healthElementDto) async {
-    final secret = (await this.crypto.decryptEncryptionKeys(myId, healthElementDto.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    final String? es = healthElementDto.encryptedSelf;
 
-    if (secret == null) {
-      throw FormatException("Cannot get encryption key fo ${healthElementDto.id} and hcp $myId");
+    if (es != null) {
+      final secret = (await this.crypto.decryptEncryptionKeys(myId, healthElementDto.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+
+      if (secret == null) {
+        throw FormatException("Cannot get encryption key fo ${healthElementDto.id} and hcp $myId");
+      }
+      return this.unmarshaller(healthElementDto, base64.decoder.convert(es).decryptAES(secret));
+    } else {
+      return this.unmarshaller(healthElementDto, null);
     }
-    final String? encryptedSelf = healthElementDto.encryptedSelf;
-    return this.unmarshaller(healthElementDto, encryptedSelf != null ? base64.decoder.convert(encryptedSelf).decryptAES(secret) : null);
   }
 }
 

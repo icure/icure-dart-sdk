@@ -41,13 +41,17 @@ extension DocumentInitDto on DocumentDto {
 
 extension DocumentCryptoConfig on CryptoConfig<DecryptedDocumentDto, DocumentDto> {
   Future<DecryptedDocumentDto> decryptDocument(String dataOwnerId, DocumentDto document) async {
-    final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
-    if (secret == null) {
-      throw FormatException("Cannot get encryption key fo ${document.id} and hcp $dataOwnerId");
-    }
-
     final es = document.encryptedSelf;
-    return this.unmarshaller(document, es != null ? base64.decoder.convert(es).decryptAES(secret) : null);
+    if (es != null) {
+      final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+
+      if (secret == null) {
+        throw FormatException("Cannot get encryption key fo ${document.id} and hcp $dataOwnerId");
+      }
+      return this.unmarshaller(document, base64.decoder.convert(es).decryptAES(secret));
+    } else {
+      return this.unmarshaller(document, null);
+    }
   }
 
   Future<DocumentDto> encryptDocument(String dataOwnerId, Set<String> delegations, DecryptedDocumentDto document) async {

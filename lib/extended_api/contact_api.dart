@@ -42,14 +42,19 @@ extension ContactInitDto on ContactDto {
 
 extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
   Future<DecryptedContactDto> decryptContact(String myId, ContactDto contact) async {
-    final secret = (await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
-
-    if (secret == null) {
-      throw FormatException("Cannot get encryption key fo ${contact.id} and hcp $myId");
-    }
     final es = contact.encryptedSelf;
 
-    return this.unmarshaller(contact, es != null ? base64.decoder.convert(es).decryptAES(secret) : null);
+    if (es != null) {
+      final secret = (await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+
+      if (secret == null) {
+        throw FormatException("Cannot get encryption key fo ${contact.id} and hcp $myId");
+      }
+      return this.unmarshaller(contact, base64.decoder.convert(es).decryptAES(secret));
+    } else {
+      return this.unmarshaller(contact, null);
+    }
+
   }
 
   Future<ContactDto> encryptContact(String myId, Set<String> delegations, DecryptedContactDto contact) async {
