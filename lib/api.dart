@@ -28,6 +28,8 @@ import "package:pointycastle/export.dart";
 import 'package:pointycastle/src/platform_check/platform_check.dart';
 import 'package:tuple/tuple.dart';
 
+import 'extended_api/data_owner_api.dart';
+
 import 'util/collection_utils.dart';
 import 'util/binary_utils.dart';
 import 'util/functional_utils.dart';
@@ -86,6 +88,11 @@ part 'api/time_table_api.dart';
 part 'api/tmp_api.dart';
 part 'api/user_api.dart';
 
+part 'extended_api/accesslog_api.dart';
+part 'extended_api/contact_api.dart';
+part 'extended_api/document_api.dart';
+part 'extended_api/health_element_api.dart';
+part 'extended_api/healthcare_party_api.dart';
 part 'extended_api/patient_api.dart';
 
 part 'model/abstract_filter_dto_code.dart';

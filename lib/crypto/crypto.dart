@@ -6,6 +6,7 @@ import 'dart:typed_data';
 
 import 'package:crypton/crypton.dart';
 import 'package:icure_dart_sdk/api.dart';
+import 'package:icure_dart_sdk/extended_api/data_owner_api.dart';
 import 'package:icure_dart_sdk/util/binary_utils.dart';
 import 'package:icure_dart_sdk/util/collection_utils.dart';
 import 'package:icure_dart_sdk/util/functional_utils.dart';
@@ -35,8 +36,8 @@ abstract class Crypto {
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
   return BaseCryptoConfig(
       crypto,
-      (dec) async => Tuple2(PatientDto.fromJson(dec.toJson()..remove('note'))!, Uint8List.fromList(json.encode({'note': dec.note}).codeUnits)),
-      (cry, data) async => DecryptedPatientDto.fromJson(cry.toJson()..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!);
+          (dec) async => Tuple2(PatientDto.fromJson(dec.toJson()..remove('note'))!, Uint8List.fromList(json.encode({'note': dec.note}).codeUnits)),
+          (cry, data) async => DecryptedPatientDto.fromJson(cry.toJson()..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!);
 }
 
 BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto user, Crypto crypto) {
@@ -50,10 +51,10 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
         ContactDto.fromJson({
           ...dec.toJson(),
           'services': (await crypto.encryptServices(
-                  user.healthcarePartyId!,
-                  <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
-                  key,
-                  dec.services.toList()))
+              user.healthcarePartyId!,
+              <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
+              key,
+              dec.services.toList()))
               .toList()
               .map((it) => it.toJson())
         })!,
@@ -147,9 +148,9 @@ class BaseCryptoConfig<D, K> implements CryptoConfig<D, K> {
 }
 
 class LocalCrypto implements Crypto {
-  LocalCrypto(this.healthcarePartyApi, this.rsaKeyPairs);
+  LocalCrypto(this.dataOwnerResolver, this.rsaKeyPairs);
 
-  HealthcarePartyApi healthcarePartyApi;
+  DataOwnerResolver dataOwnerResolver;
   Map<String, RSAKeypair> rsaKeyPairs;
 
   Map<String, Future<HealthcarePartyDto?>> hcParties = {};
@@ -168,7 +169,7 @@ class LocalCrypto implements Crypto {
       }
     }));
 
-    var parentId = (await getHcParty(myId))?.parentId;
+    var parentId = (await dataOwnerResolver.getDataOwner(myId))?.parentId;
     if (parentId != null) {
       decryptEncryptionKeys(parentId, keys);
       return decryptedKeys.whereType<String>().toSet()..addAll(await decryptEncryptionKeys(parentId, keys));
@@ -188,27 +189,6 @@ class LocalCrypto implements Crypto {
     return Uint8List.fromList("$objectId:$secret".codeUnits).encryptAES(hcPartyKey).toHexString();
   }
 
-  Future<HealthcarePartyDto?> getHcParty(String healthcarePartyId) {
-    var hcPartyFuture = hcParties[healthcarePartyId];
-    if (hcPartyFuture == null) {
-      try {
-        hcPartyFuture = healthcarePartyApi.getHealthcareParty(healthcarePartyId);
-      } catch (e) {
-        hcPartyFuture = Future.value(null);
-      }
-      hcParties[healthcarePartyId] = hcPartyFuture;
-    }
-    return hcPartyFuture;
-  }
-
-  Future<HealthcarePartyDto?> updateHcParty(String healthcarePartyId, Future<HealthcarePartyDto?> Function(HealthcarePartyDto hcp) updater) async {
-    var hcParty = await getHcParty(healthcarePartyId);
-    if (hcParty == null) {
-      return null;
-    }
-    return await (hcParties[healthcarePartyId] = updater(hcParty));
-  }
-
   Future<Uint8List> getDelegateHcPartyKey(String delegateId, String ownerId, RSAPrivateKey? myPrivateKey) async {
     RSAPrivateKey? privateKey = myPrivateKey ?? rsaKeyPairs[delegateId]?.privateKey;
     if (privateKey == null) {
@@ -217,8 +197,8 @@ class LocalCrypto implements Crypto {
     Future<Map<String, Tuple2<String, Uint8List>>?>? keyMapFuture = delegateHcpartyKeysCache[delegateId];
 
     if (keyMapFuture == null) {
-      keyMapFuture = healthcarePartyApi.getHcPartyKeysForDelegate(delegateId).then((hcpk) {
-        return hcpk?.let((hcpnn) => decryptHcPartyKeys(hcpnn, delegateId, privateKey));
+      keyMapFuture = dataOwnerResolver.getDataOwnerKeysForDelegate(delegateId).then((hcpk) {
+        return hcpk.let((hcpnn) => decryptHcPartyKeys(hcpnn, delegateId, privateKey));
       });
       delegateHcpartyKeysCache[delegateId] = keyMapFuture;
     }
@@ -244,7 +224,7 @@ class LocalCrypto implements Crypto {
     Future<Map<String, Tuple2<String, Uint8List>>?>? keyMapFuture = ownerHcpartyKeysCache[ownerId];
 
     if (keyMapFuture == null) {
-      keyMapFuture = getHcParty(ownerId).then((hcp) {
+      keyMapFuture = dataOwnerResolver.getDataOwner(ownerId).then((hcp) {
         var hcpnn = Map<String, String>.fromEntries(findKeysToDecrypt(hcp));
         return decryptHcPartyKeys(hcpnn, delegateId, privateKey);
       });
@@ -260,8 +240,8 @@ class LocalCrypto implements Crypto {
     return keyMap[delegateId]?.item2;
   }
 
-  Iterable<MapEntry<String, String>> findKeysToDecrypt(HealthcarePartyDto? hcp) {
-    return hcp?.hcPartyKeys.entries.map<MapEntry<String, String>>((entry) => MapEntry<String, String>(entry.key, entry.value[0])) ??
+  Iterable<MapEntry<String, String>> findKeysToDecrypt(DataOwnerDto? dataOwner) {
+    return dataOwner?.hcPartyKeys.entries.map<MapEntry<String, String>>((entry) => MapEntry<String, String>(entry.key, entry.value[0])) ??
         Iterable<MapEntry<String, String>>.empty();
   }
 
@@ -280,7 +260,8 @@ class LocalCrypto implements Crypto {
     var aesKey = await getHcPartyKeyByOwner(delegateId, myId, myPrivateKey);
 
     if (aesKey == null) {
-      var delegatePublicKey = (await getHcParty(delegateId))?.publicKey?.toPublicKey();
+      var delegateDataOwner = await dataOwnerResolver.getDataOwner(delegateId);
+      var delegatePublicKey = delegateDataOwner?.publicKey?.toPublicKey();
       if (delegatePublicKey == null) {
         throw FormatException("Unknown hcp $delegateId or missing public key");
       }
@@ -295,14 +276,9 @@ class LocalCrypto implements Crypto {
       var keyForMe = encryptorForMe.process(aesKey).toHexString();
       var keyForDelegate = encryptorForDelegate.process(aesKey).toHexString();
 
-      updateHcParty(
-          myId,
-              (hcp) async => healthcarePartyApi.modifyHealthcareParty(hcp.also((that) {
-                that.hcPartyKeys = that.hcPartyKeys
-                  ..addAll({
-                    delegateId: [keyForMe, keyForDelegate]
-                  });
-              })));
+      dataOwnerResolver.updateDataOwnerWithNewDelegateKeyPair(myId, {
+        delegateId: [keyForMe, keyForDelegate]
+      });
       return aesKey;
     } else {
       return aesKey;
@@ -326,8 +302,8 @@ extension aes on Uint8List {
     var aesCrypt = AesCryptRaw(key: key, padding: PaddingAES.pkcs7);
     var iv = Uint8List.fromList(List<int>.generate(IV_BYTE_LENGTH, (i) => random.nextInt(256)));
     return (BytesBuilder()
-          ..add(iv)
-          ..add(aesCrypt.cbc.encrypt(inp: this, iv: iv)))
+      ..add(iv)
+      ..add(aesCrypt.cbc.encrypt(inp: this, iv: iv)))
         .toBytes();
   }
 }

@@ -513,6 +513,64 @@ class DeviceApi {
     return null;
   }
 
+  /// Get the HcParty encrypted AES keys indexed by owner
+  ///
+  /// (key, value) of the map is as follows: (ID of the owner of the encrypted AES key, encrypted AES key)
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] deviceId (required):
+  Future<Response> getDeviceHcPartyKeysForDelegateWithHttpInfo(String deviceId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/rest/v2/device/{deviceId}/keys'
+        .replaceAll('{deviceId}', deviceId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const authNames = <String>[r'basicSchema'];
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      authNames,
+    );
+  }
+
+  /// Get the HcParty encrypted AES keys indexed by owner
+  ///
+  /// (key, value) of the map is as follows: (ID of the owner of the encrypted AES key, encrypted AES key)
+  ///
+  /// Parameters:
+  ///
+  /// * [String] deviceId (required):
+  Future<Map<String, String>?> getDeviceHcPartyKeysForDelegate(String deviceId,) async {
+    final response = await getDeviceHcPartyKeysForDelegateWithHttpInfo(deviceId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
+    }
+    return null;
+  }
+
   /// Get ids of devices matching the provided filter for the current user (HcParty) 
   ///
   /// Note: This method returns the HTTP [Response].
