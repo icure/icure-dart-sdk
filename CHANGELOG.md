@@ -13,3 +13,8 @@
 ## 1.0.3
 
 - Do not decrypt if there is nothing to be decrypted
+
+## 1.0.4
+
+- Fixed a parameter in deleteServices
+- Fixed a typo in encryptAccessLog
