@@ -9,3 +9,7 @@
 ## 1.0.2
 
 - Support for Filter serialization.
+
+## 1.0.3
+
+- Do not decrypt if there is nothing to be decrypted
