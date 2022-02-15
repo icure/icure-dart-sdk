@@ -7,4 +7,15 @@ class AllDevicesFilter extends AbstractFilterDto<DeviceDto> {
 
   @override
   String? desc;
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+
+    return json;
+  }
+
 }

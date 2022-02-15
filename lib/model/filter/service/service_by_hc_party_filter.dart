@@ -7,4 +7,19 @@ class ServiceByHcPartyFilter extends AbstractFilterDto<ServiceDto> {
 
   @override String? desc;
   String? hcpId;
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    if (hcpId != null) {
+      json[r'hcpId'] = hcpId;
+    }
+
+    return json;
+  }
+
+
 }

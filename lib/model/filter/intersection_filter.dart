@@ -8,4 +8,16 @@ class IntersectionFilter<O> extends AbstractFilterDto<O> {
   @override
   String? desc;
   List<AbstractFilterDto<O>> filters = [];
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    json[r'filters'] = filters;
+
+    return json;
+  }
+
 }

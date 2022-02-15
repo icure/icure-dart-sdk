@@ -6,4 +6,14 @@ class FilterChain<O> {
 
   AbstractFilterDto<O> filter;
   Predicate? predicate;
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    json[r'filter'] = filter;
+    if (predicate != null) {
+      json[r'predicate'] = predicate;
+    }
+    return json;
+  }
 }

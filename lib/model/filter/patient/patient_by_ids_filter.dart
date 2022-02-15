@@ -8,4 +8,16 @@ class PatientByIdsFilter extends AbstractFilterDto<PatientDto> {
   String? desc;
   List<String> ids = [];
 
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    json[r'ids'] = ids;
+
+    return json;
+  }
+
+
 }

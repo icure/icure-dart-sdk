@@ -11,4 +11,26 @@ class CodeByRegionTypeLabelLanguageFilter extends AbstractFilterDto<CodeDto> {
   String? type;
   String? language;
   String? label;
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    if (region != null) {
+      json[r'region'] = region;
+    }
+    if (type != null) {
+      json[r'type'] = type;
+    }
+    if (language != null) {
+      json[r'language'] = language;
+    }
+    if (label != null) {
+      json[r'label'] = label;
+    }
+    return json;
+  }
+
 }

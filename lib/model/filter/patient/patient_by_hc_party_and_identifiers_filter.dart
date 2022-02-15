@@ -8,4 +8,19 @@ class PatientByHcPartyAndIdentifiersFilter extends AbstractFilterDto<PatientDto>
   String? desc;
   String? healthcarePartyId;
   List<IdentifierDto> identifiers = [];
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    if (healthcarePartyId != null) {
+      json[r'healthcarePartyId'] = healthcarePartyId;
+    }
+    json[r'identifiers'] = identifiers;
+
+    return json;
+  }
+
 }

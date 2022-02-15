@@ -11,4 +11,28 @@ class PatientByHcPartyGenderEducationProfession extends AbstractFilterDto<Patien
   String? education;
   String? profession;
 
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    if (healthcarePartyId != null) {
+      json[r'healthcarePartyId'] = healthcarePartyId;
+    }
+    if (gender != null) {
+      json[r'gender'] = gender;
+    }
+    if (education != null) {
+      json[r'education'] = education;
+    }
+    if (profession != null) {
+      json[r'profession'] = profession;
+    }
+
+    return json;
+  }
+
+
 }
