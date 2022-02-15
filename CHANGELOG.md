@@ -18,3 +18,7 @@
 
 - Fixed a parameter in deleteServices
 - Fixed a typo in encryptAccessLog
+
+## 1.0.5
+
+- Added documentCryptoConfig
