@@ -56,7 +56,7 @@ class PaginatedListPatientDto {
     final json = <String, dynamic>{};
     json[r'pageSize'] = pageSize;
     json[r'totalSize'] = totalSize;
-    json[r'rows'] = rows;
+    json[r'rows'] = rows.map((r) => r.toJson());
     if (nextKeyPair != null) {
       json[r'nextKeyPair'] = nextKeyPair;
     }

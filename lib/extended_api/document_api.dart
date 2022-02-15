@@ -1,19 +1,7 @@
+// @dart=2.12
+part of icure_dart_sdk.api;
 
-import 'dart:async';
-import 'dart:convert';
-import 'dart:typed_data';
-
-import 'package:http/http.dart';
-import 'package:icure_dart_sdk/api.dart';
-import 'package:icure_dart_sdk/crypto/crypto.dart';
-import 'package:icure_dart_sdk/util/binary_utils.dart';
-import 'package:icure_dart_sdk/util/functional_utils.dart';
-import 'package:icure_dart_sdk/util/collection_utils.dart';
-import 'package:tuple/tuple.dart';
-import 'package:uuid/uuid.dart';
-import 'package:uuid/uuid_util.dart';
-
-extension InitDto on DocumentDto {
+extension DocumentInitDto on DocumentDto {
 
   Future<DocumentDto> initDelegations(UserDto user, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
     final Uuid uuid = Uuid();
@@ -23,28 +11,28 @@ extension InitDto on DocumentDto {
     final ek = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
     final sfk = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
 
-    responsible = user.healthcarePartyId!;
+    responsible = user.dataOwnerId()!;
     author = user.id;
-    delegations = await (delegationKeys..add(user.healthcarePartyId!)).fold(
+    delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
         Future.value(delegations),
             (m, d) async =>
         (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
-                  owner: user.healthcarePartyId, delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.healthcarePartyId!, d, id, sfk))
+                  owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
             })
           ]));
 
-    encryptionKeys = await (delegationKeys..add(user.healthcarePartyId!)).fold(
+    encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
         Future.value(encryptionKeys),
             (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
-                  owner: user.healthcarePartyId,
+                  owner: user.dataOwnerId(),
                   delegatedTo: d,
-                  key: await config.crypto.encryptAESKeyForHcp(user.healthcarePartyId!, d, id, ek.toHexString()))
+                  key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek.toHexString()))
             })
           ]));
     return this;
@@ -53,13 +41,17 @@ extension InitDto on DocumentDto {
 
 extension DocumentCryptoConfig on CryptoConfig<DecryptedDocumentDto, DocumentDto> {
   Future<DecryptedDocumentDto> decryptDocument(String dataOwnerId, DocumentDto document) async {
-    final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
-    if (secret == null) {
-      throw FormatException("Cannot get encryption key fo ${document.id} and hcp $dataOwnerId");
-    }
-
     final es = document.encryptedSelf;
-    return this.unmarshaller(document, es != null ? base64.decoder.convert(es).decryptAES(secret) : null);
+    if (es != null) {
+      final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+
+      if (secret == null) {
+        throw FormatException("Cannot get encryption key fo ${document.id} and hcp $dataOwnerId");
+      }
+      return this.unmarshaller(document, base64.decoder.convert(es).decryptAES(secret));
+    } else {
+      return this.unmarshaller(document, null);
+    }
   }
 
   Future<DocumentDto> encryptDocument(String dataOwnerId, Set<String> delegations, DecryptedDocumentDto document) async {
@@ -99,12 +91,12 @@ extension DocumentApiCrypto on DocumentApi {
 
   Future<DecryptedDocumentDto?> createDocument(UserDto user, DecryptedDocumentDto document, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
     var newDocument = await this.rawCreateDocument(await config.encryptDocument(
-        user.healthcarePartyId!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, document));
-    return newDocument != null ? await config.decryptDocument(user.healthcarePartyId!, newDocument) : null;
+        user.dataOwnerId()!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, document));
+    return newDocument != null ? await config.decryptDocument(user.dataOwnerId()!, newDocument) : null;
   }
 
   Future<List<DecryptedDocumentDto>> findByHCPartyAndPatient(UserDto user, String hcpId, DecryptedPatientDto patient, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
-    var keys = await config.crypto.decryptEncryptionKeys(user.healthcarePartyId!, patient.delegations);
+    var keys = await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patient.delegations);
     if (keys.isEmpty) {
       throw FormatException("No delegations for user");
     }
@@ -113,7 +105,7 @@ extension DocumentApiCrypto on DocumentApi {
   }
 
   Future<List<DecryptedDocumentDto>> findByDocTypeHCPartyAndMessage(UserDto user, String documentType, String hcpId, DecryptedMessageDto message, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
-    var keys = await config.crypto.decryptEncryptionKeys(user.healthcarePartyId!, message.delegations);
+    var keys = await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, message.delegations);
     if (keys.isEmpty) {
       throw FormatException("No delegations for user");
     }
@@ -124,58 +116,58 @@ extension DocumentApiCrypto on DocumentApi {
   Future<List<DecryptedDocumentDto>> findByHCPartyAndPatientForeignKeys(UserDto user, String hcpId, String patientSecretForeignKeys, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
     return Future.wait(
         (await this.rawListDocumentsByHCPartyAndPatientForeignKeys(hcpId, patientSecretForeignKeys))!
-            .map((it) => config.decryptDocument(user.healthcarePartyId!, it))
+            .map((it) => config.decryptDocument(user.dataOwnerId()!, it))
     );
   }
 
   Future<List<DecryptedDocumentDto>> findByDocTypeHCPartyAndMessageForeignKeys(UserDto user, String documentType, String hcpId, String messageSecretForeignKeys, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
     return Future.wait(
         (await this.rawListDocumentByTypeHCPartyMessageSecretFKeys(documentType, hcpId, messageSecretForeignKeys))!
-            .map((it) => config.decryptDocument(user.healthcarePartyId!, it))
+            .map((it) => config.decryptDocument(user.dataOwnerId()!, it))
     );
   }
 
   Future<List<DecryptedDocumentDto>> findWithoutDelegations(UserDto user, int? limit, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
     return Future.wait(
         (await this.rawFindWithoutDelegation(limit: limit))!
-            .map((it) => config.decryptDocument(user.healthcarePartyId!, it))
+            .map((it) => config.decryptDocument(user.dataOwnerId()!, it))
     );
   }
 
   Future<DecryptedDocumentDto?> getDocument(UserDto user, String documentId, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
-    return await (await this.rawGetDocument(documentId))?.let((it) => config.decryptDocument(user.healthcarePartyId!, it));
+    return await (await this.rawGetDocument(documentId))?.let((it) => config.decryptDocument(user.dataOwnerId()!, it));
   }
 
   Future<List<DecryptedDocumentDto>> getDocuments(UserDto user, ListOfIdsDto listOfIdsDto, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
-    return Future.wait((await this.rawGetDocuments(listOfIdsDto))!.map((it) => config.decryptDocument(user.healthcarePartyId!, it)));
+    return Future.wait((await this.rawGetDocuments(listOfIdsDto))!.map((it) => config.decryptDocument(user.dataOwnerId()!, it)));
   }
 
   Future<List<DecryptedDocumentDto>> getDocumentsByExternalUuid(UserDto user, String externalUuid, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
-    return Future.wait((await this.rawGetDocumentsByExternalUuid(externalUuid))!.map((it) => config.decryptDocument(user.healthcarePartyId!, it)));
+    return Future.wait((await this.rawGetDocumentsByExternalUuid(externalUuid))!.map((it) => config.decryptDocument(user.dataOwnerId()!, it)));
   }
 
   Future<DecryptedDocumentDto?> modifyDocument(UserDto user, DecryptedDocumentDto document, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
     var newDocument = await this.rawModifyDocument(await config.encryptDocument(
-        user.healthcarePartyId!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, document));
+        user.dataOwnerId()!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, document));
 
-    return newDocument == null ? null : await config.decryptDocument(user.healthcarePartyId!, newDocument);
+    return newDocument == null ? null : await config.decryptDocument(user.dataOwnerId()!, newDocument);
   }
 
   Future<List<DecryptedDocumentDto>?> modifyDocuments(UserDto user, List<DecryptedDocumentDto> documents, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
     var modifiedDocuments = await this.rawModifyDocuments(await Future.wait(documents.map((document) => config.encryptDocument(
-        user.healthcarePartyId!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, document))));
+        user.dataOwnerId()!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, document))));
 
     return modifiedDocuments == null
         ? null
-        : await Future.wait(modifiedDocuments.map((newDocument) => config.decryptDocument(user.healthcarePartyId!, newDocument)));
+        : await Future.wait(modifiedDocuments.map((newDocument) => config.decryptDocument(user.dataOwnerId()!, newDocument)));
   }
 
   Future<DecryptedDocumentDto?> deleteAttachment(UserDto user, String documentId, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
-    return await (await this.rawDeleteAttachment(documentId))?.let((it) => config.decryptDocument(user.healthcarePartyId!, it));
+    return await (await this.rawDeleteAttachment(documentId))?.let((it) => config.decryptDocument(user.dataOwnerId()!, it));
   }
 
   Future<DecryptedDocumentDto?> setAttachmentTo(UserDto user, String documentId, ByteStream attachment, String? docEncKeys, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
-    return await (await this.rawSetDocumentAttachment(documentId, attachment, enckeys: docEncKeys))?.let((it) => config.decryptDocument(user.healthcarePartyId!, it));
+    return await (await this.rawSetDocumentAttachment(documentId, attachment, enckeys: docEncKeys))?.let((it) => config.decryptDocument(user.dataOwnerId()!, it));
   }
 }
 

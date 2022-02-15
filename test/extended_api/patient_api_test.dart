@@ -5,9 +5,9 @@ import 'dart:io';
 import 'package:crypton/crypton.dart';
 import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/crypto/crypto.dart';
+import 'package:icure_dart_sdk/extended_api/data_owner_api.dart';
 import "package:test/test.dart";
 import 'package:icure_dart_sdk/util/binary_utils.dart';
-import "package:test/test.dart";
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
@@ -17,6 +17,7 @@ void main() {
   var userApi = UserApi(apiClient);
   var hcpApi = HealthcarePartyApi(apiClient);
   var patientApi = PatientApi(apiClient);
+  var deviceApi = DeviceApi(apiClient);
 
   final Uuid uuid = Uuid();
 
@@ -25,11 +26,9 @@ void main() {
     var hcpKeyFile = File.fromUri(fileUri);
 
     var hcpPrivateKey = (await hcpKeyFile.readAsString(encoding: utf8)).toPrivateKey();
-    var hcpPublicKey = hcp.publicKey!.toPublicKey();
-
     var keyPairs = {user.healthcarePartyId!: RSAKeypair(hcpPrivateKey)};
 
-    return LocalCrypto(hcpApi, keyPairs);
+    return LocalCrypto(DataOwnerResolver(hcpApi, patientApi, deviceApi), keyPairs);
   }
 
   group('tests for PatientApi', () {

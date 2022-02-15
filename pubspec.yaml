@@ -1,14 +1,12 @@
 name: icure_dart_sdk
 description: icure low level dart sdk.
-version: 1.0.0
-# homepage: https://www.example.com
+version: 1.0.3
+homepage: https://icure.dev
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
-
 dependencies:
-  expire_cache: ^2.0.1
   http: '>=0.13.0 <0.14.0'
   intl: '^0.17.0'
   meta: '^1.7.0'

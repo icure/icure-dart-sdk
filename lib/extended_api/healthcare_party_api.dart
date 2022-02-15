@@ -1,5 +1,5 @@
-import 'package:icure_dart_sdk/api.dart';
-import 'package:icure_dart_sdk/util/collection_utils.dart';
+// @dart=2.12
+part of icure_dart_sdk.api;
 
 extension HealthCarePartyDtoExtension on HealthcarePartyDto {
   HealthcarePartyDto initHcParty() {

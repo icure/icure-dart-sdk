@@ -11,4 +11,27 @@ class InvoiceByHcPartyCodeDateFilter extends AbstractFilterDto<InvoiceDto> {
   String? code;
   int? startInvoiceDate;
   int? endInvoiceDate;
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    if (healthcarePartyId != null) {
+      json[r'healthcarePartyId'] = healthcarePartyId;
+    }
+    if (code != null) {
+      json[r'code'] = code;
+    }
+    if (startInvoiceDate != null) {
+      json[r'startInvoiceDate'] = startInvoiceDate;
+    }
+    if (endInvoiceDate != null) {
+      json[r'endInvoiceDate'] = endInvoiceDate;
+    }
+
+    return json;
+  }
+
 }

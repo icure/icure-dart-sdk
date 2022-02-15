@@ -2,10 +2,28 @@
 part of icure_dart_sdk.api;
 
 class PatientByHcPartyAndSsinsFilter extends AbstractFilterDto<PatientDto> {
-  PatientByHcPartyAndSsinsFilter({this.desc, this.ssins, this.healthcarePartyId});
+  PatientByHcPartyAndSsinsFilter({this.desc, this.ssins = const [], this.healthcarePartyId});
 
   @override
   String? desc;
-  List<String>? ssins;
+  List<String> ssins = [];
   String? healthcarePartyId;
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    if (healthcarePartyId != null) {
+      json[r'healthcarePartyId'] = healthcarePartyId;
+    }
+    if (ssins != null) {
+      json[r'ssins'] = ssins;
+    }
+
+    return json;
+  }
+
+
 }

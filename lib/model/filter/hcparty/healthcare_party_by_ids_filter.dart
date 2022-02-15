@@ -7,4 +7,16 @@ class HealthcarePartyByIdsFilter extends AbstractFilterDto<HealthcarePartyDto> {
   @override
   String? desc;
   Set<String> ids = {};
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    json[r'ids'] = ids.toList();
+
+    return json;
+  }
+
 }

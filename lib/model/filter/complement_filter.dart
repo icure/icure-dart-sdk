@@ -9,4 +9,21 @@ class ComplementFilter<O> extends AbstractFilterDto<O> {
   String? desc;
   AbstractFilterDto<O>? superSet;
   AbstractFilterDto<O>? subSet;
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (desc != null) {
+      json[r'desc'] = desc;
+    }
+    if (superSet != null) {
+      json[r'superSet'] = superSet;
+    }
+    if (subSet != null) {
+      json[r'subSet'] = subSet;
+    }
+
+    return json;
+  }
+
 }

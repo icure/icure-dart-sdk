@@ -22,4 +22,32 @@ class ContactByHcPartyTagCodeDateFilter extends AbstractFilterDto<ContactDto> {
   int? startOfContactOpeningDate;
   int? endOfContactOpeningDate;
 
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    json['\$type'] = this.runtimeType.toString();
+    if (healthcarePartyId != null) {
+      json[r'healthcarePartyId'] = healthcarePartyId;
+    }
+    if (tagType != null) {
+      json[r'tagType'] = tagType;
+    }
+    if (tagCode != null) {
+      json[r'tagCode'] = tagCode;
+    }
+    if (codeType != null) {
+      json[r'codeType'] = codeType;
+    }
+    if (codeCode != null) {
+      json[r'codeCode'] = codeCode;
+    }
+    if (startOfContactOpeningDate != null) {
+      json[r'startOfContactOpeningDate'] = startOfContactOpeningDate;
+    }
+    if (endOfContactOpeningDate != null) {
+      json[r'endOfContactOpeningDate'] = endOfContactOpeningDate;
+    }
+    return json;
+  }
+
+
 }
