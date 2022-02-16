@@ -150,7 +150,7 @@ class DataOwnerResolver {
   Future<HealthcarePartyDto?> _getHcp(String hcpId) async {
     try {
       final cachedHcp = hcParties[hcpId];
-      return await (cachedHcp != null ? cachedHcp : healthcarePartyApi.getHealthcareParty(hcpId));
+      return cachedHcp != null ? await cachedHcp : await (hcParties[hcpId] = healthcarePartyApi.getHealthcareParty(hcpId));
     } on ApiException {
       return null;
     }
@@ -164,7 +164,7 @@ class DataOwnerResolver {
   Future<PatientDto?> _getPatient(String patientId) async {
     try {
       final cachedPatient = patients[patientId];
-      return await (cachedPatient != null ? cachedPatient : patientApi.rawGetPatient(patientId));
+      return cachedPatient != null ? await cachedPatient : await (patients[patientId] = patientApi.rawGetPatient(patientId));
     } on ApiException {
       return null;
     }
@@ -178,7 +178,7 @@ class DataOwnerResolver {
   Future<DeviceDto?> _getDevice(String deviceId) async {
     try {
       final cachedDevice = devices[deviceId];
-      return await (cachedDevice != null ? cachedDevice : deviceApi.getDevice(deviceId));
+      return cachedDevice != null ? await cachedDevice : await (devices[deviceId] = deviceApi.getDevice(deviceId));
     } on ApiException {
       return null;
     }
