@@ -1663,14 +1663,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoService] abstractFilterDtoService (required):
-  Future<Response> rawMatchServicesByWithHttpInfo(
-    AbstractFilterDtoService abstractFilterDtoService,
-  ) async {
-    // Verify required params are set.
-    if (abstractFilterDtoService == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: abstractFilterDtoService');
-    }
-
+  Future<Response> rawMatchServicesByWithHttpInfo(AbstractFilterDto<ServiceDto> abstractFilterDtoService,) async {
     // ignore: prefer_const_declarations
     final path = r'/rest/v2/contact/service/match';
 
@@ -1701,9 +1694,7 @@ class ContactApi {
   /// Parameters:
   ///
   /// * [AbstractFilterDtoService] abstractFilterDtoService (required):
-  Future<List<String>> rawMatchServicesBy(
-    AbstractFilterDtoService abstractFilterDtoService,
-  ) async {
+  Future<List<String>> rawMatchServicesBy(AbstractFilterDto<ServiceDto> abstractFilterDtoService,) async {
     final response = await rawMatchServicesByWithHttpInfo(
       abstractFilterDtoService,
     );

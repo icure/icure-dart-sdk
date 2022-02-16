@@ -1,3 +1,7 @@
+## 1.0.8
+
+- Fixed rawMatchServicesBy
+
 ## 1.0.7
 
 - Added rawMatchServicesBy
