@@ -1,3 +1,7 @@
+## 1.0.7
+
+- Added rawMatchServicesBy
+
 ## 1.0.6
 
 - Improve data-owner cache
