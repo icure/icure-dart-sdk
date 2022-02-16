@@ -74,12 +74,19 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
 }
 
 BaseCryptoConfig<DecryptedHealthElementDto, HealthElementDto> healthElementCryptoConfig(Crypto crypto) {
-  //TODO : Check if this work
   return BaseCryptoConfig(crypto, (decryptedHealthElementDto) async {
     return Tuple2(HealthElementDto.fromJson({...decryptedHealthElementDto.toJson()})!, Uint8List.fromList(json.encode({}).codeUnits));
   }, (encryptedHealthElementDto, data) async {
     return DecryptedHealthElementDto.fromJson(
         {...encryptedHealthElementDto.toJson(), ...(data != null ? json.decode(String.fromCharCodes(data)) : {})})!;
+  });
+}
+
+BaseCryptoConfig<DecryptedDocumentDto, DocumentDto> documentCryptoConfig(Crypto crypto) {
+  return BaseCryptoConfig(crypto, (decryptedDocumentDto) async {
+    return Tuple2(DocumentDto.fromJson({...decryptedDocumentDto.toJson()})!, Uint8List.fromList(json.encode({}).codeUnits));
+  }, (encryptedDocumentDto, data) async {
+    return DecryptedDocumentDto.fromJson({...encryptedDocumentDto.toJson(), ...(data != null ? json.decode(String.fromCharCodes(data)) : {})})!;
   });
 }
 

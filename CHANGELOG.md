@@ -1,15 +1,24 @@
-## 1.0.0
+## 1.0.5
 
-- Initial version.
+- Added documentCryptoConfig
 
-## 1.0.1
+## 1.0.4
 
-- Support for Device and Patient data owner.
+- Fixed a parameter in deleteServices
+- Fixed a typo in encryptAccessLog
+
+## 1.0.3
+
+- Do not decrypt if there is nothing to be decrypted
 
 ## 1.0.2
 
 - Support for Filter serialization.
 
-## 1.0.3
+## 1.0.1
 
-- Do not decrypt if there is nothing to be decrypted
+- Support for Device and Patient data owner.
+
+## 1.0.0
+
+- Initial version.

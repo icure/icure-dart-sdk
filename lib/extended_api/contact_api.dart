@@ -154,17 +154,19 @@ extension ContactApiCrypto on ContactApi {
         : await Future.wait(newContacts.map((newContact) => config.decryptContact(user.dataOwnerId()!, newContact)));
   }
 
-  Future<DecryptedContactDto?> deleteServices(
-      UserDto user, DecryptedPatientDto patient, List<ServiceDto> services, CryptoConfig<DecryptedContactDto, ContactDto> config) {
+  Future<DecryptedContactDto?> deleteServices(UserDto user, DecryptedPatientDto patient, List<DecryptedServiceDto> services,
+      CryptoConfig<DecryptedContactDto, ContactDto> config) {
     final Uuid uuid = Uuid();
-    final currentTime = DateTime.now().millisecondsSinceEpoch;
+    final currentTime = DateTime
+        .now()
+        .millisecondsSinceEpoch;
     return this.createContactWithPatient(
         user,
         patient,
         DecryptedContactDto(
             id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
             services:
-                services.map((it) => DecryptedServiceDto(id: it.id, created: it.created, modified: currentTime, endOfLife: currentTime)).toSet()),
+            services.map((it) => DecryptedServiceDto(id: it.id, created: it.created, modified: currentTime, endOfLife: currentTime)).toSet()),
         config);
   }
 
