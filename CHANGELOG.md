@@ -1,3 +1,7 @@
+## 1.0.6
+
+- Improve data-owner cache
+
 ## 1.0.5
 
 - Added documentCryptoConfig
