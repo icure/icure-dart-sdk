@@ -88,7 +88,7 @@ extension AccessLogApiCrypto on AccessLogApi {
       CryptoConfig<DecryptedAccessLogDto, AccessLogDto> config) async {
 
     final AccessLogDto encryptedAccessLog = await config.encryptAccessLog(user.dataOwnerId()!, (user.autoDelegations["all"] ?? <String>{})
-      ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{}), accessLogDto);
+      ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{}), (await accessLogDto.initDelegations(user, config)));
     final AccessLogDto? createdAccessLog = await this.rawCreateAccessLog(encryptedAccessLog);
 
     return createdAccessLog != null ? await config.decryptAccessLog(user.dataOwnerId()!, createdAccessLog) : null;

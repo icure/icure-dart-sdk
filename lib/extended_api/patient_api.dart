@@ -132,7 +132,7 @@ extension PatientApiCrypto on PatientApi {
     var newPatient = await this.rawCreatePatient(await config.encryptPatient(
         user.dataOwnerId()!,
         <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
-        patient.initPatient()));
+        (await patient.initPatient().initDelegations(user, config))));
     return newPatient != null ? await config.decryptPatient(user.dataOwnerId()!, newPatient) : null;
   }
 
