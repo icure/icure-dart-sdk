@@ -1,3 +1,6 @@
+## 1.0.9
+- Using data owner id for ContactCryptoConfig instead of user healthcarePartyId
+
 ## 1.0.8
 
 - Fixed rawMatchServicesBy
