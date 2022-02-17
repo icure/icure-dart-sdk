@@ -15,8 +15,9 @@ extension AccessLogInitDto on DecryptedAccessLogDto {
     responsible = user.dataOwnerId()!;
     author = user.id;
     delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(delegations),
-        (m, d) async => (await m)
+        Future.value({...delegations}),
+            (m, d) async =>
+        (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
@@ -24,14 +25,14 @@ extension AccessLogInitDto on DecryptedAccessLogDto {
             })
           ]));
 
-    encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(Future.value(encryptionKeys), (m, d) async =>
-    (await m)
-      ..addEntries([
-        MapEntry(d, {
-          DelegationDto(
-              owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek))
-        })
-      ]));
+    encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
+        Future.value({...encryptionKeys}),
+        (m, d) async => (await m)
+          ..addEntries([
+            MapEntry(d, {
+              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek))
+            })
+          ]));
     return this;
   }
 }

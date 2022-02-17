@@ -14,19 +14,17 @@ extension DocumentInitDto on DecryptedDocumentDto {
     responsible = user.dataOwnerId()!;
     author = user.id;
     delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(delegations),
-            (m, d) async =>
-        (await m)
+        Future.value({...delegations}),
+        (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
-              DelegationDto(
-                  owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
+              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
             })
           ]));
 
     encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(encryptionKeys),
-            (m, d) async => (await m)
+        Future.value({...encryptionKeys}),
+        (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
