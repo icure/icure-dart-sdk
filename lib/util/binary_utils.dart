@@ -22,7 +22,7 @@ extension BinEncoding on Uint8List {
 extension StrEncoding on String {
   String formatAsKey() {
     return this.replaceAllMapped(
-        RegExp('([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})'),
+        RegExp('([0-9a-fA-F]{8})-([0-9a-fA-F]{4})-([0-9a-fA-F]{4})-([0-9a-fA-F]{4})-([0-9a-fA-F]{12})'),
         (match) =>
             match.group(1)!.toLowerCase() +
             match.group(2)!.toLowerCase() +
