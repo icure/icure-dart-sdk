@@ -56,8 +56,8 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
               <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
               key,
               dec.services.toList()))
-              .toList()
               .map((it) => toJsonDeep(it))
+              .toList()
         })!,
         Uint8List.fromList(json.encode({}).codeUnits));
   }, (cry, data) async {
@@ -68,7 +68,13 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
 
     return DecryptedContactDto.fromJson({
       ...toJsonDeep(cry),
-      'services': (await crypto.decryptServices(user.dataOwnerId()!, key, cry.services.toList())).toList().map((it) => toJsonDeep(it)),
+      'services': (await crypto.decryptServices(
+          user.dataOwnerId()!,
+          key,
+          cry.services.toList())
+      )
+          .map((it) => toJsonDeep(it))
+          .toList(),
       ...(data != null ? json.decode(String.fromCharCodes(data)) : {})
     })!;
   });
@@ -118,26 +124,26 @@ extension CryptoContact on Crypto {
         })!;
       } else {
         return ServiceDto.fromJson(
-            {...toJsonDeep(s), 'content': {}, 'encryptedSelf': base64.encoder.convert(Uint8List.fromList(json.encode(s).codeUnits).encryptAES(key))})!;
+            {...toJsonDeep(s), 'content': {}, 'encryptedSelf': base64.encoder.convert(Uint8List.fromList(json.encode({'content': s.content}).codeUnits).encryptAES(key))})!;
       }
     }));
   }
 
   Future<List<DecryptedServiceDto>> decryptServices(String myId, Uint8List? contactKey, List<ServiceDto> services) async {
-    return await Future.wait(services.map((s) async {
+    return Future.wait(services.map((s) async {
       var key = contactKey ?? (await this.decryptEncryptionKeys(myId, s.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
       if (key == null) {
         throw FormatException("Cannot get encryption key for ${s.id} and hcp ${myId}");
       }
 
       if (s.encryptedSelf != null) {
-        return DecryptedServiceDto.fromJson(
-            {...toJsonDeep(s), 'content': json.decode(String.fromCharCodes(base64.decoder.convert(s.encryptedSelf!).decryptAES(key)))})!;
+        final decryptedData = base64.decoder.convert(s.encryptedSelf!).decryptAES(key);
+        return DecryptedServiceDto.fromJson(toJsonDeep(s)..addAll(toJsonDeep(json.decode(String.fromCharCodes(decryptedData)))))!;
       } else {
         return DecryptedServiceDto.fromJson({
           ...toJsonDeep(s),
           'content': Map.fromEntries((await Future.wait(s.content.entries.map((e) async =>
-              MapEntry(e.key, {'compoundValue': (await decryptServices(myId, contactKey, e.value.compoundValue)).map((it) => toJsonDeep(it))})))))
+              MapEntry(e.key, {'compoundValue': (await decryptServices(myId, contactKey, e.value.compoundValue)).map((it) => toJsonDeep(it)).toList()})))))
         })!;
       }
     }));
