@@ -1,3 +1,6 @@
+## 1.0.12
+- Fix format as key
+
 ## 1.0.11
 - Fix problem in encryption of patient
 
