@@ -42,16 +42,16 @@ BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto cry
 
 BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto user, Crypto crypto) {
   return BaseCryptoConfig(crypto, (dec) async {
-    var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, dec.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    var key = (await crypto.decryptEncryptionKeys(user.dataOwnerId()!, dec.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
     if (key == null) {
-      throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.healthcarePartyId}");
+      throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.dataOwnerId()}");
     }
 
     return Tuple2(
         ContactDto.fromJson({
           ...dec.toJson(),
           'services': (await crypto.encryptServices(
-              user.healthcarePartyId!,
+              user.dataOwnerId()!,
               <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
               key,
               dec.services.toList()))
@@ -60,14 +60,14 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
         })!,
         Uint8List.fromList(json.encode({}).codeUnits));
   }, (cry, data) async {
-    var key = (await crypto.decryptEncryptionKeys(user.healthcarePartyId!, cry.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    var key = (await crypto.decryptEncryptionKeys(user.dataOwnerId()!, cry.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
     if (key == null) {
-      throw FormatException("Cannot get encryption key for ${cry.id} and hcp ${user.healthcarePartyId}");
+      throw FormatException("Cannot get encryption key for ${cry.id} and hcp ${user.dataOwnerId()}");
     }
 
     return DecryptedContactDto.fromJson({
       ...cry.toJson(),
-      'services': (await crypto.decryptServices(user.healthcarePartyId!, key, cry.services.toList())).toList().map((it) => it.toJson()),
+      'services': (await crypto.decryptServices(user.dataOwnerId()!, key, cry.services.toList())).toList().map((it) => it.toJson()),
       ...(data != null ? json.decode(String.fromCharCodes(data)) : {})
     })!;
   });
@@ -160,7 +160,6 @@ class LocalCrypto implements Crypto {
   DataOwnerResolver dataOwnerResolver;
   Map<String, RSAKeypair> rsaKeyPairs;
 
-  Map<String, Future<HealthcarePartyDto?>> hcParties = {};
   Map<String, Future<Map<String, Tuple2<String, Uint8List>>?>> ownerHcpartyKeysCache = {};
   Map<String, Future<Map<String, Tuple2<String, Uint8List>>?>> delegateHcpartyKeysCache = {};
 

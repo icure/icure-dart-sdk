@@ -1,9 +1,9 @@
 // @dart=2.12
 part of icure_dart_sdk.api;
 
-extension DocumentInitDto on DocumentDto {
+extension DocumentInitDto on DecryptedDocumentDto {
 
-  Future<DocumentDto> initDelegations(UserDto user, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
+  Future<DecryptedDocumentDto> initDelegations(UserDto user, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
     final Uuid uuid = Uuid();
 
     Set<String> delegationKeys = Set.from(user.autoDelegations["all"] ?? <String>{})..addAll(user.autoDelegations["medicalInformation"] ?? <String>{});
@@ -91,7 +91,7 @@ extension DocumentApiCrypto on DocumentApi {
 
   Future<DecryptedDocumentDto?> createDocument(UserDto user, DecryptedDocumentDto document, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
     var newDocument = await this.rawCreateDocument(await config.encryptDocument(
-        user.dataOwnerId()!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, document));
+        user.dataOwnerId()!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, (await document.initDelegations(user, config))));
     return newDocument != null ? await config.decryptDocument(user.dataOwnerId()!, newDocument) : null;
   }
 

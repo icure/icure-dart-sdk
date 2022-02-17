@@ -1,3 +1,17 @@
+## 1.0.10
+- Fixed missing delegations initialisation  
+
+## 1.0.9
+- Using data owner id for ContactCryptoConfig instead of user healthcarePartyId
+
+## 1.0.8
+
+- Fixed rawMatchServicesBy
+
+## 1.0.7
+
+- Added rawMatchServicesBy
+
 ## 1.0.6
 
 - Improve data-owner cache

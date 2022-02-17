@@ -3,8 +3,8 @@ part of icure_dart_sdk.api;
 
 extension ContactCryptoSupport on ContactApi {}
 
-extension ContactInitDto on ContactDto {
-  Future<ContactDto> initDelegations(UserDto user, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
+extension ContactInitDto on DecryptedContactDto {
+  Future<DecryptedContactDto> initDelegations(UserDto user, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     final Uuid uuid = Uuid();
 
     Set<String> delegationKeys = Set.from(user.autoDelegations["all"] ?? <String>{})
@@ -92,14 +92,14 @@ extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
 extension ContactApiCrypto on ContactApi {
   Future<DecryptedContactDto?> createContact(UserDto user, DecryptedContactDto contact, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     var newContact = await this.rawCreateContact(await config.encryptContact(
-        user.dataOwnerId()!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, contact));
+        user.dataOwnerId()!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, (await contact.initDelegations(user, config))));
     return newContact != null ? await config.decryptContact(user.dataOwnerId()!, newContact) : null;
   }
 
   Future<DecryptedContactDto?> createContactWithPatient(
       UserDto user, DecryptedPatientDto patient, DecryptedContactDto contact, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     var delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
-    var encContact = await config.encryptContact(user.dataOwnerId()!, delegations, contact);
+    var encContact = await config.encryptContact(user.dataOwnerId()!, delegations, (await contact.initDelegations(user, config)));
     final secret = (await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patient.delegations)).firstOrNull();
     if (secret == null) {
       throw FormatException("Cannot get delegation key for ${patient.id} and hcp ${user.dataOwnerId()}");
