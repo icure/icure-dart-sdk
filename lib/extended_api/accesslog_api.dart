@@ -73,7 +73,7 @@ extension AccessLogCryptoConfig on CryptoConfig<DecryptedAccessLogDto, AccessLog
   }
 
   Future<DecryptedAccessLogDto> decryptAccessLog(String myId, AccessLogDto accessLogDto) async {
-    final secret = (await this.crypto.decryptEncryptionKeys(myId, accessLogDto.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    final secret = IterableUtils((await this.crypto.decryptEncryptionKeys(myId, accessLogDto.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
     if (secret == null) {
       throw FormatException("Cannot get encryption key fo ${accessLogDto.id} and hcp $myId");
     }

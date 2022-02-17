@@ -6,7 +6,7 @@ extension HealthCarePartyDtoExtension on HealthcarePartyDto {
     if (this.lastName == null && this.hasName(PersonNameDtoUseEnum.official)) {
       this.lastName = this.findName(PersonNameDtoUseEnum.official).lastName;
     } else if (this.firstName == null && this.hasName(PersonNameDtoUseEnum.official)) {
-      this.firstName = this.findName(PersonNameDtoUseEnum.official).firstNames.firstOrNull();
+      this.firstName = IterableUtils(this.findName(PersonNameDtoUseEnum.official).firstNames).firstOrNull();
     } else if (this.name == null && this.hasName(PersonNameDtoUseEnum.official)) {
       this.name = this.findName(PersonNameDtoUseEnum.official).text;
     } else if ((this.name != null || this.lastName != null) && !this.hasName(PersonNameDtoUseEnum.official)) {

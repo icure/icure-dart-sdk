@@ -45,7 +45,7 @@ extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
     final es = contact.encryptedSelf;
 
     if (es != null) {
-      final secret = (await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      final secret = IterableUtils((await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
 
       if (secret == null) {
         throw FormatException("Cannot get encryption key fo ${contact.id} and hcp $myId");
@@ -70,7 +70,7 @@ extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
             secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: myId, delegatedTo: t.item1, key: t.item2)})))
       };
     } else {
-      secret = (await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      secret = IterableUtils((await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
     }
 
     if (secret == null) {
@@ -100,7 +100,7 @@ extension ContactApiCrypto on ContactApi {
       UserDto user, DecryptedPatientDto patient, DecryptedContactDto contact, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     var delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
     var encContact = await config.encryptContact(user.dataOwnerId()!, delegations, (await contact.initDelegations(user, config)));
-    final secret = (await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patient.delegations)).firstOrNull();
+    final secret = IterableUtils((await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patient.delegations))).firstOrNull();
     if (secret == null) {
       throw FormatException("Cannot get delegation key for ${patient.id} and hcp ${user.dataOwnerId()}");
     }
@@ -130,7 +130,7 @@ extension ContactApiCrypto on ContactApi {
   Future<List<DecryptedContactDto>?> createContactsWithPatient(
       UserDto user, DecryptedPatientDto patient, List<DecryptedContactDto> contacts, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
     var delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
-    final secret = (await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patient.delegations)).firstOrNull();
+    final secret = IterableUtils((await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patient.delegations))).firstOrNull();
     if (secret == null) {
       throw FormatException("Cannot get delegation key for ${patient.id} and hcp ${user.dataOwnerId()}");
     }
@@ -304,7 +304,7 @@ extension ContactApiCrypto on ContactApi {
               .where((subContact) => subContact.services.any((serviceLink) => contactServiceIds.contains(serviceLink.serviceId)));
 
           return DecryptedContactDto.fromJson({
-            ...contactDto.toJson(),
+            ...toJsonDeep(contactDto),
             'id': uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
             'subContacts': subContacts,
             'services': services,

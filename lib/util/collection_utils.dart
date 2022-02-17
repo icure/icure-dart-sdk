@@ -4,7 +4,7 @@ extension MapExtension<E, F> on Map<E, F> {
   }
 }
 
-extension IterableExtension<E> on Iterable<E> {
+extension IterableUtils<E> on Iterable<E> {
   E? firstOrNull() => this.isNotEmpty ? this.first : null;
 }
 

@@ -43,7 +43,7 @@ extension DocumentCryptoConfig on CryptoConfig<DecryptedDocumentDto, DocumentDto
   Future<DecryptedDocumentDto> decryptDocument(String dataOwnerId, DocumentDto document) async {
     final es = document.encryptedSelf;
     if (es != null) {
-      final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      final secret = IterableUtils((await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
 
       if (secret == null) {
         throw FormatException("Cannot get encryption key fo ${document.id} and hcp $dataOwnerId");
@@ -68,7 +68,7 @@ extension DocumentCryptoConfig on CryptoConfig<DecryptedDocumentDto, DocumentDto
             secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: dataOwnerId, delegatedTo: t.item1, key: t.item2)})))
       };
     } else {
-      secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      secret = IterableUtils((await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
     }
 
     if (secret == null) {

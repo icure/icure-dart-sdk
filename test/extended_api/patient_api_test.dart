@@ -57,6 +57,7 @@ void main() {
       expect(createdPatient.firstName, patient.firstName);
       expect(createdPatient.lastName, patient.lastName);
       expect(createdPatient.note, patient.note);
+      expect(createdPatient.delegations.values.first.first.key != null, true);
     });
   });
 }
