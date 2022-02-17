@@ -1,6 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
-//
+
 // @dart=2.12
 
 // ignore_for_file: unused_element, unused_import

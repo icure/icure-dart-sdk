@@ -36,8 +36,9 @@ abstract class Crypto {
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
   return BaseCryptoConfig(
       crypto,
-          (dec) async => Tuple2(PatientDto.fromJson(dec.toJson()..remove('note'))!, Uint8List.fromList(json.encode({'note': dec.note}).codeUnits)),
-          (cry, data) async => DecryptedPatientDto.fromJson(cry.toJson()..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!);
+          (dec) async => Tuple2(PatientDto.fromJson(jsonDecode(jsonEncode(dec.toJson()..remove('note'))))!, Uint8List.fromList(json.encode({'note': dec.note}).codeUnits)),
+          (cry, data) async => DecryptedPatientDto.fromJson(jsonDecode(jsonEncode(cry.toJson()..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))))!
+  );
 }
 
 BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto user, Crypto crypto) {

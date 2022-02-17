@@ -13,7 +13,7 @@ extension PatientInitDto on DecryptedPatientDto {
     responsible = this.responsible ?? user.dataOwnerId()!;
     author = user.id;
     delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(delegations),
+        Future.value({...delegations}),
             (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
@@ -26,7 +26,7 @@ extension PatientInitDto on DecryptedPatientDto {
           ]));
 
     encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(encryptionKeys),
+        Future.value({...encryptionKeys}),
             (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
