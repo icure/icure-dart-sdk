@@ -1,3 +1,7 @@
+## 1.0.13
+- Add toJsonDeep
+- Fix toJson using toJsonDeep
+
 ## 1.0.12
 - Fix format as key
 
