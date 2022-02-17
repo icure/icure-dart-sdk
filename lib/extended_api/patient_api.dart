@@ -100,19 +100,23 @@ extension PatientCryptoConfig on CryptoConfig<DecryptedPatientDto, PatientDto> {
 
   Future<PatientDto> encryptPatient(String dataOwnerId, Set<String> delegations, DecryptedPatientDto patient) async {
     var eks = patient.encryptionKeys;
-    var secret;
+    Uint8List? secret;
     if (!eks.entries.any((s) => s.value.isNotEmpty)) {
       secret = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
-      final secretForDelegates = await Future.wait((<String>{...delegations, dataOwnerId}).map((String d) async => Tuple2(
-          d, await this.crypto.encryptAESKeyForHcp(dataOwnerId, d, patient.id, BinEncoding(secret).toHexString())
-      )));
+      final secretForDelegates = await Future.wait((<String>{...delegations, dataOwnerId}).map((String d) async =>
+          Tuple2(
+              d, await this.crypto.encryptAESKeyForHcp(dataOwnerId, d, patient.id, secret!.toHexString())
+          )));
 
-      eks = {...eks, ...Map.fromEntries(secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(
-          owner: dataOwnerId, delegatedTo: t.item1, key: t.item2
-      )})))};
-
+      eks = {...eks, ...Map.fromEntries(secretForDelegates.map((t) =>
+          MapEntry(t.item1, <DelegationDto>{DelegationDto(
+              owner: dataOwnerId, delegatedTo: t.item1, key: t.item2
+          )})))};
     } else {
-      secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, patient.encryptionKeys)).firstOrNull();
+      secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, patient.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      if (secret == null) {
+        throw FormatException("Cannot get encryption key for ${patient.id} and hcp $dataOwnerId");
+      }
     }
 
     var t = await this.marshaller(patient);

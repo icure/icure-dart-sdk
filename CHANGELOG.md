@@ -1,3 +1,6 @@
+## 1.0.11
+- Fix problem in encryption of patient
+
 ## 1.0.10
 - Fixed missing delegations initialisation  
 
