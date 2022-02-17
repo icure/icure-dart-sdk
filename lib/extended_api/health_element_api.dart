@@ -13,8 +13,9 @@ extension HealthElementInitDto on DecryptedHealthElementDto {
     responsible = user.dataOwnerId()!;
     author = user.id;
     delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(delegations),
-        (m, d) async => (await m)
+        Future.value({...delegations}),
+            (m, d) async =>
+        (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
@@ -23,8 +24,9 @@ extension HealthElementInitDto on DecryptedHealthElementDto {
           ]));
 
     encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(encryptionKeys),
-        (m, d) async => (await m)
+        Future.value({...encryptionKeys}),
+            (m, d) async =>
+        (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
