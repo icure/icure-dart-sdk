@@ -65,9 +65,10 @@ extension AccessLogCryptoConfig on CryptoConfig<DecryptedAccessLogDto, AccessLog
     final Set<String> keys = await this.crypto.decryptEncryptionKeys(myId, decryptedAccessLogDto.encryptionKeys);
     final String stringKey = await Stream<String>.fromIterable(keys).first;
     final Uint8List byteArrayKey = Uint8List.fromList(stringKey.codeUnits);
+
     final Tuple2<AccessLogDto, Uint8List> sanitizedAccessLogAndMarshalledData = await this.marshaller(decryptedAccessLogDto);
-    final sanitizedAccessLog = sanitizedAccessLogAndMarshalledData.item1;
-    final marshalledData = sanitizedAccessLogAndMarshalledData.item2;
+    AccessLogDto sanitizedAccessLog = sanitizedAccessLogAndMarshalledData.item1;
+    final Uint8List marshalledData = sanitizedAccessLogAndMarshalledData.item2;
 
     sanitizedAccessLog.encryptedSelf = base64Encode(marshalledData.encryptAES(byteArrayKey));
     return sanitizedAccessLog;

@@ -121,8 +121,8 @@ extension PatientCryptoConfig on CryptoConfig<DecryptedPatientDto, PatientDto> {
 
     var t = await this.marshaller(patient);
 
-    var sanitizedPatient = t.item1;
-    var marshalledData = t.item2;
+    PatientDto sanitizedPatient = t.item1;
+    final Uint8List marshalledData = t.item2;
 
     sanitizedPatient.encryptionKeys = eks;
     sanitizedPatient.encryptedSelf = base64.encoder.convert(marshalledData.encryptAES(secret));

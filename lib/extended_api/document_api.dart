@@ -75,8 +75,8 @@ extension DocumentCryptoConfig on CryptoConfig<DecryptedDocumentDto, DocumentDto
 
     Tuple2 t = await this.marshaller(document);
 
-    var sanitizedDocument = t.item1;
-    var marshalledData = t.item2;
+    DocumentDto sanitizedDocument = t.item1;
+    final Uint8List marshalledData = t.item2;
 
     sanitizedDocument.encryptionKeys = eks;
     sanitizedDocument.encryptedSelf = base64.encoder.convert(marshalledData.encryptAES(secret));

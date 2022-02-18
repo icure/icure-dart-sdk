@@ -84,8 +84,7 @@ BaseCryptoConfig<DecryptedHealthElementDto, HealthElementDto> healthElementCrypt
   return BaseCryptoConfig(crypto, (decryptedHealthElementDto) async {
     return Tuple2(HealthElementDto.fromJson(toJsonDeep(decryptedHealthElementDto))!, Uint8List.fromList(json.encode({}).codeUnits));
   }, (encryptedHealthElementDto, data) async {
-    return DecryptedHealthElementDto.fromJson(
-        {toJsonDeep(encryptedHealthElementDto), ...(data != null ? json.decode(String.fromCharCodes(data)) : {})})!;
+    return DecryptedHealthElementDto.fromJson(toJsonDeep(encryptedHealthElementDto)..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!;
   });
 }
 
@@ -93,7 +92,7 @@ BaseCryptoConfig<DecryptedDocumentDto, DocumentDto> documentCryptoConfig(Crypto 
   return BaseCryptoConfig(crypto, (decryptedDocumentDto) async {
     return Tuple2(DocumentDto.fromJson(toJsonDeep(decryptedDocumentDto))!, Uint8List.fromList(json.encode({}).codeUnits));
   }, (encryptedDocumentDto, data) async {
-    return DecryptedDocumentDto.fromJson({toJsonDeep(encryptedDocumentDto), ...(data != null ? json.decode(String.fromCharCodes(data)) : {})})!;
+    return DecryptedDocumentDto.fromJson(toJsonDeep(encryptedDocumentDto)..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!;
   });
 }
 
