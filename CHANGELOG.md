@@ -1,3 +1,7 @@
+## 1.0.15
+
+- Fixed contact creation
+
 ## 1.0.14
 
 - Fixed delegations and encryptionKeys initialisation
