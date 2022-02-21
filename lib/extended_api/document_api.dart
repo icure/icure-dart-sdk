@@ -14,19 +14,17 @@ extension DocumentInitDto on DecryptedDocumentDto {
     responsible = user.dataOwnerId()!;
     author = user.id;
     delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(delegations),
-            (m, d) async =>
-        (await m)
+        Future.value({...delegations}),
+        (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
-              DelegationDto(
-                  owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
+              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
             })
           ]));
 
     encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(encryptionKeys),
-            (m, d) async => (await m)
+        Future.value({...encryptionKeys}),
+        (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
@@ -43,7 +41,7 @@ extension DocumentCryptoConfig on CryptoConfig<DecryptedDocumentDto, DocumentDto
   Future<DecryptedDocumentDto> decryptDocument(String dataOwnerId, DocumentDto document) async {
     final es = document.encryptedSelf;
     if (es != null) {
-      final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      final secret = IterableUtils((await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
 
       if (secret == null) {
         throw FormatException("Cannot get encryption key fo ${document.id} and hcp $dataOwnerId");
@@ -68,7 +66,7 @@ extension DocumentCryptoConfig on CryptoConfig<DecryptedDocumentDto, DocumentDto
             secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: dataOwnerId, delegatedTo: t.item1, key: t.item2)})))
       };
     } else {
-      secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      secret = IterableUtils((await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
     }
 
     if (secret == null) {
@@ -77,8 +75,8 @@ extension DocumentCryptoConfig on CryptoConfig<DecryptedDocumentDto, DocumentDto
 
     Tuple2 t = await this.marshaller(document);
 
-    var sanitizedDocument = t.item1;
-    var marshalledData = t.item2;
+    DocumentDto sanitizedDocument = t.item1;
+    final Uint8List marshalledData = t.item2;
 
     sanitizedDocument.encryptionKeys = eks;
     sanitizedDocument.encryptedSelf = base64.encoder.convert(marshalledData.encryptAES(secret));

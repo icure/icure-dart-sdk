@@ -558,83 +558,85 @@ class PatientDto {
   List<EmploymentInfoDto> employementInfos;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is PatientDto &&
-          other.id == id &&
-          other.identifier == identifier &&
-          other.rev == rev &&
-          other.created == created &&
-          other.modified == modified &&
-          other.author == author &&
-          other.responsible == responsible &&
-          other.tags == tags &&
-          other.codes == codes &&
-          other.endOfLife == endOfLife &&
-          other.deletionDate == deletionDate &&
-          other.firstName == firstName &&
-          other.lastName == lastName &&
-          other.names == names &&
-          other.companyName == companyName &&
-          other.languages == languages &&
-          other.addresses == addresses &&
-          other.civility == civility &&
-          other.gender == gender &&
-          other.birthSex == birthSex &&
-          other.mergeToPatientId == mergeToPatientId &&
-          other.mergedIds == mergedIds &&
-          other.alias == alias &&
-          other.active == active &&
-          other.deactivationReason == deactivationReason &&
-          other.ssin == ssin &&
-          other.maidenName == maidenName &&
-          other.spouseName == spouseName &&
-          other.partnerName == partnerName &&
-          other.personalStatus == personalStatus &&
-          other.dateOfBirth == dateOfBirth &&
-          other.dateOfDeath == dateOfDeath &&
-          other.timestampOfLatestEidReading == timestampOfLatestEidReading &&
-          other.placeOfBirth == placeOfBirth &&
-          other.placeOfDeath == placeOfDeath &&
-          other.deceased == deceased &&
-          other.education == education &&
-          other.profession == profession &&
-          other.note == note &&
-          other.administrativeNote == administrativeNote &&
-          other.nationality == nationality &&
-          other.race == race &&
-          other.ethnicity == ethnicity &&
-          other.preferredUserId == preferredUserId &&
-          other.picture == picture &&
-          other.externalId == externalId &&
-          other.insurabilities == insurabilities &&
-          other.partnerships == partnerships &&
-          other.patientHealthCareParties == patientHealthCareParties &&
-          other.financialInstitutionInformation == financialInstitutionInformation &&
-          other.medicalHouseContracts == medicalHouseContracts &&
-          other.patientProfessions == patientProfessions &&
-          other.parameters == parameters &&
-          other.properties == properties &&
-          other.hcPartyKeys == hcPartyKeys &&
-          other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
-          other.publicKey == publicKey &&
-          other.secretForeignKeys == secretForeignKeys &&
-          other.cryptedForeignKeys == cryptedForeignKeys &&
-          other.delegations == delegations &&
-          other.encryptionKeys == encryptionKeys &&
-          other.encryptedSelf == encryptedSelf &&
-          other.medicalLocationId == medicalLocationId &&
-          other.nonDuplicateIds == nonDuplicateIds &&
-          other.encryptedAdministrativesDocuments == encryptedAdministrativesDocuments &&
-          other.comment == comment &&
-          other.warning == warning &&
-          other.fatherBirthCountry == fatherBirthCountry &&
-          other.birthCountry == birthCountry &&
-          other.nativeCountry == nativeCountry &&
-          other.socialStatus == socialStatus &&
-          other.mainSourceOfIncome == mainSourceOfIncome &&
-          other.schoolingInfos == schoolingInfos &&
-          other.employementInfos == employementInfos;
+  bool operator ==(Object other) {
+    final Function listEquals = const ListEquality().equals;
+    return identical(this, other) ||
+        other is DecryptedPatientDto &&
+            other.id == id &&
+            listEquals(other.identifier, identifier) &&
+            other.rev == rev &&
+            other.created == created &&
+            other.modified == modified &&
+            other.author == author &&
+            other.responsible == responsible &&
+            other.tags == tags &&
+            other.codes == codes &&
+            other.endOfLife == endOfLife &&
+            other.deletionDate == deletionDate &&
+            other.firstName == firstName &&
+            other.lastName == lastName &&
+            listEquals(other.names == names) &&
+            other.companyName == companyName &&
+            listEquals(other.languages, languages) &&
+            listEquals(other.addresses, addresses) &&
+            other.civility == civility &&
+            other.gender == gender &&
+            other.birthSex == birthSex &&
+            other.mergeToPatientId == mergeToPatientId &&
+            other.mergedIds == mergedIds &&
+            other.alias == alias &&
+            other.active == active &&
+            other.deactivationReason == deactivationReason &&
+            other.ssin == ssin &&
+            other.maidenName == maidenName &&
+            other.spouseName == spouseName &&
+            other.partnerName == partnerName &&
+            other.personalStatus == personalStatus &&
+            other.dateOfBirth == dateOfBirth &&
+            other.dateOfDeath == dateOfDeath &&
+            other.timestampOfLatestEidReading == timestampOfLatestEidReading &&
+            other.placeOfBirth == placeOfBirth &&
+            other.placeOfDeath == placeOfDeath &&
+            other.deceased == deceased &&
+            other.education == education &&
+            other.profession == profession &&
+            other.note == note &&
+            other.administrativeNote == administrativeNote &&
+            other.nationality == nationality &&
+            other.race == race &&
+            other.ethnicity == ethnicity &&
+            other.preferredUserId == preferredUserId &&
+            other.picture == picture &&
+            other.externalId == externalId &&
+            listEquals(other.insurabilities, insurabilities) &&
+            listEquals(other.partnerships, partnerships) &&
+            listEquals(other.patientHealthCareParties, patientHealthCareParties) &&
+            listEquals(other.financialInstitutionInformation, financialInstitutionInformation) &&
+            listEquals(other.medicalHouseContracts, medicalHouseContracts) &&
+            listEquals(other.patientProfessions, patientProfessions) &&
+            other.parameters == parameters &&
+            other.properties == properties &&
+            other.hcPartyKeys == hcPartyKeys &&
+            other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
+            other.publicKey == publicKey &&
+            other.secretForeignKeys == secretForeignKeys &&
+            other.cryptedForeignKeys == cryptedForeignKeys &&
+            other.delegations == delegations &&
+            other.encryptionKeys == encryptionKeys &&
+            other.encryptedSelf == encryptedSelf &&
+            other.medicalLocationId == medicalLocationId &&
+            other.nonDuplicateIds == nonDuplicateIds &&
+            other.encryptedAdministrativesDocuments == encryptedAdministrativesDocuments &&
+            other.comment == comment &&
+            other.warning == warning &&
+            other.fatherBirthCountry == fatherBirthCountry &&
+            other.birthCountry == birthCountry &&
+            other.nativeCountry == nativeCountry &&
+            other.socialStatus == socialStatus &&
+            other.mainSourceOfIncome == mainSourceOfIncome &&
+            listEquals(other.schoolingInfos, schoolingInfos) &&
+            listEquals(other.employementInfos, employementInfos);
+  }
 
   @override
   int get hashCode =>

@@ -465,7 +465,7 @@ class ServiceDto {
             : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         label: mapValueOfType<String>(json, r'label'),
         index: mapValueOfType<int>(json, r'index'),
-        content: mapValueOfType<Map<String, ContentDto>>(json, r'content')!,
+        content: json[r'content'] == null ? const {} : ContentDto.mapFromJson(json[r'content']),
         encryptedContent: mapValueOfType<String>(json, r'encryptedContent'),
         textIndexes: mapCastOfType<String, String>(json, r'textIndexes')!,
         valueDate: mapValueOfType<int>(json, r'valueDate'),

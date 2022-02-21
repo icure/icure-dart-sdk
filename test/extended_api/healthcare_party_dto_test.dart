@@ -13,10 +13,6 @@ void main() {
   group('tests for Hcps', ()
   {
     test('test healthcareParty deserialisation', () async {
-      var tmp = jsonDecode('{"a":{"k":["1","2"]}}');
-      var a = A(a:tmp[r'a']);
-      expect(a.a['a'],['1','2']);
-
       var hcp1 = HealthcarePartyDto.fromJson({
         'id':'abc', 'hcPartyKeys': {'a':['1','2']}, 'names':[], 'addresses':[], 'languages':[], 'statuses':[], 'statusHistory':[], 'specialityCodes':[], 'sendFormats':[], 'financialInstitutionInformation':[], 'flatRateTarifications':[], 'importedData':{}, 'options':{}, 'properties':[], 'privateKeyShamirPartitions':{}, 'sendFormats':{}
       });

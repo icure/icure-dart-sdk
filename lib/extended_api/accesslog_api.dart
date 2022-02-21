@@ -15,8 +15,9 @@ extension AccessLogInitDto on DecryptedAccessLogDto {
     responsible = user.dataOwnerId()!;
     author = user.id;
     delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value(delegations),
-        (m, d) async => (await m)
+        Future.value({...delegations}),
+            (m, d) async =>
+        (await m)
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
@@ -24,14 +25,14 @@ extension AccessLogInitDto on DecryptedAccessLogDto {
             })
           ]));
 
-    encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(Future.value(encryptionKeys), (m, d) async =>
-    (await m)
-      ..addEntries([
-        MapEntry(d, {
-          DelegationDto(
-              owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek))
-        })
-      ]));
+    encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
+        Future.value({...encryptionKeys}),
+        (m, d) async => (await m)
+          ..addEntries([
+            MapEntry(d, {
+              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek))
+            })
+          ]));
     return this;
   }
 }
@@ -64,16 +65,17 @@ extension AccessLogCryptoConfig on CryptoConfig<DecryptedAccessLogDto, AccessLog
     final Set<String> keys = await this.crypto.decryptEncryptionKeys(myId, decryptedAccessLogDto.encryptionKeys);
     final String stringKey = await Stream<String>.fromIterable(keys).first;
     final Uint8List byteArrayKey = Uint8List.fromList(stringKey.codeUnits);
+
     final Tuple2<AccessLogDto, Uint8List> sanitizedAccessLogAndMarshalledData = await this.marshaller(decryptedAccessLogDto);
-    final sanitizedAccessLog = sanitizedAccessLogAndMarshalledData.item1;
-    final marshalledData = sanitizedAccessLogAndMarshalledData.item2;
+    AccessLogDto sanitizedAccessLog = sanitizedAccessLogAndMarshalledData.item1;
+    final Uint8List marshalledData = sanitizedAccessLogAndMarshalledData.item2;
 
     sanitizedAccessLog.encryptedSelf = base64Encode(marshalledData.encryptAES(byteArrayKey));
     return sanitizedAccessLog;
   }
 
   Future<DecryptedAccessLogDto> decryptAccessLog(String myId, AccessLogDto accessLogDto) async {
-    final secret = (await this.crypto.decryptEncryptionKeys(myId, accessLogDto.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    final secret = IterableUtils((await this.crypto.decryptEncryptionKeys(myId, accessLogDto.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
     if (secret == null) {
       throw FormatException("Cannot get encryption key fo ${accessLogDto.id} and hcp $myId");
     }

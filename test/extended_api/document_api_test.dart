@@ -18,10 +18,11 @@ void main() {
   var hcpApi = HealthcarePartyApi(apiClient);
   var patientApi = PatientApi(apiClient);
   var deviceApi = DeviceApi(apiClient);
+  var documentApi = DocumentApi(apiClient);
 
   final Uuid uuid = Uuid();
 
-  Future<LocalCrypto> localCrypto(UserDto user, HealthcarePartyDto hcp) async {
+  Future<LocalCrypto> _localCrypto(UserDto user, HealthcarePartyDto hcp) async {
     var fileUri = Uri.file("test/resources/keys/782f1bcd-9f3f-408a-af1b-cd9f3f908a98-icc-priv.2048.key", windows: false);
     var hcpKeyFile = File.fromUri(fileUri);
 
@@ -31,8 +32,8 @@ void main() {
     return LocalCrypto(DataOwnerResolver(hcpApi, patientApi, deviceApi), keyPairs);
   }
 
-  group('tests for PatientApi', () {
-    test('test createPatient', () async {
+  group('tests for DocumentApi', () {
+    test('test setDocumentAttachment', () async {
       // Init
       var currentUser = await userApi.getCurrentUser();
       var currentHcp = await hcpApi.getCurrentHealthcareParty();
@@ -41,23 +42,31 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await localCrypto(currentUser, currentHcp);
+      final lc = await _localCrypto(currentUser, currentHcp);
+      final createdPatient = await patientApi.createPatient(currentUser,
+          DecryptedPatientDto(
+              id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+              firstName: 'John',
+              lastName: 'Doe',
+              note: 'Premature optimization is the root of all evil'),
+          patientCryptoConfig(lc));
 
-      var patient = DecryptedPatientDto(
-          id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
-          firstName: 'John',
-          lastName: 'Doe',
-          note: 'Premature optimization is the root of all evil');
+      final createdDocument = await documentApi.createDocument(currentUser, DecryptedDocumentDto(
+        id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+        mainUti: "public.xml",
+        name: "set_attachment_test.xml"
+      ), documentCryptoConfig(lc));
+
+      var attachmentFileUri = Uri.file("test/resources/attachments/set_attachment_test.xml", windows: false);
+      var attachmentFile = File.fromUri(attachmentFileUri);
 
       // When
-      var createdPatient = await patientApi.createPatient(currentUser, patient, patientCryptoConfig(lc));
+
+
 
       // Then
-      expect(createdPatient!.id, patient.id);
-      expect(createdPatient.firstName, patient.firstName);
-      expect(createdPatient.lastName, patient.lastName);
-      expect(createdPatient.note, patient.note);
-      expect(createdPatient.delegations.values.first.first.key != null, true);
+      expect(createdDocument!.name!, "set_attachment_test.xml");
+      expect(createdDocument.mainUti!, "public.xml");
     });
   });
 }

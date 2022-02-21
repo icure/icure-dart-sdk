@@ -1,11 +1,26 @@
+## 1.0.15
+
+- Fixed contact creation
+
+## 1.0.14
+
+- Fixed delegations and encryptionKeys initialisation
+
+## 1.0.13
+
+- Add toJsonDeep
+- Fix toJson using toJsonDeep
+
 ## 1.0.12
+
 - Fix format as key
 
 ## 1.0.11
+
 - Fix problem in encryption of patient
 
 ## 1.0.10
-- Fixed missing delegations initialisation  
+- Fixed missing delegations initialisation
 
 ## 1.0.9
 - Using data owner id for ContactCryptoConfig instead of user healthcarePartyId

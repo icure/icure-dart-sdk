@@ -105,7 +105,7 @@ class PatientApi {
       path,
       'POST',
       queryParams,
-      postBody.toJson(),
+      toJsonDeep(postBody),
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,

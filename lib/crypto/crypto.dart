@@ -47,8 +47,8 @@ abstract class Crypto {
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
   return BaseCryptoConfig(
       crypto,
-          (dec) async => Tuple2(PatientDto.fromJson(jsonDecode(jsonEncode(dec.toJson()..remove('note'))))!, Uint8List.fromList(json.encode({'note': dec.note}).codeUnits)),
-          (cry, data) async => DecryptedPatientDto.fromJson(jsonDecode(jsonEncode(cry.toJson()..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))))!
+          (dec) async => Tuple2(PatientDto.fromJson(toJsonDeep(dec)..remove('note'))!, Uint8List.fromList(json.encode({'note': dec.note}).codeUnits)),
+          (cry, data) async => DecryptedPatientDto.fromJson(toJsonDeep(cry)..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!
   );
 }
 
@@ -61,14 +61,14 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
 
     return Tuple2(
         ContactDto.fromJson({
-          ...dec.toJson(),
+          ...toJsonDeep(dec),
           'services': (await crypto.encryptServices(
               user.dataOwnerId()!,
               <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
               key,
               dec.services.toList()))
+              .map((it) => toJsonDeep(it))
               .toList()
-              .map((it) => it.toJson())
         })!,
         Uint8List.fromList(json.encode({}).codeUnits));
   }, (cry, data) async {
@@ -78,8 +78,14 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
     }
 
     return DecryptedContactDto.fromJson({
-      ...cry.toJson(),
-      'services': (await crypto.decryptServices(user.dataOwnerId()!, key, cry.services.toList())).toList().map((it) => it.toJson()),
+      ...toJsonDeep(cry),
+      'services': (await crypto.decryptServices(
+          user.dataOwnerId()!,
+          key,
+          cry.services.toList())
+      )
+          .map((it) => toJsonDeep(it))
+          .toList(),
       ...(data != null ? json.decode(String.fromCharCodes(data)) : {})
     })!;
   });
@@ -87,18 +93,17 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
 
 BaseCryptoConfig<DecryptedHealthElementDto, HealthElementDto> healthElementCryptoConfig(Crypto crypto) {
   return BaseCryptoConfig(crypto, (decryptedHealthElementDto) async {
-    return Tuple2(HealthElementDto.fromJson({...decryptedHealthElementDto.toJson()})!, Uint8List.fromList(json.encode({}).codeUnits));
+    return Tuple2(HealthElementDto.fromJson(toJsonDeep(decryptedHealthElementDto))!, Uint8List.fromList(json.encode({}).codeUnits));
   }, (encryptedHealthElementDto, data) async {
-    return DecryptedHealthElementDto.fromJson(
-        {...encryptedHealthElementDto.toJson(), ...(data != null ? json.decode(String.fromCharCodes(data)) : {})})!;
+    return DecryptedHealthElementDto.fromJson(toJsonDeep(encryptedHealthElementDto)..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!;
   });
 }
 
 BaseCryptoConfig<DecryptedDocumentDto, DocumentDto> documentCryptoConfig(Crypto crypto) {
   return BaseCryptoConfig(crypto, (decryptedDocumentDto) async {
-    return Tuple2(DocumentDto.fromJson({...decryptedDocumentDto.toJson()})!, Uint8List.fromList(json.encode({}).codeUnits));
+    return Tuple2(DocumentDto.fromJson(toJsonDeep(decryptedDocumentDto))!, Uint8List.fromList(json.encode({}).codeUnits));
   }, (encryptedDocumentDto, data) async {
-    return DecryptedDocumentDto.fromJson({...encryptedDocumentDto.toJson(), ...(data != null ? json.decode(String.fromCharCodes(data)) : {})})!;
+    return DecryptedDocumentDto.fromJson(toJsonDeep(encryptedDocumentDto)..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!;
   });
 }
 
@@ -123,32 +128,32 @@ extension CryptoContact on Crypto {
           e.value.binaryValue == null &&
           e.value.range.isEmpty)) {
         return ServiceDto.fromJson({
-          ...s.toJson(),
+          ...toJsonDeep(s),
           'content': Map.fromEntries(await Future.wait(s.content.entries.map((e) async =>
               MapEntry(e.key, ContentDto(compoundValue: (await this.encryptServices(myId, delegations, contactKey, e.value.compoundValue)))))))
         })!;
       } else {
         return ServiceDto.fromJson(
-            {...s.toJson(), 'content': {}, 'encryptedSelf': base64.encoder.convert(Uint8List.fromList(json.encode(s).codeUnits).encryptAES(key))})!;
+            {...toJsonDeep(s), 'content': {}, 'encryptedSelf': base64.encoder.convert(Uint8List.fromList(json.encode({'content': s.content}).codeUnits).encryptAES(key))})!;
       }
     }));
   }
 
   Future<List<DecryptedServiceDto>> decryptServices(String myId, Uint8List? contactKey, List<ServiceDto> services) async {
-    return await Future.wait(services.map((s) async {
+    return Future.wait(services.map((s) async {
       var key = contactKey ?? (await this.decryptEncryptionKeys(myId, s.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
       if (key == null) {
         throw FormatException("Cannot get encryption key for ${s.id} and hcp ${myId}");
       }
 
       if (s.encryptedSelf != null) {
-        return DecryptedServiceDto.fromJson(
-            {...s.toJson(), 'content': json.decode(String.fromCharCodes(base64.decoder.convert(s.encryptedSelf!).decryptAES(key)))})!;
+        final decryptedData = base64.decoder.convert(s.encryptedSelf!).decryptAES(key);
+        return DecryptedServiceDto.fromJson(toJsonDeep(s)..addAll(toJsonDeep(json.decode(String.fromCharCodes(decryptedData)))))!;
       } else {
         return DecryptedServiceDto.fromJson({
-          ...s.toJson(),
+          ...toJsonDeep(s),
           'content': Map.fromEntries((await Future.wait(s.content.entries.map((e) async =>
-              MapEntry(e.key, {'compoundValue': (await decryptServices(myId, contactKey, e.value.compoundValue)).map((it) => it.toJson())})))))
+              MapEntry(e.key, {'compoundValue': (await decryptServices(myId, contactKey, e.value.compoundValue)).map((it) => toJsonDeep(it)).toList()})))))
         })!;
       }
     }));

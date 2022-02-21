@@ -26,6 +26,7 @@ import 'package:pointycastle/asn1.dart';
 import "package:pointycastle/export.dart";
 import 'package:pointycastle/src/platform_check/platform_check.dart';
 import 'package:tuple/tuple.dart';
+import 'package:collection/collection.dart';
 
 import 'extended_api/data_owner_api.dart';
 
