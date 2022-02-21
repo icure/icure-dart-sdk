@@ -1,3 +1,7 @@
+## 1.0.18
+
+- Add some logging
+
 ## 1.0.17
 
 - Improve crypto performances
