@@ -14,6 +14,17 @@ import 'package:pointycastle/export.dart' as pointy;
 import 'package:steel_crypt/steel_crypt.dart';
 import 'package:tuple/tuple.dart';
 
+Tuple2<String, String> generateRandomPrivateAndPublicKeyPair() {
+  final kp = RSAKeypair.fromRandom();
+
+  var strPriv = kp.privateKey.toPEM().replaceAllMapped(RegExp(r'-----.+?-----'), (match) => '').replaceAll('\n', '');
+  var hexPriv = base64Decode(strPriv).toHexString();
+  var strPub = kp.publicKey.toPEM().replaceAllMapped(RegExp(r'-----.+?-----'), (match) => '').replaceAll('\n', '');
+  var hexPub = base64Decode(strPub).toHexString();
+
+  return Tuple2(hexPriv, hexPub);
+}
+
 const IV_BYTE_LENGTH = 16;
 final random = Random.secure();
 
