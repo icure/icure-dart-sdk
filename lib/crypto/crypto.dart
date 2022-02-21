@@ -305,9 +305,13 @@ class LocalCrypto implements Crypto {
   }
 
   Future<Map<String, Tuple2<String, Uint8List>>> decryptHcPartyKeys(Map<String, String> hcpKeys, String myId, RSAPrivateKey myPrivateKey) async {
+    print('Decrypt ${hcpKeys.length} keys for ${myId}');
     final decryptor = pointy.OAEPEncoding(pointy.RSAEngine())
       ..init(false, pointy.PrivateKeyParameter<pointy.RSAPrivateKey>(myPrivateKey.asPointyCastle));
-    return hcpKeys.map((k, v) => MapEntry(k, Tuple2(v, decryptor.process(v.fromHexString()))));
+    print('decryptor initialised');
+    var map = hcpKeys.map((k, v) => MapEntry(k, Tuple2(v, decryptor.process(v.fromHexString()))));
+    print('decryption done');
+    return map;
   }
 }
 
