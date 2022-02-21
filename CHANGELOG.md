@@ -1,3 +1,11 @@
+## 1.0.17
+
+- Improve crypto performances
+
+## 1.0.16
+
+- Add api method to generate a RSA keypair in DER (hex representation)
+
 ## 1.0.15
 
 - Fixed contact creation

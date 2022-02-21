@@ -6,8 +6,8 @@ import 'package:crypton/crypton.dart';
 import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/crypto/crypto.dart';
 import 'package:icure_dart_sdk/extended_api/data_owner_api.dart';
-import "package:test/test.dart";
 import 'package:icure_dart_sdk/util/binary_utils.dart';
+import "package:test/test.dart";
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
@@ -58,6 +58,29 @@ void main() {
       expect(createdPatient.lastName, patient.lastName);
       expect(createdPatient.note, patient.note);
       expect(createdPatient.delegations.values.first.first.key != null, true);
+    });
+
+    test('load many Patients', () async {
+      // Init
+      var currentUser = await userApi.getCurrentUser();
+      var currentHcp = await hcpApi.getCurrentHealthcareParty();
+
+      if (currentUser == null || currentHcp == null) {
+        throw Exception("Test init error : Current User or current HCP can't be null");
+      }
+
+      var lc = await localCrypto(currentUser, currentHcp);
+
+      var patients = await patientApi.filterPatientsBy(
+          currentUser,
+          FilterChain(PatientByHcPartyNameContainsFuzzyFilter(healthcarePartyId: currentHcp.id!, searchString: 'max')),
+          null,
+          null,
+          null,
+          patientCryptoConfig(lc));
+
+      // Then
+      expect(patients!.rows.length > 0, true);
     });
   });
 }

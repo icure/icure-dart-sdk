@@ -178,15 +178,17 @@ class LocalCrypto implements Crypto {
   Map<String, RSAKeypair> rsaKeyPairs;
 
   Map<String, Future<Map<String, Tuple2<String, Uint8List>>?>> ownerHcpartyKeysCache = {};
-  Map<String, Future<Map<String, Tuple2<String, Uint8List>>?>> delegateHcpartyKeysCache = {};
+  Map<String, Future<Uint8List?>> delegateHcpartyKeysCache = {};
 
   @override
   Future<Set<String>> decryptEncryptionKeys(String myId, Map<String, Set<DelegationDto>> keys) async {
-    List<String?> decryptedKeys = await Future.wait((keys[myId] ?? {}).map((d) {
+    List<String?> decryptedKeys = await Future.wait((keys[myId] ?? {}).map((d) async {
       try {
-        Future<String> res = getDelegateHcPartyKey(d.delegatedTo!, d.owner!, null)
-            .then((k) => String.fromCharCodes(d.key!.keyFromHexString().decryptAES(k)).split(":")[1]);
-        return res;
+        final delegateHcPartyKey = await getDelegateHcPartyKey(d.delegatedTo!, d.owner!, null);
+        if (delegateHcPartyKey == null) {
+          throw FormatException("Cannot find a hc party key");
+        }
+        return String.fromCharCodes(d.key!.keyFromHexString().decryptAES(delegateHcPartyKey)).split(":")[1];
       } catch (e) {
         return Future.value(null);
       }
@@ -212,31 +214,25 @@ class LocalCrypto implements Crypto {
     return Uint8List.fromList("$objectId:$secret".codeUnits).encryptAES(hcPartyKey).toHexString();
   }
 
-  Future<Uint8List> getDelegateHcPartyKey(String delegateId, String ownerId, RSAPrivateKey? myPrivateKey) async {
-    RSAPrivateKey? privateKey = myPrivateKey ?? rsaKeyPairs[delegateId]?.privateKey;
-    if (privateKey == null) {
-      throw FormatException("Missing key for hcp $delegateId");
-    }
-    Future<Map<String, Tuple2<String, Uint8List>>?>? keyMapFuture = delegateHcpartyKeysCache[delegateId];
+  Future<Uint8List?> getDelegateHcPartyKey(String delegateId, String ownerId, RSAPrivateKey? myPrivateKey) async {
+    Future<Uint8List?>? keyFuture = delegateHcpartyKeysCache[delegateId];
+    if (keyFuture == null) {
+      RSAPrivateKey? privateKey = myPrivateKey ?? rsaKeyPairs[delegateId]?.privateKey;
+      if (privateKey == null) {
+        throw FormatException("Missing key for hcp $delegateId");
+      }
 
-    if (keyMapFuture == null) {
-      keyMapFuture = dataOwnerResolver.getDataOwnerKeysForDelegate(delegateId).then((hcpk) {
-        return hcpk.let((hcpnn) => decryptHcPartyKeys(hcpnn, delegateId, privateKey));
+      keyFuture = dataOwnerResolver.getDataOwnerKeysForDelegate(delegateId).then((hcpk) async {
+        final keyMap = await hcpk.let((hcpnn) => decryptHcPartyKeys(hcpnn, delegateId, privateKey));
+        var response = keyMap[ownerId]?.item2;
+        if (response == null) {
+          throw FormatException("Missing share for $ownerId");
+        }
+        return response;
       });
-      delegateHcpartyKeysCache[delegateId] = keyMapFuture;
+      delegateHcpartyKeysCache[delegateId] = keyFuture;
     }
-
-    final Map<String, Tuple2<String, Uint8List>>? keyMap = await keyMapFuture;
-
-    if (keyMap == null) {
-      throw FormatException("Unknown hcp $delegateId");
-    }
-
-    var response = keyMap[ownerId]?.item2;
-    if (response == null) {
-      throw FormatException("Missing share for $ownerId");
-    }
-    return response;
+    return keyFuture;
   }
 
   Future<Uint8List?> getHcPartyKeyByOwner(String delegateId, String ownerId, RSAPrivateKey? myPrivateKey) async {
