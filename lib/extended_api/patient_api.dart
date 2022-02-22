@@ -67,7 +67,7 @@ extension PatientInitDto on DecryptedPatientDto {
       this.maidenName = this
           .findName(PersonNameDtoUseEnum.maiden)
           .lastName;
-    } else if (this.alias == null && this.hasName(PersonNameDtoUseEnum.official)) {
+    } else if (this.alias == null && this.hasName(PersonNameDtoUseEnum.nickname)) {
       this.alias = this
           .findName(PersonNameDtoUseEnum.nickname)
           .lastName;
