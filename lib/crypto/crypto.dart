@@ -31,7 +31,7 @@ final random = Random.secure();
 abstract class CryptoConfig<D, K> {
   Crypto get crypto;
 
-  Future<Tuple2<K, Uint8List>> Function(D) get marshaller;
+  Future<Tuple2<K, Uint8List?>> Function(D) get marshaller;
 
   Future<D> Function(K, Uint8List?) get unmarshaller;
 }
@@ -47,7 +47,7 @@ abstract class Crypto {
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
   return BaseCryptoConfig(
       crypto,
-          (dec) async => Tuple2(PatientDto.fromJson(toJsonDeep(dec)..remove('note'))!, Uint8List.fromList(json.encode({'note': dec.note}).codeUnits)),
+          (dec) async => Tuple2(PatientDto.fromJson(toJsonDeep(dec)..remove('note'))!, dec.note != null ? Uint8List.fromList(json.encode({'note': dec.note}).codeUnits) : null),
           (cry, data) async => DecryptedPatientDto.fromJson(toJsonDeep(cry)..addAll(data != null ? json.decode(String.fromCharCodes(data)) : {}))!
   );
 }
@@ -166,7 +166,7 @@ class BaseCryptoConfig<D, K> implements CryptoConfig<D, K> {
   @override
   final Crypto crypto;
   @override
-  final Future<Tuple2<K, Uint8List>> Function(D) marshaller;
+  final Future<Tuple2<K, Uint8List?>> Function(D) marshaller;
   @override
   final Future<D> Function(K, Uint8List?) unmarshaller;
 }

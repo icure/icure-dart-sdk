@@ -1,3 +1,7 @@
+## 1.0.19
+
+- Skip encryption of patient when there is nothing to encrypt
+
 ## 1.0.18
 
 - Add some logging
