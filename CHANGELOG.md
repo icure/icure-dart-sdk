@@ -1,3 +1,7 @@
+## 1.0.20
+
+- Fix corruption in lib
+
 ## 1.0.19
 
 - Skip encryption of patient when there is nothing to encrypt
