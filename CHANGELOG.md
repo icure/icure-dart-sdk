@@ -1,3 +1,7 @@
+## 1.0.21
+
+- Fix bug in patient api (handling of names)
+
 ## 1.0.20
 
 - Fix corruption in lib
