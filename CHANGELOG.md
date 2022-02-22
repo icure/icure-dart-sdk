@@ -1,3 +1,7 @@
+## 1.0.22
+
+- Do not require encryption keys for patient when there is nothing to encrypt
+
 ## 1.0.21
 
 - Fix bug in patient api (handling of names)
