@@ -76,13 +76,13 @@ extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
       throw FormatException("Cannot get encryption key for ${contact.id} and hcp $myId");
     }
 
-    Tuple2<ContactDto, Uint8List> t = await this.marshaller(contact);
+    Tuple2<ContactDto, Uint8List?> t = await this.marshaller(contact);
 
     ContactDto sanitizedContact = t.item1;
-    final Uint8List marshalledData = t.item2;
+    final Uint8List? marshalledData = t.item2;
 
     sanitizedContact.encryptionKeys = eks;
-    sanitizedContact.encryptedSelf = base64.encoder.convert(marshalledData.encryptAES(secret));
+    sanitizedContact.encryptedSelf = marshalledData != null ? base64.encoder.convert(marshalledData.encryptAES(secret)) : null;
 
     return sanitizedContact;
   }

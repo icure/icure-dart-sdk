@@ -58,12 +58,12 @@ extension HealthElementCryptoConfig on CryptoConfig<DecryptedHealthElementDto, H
       throw FormatException("Cannot get encryption key fo ${healthElementDto.id} and hcp $myId");
     }
 
-    Tuple2<HealthElementDto, Uint8List> tuple = await this.marshaller(healthElementDto);
+    Tuple2<HealthElementDto, Uint8List?> tuple = await this.marshaller(healthElementDto);
     final HealthElementDto sanitizedHealthElement = tuple.item1;
-    final Uint8List marshalledData = tuple.item2;
+    final Uint8List? marshalledData = tuple.item2;
 
     sanitizedHealthElement.encryptionKeys = encryptionKeys;
-    sanitizedHealthElement.encryptedSelf = base64.encoder.convert(marshalledData.encryptAES(secret));
+    sanitizedHealthElement.encryptedSelf = marshalledData != null ? base64.encoder.convert(marshalledData.encryptAES(secret)) : null;
 
     return sanitizedHealthElement;
   }
