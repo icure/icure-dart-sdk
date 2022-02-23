@@ -150,8 +150,14 @@ class DataOwnerResolver {
   Future<HealthcarePartyDto?> _getHcp(String hcpId) async {
     try {
       final cachedHcp = hcParties[hcpId];
-      return cachedHcp != null ? await cachedHcp : await (hcParties[hcpId] = healthcarePartyApi.getHealthcareParty(hcpId));
-    } on ApiException {
+      if (cachedHcp != null) {
+        return await cachedHcp;
+      } else {
+        hcParties[hcpId] = healthcarePartyApi.getHealthcareParty(hcpId);
+        return await hcParties[hcpId];
+      }
+    } catch(e) {
+      print("Exception during _getHcp ${e}");
       return null;
     }
   }

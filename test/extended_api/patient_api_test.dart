@@ -25,23 +25,25 @@ Future<E> retry<E>(Future<E> Function () action, {int trials = 5, int delay = 10
 }
 
 void main() {
-  var apiClient = ApiClient.basic('https://kraken.icure.dev', 'abdemotst2', '27b90f6e-6847-44bf-b90f-6e6847b4bf1c');
+  final apiClient = ApiClient.basic('https://kraken.icure.dev', 'abdemotst2', '27b90f6e-6847-44bf-b90f-6e6847b4bf1c');
 
-  var userApi = UserApi(apiClient);
-  var hcpApi = HealthcarePartyApi(apiClient);
-  var patientApi = PatientApi(apiClient);
-  var deviceApi = DeviceApi(apiClient);
+  final userApi = UserApi(apiClient);
+  final hcpApi = HealthcarePartyApi(apiClient);
+  final patientApi = PatientApi(apiClient);
+  final deviceApi = DeviceApi(apiClient);
+  final defaultDataOwnerResolver = DataOwnerResolver(hcpApi, patientApi, deviceApi);
 
   final Uuid uuid = Uuid();
 
-  Future<LocalCrypto> localCrypto(UserDto user, HealthcarePartyDto hcp) async {
-    var fileUri = Uri.file("test/resources/keys/782f1bcd-9f3f-408a-af1b-cd9f3f908a98-icc-priv.2048.key", windows: false);
+  Future<LocalCrypto> localCrypto(DataOwnerResolver dataOwnerResolver, UserDto user, HealthcarePartyDto hcp,
+      {String? hcpKeyFileName = "782f1bcd-9f3f-408a-af1b-cd9f3f908a98-icc-priv.2048.key"}) async {
+    var fileUri = Uri.file("test/resources/keys/${hcpKeyFileName}", windows: false);
     var hcpKeyFile = File.fromUri(fileUri);
 
     var hcpPrivateKey = (await hcpKeyFile.readAsString(encoding: utf8)).toPrivateKey();
     var keyPairs = {user.healthcarePartyId!: RSAKeypair(hcpPrivateKey)};
 
-    return LocalCrypto(DataOwnerResolver(hcpApi, patientApi, deviceApi), keyPairs);
+    return LocalCrypto(dataOwnerResolver, keyPairs);
   }
 
   group('tests for PatientApi', () {
@@ -54,7 +56,7 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await localCrypto(currentUser, currentHcp);
+      var lc = await localCrypto(defaultDataOwnerResolver, currentUser, currentHcp);
 
       var patient = DecryptedPatientDto(
           id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
@@ -82,11 +84,11 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await localCrypto(currentUser, currentHcp);
+      var lc = await localCrypto(defaultDataOwnerResolver, currentUser, currentHcp);
 
       var patients = await patientApi.filterPatientsBy(
           currentUser,
-          FilterChain(PatientByHcPartyNameContainsFuzzyFilter(healthcarePartyId: currentHcp.id!, searchString: 'max')),
+          FilterChain(PatientByHcPartyNameContainsFuzzyFilter(healthcarePartyId: currentHcp.id, searchString: 'max')),
           null,
           null,
           null,
@@ -98,23 +100,30 @@ void main() {
 
     test('Create patient with crypto', () async {
       // Init
-      var currentUser = await userApi.getCurrentUser();
-      var currentHcp = await hcpApi.getCurrentHealthcareParty();
+      var hkApiClient = ApiClient.basic('https://kraken.icure.dev', 'xxx', 'xxx');
+      var hkUserApi = UserApi(hkApiClient);
+      var hkHcpApi = HealthcarePartyApi(hkApiClient);
+      var hkPatientApi = PatientApi(hkApiClient);
+      var hkDeviceApi = DeviceApi(hkApiClient);
+      var hkDataOwnerResolver = DataOwnerResolver(hkHcpApi, hkPatientApi, hkDeviceApi);
+
+      var currentUser = await hkUserApi.getCurrentUser();
+      var currentHcp = await hkHcpApi.getCurrentHealthcareParty();
 
       if (currentUser == null || currentHcp == null) {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await localCrypto(currentUser, currentHcp);
-
+      var lc = await localCrypto(hkDataOwnerResolver, currentUser, currentHcp, hcpKeyFileName: "171f186a-7a2a-40f0-b842-b486428c771b.2048.key");
 
       final DecryptedPatientDto patient = DecryptedPatientDto(id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}), firstName: 'John', lastName: 'Doe');
 
       // When
-      var createdPatient = await patientApi.createPatient(currentUser, patient, patientCryptoConfig(lc));
+      var createdPatient = await hkPatientApi.createPatient(currentUser, patient, patientCryptoConfig(lc));
       var idUser = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
       var passwordUser = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
-      var createdUser = await userApi.createUser(new UserDto(id: idUser, login: idUser.substring(0, 8), patientId: createdPatient!.id, passwordHash: passwordUser));
+      var createdUser = await hkUserApi.createUser(new UserDto(id: idUser, login: idUser.substring(0, 8), patientId: createdPatient!.id, passwordHash: passwordUser));
+      print("Patient user login ${idUser.substring(0,8)} and password ${passwordUser}");
 
       var patApiClient = ApiClient.basic('https://kraken.icure.dev', createdUser!.login!, passwordUser);
 
@@ -125,16 +134,18 @@ void main() {
       final patUser = await retry(() => patUserApi.getCurrentUser());
       final keyPair = generateRandomPrivateAndPublicKeyPair();
 
-      var patLc = LocalCrypto(DataOwnerResolver(hcpApi, patientApi, deviceApi), { patUser!.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
+      print("Patient private key ${keyPair.item1} and public key ${keyPair.item2}");
+
+      var patLc = LocalCrypto(DataOwnerResolver(hkHcpApi, patientApi, deviceApi), { patUser!.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
 
       final pat = await patPatientApi.getPatient(patUser, patUser.patientId!, patientCryptoConfig(patLc));
 
       pat!.publicKey = keyPair.item2;
 
       final modPat = await patPatientApi.modifyPatient(patUser, pat, patientCryptoConfig(patLc));
-      patLc = LocalCrypto(DataOwnerResolver(hcpApi, patientApi, deviceApi), { patUser.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
+      patLc = LocalCrypto(DataOwnerResolver(hkHcpApi, patientApi, deviceApi), { patUser.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
 
-      final pat2 = await patPatientApi.getPatient(patUser, patUser.patientId!, patientCryptoConfig(patLc)!);
+      final pat2 = await patPatientApi.getPatient(patUser, patUser.patientId!, patientCryptoConfig(patLc));
       pat2!.note = "Secret";
       pat2.delegations = {};
       pat2.encryptionKeys = {};
