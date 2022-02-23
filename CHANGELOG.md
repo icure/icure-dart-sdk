@@ -1,3 +1,7 @@
+## 1.0.23
+
+- Solved corner case where keys are being added to the patient being modified otherwise
+
 ## 1.0.22
 
 - Do not require encryption keys for patient when there is nothing to encrypt

@@ -84,7 +84,7 @@ class DataOwnerResolver {
         ..addAll(newKeyPair);
     }));
 
-    return updatedHcp == null ? null : DataOwnerDto(DataOwnerType.hcp, hcpId, updatedHcp.hcPartyKeys, publicKey: updatedHcp.publicKey, parentId: updatedHcp.parentId);
+    return updatedHcp == null ? null : DataOwnerDto(DataOwnerType.hcp, hcpId, updatedHcp.hcPartyKeys, publicKey: updatedHcp.publicKey, parentId: updatedHcp.parentId, rev: updatedHcp.rev);
   }
 
   Future<HealthcarePartyDto?> _updateHcp(HealthcarePartyDto hcp) {
@@ -104,7 +104,7 @@ class DataOwnerResolver {
         ..addAll(newKeyPair);
     }));
 
-    return updatedPatient == null ? null : DataOwnerDto(DataOwnerType.patient, patientId, updatedPatient.hcPartyKeys, publicKey: updatedPatient.publicKey);
+    return updatedPatient == null ? null : DataOwnerDto(DataOwnerType.patient, patientId, updatedPatient.hcPartyKeys, publicKey: updatedPatient.publicKey, rev: updatedPatient.rev);
   }
 
   Future<PatientDto?> _updatePatient(PatientDto patient) {
@@ -124,7 +124,7 @@ class DataOwnerResolver {
         ..addAll(newKeyPair);
     }));
 
-    return updatedDevice == null ? null : DataOwnerDto(DataOwnerType.device, deviceId, updatedDevice.hcPartyKeys, publicKey: updatedDevice.publicKey, parentId: updatedDevice.parentId);
+    return updatedDevice == null ? null : DataOwnerDto(DataOwnerType.device, deviceId, updatedDevice.hcPartyKeys, publicKey: updatedDevice.publicKey, parentId: updatedDevice.parentId, rev: updatedDevice.rev);
   }
 
   Future<DeviceDto?> _updateDevice(DeviceDto device) {
@@ -158,7 +158,7 @@ class DataOwnerResolver {
 
   Future<DataOwnerDto?> _getHcpDataOwner(String dataOwnerId) async {
     final hcp = await (_getHcp(dataOwnerId));
-    return hcp == null ? null : DataOwnerDto(DataOwnerType.hcp, dataOwnerId, hcp.hcPartyKeys, publicKey: hcp.publicKey, parentId: hcp.parentId);
+    return hcp == null ? null : DataOwnerDto(DataOwnerType.hcp, dataOwnerId, hcp.hcPartyKeys, publicKey: hcp.publicKey, parentId: hcp.parentId, rev: hcp.rev);
   }
 
   Future<PatientDto?> _getPatient(String patientId) async {
@@ -172,7 +172,7 @@ class DataOwnerResolver {
 
   Future<DataOwnerDto?> _getPatientDataOwner(String dataOwnerId) async {
     final patient = await (_getPatient(dataOwnerId));
-    return patient == null ? null : DataOwnerDto(DataOwnerType.patient, dataOwnerId, patient.hcPartyKeys, publicKey: patient.publicKey);
+    return patient == null ? null : DataOwnerDto(DataOwnerType.patient, dataOwnerId, patient.hcPartyKeys, publicKey: patient.publicKey, rev: patient.rev);
   }
 
   Future<DeviceDto?> _getDevice(String deviceId) async {
@@ -186,18 +186,19 @@ class DataOwnerResolver {
 
   Future<DataOwnerDto?> _getDeviceDataOwner(String dataOwnerId) async {
     final device = await (_getDevice(dataOwnerId));
-    return device == null ? null : DataOwnerDto(DataOwnerType.device, dataOwnerId, device.hcPartyKeys, publicKey: device.publicKey, parentId: device.parentId);
+    return device == null ? null : DataOwnerDto(DataOwnerType.device, dataOwnerId, device.hcPartyKeys, publicKey: device.publicKey, parentId: device.parentId, rev: device.rev);
   }
 }
 
 class DataOwnerDto {
-  DataOwnerDto(this.type, this.dataOwnerId, this.hcPartyKeys, {this.publicKey = null, this.parentId = null});
+  DataOwnerDto(this.type, this.dataOwnerId, this.hcPartyKeys, {this.publicKey = null, this.parentId = null, this.rev = null});
 
   final DataOwnerType type;
   final String dataOwnerId;
   final Map<String, List<String>> hcPartyKeys;
   final String? publicKey;
   final String? parentId;
+  final String? rev;
 }
 
 enum DataOwnerType {

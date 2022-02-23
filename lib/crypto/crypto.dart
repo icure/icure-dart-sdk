@@ -39,9 +39,9 @@ abstract class CryptoConfig<D, K> {
 abstract class Crypto {
   Future<Set<String>> decryptEncryptionKeys(String myId, Map<String, Set<DelegationDto>> keys);
 
-  Future<String> encryptAESKeyForHcp(String myId, String delegateId, String objectId, String secret);
+  Future<Tuple2<String, DataOwnerDto?>> encryptAESKeyForHcp(String myId, String delegateId, String objectId, String secret);
 
-  Future<String> encryptValueForHcp(String myId, String delegateId, String objectId, String secret);
+  Future<Tuple2<String, DataOwnerDto?>> encryptValueForHcp(String myId, String delegateId, String objectId, String secret);
 }
 
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
@@ -203,15 +203,16 @@ class LocalCrypto implements Crypto {
   }
 
   @override
-  Future<String> encryptAESKeyForHcp(String myId, String delegateId, String objectId, String secretKey) async {
+  Future<Tuple2<String, DataOwnerDto?>> encryptAESKeyForHcp(String myId, String delegateId, String objectId, String secretKey) async {
     return encryptValueForHcp(myId, delegateId, objectId, secretKey.formatAsKey());
   }
 
   @override
-  Future<String> encryptValueForHcp(String myId, String delegateId, String objectId, String secret) async {
-    var hcPartyKey = await getOrCreateHcPartyKey(myId, delegateId);
+  Future<Tuple2<String, DataOwnerDto?>> encryptValueForHcp(String myId, String delegateId, String objectId, String secret) async {
+    final hcPartyKeyAndDataOwner = await getOrCreateHcPartyKey(myId, delegateId);
+    final hcPartyKey = hcPartyKeyAndDataOwner.item1;
 
-    return Uint8List.fromList("$objectId:$secret".codeUnits).encryptAES(hcPartyKey).toHexString();
+    return new Tuple2(Uint8List.fromList("$objectId:$secret".codeUnits).encryptAES(hcPartyKey).toHexString(), hcPartyKeyAndDataOwner.item2);
   }
 
   Future<Uint8List?> getDelegateHcPartyKey(String delegateId, String ownerId, RSAPrivateKey? myPrivateKey) async {
@@ -264,7 +265,7 @@ class LocalCrypto implements Crypto {
         Iterable<MapEntry<String, String>>.empty();
   }
 
-  Future<Uint8List> getOrCreateHcPartyKey(String myId, String delegateId, {RSAPrivateKey? privateKey, RSAPublicKey? publicKey}) async {
+  Future<Tuple2<Uint8List, DataOwnerDto?>> getOrCreateHcPartyKey(String myId, String delegateId, {RSAPrivateKey? privateKey, RSAPublicKey? publicKey}) async {
     var myPublicKey = publicKey ?? rsaKeyPairs[myId]?.publicKey;
     var myPrivateKey = privateKey ?? rsaKeyPairs[myId]?.privateKey;
 
@@ -295,12 +296,11 @@ class LocalCrypto implements Crypto {
       var keyForMe = encryptorForMe.process(aesKey).toHexString();
       var keyForDelegate = encryptorForDelegate.process(aesKey).toHexString();
 
-      dataOwnerResolver.updateDataOwnerWithNewDelegateKeyPair(myId, {
+      return new Tuple2(aesKey, await dataOwnerResolver.updateDataOwnerWithNewDelegateKeyPair(myId, {
         delegateId: [keyForMe, keyForDelegate]
-      });
-      return aesKey;
+      }));
     } else {
-      return aesKey;
+      return new Tuple2(aesKey, null);
     }
   }
 

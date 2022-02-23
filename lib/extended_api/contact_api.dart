@@ -19,7 +19,7 @@ extension ContactInitDto on DecryptedContactDto {
         (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
-              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
+              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk)).item1)
             })
           ]));
 
@@ -32,7 +32,7 @@ extension ContactInitDto on DecryptedContactDto {
               DelegationDto(
                   owner: user.dataOwnerId(),
                   delegatedTo: d,
-                  key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek.toHexString()))
+                  key: (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek.toHexString())).item1)
             })
           ]));
     return this;
@@ -66,7 +66,7 @@ extension ContactCryptoConfig on CryptoConfig<DecryptedContactDto, ContactDto> {
       eks = {
         ...eks,
         ...Map.fromEntries(
-            secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: myId, delegatedTo: t.item1, key: t.item2)})))
+            secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: myId, delegatedTo: t.item1, key: t.item2.item1)})))
       };
     } else {
       secret = IterableUtils((await this.crypto.decryptEncryptionKeys(myId, contact.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
@@ -109,7 +109,7 @@ extension ContactApiCrypto on ContactApi {
     encContact.cryptedForeignKeys = {
       ...encContact.cryptedForeignKeys,
       ...Map.fromEntries(secretForDelegates
-          .map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: user.dataOwnerId()!, delegatedTo: t.item1, key: t.item2)})))
+          .map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: user.dataOwnerId()!, delegatedTo: t.item1, key: t.item2.item1)})))
     };
     encContact.secretForeignKeys = <String>{secret};
 
@@ -142,7 +142,7 @@ extension ContactApiCrypto on ContactApi {
       encContact.cryptedForeignKeys = {
         ...encContact.cryptedForeignKeys,
         ...Map.fromEntries(secretForDelegates
-            .map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: user.dataOwnerId()!, delegatedTo: t.item1, key: t.item2)})))
+            .map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: user.dataOwnerId()!, delegatedTo: t.item1, key: t.item2.item1)})))
       };
       encContact.secretForeignKeys = <String>{secret};
 

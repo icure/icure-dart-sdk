@@ -19,7 +19,7 @@ extension HealthElementInitDto on DecryptedHealthElementDto {
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
-                  owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
+                  owner: user.dataOwnerId(), delegatedTo: d, key: (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk)).item1)
             })
           ]));
 
@@ -30,7 +30,7 @@ extension HealthElementInitDto on DecryptedHealthElementDto {
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
-                  owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek))
+                  owner: user.dataOwnerId(), delegatedTo: d, key: (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek)).item1)
             })
           ]));
     return this;
@@ -46,7 +46,7 @@ extension HealthElementCryptoConfig on CryptoConfig<DecryptedHealthElementDto, H
     } else {
       secret = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
       final List<Tuple2<String, String>> secretForDelegates = await Future.wait((<String>{...delegations, myId})
-          .map((String d) async => Tuple2(d, await this.crypto.encryptAESKeyForHcp(myId, d, healthElementDto.id, secret!.toHexString()))));
+          .map((String d) async => Tuple2(d, (await this.crypto.encryptAESKeyForHcp(myId, d, healthElementDto.id, secret!.toHexString())).item1)));
       encryptionKeys = {
         ...encryptionKeys,
         ...Map.fromEntries(
@@ -112,7 +112,7 @@ extension HealthElementApiCrypto on HealthElementApi {
     encryptedHealthElement.cryptedForeignKeys = {
       ...healthElementDto.cryptedForeignKeys,
       ...Map.fromEntries(secretForDelegates
-          .map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: user.dataOwnerId()!, delegatedTo: t.item1, key: t.item2)})))
+          .map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: user.dataOwnerId()!, delegatedTo: t.item1, key: t.item2.item1)})))
     };
 
     final HealthElementDto? createdHealthElement = await this.rawCreateHealthElement(encryptedHealthElement);
@@ -140,7 +140,7 @@ extension HealthElementApiCrypto on HealthElementApi {
       encryptedHealthElement.cryptedForeignKeys = {
         ...he.cryptedForeignKeys,
         ...Map.fromEntries(secretForDelegates
-            .map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: user.dataOwnerId()!, delegatedTo: t.item1, key: t.item2)})))
+            .map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: user.dataOwnerId()!, delegatedTo: t.item1, key: t.item2.item1)})))
       };
 
       return encryptedHealthElement;

@@ -21,7 +21,9 @@ extension AccessLogInitDto on DecryptedAccessLogDto {
           ..addEntries([
             MapEntry(d, {
               DelegationDto(
-                  owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
+                  owner: user.dataOwnerId(), delegatedTo: d, key:
+                    (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk)).item1
+              )
             })
           ]));
 
@@ -30,7 +32,10 @@ extension AccessLogInitDto on DecryptedAccessLogDto {
         (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
-              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek))
+              DelegationDto(
+                  owner: user.dataOwnerId(), delegatedTo: d, key:
+                    (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek)).item1
+              )
             })
           ]));
     return this;
@@ -48,7 +53,7 @@ extension AccessLogCryptoConfig on CryptoConfig<DecryptedAccessLogDto, AccessLog
         final String secret = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
         final Set<String> newDelegations = [...delegations, myId].toSet();
         final List<Future<MapEntry<String, String>>> futureDelegationKeys = newDelegations.map((e) async {
-          String key = await this.crypto.encryptAESKeyForHcp(myId, e, accessLogDto.id, secret);
+          String key = (await this.crypto.encryptAESKeyForHcp(myId, e, accessLogDto.id, secret)).item1;
           return MapEntry(e, key);
         }).toList();
         final Map<String, String> delegationsKeys = await Map<String, String>.fromEntries(await Future.wait(futureDelegationKeys));

@@ -11,6 +11,19 @@ import "package:test/test.dart";
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
+Future<E> retry<E>(Future<E> Function () action, {int trials = 5, int delay = 100}) async {
+  try {
+    return await action();
+  } catch(e) {
+    if (trials>0) {
+      sleep(Duration(milliseconds: delay));
+      return await retry(action, trials: trials - 1, delay: delay);
+    } else {
+      throw e;
+    }
+  }
+}
+
 void main() {
   var apiClient = ApiClient.basic('https://kraken.icure.dev', 'abdemotst2', '27b90f6e-6847-44bf-b90f-6e6847b4bf1c');
 
@@ -81,6 +94,57 @@ void main() {
 
       // Then
       expect(patients!.rows.length > 0, true);
+    });
+
+    test('Create patient with crypto', () async {
+      // Init
+      var currentUser = await userApi.getCurrentUser();
+      var currentHcp = await hcpApi.getCurrentHealthcareParty();
+
+      if (currentUser == null || currentHcp == null) {
+        throw Exception("Test init error : Current User or current HCP can't be null");
+      }
+
+      var lc = await localCrypto(currentUser, currentHcp);
+
+
+      final DecryptedPatientDto patient = DecryptedPatientDto(id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}), firstName: 'John', lastName: 'Doe');
+
+      // When
+      var createdPatient = await patientApi.createPatient(currentUser, patient, patientCryptoConfig(lc));
+      var idUser = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+      var passwordUser = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+      var createdUser = await userApi.createUser(new UserDto(id: idUser, login: idUser.substring(0, 8), patientId: createdPatient!.id, passwordHash: passwordUser));
+
+      var patApiClient = ApiClient.basic('https://kraken.icure.dev', createdUser!.login!, passwordUser);
+
+      var patUserApi = UserApi(patApiClient);
+      var patHcpApi = HealthcarePartyApi(patApiClient);
+      var patPatientApi = PatientApi(patApiClient);
+
+      final patUser = await retry(() => patUserApi.getCurrentUser());
+      final keyPair = generateRandomPrivateAndPublicKeyPair();
+
+      var patLc = LocalCrypto(DataOwnerResolver(hcpApi, patientApi, deviceApi), { patUser!.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
+
+      final pat = await patPatientApi.getPatient(patUser, patUser.patientId!, patientCryptoConfig(patLc));
+
+      pat!.publicKey = keyPair.item2;
+
+      final modPat = await patPatientApi.modifyPatient(patUser, pat, patientCryptoConfig(patLc));
+      patLc = LocalCrypto(DataOwnerResolver(hcpApi, patientApi, deviceApi), { patUser.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
+
+      final pat2 = await patPatientApi.getPatient(patUser, patUser.patientId!, patientCryptoConfig(patLc)!);
+      pat2!.note = "Secret";
+      pat2.delegations = {};
+      pat2.encryptionKeys = {};
+      final modPat2 = (await patPatientApi.modifyPatient(patUser, pat2, patientCryptoConfig(patLc)))!;
+
+      // Then
+      expect(modPat2.id, pat2.id);
+      expect(modPat2.firstName, pat2.firstName);
+      expect(modPat2.lastName, pat2.lastName);
+      expect(modPat2.note, pat2.note);
     });
   });
 }

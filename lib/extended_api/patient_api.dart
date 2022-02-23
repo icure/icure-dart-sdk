@@ -12,31 +12,39 @@ extension PatientInitDto on DecryptedPatientDto {
 
     responsible = this.responsible ?? user.dataOwnerId()!;
     author = user.id;
+
     delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
         Future.value({...delegations}),
-            (m, d) async => (await m)
-          ..addEntries([
+            (m, d) async {
+          final keyAndOwner = await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk);
+
+          return (await m)..addEntries([
             MapEntry(d, {
               DelegationDto(
                   owner: user.dataOwnerId(),
                   delegatedTo: d,
-                  key: await config.crypto
-                      .encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
+                  key: keyAndOwner.item1
+              )
             })
-          ]));
+          ]);
+        });
 
     encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
         Future.value({...encryptionKeys}),
-            (m, d) async => (await m)
-          ..addEntries([
+            (m, d) async {
+          final keyAndOwner = await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek);
+
+          return (await m)..addEntries([
             MapEntry(d, {
-              DelegationDto(
-                  owner: user.dataOwnerId(),
-                  delegatedTo: d,
-                  key: await config.crypto
-                      .encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek))
+                DelegationDto(
+                    owner: user.dataOwnerId(),
+                    delegatedTo: d,
+                    key: keyAndOwner.item1
+                )
             })
-          ]));
+          ]);
+        });
+
     return this;
   }
 
@@ -104,7 +112,6 @@ extension PatientCryptoConfig on CryptoConfig<DecryptedPatientDto, PatientDto> {
     PatientDto sanitizedPatient = t.item1;
     final Uint8List? marshalledData = t.item2;
 
-
     if (marshalledData != null) {
       var eks = patient.encryptionKeys;
       Uint8List? secret;
@@ -116,9 +123,21 @@ extension PatientCryptoConfig on CryptoConfig<DecryptedPatientDto, PatientDto> {
                 d, await this.crypto.encryptAESKeyForHcp(dataOwnerId, d, patient.id, secret!.toHexString())
             )));
 
+        secretForDelegates.forEach((s) {
+          final dataOwner = s.item2.item2;
+
+          if (dataOwner != null) {
+            //If we have added keys to the current patient
+            if (dataOwner.dataOwnerId == patient.id) {
+              sanitizedPatient.rev = dataOwner.rev;
+              sanitizedPatient.hcPartyKeys = dataOwner.hcPartyKeys;
+            }
+          }
+        });
+
         eks = {...eks, ...Map.fromEntries(secretForDelegates.map((t) =>
             MapEntry(t.item1, <DelegationDto>{DelegationDto(
-                owner: dataOwnerId, delegatedTo: t.item1, key: t.item2
+                owner: dataOwnerId, delegatedTo: t.item1, key: t.item2.item1
             )})))};
         sanitizedPatient.encryptionKeys = eks;
       } else {

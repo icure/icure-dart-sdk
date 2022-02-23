@@ -18,7 +18,7 @@ extension DocumentInitDto on DecryptedDocumentDto {
         (m, d) async => (await m)
           ..addEntries([
             MapEntry(d, {
-              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk))
+              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk)).item1)
             })
           ]));
 
@@ -30,7 +30,7 @@ extension DocumentInitDto on DecryptedDocumentDto {
               DelegationDto(
                   owner: user.dataOwnerId(),
                   delegatedTo: d,
-                  key: await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek.toHexString()))
+                  key: (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek.toHexString())).item1)
             })
           ]));
     return this;
@@ -63,7 +63,7 @@ extension DocumentCryptoConfig on CryptoConfig<DecryptedDocumentDto, DocumentDto
       eks = {
         ...eks,
         ...Map.fromEntries(
-            secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: dataOwnerId, delegatedTo: t.item1, key: t.item2)})))
+            secretForDelegates.map((t) => MapEntry(t.item1, <DelegationDto>{DelegationDto(owner: dataOwnerId, delegatedTo: t.item1, key: t.item2.item1)})))
       };
     } else {
       secret = IterableUtils((await this.crypto.decryptEncryptionKeys(dataOwnerId, document.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
