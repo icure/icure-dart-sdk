@@ -11,6 +11,8 @@ import "package:test/test.dart";
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
+import '../util/test_utils.dart';
+
 Future<E> retry<E>(Future<E> Function () action, {int trials = 5, int delay = 100}) async {
   try {
     return await action();
@@ -35,17 +37,6 @@ void main() {
 
   final Uuid uuid = Uuid();
 
-  Future<LocalCrypto> localCrypto(DataOwnerResolver dataOwnerResolver, UserDto user, HealthcarePartyDto hcp,
-      {String? hcpKeyFileName = "782f1bcd-9f3f-408a-af1b-cd9f3f908a98-icc-priv.2048.key"}) async {
-    var fileUri = Uri.file("test/resources/keys/${hcpKeyFileName}", windows: false);
-    var hcpKeyFile = File.fromUri(fileUri);
-
-    var hcpPrivateKey = (await hcpKeyFile.readAsString(encoding: utf8)).toPrivateKey();
-    var keyPairs = {user.healthcarePartyId!: RSAKeypair(hcpPrivateKey)};
-
-    return LocalCrypto(dataOwnerResolver, keyPairs);
-  }
-
   group('tests for PatientApi', () {
     test('test createPatient', () async {
       // Init
@@ -56,7 +47,7 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await localCrypto(defaultDataOwnerResolver, currentUser, currentHcp);
+      var lc = await TestUtils.localCrypto(defaultDataOwnerResolver, currentUser, currentHcp);
 
       var patient = DecryptedPatientDto(
           id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
@@ -84,7 +75,7 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await localCrypto(defaultDataOwnerResolver, currentUser, currentHcp);
+      var lc = await TestUtils.localCrypto(defaultDataOwnerResolver, currentUser, currentHcp);
 
       var patients = await patientApi.filterPatientsBy(
           currentUser,
@@ -100,7 +91,8 @@ void main() {
 
     test('Create patient with crypto', () async {
       // Init
-      var hkApiClient = ApiClient.basic('https://kraken.icure.dev', 'xxx', 'xxx');
+      var hkCreds = await TestUtils.credentials(credentialsFilePath: "test/util/.hkcredentials");
+      var hkApiClient = ApiClient.basic('https://kraken.icure.dev', hkCreds.username, hkCreds.password);
       var hkUserApi = UserApi(hkApiClient);
       var hkHcpApi = HealthcarePartyApi(hkApiClient);
       var hkPatientApi = PatientApi(hkApiClient);
@@ -114,7 +106,7 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await localCrypto(hkDataOwnerResolver, currentUser, currentHcp, hcpKeyFileName: "171f186a-7a2a-40f0-b842-b486428c771b.2048.key");
+      var lc = await TestUtils.localCrypto(hkDataOwnerResolver, currentUser, currentHcp, hcpKeyFileName: "171f186a-7a2a-40f0-b842-b486428c771b.2048.key");
 
       final DecryptedPatientDto patient = DecryptedPatientDto(id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}), firstName: 'John', lastName: 'Doe');
 
