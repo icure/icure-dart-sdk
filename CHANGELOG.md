@@ -1,3 +1,6 @@
+## 1.0.24
+- Fix hcPartyKeys patient dataOwner update : Update rev only if bigger than the current one
+
 ## 1.0.23
 
 - Solved corner case where keys are being added to the patient being modified otherwise
