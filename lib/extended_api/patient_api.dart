@@ -128,7 +128,7 @@ extension PatientCryptoConfig on CryptoConfig<DecryptedPatientDto, PatientDto> {
 
           if (dataOwner != null) {
             //If we have added keys to the current patient
-            if (dataOwner.dataOwnerId == patient.id) {
+            if (dataOwner.dataOwnerId == patient.id && (sanitizedPatient.rev == null || dataOwner.rev?.compareTo(sanitizedPatient.rev!) == 1)) {
               sanitizedPatient.rev = dataOwner.rev;
               sanitizedPatient.hcPartyKeys = dataOwner.hcPartyKeys;
             }
