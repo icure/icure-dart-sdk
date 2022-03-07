@@ -1,3 +1,7 @@
+## 1.0.29
+
+- Fixed Authorization header for matchServicesBy
+
 ## 1.0.28
 
 - Returned $type instead of null
