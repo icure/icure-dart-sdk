@@ -1,3 +1,7 @@
+## 1.0.28
+
+- Returned $type instead of null
+
 ## 1.0.27
 
 - Solved an issue with $type on filters serialization #2
