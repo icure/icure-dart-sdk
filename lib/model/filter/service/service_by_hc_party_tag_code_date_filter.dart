@@ -29,7 +29,7 @@ class ServiceByHcPartyTagCodeDateFilter extends AbstractFilterDto<ServiceDto> {
     final json = <String, dynamic>{};
     json['\$type'] = this.runtimeType.toString().let((type) {
       final regExp = new RegExp(r'([A-Za-z0-9]*)(<.>)?');
-      regExp.firstMatch(type);
+      regExp.firstMatch(type)!.group(1);
     });
     if (desc != null) {
       json[r'desc'] = desc;

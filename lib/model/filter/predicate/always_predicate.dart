@@ -6,7 +6,7 @@ class AlwaysPredicate extends Predicate {
     final json = <String, dynamic>{};
     json['\$type'] = this.runtimeType.toString().let((type) {
       final regExp = new RegExp(r'([A-Za-z0-9]*)(<.>)?');
-      regExp.firstMatch(type);
+      regExp.firstMatch(type)!.group(1);
     });
 
     return json;
