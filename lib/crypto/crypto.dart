@@ -177,7 +177,6 @@ class LocalCrypto implements Crypto {
   DataOwnerResolver dataOwnerResolver;
   Map<String, RSAKeypair> rsaKeyPairs;
 
-  Map<String, Future<Map<String, Tuple2<String, Uint8List>>?>> ownerHcpartyKeysCache = {};
   Map<String, Future<Uint8List?>> delegateHcpartyKeysCache = {};
 
   @override
@@ -241,15 +240,11 @@ class LocalCrypto implements Crypto {
     if (privateKey == null) {
       throw FormatException("Missing key for hcp $delegateId");
     }
-    Future<Map<String, Tuple2<String, Uint8List>>?>? keyMapFuture = ownerHcpartyKeysCache[ownerId];
 
-    if (keyMapFuture == null) {
-      keyMapFuture = dataOwnerResolver.getDataOwner(ownerId).then((hcp) {
-        var hcpnn = Map<String, String>.fromEntries(findKeysToDecrypt(hcp));
-        return decryptHcPartyKeys(hcpnn, delegateId, privateKey);
-      });
-      ownerHcpartyKeysCache[ownerId] = keyMapFuture;
-    }
+    Future<Map<String, Tuple2<String, Uint8List>>?>? keyMapFuture = dataOwnerResolver.getDataOwner(ownerId).then((hcp) {
+      var hcpnn = Map<String, String>.fromEntries(findKeysToDecrypt(hcp));
+      return decryptHcPartyKeys(hcpnn, delegateId, privateKey);
+    });
 
     final Map<String, Tuple2<String, Uint8List>>? keyMap = await keyMapFuture;
 

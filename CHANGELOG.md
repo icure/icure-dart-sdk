@@ -1,6 +1,12 @@
-## 1.0.24
+## 1.0.26
 
 - Solved an issue with $type on filters serialization
+
+## 1.0.25
+- Resolve getOrCreateHcPartyKeys by deleting buggy cache ownerHcpartyKeysCache
+
+## 1.0.24
+- Fix hcPartyKeys patient dataOwner update : Update rev only if bigger than the current one
 
 ## 1.0.23
 
