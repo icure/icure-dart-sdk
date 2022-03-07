@@ -11,7 +11,10 @@ class IntersectionFilter<O> extends AbstractFilterDto<O> {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json['\$type'] = this.runtimeType.toString();
+    json['\$type'] = this.runtimeType.toString().let((type) {
+      final regExp = new RegExp(r'([A-Za-z0-9]*)(<.>)?');
+      regExp.firstMatch(type);
+    });
     if (desc != null) {
       json[r'desc'] = desc;
     }

@@ -1,3 +1,7 @@
+## 1.0.24
+
+- Solved an issue with $type on filters serialization
+
 ## 1.0.23
 
 - Solved corner case where keys are being added to the patient being modified otherwise
