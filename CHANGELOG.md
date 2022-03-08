@@ -1,3 +1,7 @@
+## 1.0.30
+
+- Fixed filter_chain not printing its type correctly
+
 ## 1.0.29
 
 - Fixed Authorization header for matchServicesBy
