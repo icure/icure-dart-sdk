@@ -1,3 +1,6 @@
+## 1.0.31
+- FIX HealthElementByHcPartyIdentifiersFilter mapping
+
 ## 1.0.30
 
 - Fixed filter_chain not printing its type correctly
