@@ -3,11 +3,11 @@
 part of icure_dart_sdk.api;
 
 class HealthElementByHcPartyIdentifiersFilter extends AbstractFilterDto<HealthElementDto> {
-  HealthElementByHcPartyIdentifiersFilter({this.desc, this.healthcarePartyId, this.identifiers = const []});
+  HealthElementByHcPartyIdentifiersFilter({this.desc, this.hcPartyId, this.identifiers = const []});
 
   @override
   String? desc;
-  String? healthcarePartyId;
+  String? hcPartyId;
   List<IdentifierDto> identifiers = [];
 
   Map<String, dynamic> toJson() {
@@ -19,8 +19,8 @@ class HealthElementByHcPartyIdentifiersFilter extends AbstractFilterDto<HealthEl
     if (desc != null) {
       json[r'desc'] = desc;
     }
-    if (healthcarePartyId != null) {
-      json[r'healthcarePartyId'] = healthcarePartyId;
+    if (hcPartyId != null) {
+      json[r'hcPartyId'] = hcPartyId;
     }
     json[r'identifiers'] = identifiers;
 
