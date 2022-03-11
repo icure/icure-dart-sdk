@@ -68,6 +68,9 @@ class PatientDto {
     this.parameters = const {},
     this.properties = const {},
     this.hcPartyKeys = const {},
+    this.aesExchangeKeys = const {},
+    this.transferKeys = const {},
+    this.lostHcPartyKeys = const {},
     this.privateKeyShamirPartitions = const {},
     this.publicKey,
     this.secretForeignKeys = const {},
@@ -451,6 +454,19 @@ class PatientDto {
   /// For each couple of HcParties (delegator and delegate), this map contains the exchange AES key. The delegator is always this hcp, the key of the map is the id of the delegate. The AES exchange key is encrypted using RSA twice : once using this hcp public key (index 0 in the Array) and once using the other hcp public key (index 1 in the Array). For a pair of HcParties. Each HcParty always has one AES exchange key for himself.
   Map<String, List<String>> hcPartyKeys;
 
+  /// Extra AES exchange keys, usually the ones we lost access to at some point
+  /// The structure is { publicKey: { delegateId: [aesExKey_for_this, aesExKey_for_delegate] } }
+  Map<String, Map<String, List<String>>> aesExchangeKeys;
+
+  /// Data owner private keys encrypted with its other public keys.
+  /// This mechanism will help the data owner to re-encrypt all information with its new key, if he found back the lost one.
+  /// The structure is { publicKey1: { publicKey2: privateKey2_encrypted_with_publicKey1, publicKey3: privateKey3_encrypted_with_publicKey1 } }
+  Map<String, Map<String, String>> transferKeys;
+
+  /// The hcparty keys (first of the pair) for which we are asking a re-encryption by the delegate using our new publicKey
+  /// Using the lostHcPartyKey, you can find the corresponding hcPartyKey pair to re-encrypt
+  Set<String> lostHcPartyKeys;
+
   /// The privateKeyShamirPartitions are used to share this hcp's private RSA key with a series of other hcParties using Shamir's algorithm. The key of the map is the hcp Id with whom this partition has been shared. The value is \"threshold⎮partition in hex\" encrypted using the the partition's holder's public RSA key
   Map<String, String> privateKeyShamirPartitions;
 
@@ -617,6 +633,9 @@ class PatientDto {
             other.parameters == parameters &&
             other.properties == properties &&
             other.hcPartyKeys == hcPartyKeys &&
+            other.aesExchangeKeys == aesExchangeKeys &&
+            other.transferKeys == transferKeys &&
+            other.lostHcPartyKeys == lostHcPartyKeys &&
             other.privateKeyShamirPartitions == privateKeyShamirPartitions &&
             other.publicKey == publicKey &&
             other.secretForeignKeys == secretForeignKeys &&
@@ -696,6 +715,9 @@ class PatientDto {
       (parameters.hashCode) +
       (properties.hashCode) +
       (hcPartyKeys.hashCode) +
+      (aesExchangeKeys.hashCode) +
+      (transferKeys.hashCode) +
+      (lostHcPartyKeys.hashCode) +
       (privateKeyShamirPartitions.hashCode) +
       (publicKey == null ? 0 : publicKey!.hashCode) +
       (secretForeignKeys.hashCode) +
@@ -718,7 +740,7 @@ class PatientDto {
 
   @override
   String toString() =>
-      'PatientDto[id=$id, identifier=$identifier, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, firstName=$firstName, lastName=$lastName, names=$names, companyName=$companyName, languages=$languages, addresses=$addresses, civility=$civility, gender=$gender, birthSex=$birthSex, mergeToPatientId=$mergeToPatientId, mergedIds=$mergedIds, alias=$alias, active=$active, deactivationReason=$deactivationReason, ssin=$ssin, maidenName=$maidenName, spouseName=$spouseName, partnerName=$partnerName, personalStatus=$personalStatus, dateOfBirth=$dateOfBirth, dateOfDeath=$dateOfDeath, timestampOfLatestEidReading=$timestampOfLatestEidReading, placeOfBirth=$placeOfBirth, placeOfDeath=$placeOfDeath, deceased=$deceased, education=$education, profession=$profession, note=$note, administrativeNote=$administrativeNote, nationality=$nationality, race=$race, ethnicity=$ethnicity, preferredUserId=$preferredUserId, picture=$picture, externalId=$externalId, insurabilities=$insurabilities, partnerships=$partnerships, patientHealthCareParties=$patientHealthCareParties, financialInstitutionInformation=$financialInstitutionInformation, medicalHouseContracts=$medicalHouseContracts, patientProfessions=$patientProfessions, parameters=$parameters, properties=$properties, hcPartyKeys=$hcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf, medicalLocationId=$medicalLocationId, nonDuplicateIds=$nonDuplicateIds, encryptedAdministrativesDocuments=$encryptedAdministrativesDocuments, comment=$comment, warning=$warning, fatherBirthCountry=$fatherBirthCountry, birthCountry=$birthCountry, nativeCountry=$nativeCountry, socialStatus=$socialStatus, mainSourceOfIncome=$mainSourceOfIncome, schoolingInfos=$schoolingInfos, employementInfos=$employementInfos]';
+      'PatientDto[id=$id, identifier=$identifier, rev=$rev, created=$created, modified=$modified, author=$author, responsible=$responsible, tags=$tags, codes=$codes, endOfLife=$endOfLife, deletionDate=$deletionDate, firstName=$firstName, lastName=$lastName, names=$names, companyName=$companyName, languages=$languages, addresses=$addresses, civility=$civility, gender=$gender, birthSex=$birthSex, mergeToPatientId=$mergeToPatientId, mergedIds=$mergedIds, alias=$alias, active=$active, deactivationReason=$deactivationReason, ssin=$ssin, maidenName=$maidenName, spouseName=$spouseName, partnerName=$partnerName, personalStatus=$personalStatus, dateOfBirth=$dateOfBirth, dateOfDeath=$dateOfDeath, timestampOfLatestEidReading=$timestampOfLatestEidReading, placeOfBirth=$placeOfBirth, placeOfDeath=$placeOfDeath, deceased=$deceased, education=$education, profession=$profession, note=$note, administrativeNote=$administrativeNote, nationality=$nationality, race=$race, ethnicity=$ethnicity, preferredUserId=$preferredUserId, picture=$picture, externalId=$externalId, insurabilities=$insurabilities, partnerships=$partnerships, patientHealthCareParties=$patientHealthCareParties, financialInstitutionInformation=$financialInstitutionInformation, medicalHouseContracts=$medicalHouseContracts, patientProfessions=$patientProfessions, parameters=$parameters, properties=$properties, hcPartyKeys=$hcPartyKeys, aesExchangeKeys=$aesExchangeKeys, transferKeys=$transferKeys, lostHcPartyKeys=$lostHcPartyKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey, secretForeignKeys=$secretForeignKeys, cryptedForeignKeys=$cryptedForeignKeys, delegations=$delegations, encryptionKeys=$encryptionKeys, encryptedSelf=$encryptedSelf, medicalLocationId=$medicalLocationId, nonDuplicateIds=$nonDuplicateIds, encryptedAdministrativesDocuments=$encryptedAdministrativesDocuments, comment=$comment, warning=$warning, fatherBirthCountry=$fatherBirthCountry, birthCountry=$birthCountry, nativeCountry=$nativeCountry, socialStatus=$socialStatus, mainSourceOfIncome=$mainSourceOfIncome, schoolingInfos=$schoolingInfos, employementInfos=$employementInfos]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -851,6 +873,9 @@ class PatientDto {
     json[r'parameters'] = parameters;
     json[r'properties'] = properties.toList();
     json[r'hcPartyKeys'] = hcPartyKeys;
+    json[r'aesExchangeKeys'] = aesExchangeKeys;
+    json[r'transferKeys'] = transferKeys;
+    json[r'lostHcPartyKeys'] = lostHcPartyKeys.toList();
     json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
     if (publicKey != null) {
       json[r'publicKey'] = publicKey;
@@ -971,6 +996,13 @@ class PatientDto {
         parameters: json[r'parameters'] == null ? const {} : mapWithListOfStringsFromJson(json[r'parameters']),
         properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null ? const {} : mapWithListOfStringsFromJson(json[r'hcPartyKeys']),
+        aesExchangeKeys: json[r'aesExchangeKeys'] == null ? const {} : mapOf(json[r'aesExchangeKeys'], (el) => mapWithListOfStringsFromJson(el)),
+        transferKeys: json[r'transferKeys'] == null ? const {} : mapWithMapOfStringsFromJson(json[r'transferKeys']),
+        lostHcPartyKeys: json[r'lostHcPartyKeys'] is Set
+            ? (json[r'lostHcPartyKeys'] as Set).cast<String>()
+            : json[r'lostHcPartyKeys'] is List
+            ? ((json[r'lostHcPartyKeys'] as List).toSet()).cast<String>()
+            : const {},
         privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
         publicKey: mapValueOfType<String>(json, r'publicKey'),
         secretForeignKeys: json[r'secretForeignKeys'] is Set
@@ -1078,6 +1110,9 @@ class PatientDto {
     'parameters',
     'properties',
     'hcPartyKeys',
+    'aesExchangeKeys',
+    'transferKeys',
+    'lostHcPartyKeys',
     'privateKeyShamirPartitions',
     'secretForeignKeys',
     'cryptedForeignKeys',

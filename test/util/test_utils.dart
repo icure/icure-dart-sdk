@@ -21,7 +21,7 @@ class TestUtils {
     return LocalCrypto(dataOwnerResolver, keyPairs);
   }
 
-  static Future<UsernamePassword> credentials({String? credentialsFilePath = "test/util/.credentials"}) async {
+  static Future<UsernamePassword> credentials({String? credentialsFilePath = "test/resources/.credentials"}) async {
     var fileUri = Uri.file(credentialsFilePath!, windows: false);
     var credentialsFile = File.fromUri(fileUri);
 

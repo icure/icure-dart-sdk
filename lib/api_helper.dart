@@ -80,6 +80,20 @@ Map<K, V>? mapCastOfType<K, V>(dynamic map, String key) {
   return value is Map ? value.cast<K, V>() : null;
 }
 
+Map<String, V> mapOf<V>(dynamic json, V Function(dynamic json) valueMappingOp) {
+  final map = <String, V>{};
+  if (json is Map && json.isNotEmpty) {
+    json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+    for (final entry in json.entries) {
+      final value = valueMappingOp(json);
+      if (value != null) {
+        map[entry.key] = value;
+      }
+    }
+  }
+  return map;
+}
+
 Map<String, Map<String, String>> mapWithMapOfStringsFromJson(dynamic json) {
   final map = <String, Map<String, String>>{};
   if (json is Map && json.isNotEmpty) {

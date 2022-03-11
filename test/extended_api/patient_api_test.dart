@@ -1,5 +1,4 @@
 @Timeout(Duration(hours: 1))
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypton/crypton.dart';
@@ -91,7 +90,7 @@ void main() {
 
     test('Create patient with crypto', () async {
       // Init
-      var hkCreds = await TestUtils.credentials(credentialsFilePath: "test/util/.hkcredentials");
+      var hkCreds = await TestUtils.credentials();
       var hkApiClient = ApiClient.basic('https://kraken.icure.dev', hkCreds.username, hkCreds.password);
       var hkUserApi = UserApi(hkApiClient);
       var hkHcpApi = HealthcarePartyApi(hkApiClient);
@@ -106,7 +105,7 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await TestUtils.localCrypto(hkDataOwnerResolver, currentUser, currentHcp, hcpKeyFileName: "171f186a-7a2a-40f0-b842-b486428c771b.2048.key");
+      var lc = await TestUtils.localCrypto(hkDataOwnerResolver, currentUser, currentHcp);
 
       final DecryptedPatientDto patient = DecryptedPatientDto(id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}), firstName: 'John', lastName: 'Doe');
 
