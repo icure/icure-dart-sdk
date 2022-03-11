@@ -1,4 +1,9 @@
+## 1.0.32
+
+- Fixed creation of DataSamples that contains "content" value
+
 ## 1.0.31
+
 - FIX HealthElementByHcPartyIdentifiersFilter mapping
 
 ## 1.0.30

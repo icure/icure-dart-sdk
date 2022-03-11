@@ -129,8 +129,8 @@ extension CryptoContact on Crypto {
           e.value.range.isEmpty)) {
         return ServiceDto.fromJson({
           ...toJsonDeep(s),
-          'content': Map.fromEntries(await Future.wait(s.content.entries.map((e) async =>
-              MapEntry(e.key, ContentDto(compoundValue: (await this.encryptServices(myId, delegations, contactKey, e.value.compoundValue)))))))
+          'content': toJsonDeep(Map.fromEntries(await Future.wait(s.content.entries.map((e) async =>
+              MapEntry(e.key, ContentDto(compoundValue: (await this.encryptServices(myId, delegations, contactKey, e.value.compoundValue))))))))
         })!;
       } else {
         return ServiceDto.fromJson(
