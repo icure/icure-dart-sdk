@@ -1,3 +1,6 @@
+## 1.0.34
+- FIX lostHcPartyKeys mapping for Device anc HealthcareParty DTOs
+
 ## 1.0.33
 - FIX Add missing delegations init in related HealthElement and Contact API services
 
