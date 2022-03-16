@@ -334,7 +334,7 @@ class DeviceDto {
     json[r'hcPartyKeys'] = hcPartyKeys;
     json[r'aesExchangeKeys'] = aesExchangeKeys;
     json[r'transferKeys'] = transferKeys;
-    json[r'lostHcPartyKeys'] = lostHcPartyKeys;
+    json[r'lostHcPartyKeys'] = lostHcPartyKeys.toList();
     json[r'privateKeyShamirPartitions'] = privateKeyShamirPartitions;
     if (publicKey != null) {
       json[r'publicKey'] = publicKey;
