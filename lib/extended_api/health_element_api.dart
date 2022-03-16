@@ -88,7 +88,7 @@ extension HealthElementApiCrypto on HealthElementApi {
   Future<DecryptedHealthElementDto?> createHealthElement(
       UserDto user, DecryptedHealthElementDto healthElementDto, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
     final HealthElementDto? newHealthElement = await this.rawCreateHealthElement(await config.encryptHealthElement(user.dataOwnerId()!,
-        <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, healthElementDto));
+        <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, await healthElementDto.initDelegations(user, config)));
     return newHealthElement != null ? await config.decryptHealthElement(user.dataOwnerId()!, newHealthElement) : null;
   }
 

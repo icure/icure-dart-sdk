@@ -119,8 +119,10 @@ extension ContactApiCrypto on ContactApi {
 
   Future<List<DecryptedContactDto>?> createContacts(
       UserDto user, List<DecryptedContactDto> contacts, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
-    var newContacts = await this.rawCreateContacts(await Future.wait(contacts.map((contact) => config.encryptContact(
-        user.dataOwnerId()!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, contact))));
+
+    var newContacts = await this.rawCreateContacts(await Future.wait(contacts.map((contact) async => config.encryptContact(
+        user.dataOwnerId()!, <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})}, await contact.initDelegations(user, config)))));
+
     return newContacts == null
         ? null
         : await Future.wait(newContacts.map((newContact) => config.decryptContact(user.dataOwnerId()!, newContact)));
@@ -134,7 +136,7 @@ extension ContactApiCrypto on ContactApi {
       throw FormatException("Cannot get delegation key for ${patient.id} and hcp ${user.dataOwnerId()}");
     }
     var newContacts = await this.rawCreateContacts(await Future.wait(contacts.map((contact) async {
-      var encContact = await config.encryptContact(user.dataOwnerId()!, delegations, contact);
+      var encContact = await config.encryptContact(user.dataOwnerId()!, delegations, await contact.initDelegations(user, config));
 
       final secretForDelegates = await Future.wait((<String>{...delegations, user.dataOwnerId()!})
           .map((String d) async => Tuple2(d, await config.crypto.encryptValueForHcp(user.dataOwnerId()!, d, contact.id, patient.id))));
