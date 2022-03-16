@@ -1,3 +1,6 @@
+## 1.0.33
+- FIX Add missing delegations init in related HealthElement and Contact API services
+
 ## 1.0.32
 
 - Fixed creation of DataSamples that contains "content" value
