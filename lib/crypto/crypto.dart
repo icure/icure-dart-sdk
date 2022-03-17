@@ -42,6 +42,8 @@ abstract class Crypto {
   Future<Tuple2<String, DataOwnerDto?>> encryptAESKeyForHcp(String myId, String delegateId, String objectId, String secret);
 
   Future<Tuple2<String, DataOwnerDto?>> encryptValueForHcp(String myId, String delegateId, String objectId, String secret);
+
+  Future<String> encryptRSAKeyUsing(String publicKey, String objectId, String rsaPrivateKey);
 }
 
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
@@ -212,6 +214,16 @@ class LocalCrypto implements Crypto {
     final hcPartyKey = hcPartyKeyAndDataOwner.item1;
 
     return new Tuple2(Uint8List.fromList("$objectId:$secret".codeUnits).encryptAES(hcPartyKey).toHexString(), hcPartyKeyAndDataOwner.item2);
+  }
+
+  @override
+  Future<String> encryptRSAKeyUsing(String publicKey, String objectId, String rsaPrivateKey) async {
+    final RSAPublicKey myPublicKey = publicKey.toPublicKey();
+
+    final encryptorForMe = pointy.OAEPEncoding(pointy.RSAEngine())
+      ..init(true, pointy.PublicKeyParameter<pointy.RSAPublicKey>(myPublicKey.asPointyCastle));
+
+    return encryptorForMe.process(rsaPrivateKey.fromHexString()).toHexString();
   }
 
   Future<Uint8List?> getDelegateHcPartyKey(String delegateId, String ownerId, RSAPrivateKey? myPrivateKey) async {
