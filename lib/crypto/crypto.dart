@@ -43,7 +43,7 @@ abstract class Crypto {
 
   Future<Tuple2<String, DataOwnerDto?>> encryptValueForHcp(String myId, String delegateId, String objectId, String secret);
 
-  Future<String> encryptRSAKeyUsing(String publicKey, String objectId, String rsaPrivateKey);
+  Future<String> encryptRSAKeyUsing(String publicKey, String rsaPrivateKey);
 }
 
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
@@ -217,7 +217,7 @@ class LocalCrypto implements Crypto {
   }
 
   @override
-  Future<String> encryptRSAKeyUsing(String publicKey, String objectId, String rsaPrivateKey) async {
+  Future<String> encryptRSAKeyUsing(String publicKey, String rsaPrivateKey) async {
     final RSAPublicKey myPublicKey = publicKey.toPublicKey();
 
     final encryptorForMe = pointy.OAEPEncoding(pointy.RSAEngine())
