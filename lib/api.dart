@@ -28,7 +28,7 @@ import 'package:pointycastle/src/platform_check/platform_check.dart';
 import 'package:tuple/tuple.dart';
 import 'package:collection/collection.dart';
 
-import 'extended_api/data_owner_api.dart';
+import 'extended_api/data_owner_resolver.dart';
 
 import 'util/collection_utils.dart';
 import 'util/binary_utils.dart';
@@ -94,6 +94,8 @@ part 'extended_api/document_api.dart';
 part 'extended_api/health_element_api.dart';
 part 'extended_api/healthcare_party_api.dart';
 part 'extended_api/patient_api.dart';
+part 'extended_api/data_owner_api.dart';
+part 'extended_api/data_owner_api_factory.dart';
 
 part 'model/abstract_filter_dto_code.dart';
 part 'model/abstract_filter_dto_contact.dart';

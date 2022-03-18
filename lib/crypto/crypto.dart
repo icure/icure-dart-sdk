@@ -6,7 +6,7 @@ import 'dart:typed_data';
 
 import 'package:crypton/crypton.dart';
 import 'package:icure_dart_sdk/api.dart';
-import 'package:icure_dart_sdk/extended_api/data_owner_api.dart';
+import 'package:icure_dart_sdk/extended_api/data_owner_resolver.dart';
 import 'package:icure_dart_sdk/util/binary_utils.dart';
 import 'package:icure_dart_sdk/util/collection_utils.dart';
 import 'package:icure_dart_sdk/util/functional_utils.dart';

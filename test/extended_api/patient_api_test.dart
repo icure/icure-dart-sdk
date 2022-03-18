@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:crypton/crypton.dart';
 import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/crypto/crypto.dart';
-import 'package:icure_dart_sdk/extended_api/data_owner_api.dart';
+import 'package:icure_dart_sdk/extended_api/data_owner_resolver.dart';
 import 'package:icure_dart_sdk/util/binary_utils.dart';
 import "package:test/test.dart";
 import 'package:uuid/uuid.dart';
@@ -31,16 +31,15 @@ void main() {
   final userApi = UserApi(apiClient);
   final hcpApi = HealthcarePartyApi(apiClient);
   final patientApi = PatientApi(apiClient);
-  final deviceApi = DeviceApi(apiClient);
-  final defaultDataOwnerResolver = DataOwnerResolver(hcpApi, patientApi, deviceApi);
+  final defaultDataOwnerResolver = DataOwnerResolver(apiClient);
 
   final Uuid uuid = Uuid();
 
   group('tests for PatientApi', () {
     test('test createPatient', () async {
       // Init
-      var currentUser = await userApi.getCurrentUser();
-      var currentHcp = await hcpApi.getCurrentHealthcareParty();
+      final currentUser = await userApi.getCurrentUser();
+      final currentHcp = await hcpApi.getCurrentHealthcareParty();
 
       if (currentUser == null || currentHcp == null) {
         throw Exception("Test init error : Current User or current HCP can't be null");
@@ -95,8 +94,7 @@ void main() {
       var hkUserApi = UserApi(hkApiClient);
       var hkHcpApi = HealthcarePartyApi(hkApiClient);
       var hkPatientApi = PatientApi(hkApiClient);
-      var hkDeviceApi = DeviceApi(hkApiClient);
-      var hkDataOwnerResolver = DataOwnerResolver(hkHcpApi, hkPatientApi, hkDeviceApi);
+      var hkDataOwnerResolver = DataOwnerResolver(hkApiClient);
 
       var currentUser = await hkUserApi.getCurrentUser();
       var currentHcp = await hkHcpApi.getCurrentHealthcareParty();
@@ -119,7 +117,6 @@ void main() {
       var patApiClient = ApiClient.basic('https://kraken.icure.dev', createdUser!.login!, passwordUser);
 
       var patUserApi = UserApi(patApiClient);
-      var patHcpApi = HealthcarePartyApi(patApiClient);
       var patPatientApi = PatientApi(patApiClient);
 
       final patUser = await retry(() => patUserApi.getCurrentUser());
@@ -127,14 +124,14 @@ void main() {
 
       print("Patient private key ${keyPair.item1} and public key ${keyPair.item2}");
 
-      var patLc = LocalCrypto(DataOwnerResolver(hkHcpApi, patientApi, deviceApi), { patUser!.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
+      var patLc = LocalCrypto(DataOwnerResolver(patApiClient), { patUser!.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
 
       final pat = await patPatientApi.getPatient(patUser, patUser.patientId!, patientCryptoConfig(patLc));
 
       pat!.publicKey = keyPair.item2;
 
       final modPat = await patPatientApi.modifyPatient(patUser, pat, patientCryptoConfig(patLc));
-      patLc = LocalCrypto(DataOwnerResolver(hkHcpApi, patientApi, deviceApi), { patUser.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
+      patLc = LocalCrypto(DataOwnerResolver(patApiClient), { patUser.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
 
       final pat2 = await patPatientApi.getPatient(patUser, patUser.patientId!, patientCryptoConfig(patLc));
       pat2!.note = "Secret";

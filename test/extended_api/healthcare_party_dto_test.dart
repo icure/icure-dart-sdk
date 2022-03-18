@@ -10,8 +10,7 @@ class A {
 }
 
 void main() {
-  group('tests for Hcps', ()
-  {
+  group('tests for Hcps', () {
     test('test healthcareParty deserialisation', () async {
       var hcp1 = HealthcarePartyDto.fromJson({
         'id':'abc', 'hcPartyKeys': {'a':['1','2']}, 'names':[], 'addresses':[], 'languages':[], 'statuses':[], 'statusHistory':[], 'specialityCodes':[], 'sendFormats':[], 'financialInstitutionInformation':[], 'flatRateTarifications':[], 'importedData':{}, 'options':{}, 'properties':[], 'aesExchangeKeys':{}, 'transferKeys':{}, 'lostHcPartyKeys':{}, 'privateKeyShamirPartitions':{}, 'sendFormats':{}

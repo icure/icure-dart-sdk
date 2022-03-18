@@ -5,20 +5,19 @@ import 'dart:io';
 import 'package:crypton/crypton.dart';
 import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/crypto/crypto.dart';
-import 'package:icure_dart_sdk/extended_api/data_owner_api.dart';
+import 'package:icure_dart_sdk/extended_api/data_owner_resolver.dart';
 import "package:test/test.dart";
 import 'package:icure_dart_sdk/util/binary_utils.dart';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
 void main() {
-  var apiClient = ApiClient.basic('https://kraken.icure.dev', 'abdemotst2', '27b90f6e-6847-44bf-b90f-6e6847b4bf1c');
+  final apiClient = ApiClient.basic('https://kraken.icure.dev', 'abdemotst2', '27b90f6e-6847-44bf-b90f-6e6847b4bf1c');
 
-  var userApi = UserApi(apiClient);
-  var hcpApi = HealthcarePartyApi(apiClient);
-  var patientApi = PatientApi(apiClient);
-  var deviceApi = DeviceApi(apiClient);
-  var documentApi = DocumentApi(apiClient);
+  final userApi = UserApi(apiClient);
+  final hcpApi = HealthcarePartyApi(apiClient);
+  final patientApi = PatientApi(apiClient);
+  final documentApi = DocumentApi(apiClient);
 
   final Uuid uuid = Uuid();
 
@@ -29,14 +28,14 @@ void main() {
     var hcpPrivateKey = (await hcpKeyFile.readAsString(encoding: utf8)).toPrivateKey();
     var keyPairs = {user.healthcarePartyId!: RSAKeypair(hcpPrivateKey)};
 
-    return LocalCrypto(DataOwnerResolver(hcpApi, patientApi, deviceApi), keyPairs);
+    return LocalCrypto(DataOwnerResolver(apiClient), keyPairs);
   }
 
   group('tests for DocumentApi', () {
     test('test setDocumentAttachment', () async {
       // Init
-      var currentUser = await userApi.getCurrentUser();
-      var currentHcp = await hcpApi.getCurrentHealthcareParty();
+      final currentUser = await userApi.getCurrentUser();
+      final currentHcp = await hcpApi.getCurrentHealthcareParty();
 
       if (currentUser == null || currentHcp == null) {
         throw Exception("Test init error : Current User or current HCP can't be null");
@@ -57,8 +56,8 @@ void main() {
         name: "set_attachment_test.xml"
       ), documentCryptoConfig(lc));
 
-      var attachmentFileUri = Uri.file("test/resources/attachments/set_attachment_test.xml", windows: false);
-      var attachmentFile = File.fromUri(attachmentFileUri);
+      final attachmentFileUri = Uri.file("test/resources/attachments/set_attachment_test.xml", windows: false);
+      final attachmentFile = File.fromUri(attachmentFileUri);
 
       // When
 
