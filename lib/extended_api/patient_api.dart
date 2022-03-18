@@ -5,7 +5,7 @@ extension PatientInitDto on DecryptedPatientDto {
   Future<DecryptedPatientDto> initDelegations(UserDto user, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
     final Uuid uuid = Uuid();
 
-    Set<String> delegationKeys = Set.from(user.autoDelegations["all"] ?? <String>{})
+    Set<String> delegates = Set.from(user.autoDelegations["all"] ?? <String>{})
       ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{});
     final ek = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
     final sfk = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
@@ -13,10 +13,12 @@ extension PatientInitDto on DecryptedPatientDto {
     responsible = this.responsible ?? user.dataOwnerId()!;
     author = user.id;
 
-    delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
+    DataOwnerDto? dataOwner = null;
+    delegations = await (delegates..add(user.dataOwnerId()!)).fold(
         Future.value({...delegations}),
             (m, d) async {
           final keyAndOwner = await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk);
+          dataOwner = keyAndOwner.item2 ?? dataOwner;
 
           return (await m)..addEntries([
             MapEntry(d, {
@@ -29,21 +31,27 @@ extension PatientInitDto on DecryptedPatientDto {
           ]);
         });
 
-    encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
+    encryptionKeys = await (delegates..add(user.dataOwnerId()!)).fold(
         Future.value({...encryptionKeys}),
             (m, d) async {
           final keyAndOwner = await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek);
+          dataOwner = keyAndOwner.item2 ?? dataOwner;
 
           return (await m)..addEntries([
             MapEntry(d, {
-                DelegationDto(
-                    owner: user.dataOwnerId(),
-                    delegatedTo: d,
-                    key: keyAndOwner.item1
-                )
+              DelegationDto(
+                  owner: user.dataOwnerId(),
+                  delegatedTo: d,
+                  key: keyAndOwner.item1
+              )
             })
           ]);
         });
+
+    if (dataOwner != null && this.id == dataOwner!.dataOwnerId) {
+      this.hcPartyKeys = dataOwner!.hcPartyKeys;
+      this.rev = dataOwner!.rev;
+    }
 
     return this;
   }
@@ -118,22 +126,19 @@ extension PatientCryptoConfig on CryptoConfig<DecryptedPatientDto, PatientDto> {
 
       if (!eks.entries.any((s) => s.value.isNotEmpty)) {
         secret = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
-        final secretForDelegates = await Future.wait((<String>{...delegations, dataOwnerId}).map((String d) async =>
-            Tuple2(
-                d, await this.crypto.encryptAESKeyForHcp(dataOwnerId, d, patient.id, secret!.toHexString())
-            )));
+        DataOwnerDto? dataOwner = null;
 
-        secretForDelegates.forEach((s) {
-          final dataOwner = s.item2.item2;
+        final secretForDelegates = await Future.wait((<String>{...delegations, dataOwnerId}).map((String d) async {
+          final keyAndOwner = await this.crypto.encryptAESKeyForHcp(dataOwnerId, d, patient.id, secret!.toHexString());
+          dataOwner = keyAndOwner.item2 ?? dataOwner;
+          return Tuple2(d, keyAndOwner);
+        }));
 
-          if (dataOwner != null) {
-            //If we have added keys to the current patient
-            if (dataOwner.dataOwnerId == patient.id && (sanitizedPatient.rev == null || dataOwner.rev?.compareTo(sanitizedPatient.rev!) == 1)) {
-              sanitizedPatient.rev = dataOwner.rev;
-              sanitizedPatient.hcPartyKeys = dataOwner.hcPartyKeys;
-            }
-          }
-        });
+        //If we have added keys to the current patient
+        if (dataOwner != null && dataOwner!.dataOwnerId == patient.id) {
+          sanitizedPatient.rev = dataOwner!.rev;
+          sanitizedPatient.hcPartyKeys = dataOwner!.hcPartyKeys;
+        }
 
         eks = {...eks, ...Map.fromEntries(secretForDelegates.map((t) =>
             MapEntry(t.item1, <DelegationDto>{DelegationDto(
