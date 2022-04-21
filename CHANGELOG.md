@@ -1,3 +1,7 @@
+## 1.0.37
+
+- Fixed an error that could block user update
+
 ## 1.0.36
 
 - Removed own implementation of firstOrNull

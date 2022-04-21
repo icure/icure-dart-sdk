@@ -322,7 +322,7 @@ class UserDto {
     }
     json[r'autoDelegations'] = autoDelegations.map((k, v) => MapEntry(k, v.toList()));
     if (createdDate != null) {
-      json[r'createdDate'] = createdDate!.toUtc().toIso8601String();
+      json[r'createdDate'] = createdDate!.millisecondsSinceEpoch;
     }
     if (termsOfUseDate != null) {
       json[r'termsOfUseDate'] = termsOfUseDate!.toUtc().toIso8601String();
