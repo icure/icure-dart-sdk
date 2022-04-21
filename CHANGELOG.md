@@ -1,10 +1,16 @@
+## 1.0.36
+
+- Removed own implementation of firstOrNull
+
 ## 1.0.35
+
 - FEATURE Add Crypto service to encrypt private RSA Key using another RSA Public Key
 - REFACTOR InitDelegations and encryptPatient to get current Data Owner revision and hcPartyKeys
 - REFACTOR Delete unused argument in encryptRSAKeyUsing
 - REFACTOR DataOwnerApiFactory to easily unify data owner treatment
 
 ## 1.0.34
+
 - FIX lostHcPartyKeys mapping for Device anc HealthcareParty DTOs
 
 ## 1.0.33
