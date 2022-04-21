@@ -75,10 +75,10 @@ extension PatientInitDto on DecryptedPatientDto {
           .findName(PersonNameDtoUseEnum.official)
           .lastName;
     } else if (this.firstName == null && this.hasName(PersonNameDtoUseEnum.official)) {
-      this.firstName = IterableUtils(this
+      this.firstName = this
           .findName(PersonNameDtoUseEnum.official)
-          .firstNames)
-          .firstOrNull();
+          .firstNames
+          .firstOrNull;
     } else if (this.maidenName == null && this.hasName(PersonNameDtoUseEnum.maiden)) {
       this.maidenName = this
           .findName(PersonNameDtoUseEnum.maiden)
@@ -102,8 +102,7 @@ extension PatientCryptoConfig on CryptoConfig<DecryptedPatientDto, PatientDto> {
   Future<DecryptedPatientDto> decryptPatient(String dataOwnerId, PatientDto patient) async {
     final es = patient.encryptedSelf;
     if (es != null) {
-      final secret = IterableUtils((await this.crypto.decryptEncryptionKeys(dataOwnerId, patient.encryptionKeys)))
-          .firstOrNull()?.formatAsKey().fromHexString();
+      final secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, patient.encryptionKeys)).firstOrNull?.formatAsKey().fromHexString();
 
       if (secret == null) {
         throw FormatException("Cannot get encryption key for ${patient.id} and hcp $dataOwnerId");
@@ -146,7 +145,7 @@ extension PatientCryptoConfig on CryptoConfig<DecryptedPatientDto, PatientDto> {
             )})))};
         sanitizedPatient.encryptionKeys = eks;
       } else {
-        secret = IterableUtils((await this.crypto.decryptEncryptionKeys(dataOwnerId, patient.encryptionKeys))).firstOrNull()?.formatAsKey().fromHexString();
+        secret = (await this.crypto.decryptEncryptionKeys(dataOwnerId, patient.encryptionKeys)).firstOrNull?.formatAsKey().fromHexString();
         if (secret == null) {
           throw FormatException("Cannot get encryption key for ${patient.id} and hcp $dataOwnerId");
         }

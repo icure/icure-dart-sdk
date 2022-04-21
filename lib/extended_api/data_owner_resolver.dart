@@ -1,6 +1,6 @@
 
+import 'package:collection/collection.dart';
 import 'package:icure_dart_sdk/api.dart';
-import 'package:icure_dart_sdk/util/collection_utils.dart';
 import 'package:icure_dart_sdk/util/functional_utils.dart';
 
 extension UserDataOwner on UserDto {
@@ -75,7 +75,7 @@ class DataOwnerResolver {
       if (validDataOwners.length > 1) {
         throw FormatException("$dataOwnerId corresponds to multiple data owners");
       }
-      return validDataOwners.firstOrNull();
+      return validDataOwners.firstOrNull;
     });
   }
 
@@ -149,7 +149,7 @@ class DataOwnerResolver {
       if (validDataOwners.length > 1) {
         throw FormatException("$dataOwnerId corresponds to multiple data owners");
       }
-      return validDataOwners.firstOrNull();
+      return validDataOwners.firstOrNull;
     });
   }
 

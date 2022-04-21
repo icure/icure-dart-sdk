@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:collection/collection.dart';
 import 'package:crypton/crypton.dart';
 import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/extended_api/data_owner_resolver.dart';
@@ -56,7 +57,7 @@ BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto cry
 
 BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto user, Crypto crypto) {
   return BaseCryptoConfig(crypto, (dec) async {
-    var key = (await crypto.decryptEncryptionKeys(user.dataOwnerId()!, dec.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    var key = (await crypto.decryptEncryptionKeys(user.dataOwnerId()!, dec.encryptionKeys)).firstOrNull?.formatAsKey().fromHexString();
     if (key == null) {
       throw FormatException("Cannot get encryption key for ${dec.id} and hcp ${user.dataOwnerId()}");
     }
@@ -65,16 +66,16 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
         ContactDto.fromJson({
           ...toJsonDeep(dec),
           'services': (await crypto.encryptServices(
-              user.dataOwnerId()!,
-              <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
-              key,
+                  user.dataOwnerId()!,
+                  <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
+                  key,
               dec.services.toList()))
               .map((it) => toJsonDeep(it))
               .toList()
         })!,
         Uint8List.fromList(json.encode({}).codeUnits));
   }, (cry, data) async {
-    var key = (await crypto.decryptEncryptionKeys(user.dataOwnerId()!, cry.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+    var key = (await crypto.decryptEncryptionKeys(user.dataOwnerId()!, cry.encryptionKeys)).firstOrNull?.formatAsKey().fromHexString();
     if (key == null) {
       throw FormatException("Cannot get encryption key for ${cry.id} and hcp ${user.dataOwnerId()}");
     }
@@ -112,7 +113,7 @@ BaseCryptoConfig<DecryptedDocumentDto, DocumentDto> documentCryptoConfig(Crypto 
 extension CryptoContact on Crypto {
   Future<List<ServiceDto>> encryptServices(String myId, Set<String> delegations, Uint8List? contactKey, List<DecryptedServiceDto> services) async {
     return await Future.wait(services.map((s) async {
-      var key = contactKey ?? (await this.decryptEncryptionKeys(myId, s.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      var key = contactKey ?? (await this.decryptEncryptionKeys(myId, s.encryptionKeys)).firstOrNull?.formatAsKey().fromHexString();
       if (key == null) {
         throw FormatException("Cannot get encryption key for ${s.id} and hcp ${myId}");
       }
@@ -143,7 +144,7 @@ extension CryptoContact on Crypto {
 
   Future<List<DecryptedServiceDto>> decryptServices(String myId, Uint8List? contactKey, List<ServiceDto> services) async {
     return Future.wait(services.map((s) async {
-      var key = contactKey ?? (await this.decryptEncryptionKeys(myId, s.encryptionKeys)).firstOrNull()?.formatAsKey().fromHexString();
+      var key = contactKey ?? (await this.decryptEncryptionKeys(myId, s.encryptionKeys)).firstOrNull?.formatAsKey().fromHexString();
       if (key == null) {
         throw FormatException("Cannot get encryption key for ${s.id} and hcp ${myId}");
       }

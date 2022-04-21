@@ -4,11 +4,6 @@ extension MapExtension<E, F> on Map<E, F> {
   }
 }
 
-extension IterableUtils<E> on Iterable<E> {
-  E? firstOrNull() => this.isNotEmpty ? this.first : null;
-}
-
-
 dynamic toJsonDeep(dynamic o) {
   if (o is num) {
     return o;
