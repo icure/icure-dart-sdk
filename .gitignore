@@ -9,6 +9,7 @@ doc/api/
 
 test/resources/.credentials
 test/resources/.hkcredentials
+test/resources/keys/
 
 # IntelliJ
 *.iml
