@@ -7,9 +7,9 @@ pubspec.lock  # Except for application packages
 
 doc/api/
 
-test/resources/.credentials
-test/resources/.hkcredentials
-test/resources/keys/
+/test/resources/.credentials
+/test/resources/.hkcredentials
+/test/resources/keys/**
 
 # IntelliJ
 *.iml
