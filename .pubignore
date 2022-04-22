@@ -1,3 +1,4 @@
 git_push.sh
 /test/resources/attachments/**
 /test/resources/keys/**
+icure-dart-sdk.iml

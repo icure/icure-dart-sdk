@@ -156,7 +156,7 @@ extension CryptoContact on Crypto {
         return DecryptedServiceDto.fromJson({
           ...toJsonDeep(s),
           'content': Map.fromEntries((await Future.wait(s.content.entries.map((e) async =>
-              MapEntry(e.key, {'compoundValue': (await decryptServices(myId, contactKey, e.value.compoundValue)).map((it) => toJsonDeep(it)).toList()})))))
+              MapEntry(e.key, {'compoundValue': (await decryptServices(myId, key, e.value.compoundValue)).map((it) => toJsonDeep(it)).toList()})))))
         })!;
       }
     }));
