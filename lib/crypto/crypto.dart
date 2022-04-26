@@ -227,8 +227,13 @@ class LocalCrypto implements Crypto {
     return encryptorForMe.process(rsaPrivateKey.fromHexString()).toHexString();
   }
 
+  String _getDelegateIdOwnerIdKeyForCache(String delegateId, String ownerId) {
+    return "$delegateId:$ownerId";
+  }
+
   Future<Uint8List?> getDelegateHcPartyKey(String delegateId, String ownerId, RSAPrivateKey? myPrivateKey) async {
-    Future<Uint8List?>? keyFuture = delegateHcpartyKeysCache[delegateId];
+    final delegateIdOwnerIdKey = _getDelegateIdOwnerIdKeyForCache(delegateId, ownerId);
+    Future<Uint8List?>? keyFuture = delegateHcpartyKeysCache[delegateIdOwnerIdKey];
     if (keyFuture == null) {
       RSAPrivateKey? privateKey = myPrivateKey ?? rsaKeyPairs[delegateId]?.privateKey;
       if (privateKey == null) {
@@ -243,7 +248,7 @@ class LocalCrypto implements Crypto {
         }
         return response;
       });
-      delegateHcpartyKeysCache[delegateId] = keyFuture;
+      delegateHcpartyKeysCache[delegateIdOwnerIdKey] = keyFuture;
     }
     return keyFuture;
   }

@@ -1,3 +1,7 @@
+## 1.0.39
+
+- FIX delegateHcPartyKeyCache could sometimes return the wrong value
+
 ## 1.0.38
 
 - Fixed an error that could block services decryption
