@@ -17,6 +17,7 @@ void main() {
   final userApi = UserApi(apiClient);
   final hcpApi = HealthcarePartyApi(apiClient);
   final patientApi = PatientApi(apiClient);
+  final healthElementApi = HealthElementApi(apiClient);
   final contactApi = ContactApi(apiClient);
 
   final Uuid uuid = Uuid();
@@ -31,9 +32,20 @@ void main() {
     return LocalCrypto(DataOwnerResolver(apiClient), keyPairs);
   }
 
-  DecryptedServiceDto _weightServiceDto() {
+  Future<DecryptedPatientDto?> createPatient(UserDto currentUser, LocalCrypto lc) async {
+    final createdPatient = await patientApi.createPatient(currentUser,
+        DecryptedPatientDto(
+            id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+            firstName: 'John',
+            lastName: 'Doe',
+            note: 'Premature optimization is the root of all evil'),
+        patientCryptoConfig(lc));
+    return createdPatient;
+  }
+
+  DecryptedServiceDto _weightServiceDto({String? serviceId}) {
     return DecryptedServiceDto(
-        id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+        id: serviceId ?? uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
         valueDate: 20220203111034,
         content: {"en": DecryptedContentDto(numberValue: 37.5)},
         tags: {CodeStubDto(id: "LOINC|29463-7|2", code: "29463-7", type: "LOINC", version: "2")}
@@ -51,13 +63,7 @@ void main() {
       }
 
       final lc = await _localCrypto(currentUser, currentHcp);
-      final createdPatient = await patientApi.createPatient(currentUser,
-          DecryptedPatientDto(
-              id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
-              firstName: 'John',
-              lastName: 'Doe',
-              note: 'Premature optimization is the root of all evil'),
-          patientCryptoConfig(lc));
+      DecryptedPatientDto? createdPatient = await createPatient(currentUser, lc);
 
       final contactToCreate = DecryptedContactDto(
         id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
@@ -74,6 +80,54 @@ void main() {
       expect(createdContact.services.first.content["en"]!.numberValue!, 37.5);
       expect(createdContact.services.first.encryptedSelf != null, true);
       expect(createdContact.delegations.length > 0, true);
+    });
+
+    test('Filter Services By HealthElementId - Success', () async {
+      // Given
+      // Init
+      final currentUser = await userApi.getCurrentUser();
+      final currentHcp = await hcpApi.getCurrentHealthcareParty();
+
+      if (currentUser == null || currentHcp == null) {
+        throw Exception("Test init error : Current User or current HCP can't be null");
+      }
+
+      final lc = await _localCrypto(currentUser, currentHcp);
+      DecryptedPatientDto? createdPatient = await createPatient(currentUser, lc);
+      final createdHealthElement = await healthElementApi.createHealthElementWithPatient(currentUser, createdPatient!,
+          DecryptedHealthElementDto(
+              id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+              relevant: true,
+              status: 0,
+              note: 'Premature optimization is the root of all evil'),
+          healthElementCryptoConfig(lc));
+
+      final serviceId = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+      final createdContact = await contactApi.createContactWithPatient(currentUser, createdPatient!, DecryptedContactDto(
+          id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+          services: {_weightServiceDto(serviceId: serviceId)},
+          openingDate: 20171214,
+          closingDate: 20171214153600,
+          subContacts: {
+            new SubContactDto(
+                id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+                healthElementId: createdHealthElement!.id,
+                services: [new ServiceLinkDto(serviceId: serviceId)]
+            )
+          }
+      ), contactCryptoConfig(currentUser, lc));
+
+      // When
+      final foundServices = await contactApi.filterServicesBy(currentUser, FilterChain<ServiceDto>(
+          ServiceByHcPartyHealthElementIdsFilter(
+              healthcarePartyId: currentUser.healthcarePartyId!,
+              healthElementIds: [createdHealthElement.id]
+          )
+      ), null, null, null, lc);
+
+      // Then
+      assert(foundServices!.rows.length == 1);
+      assert(foundServices!.rows.first.id == serviceId);
     });
   });
 }

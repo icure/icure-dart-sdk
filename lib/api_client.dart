@@ -213,24 +213,6 @@ class ApiClient {
           }
           final valueString = '$value'.toLowerCase();
           return valueString == 'true' || valueString == '1';
-        case 'AbstractFilterDtoCode':
-          return AbstractFilterDtoCode.fromJson(value);
-        case 'AbstractFilterDtoContact':
-          return AbstractFilterDtoContact.fromJson(value);
-        case 'AbstractFilterDtoDevice':
-          return AbstractFilterDtoDevice.fromJson(value);
-        case 'AbstractFilterDtoHealthElement':
-          return AbstractFilterDtoHealthElement.fromJson(value);
-        case 'AbstractFilterDtoHealthcareParty':
-          return AbstractFilterDtoHealthcareParty.fromJson(value);
-        case 'AbstractFilterDtoInvoice':
-          return AbstractFilterDtoInvoice.fromJson(value);
-        case 'AbstractFilterDtoPatient':
-          return AbstractFilterDtoPatient.fromJson(value);
-        case 'AbstractFilterDtoService':
-          return AbstractFilterDtoService.fromJson(value);
-        case 'AbstractFilterDtoUser':
-          return AbstractFilterDtoUser.fromJson(value);
         case 'AccessLogDto':
           return AccessLogDto.fromJson(value);
         case 'AddressDto':
@@ -345,24 +327,6 @@ class ApiClient {
           return EntityTemplateDto.fromJson(value);
         case 'EpisodeDto':
           return EpisodeDto.fromJson(value);
-        case 'FilterChainCode':
-          return FilterChainCode.fromJson(value);
-        case 'FilterChainContact':
-          return FilterChainContact.fromJson(value);
-        case 'FilterChainDevice':
-          return FilterChainDevice.fromJson(value);
-        case 'FilterChainHealthElement':
-          return FilterChainHealthElement.fromJson(value);
-        case 'FilterChainHealthcareParty':
-          return FilterChainHealthcareParty.fromJson(value);
-        case 'FilterChainInvoice':
-          return FilterChainInvoice.fromJson(value);
-        case 'FilterChainPatient':
-          return FilterChainPatient.fromJson(value);
-        case 'FilterChainService':
-          return FilterChainService.fromJson(value);
-        case 'FilterChainUser':
-          return FilterChainUser.fromJson(value);
         case 'FinancialInstitutionInformationDto':
           return FinancialInstitutionInformationDto.fromJson(value);
         case 'FlatRateTarificationDto':
