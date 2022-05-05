@@ -97,15 +97,6 @@ part 'extended_api/patient_api.dart';
 part 'extended_api/data_owner_api.dart';
 part 'extended_api/data_owner_api_factory.dart';
 
-part 'model/abstract_filter_dto_code.dart';
-part 'model/abstract_filter_dto_contact.dart';
-part 'model/abstract_filter_dto_device.dart';
-part 'model/abstract_filter_dto_health_element.dart';
-part 'model/abstract_filter_dto_healthcare_party.dart';
-part 'model/abstract_filter_dto_invoice.dart';
-part 'model/abstract_filter_dto_patient.dart';
-part 'model/abstract_filter_dto_service.dart';
-part 'model/abstract_filter_dto_user.dart';
 part 'model/access_log_dto.dart';
 part 'model/address_dto.dart';
 part 'model/administration_quantity.dart';
@@ -163,15 +154,6 @@ part 'model/employment_info_dto.dart';
 part 'model/entity_reference_dto.dart';
 part 'model/entity_template_dto.dart';
 part 'model/episode_dto.dart';
-part 'model/filter_chain_code.dart';
-part 'model/filter_chain_contact.dart';
-part 'model/filter_chain_device.dart';
-part 'model/filter_chain_health_element.dart';
-part 'model/filter_chain_healthcare_party.dart';
-part 'model/filter_chain_invoice.dart';
-part 'model/filter_chain_patient.dart';
-part 'model/filter_chain_service.dart';
-part 'model/filter_chain_user.dart';
 part 'model/financial_institution_information_dto.dart';
 part 'model/flat_rate_tarification_dto.dart';
 part 'model/flow_item_dto.dart';
@@ -455,6 +437,8 @@ part 'model/filter/service/service_by_hc_party_tag_code_date_filter.dart';
 part 'model/filter/service/service_by_ids_filter.dart';
 
 part 'model/filter/service/service_by_hc_party_identifiers_filter.dart';
+
+part 'model/filter/service/service_by_hc_party_health_element_ids_filter.dart';
 
 part 'model/filter/service/service_by_contacts_and_subcontacts_filter.dart';
 
