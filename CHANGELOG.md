@@ -1,3 +1,7 @@
+## 1.0.40
+
+- Removed unused lostHcPartyKeys field in PatientDto
+
 ## 1.0.39
 
 - FIX delegateHcPartyKeyCache could sometimes return the wrong value
