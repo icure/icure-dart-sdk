@@ -9,11 +9,11 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createArticle**](ArticleApi.md#createarticle) | **POST** /rest/v2/article | Creates a article
-[**deleteArticles**](ArticleApi.md#deletearticles) | **POST** /rest/v2/article/delete/batch | Deletes articles
-[**getArticle**](ArticleApi.md#getarticle) | **GET** /rest/v2/article/{articleId} | Gets an article
-[**getArticles**](ArticleApi.md#getarticles) | **GET** /rest/v2/article | Gets all articles
-[**modifyArticle**](ArticleApi.md#modifyarticle) | **PUT** /rest/v2/article | Modifies an article
+[**createArticle**](ArticleApi.md#createarticle) | **POST** /rest/v1/article | Creates a article
+[**deleteArticles**](ArticleApi.md#deletearticles) | **POST** /rest/v1/article/delete/batch | Deletes articles
+[**getArticle**](ArticleApi.md#getarticle) | **GET** /rest/v1/article/{articleId} | Gets an article
+[**getArticles**](ArticleApi.md#getarticles) | **GET** /rest/v1/article | Gets all articles
+[**modifyArticle**](ArticleApi.md#modifyarticle) | **PUT** /rest/v1/article | Modifies an article
 
 
 # **createArticle**

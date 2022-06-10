@@ -35,12 +35,12 @@ class BeresultexportApi {
   /// * [List<String>] requestBody (required):
   Future<Response> exportHealthOneWithHttpInfo(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_result_export/hl1/{fromHcpId}/{toHcpId}/{patId}/{date}/{ref}'
-      .replaceAll('{fromHcpId}', fromHcpId)
-      .replaceAll('{toHcpId}', toHcpId)
-      .replaceAll('{patId}', patId)
-      .replaceAll('{date}', date.toString())
-      .replaceAll('{ref}', ref);
+    final path = r'/rest/v1/be_result_export/hl1/{fromHcpId}/{toHcpId}/{patId}/{date}/{ref}'
+        .replaceAll('{fromHcpId}', fromHcpId)
+        .replaceAll('{toHcpId}', toHcpId)
+        .replaceAll('{patId}', patId)
+        .replaceAll('{date}', date.toString())
+        .replaceAll('{ref}', ref);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -116,12 +116,12 @@ class BeresultexportApi {
   /// * [bool] mimeType:
   Future<Response> exportKmehrReportWithHttpInfo(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody, { bool? mimeType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_result_export/kmehrreport/{fromHcpId}/{toHcpId}/{patId}/{date}/{ref}'
-      .replaceAll('{fromHcpId}', fromHcpId)
-      .replaceAll('{toHcpId}', toHcpId)
-      .replaceAll('{patId}', patId)
-      .replaceAll('{date}', date.toString())
-      .replaceAll('{ref}', ref);
+    final path = r'/rest/v1/be_result_export/kmehrreport/{fromHcpId}/{toHcpId}/{patId}/{date}/{ref}'
+        .replaceAll('{fromHcpId}', fromHcpId)
+        .replaceAll('{toHcpId}', toHcpId)
+        .replaceAll('{patId}', patId)
+        .replaceAll('{date}', date.toString())
+        .replaceAll('{ref}', ref);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -201,12 +201,12 @@ class BeresultexportApi {
   /// * [List<String>] requestBody (required):
   Future<Response> exportMedidocWithHttpInfo(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_result_export/medidoc/{fromHcpId}/{toHcpId}/{patId}/{date}/{ref}'
-      .replaceAll('{fromHcpId}', fromHcpId)
-      .replaceAll('{toHcpId}', toHcpId)
-      .replaceAll('{patId}', patId)
-      .replaceAll('{date}', date.toString())
-      .replaceAll('{ref}', ref);
+    final path = r'/rest/v1/be_result_export/medidoc/{fromHcpId}/{toHcpId}/{patId}/{date}/{ref}'
+        .replaceAll('{fromHcpId}', fromHcpId)
+        .replaceAll('{toHcpId}', toHcpId)
+        .replaceAll('{patId}', patId)
+        .replaceAll('{date}', date.toString())
+        .replaceAll('{ref}', ref);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;

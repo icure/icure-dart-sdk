@@ -9,12 +9,18 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createFrontEndMigration**](FrontEndMigrationApi.md#createfrontendmigration) | **POST** /rest/v2/frontendmigration | Creates a front end migration
-[**deleteFrontEndMigration**](FrontEndMigrationApi.md#deletefrontendmigration) | **DELETE** /rest/v2/frontendmigration/{frontEndMigrationId} | Deletes a front end migration
-[**getFrontEndMigration**](FrontEndMigrationApi.md#getfrontendmigration) | **GET** /rest/v2/frontendmigration/{frontEndMigrationId} | Gets a front end migration
-[**getFrontEndMigrationByName**](FrontEndMigrationApi.md#getfrontendmigrationbyname) | **GET** /rest/v2/frontendmigration/byName/{frontEndMigrationName} | Gets an front end migration
-[**getFrontEndMigrations**](FrontEndMigrationApi.md#getfrontendmigrations) | **GET** /rest/v2/frontendmigration | Gets a front end migration
-[**modifyFrontEndMigration**](FrontEndMigrationApi.md#modifyfrontendmigration) | **PUT** /rest/v2/frontendmigration | Modifies a front end migration
+[**createFrontEndMigration**](FrontEndMigrationApi.md#createfrontendmigration) | **
+POST** /rest/v1/frontendmigration | Creates a front end migration
+[**deleteFrontEndMigration**](FrontEndMigrationApi.md#deletefrontendmigration) | **
+DELETE** /rest/v1/frontendmigration/{frontEndMigrationId} | Deletes a front end migration
+[**getFrontEndMigration**](FrontEndMigrationApi.md#getfrontendmigration) | **
+GET** /rest/v1/frontendmigration/{frontEndMigrationId} | Gets a front end migration
+[**getFrontEndMigrationByName**](FrontEndMigrationApi.md#getfrontendmigrationbyname) | **
+GET** /rest/v1/frontendmigration/byName/{frontEndMigrationName} | Gets an front end migration
+[**getFrontEndMigrations**](FrontEndMigrationApi.md#getfrontendmigrations) | **
+GET** /rest/v1/frontendmigration | Gets a front end migration
+[**modifyFrontEndMigration**](FrontEndMigrationApi.md#modifyfrontendmigration) | **
+PUT** /rest/v1/frontendmigration | Modifies a front end migration
 
 
 # **createFrontEndMigration**

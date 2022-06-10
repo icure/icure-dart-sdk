@@ -9,30 +9,48 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createForm**](FormApi.md#createform) | **POST** /rest/v2/form | Create a form with the current user
-[**createFormTemplate**](FormApi.md#createformtemplate) | **POST** /rest/v2/form/template | Create a form template with the current user
-[**createForms**](FormApi.md#createforms) | **POST** /rest/v2/form/batch | Create a batch of forms
-[**deleteFormTemplate**](FormApi.md#deleteformtemplate) | **DELETE** /rest/v2/form/template/{formTemplateId} | Delete a form template
-[**deleteForms**](FormApi.md#deleteforms) | **POST** /rest/v2/form/delete/batch | Delete forms.
-[**getChildrenForms**](FormApi.md#getchildrenforms) | **GET** /rest/v2/form/childrenOf/{formId}/{hcPartyId} | Get a list of forms by parents ids
-[**getForm**](FormApi.md#getform) | **GET** /rest/v2/form/{formId} | Gets a form
-[**getFormByLogicalUuid**](FormApi.md#getformbylogicaluuid) | **GET** /rest/v2/form/logicalUuid/{logicalUuid} | Gets the most recent form with the given logicalUuid
-[**getFormByUniqueId**](FormApi.md#getformbyuniqueid) | **GET** /rest/v2/form/uniqueId/{uniqueId} | Gets the most recent form with the given uniqueId
-[**getFormTemplate**](FormApi.md#getformtemplate) | **GET** /rest/v2/form/template/{formTemplateId} | Gets a form template by guid
-[**getFormTemplates**](FormApi.md#getformtemplates) | **GET** /rest/v2/form/template | Gets all form templates for current user
-[**getFormTemplatesByGuid**](FormApi.md#getformtemplatesbyguid) | **GET** /rest/v2/form/template/{specialityCode}/guid/{formTemplateGuid} | Gets a form template
-[**getForms**](FormApi.md#getforms) | **POST** /rest/v2/form/byIds | Get a list of forms by ids
-[**getFormsByLogicalUuid**](FormApi.md#getformsbylogicaluuid) | **GET** /rest/v2/form/all/logicalUuid/{logicalUuid} | Gets all forms with given logicalUuid
-[**getFormsByUniqueId**](FormApi.md#getformsbyuniqueid) | **GET** /rest/v2/form/all/uniqueId/{uniqueId} | Gets all forms by uniqueId
-[**listFormTemplatesBySpeciality**](FormApi.md#listformtemplatesbyspeciality) | **GET** /rest/v2/form/template/bySpecialty/{specialityCode} | Gets all form templates
-[**listFormsByHCPartyAndPatientForeignKeys**](FormApi.md#listformsbyhcpartyandpatientforeignkeys) | **GET** /rest/v2/form/byHcPartySecretForeignKeys | List forms found By Healthcare Party and secret foreign keys.
-[**listFormsDelegationsStubsByHCPartyAndPatientForeignKeys**](FormApi.md#listformsdelegationsstubsbyhcpartyandpatientforeignkeys) | **GET** /rest/v2/form/byHcPartySecretForeignKeys/delegations | List form stubs found By Healthcare Party and secret foreign keys.
-[**modifyForm**](FormApi.md#modifyform) | **PUT** /rest/v2/form | Modify a form
-[**modifyForms**](FormApi.md#modifyforms) | **PUT** /rest/v2/form/batch | Modify a batch of forms
-[**newFormDelegations**](FormApi.md#newformdelegations) | **POST** /rest/v2/form/delegate/{formId} | Delegates a form to a healthcare party
-[**setFormsDelegations**](FormApi.md#setformsdelegations) | **POST** /rest/v2/form/delegations | Update delegations in form.
-[**setTemplateAttachmentMulti**](FormApi.md#settemplateattachmentmulti) | **PUT** /rest/v2/form/template/{formTemplateId}/attachment/multipart | Update a form template's layout
-[**updateFormTemplate**](FormApi.md#updateformtemplate) | **PUT** /rest/v2/form/template/{formTemplateId} | Modify a form template with the current user
+[**createForm**](FormApi.md#createform) | **POST** /rest/v1/form | Create a form with the current user
+[**createFormTemplate**](FormApi.md#createformtemplate) | **
+POST** /rest/v1/form/template | Create a form template with the current user
+[**createForms**](FormApi.md#createforms) | **POST** /rest/v1/form/batch | Create a batch of forms
+[**deleteFormTemplate**](FormApi.md#deleteformtemplate) | **
+DELETE** /rest/v1/form/template/{formTemplateId} | Delete a form template
+[**deleteForms**](FormApi.md#deleteforms) | **POST** /rest/v1/form/delete/batch | Delete forms.
+[**getChildrenForms**](FormApi.md#getchildrenforms) | **
+GET** /rest/v1/form/childrenOf/{formId}/{hcPartyId} | Get a list of forms by parents ids
+[**getForm**](FormApi.md#getform) | **GET** /rest/v1/form/{formId} | Gets a form
+[**getFormByLogicalUuid**](FormApi.md#getformbylogicaluuid) | **
+GET** /rest/v1/form/logicalUuid/{logicalUuid} | Gets the most recent form with the given logicalUuid
+[**getFormByUniqueId**](FormApi.md#getformbyuniqueid) | **
+GET** /rest/v1/form/uniqueId/{uniqueId} | Gets the most recent form with the given uniqueId
+[**getFormTemplate**](FormApi.md#getformtemplate) | **
+GET** /rest/v1/form/template/{formTemplateId} | Gets a form template by guid
+[**getFormTemplates**](FormApi.md#getformtemplates) | **
+GET** /rest/v1/form/template | Gets all form templates for current user
+[**getFormTemplatesByGuid**](FormApi.md#getformtemplatesbyguid) | **
+GET** /rest/v1/form/template/{specialityCode}/guid/{formTemplateGuid} | Gets a form template
+[**getForms**](FormApi.md#getforms) | **POST** /rest/v1/form/byIds | Get a list of forms by ids
+[**getFormsByLogicalUuid**](FormApi.md#getformsbylogicaluuid) | **
+GET** /rest/v1/form/all/logicalUuid/{logicalUuid} | Gets all forms with given logicalUuid
+[**getFormsByUniqueId**](FormApi.md#getformsbyuniqueid) | **
+GET** /rest/v1/form/all/uniqueId/{uniqueId} | Gets all forms by uniqueId
+[**listFormTemplatesBySpeciality**](FormApi.md#listformtemplatesbyspeciality) | **
+GET** /rest/v1/form/template/bySpecialty/{specialityCode} | Gets all form templates
+[**listFormsByHCPartyAndPatientForeignKeys**](FormApi.md#listformsbyhcpartyandpatientforeignkeys) | **
+GET** /rest/v1/form/byHcPartySecretForeignKeys | List forms found By Healthcare Party and secret foreign keys.
+[**
+listFormsDelegationsStubsByHCPartyAndPatientForeignKeys**](FormApi.md#listformsdelegationsstubsbyhcpartyandpatientforeignkeys) | **
+GET** /rest/v1/form/byHcPartySecretForeignKeys/delegations | List form stubs found By Healthcare Party and secret foreign keys.
+[**modifyForm**](FormApi.md#modifyform) | **PUT** /rest/v1/form | Modify a form
+[**modifyForms**](FormApi.md#modifyforms) | **PUT** /rest/v1/form/batch | Modify a batch of forms
+[**newFormDelegations**](FormApi.md#newformdelegations) | **
+POST** /rest/v1/form/delegate/{formId} | Delegates a form to a healthcare party
+[**setFormsDelegations**](FormApi.md#setformsdelegations) | **
+POST** /rest/v1/form/delegations | Update delegations in form.
+[**setTemplateAttachmentMulti**](FormApi.md#settemplateattachmentmulti) | **
+PUT** /rest/v1/form/template/{formTemplateId}/attachment/multipart | Update a form template's layout
+[**updateFormTemplate**](FormApi.md#updateformtemplate) | **
+PUT** /rest/v1/form/template/{formTemplateId} | Modify a form template with the current user
 
 
 # **createForm**

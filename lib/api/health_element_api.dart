@@ -27,7 +27,7 @@ class HealthElementApi {
   /// * [HealthElementDto] healthElementDto (required):
   Future<Response> rawCreateHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement';
+    final path = r'/rest/v1/helement';
 
     // ignore: prefer_final_locals
     Object? postBody = healthElementDto;
@@ -85,7 +85,7 @@ class HealthElementApi {
   /// * [List<HealthElementDto>] healthElementDto (required):
   Future<Response> rawCreateHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/batch';
+    final path = r'/rest/v1/helement/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = healthElementDto;
@@ -96,7 +96,6 @@ class HealthElementApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -146,7 +145,7 @@ class HealthElementApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteHealthElementsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/delete/batch';
+    final path = r'/rest/v1/helement/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -157,7 +156,6 @@ class HealthElementApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -213,7 +211,7 @@ class HealthElementApi {
   ///   Number of rows
   Future<Response> rawFilterHealthElementsByWithHttpInfo(FilterChain<HealthElementDto> filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/filter';
+    final path = r'/rest/v1/helement/filter';
 
     // ignore: prefer_final_locals
     Object? postBody = filterChainHealthElement;
@@ -282,8 +280,7 @@ class HealthElementApi {
   /// * [String] healthElementId (required):
   Future<Response> rawGetHealthElementWithHttpInfo(String healthElementId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/{healthElementId}'
-      .replaceAll('{healthElementId}', healthElementId);
+    final path = r'/rest/v1/helement/{healthElementId}'.replaceAll('{healthElementId}', healthElementId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -339,7 +336,7 @@ class HealthElementApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawGetHealthElementsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/byIds';
+    final path = r'/rest/v1/helement/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -350,7 +347,6 @@ class HealthElementApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -402,7 +398,7 @@ class HealthElementApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawListHealthElementsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/helement/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -411,8 +407,8 @@ class HealthElementApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -470,7 +466,7 @@ class HealthElementApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawListHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/byHcPartySecretForeignKeys/delegations';
+    final path = r'/rest/v1/helement/byHcPartySecretForeignKeys/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -479,8 +475,8 @@ class HealthElementApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -534,7 +530,7 @@ class HealthElementApi {
   /// * [AbstractFilterDto<HealthElementDto>] abstractFilterDtoHealthElement (required):
   Future<Response> rawMatchHealthElementsByWithHttpInfo(AbstractFilterDto<HealthElementDto> abstractFilterDtoHealthElement,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/match';
+    final path = r'/rest/v1/helement/match';
 
     // ignore: prefer_final_locals
     Object? postBody = abstractFilterDtoHealthElement;
@@ -545,7 +541,6 @@ class HealthElementApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -593,7 +588,7 @@ class HealthElementApi {
   /// * [HealthElementDto] healthElementDto (required):
   Future<Response> rawModifyHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement';
+    final path = r'/rest/v1/helement';
 
     // ignore: prefer_final_locals
     Object? postBody = healthElementDto;
@@ -604,7 +599,6 @@ class HealthElementApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -651,7 +645,7 @@ class HealthElementApi {
   /// * [List<HealthElementDto>] healthElementDto (required):
   Future<Response> rawModifyHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/batch';
+    final path = r'/rest/v1/helement/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = healthElementDto;
@@ -662,7 +656,6 @@ class HealthElementApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -714,8 +707,7 @@ class HealthElementApi {
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> rawNewHealthElementDelegationsWithHttpInfo(String healthElementId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/{healthElementId}/delegate'
-      .replaceAll('{healthElementId}', healthElementId);
+    final path = r'/rest/v1/helement/{healthElementId}/delegate'.replaceAll('{healthElementId}', healthElementId);
 
     // ignore: prefer_final_locals
     Object? postBody = delegationDto;
@@ -775,7 +767,7 @@ class HealthElementApi {
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> rawSetHealthElementsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/helement/delegations';
+    final path = r'/rest/v1/helement/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody = icureStubDto;
@@ -786,7 +778,6 @@ class HealthElementApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

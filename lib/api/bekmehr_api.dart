@@ -33,8 +33,7 @@ class BekmehrApi {
   /// * [Map<String, List<ImportMapping>>] requestBody:
   Future<Response> checkIfSMFPatientsExistsWithHttpInfo(String documentId, { String? documentKey, String? patientId, String? language, Map<String, List<ImportMapping>>? requestBody, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/smf/{documentId}/checkIfSMFPatientsExists'
-      .replaceAll('{documentId}', documentId);
+    final path = r'/rest/v1/be_kmehr/smf/{documentId}/checkIfSMFPatientsExists'.replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -127,9 +126,7 @@ class BekmehrApi {
   /// * [MultipartFile] body (required):
   Future<Response> generateContactreportExportWithHttpInfo(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/contactreport/{patientId}/export/{id}'
-      .replaceAll('{patientId}', patientId)
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/be_kmehr/contactreport/{patientId}/export/{id}'.replaceAll('{patientId}', patientId).replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -213,8 +210,7 @@ class BekmehrApi {
   /// * [DiaryNoteExportInfoDto] diaryNoteExportInfoDto (required):
   Future<Response> generateDiaryNoteWithHttpInfo(String patientId, String language, DiaryNoteExportInfoDto diaryNoteExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/diarynote/{patientId}/export'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/diarynote/{patientId}/export'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = diaryNoteExportInfoDto;
@@ -292,9 +288,7 @@ class BekmehrApi {
   /// * [MultipartFile] body (required):
   Future<Response> generateLabresultExportWithHttpInfo(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/labresult/{patientId}/export/{id}'
-      .replaceAll('{patientId}', patientId)
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/be_kmehr/labresult/{patientId}/export/{id}'.replaceAll('{patientId}', patientId).replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -382,8 +376,7 @@ class BekmehrApi {
   /// * [MedicationSchemeExportInfoDto] medicationSchemeExportInfoDto (required):
   Future<Response> generateMedicationSchemeExportWithHttpInfo(String patientId, String language, String recipientSafe, int version, MedicationSchemeExportInfoDto medicationSchemeExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/medicationscheme/{patientId}/export'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/medicationscheme/{patientId}/export'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = medicationSchemeExportInfoDto;
@@ -467,9 +460,7 @@ class BekmehrApi {
   /// * [MultipartFile] body (required):
   Future<Response> generateNoteExportWithHttpInfo(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/note/{patientId}/export/{id}'
-      .replaceAll('{patientId}', patientId)
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/be_kmehr/note/{patientId}/export/{id}'.replaceAll('{patientId}', patientId).replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -551,8 +542,7 @@ class BekmehrApi {
   /// * [String] language:
   Future<Response> generatePatientInfoExportWithHttpInfo(String patientId, { String? language, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/patientinfo/{patientId}/export'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/patientinfo/{patientId}/export'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -630,9 +620,9 @@ class BekmehrApi {
   /// * [MultipartFile] body (required):
   Future<Response> generatePrescriptionExportWithHttpInfo(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/prescription/{patientId}/export/{id}'
-      .replaceAll('{patientId}', patientId)
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/be_kmehr/prescription/{patientId}/export/{id}'
+        .replaceAll('{patientId}', patientId)
+        .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -730,9 +720,7 @@ class BekmehrApi {
   /// * [MultipartFile] body (required):
   Future<Response> generateReportExportWithHttpInfo(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/report/{patientId}/export/{id}'
-      .replaceAll('{patientId}', patientId)
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/be_kmehr/report/{patientId}/export/{id}'.replaceAll('{patientId}', patientId).replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -830,9 +818,7 @@ class BekmehrApi {
   /// * [MultipartFile] body (required):
   Future<Response> generateRequestExportWithHttpInfo(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/request/{patientId}/export/{id}'
-      .replaceAll('{patientId}', patientId)
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/be_kmehr/request/{patientId}/export/{id}'.replaceAll('{patientId}', patientId).replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -930,9 +916,7 @@ class BekmehrApi {
   /// * [MultipartFile] body (required):
   Future<Response> generateResultExportWithHttpInfo(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/result/{patientId}/export/{id}'
-      .replaceAll('{patientId}', patientId)
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/be_kmehr/result/{patientId}/export/{id}'.replaceAll('{patientId}', patientId).replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -1016,8 +1000,7 @@ class BekmehrApi {
   /// * [SoftwareMedicalFileExportDto] softwareMedicalFileExportDto (required):
   Future<Response> generateSmfExportWithHttpInfo(String patientId, String language, SoftwareMedicalFileExportDto softwareMedicalFileExportDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/smf/{patientId}/export'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/smf/{patientId}/export'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = softwareMedicalFileExportDto;
@@ -1081,8 +1064,7 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> generateSumehrWithHttpInfo(String patientId, String language, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehr/{patientId}/export'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehr/{patientId}/export'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;
@@ -1146,8 +1128,7 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> generateSumehrV2WithHttpInfo(String patientId, String language, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehrv2/{patientId}/export'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehrv2/{patientId}/export'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;
@@ -1209,8 +1190,7 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> getSumehrContentWithHttpInfo(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehr/{patientId}/content'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehr/{patientId}/content'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;
@@ -1268,8 +1248,8 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> getSumehrMd5WithHttpInfo(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehr/{patientId}/md5'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehr/{patientId}/md5'
+        .replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;
@@ -1327,8 +1307,7 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> getSumehrV2ContentWithHttpInfo(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehrv2/{patientId}/content'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehrv2/{patientId}/content'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;
@@ -1386,8 +1365,7 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> getSumehrV2Md5WithHttpInfo(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehrv2/{patientId}/md5'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehrv2/{patientId}/md5'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;
@@ -1454,8 +1432,7 @@ class BekmehrApi {
   /// * [Map<String, List<ImportMapping>>] requestBody:
   Future<Response> importMedicationSchemeWithHttpInfo(String documentId, { String? documentKey, bool? dryRun, String? patientId, String? language, Map<String, List<ImportMapping>>? requestBody, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/medicationscheme/{documentId}/import'
-      .replaceAll('{documentId}', documentId);
+    final path = r'/rest/v1/be_kmehr/medicationscheme/{documentId}/import'.replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1546,8 +1523,7 @@ class BekmehrApi {
   /// * [Map<String, List<ImportMapping>>] requestBody:
   Future<Response> importSmfWithHttpInfo(String documentId, { String? documentKey, String? patientId, String? language, bool? dryRun, Map<String, List<ImportMapping>>? requestBody, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/smf/{documentId}/import'
-      .replaceAll('{documentId}', documentId);
+    final path = r'/rest/v1/be_kmehr/smf/{documentId}/import'.replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1638,8 +1614,7 @@ class BekmehrApi {
   /// * [Map<String, List<ImportMapping>>] requestBody:
   Future<Response> importSumehrWithHttpInfo(String documentId, { String? documentKey, bool? dryRun, String? patientId, String? language, Map<String, List<ImportMapping>>? requestBody, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehr/{documentId}/import'
-      .replaceAll('{documentId}', documentId);
+    final path = r'/rest/v1/be_kmehr/sumehr/{documentId}/import'.replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1733,8 +1708,7 @@ class BekmehrApi {
   /// * [Map<String, List<ImportMapping>>] requestBody:
   Future<Response> importSumehrByItemIdWithHttpInfo(String documentId, String itemId, { String? documentKey, bool? dryRun, String? patientId, String? language, Map<String, List<ImportMapping>>? requestBody, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehr/{documentId}/importbyitemid'
-      .replaceAll('{documentId}', documentId);
+    final path = r'/rest/v1/be_kmehr/sumehr/{documentId}/importbyitemid'.replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1820,8 +1794,8 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> isSumehrV2ValidWithHttpInfo(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehrv2/{patientId}/valid'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehrv2/{patientId}/valid'
+        .replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;
@@ -1879,8 +1853,7 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> isSumehrValidWithHttpInfo(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehr/{patientId}/valid'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehr/{patientId}/valid'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;
@@ -1940,8 +1913,7 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> validateSumehrWithHttpInfo(String patientId, String language, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehr/{patientId}/validate'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehr/{patientId}/validate'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;
@@ -2005,8 +1977,7 @@ class BekmehrApi {
   /// * [SumehrExportInfoDto] sumehrExportInfoDto (required):
   Future<Response> validateSumehrV2WithHttpInfo(String patientId, String language, SumehrExportInfoDto sumehrExportInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_kmehr/sumehrv2/{patientId}/validate'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/be_kmehr/sumehrv2/{patientId}/validate'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = sumehrExportInfoDto;

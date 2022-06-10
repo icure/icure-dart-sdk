@@ -9,34 +9,55 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**closeForHCPartyPatientForeignKeys**](ContactApi.md#closeforhcpartypatientforeignkeys) | **PUT** /rest/v2/contact/byHcPartySecretForeignKeys/close | Close contacts for Healthcare Party and secret foreign keys.
-[**createContact**](ContactApi.md#createcontact) | **POST** /rest/v2/contact | Create a contact with the current user
-[**createContacts**](ContactApi.md#createcontacts) | **POST** /rest/v2/contact/batch | Create a batch of contacts
-[**deleteContacts**](ContactApi.md#deletecontacts) | **POST** /rest/v2/contact/delete/batch | Delete contacts.
-[**filterContactsBy**](ContactApi.md#filtercontactsby) | **POST** /rest/v2/contact/filter | List contacts for the current user (HcParty) or the given hcparty in the filter 
-[**filterServicesBy**](ContactApi.md#filterservicesby) | **POST** /rest/v2/contact/service/filter | List services for the current user (HcParty) or the given hcparty in the filter 
-[**findContactsByOpeningDate**](ContactApi.md#findcontactsbyopeningdate) | **GET** /rest/v2/contact/byOpeningDate | List contacts by opening date parties with(out) pagination
-[**getContact**](ContactApi.md#getcontact) | **GET** /rest/v2/contact/{contactId} | Get a contact
-[**getContacts**](ContactApi.md#getcontacts) | **POST** /rest/v2/contact/byIds | Get contacts
-[**getEmptyContent**](ContactApi.md#getemptycontent) | **GET** /rest/v2/contact/service/content/empty | Get an empty content
-[**getServiceCodesOccurences**](ContactApi.md#getservicecodesoccurences) | **GET** /rest/v2/contact/service/codes/{codeType}/{minOccurences} | Get the list of all used codes frequencies in services
-[**getServices**](ContactApi.md#getservices) | **POST** /rest/v2/contact/service | List services with provided ids 
-[**getServicesLinkedTo**](ContactApi.md#getserviceslinkedto) | **POST** /rest/v2/contact/service/linkedTo | List services linked to provided ids 
-[**listContactByHCPartyServiceId**](ContactApi.md#listcontactbyhcpartyserviceid) | **GET** /rest/v2/contact/byHcPartyServiceId | List contacts found By Healthcare Party and service Id.
-[**listContactsByExternalId**](ContactApi.md#listcontactsbyexternalid) | **POST** /rest/v2/contact/byExternalId | List contacts found By externalId.
-[**listContactsByHCPartyAndFormId**](ContactApi.md#listcontactsbyhcpartyandformid) | **GET** /rest/v2/contact/byHcPartyFormId | List contacts found By Healthcare Party and form Id.
-[**listContactsByHCPartyAndFormIds**](ContactApi.md#listcontactsbyhcpartyandformids) | **POST** /rest/v2/contact/byHcPartyFormIds | List contacts found By Healthcare Party and form Id.
-[**listContactsByHCPartyAndPatientForeignKeys**](ContactApi.md#listcontactsbyhcpartyandpatientforeignkeys) | **POST** /rest/v2/contact/byHcPartyPatientForeignKeys | List contacts found By Healthcare Party and Patient foreign keys.
-[**listContactsByHCPartyAndPatientSecretFKeys**](ContactApi.md#listcontactsbyhcpartyandpatientsecretfkeys) | **GET** /rest/v2/contact/byHcPartySecretForeignKeys | List contacts found By Healthcare Party and secret foreign keys.
-[**listContactsDelegationsStubsByHCPartyAndPatientForeignKeys**](ContactApi.md#listcontactsdelegationsstubsbyhcpartyandpatientforeignkeys) | **GET** /rest/v2/contact/byHcPartySecretForeignKeys/delegations | List contacts found By Healthcare Party and secret foreign keys.
-[**listServicesByAssociationId**](ContactApi.md#listservicesbyassociationid) | **GET** /rest/v2/contact/service/associationId | List services by related association id
-[**listServicesByHealthElementId**](ContactApi.md#listservicesbyhealthelementid) | **GET** /rest/v2/contact/service/healthElementId/{healthElementId} | List services linked to a health element
-[**matchContactsBy**](ContactApi.md#matchcontactsby) | **POST** /rest/v2/contact/match | Get ids of contacts matching the provided filter for the current user (HcParty) 
-[**modifyContact**](ContactApi.md#modifycontact) | **PUT** /rest/v2/contact | Modify a contact
-[**modifyContacts**](ContactApi.md#modifycontacts) | **PUT** /rest/v2/contact/batch | Modify a batch of contacts
-[**modifyContactsDelegations**](ContactApi.md#modifycontactsdelegations) | **PUT** /rest/v2/contact/delegations | Update delegations in healthElements.
-[**newContactDelegations**](ContactApi.md#newcontactdelegations) | **POST** /rest/v2/contact/{contactId}/delegate | Delegates a contact to a healthcare party
-[**setContactsDelegations**](ContactApi.md#setcontactsdelegations) | **POST** /rest/v2/contact/delegations | Update delegations in healthElements.
+[**closeForHCPartyPatientForeignKeys**](ContactApi.md#closeforhcpartypatientforeignkeys) | **
+PUT** /rest/v1/contact/byHcPartySecretForeignKeys/close | Close contacts for Healthcare Party and secret foreign keys.
+[**createContact**](ContactApi.md#createcontact) | **POST** /rest/v1/contact | Create a contact with the current user
+[**createContacts**](ContactApi.md#createcontacts) | **POST** /rest/v1/contact/batch | Create a batch of contacts
+[**deleteContacts**](ContactApi.md#deletecontacts) | **POST** /rest/v1/contact/delete/batch | Delete contacts.
+[**filterContactsBy**](ContactApi.md#filtercontactsby) | **
+POST** /rest/v1/contact/filter | List contacts for the current user (HcParty) or the given hcparty in the filter
+[**filterServicesBy**](ContactApi.md#filterservicesby) | **
+POST** /rest/v1/contact/service/filter | List services for the current user (HcParty) or the given hcparty in the filter
+[**findContactsByOpeningDate**](ContactApi.md#findcontactsbyopeningdate) | **
+GET** /rest/v1/contact/byOpeningDate | List contacts by opening date parties with(out) pagination
+[**getContact**](ContactApi.md#getcontact) | **GET** /rest/v1/contact/{contactId} | Get a contact
+[**getContacts**](ContactApi.md#getcontacts) | **POST** /rest/v1/contact/byIds | Get contacts
+[**getEmptyContent**](ContactApi.md#getemptycontent) | **
+GET** /rest/v1/contact/service/content/empty | Get an empty content
+[**getServiceCodesOccurences**](ContactApi.md#getservicecodesoccurences) | **
+GET** /rest/v1/contact/service/codes/{codeType}/{minOccurences} | Get the list of all used codes frequencies in services
+[**getServices**](ContactApi.md#getservices) | **POST** /rest/v1/contact/service | List services with provided ids
+[**getServicesLinkedTo**](ContactApi.md#getserviceslinkedto) | **
+POST** /rest/v1/contact/service/linkedTo | List services linked to provided ids
+[**listContactByHCPartyServiceId**](ContactApi.md#listcontactbyhcpartyserviceid) | **
+GET** /rest/v1/contact/byHcPartyServiceId | List contacts found By Healthcare Party and service Id.
+[**listContactsByExternalId**](ContactApi.md#listcontactsbyexternalid) | **
+POST** /rest/v1/contact/byExternalId | List contacts found By externalId.
+[**listContactsByHCPartyAndFormId**](ContactApi.md#listcontactsbyhcpartyandformid) | **
+GET** /rest/v1/contact/byHcPartyFormId | List contacts found By Healthcare Party and form Id.
+[**listContactsByHCPartyAndFormIds**](ContactApi.md#listcontactsbyhcpartyandformids) | **
+POST** /rest/v1/contact/byHcPartyFormIds | List contacts found By Healthcare Party and form Id.
+[**listContactsByHCPartyAndPatientForeignKeys**](ContactApi.md#listcontactsbyhcpartyandpatientforeignkeys) | **
+POST** /rest/v1/contact/byHcPartyPatientForeignKeys | List contacts found By Healthcare Party and Patient foreign keys.
+[**listContactsByHCPartyAndPatientSecretFKeys**](ContactApi.md#listcontactsbyhcpartyandpatientsecretfkeys) | **
+GET** /rest/v1/contact/byHcPartySecretForeignKeys | List contacts found By Healthcare Party and secret foreign keys.
+[**
+listContactsDelegationsStubsByHCPartyAndPatientForeignKeys**](ContactApi.md#listcontactsdelegationsstubsbyhcpartyandpatientforeignkeys) | **
+GET** /rest/v1/contact/byHcPartySecretForeignKeys/delegations | List contacts found By Healthcare Party and secret foreign keys.
+[**listServicesByAssociationId**](ContactApi.md#listservicesbyassociationid) | **
+GET** /rest/v1/contact/service/associationId | List services by related association id
+[**listServicesByHealthElementId**](ContactApi.md#listservicesbyhealthelementid) | **
+GET** /rest/v1/contact/service/healthElementId/{healthElementId} | List services linked to a health element
+[**matchContactsBy**](ContactApi.md#matchcontactsby) | **
+POST** /rest/v1/contact/match | Get ids of contacts matching the provided filter for the current user (HcParty)
+[**modifyContact**](ContactApi.md#modifycontact) | **PUT** /rest/v1/contact | Modify a contact
+[**modifyContacts**](ContactApi.md#modifycontacts) | **PUT** /rest/v1/contact/batch | Modify a batch of contacts
+[**modifyContactsDelegations**](ContactApi.md#modifycontactsdelegations) | **
+PUT** /rest/v1/contact/delegations | Update delegations in healthElements.
+[**newContactDelegations**](ContactApi.md#newcontactdelegations) | **
+POST** /rest/v1/contact/{contactId}/delegate | Delegates a contact to a healthcare party
+[**setContactsDelegations**](ContactApi.md#setcontactsdelegations) | **
+POST** /rest/v1/contact/delegations | Update delegations in healthElements.
 
 
 # **closeForHCPartyPatientForeignKeys**

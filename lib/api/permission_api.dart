@@ -29,8 +29,8 @@ class PermissionApi {
   /// * [PermissionDto] permissionDto (required):
   Future<Response> modifyUserPermissionsWithHttpInfo(String userId, PermissionDto permissionDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/permissions/{userId}'
-      .replaceAll('{userId}', userId);
+    final path = r'/rest/v1/permissions/{userId}'
+        .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = permissionDto;

@@ -39,10 +39,10 @@ class AnonymousAccessApi {
   /// * [int] limit:
   Future<Response> getAvailabilitiesByPeriodAndCalendarItemTypeIdWithHttpInfo(String groupId, String userId, String getCalendarItemTypeId, int startDate, int endDate, String hcpId, { int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/aa/available/inGroup/{groupId}/forUser/{userId}/type/{getCalendarItemTypeId}'
-      .replaceAll('{groupId}', groupId)
-      .replaceAll('{userId}', userId)
-      .replaceAll('{getCalendarItemTypeId}', getCalendarItemTypeId);
+    final path = r'/rest/v1/aa/available/inGroup/{groupId}/forUser/{userId}/type/{getCalendarItemTypeId}'
+        .replaceAll('{groupId}', groupId)
+        .replaceAll('{userId}', userId)
+        .replaceAll('{getCalendarItemTypeId}', getCalendarItemTypeId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -130,9 +130,9 @@ class AnonymousAccessApi {
   /// * [int] endDate (required):
   Future<Response> listAppointmentTypesForUserWithHttpInfo(String groupId, String userId, int startDate, int endDate,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/aa/appointmentType/inGroup/{groupId}/forUser/{userId}'
-      .replaceAll('{groupId}', groupId)
-      .replaceAll('{userId}', userId);
+    final path = r'/rest/v1/aa/appointmentType/inGroup/{groupId}/forUser/{userId}'
+        .replaceAll('{groupId}', groupId)
+        .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -205,8 +205,7 @@ class AnonymousAccessApi {
   ///   Healthcare parties group id
   Future<Response> listHealthcarePartiesInGroupWithHttpInfo(String groupId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/aa/hcparty/inGroup/{groupId}'
-      .replaceAll('{groupId}', groupId);
+    final path = r'/rest/v1/aa/hcparty/inGroup/{groupId}'.replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody;

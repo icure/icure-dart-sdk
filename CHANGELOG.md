@@ -1,3 +1,7 @@
+## 1.0.44
+
+- Calls are using v1 instead of v2
+
 ## 1.0.43
 
 - Removed unused lostHcPartyKeys field in HealthcareParty, Device

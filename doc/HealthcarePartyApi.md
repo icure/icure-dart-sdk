@@ -9,25 +9,45 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createHealthcareParty**](HealthcarePartyApi.md#createhealthcareparty) | **POST** /rest/v2/hcparty | Create a healthcare party
-[**createHealthcarePartyInGroup**](HealthcarePartyApi.md#createhealthcarepartyingroup) | **POST** /rest/v2/hcparty/inGroup/{groupId} | Create a healthcare party
-[**deleteHealthcareParties**](HealthcarePartyApi.md#deletehealthcareparties) | **POST** /rest/v2/hcparty/delete/batch | Delete healthcare parties
-[**deleteHealthcarePartiesInGroup**](HealthcarePartyApi.md#deletehealthcarepartiesingroup) | **POST** /rest/v2/hcparty/delete/batch/inGroup/{groupId} | Delete a healthcare party
-[**filterHealthPartiesBy**](HealthcarePartyApi.md#filterhealthpartiesby) | **POST** /rest/v2/hcparty/filter | Filter healthcare parties for the current user (HcParty)
-[**findHealthcarePartiesBy**](HealthcarePartyApi.md#findhealthcarepartiesby) | **GET** /rest/v2/hcparty | List healthcare parties with(out) pagination
-[**findHealthcarePartiesByName**](HealthcarePartyApi.md#findhealthcarepartiesbyname) | **GET** /rest/v2/hcparty/byName | Find healthcare parties by name with(out) pagination
-[**findHealthcarePartiesBySpecialityAndPostCode**](HealthcarePartyApi.md#findhealthcarepartiesbyspecialityandpostcode) | **GET** /rest/v2/hcparty/bySpecialityAndPostCode/{type}/{spec}/{firstCode}/to/{lastCode} | Find healthcare parties by name with(out) pagination
-[**findHealthcarePartiesBySsinOrNihii**](HealthcarePartyApi.md#findhealthcarepartiesbyssinornihii) | **GET** /rest/v2/hcparty/byNihiiOrSsin/{searchValue} | Find healthcare parties by nihii or ssin with(out) pagination
-[**getCurrentHealthcareParty**](HealthcarePartyApi.md#getcurrenthealthcareparty) | **GET** /rest/v2/hcparty/current | Get the current healthcare party if logged in.
-[**getHcPartyKeysForDelegate**](HealthcarePartyApi.md#gethcpartykeysfordelegate) | **GET** /rest/v2/hcparty/byKeys/{healthcarePartyId} | Get the HcParty encrypted AES keys indexed by owner
-[**getHealthcareParties**](HealthcarePartyApi.md#gethealthcareparties) | **POST** /rest/v2/hcparty/byIds | Get healthcareParties by their IDs
-[**getHealthcareParty**](HealthcarePartyApi.md#gethealthcareparty) | **GET** /rest/v2/hcparty/{healthcarePartyId} | Get a healthcareParty by his ID
-[**getPublicKey**](HealthcarePartyApi.md#getpublickey) | **GET** /rest/v2/hcparty/{healthcarePartyId}/publicKey | Get public key of a healthcare party
-[**listHealthcarePartiesByName**](HealthcarePartyApi.md#listhealthcarepartiesbyname) | **GET** /rest/v2/hcparty/byNameStrict/{name} | Find healthcare parties by name with(out) pagination
-[**listHealthcarePartiesByParentId**](HealthcarePartyApi.md#listhealthcarepartiesbyparentid) | **GET** /rest/v2/hcparty/{parentId}/children | Find children of an healthcare parties
-[**matchHealthcarePartiesBy**](HealthcarePartyApi.md#matchhealthcarepartiesby) | **POST** /rest/v2/hcparty/match | Get ids of healthcare party matching the provided filter for the current user (HcParty) 
-[**modifyHealthcareParty**](HealthcarePartyApi.md#modifyhealthcareparty) | **PUT** /rest/v2/hcparty | Modify a Healthcare Party.
-[**modifyHealthcarePartyInGroup**](HealthcarePartyApi.md#modifyhealthcarepartyingroup) | **PUT** /rest/v2/hcparty/inGroup/{groupId} | Modify a Healthcare Party.
+[**createHealthcareParty**](HealthcarePartyApi.md#createhealthcareparty) | **
+POST** /rest/v1/hcparty | Create a healthcare party
+[**createHealthcarePartyInGroup**](HealthcarePartyApi.md#createhealthcarepartyingroup) | **
+POST** /rest/v1/hcparty/inGroup/{groupId} | Create a healthcare party
+[**deleteHealthcareParties**](HealthcarePartyApi.md#deletehealthcareparties) | **
+POST** /rest/v1/hcparty/delete/batch | Delete healthcare parties
+[**deleteHealthcarePartiesInGroup**](HealthcarePartyApi.md#deletehealthcarepartiesingroup) | **
+POST** /rest/v1/hcparty/delete/batch/inGroup/{groupId} | Delete a healthcare party
+[**filterHealthPartiesBy**](HealthcarePartyApi.md#filterhealthpartiesby) | **
+POST** /rest/v1/hcparty/filter | Filter healthcare parties for the current user (HcParty)
+[**findHealthcarePartiesBy**](HealthcarePartyApi.md#findhealthcarepartiesby) | **
+GET** /rest/v1/hcparty | List healthcare parties with(out) pagination
+[**findHealthcarePartiesByName**](HealthcarePartyApi.md#findhealthcarepartiesbyname) | **
+GET** /rest/v1/hcparty/byName | Find healthcare parties by name with(out) pagination
+[**
+findHealthcarePartiesBySpecialityAndPostCode**](HealthcarePartyApi.md#findhealthcarepartiesbyspecialityandpostcode) | **
+GET** /rest/v1/hcparty/bySpecialityAndPostCode/{type}/{spec}/{firstCode}/to/{lastCode} | Find healthcare parties by name with(out) pagination
+[**findHealthcarePartiesBySsinOrNihii**](HealthcarePartyApi.md#findhealthcarepartiesbyssinornihii) | **
+GET** /rest/v1/hcparty/byNihiiOrSsin/{searchValue} | Find healthcare parties by nihii or ssin with(out) pagination
+[**getCurrentHealthcareParty**](HealthcarePartyApi.md#getcurrenthealthcareparty) | **
+GET** /rest/v1/hcparty/current | Get the current healthcare party if logged in.
+[**getHcPartyKeysForDelegate**](HealthcarePartyApi.md#gethcpartykeysfordelegate) | **
+GET** /rest/v1/hcparty/byKeys/{healthcarePartyId} | Get the HcParty encrypted AES keys indexed by owner
+[**getHealthcareParties**](HealthcarePartyApi.md#gethealthcareparties) | **
+POST** /rest/v1/hcparty/byIds | Get healthcareParties by their IDs
+[**getHealthcareParty**](HealthcarePartyApi.md#gethealthcareparty) | **
+GET** /rest/v1/hcparty/{healthcarePartyId} | Get a healthcareParty by his ID
+[**getPublicKey**](HealthcarePartyApi.md#getpublickey) | **
+GET** /rest/v1/hcparty/{healthcarePartyId}/publicKey | Get public key of a healthcare party
+[**listHealthcarePartiesByName**](HealthcarePartyApi.md#listhealthcarepartiesbyname) | **
+GET** /rest/v1/hcparty/byNameStrict/{name} | Find healthcare parties by name with(out) pagination
+[**listHealthcarePartiesByParentId**](HealthcarePartyApi.md#listhealthcarepartiesbyparentid) | **
+GET** /rest/v1/hcparty/{parentId}/children | Find children of an healthcare parties
+[**matchHealthcarePartiesBy**](HealthcarePartyApi.md#matchhealthcarepartiesby) | **
+POST** /rest/v1/hcparty/match | Get ids of healthcare party matching the provided filter for the current user (HcParty)
+[**modifyHealthcareParty**](HealthcarePartyApi.md#modifyhealthcareparty) | **
+PUT** /rest/v1/hcparty | Modify a Healthcare Party.
+[**modifyHealthcarePartyInGroup**](HealthcarePartyApi.md#modifyhealthcarepartyingroup) | **
+PUT** /rest/v1/hcparty/inGroup/{groupId} | Modify a Healthcare Party.
 
 
 # **createHealthcareParty**

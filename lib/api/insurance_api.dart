@@ -25,7 +25,7 @@ class InsuranceApi {
   /// * [InsuranceDto] insuranceDto (required):
   Future<Response> createInsuranceWithHttpInfo(InsuranceDto insuranceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/insurance';
+    final path = r'/rest/v1/insurance';
 
     // ignore: prefer_final_locals
     Object? postBody = insuranceDto;
@@ -36,7 +36,6 @@ class InsuranceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -79,8 +78,7 @@ class InsuranceApi {
   /// * [String] insuranceId (required):
   Future<Response> deleteInsuranceWithHttpInfo(String insuranceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/insurance/{insuranceId}'
-      .replaceAll('{insuranceId}', insuranceId);
+    final path = r'/rest/v1/insurance/{insuranceId}'.replaceAll('{insuranceId}', insuranceId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -134,8 +132,7 @@ class InsuranceApi {
   /// * [String] insuranceId (required):
   Future<Response> getInsuranceWithHttpInfo(String insuranceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/insurance/{insuranceId}'
-      .replaceAll('{insuranceId}', insuranceId);
+    final path = r'/rest/v1/insurance/{insuranceId}'.replaceAll('{insuranceId}', insuranceId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -189,7 +186,7 @@ class InsuranceApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getInsurancesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/insurance/byIds';
+    final path = r'/rest/v1/insurance/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -200,7 +197,6 @@ class InsuranceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -246,8 +242,7 @@ class InsuranceApi {
   /// * [String] insuranceCode (required):
   Future<Response> listInsurancesByCodeWithHttpInfo(String insuranceCode,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/insurance/byCode/{insuranceCode}'
-      .replaceAll('{insuranceCode}', insuranceCode);
+    final path = r'/rest/v1/insurance/byCode/{insuranceCode}'.replaceAll('{insuranceCode}', insuranceCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -304,8 +299,7 @@ class InsuranceApi {
   /// * [String] insuranceName (required):
   Future<Response> listInsurancesByNameWithHttpInfo(String insuranceName,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/insurance/byName/{insuranceName}'
-      .replaceAll('{insuranceName}', insuranceName);
+    final path = r'/rest/v1/insurance/byName/{insuranceName}'.replaceAll('{insuranceName}', insuranceName);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -362,7 +356,7 @@ class InsuranceApi {
   /// * [InsuranceDto] insuranceDto (required):
   Future<Response> modifyInsuranceWithHttpInfo(InsuranceDto insuranceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/insurance';
+    final path = r'/rest/v1/insurance';
 
     // ignore: prefer_final_locals
     Object? postBody = insuranceDto;

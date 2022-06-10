@@ -9,13 +9,14 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAgenda**](AgendaApi.md#createagenda) | **POST** /rest/v2/agenda | Creates a agenda
-[**deleteAgendas**](AgendaApi.md#deleteagendas) | **POST** /rest/v2/agenda/delete/batch | Deletes agendas
-[**getAgenda**](AgendaApi.md#getagenda) | **GET** /rest/v2/agenda/{agendaId} | Gets an agenda
-[**getAgendas**](AgendaApi.md#getagendas) | **GET** /rest/v2/agenda | Gets all agendas
-[**getAgendasForUser**](AgendaApi.md#getagendasforuser) | **GET** /rest/v2/agenda/byUser | Gets all agendas for user
-[**getReadableAgendasForUser**](AgendaApi.md#getreadableagendasforuser) | **GET** /rest/v2/agenda/readableForUser | Gets readable agendas for user
-[**modifyAgenda**](AgendaApi.md#modifyagenda) | **PUT** /rest/v2/agenda | Modifies an agenda
+[**createAgenda**](AgendaApi.md#createagenda) | **POST** /rest/v1/agenda | Creates a agenda
+[**deleteAgendas**](AgendaApi.md#deleteagendas) | **POST** /rest/v1/agenda/delete/batch | Deletes agendas
+[**getAgenda**](AgendaApi.md#getagenda) | **GET** /rest/v1/agenda/{agendaId} | Gets an agenda
+[**getAgendas**](AgendaApi.md#getagendas) | **GET** /rest/v1/agenda | Gets all agendas
+[**getAgendasForUser**](AgendaApi.md#getagendasforuser) | **GET** /rest/v1/agenda/byUser | Gets all agendas for user
+[**getReadableAgendasForUser**](AgendaApi.md#getreadableagendasforuser) | **
+GET** /rest/v1/agenda/readableForUser | Gets readable agendas for user
+[**modifyAgenda**](AgendaApi.md#modifyagenda) | **PUT** /rest/v1/agenda | Modifies an agenda
 
 
 # **createAgenda**

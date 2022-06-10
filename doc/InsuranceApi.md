@@ -9,13 +9,16 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createInsurance**](InsuranceApi.md#createinsurance) | **POST** /rest/v2/insurance | Creates an insurance
-[**deleteInsurance**](InsuranceApi.md#deleteinsurance) | **DELETE** /rest/v2/insurance/{insuranceId} | Deletes an insurance
-[**getInsurance**](InsuranceApi.md#getinsurance) | **GET** /rest/v2/insurance/{insuranceId} | Gets an insurance
-[**getInsurances**](InsuranceApi.md#getinsurances) | **POST** /rest/v2/insurance/byIds | Gets insurances by id
-[**listInsurancesByCode**](InsuranceApi.md#listinsurancesbycode) | **GET** /rest/v2/insurance/byCode/{insuranceCode} | Gets an insurance
-[**listInsurancesByName**](InsuranceApi.md#listinsurancesbyname) | **GET** /rest/v2/insurance/byName/{insuranceName} | Gets an insurance
-[**modifyInsurance**](InsuranceApi.md#modifyinsurance) | **PUT** /rest/v2/insurance | Modifies an insurance
+[**createInsurance**](InsuranceApi.md#createinsurance) | **POST** /rest/v1/insurance | Creates an insurance
+[**deleteInsurance**](InsuranceApi.md#deleteinsurance) | **
+DELETE** /rest/v1/insurance/{insuranceId} | Deletes an insurance
+[**getInsurance**](InsuranceApi.md#getinsurance) | **GET** /rest/v1/insurance/{insuranceId} | Gets an insurance
+[**getInsurances**](InsuranceApi.md#getinsurances) | **POST** /rest/v1/insurance/byIds | Gets insurances by id
+[**listInsurancesByCode**](InsuranceApi.md#listinsurancesbycode) | **
+GET** /rest/v1/insurance/byCode/{insuranceCode} | Gets an insurance
+[**listInsurancesByName**](InsuranceApi.md#listinsurancesbyname) | **
+GET** /rest/v1/insurance/byName/{insuranceName} | Gets an insurance
+[**modifyInsurance**](InsuranceApi.md#modifyinsurance) | **PUT** /rest/v1/insurance | Modifies an insurance
 
 
 # **createInsurance**

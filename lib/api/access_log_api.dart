@@ -25,7 +25,7 @@ class AccessLogApi {
   /// * [AccessLogDto] accessLogDto (required):
   Future<Response> rawCreateAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/accesslog';
+    final path = r'/rest/v1/accesslog';
 
     // ignore: prefer_final_locals
     Object? postBody = accessLogDto;
@@ -79,7 +79,7 @@ class AccessLogApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteAccessLogsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/accesslog/delete/batch';
+    final path = r'/rest/v1/accesslog/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -90,7 +90,6 @@ class AccessLogApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -146,7 +145,7 @@ class AccessLogApi {
   /// * [bool] descending:
   Future<Response> rawFindAccessLogsByWithHttpInfo({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/accesslog';
+    final path = r'/rest/v1/accesslog';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -248,7 +247,7 @@ class AccessLogApi {
   ///   Descending order
   Future<Response> rawFindAccessLogsByUserAfterDateWithHttpInfo(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/accesslog/byUser';
+    final path = r'/rest/v1/accesslog/byUser';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -257,7 +256,7 @@ class AccessLogApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'userId', userId));
+    queryParams.addAll(_queryParams('', 'userId', userId));
     if (accessType != null) {
       queryParams.addAll(_queryParams('', 'accessType', accessType));
     }
@@ -341,8 +340,7 @@ class AccessLogApi {
   /// * [String] accessLogId (required):
   Future<Response> rawGetAccessLogWithHttpInfo(String accessLogId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/accesslog/{accessLogId}'
-      .replaceAll('{accessLogId}', accessLogId);
+    final path = r'/rest/v1/accesslog/{accessLogId}'.replaceAll('{accessLogId}', accessLogId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -398,7 +396,7 @@ class AccessLogApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawListAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/accesslog/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/accesslog/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -407,8 +405,8 @@ class AccessLogApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -460,7 +458,7 @@ class AccessLogApi {
   /// * [AccessLogDto] accessLogDto (required):
   Future<Response> rawModifyAccessLogWithHttpInfo(AccessLogDto accessLogDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/accesslog';
+    final path = r'/rest/v1/accesslog';
 
     // ignore: prefer_final_locals
     Object? postBody = accessLogDto;
@@ -471,7 +469,6 @@ class AccessLogApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

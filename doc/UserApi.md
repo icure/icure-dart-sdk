@@ -9,29 +9,38 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**assignHealthcareParty**](UserApi.md#assignhealthcareparty) | **PUT** /rest/v2/user/current/hcparty/{healthcarePartyId} | Assign a healthcare party ID to current user
-[**checkPassword**](UserApi.md#checkpassword) | **GET** /rest/v2/user/checkPassword | 
-[**checkTokenValidity**](UserApi.md#checktokenvalidity) | **GET** /rest/v2/user/token/{userId} | Check token validity
-[**createUser**](UserApi.md#createuser) | **POST** /rest/v2/user | Create a user
-[**createUserInGroup**](UserApi.md#createuseringroup) | **POST** /rest/v2/user/inGroup/{groupId} | Create a user
-[**deleteUser**](UserApi.md#deleteuser) | **DELETE** /rest/v2/user/{userId} | Delete a User based on his/her ID.
-[**deleteUserInGroup**](UserApi.md#deleteuseringroup) | **DELETE** /rest/v2/user/inGroup/{groupId}/{userId} | Delete a User based on his/her ID.
-[**encodePassword**](UserApi.md#encodepassword) | **GET** /rest/v2/user/encodePassword | 
-[**filterUsersBy**](UserApi.md#filterusersby) | **POST** /rest/v2/user/filter | Filter users for the current user (HcParty)
-[**findByHcpartyId**](UserApi.md#findbyhcpartyid) | **GET** /rest/v2/user/byHealthcarePartyId/{id} | Get the list of users by healthcare party id
-[**forgottenPassword**](UserApi.md#forgottenpassword) | **POST** /rest/v2/user/forgottenPassword/{email} | Send a forgotten email message to an user
-[**getCurrentSession**](UserApi.md#getcurrentsession) | **GET** /rest/v2/user/session | Get Currently logged-in user session.
-[**getCurrentUser**](UserApi.md#getcurrentuser) | **GET** /rest/v2/user/current | Get presently logged-in user.
-[**getMatchingUsers**](UserApi.md#getmatchingusers) | **GET** /rest/v2/user/matches | Get presently logged-in user.
-[**getToken**](UserApi.md#gettoken) | **POST** /rest/v2/user/token/{userId}/{key} | Request a new temporary token for authentication
-[**getUser**](UserApi.md#getuser) | **GET** /rest/v2/user/{userId} | Get a user by his ID
-[**getUserByEmail**](UserApi.md#getuserbyemail) | **GET** /rest/v2/user/byEmail/{email} | Get a user by his Email/Login
-[**listUsersBy**](UserApi.md#listusersby) | **GET** /rest/v2/user | List users with(out) pagination
-[**listUsersInGroup**](UserApi.md#listusersingroup) | **GET** /rest/v2/user/inGroup/{groupId} | List users with(out) pagination
-[**matchUsersBy**](UserApi.md#matchusersby) | **POST** /rest/v2/user/match | Get ids of healthcare party matching the provided filter for the current user (HcParty) 
-[**modifyProperties**](UserApi.md#modifyproperties) | **PUT** /rest/v2/user/{userId}/properties | Modify a User property
-[**modifyUser**](UserApi.md#modifyuser) | **PUT** /rest/v2/user | Modify a user.
-[**modifyUserInGroup**](UserApi.md#modifyuseringroup) | **PUT** /rest/v2/user/inGroup/{groupId} | Modify a user.
+[**assignHealthcareParty**](UserApi.md#assignhealthcareparty) | **
+PUT** /rest/v1/user/current/hcparty/{healthcarePartyId} | Assign a healthcare party ID to current user
+[**checkPassword**](UserApi.md#checkpassword) | **GET** /rest/v1/user/checkPassword |
+[**checkTokenValidity**](UserApi.md#checktokenvalidity) | **GET** /rest/v1/user/token/{userId} | Check token validity
+[**createUser**](UserApi.md#createuser) | **POST** /rest/v1/user | Create a user
+[**createUserInGroup**](UserApi.md#createuseringroup) | **POST** /rest/v1/user/inGroup/{groupId} | Create a user
+[**deleteUser**](UserApi.md#deleteuser) | **DELETE** /rest/v1/user/{userId} | Delete a User based on his/her ID.
+[**deleteUserInGroup**](UserApi.md#deleteuseringroup) | **
+DELETE** /rest/v1/user/inGroup/{groupId}/{userId} | Delete a User based on his/her ID.
+[**encodePassword**](UserApi.md#encodepassword) | **GET** /rest/v1/user/encodePassword |
+[**filterUsersBy**](UserApi.md#filterusersby) | **
+POST** /rest/v1/user/filter | Filter users for the current user (HcParty)
+[**findByHcpartyId**](UserApi.md#findbyhcpartyid) | **
+GET** /rest/v1/user/byHealthcarePartyId/{id} | Get the list of users by healthcare party id
+[**forgottenPassword**](UserApi.md#forgottenpassword) | **
+POST** /rest/v1/user/forgottenPassword/{email} | Send a forgotten email message to an user
+[**getCurrentSession**](UserApi.md#getcurrentsession) | **
+GET** /rest/v1/user/session | Get Currently logged-in user session.
+[**getCurrentUser**](UserApi.md#getcurrentuser) | **GET** /rest/v1/user/current | Get presently logged-in user.
+[**getMatchingUsers**](UserApi.md#getmatchingusers) | **GET** /rest/v1/user/matches | Get presently logged-in user.
+[**getToken**](UserApi.md#gettoken) | **
+POST** /rest/v1/user/token/{userId}/{key} | Request a new temporary token for authentication
+[**getUser**](UserApi.md#getuser) | **GET** /rest/v1/user/{userId} | Get a user by his ID
+[**getUserByEmail**](UserApi.md#getuserbyemail) | **GET** /rest/v1/user/byEmail/{email} | Get a user by his Email/Login
+[**listUsersBy**](UserApi.md#listusersby) | **GET** /rest/v1/user | List users with(out) pagination
+[**listUsersInGroup**](UserApi.md#listusersingroup) | **
+GET** /rest/v1/user/inGroup/{groupId} | List users with(out) pagination
+[**matchUsersBy**](UserApi.md#matchusersby) | **
+POST** /rest/v1/user/match | Get ids of healthcare party matching the provided filter for the current user (HcParty)
+[**modifyProperties**](UserApi.md#modifyproperties) | **PUT** /rest/v1/user/{userId}/properties | Modify a User property
+[**modifyUser**](UserApi.md#modifyuser) | **PUT** /rest/v1/user | Modify a user.
+[**modifyUserInGroup**](UserApi.md#modifyuseringroup) | **PUT** /rest/v1/user/inGroup/{groupId} | Modify a user.
 
 
 # **assignHealthcareParty**

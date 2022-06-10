@@ -9,14 +9,23 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createClassificationTemplate**](ClassificationTemplateApi.md#createclassificationtemplate) | **POST** /rest/v2/classificationTemplate | Create a classification Template with the current user
-[**deleteClassificationTemplates**](ClassificationTemplateApi.md#deleteclassificationtemplates) | **POST** /rest/v2/classificationTemplate/delete/batch | Delete classification Templates.
-[**findClassificationTemplatesBy**](ClassificationTemplateApi.md#findclassificationtemplatesby) | **GET** /rest/v2/classificationTemplate | List all classification templates with pagination
-[**getClassificationTemplate**](ClassificationTemplateApi.md#getclassificationtemplate) | **GET** /rest/v2/classificationTemplate/{classificationTemplateId} | Get a classification Template
-[**getClassificationTemplateByIds**](ClassificationTemplateApi.md#getclassificationtemplatebyids) | **GET** /rest/v2/classificationTemplate/byIds/{ids} | Get a list of classifications Templates
-[**listClassificationTemplatesByHCPartyPatientForeignKeys**](ClassificationTemplateApi.md#listclassificationtemplatesbyhcpartypatientforeignkeys) | **GET** /rest/v2/classificationTemplate/byHcPartySecretForeignKeys | List classification Templates found By Healthcare Party and secret foreign keyelementIds.
-[**modifyClassificationTemplate**](ClassificationTemplateApi.md#modifyclassificationtemplate) | **PUT** /rest/v2/classificationTemplate | Modify a classification Template
-[**newClassificationTemplateDelegations**](ClassificationTemplateApi.md#newclassificationtemplatedelegations) | **POST** /rest/v2/classificationTemplate/{classificationTemplateId}/delegate | Delegates a classification Template to a healthcare party
+[**createClassificationTemplate**](ClassificationTemplateApi.md#createclassificationtemplate) | **
+POST** /rest/v1/classificationTemplate | Create a classification Template with the current user
+[**deleteClassificationTemplates**](ClassificationTemplateApi.md#deleteclassificationtemplates) | **
+POST** /rest/v1/classificationTemplate/delete/batch | Delete classification Templates.
+[**findClassificationTemplatesBy**](ClassificationTemplateApi.md#findclassificationtemplatesby) | **
+GET** /rest/v1/classificationTemplate | List all classification templates with pagination
+[**getClassificationTemplate**](ClassificationTemplateApi.md#getclassificationtemplate) | **
+GET** /rest/v1/classificationTemplate/{classificationTemplateId} | Get a classification Template
+[**getClassificationTemplateByIds**](ClassificationTemplateApi.md#getclassificationtemplatebyids) | **
+GET** /rest/v1/classificationTemplate/byIds/{ids} | Get a list of classifications Templates
+[**
+listClassificationTemplatesByHCPartyPatientForeignKeys**](ClassificationTemplateApi.md#listclassificationtemplatesbyhcpartypatientforeignkeys) | **
+GET** /rest/v1/classificationTemplate/byHcPartySecretForeignKeys | List classification Templates found By Healthcare Party and secret foreign keyelementIds.
+[**modifyClassificationTemplate**](ClassificationTemplateApi.md#modifyclassificationtemplate) | **
+PUT** /rest/v1/classificationTemplate | Modify a classification Template
+[**newClassificationTemplateDelegations**](ClassificationTemplateApi.md#newclassificationtemplatedelegations) | **
+POST** /rest/v1/classificationTemplate/{classificationTemplateId}/delegate | Delegates a classification Template to a healthcare party
 
 
 # **createClassificationTemplate**

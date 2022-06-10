@@ -29,7 +29,7 @@ class ContactApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawCloseForHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byHcPartySecretForeignKeys/close';
+    final path = r'/rest/v1/contact/byHcPartySecretForeignKeys/close';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -38,8 +38,8 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -95,7 +95,7 @@ class ContactApi {
   /// * [ContactDto] contactDto (required):
   Future<Response> rawCreateContactWithHttpInfo(ContactDto contactDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact';
+    final path = r'/rest/v1/contact';
 
     // ignore: prefer_final_locals
     Object? postBody = contactDto;
@@ -106,7 +106,6 @@ class ContactApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -153,7 +152,7 @@ class ContactApi {
   /// * [List<ContactDto>] contactDto (required):
   Future<Response> rawCreateContactsWithHttpInfo(List<ContactDto> contactDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/batch';
+    final path = r'/rest/v1/contact/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = contactDto;
@@ -164,7 +163,6 @@ class ContactApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -214,7 +212,7 @@ class ContactApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteContactsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/delete/batch';
+    final path = r'/rest/v1/contact/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -225,7 +223,6 @@ class ContactApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -281,7 +278,7 @@ class ContactApi {
   ///   Number of rows
   Future<Response> rawFilterContactsByWithHttpInfo(FilterChain<ContactDto> filterChainContact, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/filter';
+    final path = r'/rest/v1/contact/filter';
 
     // ignore: prefer_final_locals
     Object? postBody = filterChainContact;
@@ -368,7 +365,7 @@ class ContactApi {
   ///   Number of rows
   Future<Response> rawFilterServicesByWithHttpInfo(FilterChain<ServiceDto> filterChainService, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/service/filter';
+    final path = r'/rest/v1/contact/service/filter';
 
     // ignore: prefer_final_locals
     Object? postBody = filterChainService;
@@ -452,7 +449,7 @@ class ContactApi {
   ///   Number of rows
   Future<Response> rawFindContactsByOpeningDateWithHttpInfo(int startKey, int endKey, String hcpartyid, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byOpeningDate';
+    final path = r'/rest/v1/contact/byOpeningDate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -461,9 +458,9 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'startKey', startKey));
-      queryParams.addAll(_queryParams('', 'endKey', endKey));
-      queryParams.addAll(_queryParams('', 'hcpartyid', hcpartyid));
+    queryParams.addAll(_queryParams('', 'startKey', startKey));
+    queryParams.addAll(_queryParams('', 'endKey', endKey));
+    queryParams.addAll(_queryParams('', 'hcpartyid', hcpartyid));
     if (startDocumentId != null) {
       queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
@@ -545,8 +542,8 @@ class ContactApi {
   /// * [String] contactId (required):
   Future<Response> rawGetContactWithHttpInfo(String contactId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/{contactId}'
-      .replaceAll('{contactId}', contactId);
+    final path = r'/rest/v1/contact/{contactId}'
+        .replaceAll('{contactId}', contactId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -599,7 +596,7 @@ class ContactApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawGetContactsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byIds';
+    final path = r'/rest/v1/contact/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -655,7 +652,7 @@ class ContactApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> rawGetEmptyContentWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/service/content/empty';
+    final path = r'/rest/v1/contact/service/content/empty';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -666,7 +663,6 @@ class ContactApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -707,9 +703,9 @@ class ContactApi {
   /// * [int] minOccurences (required):
   Future<Response> rawGetServiceCodesOccurencesWithHttpInfo(String codeType, int minOccurences,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/service/codes/{codeType}/{minOccurences}'
-      .replaceAll('{codeType}', codeType)
-      .replaceAll('{minOccurences}', minOccurences.toString());
+    final path = r'/rest/v1/contact/service/codes/{codeType}/{minOccurences}'
+        .replaceAll('{codeType}', codeType)
+        .replaceAll('{minOccurences}', minOccurences.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -770,7 +766,7 @@ class ContactApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawGetServicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/service';
+    final path = r'/rest/v1/contact/service';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -781,7 +777,6 @@ class ContactApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -834,7 +829,7 @@ class ContactApi {
   ///   The type of the link
   Future<Response> rawGetServicesLinkedToWithHttpInfo(ListOfIdsDto listOfIdsDto, { String? linkType, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/service/linkedTo';
+    final path = r'/rest/v1/contact/service/linkedTo';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -902,7 +897,7 @@ class ContactApi {
   /// * [String] serviceId (required):
   Future<Response> rawListContactByHCPartyServiceIdWithHttpInfo(String hcPartyId, String serviceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byHcPartyServiceId';
+    final path = r'/rest/v1/contact/byHcPartyServiceId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -911,8 +906,8 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'serviceId', serviceId));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'serviceId', serviceId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -964,7 +959,7 @@ class ContactApi {
   /// * [String] externalId (required):
   Future<Response> rawListContactsByExternalIdWithHttpInfo(String externalId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byExternalId';
+    final path = r'/rest/v1/contact/byExternalId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -973,7 +968,7 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'externalId', externalId));
+    queryParams.addAll(_queryParams('', 'externalId', externalId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1025,7 +1020,7 @@ class ContactApi {
   /// * [String] formId (required):
   Future<Response> rawListContactsByHCPartyAndFormIdWithHttpInfo(String hcPartyId, String formId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byHcPartyFormId';
+    final path = r'/rest/v1/contact/byHcPartyFormId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1034,8 +1029,8 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'formId', formId));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'formId', formId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1089,7 +1084,7 @@ class ContactApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawListContactsByHCPartyAndFormIdsWithHttpInfo(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byHcPartyFormIds';
+    final path = r'/rest/v1/contact/byHcPartyFormIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1098,7 +1093,7 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
@@ -1152,7 +1147,7 @@ class ContactApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawListContactsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byHcPartyPatientForeignKeys';
+    final path = r'/rest/v1/contact/byHcPartyPatientForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1161,7 +1156,7 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
@@ -1221,7 +1216,7 @@ class ContactApi {
   /// * [bool] skipClosedContacts:
   Future<Response> rawListContactsByHCPartyAndPatientSecretFKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String? planOfActionsIds, bool? skipClosedContacts, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/contact/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1230,8 +1225,8 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
     if (planOfActionsIds != null) {
       queryParams.addAll(_queryParams('', 'planOfActionsIds', planOfActionsIds));
     }
@@ -1299,7 +1294,7 @@ class ContactApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawListContactsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/byHcPartySecretForeignKeys/delegations';
+    final path = r'/rest/v1/contact/byHcPartySecretForeignKeys/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1308,8 +1303,8 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1365,7 +1360,7 @@ class ContactApi {
   /// * [String] associationId (required):
   Future<Response> rawListServicesByAssociationIdWithHttpInfo(String associationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/service/associationId';
+    final path = r'/rest/v1/contact/service/associationId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1374,7 +1369,7 @@ class ContactApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'associationId', associationId));
+    queryParams.addAll(_queryParams('', 'associationId', associationId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1428,8 +1423,7 @@ class ContactApi {
   /// * [String] healthElementId (required):
   Future<Response> rawListServicesByHealthElementIdWithHttpInfo(String healthElementId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/service/healthElementId/{healthElementId}'
-      .replaceAll('{healthElementId}', healthElementId);
+    final path = r'/rest/v1/contact/service/healthElementId/{healthElementId}'.replaceAll('{healthElementId}', healthElementId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1489,7 +1483,7 @@ class ContactApi {
     AbstractFilterDto<ContactDto> abstractFilterDtoContact,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/match';
+    final path = r'/rest/v1/contact/match';
 
     // ignore: prefer_final_locals
     Object? postBody = abstractFilterDtoContact;
@@ -1500,7 +1494,6 @@ class ContactApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1551,7 +1544,7 @@ class ContactApi {
   /// * [ContactDto] contactDto (required):
   Future<Response> rawModifyContactWithHttpInfo(ContactDto contactDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact';
+    final path = r'/rest/v1/contact';
 
     // ignore: prefer_final_locals
     Object? postBody = contactDto;
@@ -1562,7 +1555,6 @@ class ContactApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1609,7 +1601,7 @@ class ContactApi {
   /// * [List<ContactDto>] contactDto (required):
   Future<Response> rawModifyContactsWithHttpInfo(List<ContactDto> contactDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/batch';
+    final path = r'/rest/v1/contact/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = contactDto;
@@ -1665,7 +1657,7 @@ class ContactApi {
   /// * [AbstractFilterDtoService] abstractFilterDtoService (required):
   Future<Response> rawMatchServicesByWithHttpInfo(AbstractFilterDto<ServiceDto> abstractFilterDtoService,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/service/match';
+    final path = r'/rest/v1/contact/service/match';
 
     // ignore: prefer_final_locals
     Object postBody = abstractFilterDtoService;
@@ -1722,7 +1714,7 @@ class ContactApi {
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> rawModifyContactsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/delegations';
+    final path = r'/rest/v1/contact/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody = icureStubDto;
@@ -1733,7 +1725,6 @@ class ContactApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1785,8 +1776,7 @@ class ContactApi {
   /// * [DelegationDto] delegationDto (required):
   Future<Response> rawNewContactDelegationsWithHttpInfo(String contactId, DelegationDto delegationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/{contactId}/delegate'
-      .replaceAll('{contactId}', contactId);
+    final path = r'/rest/v1/contact/{contactId}/delegate'.replaceAll('{contactId}', contactId);
 
     // ignore: prefer_final_locals
     Object? postBody = delegationDto;
@@ -1845,7 +1835,7 @@ class ContactApi {
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> rawSetContactsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/contact/delegations';
+    final path = r'/rest/v1/contact/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody = icureStubDto;
@@ -1856,7 +1846,6 @@ class ContactApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

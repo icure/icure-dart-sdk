@@ -9,9 +9,13 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAvailabilitiesByPeriodAndCalendarItemTypeId**](AnonymousAccessApi.md#getavailabilitiesbyperiodandcalendaritemtypeid) | **GET** /rest/v2/aa/available/inGroup/{groupId}/forUser/{userId}/type/{getCalendarItemTypeId} | Get Availabilities for HCP and appointmentType
-[**listAppointmentTypesForUser**](AnonymousAccessApi.md#listappointmenttypesforuser) | **GET** /rest/v2/aa/appointmentType/inGroup/{groupId}/forUser/{userId} | List Calendar Item types for a provided group id and user id
-[**listHealthcarePartiesInGroup**](AnonymousAccessApi.md#listhealthcarepartiesingroup) | **GET** /rest/v2/aa/hcparty/inGroup/{groupId} | List healthcare parties for a provided group id
+[**
+getAvailabilitiesByPeriodAndCalendarItemTypeId**](AnonymousAccessApi.md#getavailabilitiesbyperiodandcalendaritemtypeid) | **
+GET** /rest/v1/aa/available/inGroup/{groupId}/forUser/{userId}/type/{getCalendarItemTypeId} | Get Availabilities for HCP and appointmentType
+[**listAppointmentTypesForUser**](AnonymousAccessApi.md#listappointmenttypesforuser) | **
+GET** /rest/v1/aa/appointmentType/inGroup/{groupId}/forUser/{userId} | List Calendar Item types for a provided group id and user id
+[**listHealthcarePartiesInGroup**](AnonymousAccessApi.md#listhealthcarepartiesingroup) | **
+GET** /rest/v1/aa/hcparty/inGroup/{groupId} | List healthcare parties for a provided group id
 
 
 # **getAvailabilitiesByPeriodAndCalendarItemTypeId**

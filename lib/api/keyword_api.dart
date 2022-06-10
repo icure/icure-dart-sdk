@@ -27,7 +27,7 @@ class KeywordApi {
   /// * [KeywordDto] keywordDto (required):
   Future<Response> createKeywordWithHttpInfo(KeywordDto keywordDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/keyword';
+    final path = r'/rest/v1/keyword';
 
     // ignore: prefer_final_locals
     Object? postBody = keywordDto;
@@ -85,7 +85,7 @@ class KeywordApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteKeywordsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/keyword/delete/batch';
+    final path = r'/rest/v1/keyword/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -144,8 +144,7 @@ class KeywordApi {
   /// * [String] keywordId (required):
   Future<Response> getKeywordWithHttpInfo(String keywordId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/keyword/{keywordId}'
-      .replaceAll('{keywordId}', keywordId);
+    final path = r'/rest/v1/keyword/{keywordId}'.replaceAll('{keywordId}', keywordId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -195,7 +194,7 @@ class KeywordApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getKeywordsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/keyword';
+    final path = r'/rest/v1/keyword';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -206,7 +205,6 @@ class KeywordApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -248,8 +246,7 @@ class KeywordApi {
   /// * [String] userId (required):
   Future<Response> getKeywordsByUserWithHttpInfo(String userId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/keyword/byUser/{userId}'
-      .replaceAll('{userId}', userId);
+    final path = r'/rest/v1/keyword/byUser/{userId}'.replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -308,7 +305,7 @@ class KeywordApi {
   /// * [KeywordDto] keywordDto (required):
   Future<Response> modifyKeywordWithHttpInfo(KeywordDto keywordDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/keyword';
+    final path = r'/rest/v1/keyword';
 
     // ignore: prefer_final_locals
     Object? postBody = keywordDto;
@@ -319,7 +316,6 @@ class KeywordApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

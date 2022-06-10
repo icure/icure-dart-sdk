@@ -31,10 +31,10 @@ class BeefactApi {
   /// * [MapOfIdsDto] mapOfIdsDto (required):
   Future<Response> createBatchAndMessageWithHttpInfo(String insuranceId, String newMessageId, int numericalRef, MapOfIdsDto mapOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_efact/{insuranceId}/{newMessageId}/{numericalRef}'
-      .replaceAll('{insuranceId}', insuranceId)
-      .replaceAll('{newMessageId}', newMessageId)
-      .replaceAll('{numericalRef}', numericalRef.toString());
+    final path = r'/rest/v1/be_efact/{insuranceId}/{newMessageId}/{numericalRef}'
+        .replaceAll('{insuranceId}', insuranceId)
+        .replaceAll('{newMessageId}', newMessageId)
+        .replaceAll('{numericalRef}', numericalRef.toString());
 
     // ignore: prefer_final_locals
     Object? postBody = mapOfIdsDto;

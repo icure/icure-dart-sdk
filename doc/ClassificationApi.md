@@ -9,14 +9,23 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createClassification**](ClassificationApi.md#createclassification) | **POST** /rest/v2/classification | Create a classification with the current user
-[**deleteClassifications**](ClassificationApi.md#deleteclassifications) | **POST** /rest/v2/classification/delete/batch | Delete classification Templates.
-[**findClassificationsByHCPartyPatientForeignKeys**](ClassificationApi.md#findclassificationsbyhcpartypatientforeignkeys) | **GET** /rest/v2/classification/byHcPartySecretForeignKeys | List classification Templates found By Healthcare Party and secret foreign keyelementIds.
-[**getClassification**](ClassificationApi.md#getclassification) | **GET** /rest/v2/classification/{classificationId} | Get a classification Template
-[**getClassificationByHcPartyId**](ClassificationApi.md#getclassificationbyhcpartyid) | **GET** /rest/v2/classification/byIds/{ids} | Get a list of classifications
-[**modifyClassification**](ClassificationApi.md#modifyclassification) | **PUT** /rest/v2/classification | Modify a classification Template
-[**newClassificationDelegations**](ClassificationApi.md#newclassificationdelegations) | **POST** /rest/v2/classification/{classificationId}/delegate | Delegates a classification to a healthcare party
-[**setClassificationsDelegations**](ClassificationApi.md#setclassificationsdelegations) | **POST** /rest/v2/classification/delegations | Update delegations in classification
+[**createClassification**](ClassificationApi.md#createclassification) | **
+POST** /rest/v1/classification | Create a classification with the current user
+[**deleteClassifications**](ClassificationApi.md#deleteclassifications) | **
+POST** /rest/v1/classification/delete/batch | Delete classification Templates.
+[**
+findClassificationsByHCPartyPatientForeignKeys**](ClassificationApi.md#findclassificationsbyhcpartypatientforeignkeys) | **
+GET** /rest/v1/classification/byHcPartySecretForeignKeys | List classification Templates found By Healthcare Party and secret foreign keyelementIds.
+[**getClassification**](ClassificationApi.md#getclassification) | **
+GET** /rest/v1/classification/{classificationId} | Get a classification Template
+[**getClassificationByHcPartyId**](ClassificationApi.md#getclassificationbyhcpartyid) | **
+GET** /rest/v1/classification/byIds/{ids} | Get a list of classifications
+[**modifyClassification**](ClassificationApi.md#modifyclassification) | **
+PUT** /rest/v1/classification | Modify a classification Template
+[**newClassificationDelegations**](ClassificationApi.md#newclassificationdelegations) | **
+POST** /rest/v1/classification/{classificationId}/delegate | Delegates a classification to a healthcare party
+[**setClassificationsDelegations**](ClassificationApi.md#setclassificationsdelegations) | **
+POST** /rest/v1/classification/delegations | Update delegations in classification
 
 
 # **createClassification**

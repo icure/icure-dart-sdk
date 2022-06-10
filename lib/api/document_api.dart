@@ -25,7 +25,7 @@ class DocumentApi {
   /// * [DocumentDto] documentDto (required):
   Future<Response> rawCreateDocumentWithHttpInfo(DocumentDto documentDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document';
+    final path = r'/rest/v1/document';
 
     // ignore: prefer_final_locals
     Object? postBody = documentDto;
@@ -79,8 +79,8 @@ class DocumentApi {
   /// * [String] documentId (required):
   Future<Response> rawDeleteAttachmentWithHttpInfo(String documentId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/{documentId}/attachment'
-      .replaceAll('{documentId}', documentId);
+    final path = r'/rest/v1/document/{documentId}/attachment'
+        .replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -134,7 +134,7 @@ class DocumentApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteDocumentWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/delete/batch';
+    final path = r'/rest/v1/document/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -145,7 +145,6 @@ class DocumentApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -193,7 +192,7 @@ class DocumentApi {
   /// * [int] limit:
   Future<Response> rawFindWithoutDelegationWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/woDelegation';
+    final path = r'/rest/v1/document/woDelegation';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -256,8 +255,7 @@ class DocumentApi {
   /// * [String] documentId (required):
   Future<Response> rawGetDocumentWithHttpInfo(String documentId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/{documentId}'
-      .replaceAll('{documentId}', documentId);
+    final path = r'/rest/v1/document/{documentId}'.replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -317,9 +315,8 @@ class DocumentApi {
   /// * [String] fileName:
   Future<Response> rawGetDocumentAttachmentWithHttpInfo(String documentId, String attachmentId, { String? enckeys, String? fileName, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/{documentId}/attachment/{attachmentId}'
-      .replaceAll('{documentId}', documentId)
-      .replaceAll('{attachmentId}', attachmentId);
+    final path =
+        r'/rest/v1/document/{documentId}/attachment/{attachmentId}'.replaceAll('{documentId}', documentId).replaceAll('{attachmentId}', attachmentId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -386,8 +383,7 @@ class DocumentApi {
   /// * [String] externalUuid (required):
   Future<Response> rawGetDocumentByExternalUuidWithHttpInfo(String externalUuid,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/externaluuid/{externalUuid}'
-      .replaceAll('{externalUuid}', externalUuid);
+    final path = r'/rest/v1/document/externaluuid/{externalUuid}'.replaceAll('{externalUuid}', externalUuid);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -441,7 +437,7 @@ class DocumentApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawGetDocumentsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/byIds';
+    final path = r'/rest/v1/document/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -452,7 +448,6 @@ class DocumentApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -498,8 +493,8 @@ class DocumentApi {
   /// * [String] externalUuid (required):
   Future<Response> rawGetDocumentsByExternalUuidWithHttpInfo(String externalUuid,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/externaluuid/{externalUuid}/all'
-      .replaceAll('{externalUuid}', externalUuid);
+    final path = r'/rest/v1/document/externaluuid/{externalUuid}/all'
+        .replaceAll('{externalUuid}', externalUuid);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -562,7 +557,7 @@ class DocumentApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawListDocumentByTypeHCPartyMessageSecretFKeysWithHttpInfo(String documentTypeCode, String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/byTypeHcPartySecretForeignKeys';
+    final path = r'/rest/v1/document/byTypeHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -571,8 +566,8 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'documentTypeCode', documentTypeCode));
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'documentTypeCode', documentTypeCode));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
       queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
@@ -633,7 +628,7 @@ class DocumentApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawListDocumentsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/document/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -642,8 +637,8 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -697,7 +692,7 @@ class DocumentApi {
   /// * [DocumentDto] documentDto (required):
   Future<Response> rawModifyDocumentWithHttpInfo(DocumentDto documentDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document';
+    final path = r'/rest/v1/document';
 
     // ignore: prefer_final_locals
     Object? postBody = documentDto;
@@ -708,7 +703,6 @@ class DocumentApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -753,7 +747,7 @@ class DocumentApi {
   /// * [List<DocumentDto>] documentDto (required):
   Future<Response> rawModifyDocumentsWithHttpInfo(List<DocumentDto> documentDto) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/batch';
+    final path = r'/rest/v1/document/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = documentDto;
@@ -764,7 +758,6 @@ class DocumentApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -816,8 +809,7 @@ class DocumentApi {
   /// * [String] enckeys:
   Future<Response> rawSetDocumentAttachmentWithHttpInfo(String documentId, ByteStream body, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/{documentId}/attachment'
-      .replaceAll('{documentId}', documentId);
+    final path = r'/rest/v1/document/{documentId}/attachment'.replaceAll('{documentId}', documentId);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -883,8 +875,7 @@ class DocumentApi {
   /// * [String] enckeys:
   Future<Response> rawSetDocumentAttachmentMultiWithHttpInfo(String documentId, MultipartFile attachment, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/{documentId}/attachment/multipart'
-      .replaceAll('{documentId}', documentId);
+    final path = r'/rest/v1/document/{documentId}/attachment/multipart'.replaceAll('{documentId}', documentId);
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -947,7 +938,7 @@ class DocumentApi {
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> rawSetDocumentsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/delegations';
+    final path = r'/rest/v1/document/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody = icureStubDto;
@@ -958,7 +949,6 @@ class DocumentApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1010,7 +1000,7 @@ class DocumentApi {
   /// * [String] enckeys:
   Future<Response> rawSetSafeDocumentAttachmentWithHttpInfo(String documentId, MultipartFile body, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/document/attachment';
+    final path = r'/rest/v1/document/attachment';
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -1019,7 +1009,7 @@ class DocumentApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'documentId', documentId));
+    queryParams.addAll(_queryParams('', 'documentId', documentId));
     if (enckeys != null) {
       queryParams.addAll(_queryParams('', 'enckeys', enckeys));
     }

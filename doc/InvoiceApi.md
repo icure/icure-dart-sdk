@@ -9,37 +9,62 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**appendCodes**](InvoiceApi.md#appendcodes) | **POST** /rest/v2/invoice/byauthor/{userId}/append/{type}/{sentMediumType} | Gets all invoices for author at date
-[**createInvoice**](InvoiceApi.md#createinvoice) | **POST** /rest/v2/invoice | Creates an invoice
-[**createInvoices**](InvoiceApi.md#createinvoices) | **POST** /rest/v2/invoice/batch | Create a batch of invoices
-[**deleteInvoice**](InvoiceApi.md#deleteinvoice) | **DELETE** /rest/v2/invoice/{invoiceId} | Deletes an invoice
-[**filterInvoicesBy**](InvoiceApi.md#filterinvoicesby) | **POST** /rest/v2/invoice/filter | Filter invoices for the current user (HcParty)
-[**findInvoicesByAuthor**](InvoiceApi.md#findinvoicesbyauthor) | **GET** /rest/v2/invoice/byauthor/{hcPartyId} | Gets all invoices for author at date
-[**getInvoice**](InvoiceApi.md#getinvoice) | **GET** /rest/v2/invoice/{invoiceId} | Gets an invoice
-[**getInvoices**](InvoiceApi.md#getinvoices) | **POST** /rest/v2/invoice/byIds | Gets an invoice
-[**getTarificationsCodesOccurences**](InvoiceApi.md#gettarificationscodesoccurences) | **GET** /rest/v2/invoice/codes/{minOccurences} | Get the list of all used tarifications frequencies in invoices
-[**listAllHcpsByStatus**](InvoiceApi.md#listallhcpsbystatus) | **POST** /rest/v2/invoice/allHcpsByStatus/{status} | Gets all invoices per status
-[**listInvoicesByContactIds**](InvoiceApi.md#listinvoicesbycontactids) | **POST** /rest/v2/invoice/byContacts | Gets all invoices for author at date
-[**listInvoicesByHCPartyAndPatientForeignKeys**](InvoiceApi.md#listinvoicesbyhcpartyandpatientforeignkeys) | **GET** /rest/v2/invoice/byHcPartySecretForeignKeys | List invoices found By Healthcare Party and secret foreign patient keys.
-[**listInvoicesByHcPartyAndGroupId**](InvoiceApi.md#listinvoicesbyhcpartyandgroupid) | **GET** /rest/v2/invoice/byHcPartyGroupId/{hcPartyId}/{groupId} | List invoices by groupId
-[**listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDate**](InvoiceApi.md#listinvoicesbyhcpartysentmediumtypeinvoicetypesentdate) | **GET** /rest/v2/invoice/byHcParty/{hcPartyId}/mediumType/{sentMediumType}/invoiceType/{invoiceType}/sent/{sent} | List invoices by type, sent or unsent
-[**listInvoicesByHcpartySendingModeStatusDate**](InvoiceApi.md#listinvoicesbyhcpartysendingmodestatusdate) | **GET** /rest/v2/invoice/byHcpartySendingModeStatusDate/{hcPartyId} | Get all invoices by author, by sending mode, by status and by date
-[**listInvoicesByIds**](InvoiceApi.md#listinvoicesbyids) | **GET** /rest/v2/invoice/byIds/{invoiceIds} | Gets all invoices for author at date
-[**listInvoicesByRecipientsIds**](InvoiceApi.md#listinvoicesbyrecipientsids) | **GET** /rest/v2/invoice/to/{recipientIds} | Gets all invoices for author at date
-[**listInvoicesByServiceIds**](InvoiceApi.md#listinvoicesbyserviceids) | **GET** /rest/v2/invoice/byServiceIds/{serviceIds} | Gets all invoices for author at date
-[**listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeys**](InvoiceApi.md#listinvoicesdelegationsstubsbyhcpartyandpatientforeignkeys) | **GET** /rest/v2/invoice/byHcPartySecretForeignKeys/delegations | List helement stubs found By Healthcare Party and secret foreign keys.
-[**listToInsurances**](InvoiceApi.md#listtoinsurances) | **GET** /rest/v2/invoice/toInsurances | Gets all invoices for author at date
-[**listToInsurancesUnsent**](InvoiceApi.md#listtoinsurancesunsent) | **GET** /rest/v2/invoice/toInsurances/unsent | Gets all invoices for author at date
-[**listToPatients**](InvoiceApi.md#listtopatients) | **GET** /rest/v2/invoice/toPatients | Gets all invoices for author at date
-[**listToPatientsUnsent**](InvoiceApi.md#listtopatientsunsent) | **GET** /rest/v2/invoice/toPatients/unsent | Gets all invoices for author at date
-[**mergeTo**](InvoiceApi.md#mergeto) | **POST** /rest/v2/invoice/mergeTo/{invoiceId} | Gets all invoices for author at date
-[**modifyInvoice**](InvoiceApi.md#modifyinvoice) | **PUT** /rest/v2/invoice | Modifies an invoice
-[**modifyInvoices**](InvoiceApi.md#modifyinvoices) | **PUT** /rest/v2/invoice/batch | Modify a batch of invoices
-[**newInvoiceDelegations**](InvoiceApi.md#newinvoicedelegations) | **PUT** /rest/v2/invoice/{invoiceId}/delegate | Adds a delegation to a invoice
-[**reassignInvoice**](InvoiceApi.md#reassigninvoice) | **POST** /rest/v2/invoice/reassign | Modifies an invoice
-[**removeCodes**](InvoiceApi.md#removecodes) | **POST** /rest/v2/invoice/byauthor/{userId}/service/{serviceId} | Remove an invoice of an user
-[**setInvoicesDelegations**](InvoiceApi.md#setinvoicesdelegations) | **POST** /rest/v2/invoice/delegations | Update delegations in healthElements.
-[**validate**](InvoiceApi.md#validate) | **POST** /rest/v2/invoice/validate/{invoiceId} | Gets all invoices for author at date
+[**appendCodes**](InvoiceApi.md#appendcodes) | **
+POST** /rest/v1/invoice/byauthor/{userId}/append/{type}/{sentMediumType} | Gets all invoices for author at date
+[**createInvoice**](InvoiceApi.md#createinvoice) | **POST** /rest/v1/invoice | Creates an invoice
+[**createInvoices**](InvoiceApi.md#createinvoices) | **POST** /rest/v1/invoice/batch | Create a batch of invoices
+[**deleteInvoice**](InvoiceApi.md#deleteinvoice) | **DELETE** /rest/v1/invoice/{invoiceId} | Deletes an invoice
+[**filterInvoicesBy**](InvoiceApi.md#filterinvoicesby) | **
+POST** /rest/v1/invoice/filter | Filter invoices for the current user (HcParty)
+[**findInvoicesByAuthor**](InvoiceApi.md#findinvoicesbyauthor) | **
+GET** /rest/v1/invoice/byauthor/{hcPartyId} | Gets all invoices for author at date
+[**getInvoice**](InvoiceApi.md#getinvoice) | **GET** /rest/v1/invoice/{invoiceId} | Gets an invoice
+[**getInvoices**](InvoiceApi.md#getinvoices) | **POST** /rest/v1/invoice/byIds | Gets an invoice
+[**getTarificationsCodesOccurences**](InvoiceApi.md#gettarificationscodesoccurences) | **
+GET** /rest/v1/invoice/codes/{minOccurences} | Get the list of all used tarifications frequencies in invoices
+[**listAllHcpsByStatus**](InvoiceApi.md#listallhcpsbystatus) | **
+POST** /rest/v1/invoice/allHcpsByStatus/{status} | Gets all invoices per status
+[**listInvoicesByContactIds**](InvoiceApi.md#listinvoicesbycontactids) | **
+POST** /rest/v1/invoice/byContacts | Gets all invoices for author at date
+[**listInvoicesByHCPartyAndPatientForeignKeys**](InvoiceApi.md#listinvoicesbyhcpartyandpatientforeignkeys) | **
+GET** /rest/v1/invoice/byHcPartySecretForeignKeys | List invoices found By Healthcare Party and secret foreign patient keys.
+[**listInvoicesByHcPartyAndGroupId**](InvoiceApi.md#listinvoicesbyhcpartyandgroupid) | **
+GET** /rest/v1/invoice/byHcPartyGroupId/{hcPartyId}/{groupId} | List invoices by groupId
+[**
+listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDate**](InvoiceApi.md#listinvoicesbyhcpartysentmediumtypeinvoicetypesentdate) | **
+GET** /rest/v1/invoice/byHcParty/{hcPartyId}/mediumType/{sentMediumType}/invoiceType/{invoiceType}/sent/{sent} | List invoices by type, sent or unsent
+[**listInvoicesByHcpartySendingModeStatusDate**](InvoiceApi.md#listinvoicesbyhcpartysendingmodestatusdate) | **
+GET** /rest/v1/invoice/byHcpartySendingModeStatusDate/{hcPartyId} | Get all invoices by author, by sending mode, by status and by date
+[**listInvoicesByIds**](InvoiceApi.md#listinvoicesbyids) | **
+GET** /rest/v1/invoice/byIds/{invoiceIds} | Gets all invoices for author at date
+[**listInvoicesByRecipientsIds**](InvoiceApi.md#listinvoicesbyrecipientsids) | **
+GET** /rest/v1/invoice/to/{recipientIds} | Gets all invoices for author at date
+[**listInvoicesByServiceIds**](InvoiceApi.md#listinvoicesbyserviceids) | **
+GET** /rest/v1/invoice/byServiceIds/{serviceIds} | Gets all invoices for author at date
+[**
+listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeys**](InvoiceApi.md#listinvoicesdelegationsstubsbyhcpartyandpatientforeignkeys) | **
+GET** /rest/v1/invoice/byHcPartySecretForeignKeys/delegations | List helement stubs found By Healthcare Party and secret foreign keys.
+[**listToInsurances**](InvoiceApi.md#listtoinsurances) | **
+GET** /rest/v1/invoice/toInsurances | Gets all invoices for author at date
+[**listToInsurancesUnsent**](InvoiceApi.md#listtoinsurancesunsent) | **
+GET** /rest/v1/invoice/toInsurances/unsent | Gets all invoices for author at date
+[**listToPatients**](InvoiceApi.md#listtopatients) | **
+GET** /rest/v1/invoice/toPatients | Gets all invoices for author at date
+[**listToPatientsUnsent**](InvoiceApi.md#listtopatientsunsent) | **
+GET** /rest/v1/invoice/toPatients/unsent | Gets all invoices for author at date
+[**mergeTo**](InvoiceApi.md#mergeto) | **
+POST** /rest/v1/invoice/mergeTo/{invoiceId} | Gets all invoices for author at date
+[**modifyInvoice**](InvoiceApi.md#modifyinvoice) | **PUT** /rest/v1/invoice | Modifies an invoice
+[**modifyInvoices**](InvoiceApi.md#modifyinvoices) | **PUT** /rest/v1/invoice/batch | Modify a batch of invoices
+[**newInvoiceDelegations**](InvoiceApi.md#newinvoicedelegations) | **
+PUT** /rest/v1/invoice/{invoiceId}/delegate | Adds a delegation to a invoice
+[**reassignInvoice**](InvoiceApi.md#reassigninvoice) | **POST** /rest/v1/invoice/reassign | Modifies an invoice
+[**removeCodes**](InvoiceApi.md#removecodes) | **
+POST** /rest/v1/invoice/byauthor/{userId}/service/{serviceId} | Remove an invoice of an user
+[**setInvoicesDelegations**](InvoiceApi.md#setinvoicesdelegations) | **
+POST** /rest/v1/invoice/delegations | Update delegations in healthElements.
+[**validate**](InvoiceApi.md#validate) | **
+POST** /rest/v1/invoice/validate/{invoiceId} | Gets all invoices for author at date
 
 
 # **appendCodes**

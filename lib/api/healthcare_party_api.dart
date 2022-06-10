@@ -27,7 +27,7 @@ class HealthcarePartyApi {
   /// * [HealthcarePartyDto] healthcarePartyDto (required):
   Future<Response> createHealthcarePartyWithHttpInfo(HealthcarePartyDto healthcarePartyDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty';
+    final path = r'/rest/v1/hcparty';
 
     // ignore: prefer_final_locals
     Object? postBody = healthcarePartyDto;
@@ -87,8 +87,8 @@ class HealthcarePartyApi {
   /// * [HealthcarePartyDto] healthcarePartyDto (required):
   Future<Response> createHealthcarePartyInGroupWithHttpInfo(String groupId, HealthcarePartyDto healthcarePartyDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/inGroup/{groupId}'
-      .replaceAll('{groupId}', groupId);
+    final path = r'/rest/v1/hcparty/inGroup/{groupId}'
+        .replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody = healthcarePartyDto;
@@ -148,7 +148,7 @@ class HealthcarePartyApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteHealthcarePartiesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/delete/batch';
+    final path = r'/rest/v1/hcparty/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -159,7 +159,6 @@ class HealthcarePartyApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -211,8 +210,7 @@ class HealthcarePartyApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteHealthcarePartiesInGroupWithHttpInfo(String groupId, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/delete/batch/inGroup/{groupId}'
-      .replaceAll('{groupId}', groupId);
+    final path = r'/rest/v1/hcparty/delete/batch/inGroup/{groupId}'.replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -281,7 +279,7 @@ class HealthcarePartyApi {
   ///   Number of rows
   Future<Response> filterHealthPartiesByWithHttpInfo(FilterChain<HealthcarePartyDto> filterChainHealthcareParty, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/filter';
+    final path = r'/rest/v1/hcparty/filter';
 
     // ignore: prefer_final_locals
     Object? postBody = filterChainHealthcareParty;
@@ -362,7 +360,7 @@ class HealthcarePartyApi {
   ///   Descending
   Future<Response> findHealthcarePartiesByWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, bool? desc, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty';
+    final path = r'/rest/v1/hcparty';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -456,7 +454,7 @@ class HealthcarePartyApi {
   ///   Descending
   Future<Response> findHealthcarePartiesByNameWithHttpInfo({ String? name, String? startKey, String? startDocumentId, int? limit, bool? desc, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/byName';
+    final path = r'/rest/v1/hcparty/byName';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -556,11 +554,11 @@ class HealthcarePartyApi {
   ///   Number of rows
   Future<Response> findHealthcarePartiesBySpecialityAndPostCodeWithHttpInfo(String type, String spec, String firstCode, String lastCode, { int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/bySpecialityAndPostCode/{type}/{spec}/{firstCode}/to/{lastCode}'
-      .replaceAll('{type}', type)
-      .replaceAll('{spec}', spec)
-      .replaceAll('{firstCode}', firstCode)
-      .replaceAll('{lastCode}', lastCode);
+    final path = r'/rest/v1/hcparty/bySpecialityAndPostCode/{type}/{spec}/{firstCode}/to/{lastCode}'
+        .replaceAll('{type}', type)
+        .replaceAll('{spec}', spec)
+        .replaceAll('{firstCode}', firstCode)
+        .replaceAll('{lastCode}', lastCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -647,8 +645,7 @@ class HealthcarePartyApi {
   ///   Descending
   Future<Response> findHealthcarePartiesBySsinOrNihiiWithHttpInfo(String searchValue, { String? startKey, String? startDocumentId, int? limit, bool? desc, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/byNihiiOrSsin/{searchValue}'
-      .replaceAll('{searchValue}', searchValue);
+    final path = r'/rest/v1/hcparty/byNihiiOrSsin/{searchValue}'.replaceAll('{searchValue}', searchValue);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -727,7 +724,7 @@ class HealthcarePartyApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getCurrentHealthcarePartyWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/current';
+    final path = r'/rest/v1/hcparty/current';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -738,7 +735,6 @@ class HealthcarePartyApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -781,8 +777,7 @@ class HealthcarePartyApi {
   /// * [String] healthcarePartyId (required):
   Future<Response> getHcPartyKeysForDelegateWithHttpInfo(String healthcarePartyId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/byKeys/{healthcarePartyId}'
-      .replaceAll('{healthcarePartyId}', healthcarePartyId);
+    final path = r'/rest/v1/hcparty/byKeys/{healthcarePartyId}'.replaceAll('{healthcarePartyId}', healthcarePartyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -840,7 +835,7 @@ class HealthcarePartyApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getHealthcarePartiesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/byIds';
+    final path = r'/rest/v1/hcparty/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -851,7 +846,6 @@ class HealthcarePartyApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -901,8 +895,7 @@ class HealthcarePartyApi {
   /// * [String] healthcarePartyId (required):
   Future<Response> getHealthcarePartyWithHttpInfo(String healthcarePartyId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/{healthcarePartyId}'
-      .replaceAll('{healthcarePartyId}', healthcarePartyId);
+    final path = r'/rest/v1/hcparty/{healthcarePartyId}'.replaceAll('{healthcarePartyId}', healthcarePartyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -960,8 +953,7 @@ class HealthcarePartyApi {
   /// * [String] healthcarePartyId (required):
   Future<Response> getPublicKeyWithHttpInfo(String healthcarePartyId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/{healthcarePartyId}/publicKey'
-      .replaceAll('{healthcarePartyId}', healthcarePartyId);
+    final path = r'/rest/v1/hcparty/{healthcarePartyId}/publicKey'.replaceAll('{healthcarePartyId}', healthcarePartyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1020,8 +1012,7 @@ class HealthcarePartyApi {
   ///   The Last name search value
   Future<Response> listHealthcarePartiesByNameWithHttpInfo(String name,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/byNameStrict/{name}'
-      .replaceAll('{name}', name);
+    final path = r'/rest/v1/hcparty/byNameStrict/{name}'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1083,8 +1074,7 @@ class HealthcarePartyApi {
   /// * [String] parentId (required):
   Future<Response> listHealthcarePartiesByParentIdWithHttpInfo(String parentId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/{parentId}/children'
-      .replaceAll('{parentId}', parentId);
+    final path = r'/rest/v1/hcparty/{parentId}/children'.replaceAll('{parentId}', parentId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1143,7 +1133,7 @@ class HealthcarePartyApi {
   /// * [AbstractFilterDto<HealthcarePartyDto>] abstractFilterDtoHealthcareParty (required):
   Future<Response> matchHealthcarePartiesByWithHttpInfo(AbstractFilterDto<HealthcarePartyDto> abstractFilterDtoHealthcareParty,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/match';
+    final path = r'/rest/v1/hcparty/match';
 
     // ignore: prefer_final_locals
     Object? postBody = abstractFilterDtoHealthcareParty;
@@ -1154,7 +1144,6 @@ class HealthcarePartyApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1202,7 +1191,7 @@ class HealthcarePartyApi {
   /// * [HealthcarePartyDto] healthcarePartyDto (required):
   Future<Response> modifyHealthcarePartyWithHttpInfo(HealthcarePartyDto healthcarePartyDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty';
+    final path = r'/rest/v1/hcparty';
 
     // ignore: prefer_final_locals
     Object? postBody = healthcarePartyDto;
@@ -1213,7 +1202,6 @@ class HealthcarePartyApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1262,8 +1250,7 @@ class HealthcarePartyApi {
   /// * [HealthcarePartyDto] healthcarePartyDto (required):
   Future<Response> modifyHealthcarePartyInGroupWithHttpInfo(String groupId, HealthcarePartyDto healthcarePartyDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/hcparty/inGroup/{groupId}'
-      .replaceAll('{groupId}', groupId);
+    final path = r'/rest/v1/hcparty/inGroup/{groupId}'.replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody = healthcarePartyDto;

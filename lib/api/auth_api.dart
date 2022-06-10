@@ -27,7 +27,7 @@ class AuthApi {
   /// * [LoginCredentials] loginCredentials (required):
   Future<Response> loginWithHttpInfo(LoginCredentials loginCredentials,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/auth/login';
+    final path = r'/rest/v1/auth/login';
 
     // ignore: prefer_final_locals
     Object? postBody = loginCredentials;
@@ -81,7 +81,7 @@ class AuthApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> logoutWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/auth/logout';
+    final path = r'/rest/v1/auth/logout';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -92,7 +92,6 @@ class AuthApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -131,7 +130,7 @@ class AuthApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> logoutPostWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/auth/logout';
+    final path = r'/rest/v1/auth/logout';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -142,7 +141,6 @@ class AuthApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -187,9 +185,7 @@ class AuthApi {
   /// * [String] path (required):
   Future<Response> tokenWithHttpInfo(String method, String bpath,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/auth/token/{method}/{path}'
-      .replaceAll('{method}', method)
-      .replaceAll('{path}', bpath);
+    final path = r'/rest/v1/auth/token/{method}/{path}'.replaceAll('{method}', method).replaceAll('{path}', bpath);
 
     // ignore: prefer_final_locals
     Object? postBody;

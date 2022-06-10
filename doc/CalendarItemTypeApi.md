@@ -9,12 +9,18 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCalendarItemType**](CalendarItemTypeApi.md#createcalendaritemtype) | **POST** /rest/v2/calendarItemType | Creates a calendarItemType
-[**deleteCalendarItemTypes**](CalendarItemTypeApi.md#deletecalendaritemtypes) | **POST** /rest/v2/calendarItemType/delete/batch | Deletes calendarItemTypes
-[**getCalendarItemType**](CalendarItemTypeApi.md#getcalendaritemtype) | **GET** /rest/v2/calendarItemType/{calendarItemTypeId} | Gets a calendarItemType
-[**getCalendarItemTypes**](CalendarItemTypeApi.md#getcalendaritemtypes) | **GET** /rest/v2/calendarItemType | Gets all calendarItemTypes
-[**getCalendarItemTypesIncludeDeleted**](CalendarItemTypeApi.md#getcalendaritemtypesincludedeleted) | **GET** /rest/v2/calendarItemType/includeDeleted | Gets all calendarItemTypes include deleted
-[**modifyCalendarItemType**](CalendarItemTypeApi.md#modifycalendaritemtype) | **PUT** /rest/v2/calendarItemType | Modifies an calendarItemType
+[**createCalendarItemType**](CalendarItemTypeApi.md#createcalendaritemtype) | **
+POST** /rest/v1/calendarItemType | Creates a calendarItemType
+[**deleteCalendarItemTypes**](CalendarItemTypeApi.md#deletecalendaritemtypes) | **
+POST** /rest/v1/calendarItemType/delete/batch | Deletes calendarItemTypes
+[**getCalendarItemType**](CalendarItemTypeApi.md#getcalendaritemtype) | **
+GET** /rest/v1/calendarItemType/{calendarItemTypeId} | Gets a calendarItemType
+[**getCalendarItemTypes**](CalendarItemTypeApi.md#getcalendaritemtypes) | **
+GET** /rest/v1/calendarItemType | Gets all calendarItemTypes
+[**getCalendarItemTypesIncludeDeleted**](CalendarItemTypeApi.md#getcalendaritemtypesincludedeleted) | **
+GET** /rest/v1/calendarItemType/includeDeleted | Gets all calendarItemTypes include deleted
+[**modifyCalendarItemType**](CalendarItemTypeApi.md#modifycalendaritemtype) | **
+PUT** /rest/v1/calendarItemType | Modifies an calendarItemType
 
 
 # **createCalendarItemType**

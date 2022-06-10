@@ -25,7 +25,7 @@ class ReceiptApi {
   /// * [ReceiptDto] receiptDto (required):
   Future<Response> rawCreateReceiptWithHttpInfo(ReceiptDto receiptDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/receipt';
+    final path = r'/rest/v1/receipt';
 
     // ignore: prefer_final_locals
     Object? postBody = receiptDto;
@@ -79,7 +79,7 @@ class ReceiptApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteReceiptsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/receipt/delete/batch';
+    final path = r'/rest/v1/receipt/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -136,8 +136,7 @@ class ReceiptApi {
   /// * [String] receiptId (required):
   Future<Response> rawGetReceiptWithHttpInfo(String receiptId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/receipt/{receiptId}'
-      .replaceAll('{receiptId}', receiptId);
+    final path = r'/rest/v1/receipt/{receiptId}'.replaceAll('{receiptId}', receiptId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -195,9 +194,8 @@ class ReceiptApi {
   /// * [String] enckeys (required):
   Future<Response> rawGetReceiptAttachmentWithHttpInfo(String receiptId, String attachmentId, String enckeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/receipt/{receiptId}/attachment/{attachmentId}'
-      .replaceAll('{receiptId}', receiptId)
-      .replaceAll('{attachmentId}', attachmentId);
+    final path =
+        r'/rest/v1/receipt/{receiptId}/attachment/{attachmentId}'.replaceAll('{receiptId}', receiptId).replaceAll('{attachmentId}', attachmentId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -257,8 +255,7 @@ class ReceiptApi {
   /// * [String] ref (required):
   Future<Response> rawListByReferenceWithHttpInfo(String ref,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/receipt/byRef/{ref}'
-      .replaceAll('{ref}', ref);
+    final path = r'/rest/v1/receipt/byRef/{ref}'.replaceAll('{ref}', ref);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -315,7 +312,7 @@ class ReceiptApi {
   /// * [ReceiptDto] receiptDto (required):
   Future<Response> rawModifyReceiptWithHttpInfo(ReceiptDto receiptDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/receipt';
+    final path = r'/rest/v1/receipt';
 
     // ignore: prefer_final_locals
     Object? postBody = receiptDto;
@@ -326,7 +323,6 @@ class ReceiptApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -375,9 +371,7 @@ class ReceiptApi {
   /// * [String] enckeys:
   Future<Response> rawSetReceiptAttachmentWithHttpInfo(String receiptId, String blobType, MultipartFile body, { String? enckeys, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/receipt/{receiptId}/attachment/{blobType}'
-      .replaceAll('{receiptId}', receiptId)
-      .replaceAll('{blobType}', blobType);
+    final path = r'/rest/v1/receipt/{receiptId}/attachment/{blobType}'.replaceAll('{receiptId}', receiptId).replaceAll('{blobType}', blobType);
 
     // ignore: prefer_final_locals
     Object? postBody = body;

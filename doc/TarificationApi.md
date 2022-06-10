@@ -9,14 +9,20 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createTarification**](TarificationApi.md#createtarification) | **POST** /rest/v2/tarification | Create a Tarification
-[**findTarificationsBy**](TarificationApi.md#findtarificationsby) | **GET** /rest/v2/tarification | Finding tarifications by tarification, type and version with pagination.
-[**findTarificationsBy1**](TarificationApi.md#findtarificationsby1) | **GET** /rest/v2/tarification/byRegionTypeTarification | Finding tarifications by tarification, type and version
-[**findTarificationsByLabel**](TarificationApi.md#findtarificationsbylabel) | **GET** /rest/v2/tarification/byLabel | Finding tarifications by tarification, type and version with pagination.
-[**getTarification**](TarificationApi.md#gettarification) | **GET** /rest/v2/tarification/{tarificationId} | Get a tarification
-[**getTarificationWithParts**](TarificationApi.md#gettarificationwithparts) | **GET** /rest/v2/tarification/{type}/{tarification}/{version} | Get a tarification
-[**getTarifications**](TarificationApi.md#gettarifications) | **POST** /rest/v2/tarification/byIds | Get a list of tarifications by ids
-[**modifyTarification**](TarificationApi.md#modifytarification) | **PUT** /rest/v2/tarification | Modify a tarification
+[**createTarification**](TarificationApi.md#createtarification) | **POST** /rest/v1/tarification | Create a Tarification
+[**findTarificationsBy**](TarificationApi.md#findtarificationsby) | **
+GET** /rest/v1/tarification | Finding tarifications by tarification, type and version with pagination.
+[**findTarificationsBy1**](TarificationApi.md#findtarificationsby1) | **
+GET** /rest/v1/tarification/byRegionTypeTarification | Finding tarifications by tarification, type and version
+[**findTarificationsByLabel**](TarificationApi.md#findtarificationsbylabel) | **
+GET** /rest/v1/tarification/byLabel | Finding tarifications by tarification, type and version with pagination.
+[**getTarification**](TarificationApi.md#gettarification) | **
+GET** /rest/v1/tarification/{tarificationId} | Get a tarification
+[**getTarificationWithParts**](TarificationApi.md#gettarificationwithparts) | **
+GET** /rest/v1/tarification/{type}/{tarification}/{version} | Get a tarification
+[**getTarifications**](TarificationApi.md#gettarifications) | **
+POST** /rest/v1/tarification/byIds | Get a list of tarifications by ids
+[**modifyTarification**](TarificationApi.md#modifytarification) | **PUT** /rest/v1/tarification | Modify a tarification
 
 
 # **createTarification**

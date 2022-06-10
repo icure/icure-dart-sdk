@@ -27,7 +27,7 @@ class ClassificationApi {
   /// * [ClassificationDto] classificationDto (required):
   Future<Response> rawCreateClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classification';
+    final path = r'/rest/v1/classification';
 
     // ignore: prefer_final_locals
     Object? postBody = classificationDto;
@@ -85,7 +85,7 @@ class ClassificationApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteClassificationsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classification/delete/batch';
+    final path = r'/rest/v1/classification/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -96,7 +96,6 @@ class ClassificationApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -148,7 +147,7 @@ class ClassificationApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawFindClassificationsByHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classification/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/classification/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -157,8 +156,8 @@ class ClassificationApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -212,8 +211,7 @@ class ClassificationApi {
   /// * [String] classificationId (required):
   Future<Response> rawGetClassificationWithHttpInfo(String classificationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classification/{classificationId}'
-      .replaceAll('{classificationId}', classificationId);
+    final path = r'/rest/v1/classification/{classificationId}'.replaceAll('{classificationId}', classificationId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -269,8 +267,7 @@ class ClassificationApi {
   /// * [String] ids (required):
   Future<Response> rawGetClassificationByHcPartyIdWithHttpInfo(String ids,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classification/byIds/{ids}'
-      .replaceAll('{ids}', ids);
+    final path = r'/rest/v1/classification/byIds/{ids}'.replaceAll('{ids}', ids);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -331,7 +328,7 @@ class ClassificationApi {
   /// * [ClassificationDto] classificationDto (required):
   Future<Response> rawModifyClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classification';
+    final path = r'/rest/v1/classification';
 
     // ignore: prefer_final_locals
     Object? postBody = classificationDto;
@@ -342,7 +339,6 @@ class ClassificationApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -391,8 +387,7 @@ class ClassificationApi {
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> rawNewClassificationDelegationsWithHttpInfo(String classificationId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classification/{classificationId}/delegate'
-      .replaceAll('{classificationId}', classificationId);
+    final path = r'/rest/v1/classification/{classificationId}/delegate'.replaceAll('{classificationId}', classificationId);
 
     // ignore: prefer_final_locals
     Object? postBody = delegationDto;
@@ -452,7 +447,7 @@ class ClassificationApi {
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> rawSetClassificationsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classification/delegations';
+    final path = r'/rest/v1/classification/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody = icureStubDto;
@@ -463,7 +458,6 @@ class ClassificationApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

@@ -9,7 +9,8 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getApplicationSettings**](ApplicationsettingsApi.md#getapplicationsettings) | **GET** /rest/v2/appsettings | Gets all application settings
+[**getApplicationSettings**](ApplicationsettingsApi.md#getapplicationsettings) | **
+GET** /rest/v1/appsettings | Gets all application settings
 
 
 # **getApplicationSettings**

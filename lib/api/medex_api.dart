@@ -25,7 +25,7 @@ class MedexApi {
   /// * [MedexInfoDto] medexInfoDto (required):
   Future<Response> generateMedexWithHttpInfo(MedexInfoDto medexInfoDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/medex/generate';
+    final path = r'/rest/v1/medex/generate';
 
     // ignore: prefer_final_locals
     Object? postBody = medexInfoDto;
@@ -36,7 +36,6 @@ class MedexApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

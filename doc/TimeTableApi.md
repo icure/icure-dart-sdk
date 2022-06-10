@@ -9,12 +9,14 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createTimeTable**](TimeTableApi.md#createtimetable) | **POST** /rest/v2/timeTable | Creates a timeTable
-[**deleteTimeTable**](TimeTableApi.md#deletetimetable) | **POST** /rest/v2/timeTable/delete/batch | Deletes an timeTable
-[**getTimeTable**](TimeTableApi.md#gettimetable) | **GET** /rest/v2/timeTable/{timeTableId} | Gets a timeTable
-[**getTimeTablesByAgendaId**](TimeTableApi.md#gettimetablesbyagendaid) | **POST** /rest/v2/timeTable/byAgendaId | Get TimeTables by AgendaId
-[**getTimeTablesByPeriodAndAgendaId**](TimeTableApi.md#gettimetablesbyperiodandagendaid) | **POST** /rest/v2/timeTable/byPeriodAndAgendaId | Get TimeTables by Period and AgendaId
-[**modifyTimeTable**](TimeTableApi.md#modifytimetable) | **PUT** /rest/v2/timeTable | Modifies an timeTable
+[**createTimeTable**](TimeTableApi.md#createtimetable) | **POST** /rest/v1/timeTable | Creates a timeTable
+[**deleteTimeTable**](TimeTableApi.md#deletetimetable) | **POST** /rest/v1/timeTable/delete/batch | Deletes an timeTable
+[**getTimeTable**](TimeTableApi.md#gettimetable) | **GET** /rest/v1/timeTable/{timeTableId} | Gets a timeTable
+[**getTimeTablesByAgendaId**](TimeTableApi.md#gettimetablesbyagendaid) | **
+POST** /rest/v1/timeTable/byAgendaId | Get TimeTables by AgendaId
+[**getTimeTablesByPeriodAndAgendaId**](TimeTableApi.md#gettimetablesbyperiodandagendaid) | **
+POST** /rest/v1/timeTable/byPeriodAndAgendaId | Get TimeTables by Period and AgendaId
+[**modifyTimeTable**](TimeTableApi.md#modifytimetable) | **PUT** /rest/v1/timeTable | Modifies an timeTable
 
 
 # **createTimeTable**

@@ -9,32 +9,58 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checkIfSMFPatientsExists**](BekmehrApi.md#checkifsmfpatientsexists) | **POST** /rest/v2/be_kmehr/smf/{documentId}/checkIfSMFPatientsExists | Check whether patients in SMF already exists in DB
-[**generateContactreportExport**](BekmehrApi.md#generatecontactreportexport) | **POST** /rest/v2/be_kmehr/contactreport/{patientId}/export/{id} | Get Kmehr contactreport
-[**generateDiaryNote**](BekmehrApi.md#generatediarynote) | **POST** /rest/v2/be_kmehr/diarynote/{patientId}/export | Generate diarynote
-[**generateLabresultExport**](BekmehrApi.md#generatelabresultexport) | **POST** /rest/v2/be_kmehr/labresult/{patientId}/export/{id} | Get Kmehr labresult
-[**generateMedicationSchemeExport**](BekmehrApi.md#generatemedicationschemeexport) | **POST** /rest/v2/be_kmehr/medicationscheme/{patientId}/export | Get Medicationscheme export
-[**generateNoteExport**](BekmehrApi.md#generatenoteexport) | **POST** /rest/v2/be_kmehr/note/{patientId}/export/{id} | Get Kmehr note
-[**generatePatientInfoExport**](BekmehrApi.md#generatepatientinfoexport) | **POST** /rest/v2/be_kmehr/patientinfo/{patientId}/export | Get KMEHR Patient Info export
-[**generatePrescriptionExport**](BekmehrApi.md#generateprescriptionexport) | **POST** /rest/v2/be_kmehr/prescription/{patientId}/export/{id} | Get Kmehr prescription
-[**generateReportExport**](BekmehrApi.md#generatereportexport) | **POST** /rest/v2/be_kmehr/report/{patientId}/export/{id} | Get Kmehr report
-[**generateRequestExport**](BekmehrApi.md#generaterequestexport) | **POST** /rest/v2/be_kmehr/request/{patientId}/export/{id} | Get Kmehr request
-[**generateResultExport**](BekmehrApi.md#generateresultexport) | **POST** /rest/v2/be_kmehr/result/{patientId}/export/{id} | Get Kmehr result
-[**generateSmfExport**](BekmehrApi.md#generatesmfexport) | **POST** /rest/v2/be_kmehr/smf/{patientId}/export | Get SMF (Software Medical File) export
-[**generateSumehr**](BekmehrApi.md#generatesumehr) | **POST** /rest/v2/be_kmehr/sumehr/{patientId}/export | Generate sumehr
-[**generateSumehrV2**](BekmehrApi.md#generatesumehrv2) | **POST** /rest/v2/be_kmehr/sumehrv2/{patientId}/export | Generate sumehr
-[**getSumehrContent**](BekmehrApi.md#getsumehrcontent) | **POST** /rest/v2/be_kmehr/sumehr/{patientId}/content | Get sumehr elements
-[**getSumehrMd5**](BekmehrApi.md#getsumehrmd5) | **POST** /rest/v2/be_kmehr/sumehr/{patientId}/md5 | Check sumehr signature
-[**getSumehrV2Content**](BekmehrApi.md#getsumehrv2content) | **POST** /rest/v2/be_kmehr/sumehrv2/{patientId}/content | Get sumehr elements
-[**getSumehrV2Md5**](BekmehrApi.md#getsumehrv2md5) | **POST** /rest/v2/be_kmehr/sumehrv2/{patientId}/md5 | Check sumehr signature
-[**importMedicationScheme**](BekmehrApi.md#importmedicationscheme) | **POST** /rest/v2/be_kmehr/medicationscheme/{documentId}/import | Import MedicationScheme into patient(s) using existing document
-[**importSmf**](BekmehrApi.md#importsmf) | **POST** /rest/v2/be_kmehr/smf/{documentId}/import | Import SMF into patient(s) using existing document
-[**importSumehr**](BekmehrApi.md#importsumehr) | **POST** /rest/v2/be_kmehr/sumehr/{documentId}/import | Import sumehr into patient(s) using existing document
-[**importSumehrByItemId**](BekmehrApi.md#importsumehrbyitemid) | **POST** /rest/v2/be_kmehr/sumehr/{documentId}/importbyitemid | Import sumehr into patient(s) using existing document
-[**isSumehrV2Valid**](BekmehrApi.md#issumehrv2valid) | **POST** /rest/v2/be_kmehr/sumehrv2/{patientId}/valid | Get sumehr validity
-[**isSumehrValid**](BekmehrApi.md#issumehrvalid) | **POST** /rest/v2/be_kmehr/sumehr/{patientId}/valid | Get sumehr validity
-[**validateSumehr**](BekmehrApi.md#validatesumehr) | **POST** /rest/v2/be_kmehr/sumehr/{patientId}/validate | Validate sumehr
-[**validateSumehrV2**](BekmehrApi.md#validatesumehrv2) | **POST** /rest/v2/be_kmehr/sumehrv2/{patientId}/validate | Validate sumehr
+[**checkIfSMFPatientsExists**](BekmehrApi.md#checkifsmfpatientsexists) | **
+POST** /rest/v1/be_kmehr/smf/{documentId}/checkIfSMFPatientsExists | Check whether patients in SMF already exists in DB
+[**generateContactreportExport**](BekmehrApi.md#generatecontactreportexport) | **
+POST** /rest/v1/be_kmehr/contactreport/{patientId}/export/{id} | Get Kmehr contactreport
+[**generateDiaryNote**](BekmehrApi.md#generatediarynote) | **
+POST** /rest/v1/be_kmehr/diarynote/{patientId}/export | Generate diarynote
+[**generateLabresultExport**](BekmehrApi.md#generatelabresultexport) | **
+POST** /rest/v1/be_kmehr/labresult/{patientId}/export/{id} | Get Kmehr labresult
+[**generateMedicationSchemeExport**](BekmehrApi.md#generatemedicationschemeexport) | **
+POST** /rest/v1/be_kmehr/medicationscheme/{patientId}/export | Get Medicationscheme export
+[**generateNoteExport**](BekmehrApi.md#generatenoteexport) | **
+POST** /rest/v1/be_kmehr/note/{patientId}/export/{id} | Get Kmehr note
+[**generatePatientInfoExport**](BekmehrApi.md#generatepatientinfoexport) | **
+POST** /rest/v1/be_kmehr/patientinfo/{patientId}/export | Get KMEHR Patient Info export
+[**generatePrescriptionExport**](BekmehrApi.md#generateprescriptionexport) | **
+POST** /rest/v1/be_kmehr/prescription/{patientId}/export/{id} | Get Kmehr prescription
+[**generateReportExport**](BekmehrApi.md#generatereportexport) | **
+POST** /rest/v1/be_kmehr/report/{patientId}/export/{id} | Get Kmehr report
+[**generateRequestExport**](BekmehrApi.md#generaterequestexport) | **
+POST** /rest/v1/be_kmehr/request/{patientId}/export/{id} | Get Kmehr request
+[**generateResultExport**](BekmehrApi.md#generateresultexport) | **
+POST** /rest/v1/be_kmehr/result/{patientId}/export/{id} | Get Kmehr result
+[**generateSmfExport**](BekmehrApi.md#generatesmfexport) | **
+POST** /rest/v1/be_kmehr/smf/{patientId}/export | Get SMF (Software Medical File) export
+[**generateSumehr**](BekmehrApi.md#generatesumehr) | **
+POST** /rest/v1/be_kmehr/sumehr/{patientId}/export | Generate sumehr
+[**generateSumehrV2**](BekmehrApi.md#generatesumehrv2) | **
+POST** /rest/v1/be_kmehr/sumehrv2/{patientId}/export | Generate sumehr
+[**getSumehrContent**](BekmehrApi.md#getsumehrcontent) | **
+POST** /rest/v1/be_kmehr/sumehr/{patientId}/content | Get sumehr elements
+[**getSumehrMd5**](BekmehrApi.md#getsumehrmd5) | **
+POST** /rest/v1/be_kmehr/sumehr/{patientId}/md5 | Check sumehr signature
+[**getSumehrV2Content**](BekmehrApi.md#getsumehrv2content) | **
+POST** /rest/v1/be_kmehr/sumehrv2/{patientId}/content | Get sumehr elements
+[**getSumehrV2Md5**](BekmehrApi.md#getsumehrv2md5) | **
+POST** /rest/v1/be_kmehr/sumehrv2/{patientId}/md5 | Check sumehr signature
+[**importMedicationScheme**](BekmehrApi.md#importmedicationscheme) | **
+POST** /rest/v1/be_kmehr/medicationscheme/{documentId}/import | Import MedicationScheme into patient(s) using existing document
+[**importSmf**](BekmehrApi.md#importsmf) | **
+POST** /rest/v1/be_kmehr/smf/{documentId}/import | Import SMF into patient(s) using existing document
+[**importSumehr**](BekmehrApi.md#importsumehr) | **
+POST** /rest/v1/be_kmehr/sumehr/{documentId}/import | Import sumehr into patient(s) using existing document
+[**importSumehrByItemId**](BekmehrApi.md#importsumehrbyitemid) | **
+POST** /rest/v1/be_kmehr/sumehr/{documentId}/importbyitemid | Import sumehr into patient(s) using existing document
+[**isSumehrV2Valid**](BekmehrApi.md#issumehrv2valid) | **
+POST** /rest/v1/be_kmehr/sumehrv2/{patientId}/valid | Get sumehr validity
+[**isSumehrValid**](BekmehrApi.md#issumehrvalid) | **
+POST** /rest/v1/be_kmehr/sumehr/{patientId}/valid | Get sumehr validity
+[**validateSumehr**](BekmehrApi.md#validatesumehr) | **
+POST** /rest/v1/be_kmehr/sumehr/{patientId}/validate | Validate sumehr
+[**validateSumehrV2**](BekmehrApi.md#validatesumehrv2) | **
+POST** /rest/v1/be_kmehr/sumehrv2/{patientId}/validate | Validate sumehr
 
 
 # **checkIfSMFPatientsExists**

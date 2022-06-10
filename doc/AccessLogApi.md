@@ -9,13 +9,17 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAccessLog**](AccessLogApi.md#createaccesslog) | **POST** /rest/v2/accesslog | Creates an access log
-[**deleteAccessLogs**](AccessLogApi.md#deleteaccesslogs) | **POST** /rest/v2/accesslog/delete/batch | Deletes an access log
-[**findAccessLogsBy**](AccessLogApi.md#findaccesslogsby) | **GET** /rest/v2/accesslog | Get Paginated List of Access logs
-[**findAccessLogsByUserAfterDate**](AccessLogApi.md#findaccesslogsbyuserafterdate) | **GET** /rest/v2/accesslog/byUser | Get Paginated List of Access logs by user after date
-[**getAccessLog**](AccessLogApi.md#getaccesslog) | **GET** /rest/v2/accesslog/{accessLogId} | Gets an access log
-[**listAccessLogsByHCPartyAndPatientForeignKeys**](AccessLogApi.md#listaccesslogsbyhcpartyandpatientforeignkeys) | **GET** /rest/v2/accesslog/byHcPartySecretForeignKeys | List access logs found By Healthcare Party and secret foreign keyelementIds.
-[**modifyAccessLog**](AccessLogApi.md#modifyaccesslog) | **PUT** /rest/v2/accesslog | Modifies an access log
+[**createAccessLog**](AccessLogApi.md#createaccesslog) | **POST** /rest/v1/accesslog | Creates an access log
+[**deleteAccessLogs**](AccessLogApi.md#deleteaccesslogs) | **
+POST** /rest/v1/accesslog/delete/batch | Deletes an access log
+[**findAccessLogsBy**](AccessLogApi.md#findaccesslogsby) | **
+GET** /rest/v1/accesslog | Get Paginated List of Access logs
+[**findAccessLogsByUserAfterDate**](AccessLogApi.md#findaccesslogsbyuserafterdate) | **
+GET** /rest/v1/accesslog/byUser | Get Paginated List of Access logs by user after date
+[**getAccessLog**](AccessLogApi.md#getaccesslog) | **GET** /rest/v1/accesslog/{accessLogId} | Gets an access log
+[**listAccessLogsByHCPartyAndPatientForeignKeys**](AccessLogApi.md#listaccesslogsbyhcpartyandpatientforeignkeys) | **
+GET** /rest/v1/accesslog/byHcPartySecretForeignKeys | List access logs found By Healthcare Party and secret foreign keyelementIds.
+[**modifyAccessLog**](AccessLogApi.md#modifyaccesslog) | **PUT** /rest/v1/accesslog | Modifies an access log
 
 
 # **createAccessLog**

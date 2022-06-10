@@ -27,7 +27,7 @@ class TmpApi {
   /// * [ClassificationDto] classificationDto (required):
   Future<Response> createTmpClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/classification';
+    final path = r'/rest/v1/tmp/classification';
 
     // ignore: prefer_final_locals
     Object? postBody = classificationDto;
@@ -85,7 +85,7 @@ class TmpApi {
   /// * [List<ClassificationDto>] classificationDto (required):
   Future<Response> createTmpClassificationsWithHttpInfo(List<ClassificationDto> classificationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/classification/batch';
+    final path = r'/rest/v1/tmp/classification/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = classificationDto;
@@ -146,7 +146,7 @@ class TmpApi {
   /// * [ContactDto] contactDto (required):
   Future<Response> createTmpContactWithHttpInfo(ContactDto contactDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/contact';
+    final path = r'/rest/v1/tmp/contact';
 
     // ignore: prefer_final_locals
     Object? postBody = contactDto;
@@ -157,7 +157,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -204,7 +203,7 @@ class TmpApi {
   /// * [List<ContactDto>] contactDto (required):
   Future<Response> createTmpContactsWithHttpInfo(List<ContactDto> contactDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/contact/batch';
+    final path = r'/rest/v1/tmp/contact/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = contactDto;
@@ -215,7 +214,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -261,7 +259,7 @@ class TmpApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> createTmpDatabaseWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp';
+    final path = r'/rest/v1/tmp';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -272,7 +270,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -315,7 +312,7 @@ class TmpApi {
   /// * [DocumentDto] documentDto (required):
   Future<Response> createTmpDocumentWithHttpInfo(DocumentDto documentDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/document';
+    final path = r'/rest/v1/tmp/document';
 
     // ignore: prefer_final_locals
     Object? postBody = documentDto;
@@ -326,7 +323,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -373,7 +369,7 @@ class TmpApi {
   /// * [List<DocumentDto>] documentDto (required):
   Future<Response> createTmpDocumentsWithHttpInfo(List<DocumentDto> documentDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/document/batch';
+    final path = r'/rest/v1/tmp/document/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = documentDto;
@@ -384,7 +380,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -434,7 +429,7 @@ class TmpApi {
   /// * [EntityTemplateDto] entityTemplateDto (required):
   Future<Response> createTmpEntityTemplateWithHttpInfo(EntityTemplateDto entityTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/entityTemplate';
+    final path = r'/rest/v1/tmp/entityTemplate';
 
     // ignore: prefer_final_locals
     Object? postBody = entityTemplateDto;
@@ -445,7 +440,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -492,7 +486,7 @@ class TmpApi {
   /// * [List<EntityTemplateDto>] entityTemplateDto (required):
   Future<Response> createTmpEntityTemplatesWithHttpInfo(List<EntityTemplateDto> entityTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/entityTemplate/batch';
+    final path = r'/rest/v1/tmp/entityTemplate/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = entityTemplateDto;
@@ -503,7 +497,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -553,7 +546,7 @@ class TmpApi {
   /// * [FormDto] formDto (required):
   Future<Response> createTmpFormWithHttpInfo(FormDto formDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/form';
+    final path = r'/rest/v1/tmp/form';
 
     // ignore: prefer_final_locals
     Object? postBody = formDto;
@@ -564,7 +557,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -611,7 +603,7 @@ class TmpApi {
   /// * [List<FormDto>] formDto (required):
   Future<Response> createTmpFormsWithHttpInfo(List<FormDto> formDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/form/batch';
+    final path = r'/rest/v1/tmp/form/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = formDto;
@@ -622,7 +614,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -672,7 +663,7 @@ class TmpApi {
   /// * [HealthElementDto] healthElementDto (required):
   Future<Response> createTmpHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/healthElement';
+    final path = r'/rest/v1/tmp/healthElement';
 
     // ignore: prefer_final_locals
     Object? postBody = healthElementDto;
@@ -683,7 +674,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -730,7 +720,7 @@ class TmpApi {
   /// * [List<HealthElementDto>] healthElementDto (required):
   Future<Response> createTmpHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/healthElement/batch';
+    final path = r'/rest/v1/tmp/healthElement/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = healthElementDto;
@@ -741,7 +731,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -791,7 +780,7 @@ class TmpApi {
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> createTmpInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/invoice';
+    final path = r'/rest/v1/tmp/invoice';
 
     // ignore: prefer_final_locals
     Object? postBody = invoiceDto;
@@ -802,7 +791,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -849,7 +837,7 @@ class TmpApi {
   /// * [List<InvoiceDto>] invoiceDto (required):
   Future<Response> createTmpInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/invoice/batch';
+    final path = r'/rest/v1/tmp/invoice/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = invoiceDto;
@@ -860,7 +848,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -910,7 +897,7 @@ class TmpApi {
   /// * [MessageDto] messageDto (required):
   Future<Response> createTmpMessageWithHttpInfo(MessageDto messageDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/message';
+    final path = r'/rest/v1/tmp/message';
 
     // ignore: prefer_final_locals
     Object? postBody = messageDto;
@@ -921,7 +908,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -968,7 +954,7 @@ class TmpApi {
   /// * [List<MessageDto>] messageDto (required):
   Future<Response> createTmpMessagesWithHttpInfo(List<MessageDto> messageDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/message/batch';
+    final path = r'/rest/v1/tmp/message/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = messageDto;
@@ -979,7 +965,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1029,7 +1014,7 @@ class TmpApi {
   /// * [PatientDto] patientDto (required):
   Future<Response> createTmpPatientWithHttpInfo(PatientDto patientDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/patient';
+    final path = r'/rest/v1/tmp/patient';
 
     // ignore: prefer_final_locals
     Object? postBody = patientDto;
@@ -1040,7 +1025,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1087,7 +1071,7 @@ class TmpApi {
   /// * [List<PatientDto>] patientDto (required):
   Future<Response> createTmpPatientsWithHttpInfo(List<PatientDto> patientDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/patient/batch';
+    final path = r'/rest/v1/tmp/patient/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = patientDto;
@@ -1098,7 +1082,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1148,7 +1131,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> deleteTmpItemsWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/batch/delete';
+    final path = r'/rest/v1/tmp/batch/delete';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1159,7 +1142,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1205,7 +1187,7 @@ class TmpApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> destroyTmpDatabaseWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp';
+    final path = r'/rest/v1/tmp';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1216,7 +1198,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1259,8 +1240,7 @@ class TmpApi {
   /// * [String] id (required):
   Future<Response> getTmpClassificationWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/classification/byId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/tmp/classification/byId/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1318,7 +1298,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpClassificationsWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/classification/get';
+    final path = r'/rest/v1/tmp/classification/get';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1329,7 +1309,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1379,8 +1358,7 @@ class TmpApi {
   /// * [String] id (required):
   Future<Response> getTmpContactWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/contact/byId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/tmp/contact/byId/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1438,7 +1416,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpContactsWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/contact/get';
+    final path = r'/rest/v1/tmp/contact/get';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1449,7 +1427,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1499,8 +1476,7 @@ class TmpApi {
   /// * [String] id (required):
   Future<Response> getTmpDocumentWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/document/byId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/tmp/document/byId/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1558,7 +1534,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpDocumentsWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/document/get';
+    final path = r'/rest/v1/tmp/document/get';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1569,7 +1545,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1619,8 +1594,7 @@ class TmpApi {
   /// * [String] id (required):
   Future<Response> getTmpEntityTemplateWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/entityTemplate/byId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/tmp/entityTemplate/byId/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1678,7 +1652,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpEntityTemplatesWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/entityTemplate/get';
+    final path = r'/rest/v1/tmp/entityTemplate/get';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1689,7 +1663,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1739,8 +1712,7 @@ class TmpApi {
   /// * [String] id (required):
   Future<Response> getTmpFormWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/form/byId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/tmp/form/byId/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1798,7 +1770,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpFormsWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/form/get';
+    final path = r'/rest/v1/tmp/form/get';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1809,7 +1781,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1859,8 +1830,7 @@ class TmpApi {
   /// * [String] id (required):
   Future<Response> getTmpHealthElementWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/healthElement/byId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/tmp/healthElement/byId/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1918,7 +1888,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpHealthElementsWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/healthElement/get';
+    final path = r'/rest/v1/tmp/healthElement/get';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1929,7 +1899,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1979,8 +1948,7 @@ class TmpApi {
   /// * [String] id (required):
   Future<Response> getTmpInvoiceWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/invoice/byId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/tmp/invoice/byId/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2038,7 +2006,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpInvoicesWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/invoice/get';
+    final path = r'/rest/v1/tmp/invoice/get';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -2049,7 +2017,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2099,8 +2066,7 @@ class TmpApi {
   /// * [String] id (required):
   Future<Response> getTmpMessageWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/message/byId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/tmp/message/byId/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2158,7 +2124,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpMessagesWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/message/get';
+    final path = r'/rest/v1/tmp/message/get';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -2169,7 +2135,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2219,8 +2184,7 @@ class TmpApi {
   /// * [String] id (required):
   Future<Response> getTmpPatientWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/patient/byId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/tmp/patient/byId/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2278,7 +2242,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> getTmpPatientsWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/patient/get';
+    final path = r'/rest/v1/tmp/patient/get';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -2289,7 +2253,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -2341,7 +2304,7 @@ class TmpApi {
   /// * [int] pageSize:
   Future<Response> listTmpClassificationsWithHttpInfo({ String? firstClassificationId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/classification/list';
+    final path = r'/rest/v1/tmp/classification/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2410,7 +2373,7 @@ class TmpApi {
   /// * [int] pageSize:
   Future<Response> listTmpContactsWithHttpInfo({ String? firstContactId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/contact/list';
+    final path = r'/rest/v1/tmp/contact/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2479,7 +2442,7 @@ class TmpApi {
   /// * [int] pageSize:
   Future<Response> listTmpDocumentsWithHttpInfo({ String? firstDocumentId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/document/list';
+    final path = r'/rest/v1/tmp/document/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2548,7 +2511,7 @@ class TmpApi {
   /// * [int] pageSize:
   Future<Response> listTmpEntityTemplatesWithHttpInfo({ String? firstEntityTemplateId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/entityTemplate/list';
+    final path = r'/rest/v1/tmp/entityTemplate/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2617,7 +2580,7 @@ class TmpApi {
   /// * [int] pageSize:
   Future<Response> listTmpFormsWithHttpInfo({ String? firstFormId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/form/list';
+    final path = r'/rest/v1/tmp/form/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2686,7 +2649,7 @@ class TmpApi {
   /// * [int] pageSize:
   Future<Response> listTmpHealthElementsWithHttpInfo({ String? firstHealthElementId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/healthElement/list';
+    final path = r'/rest/v1/tmp/healthElement/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2755,7 +2718,7 @@ class TmpApi {
   /// * [int] pageSize:
   Future<Response> listTmpInvoicesWithHttpInfo({ String? firstInvoiceId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/invoice/list';
+    final path = r'/rest/v1/tmp/invoice/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2824,7 +2787,7 @@ class TmpApi {
   /// * [int] pageSize:
   Future<Response> listTmpMessagesWithHttpInfo({ String? firstMessageId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/message/list';
+    final path = r'/rest/v1/tmp/message/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2893,7 +2856,7 @@ class TmpApi {
   /// * [int] pageSize:
   Future<Response> listTmpPatientsWithHttpInfo({ String? firstPatientId, int? pageSize, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/patient/list';
+    final path = r'/rest/v1/tmp/patient/list';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -2960,7 +2923,7 @@ class TmpApi {
   /// * [ClassificationDto] classificationDto (required):
   Future<Response> modifyTmpClassificationWithHttpInfo(ClassificationDto classificationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/classification';
+    final path = r'/rest/v1/tmp/classification';
 
     // ignore: prefer_final_locals
     Object? postBody = classificationDto;
@@ -2971,7 +2934,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3018,7 +2980,7 @@ class TmpApi {
   /// * [List<ClassificationDto>] classificationDto (required):
   Future<Response> modifyTmpClassificationsWithHttpInfo(List<ClassificationDto> classificationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/classification/batch';
+    final path = r'/rest/v1/tmp/classification/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = classificationDto;
@@ -3029,7 +2991,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3079,7 +3040,7 @@ class TmpApi {
   /// * [ContactDto] contactDto (required):
   Future<Response> modifyTmpContactWithHttpInfo(ContactDto contactDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/contact';
+    final path = r'/rest/v1/tmp/contact';
 
     // ignore: prefer_final_locals
     Object? postBody = contactDto;
@@ -3090,7 +3051,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3137,7 +3097,7 @@ class TmpApi {
   /// * [List<ContactDto>] contactDto (required):
   Future<Response> modifyTmpContactsWithHttpInfo(List<ContactDto> contactDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/contact/batch';
+    final path = r'/rest/v1/tmp/contact/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = contactDto;
@@ -3148,7 +3108,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3198,7 +3157,7 @@ class TmpApi {
   /// * [DocumentDto] documentDto (required):
   Future<Response> modifyTmpDocumentWithHttpInfo(DocumentDto documentDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/document';
+    final path = r'/rest/v1/tmp/document';
 
     // ignore: prefer_final_locals
     Object? postBody = documentDto;
@@ -3209,7 +3168,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3256,7 +3214,7 @@ class TmpApi {
   /// * [List<DocumentDto>] documentDto (required):
   Future<Response> modifyTmpDocumentsWithHttpInfo(List<DocumentDto> documentDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/document/batch';
+    final path = r'/rest/v1/tmp/document/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = documentDto;
@@ -3267,7 +3225,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3317,7 +3274,7 @@ class TmpApi {
   /// * [EntityTemplateDto] entityTemplateDto (required):
   Future<Response> modifyTmpEntityTemplateWithHttpInfo(EntityTemplateDto entityTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/entityTemplate';
+    final path = r'/rest/v1/tmp/entityTemplate';
 
     // ignore: prefer_final_locals
     Object? postBody = entityTemplateDto;
@@ -3328,7 +3285,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3375,7 +3331,7 @@ class TmpApi {
   /// * [List<EntityTemplateDto>] entityTemplateDto (required):
   Future<Response> modifyTmpEntityTemplatesWithHttpInfo(List<EntityTemplateDto> entityTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/entityTemplate/batch';
+    final path = r'/rest/v1/tmp/entityTemplate/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = entityTemplateDto;
@@ -3386,7 +3342,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3436,7 +3391,7 @@ class TmpApi {
   /// * [FormDto] formDto (required):
   Future<Response> modifyTmpFormWithHttpInfo(FormDto formDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/form';
+    final path = r'/rest/v1/tmp/form';
 
     // ignore: prefer_final_locals
     Object? postBody = formDto;
@@ -3447,7 +3402,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3494,7 +3448,7 @@ class TmpApi {
   /// * [List<FormDto>] formDto (required):
   Future<Response> modifyTmpFormsWithHttpInfo(List<FormDto> formDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/form/batch';
+    final path = r'/rest/v1/tmp/form/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = formDto;
@@ -3505,7 +3459,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3555,7 +3508,7 @@ class TmpApi {
   /// * [HealthElementDto] healthElementDto (required):
   Future<Response> modifyTmpHealthElementWithHttpInfo(HealthElementDto healthElementDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/healthElement';
+    final path = r'/rest/v1/tmp/healthElement';
 
     // ignore: prefer_final_locals
     Object? postBody = healthElementDto;
@@ -3566,7 +3519,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3613,7 +3565,7 @@ class TmpApi {
   /// * [List<HealthElementDto>] healthElementDto (required):
   Future<Response> modifyTmpHealthElementsWithHttpInfo(List<HealthElementDto> healthElementDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/healthElement/batch';
+    final path = r'/rest/v1/tmp/healthElement/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = healthElementDto;
@@ -3624,7 +3576,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3674,7 +3625,7 @@ class TmpApi {
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> modifyTmpInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/invoice';
+    final path = r'/rest/v1/tmp/invoice';
 
     // ignore: prefer_final_locals
     Object? postBody = invoiceDto;
@@ -3685,7 +3636,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3732,7 +3682,7 @@ class TmpApi {
   /// * [List<InvoiceDto>] invoiceDto (required):
   Future<Response> modifyTmpInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/invoice/batch';
+    final path = r'/rest/v1/tmp/invoice/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = invoiceDto;
@@ -3743,7 +3693,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3793,7 +3742,7 @@ class TmpApi {
   /// * [MessageDto] messageDto (required):
   Future<Response> modifyTmpMessageWithHttpInfo(MessageDto messageDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/message';
+    final path = r'/rest/v1/tmp/message';
 
     // ignore: prefer_final_locals
     Object? postBody = messageDto;
@@ -3804,7 +3753,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3851,7 +3799,7 @@ class TmpApi {
   /// * [List<MessageDto>] messageDto (required):
   Future<Response> modifyTmpMessagesWithHttpInfo(List<MessageDto> messageDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/message/batch';
+    final path = r'/rest/v1/tmp/message/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = messageDto;
@@ -3862,7 +3810,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3912,7 +3859,7 @@ class TmpApi {
   /// * [PatientDto] patientDto (required):
   Future<Response> modifyTmpPatientWithHttpInfo(PatientDto patientDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/patient';
+    final path = r'/rest/v1/tmp/patient';
 
     // ignore: prefer_final_locals
     Object? postBody = patientDto;
@@ -3923,7 +3870,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -3970,7 +3916,7 @@ class TmpApi {
   /// * [List<PatientDto>] patientDto (required):
   Future<Response> modifyTmpPatientsWithHttpInfo(List<PatientDto> patientDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/patient/batch';
+    final path = r'/rest/v1/tmp/patient/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = patientDto;
@@ -3981,7 +3927,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -4031,7 +3976,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> purgeTmpItemsWithHttpInfo(List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/batch/purge';
+    final path = r'/rest/v1/tmp/batch/purge';
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -4042,7 +3987,6 @@ class TmpApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -4081,7 +4025,7 @@ class TmpApi {
     return null;
   }
 
-  /// Performs an HTTP 'POST /rest/v2/tmp/replicate/from/{from}' operation and returns the [Response].
+  /// Performs an HTTP 'POST /rest/v1/tmp/replicate/from/{from}' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [String] from (required):
@@ -4089,8 +4033,7 @@ class TmpApi {
   /// * [List<String>] requestBody (required):
   Future<Response> replicateToTmpDatabaseWithHttpInfo(String from, List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tmp/replicate/from/{from}'
-      .replaceAll('{from}', from);
+    final path = r'/rest/v1/tmp/replicate/from/{from}'.replaceAll('{from}', from);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;

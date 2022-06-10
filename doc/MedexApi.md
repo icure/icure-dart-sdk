@@ -9,7 +9,7 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**generateMedex**](MedexApi.md#generatemedex) | **POST** /rest/v2/medex/generate | Generate a Medex XML String
+[**generateMedex**](MedexApi.md#generatemedex) | **POST** /rest/v1/medex/generate | Generate a Medex XML String
 
 
 # **generateMedex**

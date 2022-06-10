@@ -39,10 +39,10 @@ class InvoiceApi {
   /// * [int] gracePeriod:
   Future<Response> appendCodesWithHttpInfo(String userId, String type, String sentMediumType, String secretFKeys, List<InvoicingCodeDto> invoicingCodeDto, { String? insuranceId, String? invoiceId, int? gracePeriod, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byauthor/{userId}/append/{type}/{sentMediumType}'
-      .replaceAll('{userId}', userId)
-      .replaceAll('{type}', type)
-      .replaceAll('{sentMediumType}', sentMediumType);
+    final path = r'/rest/v1/invoice/byauthor/{userId}/append/{type}/{sentMediumType}'
+        .replaceAll('{userId}', userId)
+        .replaceAll('{type}', type)
+        .replaceAll('{sentMediumType}', sentMediumType);
 
     // ignore: prefer_final_locals
     Object? postBody = invoicingCodeDto;
@@ -124,7 +124,7 @@ class InvoiceApi {
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> rawCreateInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice';
+    final path = r'/rest/v1/invoice';
 
     // ignore: prefer_final_locals
     Object? postBody = invoiceDto;
@@ -135,7 +135,6 @@ class InvoiceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -180,7 +179,7 @@ class InvoiceApi {
   /// * [List<InvoiceDto>] invoiceDto (required):
   Future<Response> rawCreateInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/batch';
+    final path = r'/rest/v1/invoice/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = invoiceDto;
@@ -191,7 +190,6 @@ class InvoiceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -239,8 +237,7 @@ class InvoiceApi {
   /// * [String] invoiceId (required):
   Future<Response> rawDeleteInvoiceWithHttpInfo(String invoiceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/{invoiceId}'
-      .replaceAll('{invoiceId}', invoiceId);
+    final path = r'/rest/v1/invoice/{invoiceId}'.replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -296,7 +293,7 @@ class InvoiceApi {
   /// * [FilterChain<InvoiceDto>] filterChainInvoice (required):
   Future<Response> rawFilterInvoicesByWithHttpInfo(FilterChain<InvoiceDto> filterChainInvoice,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/filter';
+    final path = r'/rest/v1/invoice/filter';
 
     // ignore: prefer_final_locals
     Object? postBody = filterChainInvoice;
@@ -307,7 +304,6 @@ class InvoiceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -368,8 +364,7 @@ class InvoiceApi {
   ///   Number of rows
   Future<Response> rawFindInvoicesByAuthorWithHttpInfo(String hcPartyId, { int? fromDate, int? toDate, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byauthor/{hcPartyId}'
-      .replaceAll('{hcPartyId}', hcPartyId);
+    final path = r'/rest/v1/invoice/byauthor/{hcPartyId}'.replaceAll('{hcPartyId}', hcPartyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -452,8 +447,7 @@ class InvoiceApi {
   /// * [String] invoiceId (required):
   Future<Response> rawGetInvoiceWithHttpInfo(String invoiceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/{invoiceId}'
-      .replaceAll('{invoiceId}', invoiceId);
+    final path = r'/rest/v1/invoice/{invoiceId}'.replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -507,7 +501,7 @@ class InvoiceApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawGetInvoicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byIds';
+    final path = r'/rest/v1/invoice/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -518,7 +512,6 @@ class InvoiceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -564,8 +557,7 @@ class InvoiceApi {
   /// * [int] minOccurences (required):
   Future<Response> rawGetTarificationsCodesOccurencesWithHttpInfo(int minOccurences,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/codes/{minOccurences}'
-      .replaceAll('{minOccurences}', minOccurences.toString());
+    final path = r'/rest/v1/invoice/codes/{minOccurences}'.replaceAll('{minOccurences}', minOccurences.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -628,8 +620,7 @@ class InvoiceApi {
   /// * [int] to:
   Future<Response> rawListAllHcpsByStatusWithHttpInfo(String status, ListOfIdsDto listOfIdsDto, { int? from, int? to, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/allHcpsByStatus/{status}'
-      .replaceAll('{status}', status);
+    final path = r'/rest/v1/invoice/allHcpsByStatus/{status}'.replaceAll('{status}', status);
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -699,7 +690,7 @@ class InvoiceApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawListInvoicesByContactIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byContacts';
+    final path = r'/rest/v1/invoice/byContacts';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -710,7 +701,6 @@ class InvoiceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -760,7 +750,7 @@ class InvoiceApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawListInvoicesByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/invoice/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -769,8 +759,8 @@ class InvoiceApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -828,9 +818,7 @@ class InvoiceApi {
   /// * [String] groupId (required):
   Future<Response> rawListInvoicesByHcPartyAndGroupIdWithHttpInfo(String hcPartyId, String groupId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byHcPartyGroupId/{hcPartyId}/{groupId}'
-      .replaceAll('{hcPartyId}', hcPartyId)
-      .replaceAll('{groupId}', groupId);
+    final path = r'/rest/v1/invoice/byHcPartyGroupId/{hcPartyId}/{groupId}'.replaceAll('{hcPartyId}', hcPartyId).replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -903,11 +891,11 @@ class InvoiceApi {
   /// * [int] to:
   Future<Response> rawListInvoicesByHcPartySentMediumTypeInvoiceTypeSentDateWithHttpInfo(String hcPartyId, String sentMediumType, String invoiceType, bool sent, { int? from, int? to, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byHcParty/{hcPartyId}/mediumType/{sentMediumType}/invoiceType/{invoiceType}/sent/{sent}'
-      .replaceAll('{hcPartyId}', hcPartyId)
-      .replaceAll('{sentMediumType}', sentMediumType)
-      .replaceAll('{invoiceType}', invoiceType)
-      .replaceAll('{sent}', sent.toString());
+    final path = r'/rest/v1/invoice/byHcParty/{hcPartyId}/mediumType/{sentMediumType}/invoiceType/{invoiceType}/sent/{sent}'
+        .replaceAll('{hcPartyId}', hcPartyId)
+        .replaceAll('{sentMediumType}', sentMediumType)
+        .replaceAll('{invoiceType}', invoiceType)
+        .replaceAll('{sent}', sent.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -991,8 +979,8 @@ class InvoiceApi {
   /// * [int] to:
   Future<Response> rawListInvoicesByHcpartySendingModeStatusDateWithHttpInfo(String hcPartyId, { String? sendingMode, String? status, int? from, int? to, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byHcpartySendingModeStatusDate/{hcPartyId}'
-      .replaceAll('{hcPartyId}', hcPartyId);
+    final path = r'/rest/v1/invoice/byHcpartySendingModeStatusDate/{hcPartyId}'
+        .replaceAll('{hcPartyId}', hcPartyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1070,8 +1058,7 @@ class InvoiceApi {
   /// * [String] invoiceIds (required):
   Future<Response> rawListInvoicesByIdsWithHttpInfo(String invoiceIds,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byIds/{invoiceIds}'
-      .replaceAll('{invoiceIds}', invoiceIds);
+    final path = r'/rest/v1/invoice/byIds/{invoiceIds}'.replaceAll('{invoiceIds}', invoiceIds);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1128,8 +1115,7 @@ class InvoiceApi {
   /// * [String] recipientIds (required):
   Future<Response> rawListInvoicesByRecipientsIdsWithHttpInfo(String recipientIds,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/to/{recipientIds}'
-      .replaceAll('{recipientIds}', recipientIds);
+    final path = r'/rest/v1/invoice/to/{recipientIds}'.replaceAll('{recipientIds}', recipientIds);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1186,8 +1172,7 @@ class InvoiceApi {
   /// * [String] serviceIds (required):
   Future<Response> rawListInvoicesByServiceIdsWithHttpInfo(String serviceIds,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byServiceIds/{serviceIds}'
-      .replaceAll('{serviceIds}', serviceIds);
+    final path = r'/rest/v1/invoice/byServiceIds/{serviceIds}'.replaceAll('{serviceIds}', serviceIds);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1248,7 +1233,7 @@ class InvoiceApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawListInvoicesDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byHcPartySecretForeignKeys/delegations';
+    final path = r'/rest/v1/invoice/byHcPartySecretForeignKeys/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1257,8 +1242,8 @@ class InvoiceApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1312,7 +1297,7 @@ class InvoiceApi {
   /// * [String] userIds:
   Future<Response> rawListToInsurancesWithHttpInfo({ String? userIds, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/toInsurances';
+    final path = r'/rest/v1/invoice/toInsurances';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1373,7 +1358,7 @@ class InvoiceApi {
   /// * [String] userIds:
   Future<Response> rawListToInsurancesUnsentWithHttpInfo({ String? userIds, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/toInsurances/unsent';
+    final path = r'/rest/v1/invoice/toInsurances/unsent';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1434,7 +1419,7 @@ class InvoiceApi {
   /// * [String] hcPartyId:
   Future<Response> rawListToPatientsWithHttpInfo({ String? hcPartyId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/toPatients';
+    final path = r'/rest/v1/invoice/toPatients';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1495,7 +1480,7 @@ class InvoiceApi {
   /// * [String] hcPartyId:
   Future<Response> rawListToPatientsUnsentWithHttpInfo({ String? hcPartyId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/toPatients/unsent';
+    final path = r'/rest/v1/invoice/toPatients/unsent';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1558,8 +1543,7 @@ class InvoiceApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawMergeToWithHttpInfo(String invoiceId, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/mergeTo/{invoiceId}'
-      .replaceAll('{invoiceId}', invoiceId);
+    final path = r'/rest/v1/invoice/mergeTo/{invoiceId}'.replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1615,7 +1599,7 @@ class InvoiceApi {
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> rawModifyInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice';
+    final path = r'/rest/v1/invoice';
 
     // ignore: prefer_final_locals
     Object? postBody = invoiceDto;
@@ -1671,7 +1655,7 @@ class InvoiceApi {
   /// * [List<InvoiceDto>] invoiceDto (required):
   Future<Response> rawModifyInvoicesWithHttpInfo(List<InvoiceDto> invoiceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/batch';
+    final path = r'/rest/v1/invoice/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = invoiceDto;
@@ -1732,8 +1716,7 @@ class InvoiceApi {
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> rawNewInvoiceDelegationsWithHttpInfo(String invoiceId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/{invoiceId}/delegate'
-      .replaceAll('{invoiceId}', invoiceId);
+    final path = r'/rest/v1/invoice/{invoiceId}/delegate'.replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
     Object? postBody = delegationDto;
@@ -1789,7 +1772,7 @@ class InvoiceApi {
   /// * [InvoiceDto] invoiceDto (required):
   Future<Response> rawReassignInvoiceWithHttpInfo(InvoiceDto invoiceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/reassign';
+    final path = r'/rest/v1/invoice/reassign';
 
     // ignore: prefer_final_locals
     Object? postBody = invoiceDto;
@@ -1800,7 +1783,6 @@ class InvoiceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1849,9 +1831,7 @@ class InvoiceApi {
   /// * [List<String>] requestBody (required):
   Future<Response> rawRemoveCodesWithHttpInfo(String userId, String serviceId, String secretFKeys, List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/byauthor/{userId}/service/{serviceId}'
-      .replaceAll('{userId}', userId)
-      .replaceAll('{serviceId}', serviceId);
+    final path = r'/rest/v1/invoice/byauthor/{userId}/service/{serviceId}'.replaceAll('{userId}', userId).replaceAll('{serviceId}', serviceId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -1918,7 +1898,7 @@ class InvoiceApi {
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> rawSetInvoicesDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/delegations';
+    final path = r'/rest/v1/invoice/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody = icureStubDto;
@@ -1929,7 +1909,6 @@ class InvoiceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1981,8 +1960,7 @@ class InvoiceApi {
   /// * [String] forcedValue (required):
   Future<Response> rawValidateWithHttpInfo(String invoiceId, String scheme, String forcedValue,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/invoice/validate/{invoiceId}'
-      .replaceAll('{invoiceId}', invoiceId);
+    final path = r'/rest/v1/invoice/validate/{invoiceId}'.replaceAll('{invoiceId}', invoiceId);
 
     // ignore: prefer_final_locals
     Object? postBody;

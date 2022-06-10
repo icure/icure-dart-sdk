@@ -27,7 +27,7 @@ class DocumentTemplateApi {
   /// * [DocumentTemplateDto] documentTemplateDto (required):
   Future<Response> createDocumentTemplateWithHttpInfo(DocumentTemplateDto documentTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate';
+    final path = r'/rest/v1/doctemplate';
 
     // ignore: prefer_final_locals
     Object? postBody = documentTemplateDto;
@@ -83,7 +83,7 @@ class DocumentTemplateApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteDocumentTemplatesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/delete/batch';
+    final path = r'/rest/v1/doctemplate/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -142,9 +142,9 @@ class DocumentTemplateApi {
   /// * [String] attachmentId (required):
   Future<Response> getAttachmentTextWithHttpInfo(String documentTemplateId, String attachmentId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/{documentTemplateId}/attachmentText/{attachmentId}'
-      .replaceAll('{documentTemplateId}', documentTemplateId)
-      .replaceAll('{attachmentId}', attachmentId);
+    final path = r'/rest/v1/doctemplate/{documentTemplateId}/attachmentText/{attachmentId}'
+        .replaceAll('{documentTemplateId}', documentTemplateId)
+        .replaceAll('{attachmentId}', attachmentId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -200,8 +200,7 @@ class DocumentTemplateApi {
   /// * [String] documentTemplateId (required):
   Future<Response> getDocumentTemplateWithHttpInfo(String documentTemplateId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/{documentTemplateId}'
-      .replaceAll('{documentTemplateId}', documentTemplateId);
+    final path = r'/rest/v1/doctemplate/{documentTemplateId}'.replaceAll('{documentTemplateId}', documentTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -257,9 +256,9 @@ class DocumentTemplateApi {
   /// * [String] attachmentId (required):
   Future<Response> getDocumentTemplateAttachmentWithHttpInfo(String documentTemplateId, String attachmentId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/{documentTemplateId}/attachment/{attachmentId}'
-      .replaceAll('{documentTemplateId}', documentTemplateId)
-      .replaceAll('{attachmentId}', attachmentId);
+    final path = r'/rest/v1/doctemplate/{documentTemplateId}/attachment/{attachmentId}'
+        .replaceAll('{documentTemplateId}', documentTemplateId)
+        .replaceAll('{attachmentId}', attachmentId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -311,7 +310,7 @@ class DocumentTemplateApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> listAllDocumentTemplatesWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/find/all';
+    final path = r'/rest/v1/doctemplate/find/all';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -360,7 +359,7 @@ class DocumentTemplateApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> listDocumentTemplatesWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate';
+    final path = r'/rest/v1/doctemplate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -371,7 +370,6 @@ class DocumentTemplateApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -413,8 +411,7 @@ class DocumentTemplateApi {
   /// * [String] documentTypeCode (required):
   Future<Response> listDocumentTemplatesByDocumentTypeWithHttpInfo(String documentTypeCode,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/byDocumentType/{documentTypeCode}'
-      .replaceAll('{documentTypeCode}', documentTypeCode);
+    final path = r'/rest/v1/doctemplate/byDocumentType/{documentTypeCode}'.replaceAll('{documentTypeCode}', documentTypeCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -471,8 +468,8 @@ class DocumentTemplateApi {
   /// * [String] documentTypeCode (required):
   Future<Response> listDocumentTemplatesByDocumentTypeForCurrentUserWithHttpInfo(String documentTypeCode,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/byDocumentTypeForCurrentUser/{documentTypeCode}'
-      .replaceAll('{documentTypeCode}', documentTypeCode);
+    final path = r'/rest/v1/doctemplate/byDocumentTypeForCurrentUser/{documentTypeCode}'
+        .replaceAll('{documentTypeCode}', documentTypeCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -529,8 +526,8 @@ class DocumentTemplateApi {
   /// * [String] specialityCode (required):
   Future<Response> listDocumentTemplatesBySpecialityWithHttpInfo(String specialityCode,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/bySpecialty/{specialityCode}'
-      .replaceAll('{specialityCode}', specialityCode);
+    final path = r'/rest/v1/doctemplate/bySpecialty/{specialityCode}'
+        .replaceAll('{specialityCode}', specialityCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -591,8 +588,7 @@ class DocumentTemplateApi {
   /// * [DocumentTemplateDto] documentTemplateDto (required):
   Future<Response> modifyDocumentTemplateWithHttpInfo(String documentTemplateId, DocumentTemplateDto documentTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/{documentTemplateId}'
-      .replaceAll('{documentTemplateId}', documentTemplateId);
+    final path = r'/rest/v1/doctemplate/{documentTemplateId}'.replaceAll('{documentTemplateId}', documentTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody = documentTemplateDto;
@@ -652,8 +648,7 @@ class DocumentTemplateApi {
   /// * [List<String>] requestBody (required):
   Future<Response> setDocumentTemplateAttachmentWithHttpInfo(String documentTemplateId, List<String> requestBody,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/{documentTemplateId}/attachment'
-      .replaceAll('{documentTemplateId}', documentTemplateId);
+    final path = r'/rest/v1/doctemplate/{documentTemplateId}/attachment'.replaceAll('{documentTemplateId}', documentTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody = requestBody;
@@ -711,8 +706,8 @@ class DocumentTemplateApi {
   /// * [ByteArrayDto] byteArrayDto (required):
   Future<Response> setDocumentTemplateAttachmentJsonWithHttpInfo(String documentTemplateId, ByteArrayDto byteArrayDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/doctemplate/{documentTemplateId}/attachmentJson'
-      .replaceAll('{documentTemplateId}', documentTemplateId);
+    final path = r'/rest/v1/doctemplate/{documentTemplateId}/attachmentJson'
+        .replaceAll('{documentTemplateId}', documentTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody = byteArrayDto;

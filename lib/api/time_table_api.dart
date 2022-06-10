@@ -25,7 +25,7 @@ class TimeTableApi {
   /// * [TimeTableDto] timeTableDto (required):
   Future<Response> rawCreateTimeTableWithHttpInfo(TimeTableDto timeTableDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/timeTable';
+    final path = r'/rest/v1/timeTable';
 
     // ignore: prefer_final_locals
     Object? postBody = timeTableDto;
@@ -79,7 +79,7 @@ class TimeTableApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteTimeTableWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/timeTable/delete/batch';
+    final path = r'/rest/v1/timeTable/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -136,8 +136,7 @@ class TimeTableApi {
   /// * [String] timeTableId (required):
   Future<Response> rawGetTimeTableWithHttpInfo(String timeTableId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/timeTable/{timeTableId}'
-      .replaceAll('{timeTableId}', timeTableId);
+    final path = r'/rest/v1/timeTable/{timeTableId}'.replaceAll('{timeTableId}', timeTableId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -191,7 +190,7 @@ class TimeTableApi {
   /// * [String] agendaId (required):
   Future<Response> rawGetTimeTablesByAgendaIdWithHttpInfo(String agendaId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/timeTable/byAgendaId';
+    final path = r'/rest/v1/timeTable/byAgendaId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -200,7 +199,7 @@ class TimeTableApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'agendaId', agendaId));
+    queryParams.addAll(_queryParams('', 'agendaId', agendaId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -254,7 +253,7 @@ class TimeTableApi {
   /// * [String] agendaId (required):
   Future<Response> rawGetTimeTablesByPeriodAndAgendaIdWithHttpInfo(int startDate, int endDate, String agendaId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/timeTable/byPeriodAndAgendaId';
+    final path = r'/rest/v1/timeTable/byPeriodAndAgendaId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -263,9 +262,9 @@ class TimeTableApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'startDate', startDate));
-      queryParams.addAll(_queryParams('', 'endDate', endDate));
-      queryParams.addAll(_queryParams('', 'agendaId', agendaId));
+    queryParams.addAll(_queryParams('', 'startDate', startDate));
+    queryParams.addAll(_queryParams('', 'endDate', endDate));
+    queryParams.addAll(_queryParams('', 'agendaId', agendaId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -319,7 +318,7 @@ class TimeTableApi {
   /// * [TimeTableDto] timeTableDto (required):
   Future<Response> rawModifyTimeTableWithHttpInfo(TimeTableDto timeTableDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/timeTable';
+    final path = r'/rest/v1/timeTable';
 
     // ignore: prefer_final_locals
     Object? postBody = timeTableDto;
@@ -330,7 +329,6 @@ class TimeTableApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

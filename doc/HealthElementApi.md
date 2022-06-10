@@ -9,19 +9,33 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createHealthElement**](HealthElementApi.md#createhealthelement) | **POST** /rest/v2/helement | Create a health element with the current user
-[**createHealthElements**](HealthElementApi.md#createhealthelements) | **POST** /rest/v2/helement/batch | Create a batch of healthcare elements
-[**deleteHealthElements**](HealthElementApi.md#deletehealthelements) | **POST** /rest/v2/helement/delete/batch | Delete health elements.
-[**filterHealthElementsBy**](HealthElementApi.md#filterhealthelementsby) | **POST** /rest/v2/helement/filter | Filter health elements for the current user (HcParty)
-[**getHealthElement**](HealthElementApi.md#gethealthelement) | **GET** /rest/v2/helement/{healthElementId} | Get a health element
-[**getHealthElements**](HealthElementApi.md#gethealthelements) | **POST** /rest/v2/helement/byIds | Get healthElements by batch
-[**listHealthElementsByHCPartyAndPatientForeignKeys**](HealthElementApi.md#listhealthelementsbyhcpartyandpatientforeignkeys) | **GET** /rest/v2/helement/byHcPartySecretForeignKeys | List health elements found By Healthcare Party and secret foreign keyelementIds.
-[**listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeys**](HealthElementApi.md#listhealthelementsdelegationsstubsbyhcpartyandpatientforeignkeys) | **GET** /rest/v2/helement/byHcPartySecretForeignKeys/delegations | List helement stubs found By Healthcare Party and secret foreign keys.
-[**matchHealthElementsBy**](HealthElementApi.md#matchhealthelementsby) | **POST** /rest/v2/helement/match | Get ids of health element matching the provided filter for the current user (HcParty) 
-[**modifyHealthElement**](HealthElementApi.md#modifyhealthelement) | **PUT** /rest/v2/helement | Modify a health element
-[**modifyHealthElements**](HealthElementApi.md#modifyhealthelements) | **PUT** /rest/v2/helement/batch | Modify a batch of health elements
-[**newHealthElementDelegations**](HealthElementApi.md#newhealthelementdelegations) | **POST** /rest/v2/helement/{healthElementId}/delegate | Delegates a health element to a healthcare party
-[**setHealthElementsDelegations**](HealthElementApi.md#sethealthelementsdelegations) | **POST** /rest/v2/helement/delegations | Update delegations in healthElements.
+[**createHealthElement**](HealthElementApi.md#createhealthelement) | **
+POST** /rest/v1/helement | Create a health element with the current user
+[**createHealthElements**](HealthElementApi.md#createhealthelements) | **
+POST** /rest/v1/helement/batch | Create a batch of healthcare elements
+[**deleteHealthElements**](HealthElementApi.md#deletehealthelements) | **
+POST** /rest/v1/helement/delete/batch | Delete health elements.
+[**filterHealthElementsBy**](HealthElementApi.md#filterhealthelementsby) | **
+POST** /rest/v1/helement/filter | Filter health elements for the current user (HcParty)
+[**getHealthElement**](HealthElementApi.md#gethealthelement) | **
+GET** /rest/v1/helement/{healthElementId} | Get a health element
+[**getHealthElements**](HealthElementApi.md#gethealthelements) | **
+POST** /rest/v1/helement/byIds | Get healthElements by batch
+[**
+listHealthElementsByHCPartyAndPatientForeignKeys**](HealthElementApi.md#listhealthelementsbyhcpartyandpatientforeignkeys) | **
+GET** /rest/v1/helement/byHcPartySecretForeignKeys | List health elements found By Healthcare Party and secret foreign keyelementIds.
+[**
+listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeys**](HealthElementApi.md#listhealthelementsdelegationsstubsbyhcpartyandpatientforeignkeys) | **
+GET** /rest/v1/helement/byHcPartySecretForeignKeys/delegations | List helement stubs found By Healthcare Party and secret foreign keys.
+[**matchHealthElementsBy**](HealthElementApi.md#matchhealthelementsby) | **
+POST** /rest/v1/helement/match | Get ids of health element matching the provided filter for the current user (HcParty)
+[**modifyHealthElement**](HealthElementApi.md#modifyhealthelement) | **PUT** /rest/v1/helement | Modify a health element
+[**modifyHealthElements**](HealthElementApi.md#modifyhealthelements) | **
+PUT** /rest/v1/helement/batch | Modify a batch of health elements
+[**newHealthElementDelegations**](HealthElementApi.md#newhealthelementdelegations) | **
+POST** /rest/v1/helement/{healthElementId}/delegate | Delegates a health element to a healthcare party
+[**setHealthElementsDelegations**](HealthElementApi.md#sethealthelementsdelegations) | **
+POST** /rest/v1/helement/delegations | Update delegations in healthElements.
 
 
 # **createHealthElement**

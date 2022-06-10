@@ -25,7 +25,7 @@ class FrontEndMigrationApi {
   /// * [FrontEndMigrationDto] frontEndMigrationDto (required):
   Future<Response> createFrontEndMigrationWithHttpInfo(FrontEndMigrationDto frontEndMigrationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/frontendmigration';
+    final path = r'/rest/v1/frontendmigration';
 
     // ignore: prefer_final_locals
     Object? postBody = frontEndMigrationDto;
@@ -79,8 +79,8 @@ class FrontEndMigrationApi {
   /// * [String] frontEndMigrationId (required):
   Future<Response> deleteFrontEndMigrationWithHttpInfo(String frontEndMigrationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/frontendmigration/{frontEndMigrationId}'
-      .replaceAll('{frontEndMigrationId}', frontEndMigrationId);
+    final path = r'/rest/v1/frontendmigration/{frontEndMigrationId}'
+        .replaceAll('{frontEndMigrationId}', frontEndMigrationId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -134,8 +134,7 @@ class FrontEndMigrationApi {
   /// * [String] frontEndMigrationId (required):
   Future<Response> getFrontEndMigrationWithHttpInfo(String frontEndMigrationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/frontendmigration/{frontEndMigrationId}'
-      .replaceAll('{frontEndMigrationId}', frontEndMigrationId);
+    final path = r'/rest/v1/frontendmigration/{frontEndMigrationId}'.replaceAll('{frontEndMigrationId}', frontEndMigrationId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -189,8 +188,7 @@ class FrontEndMigrationApi {
   /// * [String] frontEndMigrationName (required):
   Future<Response> getFrontEndMigrationByNameWithHttpInfo(String frontEndMigrationName,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/frontendmigration/byName/{frontEndMigrationName}'
-      .replaceAll('{frontEndMigrationName}', frontEndMigrationName);
+    final path = r'/rest/v1/frontendmigration/byName/{frontEndMigrationName}'.replaceAll('{frontEndMigrationName}', frontEndMigrationName);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -243,7 +241,7 @@ class FrontEndMigrationApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getFrontEndMigrationsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/frontendmigration';
+    final path = r'/rest/v1/frontendmigration';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -254,7 +252,6 @@ class FrontEndMigrationApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -296,7 +293,7 @@ class FrontEndMigrationApi {
   /// * [FrontEndMigrationDto] frontEndMigrationDto (required):
   Future<Response> modifyFrontEndMigrationWithHttpInfo(FrontEndMigrationDto frontEndMigrationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/frontendmigration';
+    final path = r'/rest/v1/frontendmigration';
 
     // ignore: prefer_final_locals
     Object? postBody = frontEndMigrationDto;
@@ -307,7 +304,6 @@ class FrontEndMigrationApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

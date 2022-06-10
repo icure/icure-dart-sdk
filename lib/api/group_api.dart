@@ -45,8 +45,8 @@ class GroupApi {
   ///   The number of replications for dbs : 3 is a recommended value
   Future<Response> createGroupWithHttpInfo(String id, String name, String password, DatabaseInitialisationDto databaseInitialisationDto, { String? server, int? q, int? n, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/group/{id}'
+        .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = databaseInitialisationDto;
@@ -136,8 +136,8 @@ class GroupApi {
   ///   The id of the group
   Future<Response> getGroupWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/group/{id}'
+        .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -195,8 +195,7 @@ class GroupApi {
   ///   The id of the group
   Future<Response> getReplicationInfo1WithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/{id}/r'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/group/{id}/r'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -260,8 +259,7 @@ class GroupApi {
   ///   Warmup the design doc
   Future<Response> initDesignDocsWithHttpInfo(String id, { String? clazz, bool? warmup, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/{id}/dd'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/group/{id}/dd'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -329,7 +327,7 @@ class GroupApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> listGroupsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group';
+    final path = r'/rest/v1/group';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -340,7 +338,6 @@ class GroupApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -390,9 +387,7 @@ class GroupApi {
   ///   The new name for the group
   Future<Response> modifyGroupNameWithHttpInfo(String id, String name,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/{id}/name/{name}'
-      .replaceAll('{id}', id)
-      .replaceAll('{name}', name);
+    final path = r'/rest/v1/group/{id}/name/{name}'.replaceAll('{id}', id).replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -457,8 +452,7 @@ class GroupApi {
   /// * [ListOfPropertiesDto] listOfPropertiesDto (required):
   Future<Response> modifyGroupPropertiesWithHttpInfo(String id, ListOfPropertiesDto listOfPropertiesDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/{id}/properties'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/group/{id}/properties'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = listOfPropertiesDto;
@@ -519,7 +513,7 @@ class GroupApi {
   /// * [RegistrationInformationDto] registrationInformationDto (required):
   Future<Response> registerNewGroupAdministratorWithHttpInfo(RegistrationInformationDto registrationInformationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/register/trial';
+    final path = r'/rest/v1/group/register/trial';
 
     // ignore: prefer_final_locals
     Object? postBody = registrationInformationDto;
@@ -530,7 +524,6 @@ class GroupApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -586,8 +579,7 @@ class GroupApi {
   ///   The number of replications for dbs : 3 is a recommended value
   Future<Response> resetStorageWithHttpInfo(String id, ListOfIdsDto listOfIdsDto, { int? q, int? n, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/{id}/reset/storage'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/group/{id}/reset/storage'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -665,8 +657,7 @@ class GroupApi {
   ///   The new password for the group (can only contain digits, letters, - and _)
   Future<Response> setGroupPasswordWithHttpInfo(String id, String password,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/{id}/password'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/group/{id}/password'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -737,8 +728,7 @@ class GroupApi {
   ///   Warmup the design doc
   Future<Response> solveConflictsWithHttpInfo(String id, { int? limit, bool? warmup, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/group/{id}/conflicts'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/group/{id}/conflicts'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;

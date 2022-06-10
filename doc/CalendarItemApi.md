@@ -9,18 +9,29 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCalendarItem**](CalendarItemApi.md#createcalendaritem) | **POST** /rest/v2/calendarItem | Creates a calendarItem
-[**deleteCalendarItem**](CalendarItemApi.md#deletecalendaritem) | **POST** /rest/v2/calendarItem/{calendarItemIds} | Deletes an calendarItem
-[**deleteCalendarItems**](CalendarItemApi.md#deletecalendaritems) | **POST** /rest/v2/calendarItem/delete/batch | Deletes calendarItems
-[**findCalendarItemsByHCPartyPatientForeignKeys**](CalendarItemApi.md#findcalendaritemsbyhcpartypatientforeignkeys) | **GET** /rest/v2/calendarItem/byHcPartySecretForeignKeys | Find CalendarItems by hcparty and patient
-[**findCalendarItemsByRecurrenceId**](CalendarItemApi.md#findcalendaritemsbyrecurrenceid) | **GET** /rest/v2/calendarItem/byRecurrenceId | Find CalendarItems by recurrenceId
-[**getCalendarItem**](CalendarItemApi.md#getcalendaritem) | **GET** /rest/v2/calendarItem/{calendarItemId} | Gets an calendarItem
-[**getCalendarItems**](CalendarItemApi.md#getcalendaritems) | **GET** /rest/v2/calendarItem | Gets all calendarItems
-[**getCalendarItemsByPeriodAndHcPartyId**](CalendarItemApi.md#getcalendaritemsbyperiodandhcpartyid) | **POST** /rest/v2/calendarItem/byPeriodAndHcPartyId | Get CalendarItems by Period and HcPartyId
-[**getCalendarItemsWithIds**](CalendarItemApi.md#getcalendaritemswithids) | **POST** /rest/v2/calendarItem/byIds | Get calendarItems by ids
-[**getCalendarsByPeriodAndAgendaId**](CalendarItemApi.md#getcalendarsbyperiodandagendaid) | **POST** /rest/v2/calendarItem/byPeriodAndAgendaId | Get CalendarItems by Period and AgendaId
-[**modifyCalendarItem**](CalendarItemApi.md#modifycalendaritem) | **PUT** /rest/v2/calendarItem | Modifies an calendarItem
-[**setCalendarItemsDelegations**](CalendarItemApi.md#setcalendaritemsdelegations) | **POST** /rest/v2/calendarItem/delegations | Update delegations in calendarItems
+[**createCalendarItem**](CalendarItemApi.md#createcalendaritem) | **
+POST** /rest/v1/calendarItem | Creates a calendarItem
+[**deleteCalendarItem**](CalendarItemApi.md#deletecalendaritem) | **
+POST** /rest/v1/calendarItem/{calendarItemIds} | Deletes an calendarItem
+[**deleteCalendarItems**](CalendarItemApi.md#deletecalendaritems) | **
+POST** /rest/v1/calendarItem/delete/batch | Deletes calendarItems
+[**findCalendarItemsByHCPartyPatientForeignKeys**](CalendarItemApi.md#findcalendaritemsbyhcpartypatientforeignkeys) | **
+GET** /rest/v1/calendarItem/byHcPartySecretForeignKeys | Find CalendarItems by hcparty and patient
+[**findCalendarItemsByRecurrenceId**](CalendarItemApi.md#findcalendaritemsbyrecurrenceid) | **
+GET** /rest/v1/calendarItem/byRecurrenceId | Find CalendarItems by recurrenceId
+[**getCalendarItem**](CalendarItemApi.md#getcalendaritem) | **
+GET** /rest/v1/calendarItem/{calendarItemId} | Gets an calendarItem
+[**getCalendarItems**](CalendarItemApi.md#getcalendaritems) | **GET** /rest/v1/calendarItem | Gets all calendarItems
+[**getCalendarItemsByPeriodAndHcPartyId**](CalendarItemApi.md#getcalendaritemsbyperiodandhcpartyid) | **
+POST** /rest/v1/calendarItem/byPeriodAndHcPartyId | Get CalendarItems by Period and HcPartyId
+[**getCalendarItemsWithIds**](CalendarItemApi.md#getcalendaritemswithids) | **
+POST** /rest/v1/calendarItem/byIds | Get calendarItems by ids
+[**getCalendarsByPeriodAndAgendaId**](CalendarItemApi.md#getcalendarsbyperiodandagendaid) | **
+POST** /rest/v1/calendarItem/byPeriodAndAgendaId | Get CalendarItems by Period and AgendaId
+[**modifyCalendarItem**](CalendarItemApi.md#modifycalendaritem) | **
+PUT** /rest/v1/calendarItem | Modifies an calendarItem
+[**setCalendarItemsDelegations**](CalendarItemApi.md#setcalendaritemsdelegations) | **
+POST** /rest/v1/calendarItem/delegations | Update delegations in calendarItems
 
 
 # **createCalendarItem**

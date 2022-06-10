@@ -9,12 +9,13 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createKeyword**](KeywordApi.md#createkeyword) | **POST** /rest/v2/keyword | Create a keyword with the current user
-[**deleteKeywords**](KeywordApi.md#deletekeywords) | **POST** /rest/v2/keyword/delete/batch | Delete keywords.
-[**getKeyword**](KeywordApi.md#getkeyword) | **GET** /rest/v2/keyword/{keywordId} | Get a keyword
-[**getKeywords**](KeywordApi.md#getkeywords) | **GET** /rest/v2/keyword | Gets all keywords
-[**getKeywordsByUser**](KeywordApi.md#getkeywordsbyuser) | **GET** /rest/v2/keyword/byUser/{userId} | Get keywords by user
-[**modifyKeyword**](KeywordApi.md#modifykeyword) | **PUT** /rest/v2/keyword | Modify a keyword
+[**createKeyword**](KeywordApi.md#createkeyword) | **POST** /rest/v1/keyword | Create a keyword with the current user
+[**deleteKeywords**](KeywordApi.md#deletekeywords) | **POST** /rest/v1/keyword/delete/batch | Delete keywords.
+[**getKeyword**](KeywordApi.md#getkeyword) | **GET** /rest/v1/keyword/{keywordId} | Get a keyword
+[**getKeywords**](KeywordApi.md#getkeywords) | **GET** /rest/v1/keyword | Gets all keywords
+[**getKeywordsByUser**](KeywordApi.md#getkeywordsbyuser) | **
+GET** /rest/v1/keyword/byUser/{userId} | Get keywords by user
+[**modifyKeyword**](KeywordApi.md#modifykeyword) | **PUT** /rest/v1/keyword | Modify a keyword
 
 
 # **createKeyword**

@@ -28,8 +28,8 @@ class PatientApi {
   ///   Healthcare party id
   Future<Response> rawCountOfPatientsWithHttpInfo(String hcPartyId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/hcParty/{hcPartyId}/count'
-      .replaceAll('{hcPartyId}', hcPartyId);
+    final path = r'/rest/v1/patient/hcParty/{hcPartyId}/count'
+        .replaceAll('{hcPartyId}', hcPartyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -88,7 +88,7 @@ class PatientApi {
   /// * [PatientDto] patientDto (required):
   Future<Response> rawCreatePatientWithHttpInfo(PatientDto patientDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient';
+    final path = r'/rest/v1/patient';
 
     // ignore: prefer_final_locals
     PatientDto postBody = patientDto;
@@ -146,7 +146,7 @@ class PatientApi {
   /// * [List<PatientDto>] patientDto (required):
   Future<Response> rawCreatePatientsWithHttpInfo(List<PatientDto> patientDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/batch';
+    final path = r'/rest/v1/patient/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = patientDto;
@@ -157,7 +157,6 @@ class PatientApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -207,7 +206,7 @@ class PatientApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeletePatientsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/delete/batch';
+    final path = r'/rest/v1/patient/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -218,7 +217,6 @@ class PatientApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -286,7 +284,7 @@ class PatientApi {
   ///   Descending
   Future<Response> rawFilterPatientsByWithHttpInfo(FilterChain<PatientDto> filterChainPatient, { String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/filter';
+    final path = r'/rest/v1/patient/filter';
 
     // ignore: prefer_final_locals
     Object? postBody = filterChainPatient;
@@ -394,7 +392,7 @@ class PatientApi {
   ///   Number of rows
   Future<Response> rawFindDeletedPatientsWithHttpInfo({ int? startDate, int? endDate, bool? desc, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/deleted/byDate';
+    final path = r'/rest/v1/patient/deleted/byDate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -489,7 +487,7 @@ class PatientApi {
   ///   Number of rows
   Future<Response> rawFindDuplicatesByNameWithHttpInfo(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/duplicates/name';
+    final path = r'/rest/v1/patient/duplicates/name';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -498,7 +496,7 @@ class PatientApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
     if (startKey != null) {
       queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
@@ -574,7 +572,7 @@ class PatientApi {
   ///   Number of rows
   Future<Response> rawFindDuplicatesBySsinWithHttpInfo(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/duplicates/ssin';
+    final path = r'/rest/v1/patient/duplicates/ssin';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -583,7 +581,7 @@ class PatientApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
     if (startKey != null) {
       queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
@@ -665,8 +663,7 @@ class PatientApi {
   ///   Number of rows
   Future<Response> rawFindPatientsByAccessLogUserAfterDateWithHttpInfo(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/byAccess/{userId}'
-      .replaceAll('{userId}', userId);
+    final path = r'/rest/v1/patient/byAccess/{userId}'.replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -770,7 +767,7 @@ class PatientApi {
   ///   Optional value for providing a sorting direction ('asc', 'desc'). Set to 'asc' by default.
   Future<Response> rawFindPatientsByHealthcarePartyWithHttpInfo({ String? hcPartyId, String? sortField, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient';
+    final path = r'/rest/v1/patient';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -879,7 +876,7 @@ class PatientApi {
   ///   Optional value for providing a sorting direction ('asc', 'desc'). Set to 'asc' by default.
   Future<Response> rawFindPatientsByNameBirthSsinAutoWithHttpInfo({ String? healthcarePartyId, String? filterValue, String? startKey, String? startDocumentId, int? limit, String? sortDirection, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/byNameBirthSsinAuto';
+    final path = r'/rest/v1/patient/byNameBirthSsinAuto';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -982,7 +979,7 @@ class PatientApi {
   ///   Page size
   Future<Response> rawFindPatientsIdsByHealthcarePartyWithHttpInfo(String hcPartyId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/byHcPartyId';
+    final path = r'/rest/v1/patient/byHcPartyId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -991,7 +988,7 @@ class PatientApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
     if (startKey != null) {
       queryParams.addAll(_queryParams('', 'startKey', startKey));
     }
@@ -1070,8 +1067,8 @@ class PatientApi {
   ///   Number of rows
   Future<Response> rawFindPatientsModifiedAfterWithHttpInfo(int date, { int? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/modifiedAfter/{date}'
-      .replaceAll('{date}', date.toString());
+    final path = r'/rest/v1/patient/modifiedAfter/{date}'
+        .replaceAll('{date}', date.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1155,7 +1152,7 @@ class PatientApi {
   ///   The date of birth
   Future<Response> rawFuzzySearchWithHttpInfo({ String? firstName, String? lastName, int? dateOfBirth, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/fuzzy';
+    final path = r'/rest/v1/patient/fuzzy';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1233,8 +1230,7 @@ class PatientApi {
   /// * [String] patientId (required):
   Future<Response> rawGetPatientWithHttpInfo(String patientId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/{patientId}'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/patient/{patientId}'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1291,8 +1287,7 @@ class PatientApi {
   ///   A external ID
   Future<Response> rawGetPatientByExternalIdWithHttpInfo(String externalId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/byExternalId/{externalId}'
-      .replaceAll('{externalId}', externalId);
+    final path = r'/rest/v1/patient/byExternalId/{externalId}'.replaceAll('{externalId}', externalId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1353,9 +1348,7 @@ class PatientApi {
   /// * [String] system:
   Future<Response> rawGetPatientByHealthcarepartyAndIdentifierWithHttpInfo(String hcPartyId, String id, { String? system, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/{hcPartyId}/{id}'
-      .replaceAll('{hcPartyId}', hcPartyId)
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/patient/{hcPartyId}/{id}'.replaceAll('{hcPartyId}', hcPartyId).replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1422,8 +1415,7 @@ class PatientApi {
   ///   The patient Id for which information is shared
   Future<Response> rawGetPatientHcPartyKeysForDelegateWithHttpInfo(String patientId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/{patientId}/keys'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/patient/{patientId}/keys'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1481,7 +1473,7 @@ class PatientApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawGetPatientsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/byIds';
+    final path = r'/rest/v1/patient/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1492,7 +1484,6 @@ class PatientApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1546,7 +1537,7 @@ class PatientApi {
   ///   Last name prefix
   Future<Response> rawListDeletedPatientsByNameWithHttpInfo({ String? firstName, String? lastName, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/deleted/by_name';
+    final path = r'/rest/v1/patient/deleted/by_name';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1618,8 +1609,7 @@ class PatientApi {
   /// * [int] date (required):
   Future<Response> rawListOfMergesAfterWithHttpInfo(int date,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/merges/{date}'
-      .replaceAll('{date}', date.toString());
+    final path = r'/rest/v1/patient/merges/{date}'.replaceAll('{date}', date.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1678,7 +1668,7 @@ class PatientApi {
   /// * [AbstractFilterDto<PatientDto>] abstractFilterDtoPatient (required):
   Future<Response> rawMatchPatientsByWithHttpInfo(AbstractFilterDto<PatientDto> abstractFilterDtoPatient,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/match';
+    final path = r'/rest/v1/patient/match';
 
     // ignore: prefer_final_locals
     Object? postBody = abstractFilterDtoPatient;
@@ -1689,7 +1679,6 @@ class PatientApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1737,9 +1726,7 @@ class PatientApi {
   /// * [String] fromIds (required):
   Future<Response> rawMergeIntoWithHttpInfo(String toId, String fromIds,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/mergeInto/{toId}/from/{fromIds}'
-      .replaceAll('{toId}', toId)
-      .replaceAll('{fromIds}', fromIds);
+    final path = r'/rest/v1/patient/mergeInto/{toId}/from/{fromIds}'.replaceAll('{toId}', toId).replaceAll('{fromIds}', fromIds);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1797,7 +1784,7 @@ class PatientApi {
   /// * [PatientDto] patientDto (required):
   Future<Response> rawModifyPatientWithHttpInfo(PatientDto patientDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient';
+    final path = r'/rest/v1/patient';
 
     // ignore: prefer_final_locals
     Object? postBody = patientDto;
@@ -1808,7 +1795,6 @@ class PatientApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1862,9 +1848,7 @@ class PatientApi {
   ///   Optional value for end of referral
   Future<Response> rawModifyPatientReferralWithHttpInfo(String patientId, String referralId, { int? start, int? end, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/{patientId}/referral/{referralId}'
-      .replaceAll('{patientId}', patientId)
-      .replaceAll('{referralId}', referralId);
+    final path = r'/rest/v1/patient/{patientId}/referral/{referralId}'.replaceAll('{patientId}', patientId).replaceAll('{referralId}', referralId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1936,7 +1920,7 @@ class PatientApi {
   /// * [List<PatientDto>] patientDto (required):
   Future<Response> rawModifyPatientsWithHttpInfo(List<PatientDto> patientDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/batch';
+    final path = r'/rest/v1/patient/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = patientDto;
@@ -1947,7 +1931,6 @@ class PatientApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1999,8 +1982,7 @@ class PatientApi {
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> rawNewPatientDelegationsWithHttpInfo(String patientId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/{patientId}/delegate'
-      .replaceAll('{patientId}', patientId);
+    final path = r'/rest/v1/patient/{patientId}/delegate'.replaceAll('{patientId}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = delegationDto;
@@ -2068,9 +2050,8 @@ class PatientApi {
   /// * [bool] useShortToken:
   Future<Response> rawRegisterPatientWithHttpInfo(String hcPartyId, String groupId, PatientDto patientDto, { String? token, bool? useShortToken, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/register/forHcp/{hcPartyId}/inGroup/{groupId}'
-      .replaceAll('{hcPartyId}', hcPartyId)
-      .replaceAll('{groupId}', groupId);
+    final path =
+        r'/rest/v1/patient/register/forHcp/{hcPartyId}/inGroup/{groupId}'.replaceAll('{hcPartyId}', hcPartyId).replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody = patientDto;
@@ -2143,8 +2124,7 @@ class PatientApi {
   /// * [String] patientIds (required):
   Future<Response> rawUndeletePatientWithHttpInfo(String patientIds,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/patient/undelete/{patientIds}'
-      .replaceAll('{patientIds}', patientIds);
+    final path = r'/rest/v1/patient/undelete/{patientIds}'.replaceAll('{patientIds}', patientIds);
 
     // ignore: prefer_final_locals
     Object? postBody;

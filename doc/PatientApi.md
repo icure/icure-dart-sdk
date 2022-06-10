@@ -9,35 +9,57 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**countOfPatients**](PatientApi.md#countofpatients) | **GET** /rest/v2/patient/hcParty/{hcPartyId}/count | Get count of patients for a specific HcParty or for the current HcParty 
-[**createPatient**](PatientApi.md#createpatient) | **POST** /rest/v2/patient | Create a patient
-[**createPatients**](PatientApi.md#createpatients) | **POST** /rest/v2/patient/batch | Create patients in bulk
-[**deletePatients**](PatientApi.md#deletepatients) | **POST** /rest/v2/patient/delete/batch | Delete patients.
-[**filterPatientsBy**](PatientApi.md#filterpatientsby) | **POST** /rest/v2/patient/filter | Filter patients for the current user (HcParty) 
-[**findDeletedPatients**](PatientApi.md#finddeletedpatients) | **GET** /rest/v2/patient/deleted/byDate | Find deleted patients
-[**findDuplicatesByName**](PatientApi.md#findduplicatesbyname) | **POST** /rest/v2/patient/duplicates/name | Provides a paginated list of patients with duplicate name for an hecparty
-[**findDuplicatesBySsin**](PatientApi.md#findduplicatesbyssin) | **POST** /rest/v2/patient/duplicates/ssin | Provides a paginated list of patients with duplicate ssin for an hecparty
-[**findPatientsByAccessLogUserAfterDate**](PatientApi.md#findpatientsbyaccessloguserafterdate) | **GET** /rest/v2/patient/byAccess/{userId} | Get Paginated List of Patients sorted by Access logs descending
-[**findPatientsByHealthcareParty**](PatientApi.md#findpatientsbyhealthcareparty) | **GET** /rest/v2/patient | List patients for a specific HcParty
-[**findPatientsByNameBirthSsinAuto**](PatientApi.md#findpatientsbynamebirthssinauto) | **GET** /rest/v2/patient/byNameBirthSsinAuto | Find patients for the current user (HcParty) 
-[**findPatientsIdsByHealthcareParty**](PatientApi.md#findpatientsidsbyhealthcareparty) | **GET** /rest/v2/patient/byHcPartyId | List patients by pages for a specific HcParty
-[**findPatientsModifiedAfter**](PatientApi.md#findpatientsmodifiedafter) | **GET** /rest/v2/patient/modifiedAfter/{date} | List patients that have been modified after the provided date
-[**fuzzySearch**](PatientApi.md#fuzzysearch) | **GET** /rest/v2/patient/fuzzy | Filter patients for the current user (HcParty) 
-[**getPatient**](PatientApi.md#getpatient) | **GET** /rest/v2/patient/{patientId} | Get patient
-[**getPatientByExternalId**](PatientApi.md#getpatientbyexternalid) | **GET** /rest/v2/patient/byExternalId/{externalId} | Get the patient having the provided externalId
-[**getPatientByHealthcarepartyAndIdentifier**](PatientApi.md#getpatientbyhealthcarepartyandidentifier) | **GET** /rest/v2/patient/{hcPartyId}/{id} | Get patient by identifier
-[**getPatientHcPartyKeysForDelegate**](PatientApi.md#getpatienthcpartykeysfordelegate) | **GET** /rest/v2/patient/{patientId}/keys | Get the patient (identified by patientId) hcparty keys. Those keys are AES keys (encrypted) used to share information between HCPs and a patient.
-[**getPatients**](PatientApi.md#getpatients) | **POST** /rest/v2/patient/byIds | Get patients by id
-[**listDeletedPatientsByName**](PatientApi.md#listdeletedpatientsbyname) | **GET** /rest/v2/patient/deleted/by_name | Find deleted patients
-[**listOfMergesAfter**](PatientApi.md#listofmergesafter) | **GET** /rest/v2/patient/merges/{date} | List patients that have been merged towards another patient 
-[**matchPatientsBy**](PatientApi.md#matchpatientsby) | **POST** /rest/v2/patient/match | Get ids of patients matching the provided filter for the current user (HcParty) 
-[**mergeInto**](PatientApi.md#mergeinto) | **PUT** /rest/v2/patient/mergeInto/{toId}/from/{fromIds} | Merge a series of patients into another patient
-[**modifyPatient**](PatientApi.md#modifypatient) | **PUT** /rest/v2/patient | Modify a patient
-[**modifyPatientReferral**](PatientApi.md#modifypatientreferral) | **PUT** /rest/v2/patient/{patientId}/referral/{referralId} | Set a patient referral doctor
-[**modifyPatients**](PatientApi.md#modifypatients) | **PUT** /rest/v2/patient/batch | Modify patients in bulk
-[**newPatientDelegations**](PatientApi.md#newpatientdelegations) | **POST** /rest/v2/patient/{patientId}/delegate | Delegates a patients to a healthcare party
-[**registerPatient**](PatientApi.md#registerpatient) | **POST** /rest/v2/patient/register/forHcp/{hcPartyId}/inGroup/{groupId} | Register a patient
-[**undeletePatient**](PatientApi.md#undeletepatient) | **PUT** /rest/v2/patient/undelete/{patientIds} | undelete previously deleted patients
+[**countOfPatients**](PatientApi.md#countofpatients) | **
+GET** /rest/v1/patient/hcParty/{hcPartyId}/count | Get count of patients for a specific HcParty or for the current HcParty
+[**createPatient**](PatientApi.md#createpatient) | **POST** /rest/v1/patient | Create a patient
+[**createPatients**](PatientApi.md#createpatients) | **POST** /rest/v1/patient/batch | Create patients in bulk
+[**deletePatients**](PatientApi.md#deletepatients) | **POST** /rest/v1/patient/delete/batch | Delete patients.
+[**filterPatientsBy**](PatientApi.md#filterpatientsby) | **
+POST** /rest/v1/patient/filter | Filter patients for the current user (HcParty)
+[**findDeletedPatients**](PatientApi.md#finddeletedpatients) | **
+GET** /rest/v1/patient/deleted/byDate | Find deleted patients
+[**findDuplicatesByName**](PatientApi.md#findduplicatesbyname) | **
+POST** /rest/v1/patient/duplicates/name | Provides a paginated list of patients with duplicate name for an hecparty
+[**findDuplicatesBySsin**](PatientApi.md#findduplicatesbyssin) | **
+POST** /rest/v1/patient/duplicates/ssin | Provides a paginated list of patients with duplicate ssin for an hecparty
+[**findPatientsByAccessLogUserAfterDate**](PatientApi.md#findpatientsbyaccessloguserafterdate) | **
+GET** /rest/v1/patient/byAccess/{userId} | Get Paginated List of Patients sorted by Access logs descending
+[**findPatientsByHealthcareParty**](PatientApi.md#findpatientsbyhealthcareparty) | **
+GET** /rest/v1/patient | List patients for a specific HcParty
+[**findPatientsByNameBirthSsinAuto**](PatientApi.md#findpatientsbynamebirthssinauto) | **
+GET** /rest/v1/patient/byNameBirthSsinAuto | Find patients for the current user (HcParty)
+[**findPatientsIdsByHealthcareParty**](PatientApi.md#findpatientsidsbyhealthcareparty) | **
+GET** /rest/v1/patient/byHcPartyId | List patients by pages for a specific HcParty
+[**findPatientsModifiedAfter**](PatientApi.md#findpatientsmodifiedafter) | **
+GET** /rest/v1/patient/modifiedAfter/{date} | List patients that have been modified after the provided date
+[**fuzzySearch**](PatientApi.md#fuzzysearch) | **
+GET** /rest/v1/patient/fuzzy | Filter patients for the current user (HcParty)
+[**getPatient**](PatientApi.md#getpatient) | **GET** /rest/v1/patient/{patientId} | Get patient
+[**getPatientByExternalId**](PatientApi.md#getpatientbyexternalid) | **
+GET** /rest/v1/patient/byExternalId/{externalId} | Get the patient having the provided externalId
+[**getPatientByHealthcarepartyAndIdentifier**](PatientApi.md#getpatientbyhealthcarepartyandidentifier) | **
+GET** /rest/v1/patient/{hcPartyId}/{id} | Get patient by identifier
+[**getPatientHcPartyKeysForDelegate**](PatientApi.md#getpatienthcpartykeysfordelegate) | **
+GET** /rest/v1/patient/{patientId}/keys | Get the patient (identified by patientId) hcparty keys. Those keys are AES keys (encrypted) used to share information between HCPs and a patient.
+[**getPatients**](PatientApi.md#getpatients) | **POST** /rest/v1/patient/byIds | Get patients by id
+[**listDeletedPatientsByName**](PatientApi.md#listdeletedpatientsbyname) | **
+GET** /rest/v1/patient/deleted/by_name | Find deleted patients
+[**listOfMergesAfter**](PatientApi.md#listofmergesafter) | **
+GET** /rest/v1/patient/merges/{date} | List patients that have been merged towards another patient
+[**matchPatientsBy**](PatientApi.md#matchpatientsby) | **
+POST** /rest/v1/patient/match | Get ids of patients matching the provided filter for the current user (HcParty)
+[**mergeInto**](PatientApi.md#mergeinto) | **
+PUT** /rest/v1/patient/mergeInto/{toId}/from/{fromIds} | Merge a series of patients into another patient
+[**modifyPatient**](PatientApi.md#modifypatient) | **PUT** /rest/v1/patient | Modify a patient
+[**modifyPatientReferral**](PatientApi.md#modifypatientreferral) | **
+PUT** /rest/v1/patient/{patientId}/referral/{referralId} | Set a patient referral doctor
+[**modifyPatients**](PatientApi.md#modifypatients) | **PUT** /rest/v1/patient/batch | Modify patients in bulk
+[**newPatientDelegations**](PatientApi.md#newpatientdelegations) | **
+POST** /rest/v1/patient/{patientId}/delegate | Delegates a patients to a healthcare party
+[**registerPatient**](PatientApi.md#registerpatient) | **
+POST** /rest/v1/patient/register/forHcp/{hcPartyId}/inGroup/{groupId} | Register a patient
+[**undeletePatient**](PatientApi.md#undeletepatient) | **
+PUT** /rest/v1/patient/undelete/{patientIds} | undelete previously deleted patients
 
 
 # **countOfPatients**

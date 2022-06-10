@@ -21,7 +21,7 @@ class ApplicationsettingsApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getApplicationSettingsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/appsettings';
+    final path = r'/rest/v1/appsettings';
 
     // ignore: prefer_final_locals
     Object? postBody;

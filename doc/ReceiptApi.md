@@ -9,13 +9,15 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createReceipt**](ReceiptApi.md#createreceipt) | **POST** /rest/v2/receipt | Creates a receipt
-[**deleteReceipts**](ReceiptApi.md#deletereceipts) | **POST** /rest/v2/receipt/delete/batch | Deletes receipts
-[**getReceipt**](ReceiptApi.md#getreceipt) | **GET** /rest/v2/receipt/{receiptId} | Gets a receipt
-[**getReceiptAttachment**](ReceiptApi.md#getreceiptattachment) | **GET** /rest/v2/receipt/{receiptId}/attachment/{attachmentId} | Get an attachment
-[**listByReference**](ReceiptApi.md#listbyreference) | **GET** /rest/v2/receipt/byRef/{ref} | Gets a receipt
-[**modifyReceipt**](ReceiptApi.md#modifyreceipt) | **PUT** /rest/v2/receipt | Updates a receipt
-[**setReceiptAttachment**](ReceiptApi.md#setreceiptattachment) | **PUT** /rest/v2/receipt/{receiptId}/attachment/{blobType} | Creates a receipt's attachment
+[**createReceipt**](ReceiptApi.md#createreceipt) | **POST** /rest/v1/receipt | Creates a receipt
+[**deleteReceipts**](ReceiptApi.md#deletereceipts) | **POST** /rest/v1/receipt/delete/batch | Deletes receipts
+[**getReceipt**](ReceiptApi.md#getreceipt) | **GET** /rest/v1/receipt/{receiptId} | Gets a receipt
+[**getReceiptAttachment**](ReceiptApi.md#getreceiptattachment) | **
+GET** /rest/v1/receipt/{receiptId}/attachment/{attachmentId} | Get an attachment
+[**listByReference**](ReceiptApi.md#listbyreference) | **GET** /rest/v1/receipt/byRef/{ref} | Gets a receipt
+[**modifyReceipt**](ReceiptApi.md#modifyreceipt) | **PUT** /rest/v1/receipt | Updates a receipt
+[**setReceiptAttachment**](ReceiptApi.md#setreceiptattachment) | **
+PUT** /rest/v1/receipt/{receiptId}/attachment/{blobType} | Creates a receipt's attachment
 
 
 # **createReceipt**

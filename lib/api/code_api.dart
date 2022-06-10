@@ -27,7 +27,7 @@ class CodeApi {
   /// * [CodeDto] codeDto (required):
   Future<Response> createCodeWithHttpInfo(CodeDto codeDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code';
+    final path = r'/rest/v1/code';
 
     // ignore: prefer_final_locals
     Object? postBody = codeDto;
@@ -38,7 +38,6 @@ class CodeApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -103,7 +102,7 @@ class CodeApi {
   /// * [FilterChain<CodeDto>] filterChainCode:
   Future<Response> filterCodesByWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, int? skip, String? sort, bool? desc, FilterChain<CodeDto>? filterChainCode, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/filter';
+    final path = r'/rest/v1/code/filter';
 
     // ignore: prefer_final_locals
     Object? postBody = filterChainCode;
@@ -213,7 +212,7 @@ class CodeApi {
   ///   Number of rows
   Future<Response> findCodesByLabelWithHttpInfo({ String? region, String? types, String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/byLabel';
+    final path = r'/rest/v1/code/byLabel';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -319,8 +318,7 @@ class CodeApi {
   ///   Number of rows
   Future<Response> findCodesByLinkWithHttpInfo(String linkType, { String? linkedId, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/byLink/{linkType}'
-      .replaceAll('{linkType}', linkType);
+    final path = r'/rest/v1/code/byLink/{linkType}'.replaceAll('{linkType}', linkType);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -417,7 +415,7 @@ class CodeApi {
   ///   Number of rows
   Future<Response> findCodesByTypeWithHttpInfo({ String? region, String? type, String? code, String? version, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code';
+    final path = r'/rest/v1/code';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -513,8 +511,7 @@ class CodeApi {
   ///   Code id
   Future<Response> getCodeWithHttpInfo(String codeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/{codeId}'
-      .replaceAll('{codeId}', codeId);
+    final path = r'/rest/v1/code/{codeId}'.replaceAll('{codeId}', codeId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -580,10 +577,7 @@ class CodeApi {
   ///   Code version
   Future<Response> getCodeWithPartsWithHttpInfo(String type, String code, String version,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/{type}/{code}/{version}'
-      .replaceAll('{type}', type)
-      .replaceAll('{code}', code)
-      .replaceAll('{version}', version);
+    final path = r'/rest/v1/code/{type}/{code}/{version}'.replaceAll('{type}', type).replaceAll('{code}', code).replaceAll('{version}', version);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -648,7 +642,7 @@ class CodeApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/byIds';
+    final path = r'/rest/v1/code/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -659,7 +653,6 @@ class CodeApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -709,8 +702,8 @@ class CodeApi {
   /// * [String] codeType (required):
   Future<Response> importCodesWithHttpInfo(String codeType,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/{codeType}'
-      .replaceAll('{codeType}', codeType);
+    final path = r'/rest/v1/code/{codeType}'
+        .replaceAll('{codeType}', codeType);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -772,7 +765,7 @@ class CodeApi {
   ///   Code type
   Future<Response> listCodeTypesByWithHttpInfo({ String? region, String? type, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/codetype/byRegionType';
+    final path = r'/rest/v1/code/codetype/byRegionType';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -854,7 +847,7 @@ class CodeApi {
   ///   Code version
   Future<Response> listCodesByRegionTypeCodeVersionWithHttpInfo({ String? region, String? type, String? code, String? version, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/byRegionTypeCode';
+    final path = r'/rest/v1/code/byRegionTypeCode';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -942,7 +935,7 @@ class CodeApi {
   ///   Code type
   Future<Response> listTagTypesByWithHttpInfo({ String? region, String? type, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/tagtype/byRegionType';
+    final path = r'/rest/v1/code/tagtype/byRegionType';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1012,7 +1005,7 @@ class CodeApi {
   /// * [AbstractFilterDto<CodeDto>] abstractFilterDtoCode (required):
   Future<Response> matchCodesByWithHttpInfo(AbstractFilterDto<CodeDto> abstractFilterDtoCode,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code/match';
+    final path = r'/rest/v1/code/match';
 
     // ignore: prefer_final_locals
     Object? postBody = abstractFilterDtoCode;
@@ -1023,7 +1016,6 @@ class CodeApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1071,7 +1063,7 @@ class CodeApi {
   /// * [CodeDto] codeDto (required):
   Future<Response> modifyCodeWithHttpInfo(CodeDto codeDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/code';
+    final path = r'/rest/v1/code';
 
     // ignore: prefer_final_locals
     Object? postBody = codeDto;
@@ -1082,7 +1074,6 @@ class CodeApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

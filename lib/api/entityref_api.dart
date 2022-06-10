@@ -25,7 +25,7 @@ class EntityrefApi {
   /// * [EntityReferenceDto] entityReferenceDto (required):
   Future<Response> createEntityReferenceWithHttpInfo(EntityReferenceDto entityReferenceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entityref';
+    final path = r'/rest/v1/entityref';
 
     // ignore: prefer_final_locals
     Object? postBody = entityReferenceDto;
@@ -79,8 +79,8 @@ class EntityrefApi {
   /// * [String] prefix (required):
   Future<Response> getLatestWithHttpInfo(String prefix,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entityref/latest/{prefix}'
-      .replaceAll('{prefix}', prefix);
+    final path = r'/rest/v1/entityref/latest/{prefix}'
+        .replaceAll('{prefix}', prefix);
 
     // ignore: prefer_final_locals
     Object? postBody;

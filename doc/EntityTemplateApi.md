@@ -9,17 +9,28 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEntityTemplate**](EntityTemplateApi.md#createentitytemplate) | **POST** /rest/v2/entitytemplate | Create a EntityTemplate
-[**createEntityTemplates**](EntityTemplateApi.md#createentitytemplates) | **POST** /rest/v2/entitytemplate/batch | Create a batch of entityTemplates
-[**deleteEntityTemplate**](EntityTemplateApi.md#deleteentitytemplate) | **POST** /rest/v2/entitytemplate/delete/batch | Delete entity templates
-[**findAllEntityTemplatesByKeyword**](EntityTemplateApi.md#findallentitytemplatesbykeyword) | **GET** /rest/v2/entitytemplate/findAll/{type}/keyword/{keyword} | Finding entityTemplates by entityTemplate, type and version with pagination.
-[**getEntityTemplate**](EntityTemplateApi.md#getentitytemplate) | **GET** /rest/v2/entitytemplate/{entityTemplateId} | Get a entityTemplate
-[**getEntityTemplates**](EntityTemplateApi.md#getentitytemplates) | **POST** /rest/v2/entitytemplate/byIds | Get a list of entityTemplates by ids
-[**listAllEntityTemplatesBy**](EntityTemplateApi.md#listallentitytemplatesby) | **GET** /rest/v2/entitytemplate/findAll/{type} | Finding entityTemplates by entityTemplate, type and version with pagination.
-[**listEntityTemplatesBy**](EntityTemplateApi.md#listentitytemplatesby) | **GET** /rest/v2/entitytemplate/find/{userId}/{type} | Finding entityTemplates by userId, entityTemplate, type and version with pagination.
-[**listEntityTemplatesByKeyword**](EntityTemplateApi.md#listentitytemplatesbykeyword) | **GET** /rest/v2/entitytemplate/find/{userId}/{type}/keyword/{keyword} | Finding entityTemplates by userId, type and keyword.
-[**modifyEntityTemplate**](EntityTemplateApi.md#modifyentitytemplate) | **PUT** /rest/v2/entitytemplate | Modify a entityTemplate
-[**modifyEntityTemplates**](EntityTemplateApi.md#modifyentitytemplates) | **PUT** /rest/v2/entitytemplate/batch | Modify a batch of entityTemplates
+[**createEntityTemplate**](EntityTemplateApi.md#createentitytemplate) | **
+POST** /rest/v1/entitytemplate | Create a EntityTemplate
+[**createEntityTemplates**](EntityTemplateApi.md#createentitytemplates) | **
+POST** /rest/v1/entitytemplate/batch | Create a batch of entityTemplates
+[**deleteEntityTemplate**](EntityTemplateApi.md#deleteentitytemplate) | **
+POST** /rest/v1/entitytemplate/delete/batch | Delete entity templates
+[**findAllEntityTemplatesByKeyword**](EntityTemplateApi.md#findallentitytemplatesbykeyword) | **
+GET** /rest/v1/entitytemplate/findAll/{type}/keyword/{keyword} | Finding entityTemplates by entityTemplate, type and version with pagination.
+[**getEntityTemplate**](EntityTemplateApi.md#getentitytemplate) | **
+GET** /rest/v1/entitytemplate/{entityTemplateId} | Get a entityTemplate
+[**getEntityTemplates**](EntityTemplateApi.md#getentitytemplates) | **
+POST** /rest/v1/entitytemplate/byIds | Get a list of entityTemplates by ids
+[**listAllEntityTemplatesBy**](EntityTemplateApi.md#listallentitytemplatesby) | **
+GET** /rest/v1/entitytemplate/findAll/{type} | Finding entityTemplates by entityTemplate, type and version with pagination.
+[**listEntityTemplatesBy**](EntityTemplateApi.md#listentitytemplatesby) | **
+GET** /rest/v1/entitytemplate/find/{userId}/{type} | Finding entityTemplates by userId, entityTemplate, type and version with pagination.
+[**listEntityTemplatesByKeyword**](EntityTemplateApi.md#listentitytemplatesbykeyword) | **
+GET** /rest/v1/entitytemplate/find/{userId}/{type}/keyword/{keyword} | Finding entityTemplates by userId, type and keyword.
+[**modifyEntityTemplate**](EntityTemplateApi.md#modifyentitytemplate) | **
+PUT** /rest/v1/entitytemplate | Modify a entityTemplate
+[**modifyEntityTemplates**](EntityTemplateApi.md#modifyentitytemplates) | **
+PUT** /rest/v1/entitytemplate/batch | Modify a batch of entityTemplates
 
 
 # **createEntityTemplate**

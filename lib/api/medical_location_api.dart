@@ -25,7 +25,7 @@ class MedicalLocationApi {
   /// * [MedicalLocationDto] medicalLocationDto (required):
   Future<Response> createMedicalLocationWithHttpInfo(MedicalLocationDto medicalLocationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/medicallocation';
+    final path = r'/rest/v1/medicallocation';
 
     // ignore: prefer_final_locals
     Object? postBody = medicalLocationDto;
@@ -79,7 +79,7 @@ class MedicalLocationApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteMedicalLocationsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/medicallocation/delete/batch';
+    final path = r'/rest/v1/medicallocation/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -136,8 +136,7 @@ class MedicalLocationApi {
   /// * [String] locationId (required):
   Future<Response> getMedicalLocationWithHttpInfo(String locationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/medicallocation/{locationId}'
-      .replaceAll('{locationId}', locationId);
+    final path = r'/rest/v1/medicallocation/{locationId}'.replaceAll('{locationId}', locationId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -187,7 +186,7 @@ class MedicalLocationApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getMedicalLocationsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/medicallocation';
+    final path = r'/rest/v1/medicallocation';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -198,7 +197,6 @@ class MedicalLocationApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -240,7 +238,7 @@ class MedicalLocationApi {
   /// * [MedicalLocationDto] medicalLocationDto (required):
   Future<Response> modifyMedicalLocationWithHttpInfo(MedicalLocationDto medicalLocationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/medicallocation';
+    final path = r'/rest/v1/medicallocation';
 
     // ignore: prefer_final_locals
     Object? postBody = medicalLocationDto;
@@ -251,7 +249,6 @@ class MedicalLocationApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

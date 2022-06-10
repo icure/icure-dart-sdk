@@ -9,11 +9,11 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createPlace**](PlaceApi.md#createplace) | **POST** /rest/v2/place | Creates a place
-[**deletePlaces**](PlaceApi.md#deleteplaces) | **POST** /rest/v2/place/delete/batch | Deletes places
-[**getPlace**](PlaceApi.md#getplace) | **GET** /rest/v2/place/{placeId} | Gets an place
-[**getPlaces**](PlaceApi.md#getplaces) | **GET** /rest/v2/place | Gets all places
-[**modifyPlace**](PlaceApi.md#modifyplace) | **PUT** /rest/v2/place | Modifies an place
+[**createPlace**](PlaceApi.md#createplace) | **POST** /rest/v1/place | Creates a place
+[**deletePlaces**](PlaceApi.md#deleteplaces) | **POST** /rest/v1/place/delete/batch | Deletes places
+[**getPlace**](PlaceApi.md#getplace) | **GET** /rest/v1/place/{placeId} | Gets an place
+[**getPlaces**](PlaceApi.md#getplaces) | **GET** /rest/v1/place | Gets all places
+[**modifyPlace**](PlaceApi.md#modifyplace) | **PUT** /rest/v1/place | Modifies an place
 
 
 # **createPlace**

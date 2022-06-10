@@ -9,19 +9,33 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createDocumentTemplate**](DocumentTemplateApi.md#createdocumenttemplate) | **POST** /rest/v2/doctemplate | Create a document template with the current user
-[**deleteDocumentTemplates**](DocumentTemplateApi.md#deletedocumenttemplates) | **POST** /rest/v2/doctemplate/delete/batch | Deletes document templates
-[**getAttachmentText**](DocumentTemplateApi.md#getattachmenttext) | **GET** /rest/v2/doctemplate/{documentTemplateId}/attachmentText/{attachmentId} | Download a the document template attachment
-[**getDocumentTemplate**](DocumentTemplateApi.md#getdocumenttemplate) | **GET** /rest/v2/doctemplate/{documentTemplateId} | Gets a document template
-[**getDocumentTemplateAttachment**](DocumentTemplateApi.md#getdocumenttemplateattachment) | **GET** /rest/v2/doctemplate/{documentTemplateId}/attachment/{attachmentId} | Download a the document template attachment
-[**listAllDocumentTemplates**](DocumentTemplateApi.md#listalldocumenttemplates) | **GET** /rest/v2/doctemplate/find/all | Gets all document templates for all users
-[**listDocumentTemplates**](DocumentTemplateApi.md#listdocumenttemplates) | **GET** /rest/v2/doctemplate | Gets all document templates for current user
-[**listDocumentTemplatesByDocumentType**](DocumentTemplateApi.md#listdocumenttemplatesbydocumenttype) | **GET** /rest/v2/doctemplate/byDocumentType/{documentTypeCode} | Gets all document templates by Type
-[**listDocumentTemplatesByDocumentTypeForCurrentUser**](DocumentTemplateApi.md#listdocumenttemplatesbydocumenttypeforcurrentuser) | **GET** /rest/v2/doctemplate/byDocumentTypeForCurrentUser/{documentTypeCode} | Gets all document templates by Type For currentUser
-[**listDocumentTemplatesBySpeciality**](DocumentTemplateApi.md#listdocumenttemplatesbyspeciality) | **GET** /rest/v2/doctemplate/bySpecialty/{specialityCode} | Gets all document templates
-[**modifyDocumentTemplate**](DocumentTemplateApi.md#modifydocumenttemplate) | **PUT** /rest/v2/doctemplate/{documentTemplateId} | Modify a document template with the current user
-[**setDocumentTemplateAttachment**](DocumentTemplateApi.md#setdocumenttemplateattachment) | **PUT** /rest/v2/doctemplate/{documentTemplateId}/attachment | Creates a document's attachment
-[**setDocumentTemplateAttachmentJson**](DocumentTemplateApi.md#setdocumenttemplateattachmentjson) | **PUT** /rest/v2/doctemplate/{documentTemplateId}/attachmentJson | Creates a document's attachment
+[**createDocumentTemplate**](DocumentTemplateApi.md#createdocumenttemplate) | **
+POST** /rest/v1/doctemplate | Create a document template with the current user
+[**deleteDocumentTemplates**](DocumentTemplateApi.md#deletedocumenttemplates) | **
+POST** /rest/v1/doctemplate/delete/batch | Deletes document templates
+[**getAttachmentText**](DocumentTemplateApi.md#getattachmenttext) | **
+GET** /rest/v1/doctemplate/{documentTemplateId}/attachmentText/{attachmentId} | Download a the document template attachment
+[**getDocumentTemplate**](DocumentTemplateApi.md#getdocumenttemplate) | **
+GET** /rest/v1/doctemplate/{documentTemplateId} | Gets a document template
+[**getDocumentTemplateAttachment**](DocumentTemplateApi.md#getdocumenttemplateattachment) | **
+GET** /rest/v1/doctemplate/{documentTemplateId}/attachment/{attachmentId} | Download a the document template attachment
+[**listAllDocumentTemplates**](DocumentTemplateApi.md#listalldocumenttemplates) | **
+GET** /rest/v1/doctemplate/find/all | Gets all document templates for all users
+[**listDocumentTemplates**](DocumentTemplateApi.md#listdocumenttemplates) | **
+GET** /rest/v1/doctemplate | Gets all document templates for current user
+[**listDocumentTemplatesByDocumentType**](DocumentTemplateApi.md#listdocumenttemplatesbydocumenttype) | **
+GET** /rest/v1/doctemplate/byDocumentType/{documentTypeCode} | Gets all document templates by Type
+[**
+listDocumentTemplatesByDocumentTypeForCurrentUser**](DocumentTemplateApi.md#listdocumenttemplatesbydocumenttypeforcurrentuser) | **
+GET** /rest/v1/doctemplate/byDocumentTypeForCurrentUser/{documentTypeCode} | Gets all document templates by Type For currentUser
+[**listDocumentTemplatesBySpeciality**](DocumentTemplateApi.md#listdocumenttemplatesbyspeciality) | **
+GET** /rest/v1/doctemplate/bySpecialty/{specialityCode} | Gets all document templates
+[**modifyDocumentTemplate**](DocumentTemplateApi.md#modifydocumenttemplate) | **
+PUT** /rest/v1/doctemplate/{documentTemplateId} | Modify a document template with the current user
+[**setDocumentTemplateAttachment**](DocumentTemplateApi.md#setdocumenttemplateattachment) | **
+PUT** /rest/v1/doctemplate/{documentTemplateId}/attachment | Creates a document's attachment
+[**setDocumentTemplateAttachmentJson**](DocumentTemplateApi.md#setdocumenttemplateattachmentjson) | **
+PUT** /rest/v1/doctemplate/{documentTemplateId}/attachmentJson | Creates a document's attachment
 
 
 # **createDocumentTemplate**

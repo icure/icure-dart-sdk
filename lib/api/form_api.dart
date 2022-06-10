@@ -27,7 +27,7 @@ class FormApi {
   /// * [FormDto] formDto (required):
   Future<Response> rawCreateFormWithHttpInfo(FormDto formDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form';
+    final path = r'/rest/v1/form';
 
     // ignore: prefer_final_locals
     Object? postBody = formDto;
@@ -85,7 +85,7 @@ class FormApi {
   /// * [FormTemplateDto] formTemplateDto (required):
   Future<Response> rawCreateFormTemplateWithHttpInfo(FormTemplateDto formTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/template';
+    final path = r'/rest/v1/form/template';
 
     // ignore: prefer_final_locals
     Object? postBody = formTemplateDto;
@@ -143,7 +143,7 @@ class FormApi {
   /// * [List<FormDto>] formDto (required):
   Future<Response> rawCreateFormsWithHttpInfo(List<FormDto> formDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/batch';
+    final path = r'/rest/v1/form/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = formDto;
@@ -154,7 +154,6 @@ class FormApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -202,8 +201,7 @@ class FormApi {
   /// * [String] formTemplateId (required):
   Future<Response> rawDeleteFormTemplateWithHttpInfo(String formTemplateId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/template/{formTemplateId}'
-      .replaceAll('{formTemplateId}', formTemplateId);
+    final path = r'/rest/v1/form/template/{formTemplateId}'.replaceAll('{formTemplateId}', formTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -259,7 +257,7 @@ class FormApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteFormsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/delete/batch';
+    final path = r'/rest/v1/form/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -270,7 +268,6 @@ class FormApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -322,9 +319,7 @@ class FormApi {
   /// * [String] hcPartyId (required):
   Future<Response> rawGetChildrenFormsWithHttpInfo(String formId, String hcPartyId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/childrenOf/{formId}/{hcPartyId}'
-      .replaceAll('{formId}', formId)
-      .replaceAll('{hcPartyId}', hcPartyId);
+    final path = r'/rest/v1/form/childrenOf/{formId}/{hcPartyId}'.replaceAll('{formId}', formId).replaceAll('{hcPartyId}', hcPartyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -385,8 +380,7 @@ class FormApi {
   /// * [String] formId (required):
   Future<Response> rawGetFormWithHttpInfo(String formId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/{formId}'
-      .replaceAll('{formId}', formId);
+    final path = r'/rest/v1/form/{formId}'.replaceAll('{formId}', formId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -440,8 +434,7 @@ class FormApi {
   /// * [String] logicalUuid (required):
   Future<Response> rawGetFormByLogicalUuidWithHttpInfo(String logicalUuid,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/logicalUuid/{logicalUuid}'
-      .replaceAll('{logicalUuid}', logicalUuid);
+    final path = r'/rest/v1/form/logicalUuid/{logicalUuid}'.replaceAll('{logicalUuid}', logicalUuid);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -495,8 +488,7 @@ class FormApi {
   /// * [String] uniqueId (required):
   Future<Response> rawGetFormByUniqueIdWithHttpInfo(String uniqueId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/uniqueId/{uniqueId}'
-      .replaceAll('{uniqueId}', uniqueId);
+    final path = r'/rest/v1/form/uniqueId/{uniqueId}'.replaceAll('{uniqueId}', uniqueId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -550,8 +542,7 @@ class FormApi {
   /// * [String] formTemplateId (required):
   Future<Response> rawGetFormTemplateWithHttpInfo(String formTemplateId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/template/{formTemplateId}'
-      .replaceAll('{formTemplateId}', formTemplateId);
+    final path = r'/rest/v1/form/template/{formTemplateId}'.replaceAll('{formTemplateId}', formTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -605,7 +596,7 @@ class FormApi {
   /// * [bool] loadLayout:
   Future<Response> rawGetFormTemplatesWithHttpInfo({ bool? loadLayout, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/template';
+    final path = r'/rest/v1/form/template';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -668,9 +659,9 @@ class FormApi {
   /// * [String] specialityCode (required):
   Future<Response> rawGetFormTemplatesByGuidWithHttpInfo(String formTemplateGuid, String specialityCode,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/template/{specialityCode}/guid/{formTemplateGuid}'
-      .replaceAll('{formTemplateGuid}', formTemplateGuid)
-      .replaceAll('{specialityCode}', specialityCode);
+    final path = r'/rest/v1/form/template/{specialityCode}/guid/{formTemplateGuid}'
+        .replaceAll('{formTemplateGuid}', formTemplateGuid)
+        .replaceAll('{specialityCode}', specialityCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -731,7 +722,7 @@ class FormApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawGetFormsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/byIds';
+    final path = r'/rest/v1/form/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -790,8 +781,8 @@ class FormApi {
   /// * [String] logicalUuid (required):
   Future<Response> rawGetFormsByLogicalUuidWithHttpInfo(String logicalUuid,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/all/logicalUuid/{logicalUuid}'
-      .replaceAll('{logicalUuid}', logicalUuid);
+    final path = r'/rest/v1/form/all/logicalUuid/{logicalUuid}'
+        .replaceAll('{logicalUuid}', logicalUuid);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -848,8 +839,7 @@ class FormApi {
   /// * [String] uniqueId (required):
   Future<Response> rawGetFormsByUniqueIdWithHttpInfo(String uniqueId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/all/uniqueId/{uniqueId}'
-      .replaceAll('{uniqueId}', uniqueId);
+    final path = r'/rest/v1/form/all/uniqueId/{uniqueId}'.replaceAll('{uniqueId}', uniqueId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -908,8 +898,7 @@ class FormApi {
   /// * [bool] loadLayout:
   Future<Response> rawListFormTemplatesBySpecialityWithHttpInfo(String specialityCode, { bool? loadLayout, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/template/bySpecialty/{specialityCode}'
-      .replaceAll('{specialityCode}', specialityCode);
+    final path = r'/rest/v1/form/template/bySpecialty/{specialityCode}'.replaceAll('{specialityCode}', specialityCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -982,7 +971,7 @@ class FormApi {
   /// * [String] formTemplateId:
   Future<Response> rawListFormsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys, { String? healthElementId, String? planOfActionId, String? formTemplateId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/form/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -991,8 +980,8 @@ class FormApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
     if (healthElementId != null) {
       queryParams.addAll(_queryParams('', 'healthElementId', healthElementId));
     }
@@ -1065,7 +1054,7 @@ class FormApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawListFormsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/byHcPartySecretForeignKeys/delegations';
+    final path = r'/rest/v1/form/byHcPartySecretForeignKeys/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1074,8 +1063,8 @@ class FormApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -1131,7 +1120,7 @@ class FormApi {
   /// * [FormDto] formDto (required):
   Future<Response> rawModifyFormWithHttpInfo(FormDto formDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form';
+    final path = r'/rest/v1/form';
 
     // ignore: prefer_final_locals
     Object? postBody = formDto;
@@ -1142,7 +1131,6 @@ class FormApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1189,7 +1177,7 @@ class FormApi {
   /// * [List<FormDto>] formDto (required):
   Future<Response> rawModifyFormsWithHttpInfo(List<FormDto> formDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/batch';
+    final path = r'/rest/v1/form/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = formDto;
@@ -1200,7 +1188,6 @@ class FormApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1252,8 +1239,7 @@ class FormApi {
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> rawNewFormDelegationsWithHttpInfo(String formId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/delegate/{formId}'
-      .replaceAll('{formId}', formId);
+    final path = r'/rest/v1/form/delegate/{formId}'.replaceAll('{formId}', formId);
 
     // ignore: prefer_final_locals
     Object? postBody = delegationDto;
@@ -1313,7 +1299,7 @@ class FormApi {
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> rawSetFormsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/delegations';
+    final path = r'/rest/v1/form/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody = icureStubDto;
@@ -1324,7 +1310,6 @@ class FormApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1374,8 +1359,7 @@ class FormApi {
   /// * [String] attachment (required):
   Future<Response> rawSetTemplateAttachmentMultiWithHttpInfo(String formTemplateId, String attachment,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/template/{formTemplateId}/attachment/multipart'
-      .replaceAll('{formTemplateId}', formTemplateId);
+    final path = r'/rest/v1/form/template/{formTemplateId}/attachment/multipart'.replaceAll('{formTemplateId}', formTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1444,8 +1428,7 @@ class FormApi {
   /// * [FormTemplateDto] formTemplateDto (required):
   Future<Response> rawUpdateFormTemplateWithHttpInfo(String formTemplateId, FormTemplateDto formTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/form/template/{formTemplateId}'
-      .replaceAll('{formTemplateId}', formTemplateId);
+    final path = r'/rest/v1/form/template/{formTemplateId}'.replaceAll('{formTemplateId}', formTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody = formTemplateDto;

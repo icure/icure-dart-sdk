@@ -27,7 +27,7 @@ class DeviceApi {
   /// * [DeviceDto] deviceDto (required):
   Future<Response> createDeviceWithHttpInfo(DeviceDto deviceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device';
+    final path = r'/rest/v1/device';
 
     // ignore: prefer_final_locals
     Object? postBody = deviceDto;
@@ -85,7 +85,7 @@ class DeviceApi {
   /// * [List<DeviceDto>] deviceDto (required):
   Future<Response> createDevicesWithHttpInfo(List<DeviceDto> deviceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/batch';
+    final path = r'/rest/v1/device/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = deviceDto;
@@ -96,7 +96,6 @@ class DeviceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -146,7 +145,7 @@ class DeviceApi {
   /// * [List<DeviceDto>] deviceDto (required):
   Future<Response> createDevices1WithHttpInfo(List<DeviceDto> deviceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/bulk';
+    final path = r'/rest/v1/device/bulk';
 
     // ignore: prefer_final_locals
     Object? postBody = deviceDto;
@@ -157,7 +156,6 @@ class DeviceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -207,8 +205,7 @@ class DeviceApi {
   /// * [String] deviceId (required):
   Future<Response> deleteDeviceWithHttpInfo(String deviceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/{deviceId}'
-      .replaceAll('{deviceId}', deviceId);
+    final path = r'/rest/v1/device/{deviceId}'.replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -266,7 +263,7 @@ class DeviceApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteDevicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/delete/batch';
+    final path = r'/rest/v1/device/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -277,7 +274,6 @@ class DeviceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -333,7 +329,7 @@ class DeviceApi {
   ///   Number of rows
   Future<Response> filterDevicesByWithHttpInfo(FilterChain<DeviceDto> filterChainDevice, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/filter';
+    final path = r'/rest/v1/device/filter';
 
     // ignore: prefer_final_locals
     Object? postBody = filterChainDevice;
@@ -404,8 +400,7 @@ class DeviceApi {
   /// * [String] deviceId (required):
   Future<Response> getDeviceWithHttpInfo(String deviceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/{deviceId}'
-      .replaceAll('{deviceId}', deviceId);
+    final path = r'/rest/v1/device/{deviceId}'.replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -463,7 +458,7 @@ class DeviceApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getDevicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/byIds';
+    final path = r'/rest/v1/device/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -474,7 +469,6 @@ class DeviceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -524,7 +518,7 @@ class DeviceApi {
   /// * [String] deviceId (required):
   Future<Response> getDeviceHcPartyKeysForDelegateWithHttpInfo(String deviceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/{deviceId}/keys'
+    final path = r'/rest/v1/device/{deviceId}/keys'
         .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
@@ -580,7 +574,7 @@ class DeviceApi {
   /// * [AbstractFilterDto<DeviceDto>] abstractFilterDtoDevice (required):
   Future<Response> matchDevicesByWithHttpInfo(AbstractFilterDto<DeviceDto> abstractFilterDtoDevice,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/match';
+    final path = r'/rest/v1/device/match';
 
     // ignore: prefer_final_locals
     Object? postBody = abstractFilterDtoDevice;
@@ -591,7 +585,6 @@ class DeviceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -639,7 +632,7 @@ class DeviceApi {
   /// * [DeviceDto] deviceDto (required):
   Future<Response> updateDeviceWithHttpInfo(DeviceDto deviceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device';
+    final path = r'/rest/v1/device';
 
     // ignore: prefer_final_locals
     Object? postBody = deviceDto;
@@ -650,7 +643,6 @@ class DeviceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -697,7 +689,7 @@ class DeviceApi {
   /// * [List<DeviceDto>] deviceDto (required):
   Future<Response> updateDevicesWithHttpInfo(List<DeviceDto> deviceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/batch';
+    final path = r'/rest/v1/device/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = deviceDto;
@@ -708,7 +700,6 @@ class DeviceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -758,7 +749,7 @@ class DeviceApi {
   /// * [List<DeviceDto>] deviceDto (required):
   Future<Response> updateDevices1WithHttpInfo(List<DeviceDto> deviceDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/device/bulk';
+    final path = r'/rest/v1/device/bulk';
 
     // ignore: prefer_final_locals
     Object? postBody = deviceDto;
@@ -769,7 +760,6 @@ class DeviceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

@@ -25,7 +25,7 @@ class PlaceApi {
   /// * [PlaceDto] placeDto (required):
   Future<Response> createPlaceWithHttpInfo(PlaceDto placeDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/place';
+    final path = r'/rest/v1/place';
 
     // ignore: prefer_final_locals
     Object? postBody = placeDto;
@@ -79,7 +79,7 @@ class PlaceApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deletePlacesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/place/delete/batch';
+    final path = r'/rest/v1/place/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -90,7 +90,6 @@ class PlaceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -136,8 +135,7 @@ class PlaceApi {
   /// * [String] placeId (required):
   Future<Response> getPlaceWithHttpInfo(String placeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/place/{placeId}'
-      .replaceAll('{placeId}', placeId);
+    final path = r'/rest/v1/place/{placeId}'.replaceAll('{placeId}', placeId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -187,7 +185,7 @@ class PlaceApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getPlacesWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/place';
+    final path = r'/rest/v1/place';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -198,7 +196,6 @@ class PlaceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -240,7 +237,7 @@ class PlaceApi {
   /// * [PlaceDto] placeDto (required):
   Future<Response> modifyPlaceWithHttpInfo(PlaceDto placeDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/place';
+    final path = r'/rest/v1/place';
 
     // ignore: prefer_final_locals
     Object? postBody = placeDto;
@@ -251,7 +248,6 @@ class PlaceApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

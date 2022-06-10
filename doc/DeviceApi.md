@@ -9,18 +9,20 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createDevice**](DeviceApi.md#createdevice) | **POST** /rest/v2/device | Create a device
-[**createDevices**](DeviceApi.md#createdevices) | **POST** /rest/v2/device/batch | Create devices in bulk
-[**createDevices1**](DeviceApi.md#createdevices1) | **POST** /rest/v2/device/bulk | Create devices in bulk
-[**deleteDevice**](DeviceApi.md#deletedevice) | **DELETE** /rest/v2/device/{deviceId} | Delete device.
-[**deleteDevices**](DeviceApi.md#deletedevices) | **POST** /rest/v2/device/delete/batch | Delete devices.
-[**filterDevicesBy**](DeviceApi.md#filterdevicesby) | **POST** /rest/v2/device/filter | Filter devices for the current user (HcParty) 
-[**getDevice**](DeviceApi.md#getdevice) | **GET** /rest/v2/device/{deviceId} | Get Device
-[**getDevices**](DeviceApi.md#getdevices) | **POST** /rest/v2/device/byIds | Get devices by id
-[**matchDevicesBy**](DeviceApi.md#matchdevicesby) | **POST** /rest/v2/device/match | Get ids of devices matching the provided filter for the current user (HcParty) 
-[**updateDevice**](DeviceApi.md#updatedevice) | **PUT** /rest/v2/device | Modify a device
-[**updateDevices**](DeviceApi.md#updatedevices) | **PUT** /rest/v2/device/batch | Modify devices in bulk
-[**updateDevices1**](DeviceApi.md#updatedevices1) | **PUT** /rest/v2/device/bulk | Modify devices in bulk
+[**createDevice**](DeviceApi.md#createdevice) | **POST** /rest/v1/device | Create a device
+[**createDevices**](DeviceApi.md#createdevices) | **POST** /rest/v1/device/batch | Create devices in bulk
+[**createDevices1**](DeviceApi.md#createdevices1) | **POST** /rest/v1/device/bulk | Create devices in bulk
+[**deleteDevice**](DeviceApi.md#deletedevice) | **DELETE** /rest/v1/device/{deviceId} | Delete device.
+[**deleteDevices**](DeviceApi.md#deletedevices) | **POST** /rest/v1/device/delete/batch | Delete devices.
+[**filterDevicesBy**](DeviceApi.md#filterdevicesby) | **
+POST** /rest/v1/device/filter | Filter devices for the current user (HcParty)
+[**getDevice**](DeviceApi.md#getdevice) | **GET** /rest/v1/device/{deviceId} | Get Device
+[**getDevices**](DeviceApi.md#getdevices) | **POST** /rest/v1/device/byIds | Get devices by id
+[**matchDevicesBy**](DeviceApi.md#matchdevicesby) | **
+POST** /rest/v1/device/match | Get ids of devices matching the provided filter for the current user (HcParty)
+[**updateDevice**](DeviceApi.md#updatedevice) | **PUT** /rest/v1/device | Modify a device
+[**updateDevices**](DeviceApi.md#updatedevices) | **PUT** /rest/v1/device/batch | Modify devices in bulk
+[**updateDevices1**](DeviceApi.md#updatedevices1) | **PUT** /rest/v1/device/bulk | Modify devices in bulk
 
 
 # **createDevice**

@@ -27,7 +27,7 @@ class EntityTemplateApi {
   /// * [EntityTemplateDto] entityTemplateDto (required):
   Future<Response> createEntityTemplateWithHttpInfo(EntityTemplateDto entityTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate';
+    final path = r'/rest/v1/entitytemplate';
 
     // ignore: prefer_final_locals
     Object? postBody = entityTemplateDto;
@@ -38,7 +38,6 @@ class EntityTemplateApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -85,7 +84,7 @@ class EntityTemplateApi {
   /// * [List<EntityTemplateDto>] entityTemplateDto (required):
   Future<Response> createEntityTemplatesWithHttpInfo(List<EntityTemplateDto> entityTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate/batch';
+    final path = r'/rest/v1/entitytemplate/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = entityTemplateDto;
@@ -96,7 +95,6 @@ class EntityTemplateApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -144,7 +142,7 @@ class EntityTemplateApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteEntityTemplateWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate/delete/batch';
+    final path = r'/rest/v1/entitytemplate/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -207,9 +205,9 @@ class EntityTemplateApi {
   /// * [bool] includeEntities:
   Future<Response> findAllEntityTemplatesByKeywordWithHttpInfo(String type, String keyword, { bool? includeEntities, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate/findAll/{type}/keyword/{keyword}'
-      .replaceAll('{type}', type)
-      .replaceAll('{keyword}', keyword);
+    final path = r'/rest/v1/entitytemplate/findAll/{type}/keyword/{keyword}'
+        .replaceAll('{type}', type)
+        .replaceAll('{keyword}', keyword);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -279,8 +277,7 @@ class EntityTemplateApi {
   ///   EntityTemplate id
   Future<Response> getEntityTemplateWithHttpInfo(String entityTemplateId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate/{entityTemplateId}'
-      .replaceAll('{entityTemplateId}', entityTemplateId);
+    final path = r'/rest/v1/entitytemplate/{entityTemplateId}'.replaceAll('{entityTemplateId}', entityTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -339,7 +336,7 @@ class EntityTemplateApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getEntityTemplatesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate/byIds';
+    final path = r'/rest/v1/entitytemplate/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -350,7 +347,6 @@ class EntityTemplateApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -404,8 +400,7 @@ class EntityTemplateApi {
   /// * [bool] includeEntities:
   Future<Response> listAllEntityTemplatesByWithHttpInfo(String type, { String? searchString, bool? includeEntities, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate/findAll/{type}'
-      .replaceAll('{type}', type);
+    final path = r'/rest/v1/entitytemplate/findAll/{type}'.replaceAll('{type}', type);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -483,9 +478,7 @@ class EntityTemplateApi {
   /// * [bool] includeEntities:
   Future<Response> listEntityTemplatesByWithHttpInfo(String userId, String type, { String? searchString, bool? includeEntities, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate/find/{userId}/{type}'
-      .replaceAll('{userId}', userId)
-      .replaceAll('{type}', type);
+    final path = r'/rest/v1/entitytemplate/find/{userId}/{type}'.replaceAll('{userId}', userId).replaceAll('{type}', type);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -565,10 +558,10 @@ class EntityTemplateApi {
   /// * [bool] includeEntities:
   Future<Response> listEntityTemplatesByKeywordWithHttpInfo(String userId, String type, String keyword, { bool? includeEntities, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate/find/{userId}/{type}/keyword/{keyword}'
-      .replaceAll('{userId}', userId)
-      .replaceAll('{type}', type)
-      .replaceAll('{keyword}', keyword);
+    final path = r'/rest/v1/entitytemplate/find/{userId}/{type}/keyword/{keyword}'
+        .replaceAll('{userId}', userId)
+        .replaceAll('{type}', type)
+        .replaceAll('{keyword}', keyword);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -639,7 +632,7 @@ class EntityTemplateApi {
   /// * [EntityTemplateDto] entityTemplateDto (required):
   Future<Response> modifyEntityTemplateWithHttpInfo(EntityTemplateDto entityTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate';
+    final path = r'/rest/v1/entitytemplate';
 
     // ignore: prefer_final_locals
     Object? postBody = entityTemplateDto;
@@ -650,7 +643,6 @@ class EntityTemplateApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -697,7 +689,7 @@ class EntityTemplateApi {
   /// * [List<EntityTemplateDto>] entityTemplateDto (required):
   Future<Response> modifyEntityTemplatesWithHttpInfo(List<EntityTemplateDto> entityTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/entitytemplate/batch';
+    final path = r'/rest/v1/entitytemplate/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = entityTemplateDto;
@@ -708,7 +700,6 @@ class EntityTemplateApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

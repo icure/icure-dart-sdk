@@ -9,11 +9,16 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createMedicalLocation**](MedicalLocationApi.md#createmedicallocation) | **POST** /rest/v2/medicallocation | Creates a medical location
-[**deleteMedicalLocations**](MedicalLocationApi.md#deletemedicallocations) | **POST** /rest/v2/medicallocation/delete/batch | Deletes medical locations
-[**getMedicalLocation**](MedicalLocationApi.md#getmedicallocation) | **GET** /rest/v2/medicallocation/{locationId} | Gets a medical location
-[**getMedicalLocations**](MedicalLocationApi.md#getmedicallocations) | **GET** /rest/v2/medicallocation | Gets all medical locations
-[**modifyMedicalLocation**](MedicalLocationApi.md#modifymedicallocation) | **PUT** /rest/v2/medicallocation | Modifies a medical location
+[**createMedicalLocation**](MedicalLocationApi.md#createmedicallocation) | **
+POST** /rest/v1/medicallocation | Creates a medical location
+[**deleteMedicalLocations**](MedicalLocationApi.md#deletemedicallocations) | **
+POST** /rest/v1/medicallocation/delete/batch | Deletes medical locations
+[**getMedicalLocation**](MedicalLocationApi.md#getmedicallocation) | **
+GET** /rest/v1/medicallocation/{locationId} | Gets a medical location
+[**getMedicalLocations**](MedicalLocationApi.md#getmedicallocations) | **
+GET** /rest/v1/medicallocation | Gets all medical locations
+[**modifyMedicalLocation**](MedicalLocationApi.md#modifymedicallocation) | **
+PUT** /rest/v1/medicallocation | Modifies a medical location
 
 
 # **createMedicalLocation**

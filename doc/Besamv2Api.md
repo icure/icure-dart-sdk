@@ -9,32 +9,55 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findAmpsByDmppCode**](Besamv2Api.md#findampsbydmppcode) | **GET** /rest/v2/be_samv2/amp/byDmppCode/{dmppCode} | Finding AMPs by dmpp code
-[**findPaginatedAmpsByAtc**](Besamv2Api.md#findpaginatedampsbyatc) | **GET** /rest/v2/be_samv2/vmp/byAtc/{atcCode} | Finding AMPs by atc code with pagination.
-[**findPaginatedAmpsByGroupCode**](Besamv2Api.md#findpaginatedampsbygroupcode) | **GET** /rest/v2/be_samv2/amp/byGroupCode/{vmpgCode} | Finding AMPs by group with pagination.
-[**findPaginatedAmpsByGroupId**](Besamv2Api.md#findpaginatedampsbygroupid) | **GET** /rest/v2/be_samv2/amp/byGroupId/{vmpgId} | Finding AMPs by group with pagination.
-[**findPaginatedAmpsByLabel**](Besamv2Api.md#findpaginatedampsbylabel) | **GET** /rest/v2/be_samv2/amp | Finding AMPs by label with pagination.
-[**findPaginatedAmpsByVmpCode**](Besamv2Api.md#findpaginatedampsbyvmpcode) | **GET** /rest/v2/be_samv2/amp/byVmpCode/{vmpCode} | Finding AMPs by vmp code with pagination.
-[**findPaginatedAmpsByVmpId**](Besamv2Api.md#findpaginatedampsbyvmpid) | **GET** /rest/v2/be_samv2/amp/byVmpId/{vmpId} | Finding AMPs by vmp id with pagination.
-[**findPaginatedNmpsByLabel**](Besamv2Api.md#findpaginatednmpsbylabel) | **GET** /rest/v2/be_samv2/nmp | Finding NMPs by label with pagination.
-[**findPaginatedVmpGroupsByLabel**](Besamv2Api.md#findpaginatedvmpgroupsbylabel) | **GET** /rest/v2/be_samv2/vmpgroup | Finding VMP groups by language label with pagination.
-[**findPaginatedVmpGroupsByVmpGroupCode**](Besamv2Api.md#findpaginatedvmpgroupsbyvmpgroupcode) | **GET** /rest/v2/be_samv2/vmpgroup/byGroupCode/{vmpgCode} | Finding VMP groups by cmpgCode with pagination.
-[**findPaginatedVmpsByGroupCode**](Besamv2Api.md#findpaginatedvmpsbygroupcode) | **GET** /rest/v2/be_samv2/vmp/byGroupCode/{vmpgCode} | Finding VMPs by group with pagination.
-[**findPaginatedVmpsByGroupId**](Besamv2Api.md#findpaginatedvmpsbygroupid) | **GET** /rest/v2/be_samv2/vmp/byGroupId/{vmpgId} | Finding VMPs by group with pagination.
-[**findPaginatedVmpsByLabel**](Besamv2Api.md#findpaginatedvmpsbylabel) | **GET** /rest/v2/be_samv2/vmp | Finding VMPs by label with pagination.
-[**findPaginatedVmpsByVmpCode**](Besamv2Api.md#findpaginatedvmpsbyvmpcode) | **GET** /rest/v2/be_samv2/vmp/byVmpCode/{vmpCode} | Finding VMPs by group with pagination.
-[**getSamVersion**](Besamv2Api.md#getsamversion) | **GET** /rest/v2/be_samv2/v | Get Samv2 version.
-[**listAmpsByDmppCodes**](Besamv2Api.md#listampsbydmppcodes) | **POST** /rest/v2/be_samv2/amp/byDmppCodes | Finding AMPs by dmpp code
-[**listAmpsByGroupCodes**](Besamv2Api.md#listampsbygroupcodes) | **POST** /rest/v2/be_samv2/amp/byGroupCodes | Finding AMPs by group.
-[**listAmpsByGroupIds**](Besamv2Api.md#listampsbygroupids) | **POST** /rest/v2/be_samv2/amp/byGroupIds | Finding AMPs by group.
-[**listAmpsByVmpCodes**](Besamv2Api.md#listampsbyvmpcodes) | **POST** /rest/v2/be_samv2/amp/byVmpCodes | Finding AMPs by vmp code.
-[**listAmpsByVmpIds**](Besamv2Api.md#listampsbyvmpids) | **POST** /rest/v2/be_samv2/amp/byVmpIds | Finding AMPs by vmp id.
-[**listNmpsByCnks**](Besamv2Api.md#listnmpsbycnks) | **POST** /rest/v2/be_samv2/nmp/byCnks | Finding NMPs by cnk id.
-[**listPharmaceuticalForms**](Besamv2Api.md#listpharmaceuticalforms) | **GET** /rest/v2/be_samv2/pharmaform | List all pharmaceutical forms.
-[**listSubstances**](Besamv2Api.md#listsubstances) | **GET** /rest/v2/be_samv2/substance | List all substances.
-[**listVmpGroupsByVmpGroupCodes**](Besamv2Api.md#listvmpgroupsbyvmpgroupcodes) | **POST** /rest/v2/be_samv2/vmpgroup/byGroupCodes | Finding AMPs by group.
-[**listVmpsByGroupIds**](Besamv2Api.md#listvmpsbygroupids) | **POST** /rest/v2/be_samv2/vmp/byGroupIds | Finding VMPs by group.
-[**listVmpsByVmpCodes**](Besamv2Api.md#listvmpsbyvmpcodes) | **POST** /rest/v2/be_samv2/vmp/byVmpCodes | Finding VMPs by group.
+[**findAmpsByDmppCode**](Besamv2Api.md#findampsbydmppcode) | **
+GET** /rest/v1/be_samv2/amp/byDmppCode/{dmppCode} | Finding AMPs by dmpp code
+[**findPaginatedAmpsByAtc**](Besamv2Api.md#findpaginatedampsbyatc) | **
+GET** /rest/v1/be_samv2/vmp/byAtc/{atcCode} | Finding AMPs by atc code with pagination.
+[**findPaginatedAmpsByGroupCode**](Besamv2Api.md#findpaginatedampsbygroupcode) | **
+GET** /rest/v1/be_samv2/amp/byGroupCode/{vmpgCode} | Finding AMPs by group with pagination.
+[**findPaginatedAmpsByGroupId**](Besamv2Api.md#findpaginatedampsbygroupid) | **
+GET** /rest/v1/be_samv2/amp/byGroupId/{vmpgId} | Finding AMPs by group with pagination.
+[**findPaginatedAmpsByLabel**](Besamv2Api.md#findpaginatedampsbylabel) | **
+GET** /rest/v1/be_samv2/amp | Finding AMPs by label with pagination.
+[**findPaginatedAmpsByVmpCode**](Besamv2Api.md#findpaginatedampsbyvmpcode) | **
+GET** /rest/v1/be_samv2/amp/byVmpCode/{vmpCode} | Finding AMPs by vmp code with pagination.
+[**findPaginatedAmpsByVmpId**](Besamv2Api.md#findpaginatedampsbyvmpid) | **
+GET** /rest/v1/be_samv2/amp/byVmpId/{vmpId} | Finding AMPs by vmp id with pagination.
+[**findPaginatedNmpsByLabel**](Besamv2Api.md#findpaginatednmpsbylabel) | **
+GET** /rest/v1/be_samv2/nmp | Finding NMPs by label with pagination.
+[**findPaginatedVmpGroupsByLabel**](Besamv2Api.md#findpaginatedvmpgroupsbylabel) | **
+GET** /rest/v1/be_samv2/vmpgroup | Finding VMP groups by language label with pagination.
+[**findPaginatedVmpGroupsByVmpGroupCode**](Besamv2Api.md#findpaginatedvmpgroupsbyvmpgroupcode) | **
+GET** /rest/v1/be_samv2/vmpgroup/byGroupCode/{vmpgCode} | Finding VMP groups by cmpgCode with pagination.
+[**findPaginatedVmpsByGroupCode**](Besamv2Api.md#findpaginatedvmpsbygroupcode) | **
+GET** /rest/v1/be_samv2/vmp/byGroupCode/{vmpgCode} | Finding VMPs by group with pagination.
+[**findPaginatedVmpsByGroupId**](Besamv2Api.md#findpaginatedvmpsbygroupid) | **
+GET** /rest/v1/be_samv2/vmp/byGroupId/{vmpgId} | Finding VMPs by group with pagination.
+[**findPaginatedVmpsByLabel**](Besamv2Api.md#findpaginatedvmpsbylabel) | **
+GET** /rest/v1/be_samv2/vmp | Finding VMPs by label with pagination.
+[**findPaginatedVmpsByVmpCode**](Besamv2Api.md#findpaginatedvmpsbyvmpcode) | **
+GET** /rest/v1/be_samv2/vmp/byVmpCode/{vmpCode} | Finding VMPs by group with pagination.
+[**getSamVersion**](Besamv2Api.md#getsamversion) | **GET** /rest/v1/be_samv2/v | Get Samv2 version.
+[**listAmpsByDmppCodes**](Besamv2Api.md#listampsbydmppcodes) | **
+POST** /rest/v1/be_samv2/amp/byDmppCodes | Finding AMPs by dmpp code
+[**listAmpsByGroupCodes**](Besamv2Api.md#listampsbygroupcodes) | **
+POST** /rest/v1/be_samv2/amp/byGroupCodes | Finding AMPs by group.
+[**listAmpsByGroupIds**](Besamv2Api.md#listampsbygroupids) | **
+POST** /rest/v1/be_samv2/amp/byGroupIds | Finding AMPs by group.
+[**listAmpsByVmpCodes**](Besamv2Api.md#listampsbyvmpcodes) | **
+POST** /rest/v1/be_samv2/amp/byVmpCodes | Finding AMPs by vmp code.
+[**listAmpsByVmpIds**](Besamv2Api.md#listampsbyvmpids) | **
+POST** /rest/v1/be_samv2/amp/byVmpIds | Finding AMPs by vmp id.
+[**listNmpsByCnks**](Besamv2Api.md#listnmpsbycnks) | **POST** /rest/v1/be_samv2/nmp/byCnks | Finding NMPs by cnk id.
+[**listPharmaceuticalForms**](Besamv2Api.md#listpharmaceuticalforms) | **
+GET** /rest/v1/be_samv2/pharmaform | List all pharmaceutical forms.
+[**listSubstances**](Besamv2Api.md#listsubstances) | **GET** /rest/v1/be_samv2/substance | List all substances.
+[**listVmpGroupsByVmpGroupCodes**](Besamv2Api.md#listvmpgroupsbyvmpgroupcodes) | **
+POST** /rest/v1/be_samv2/vmpgroup/byGroupCodes | Finding AMPs by group.
+[**listVmpsByGroupIds**](Besamv2Api.md#listvmpsbygroupids) | **
+POST** /rest/v1/be_samv2/vmp/byGroupIds | Finding VMPs by group.
+[**listVmpsByVmpCodes**](Besamv2Api.md#listvmpsbyvmpcodes) | **
+POST** /rest/v1/be_samv2/vmp/byVmpCodes | Finding VMPs by group.
 
 
 # **findAmpsByDmppCode**

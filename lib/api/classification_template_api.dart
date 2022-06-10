@@ -27,7 +27,7 @@ class ClassificationTemplateApi {
   /// * [ClassificationTemplateDto] classificationTemplateDto (required):
   Future<Response> createClassificationTemplateWithHttpInfo(ClassificationTemplateDto classificationTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classificationTemplate';
+    final path = r'/rest/v1/classificationTemplate';
 
     // ignore: prefer_final_locals
     Object? postBody = classificationTemplateDto;
@@ -85,7 +85,7 @@ class ClassificationTemplateApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteClassificationTemplatesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classificationTemplate/delete/batch';
+    final path = r'/rest/v1/classificationTemplate/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -153,7 +153,7 @@ class ClassificationTemplateApi {
   ///   Number of rows
   Future<Response> findClassificationTemplatesByWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classificationTemplate';
+    final path = r'/rest/v1/classificationTemplate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -226,8 +226,7 @@ class ClassificationTemplateApi {
   /// * [String] classificationTemplateId (required):
   Future<Response> getClassificationTemplateWithHttpInfo(String classificationTemplateId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classificationTemplate/{classificationTemplateId}'
-      .replaceAll('{classificationTemplateId}', classificationTemplateId);
+    final path = r'/rest/v1/classificationTemplate/{classificationTemplateId}'.replaceAll('{classificationTemplateId}', classificationTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -283,8 +282,7 @@ class ClassificationTemplateApi {
   /// * [String] ids (required):
   Future<Response> getClassificationTemplateByIdsWithHttpInfo(String ids,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classificationTemplate/byIds/{ids}'
-      .replaceAll('{ids}', ids);
+    final path = r'/rest/v1/classificationTemplate/byIds/{ids}'.replaceAll('{ids}', ids);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -347,7 +345,7 @@ class ClassificationTemplateApi {
   /// * [String] secretFKeys (required):
   Future<Response> listClassificationTemplatesByHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classificationTemplate/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/classificationTemplate/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -356,8 +354,8 @@ class ClassificationTemplateApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -413,7 +411,7 @@ class ClassificationTemplateApi {
   /// * [ClassificationTemplateDto] classificationTemplateDto (required):
   Future<Response> modifyClassificationTemplateWithHttpInfo(ClassificationTemplateDto classificationTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classificationTemplate';
+    final path = r'/rest/v1/classificationTemplate';
 
     // ignore: prefer_final_locals
     Object? postBody = classificationTemplateDto;
@@ -424,7 +422,6 @@ class ClassificationTemplateApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -473,8 +470,8 @@ class ClassificationTemplateApi {
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> newClassificationTemplateDelegationsWithHttpInfo(String classificationTemplateId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/classificationTemplate/{classificationTemplateId}/delegate'
-      .replaceAll('{classificationTemplateId}', classificationTemplateId);
+    final path =
+        r'/rest/v1/classificationTemplate/{classificationTemplateId}/delegate'.replaceAll('{classificationTemplateId}', classificationTemplateId);
 
     // ignore: prefer_final_locals
     Object? postBody = delegationDto;

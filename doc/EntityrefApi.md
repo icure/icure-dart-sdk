@@ -9,9 +9,10 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEntityReference**](EntityrefApi.md#createentityreference) | **POST** /rest/v2/entityref | Create an entity reference
-[**getLatest**](EntityrefApi.md#getlatest) | **GET** /rest/v2/entityref/latest/{prefix} | Find latest reference for a prefix 
-
+[**createEntityReference**](EntityrefApi.md#createentityreference) | **
+POST** /rest/v1/entityref | Create an entity reference
+[**getLatest**](EntityrefApi.md#getlatest) | **
+GET** /rest/v1/entityref/latest/{prefix} | Find latest reference for a prefix
 
 # **createEntityReference**
 > EntityReferenceDto createEntityReference(entityReferenceDto)

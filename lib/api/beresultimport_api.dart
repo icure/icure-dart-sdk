@@ -27,8 +27,8 @@ class BeresultimportApi {
   /// * [String] enckeys (required):
   Future<Response> canHandleWithHttpInfo(String id, String enckeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_result_import/canhandle/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/be_result_import/canhandle/{id}'
+        .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -100,10 +100,10 @@ class BeresultimportApi {
   /// * [ContactDto] ctc (required):
   Future<Response> doImportWithHttpInfo(String documentId, String hcpId, String language, String protocolIds, String formIds, String planOfActionId, String enckeys, ContactDto ctc,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_result_import/import/{documentId}/{hcpId}/{language}'
-      .replaceAll('{documentId}', documentId)
-      .replaceAll('{hcpId}', hcpId)
-      .replaceAll('{language}', language);
+    final path = r'/rest/v1/be_result_import/import/{documentId}/{hcpId}/{language}'
+        .replaceAll('{documentId}', documentId)
+        .replaceAll('{hcpId}', hcpId)
+        .replaceAll('{language}', language);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -183,8 +183,7 @@ class BeresultimportApi {
   /// * [bool] full:
   Future<Response> getInfosWithHttpInfo(String id, String language, String enckeys, { bool? full, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_result_import/infos/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/be_result_import/infos/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;

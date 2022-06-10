@@ -27,8 +27,8 @@ class UserApi {
   /// * [String] healthcarePartyId (required):
   Future<Response> assignHealthcarePartyWithHttpInfo(String healthcarePartyId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/current/hcparty/{healthcarePartyId}'
-      .replaceAll('{healthcarePartyId}', healthcarePartyId);
+    final path = r'/rest/v1/user/current/hcparty/{healthcarePartyId}'
+        .replaceAll('{healthcarePartyId}', healthcarePartyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -75,13 +75,13 @@ class UserApi {
     return null;
   }
 
-  /// Performs an HTTP 'GET /rest/v2/user/checkPassword' operation and returns the [Response].
+  /// Performs an HTTP 'GET /rest/v1/user/checkPassword' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [String] password (required):
   Future<Response> checkPasswordWithHttpInfo(String password,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/checkPassword';
+    final path = r'/rest/v1/user/checkPassword';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -137,8 +137,7 @@ class UserApi {
   /// * [String] token (required):
   Future<Response> checkTokenValidityWithHttpInfo(String userId, String token,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/token/{userId}'
-      .replaceAll('{userId}', userId);
+    final path = r'/rest/v1/user/token/{userId}'.replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -198,7 +197,7 @@ class UserApi {
   /// * [UserDto] userDto (required):
   Future<Response> createUserWithHttpInfo(UserDto userDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user';
+    final path = r'/rest/v1/user';
 
     // ignore: prefer_final_locals
     Object? postBody = userDto;
@@ -209,7 +208,6 @@ class UserApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -258,8 +256,7 @@ class UserApi {
   /// * [UserDto] userDto (required):
   Future<Response> createUserInGroupWithHttpInfo(String groupId, UserDto userDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/inGroup/{groupId}'
-      .replaceAll('{groupId}', groupId);
+    final path = r'/rest/v1/user/inGroup/{groupId}'.replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody = userDto;
@@ -319,8 +316,7 @@ class UserApi {
   /// * [String] userId (required):
   Future<Response> deleteUserWithHttpInfo(String userId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/{userId}'
-      .replaceAll('{userId}', userId);
+    final path = r'/rest/v1/user/{userId}'.replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -380,9 +376,7 @@ class UserApi {
   /// * [String] userId (required):
   Future<Response> deleteUserInGroupWithHttpInfo(String groupId, String userId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/inGroup/{groupId}/{userId}'
-      .replaceAll('{groupId}', groupId)
-      .replaceAll('{userId}', userId);
+    final path = r'/rest/v1/user/inGroup/{groupId}/{userId}'.replaceAll('{groupId}', groupId).replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -431,13 +425,13 @@ class UserApi {
     return null;
   }
 
-  /// Performs an HTTP 'GET /rest/v2/user/encodePassword' operation and returns the [Response].
+  /// Performs an HTTP 'GET /rest/v1/user/encodePassword' operation and returns the [Response].
   /// Parameters:
   ///
   /// * [String] password (required):
   Future<Response> encodePasswordWithHttpInfo(String password,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/encodePassword';
+    final path = r'/rest/v1/user/encodePassword';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -499,7 +493,7 @@ class UserApi {
   ///   Number of rows
   Future<Response> filterUsersByWithHttpInfo(FilterChain<UserDto> filterChainUser, { String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/filter';
+    final path = r'/rest/v1/user/filter';
 
     // ignore: prefer_final_locals
     Object? postBody = filterChainUser;
@@ -568,8 +562,8 @@ class UserApi {
   /// * [String] id (required):
   Future<Response> findByHcpartyIdWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/byHealthcarePartyId/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/user/byHealthcarePartyId/{id}'
+        .replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -629,8 +623,8 @@ class UserApi {
   /// * [EmailTemplateDto] emailTemplateDto (required):
   Future<Response> forgottenPasswordWithHttpInfo(String email, EmailTemplateDto emailTemplateDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/forgottenPassword/{email}'
-      .replaceAll('{email}', email);
+    final path = r'/rest/v1/user/forgottenPassword/{email}'
+        .replaceAll('{email}', email);
 
     // ignore: prefer_final_locals
     Object? postBody = emailTemplateDto;
@@ -685,7 +679,7 @@ class UserApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getCurrentSessionWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/session';
+    final path = r'/rest/v1/user/session';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -696,7 +690,6 @@ class UserApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -735,7 +728,7 @@ class UserApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getCurrentUserWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/current';
+    final path = r'/rest/v1/user/current';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -746,7 +739,6 @@ class UserApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -785,7 +777,7 @@ class UserApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getMatchingUsersWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/matches';
+    final path = r'/rest/v1/user/matches';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -796,7 +788,6 @@ class UserApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -846,9 +837,7 @@ class UserApi {
   ///   The token validity in seconds
   Future<Response> getTokenWithHttpInfo(String userId, String key, { int? tokenValidity, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/token/{userId}/{key}'
-      .replaceAll('{userId}', userId)
-      .replaceAll('{key}', key);
+    final path = r'/rest/v1/user/token/{userId}/{key}'.replaceAll('{userId}', userId).replaceAll('{key}', key);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -914,8 +903,7 @@ class UserApi {
   /// * [String] userId (required):
   Future<Response> getUserWithHttpInfo(String userId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/{userId}'
-      .replaceAll('{userId}', userId);
+    final path = r'/rest/v1/user/{userId}'.replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -973,8 +961,7 @@ class UserApi {
   /// * [String] email (required):
   Future<Response> getUserByEmailWithHttpInfo(String email,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/byEmail/{email}'
-      .replaceAll('{email}', email);
+    final path = r'/rest/v1/user/byEmail/{email}'.replaceAll('{email}', email);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1039,7 +1026,7 @@ class UserApi {
   ///   Number of rows
   Future<Response> listUsersByWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user';
+    final path = r'/rest/v1/user';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1123,8 +1110,7 @@ class UserApi {
   ///   Number of rows
   Future<Response> listUsersInGroupWithHttpInfo(String groupId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/inGroup/{groupId}'
-      .replaceAll('{groupId}', groupId);
+    final path = r'/rest/v1/user/inGroup/{groupId}'.replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1199,7 +1185,7 @@ class UserApi {
   /// * [AbstractFilterDto<UserDto>] abstractFilterDtoUser (required):
   Future<Response> matchUsersByWithHttpInfo(AbstractFilterDto<UserDto> abstractFilterDtoUser,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/match';
+    final path = r'/rest/v1/user/match';
 
     // ignore: prefer_final_locals
     Object? postBody = abstractFilterDtoUser;
@@ -1260,8 +1246,8 @@ class UserApi {
   /// * [List<PropertyStubDto>] propertyStubDto:
   Future<Response> modifyPropertiesWithHttpInfo(String userId, { List<PropertyStubDto>? propertyStubDto, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/{userId}/properties'
-      .replaceAll('{userId}', userId);
+    final path = r'/rest/v1/user/{userId}/properties'
+        .replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
     Object? postBody = propertyStubDto;
@@ -1321,7 +1307,7 @@ class UserApi {
   /// * [UserDto] userDto (required):
   Future<Response> modifyUserWithHttpInfo(UserDto userDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user';
+    final path = r'/rest/v1/user';
 
     // ignore: prefer_final_locals
     Object? postBody = userDto;
@@ -1332,7 +1318,6 @@ class UserApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1381,8 +1366,7 @@ class UserApi {
   /// * [UserDto] userDto (required):
   Future<Response> modifyUserInGroupWithHttpInfo(String groupId, UserDto userDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/user/inGroup/{groupId}'
-      .replaceAll('{groupId}', groupId);
+    final path = r'/rest/v1/user/inGroup/{groupId}'.replaceAll('{groupId}', groupId);
 
     // ignore: prefer_final_locals
     Object? postBody = userDto;

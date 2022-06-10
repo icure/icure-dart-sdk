@@ -21,7 +21,7 @@ class IcureApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getIndexingInfoWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/i';
+    final path = r'/rest/v1/icure/i';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -67,7 +67,7 @@ class IcureApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getProcessInfoWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/p';
+    final path = r'/rest/v1/icure/p';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -78,7 +78,6 @@ class IcureApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -113,7 +112,7 @@ class IcureApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getReplicationInfoWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/r';
+    final path = r'/rest/v1/icure/r';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -124,7 +123,6 @@ class IcureApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -163,8 +161,7 @@ class IcureApi {
   /// * [String] id (required):
   Future<Response> getReplicatorInfoWithHttpInfo(String id,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/r/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/rest/v1/icure/r/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -214,7 +211,7 @@ class IcureApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getVersionWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/v';
+    final path = r'/rest/v1/icure/v';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -225,7 +222,6 @@ class IcureApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -260,7 +256,7 @@ class IcureApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> isReadyWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/ok';
+    final path = r'/rest/v1/icure/ok';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -271,7 +267,6 @@ class IcureApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -310,7 +305,7 @@ class IcureApi {
   /// * [int] limit:
   Future<Response> resolveContactsConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/conflicts/contact';
+    final path = r'/rest/v1/icure/conflicts/contact';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -373,7 +368,7 @@ class IcureApi {
   /// * [int] limit:
   Future<Response> resolveDocumentsConflictsWithHttpInfo({ String? ids, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/conflicts/document';
+    final path = r'/rest/v1/icure/conflicts/document';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -439,7 +434,7 @@ class IcureApi {
   /// * [int] limit:
   Future<Response> resolveFormsConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/conflicts/form';
+    final path = r'/rest/v1/icure/conflicts/form';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -500,7 +495,7 @@ class IcureApi {
   /// * [int] limit:
   Future<Response> resolveHealthElementsConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/conflicts/healthelement';
+    final path = r'/rest/v1/icure/conflicts/healthelement';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -561,7 +556,7 @@ class IcureApi {
   /// * [int] limit:
   Future<Response> resolveInvoicesConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/conflicts/invoice';
+    final path = r'/rest/v1/icure/conflicts/invoice';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -622,7 +617,7 @@ class IcureApi {
   /// * [int] limit:
   Future<Response> resolveMessagesConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/conflicts/message';
+    final path = r'/rest/v1/icure/conflicts/message';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -683,7 +678,7 @@ class IcureApi {
   /// * [int] limit:
   Future<Response> resolvePatientsConflictsWithHttpInfo({ int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/conflicts/patient';
+    final path = r'/rest/v1/icure/conflicts/patient';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -746,8 +741,7 @@ class IcureApi {
   /// * [bool] warmup:
   Future<Response> updateDesignDocWithHttpInfo(String entityName, { bool? warmup, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/icure/dd/{entityName}'
-      .replaceAll('{entityName}', entityName);
+    final path = r'/rest/v1/icure/dd/{entityName}'.replaceAll('{entityName}', entityName);
 
     // ignore: prefer_final_locals
     Object? postBody;

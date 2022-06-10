@@ -25,7 +25,7 @@ class MessageApi {
   /// * [MessageDto] messageDto (required):
   Future<Response> rawCreateMessageWithHttpInfo(MessageDto messageDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message';
+    final path = r'/rest/v1/message';
 
     // ignore: prefer_final_locals
     Object? postBody = messageDto;
@@ -81,9 +81,9 @@ class MessageApi {
   /// * [String] delegateId (required):
   Future<Response> rawDeleteDelegationWithHttpInfo(String messageId, String delegateId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/{messageId}/delegate/{delegateId}'
-      .replaceAll('{messageId}', messageId)
-      .replaceAll('{delegateId}', delegateId);
+    final path = r'/rest/v1/message/{messageId}/delegate/{delegateId}'
+        .replaceAll('{messageId}', messageId)
+        .replaceAll('{delegateId}', delegateId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -139,7 +139,7 @@ class MessageApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteMessagesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/delete/batch';
+    final path = r'/rest/v1/message/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -150,7 +150,6 @@ class MessageApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -200,7 +199,7 @@ class MessageApi {
   /// * [int] limit:
   Future<Response> rawFindMessagesWithHttpInfo({ String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message';
+    final path = r'/rest/v1/message';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -276,7 +275,7 @@ class MessageApi {
   /// * [String] hcpId:
   Future<Response> rawFindMessagesByFromAddressWithHttpInfo({ String? fromAddress, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/byFromAddress';
+    final path = r'/rest/v1/message/byFromAddress';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -356,7 +355,7 @@ class MessageApi {
   /// * [String] secretFKeys (required):
   Future<Response> rawFindMessagesByHCPartyPatientForeignKeysWithHttpInfo(String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/message/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -365,7 +364,7 @@ class MessageApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -427,7 +426,7 @@ class MessageApi {
   /// * [String] hcpId:
   Future<Response> rawFindMessagesByToAddressWithHttpInfo({ String? toAddress, String? startKey, String? startDocumentId, int? limit, bool? reverse, String? hcpId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/byToAddress';
+    final path = r'/rest/v1/message/byToAddress';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -520,7 +519,7 @@ class MessageApi {
   /// * [String] hcpId:
   Future<Response> rawFindMessagesByTransportGuidWithHttpInfo({ String? transportGuid, bool? received, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/byTransportGuid';
+    final path = r'/rest/v1/message/byTransportGuid';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -615,7 +614,7 @@ class MessageApi {
   /// * [String] hcpId:
   Future<Response> rawFindMessagesByTransportGuidSentDateWithHttpInfo({ String? transportGuid, int? from, int? to, String? startKey, String? startDocumentId, int? limit, String? hcpId, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/byTransportGuidSentDate';
+    final path = r'/rest/v1/message/byTransportGuidSentDate';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -703,8 +702,7 @@ class MessageApi {
   /// * [String] messageId (required):
   Future<Response> rawGetChildrenMessagesWithHttpInfo(String messageId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/{messageId}/children'
-      .replaceAll('{messageId}', messageId);
+    final path = r'/rest/v1/message/{messageId}/children'.replaceAll('{messageId}', messageId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -761,8 +759,7 @@ class MessageApi {
   /// * [String] messageId (required):
   Future<Response> rawGetMessageWithHttpInfo(String messageId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/{messageId}'
-      .replaceAll('{messageId}', messageId);
+    final path = r'/rest/v1/message/{messageId}'.replaceAll('{messageId}', messageId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -816,7 +813,7 @@ class MessageApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawGetMessagesChildrenWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/children/batch';
+    final path = r'/rest/v1/message/children/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -827,7 +824,6 @@ class MessageApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -873,7 +869,7 @@ class MessageApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawListMessagesByInvoicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/byInvoice';
+    final path = r'/rest/v1/message/byInvoice';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -884,7 +880,6 @@ class MessageApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -932,7 +927,7 @@ class MessageApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawListMessagesByTransportGuidsWithHttpInfo(String hcpId, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/byTransportGuid/list';
+    final path = r'/rest/v1/message/byTransportGuid/list';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -941,7 +936,7 @@ class MessageApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcpId', hcpId));
+    queryParams.addAll(_queryParams('', 'hcpId', hcpId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
@@ -993,7 +988,7 @@ class MessageApi {
   /// * [MessageDto] messageDto (required):
   Future<Response> rawModifyMessageWithHttpInfo(MessageDto messageDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message';
+    final path = r'/rest/v1/message';
 
     // ignore: prefer_final_locals
     Object? postBody = messageDto;
@@ -1004,7 +999,6 @@ class MessageApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1049,8 +1043,8 @@ class MessageApi {
   /// * [List<DelegationDto>] delegationDto (required):
   Future<Response> rawNewMessageDelegationsWithHttpInfo(String messageId, List<DelegationDto> delegationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/{messageId}/delegate'
-      .replaceAll('{messageId}', messageId);
+    final path = r'/rest/v1/message/{messageId}/delegate'
+        .replaceAll('{messageId}', messageId);
 
     // ignore: prefer_final_locals
     Object? postBody = delegationDto;
@@ -1106,7 +1100,7 @@ class MessageApi {
   /// * [MessagesReadStatusUpdate] messagesReadStatusUpdate (required):
   Future<Response> rawSetMessagesReadStatusWithHttpInfo(MessagesReadStatusUpdate messagesReadStatusUpdate,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/readstatus';
+    final path = r'/rest/v1/message/readstatus';
 
     // ignore: prefer_final_locals
     Object? postBody = messagesReadStatusUpdate;
@@ -1165,8 +1159,7 @@ class MessageApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawSetMessagesStatusBitsWithHttpInfo(int status, ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/message/status/{status}'
-      .replaceAll('{status}', status.toString());
+    final path = r'/rest/v1/message/status/{status}'.replaceAll('{status}', status.toString());
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;

@@ -25,7 +25,7 @@ class CalendarItemTypeApi {
   /// * [CalendarItemTypeDto] calendarItemTypeDto (required):
   Future<Response> createCalendarItemTypeWithHttpInfo(CalendarItemTypeDto calendarItemTypeDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItemType';
+    final path = r'/rest/v1/calendarItemType';
 
     // ignore: prefer_final_locals
     Object? postBody = calendarItemTypeDto;
@@ -79,7 +79,7 @@ class CalendarItemTypeApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteCalendarItemTypesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItemType/delete/batch';
+    final path = r'/rest/v1/calendarItemType/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -90,7 +90,6 @@ class CalendarItemTypeApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -136,8 +135,7 @@ class CalendarItemTypeApi {
   /// * [String] calendarItemTypeId (required):
   Future<Response> getCalendarItemTypeWithHttpInfo(String calendarItemTypeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItemType/{calendarItemTypeId}'
-      .replaceAll('{calendarItemTypeId}', calendarItemTypeId);
+    final path = r'/rest/v1/calendarItemType/{calendarItemTypeId}'.replaceAll('{calendarItemTypeId}', calendarItemTypeId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -187,7 +185,7 @@ class CalendarItemTypeApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getCalendarItemTypesWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItemType';
+    final path = r'/rest/v1/calendarItemType';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -198,7 +196,6 @@ class CalendarItemTypeApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -236,7 +233,7 @@ class CalendarItemTypeApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getCalendarItemTypesIncludeDeletedWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItemType/includeDeleted';
+    final path = r'/rest/v1/calendarItemType/includeDeleted';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -247,7 +244,6 @@ class CalendarItemTypeApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -289,7 +285,7 @@ class CalendarItemTypeApi {
   /// * [CalendarItemTypeDto] calendarItemTypeDto (required):
   Future<Response> modifyCalendarItemTypeWithHttpInfo(CalendarItemTypeDto calendarItemTypeDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItemType';
+    final path = r'/rest/v1/calendarItemType';
 
     // ignore: prefer_final_locals
     Object? postBody = calendarItemTypeDto;
@@ -300,7 +296,6 @@ class CalendarItemTypeApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

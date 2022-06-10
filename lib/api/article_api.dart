@@ -25,7 +25,7 @@ class ArticleApi {
   /// * [ArticleDto] articleDto (required):
   Future<Response> createArticleWithHttpInfo(ArticleDto articleDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/article';
+    final path = r'/rest/v1/article';
 
     // ignore: prefer_final_locals
     Object? postBody = articleDto;
@@ -36,7 +36,6 @@ class ArticleApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -79,7 +78,7 @@ class ArticleApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteArticlesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/article/delete/batch';
+    final path = r'/rest/v1/article/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -90,7 +89,6 @@ class ArticleApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -136,8 +134,7 @@ class ArticleApi {
   /// * [String] articleId (required):
   Future<Response> getArticleWithHttpInfo(String articleId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/article/{articleId}'
-      .replaceAll('{articleId}', articleId);
+    final path = r'/rest/v1/article/{articleId}'.replaceAll('{articleId}', articleId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -187,7 +184,7 @@ class ArticleApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getArticlesWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/article';
+    final path = r'/rest/v1/article';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -198,7 +195,6 @@ class ArticleApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -240,7 +236,7 @@ class ArticleApi {
   /// * [ArticleDto] articleDto (required):
   Future<Response> modifyArticleWithHttpInfo(ArticleDto articleDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/article';
+    final path = r'/rest/v1/article';
 
     // ignore: prefer_final_locals
     Object? postBody = articleDto;
@@ -251,7 +247,6 @@ class ArticleApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

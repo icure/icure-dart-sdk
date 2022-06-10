@@ -27,7 +27,7 @@ class TarificationApi {
   /// * [TarificationDto] tarificationDto (required):
   Future<Response> createTarificationWithHttpInfo(TarificationDto tarificationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tarification';
+    final path = r'/rest/v1/tarification';
 
     // ignore: prefer_final_locals
     Object? postBody = tarificationDto;
@@ -97,7 +97,7 @@ class TarificationApi {
   ///   Number of rows
   Future<Response> findTarificationsByWithHttpInfo({ String? region, String? type, String? tarification, String? version, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tarification';
+    final path = r'/rest/v1/tarification';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -196,7 +196,7 @@ class TarificationApi {
   ///   Tarification version
   Future<Response> findTarificationsBy1WithHttpInfo({ String? region, String? type, String? tarification, String? version, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tarification/byRegionTypeTarification';
+    final path = r'/rest/v1/tarification/byRegionTypeTarification';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -292,7 +292,7 @@ class TarificationApi {
   ///   Number of rows
   Future<Response> findTarificationsByLabelWithHttpInfo({ String? region, String? types, String? language, String? label, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tarification/byLabel';
+    final path = r'/rest/v1/tarification/byLabel';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -382,8 +382,7 @@ class TarificationApi {
   ///   Tarification id
   Future<Response> getTarificationWithHttpInfo(String tarificationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tarification/{tarificationId}'
-      .replaceAll('{tarificationId}', tarificationId);
+    final path = r'/rest/v1/tarification/{tarificationId}'.replaceAll('{tarificationId}', tarificationId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -449,10 +448,10 @@ class TarificationApi {
   ///   Tarification version
   Future<Response> getTarificationWithPartsWithHttpInfo(String type, String tarification, String version,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tarification/{type}/{tarification}/{version}'
-      .replaceAll('{type}', type)
-      .replaceAll('{tarification}', tarification)
-      .replaceAll('{version}', version);
+    final path = r'/rest/v1/tarification/{type}/{tarification}/{version}'
+        .replaceAll('{type}', type)
+        .replaceAll('{tarification}', tarification)
+        .replaceAll('{version}', version);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -517,7 +516,7 @@ class TarificationApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getTarificationsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tarification/byIds';
+    final path = r'/rest/v1/tarification/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -528,7 +527,6 @@ class TarificationApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -578,7 +576,7 @@ class TarificationApi {
   /// * [TarificationDto] tarificationDto (required):
   Future<Response> modifyTarificationWithHttpInfo(TarificationDto tarificationDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/tarification';
+    final path = r'/rest/v1/tarification';
 
     // ignore: prefer_final_locals
     Object? postBody = tarificationDto;
@@ -589,7 +587,6 @@ class TarificationApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

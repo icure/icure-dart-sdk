@@ -9,23 +9,34 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createDocument**](DocumentApi.md#createdocument) | **POST** /rest/v2/document | Creates a document
-[**deleteAttachment**](DocumentApi.md#deleteattachment) | **DELETE** /rest/v2/document/{documentId}/attachment | Deletes a document's attachment
-[**deleteDocument**](DocumentApi.md#deletedocument) | **POST** /rest/v2/document/delete/batch | Deletes documents
-[**findWithoutDelegation**](DocumentApi.md#findwithoutdelegation) | **GET** /rest/v2/document/woDelegation | List documents with no delegation
-[**getDocument**](DocumentApi.md#getdocument) | **GET** /rest/v2/document/{documentId} | Gets a document
-[**getDocumentAttachment**](DocumentApi.md#getdocumentattachment) | **GET** /rest/v2/document/{documentId}/attachment/{attachmentId} | Load document's attachment
-[**getDocumentByExternalUuid**](DocumentApi.md#getdocumentbyexternaluuid) | **GET** /rest/v2/document/externaluuid/{externalUuid} | Gets a document
-[**getDocuments**](DocumentApi.md#getdocuments) | **POST** /rest/v2/document/byIds | Gets a document
-[**getDocumentsByExternalUuid**](DocumentApi.md#getdocumentsbyexternaluuid) | **GET** /rest/v2/document/externaluuid/{externalUuid}/all | Get all documents with externalUuid
-[**listDocumentByTypeHCPartyMessageSecretFKeys**](DocumentApi.md#listdocumentbytypehcpartymessagesecretfkeys) | **GET** /rest/v2/document/byTypeHcPartySecretForeignKeys | List documents found By type, By Healthcare Party and secret foreign keys.
-[**listDocumentsByHCPartyAndPatientForeignKeys**](DocumentApi.md#listdocumentsbyhcpartyandpatientforeignkeys) | **GET** /rest/v2/document/byHcPartySecretForeignKeys | List documents found By Healthcare Party and secret foreign keys.
-[**modifyDocument**](DocumentApi.md#modifydocument) | **PUT** /rest/v2/document | Updates a document
-[**modifyDocuments**](DocumentApi.md#modifydocuments) | **PUT** /rest/v2/document/batch | Updates a batch of documents
-[**setDocumentAttachment**](DocumentApi.md#setdocumentattachment) | **PUT** /rest/v2/document/{documentId}/attachment | Creates a document's attachment
-[**setDocumentAttachmentMulti**](DocumentApi.md#setdocumentattachmentmulti) | **PUT** /rest/v2/document/{documentId}/attachment/multipart | Creates a document's attachment
-[**setDocumentsDelegations**](DocumentApi.md#setdocumentsdelegations) | **POST** /rest/v2/document/delegations | Update delegations in healthElements.
-[**setSafeDocumentAttachment**](DocumentApi.md#setsafedocumentattachment) | **PUT** /rest/v2/document/attachment | Creates a document's attachment
+[**createDocument**](DocumentApi.md#createdocument) | **POST** /rest/v1/document | Creates a document
+[**deleteAttachment**](DocumentApi.md#deleteattachment) | **
+DELETE** /rest/v1/document/{documentId}/attachment | Deletes a document's attachment
+[**deleteDocument**](DocumentApi.md#deletedocument) | **POST** /rest/v1/document/delete/batch | Deletes documents
+[**findWithoutDelegation**](DocumentApi.md#findwithoutdelegation) | **
+GET** /rest/v1/document/woDelegation | List documents with no delegation
+[**getDocument**](DocumentApi.md#getdocument) | **GET** /rest/v1/document/{documentId} | Gets a document
+[**getDocumentAttachment**](DocumentApi.md#getdocumentattachment) | **
+GET** /rest/v1/document/{documentId}/attachment/{attachmentId} | Load document's attachment
+[**getDocumentByExternalUuid**](DocumentApi.md#getdocumentbyexternaluuid) | **
+GET** /rest/v1/document/externaluuid/{externalUuid} | Gets a document
+[**getDocuments**](DocumentApi.md#getdocuments) | **POST** /rest/v1/document/byIds | Gets a document
+[**getDocumentsByExternalUuid**](DocumentApi.md#getdocumentsbyexternaluuid) | **
+GET** /rest/v1/document/externaluuid/{externalUuid}/all | Get all documents with externalUuid
+[**listDocumentByTypeHCPartyMessageSecretFKeys**](DocumentApi.md#listdocumentbytypehcpartymessagesecretfkeys) | **
+GET** /rest/v1/document/byTypeHcPartySecretForeignKeys | List documents found By type, By Healthcare Party and secret foreign keys.
+[**listDocumentsByHCPartyAndPatientForeignKeys**](DocumentApi.md#listdocumentsbyhcpartyandpatientforeignkeys) | **
+GET** /rest/v1/document/byHcPartySecretForeignKeys | List documents found By Healthcare Party and secret foreign keys.
+[**modifyDocument**](DocumentApi.md#modifydocument) | **PUT** /rest/v1/document | Updates a document
+[**modifyDocuments**](DocumentApi.md#modifydocuments) | **PUT** /rest/v1/document/batch | Updates a batch of documents
+[**setDocumentAttachment**](DocumentApi.md#setdocumentattachment) | **
+PUT** /rest/v1/document/{documentId}/attachment | Creates a document's attachment
+[**setDocumentAttachmentMulti**](DocumentApi.md#setdocumentattachmentmulti) | **
+PUT** /rest/v1/document/{documentId}/attachment/multipart | Creates a document's attachment
+[**setDocumentsDelegations**](DocumentApi.md#setdocumentsdelegations) | **
+POST** /rest/v1/document/delegations | Update delegations in healthElements.
+[**setSafeDocumentAttachment**](DocumentApi.md#setsafedocumentattachment) | **
+PUT** /rest/v1/document/attachment | Creates a document's attachment
 
 
 # **createDocument**

@@ -9,20 +9,25 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCode**](CodeApi.md#createcode) | **POST** /rest/v2/code | Create a Code
-[**filterCodesBy**](CodeApi.md#filtercodesby) | **POST** /rest/v2/code/filter | Filter codes 
-[**findCodesByLabel**](CodeApi.md#findcodesbylabel) | **GET** /rest/v2/code/byLabel | Finding codes by code, type and version with pagination.
-[**findCodesByLink**](CodeApi.md#findcodesbylink) | **GET** /rest/v2/code/byLink/{linkType} | Finding codes by code, type and version with pagination.
-[**findCodesByType**](CodeApi.md#findcodesbytype) | **GET** /rest/v2/code | Finding codes by code, type and version with pagination.
-[**getCode**](CodeApi.md#getcode) | **GET** /rest/v2/code/{codeId} | Get a code
-[**getCodeWithParts**](CodeApi.md#getcodewithparts) | **GET** /rest/v2/code/{type}/{code}/{version} | Get a code
-[**getCodes**](CodeApi.md#getcodes) | **POST** /rest/v2/code/byIds | Get a list of codes by ids
-[**importCodes**](CodeApi.md#importcodes) | **POST** /rest/v2/code/{codeType} | Import codes
-[**listCodeTypesBy**](CodeApi.md#listcodetypesby) | **GET** /rest/v2/code/codetype/byRegionType | Finding code types.
-[**listCodesByRegionTypeCodeVersion**](CodeApi.md#listcodesbyregiontypecodeversion) | **GET** /rest/v2/code/byRegionTypeCode | Finding codes by code, type and version
-[**listTagTypesBy**](CodeApi.md#listtagtypesby) | **GET** /rest/v2/code/tagtype/byRegionType | Finding tag types.
-[**matchCodesBy**](CodeApi.md#matchcodesby) | **POST** /rest/v2/code/match | Get ids of code matching the provided filter for the current user (HcParty) 
-[**modifyCode**](CodeApi.md#modifycode) | **PUT** /rest/v2/code | Modify a code
+[**createCode**](CodeApi.md#createcode) | **POST** /rest/v1/code | Create a Code
+[**filterCodesBy**](CodeApi.md#filtercodesby) | **POST** /rest/v1/code/filter | Filter codes
+[**findCodesByLabel**](CodeApi.md#findcodesbylabel) | **
+GET** /rest/v1/code/byLabel | Finding codes by code, type and version with pagination.
+[**findCodesByLink**](CodeApi.md#findcodesbylink) | **
+GET** /rest/v1/code/byLink/{linkType} | Finding codes by code, type and version with pagination.
+[**findCodesByType**](CodeApi.md#findcodesbytype) | **
+GET** /rest/v1/code | Finding codes by code, type and version with pagination.
+[**getCode**](CodeApi.md#getcode) | **GET** /rest/v1/code/{codeId} | Get a code
+[**getCodeWithParts**](CodeApi.md#getcodewithparts) | **GET** /rest/v1/code/{type}/{code}/{version} | Get a code
+[**getCodes**](CodeApi.md#getcodes) | **POST** /rest/v1/code/byIds | Get a list of codes by ids
+[**importCodes**](CodeApi.md#importcodes) | **POST** /rest/v1/code/{codeType} | Import codes
+[**listCodeTypesBy**](CodeApi.md#listcodetypesby) | **GET** /rest/v1/code/codetype/byRegionType | Finding code types.
+[**listCodesByRegionTypeCodeVersion**](CodeApi.md#listcodesbyregiontypecodeversion) | **
+GET** /rest/v1/code/byRegionTypeCode | Finding codes by code, type and version
+[**listTagTypesBy**](CodeApi.md#listtagtypesby) | **GET** /rest/v1/code/tagtype/byRegionType | Finding tag types.
+[**matchCodesBy**](CodeApi.md#matchcodesby) | **
+POST** /rest/v1/code/match | Get ids of code matching the provided filter for the current user (HcParty)
+[**modifyCode**](CodeApi.md#modifycode) | **PUT** /rest/v1/code | Modify a code
 
 
 # **createCode**

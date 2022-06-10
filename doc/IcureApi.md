@@ -9,20 +9,27 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getIndexingInfo**](IcureApi.md#getindexinginfo) | **GET** /rest/v2/icure/i | Get index info
-[**getProcessInfo**](IcureApi.md#getprocessinfo) | **GET** /rest/v2/icure/p | Get process info
-[**getReplicationInfo**](IcureApi.md#getreplicationinfo) | **GET** /rest/v2/icure/r | Get replication info
-[**getReplicatorInfo**](IcureApi.md#getreplicatorinfo) | **GET** /rest/v2/icure/r/{id} | Get replication info
-[**getVersion**](IcureApi.md#getversion) | **GET** /rest/v2/icure/v | Get version
-[**isReady**](IcureApi.md#isready) | **GET** /rest/v2/icure/ok | Check if a user exists
-[**resolveContactsConflicts**](IcureApi.md#resolvecontactsconflicts) | **POST** /rest/v2/icure/conflicts/contact | Resolve contacts conflicts
-[**resolveDocumentsConflicts**](IcureApi.md#resolvedocumentsconflicts) | **POST** /rest/v2/icure/conflicts/document | resolve documents conflicts
-[**resolveFormsConflicts**](IcureApi.md#resolveformsconflicts) | **POST** /rest/v2/icure/conflicts/form | resolve forms conflicts
-[**resolveHealthElementsConflicts**](IcureApi.md#resolvehealthelementsconflicts) | **POST** /rest/v2/icure/conflicts/healthelement | resolve healthcare elements conflicts
-[**resolveInvoicesConflicts**](IcureApi.md#resolveinvoicesconflicts) | **POST** /rest/v2/icure/conflicts/invoice | resolve invoices conflicts
-[**resolveMessagesConflicts**](IcureApi.md#resolvemessagesconflicts) | **POST** /rest/v2/icure/conflicts/message | resolve messages conflicts
-[**resolvePatientsConflicts**](IcureApi.md#resolvepatientsconflicts) | **POST** /rest/v2/icure/conflicts/patient | Resolve patients conflicts
-[**updateDesignDoc**](IcureApi.md#updatedesigndoc) | **POST** /rest/v2/icure/dd/{entityName} | Force update design doc
+[**getIndexingInfo**](IcureApi.md#getindexinginfo) | **GET** /rest/v1/icure/i | Get index info
+[**getProcessInfo**](IcureApi.md#getprocessinfo) | **GET** /rest/v1/icure/p | Get process info
+[**getReplicationInfo**](IcureApi.md#getreplicationinfo) | **GET** /rest/v1/icure/r | Get replication info
+[**getReplicatorInfo**](IcureApi.md#getreplicatorinfo) | **GET** /rest/v1/icure/r/{id} | Get replication info
+[**getVersion**](IcureApi.md#getversion) | **GET** /rest/v1/icure/v | Get version
+[**isReady**](IcureApi.md#isready) | **GET** /rest/v1/icure/ok | Check if a user exists
+[**resolveContactsConflicts**](IcureApi.md#resolvecontactsconflicts) | **
+POST** /rest/v1/icure/conflicts/contact | Resolve contacts conflicts
+[**resolveDocumentsConflicts**](IcureApi.md#resolvedocumentsconflicts) | **
+POST** /rest/v1/icure/conflicts/document | resolve documents conflicts
+[**resolveFormsConflicts**](IcureApi.md#resolveformsconflicts) | **
+POST** /rest/v1/icure/conflicts/form | resolve forms conflicts
+[**resolveHealthElementsConflicts**](IcureApi.md#resolvehealthelementsconflicts) | **
+POST** /rest/v1/icure/conflicts/healthelement | resolve healthcare elements conflicts
+[**resolveInvoicesConflicts**](IcureApi.md#resolveinvoicesconflicts) | **
+POST** /rest/v1/icure/conflicts/invoice | resolve invoices conflicts
+[**resolveMessagesConflicts**](IcureApi.md#resolvemessagesconflicts) | **
+POST** /rest/v1/icure/conflicts/message | resolve messages conflicts
+[**resolvePatientsConflicts**](IcureApi.md#resolvepatientsconflicts) | **
+POST** /rest/v1/icure/conflicts/patient | Resolve patients conflicts
+[**updateDesignDoc**](IcureApi.md#updatedesigndoc) | **POST** /rest/v1/icure/dd/{entityName} | Force update design doc
 
 
 # **getIndexingInfo**

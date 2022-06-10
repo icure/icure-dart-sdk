@@ -25,7 +25,7 @@ class CalendarItemApi {
   /// * [CalendarItemDto] calendarItemDto (required):
   Future<Response> createCalendarItemWithHttpInfo(CalendarItemDto calendarItemDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem';
+    final path = r'/rest/v1/calendarItem';
 
     // ignore: prefer_final_locals
     Object? postBody = calendarItemDto;
@@ -79,8 +79,7 @@ class CalendarItemApi {
   /// * [String] calendarItemIds (required):
   Future<Response> deleteCalendarItemWithHttpInfo(String calendarItemIds,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem/{calendarItemIds}'
-      .replaceAll('{calendarItemIds}', calendarItemIds);
+    final path = r'/rest/v1/calendarItem/{calendarItemIds}'.replaceAll('{calendarItemIds}', calendarItemIds);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -137,7 +136,7 @@ class CalendarItemApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteCalendarItemsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem/delete/batch';
+    final path = r'/rest/v1/calendarItem/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -148,7 +147,6 @@ class CalendarItemApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -196,7 +194,7 @@ class CalendarItemApi {
   /// * [String] secretFKeys (required):
   Future<Response> findCalendarItemsByHCPartyPatientForeignKeysWithHttpInfo(String hcPartyId, String secretFKeys,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem/byHcPartySecretForeignKeys';
+    final path = r'/rest/v1/calendarItem/byHcPartySecretForeignKeys';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -205,8 +203,8 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
-      queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'secretFKeys', secretFKeys));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -258,7 +256,7 @@ class CalendarItemApi {
   /// * [String] recurrenceId (required):
   Future<Response> findCalendarItemsByRecurrenceIdWithHttpInfo(String recurrenceId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem/byRecurrenceId';
+    final path = r'/rest/v1/calendarItem/byRecurrenceId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -267,7 +265,7 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'recurrenceId', recurrenceId));
+    queryParams.addAll(_queryParams('', 'recurrenceId', recurrenceId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -317,8 +315,7 @@ class CalendarItemApi {
   /// * [String] calendarItemId (required):
   Future<Response> getCalendarItemWithHttpInfo(String calendarItemId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem/{calendarItemId}'
-      .replaceAll('{calendarItemId}', calendarItemId);
+    final path = r'/rest/v1/calendarItem/{calendarItemId}'.replaceAll('{calendarItemId}', calendarItemId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -368,7 +365,7 @@ class CalendarItemApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getCalendarItemsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem';
+    final path = r'/rest/v1/calendarItem';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -379,7 +376,6 @@ class CalendarItemApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -425,7 +421,7 @@ class CalendarItemApi {
   /// * [String] hcPartyId (required):
   Future<Response> getCalendarItemsByPeriodAndHcPartyIdWithHttpInfo(int startDate, int endDate, String hcPartyId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem/byPeriodAndHcPartyId';
+    final path = r'/rest/v1/calendarItem/byPeriodAndHcPartyId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -434,9 +430,9 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'startDate', startDate));
-      queryParams.addAll(_queryParams('', 'endDate', endDate));
-      queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
+    queryParams.addAll(_queryParams('', 'startDate', startDate));
+    queryParams.addAll(_queryParams('', 'endDate', endDate));
+    queryParams.addAll(_queryParams('', 'hcPartyId', hcPartyId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -490,7 +486,7 @@ class CalendarItemApi {
   /// * [ListOfIdsDto] listOfIdsDto:
   Future<Response> getCalendarItemsWithIdsWithHttpInfo({ ListOfIdsDto? listOfIdsDto, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem/byIds';
+    final path = r'/rest/v1/calendarItem/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -501,7 +497,6 @@ class CalendarItemApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -551,7 +546,7 @@ class CalendarItemApi {
   /// * [String] agendaId (required):
   Future<Response> getCalendarsByPeriodAndAgendaIdWithHttpInfo(int startDate, int endDate, String agendaId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem/byPeriodAndAgendaId';
+    final path = r'/rest/v1/calendarItem/byPeriodAndAgendaId';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -560,8 +555,8 @@ class CalendarItemApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'startDate', startDate));
-      queryParams.addAll(_queryParams('', 'endDate', endDate));
+    queryParams.addAll(_queryParams('', 'startDate', startDate));
+    queryParams.addAll(_queryParams('', 'endDate', endDate));
       queryParams.addAll(_queryParams('', 'agendaId', agendaId));
 
     const authNames = <String>[r'basicSchema'];
@@ -616,7 +611,7 @@ class CalendarItemApi {
   /// * [CalendarItemDto] calendarItemDto (required):
   Future<Response> modifyCalendarItemWithHttpInfo(CalendarItemDto calendarItemDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem';
+    final path = r'/rest/v1/calendarItem';
 
     // ignore: prefer_final_locals
     Object? postBody = calendarItemDto;
@@ -627,7 +622,6 @@ class CalendarItemApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -670,7 +664,7 @@ class CalendarItemApi {
   /// * [List<IcureStubDto>] icureStubDto (required):
   Future<Response> setCalendarItemsDelegationsWithHttpInfo(List<IcureStubDto> icureStubDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/calendarItem/delegations';
+    final path = r'/rest/v1/calendarItem/delegations';
 
     // ignore: prefer_final_locals
     Object? postBody = icureStubDto;
@@ -681,7 +675,6 @@ class CalendarItemApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

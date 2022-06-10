@@ -28,8 +28,8 @@ class Besamv2Api {
   ///   dmppCode
   Future<Response> findAmpsByDmppCodeWithHttpInfo(String dmppCode,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byDmppCode/{dmppCode}'
-      .replaceAll('{dmppCode}', dmppCode);
+    final path = r'/rest/v1/be_samv2/amp/byDmppCode/{dmppCode}'
+        .replaceAll('{dmppCode}', dmppCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -101,8 +101,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedAmpsByAtcWithHttpInfo(String atcCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmp/byAtc/{atcCode}'
-      .replaceAll('{atcCode}', atcCode);
+    final path = r'/rest/v1/be_samv2/vmp/byAtc/{atcCode}'.replaceAll('{atcCode}', atcCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -190,8 +189,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedAmpsByGroupCodeWithHttpInfo(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byGroupCode/{vmpgCode}'
-      .replaceAll('{vmpgCode}', vmpgCode);
+    final path = r'/rest/v1/be_samv2/amp/byGroupCode/{vmpgCode}'.replaceAll('{vmpgCode}', vmpgCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -279,8 +277,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedAmpsByGroupIdWithHttpInfo(String vmpgId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byGroupId/{vmpgId}'
-      .replaceAll('{vmpgId}', vmpgId);
+    final path = r'/rest/v1/be_samv2/amp/byGroupId/{vmpgId}'.replaceAll('{vmpgId}', vmpgId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -371,7 +368,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedAmpsByLabelWithHttpInfo({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp';
+    final path = r'/rest/v1/be_samv2/amp';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -468,8 +465,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedAmpsByVmpCodeWithHttpInfo(String vmpCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byVmpCode/{vmpCode}'
-      .replaceAll('{vmpCode}', vmpCode);
+    final path = r'/rest/v1/be_samv2/amp/byVmpCode/{vmpCode}'.replaceAll('{vmpCode}', vmpCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -557,8 +553,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedAmpsByVmpIdWithHttpInfo(String vmpId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byVmpId/{vmpId}'
-      .replaceAll('{vmpId}', vmpId);
+    final path = r'/rest/v1/be_samv2/amp/byVmpId/{vmpId}'.replaceAll('{vmpId}', vmpId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -649,7 +644,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedNmpsByLabelWithHttpInfo({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/nmp';
+    final path = r'/rest/v1/be_samv2/nmp';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -749,7 +744,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedVmpGroupsByLabelWithHttpInfo({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmpgroup';
+    final path = r'/rest/v1/be_samv2/vmpgroup';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -846,8 +841,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedVmpGroupsByVmpGroupCodeWithHttpInfo(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmpgroup/byGroupCode/{vmpgCode}'
-      .replaceAll('{vmpgCode}', vmpgCode);
+    final path = r'/rest/v1/be_samv2/vmpgroup/byGroupCode/{vmpgCode}'.replaceAll('{vmpgCode}', vmpgCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -935,8 +929,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedVmpsByGroupCodeWithHttpInfo(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmp/byGroupCode/{vmpgCode}'
-      .replaceAll('{vmpgCode}', vmpgCode);
+    final path = r'/rest/v1/be_samv2/vmp/byGroupCode/{vmpgCode}'.replaceAll('{vmpgCode}', vmpgCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1024,8 +1017,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedVmpsByGroupIdWithHttpInfo(String vmpgId, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmp/byGroupId/{vmpgId}'
-      .replaceAll('{vmpgId}', vmpgId);
+    final path = r'/rest/v1/be_samv2/vmp/byGroupId/{vmpgId}'.replaceAll('{vmpgId}', vmpgId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1116,7 +1108,7 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedVmpsByLabelWithHttpInfo({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmp';
+    final path = r'/rest/v1/be_samv2/vmp';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1213,8 +1205,8 @@ class Besamv2Api {
   ///   Number of rows
   Future<Response> findPaginatedVmpsByVmpCodeWithHttpInfo(String vmpCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmp/byVmpCode/{vmpCode}'
-      .replaceAll('{vmpCode}', vmpCode);
+    final path = r'/rest/v1/be_samv2/vmp/byVmpCode/{vmpCode}'
+        .replaceAll('{vmpCode}', vmpCode);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1288,7 +1280,7 @@ class Besamv2Api {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getSamVersionWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/v';
+    final path = r'/rest/v1/be_samv2/v';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1299,7 +1291,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1342,7 +1333,7 @@ class Besamv2Api {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByDmppCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byDmppCodes';
+    final path = r'/rest/v1/be_samv2/amp/byDmppCodes';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1353,7 +1344,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1403,7 +1393,7 @@ class Besamv2Api {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByGroupCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byGroupCodes';
+    final path = r'/rest/v1/be_samv2/amp/byGroupCodes';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1414,7 +1404,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1464,7 +1453,7 @@ class Besamv2Api {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByGroupIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byGroupIds';
+    final path = r'/rest/v1/be_samv2/amp/byGroupIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1475,7 +1464,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1525,7 +1513,7 @@ class Besamv2Api {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByVmpCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byVmpCodes';
+    final path = r'/rest/v1/be_samv2/amp/byVmpCodes';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1536,7 +1524,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1586,7 +1573,7 @@ class Besamv2Api {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listAmpsByVmpIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/amp/byVmpIds';
+    final path = r'/rest/v1/be_samv2/amp/byVmpIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1647,7 +1634,7 @@ class Besamv2Api {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listNmpsByCnksWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/nmp/byCnks';
+    final path = r'/rest/v1/be_samv2/nmp/byCnks';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1702,7 +1689,7 @@ class Besamv2Api {
   /// Note: This method returns the HTTP [Response].
   Future<Response> listPharmaceuticalFormsWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/pharmaform';
+    final path = r'/rest/v1/be_samv2/pharmaform';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1713,7 +1700,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1751,7 +1737,7 @@ class Besamv2Api {
   /// Note: This method returns the HTTP [Response].
   Future<Response> listSubstancesWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/substance';
+    final path = r'/rest/v1/be_samv2/substance';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -1762,7 +1748,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1806,7 +1791,7 @@ class Besamv2Api {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listVmpGroupsByVmpGroupCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmpgroup/byGroupCodes';
+    final path = r'/rest/v1/be_samv2/vmpgroup/byGroupCodes';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1817,7 +1802,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1867,7 +1851,7 @@ class Besamv2Api {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listVmpsByGroupIdsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmp/byGroupIds';
+    final path = r'/rest/v1/be_samv2/vmp/byGroupIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1878,7 +1862,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -1928,7 +1911,7 @@ class Besamv2Api {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> listVmpsByVmpCodesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/be_samv2/vmp/byVmpCodes';
+    final path = r'/rest/v1/be_samv2/vmp/byVmpCodes';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -1939,7 +1922,6 @@ class Besamv2Api {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

@@ -25,7 +25,7 @@ class AgendaApi {
   /// * [AgendaDto] agendaDto (required):
   Future<Response> createAgendaWithHttpInfo(AgendaDto agendaDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/agenda';
+    final path = r'/rest/v1/agenda';
 
     // ignore: prefer_final_locals
     Object? postBody = agendaDto;
@@ -79,7 +79,7 @@ class AgendaApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteAgendasWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/agenda/delete/batch';
+    final path = r'/rest/v1/agenda/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -136,8 +136,7 @@ class AgendaApi {
   /// * [String] agendaId (required):
   Future<Response> getAgendaWithHttpInfo(String agendaId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/agenda/{agendaId}'
-      .replaceAll('{agendaId}', agendaId);
+    final path = r'/rest/v1/agenda/{agendaId}'.replaceAll('{agendaId}', agendaId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -187,7 +186,7 @@ class AgendaApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> getAgendasWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/agenda';
+    final path = r'/rest/v1/agenda';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -198,7 +197,6 @@ class AgendaApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -240,7 +238,7 @@ class AgendaApi {
   /// * [String] userId (required):
   Future<Response> getAgendasForUserWithHttpInfo(String userId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/agenda/byUser';
+    final path = r'/rest/v1/agenda/byUser';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -249,7 +247,7 @@ class AgendaApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'userId', userId));
+    queryParams.addAll(_queryParams('', 'userId', userId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -296,7 +294,7 @@ class AgendaApi {
   /// * [String] userId (required):
   Future<Response> getReadableAgendasForUserWithHttpInfo(String userId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/agenda/readableForUser';
+    final path = r'/rest/v1/agenda/readableForUser';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -305,7 +303,7 @@ class AgendaApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'userId', userId));
+    queryParams.addAll(_queryParams('', 'userId', userId));
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>[];
@@ -355,7 +353,7 @@ class AgendaApi {
   /// * [AgendaDto] agendaDto (required):
   Future<Response> modifyAgendaWithHttpInfo(AgendaDto agendaDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v2/agenda';
+    final path = r'/rest/v1/agenda';
 
     // ignore: prefer_final_locals
     Object? postBody = agendaDto;
@@ -366,7 +364,6 @@ class AgendaApi {
 
     const authNames = <String>[r'basicSchema'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,

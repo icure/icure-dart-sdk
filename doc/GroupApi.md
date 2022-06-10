@@ -9,17 +9,19 @@ All URIs are relative to *https://kraken.icure.dev*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createGroup**](GroupApi.md#creategroup) | **POST** /rest/v2/group/{id} | Create a group
-[**getGroup**](GroupApi.md#getgroup) | **GET** /rest/v2/group/{id} | Get a group by id
-[**getReplicationInfo1**](GroupApi.md#getreplicationinfo1) | **GET** /rest/v2/group/{id}/r | Get index info
-[**initDesignDocs**](GroupApi.md#initdesigndocs) | **PUT** /rest/v2/group/{id}/dd | Init design docs
-[**listGroups**](GroupApi.md#listgroups) | **GET** /rest/v2/group | List groups
-[**modifyGroupName**](GroupApi.md#modifygroupname) | **PUT** /rest/v2/group/{id}/name/{name} | Update group name
-[**modifyGroupProperties**](GroupApi.md#modifygroupproperties) | **PUT** /rest/v2/group/{id}/properties | Update group properties
-[**registerNewGroupAdministrator**](GroupApi.md#registernewgroupadministrator) | **POST** /rest/v2/group/register/trial | Create a group
-[**resetStorage**](GroupApi.md#resetstorage) | **POST** /rest/v2/group/{id}/reset/storage | Reset storage for group
-[**setGroupPassword**](GroupApi.md#setgrouppassword) | **PUT** /rest/v2/group/{id}/password | Set group password
-[**solveConflicts**](GroupApi.md#solveconflicts) | **POST** /rest/v2/group/{id}/conflicts | Solve conflicts for group
+[**createGroup**](GroupApi.md#creategroup) | **POST** /rest/v1/group/{id} | Create a group
+[**getGroup**](GroupApi.md#getgroup) | **GET** /rest/v1/group/{id} | Get a group by id
+[**getReplicationInfo1**](GroupApi.md#getreplicationinfo1) | **GET** /rest/v1/group/{id}/r | Get index info
+[**initDesignDocs**](GroupApi.md#initdesigndocs) | **PUT** /rest/v1/group/{id}/dd | Init design docs
+[**listGroups**](GroupApi.md#listgroups) | **GET** /rest/v1/group | List groups
+[**modifyGroupName**](GroupApi.md#modifygroupname) | **PUT** /rest/v1/group/{id}/name/{name} | Update group name
+[**modifyGroupProperties**](GroupApi.md#modifygroupproperties) | **
+PUT** /rest/v1/group/{id}/properties | Update group properties
+[**registerNewGroupAdministrator**](GroupApi.md#registernewgroupadministrator) | **
+POST** /rest/v1/group/register/trial | Create a group
+[**resetStorage**](GroupApi.md#resetstorage) | **POST** /rest/v1/group/{id}/reset/storage | Reset storage for group
+[**setGroupPassword**](GroupApi.md#setgrouppassword) | **PUT** /rest/v1/group/{id}/password | Set group password
+[**solveConflicts**](GroupApi.md#solveconflicts) | **POST** /rest/v1/group/{id}/conflicts | Solve conflicts for group
 
 
 # **createGroup**
