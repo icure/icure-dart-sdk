@@ -1,3 +1,11 @@
+## 1.0.42
+
+- Removed unused lostHcPartyKeys field in DecryptedPatientDto
+
+## 1.0.41
+
+- Removed unused lostHcPartyKeys field in PatientDto requiredKeys
+
 ## 1.0.40
 
 - Removed unused lostHcPartyKeys field in PatientDto
