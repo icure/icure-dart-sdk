@@ -1,3 +1,7 @@
+## 1.0.43
+
+- Removed unused lostHcPartyKeys field in HealthcareParty, Device
+
 ## 1.0.42
 
 - Removed unused lostHcPartyKeys field in DecryptedPatientDto
