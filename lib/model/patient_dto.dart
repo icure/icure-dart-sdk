@@ -1099,7 +1099,6 @@ class PatientDto {
     'hcPartyKeys',
     'aesExchangeKeys',
     'transferKeys',
-    'lostHcPartyKeys',
     'privateKeyShamirPartitions',
     'secretForeignKeys',
     'cryptedForeignKeys',
