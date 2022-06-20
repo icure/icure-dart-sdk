@@ -155,13 +155,8 @@ class DataOwnerResolver {
 
   Future<HealthcarePartyDto?> _getHcp(String hcpId) async {
     try {
-      final cachedHcp = hcParties[hcpId];
-      if (cachedHcp != null) {
-        return await cachedHcp;
-      } else {
-        hcParties[hcpId] = healthcarePartyApi.getHealthcareParty(hcpId);
-        return await hcParties[hcpId];
-      }
+      return hcParties[hcpId] ??
+          (hcParties[hcpId] = Future.value((await healthcarePartyApi.getHealthcareParties(ListOfIdsDto(ids: [hcpId])))?.singleOrNull));
     } catch(e) {
       print("Exception during _getHcp ${e}");
       return null;
@@ -175,8 +170,8 @@ class DataOwnerResolver {
 
   Future<PatientDto?> _getPatient(String patientId) async {
     try {
-      final cachedPatient = patients[patientId];
-      return cachedPatient != null ? await cachedPatient : await (patients[patientId] = patientApi.rawGetPatient(patientId));
+      return patients[patientId] ??
+          (patients[patientId] = Future.value((await patientApi.rawGetPatients(ListOfIdsDto(ids: [patientId])))?.singleOrNull));
     } on ApiException {
       return null;
     }
@@ -189,8 +184,7 @@ class DataOwnerResolver {
 
   Future<DeviceDto?> _getDevice(String deviceId) async {
     try {
-      final cachedDevice = devices[deviceId];
-      return cachedDevice != null ? await cachedDevice : await (devices[deviceId] = deviceApi.getDevice(deviceId));
+      return devices[deviceId] ?? (devices[deviceId] = Future.value((await deviceApi.getDevices(ListOfIdsDto(ids: [deviceId])))?.singleOrNull));
     } on ApiException {
       return null;
     }
