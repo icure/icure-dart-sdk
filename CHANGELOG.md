@@ -1,3 +1,8 @@
+## 1.0.45
+
+- Fixed an issue that blocked the api to get single dataSample by id
+- Fixed some errors that were returned when querying DataOwner
+
 ## 1.0.44
 
 - Calls are using v1 instead of v2
