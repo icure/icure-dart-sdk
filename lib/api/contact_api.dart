@@ -766,7 +766,7 @@ class ContactApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawGetServicesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v1/contact/service';
+    final path = r'/rest/v1/contact/service/byIds';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
