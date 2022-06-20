@@ -1,3 +1,7 @@
+## 1.0.46
+
+- Fixed an issue that blocked the api to get a list of healthcare parties by ids
+
 ## 1.0.45
 
 - Fixed an issue that blocked the api to get single dataSample by id

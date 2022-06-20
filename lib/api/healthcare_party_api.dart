@@ -835,10 +835,10 @@ class HealthcarePartyApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> getHealthcarePartiesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v1/hcparty/byIds';
+    final path = r'/rest/v1/hcparty/byIds/{healthcarePartyIds}'.replaceAll('{healthcarePartyIds}', listOfIdsDto.ids.join(','));
 
     // ignore: prefer_final_locals
-    Object? postBody = listOfIdsDto;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -849,7 +849,7 @@ class HealthcarePartyApi {
 
     return apiClient.invokeAPI(
       path,
-      'POST',
+      'GET',
       queryParams,
       postBody,
       headerParams,
