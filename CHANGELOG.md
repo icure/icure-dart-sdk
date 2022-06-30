@@ -1,3 +1,6 @@
+## 1.0.47
+- Fix some API Calls and acc clearCachesFor method
+
 ## 1.0.46
 
 - Fixed an issue that blocked the api to get a list of healthcare parties by ids
