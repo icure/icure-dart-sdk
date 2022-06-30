@@ -145,7 +145,7 @@ class HealthElementApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> rawDeleteHealthElementsWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v1/helement/delete/batch';
+    final path = r'/rest/v2/helement/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
