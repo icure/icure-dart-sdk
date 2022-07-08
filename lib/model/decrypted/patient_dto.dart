@@ -915,7 +915,36 @@ class DecryptedPatientDto {
   // ignore: prefer_constructors_over_static_methods
   static DecryptedPatientDto? fromJson(dynamic value) {
     if (value is Map) {
-      final json = value.cast<String, dynamic>();
+      final json = {
+        "identifier": [],
+        "tags": {},
+        "codes": {},
+        "names": [],
+        "languages": [],
+        "addresses": [],
+        "mergedIds": {},
+        "insurabilities": [],
+        "partnerships": [],
+        "patientHealthCareParties": [],
+        "financialInstitutionInformation": [],
+        "medicalHouseContracts": [],
+        "patientProfessions": [],
+        "parameters": {},
+        "properties": {},
+        "hcPartyKeys": {},
+        "aesExchangeKeys": {},
+        "transferKeys": {},
+        "privateKeyShamirPartitions": {},
+        "secretForeignKeys": {},
+        "cryptedForeignKeys": {},
+        "delegations": {},
+        "encryptionKeys": {},
+        "nonDuplicateIds": {},
+        "encryptedAdministrativesDocuments": {},
+        "schoolingInfos": [],
+        "employementInfos": [],
+        ...value.cast<String, dynamic>()
+      };
 
       // Ensure that the map contains the required keys.
       // Note 1: the values aren't checked for validity beyond being non-null.

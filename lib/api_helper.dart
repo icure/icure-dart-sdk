@@ -99,7 +99,7 @@ Map<String, Map<String, String>> mapWithMapOfStringsFromJson(dynamic json) {
   if (json is Map && json.isNotEmpty) {
     json = json.cast<String, dynamic>(); // ignore: parameter_assignments
     for (final entry in json.entries) {
-      final value = mapCastOfType<String, String>(entry.value, entry.key);
+      final value = mapCastOfType<String, String>(json, entry.key);
       if (value != null) {
         map[entry.key] = value;
       }

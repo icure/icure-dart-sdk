@@ -64,13 +64,12 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
 
     return Tuple2(
         ContactDto.fromJson({
-          ...toJsonDeep(dec),
+          ...dec.toJson(),
           'services': (await crypto.encryptServices(
                   user.dataOwnerId()!,
                   <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})},
                   key,
-              dec.services.toList()))
-              .map((it) => toJsonDeep(it))
+                  dec.services.toList()))
               .toList()
         })!,
         Uint8List.fromList(json.encode({}).codeUnits));
@@ -81,14 +80,8 @@ BaseCryptoConfig<DecryptedContactDto, ContactDto> contactCryptoConfig(UserDto us
     }
 
     return DecryptedContactDto.fromJson({
-      ...toJsonDeep(cry),
-      'services': (await crypto.decryptServices(
-          user.dataOwnerId()!,
-          key,
-          cry.services.toList())
-      )
-          .map((it) => toJsonDeep(it))
-          .toList(),
+      ...cry.toJson(),
+      'services': (await crypto.decryptServices(user.dataOwnerId()!, key, cry.services.toList())).toList(),
       ...(data != null ? json.decode(String.fromCharCodes(data)) : {})
     })!;
   });
@@ -131,13 +124,16 @@ extension CryptoContact on Crypto {
           e.value.binaryValue == null &&
           e.value.range.isEmpty)) {
         return ServiceDto.fromJson({
-          ...toJsonDeep(s),
+          ...s.toJson(),
           'content': toJsonDeep(Map.fromEntries(await Future.wait(s.content.entries.map((e) async =>
               MapEntry(e.key, ContentDto(compoundValue: (await this.encryptServices(myId, delegations, contactKey, e.value.compoundValue))))))))
         })!;
       } else {
-        return ServiceDto.fromJson(
-            {...toJsonDeep(s), 'content': {}, 'encryptedSelf': base64.encoder.convert(Uint8List.fromList(json.encode({'content': s.content}).codeUnits).encryptAES(key))})!;
+        return ServiceDto.fromJson({
+          ...s.toJson(),
+          'content': {},
+          'encryptedSelf': base64.encoder.convert(Uint8List.fromList(json.encode({'content': s.content}).codeUnits).encryptAES(key))
+        })!;
       }
     }));
   }
@@ -151,12 +147,12 @@ extension CryptoContact on Crypto {
 
       if (s.encryptedSelf != null) {
         final decryptedData = base64.decoder.convert(s.encryptedSelf!).decryptAES(key);
-        return DecryptedServiceDto.fromJson(toJsonDeep(s)..addAll(toJsonDeep(json.decode(String.fromCharCodes(decryptedData)))))!;
+        return DecryptedServiceDto.fromJson(s.toJson()..addAll(toJsonDeep(json.decode(String.fromCharCodes(decryptedData)))))!;
       } else {
         return DecryptedServiceDto.fromJson({
-          ...toJsonDeep(s),
-          'content': Map.fromEntries((await Future.wait(s.content.entries.map((e) async =>
-              MapEntry(e.key, {'compoundValue': (await decryptServices(myId, key, e.value.compoundValue)).map((it) => toJsonDeep(it)).toList()})))))
+          ...s.toJson(),
+          'content': Map.fromEntries((await Future.wait(s.content.entries
+              .map((e) async => MapEntry(e.key, {'compoundValue': (await decryptServices(myId, key, e.value.compoundValue)).toList()})))))
         })!;
       }
     }));
