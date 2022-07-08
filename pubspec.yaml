@@ -1,6 +1,6 @@
 name: icure_dart_sdk
 description: icure low level dart sdk.
-version: 1.0.48
+version: 1.0.49
 homepage: https://icure.dev
 
 environment:

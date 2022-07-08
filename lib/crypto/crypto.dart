@@ -149,7 +149,7 @@ extension CryptoContact on Crypto {
 
       if (s.encryptedSelf != null) {
         final decryptedData = base64.decoder.convert(s.encryptedSelf!).decryptAES(key);
-        return DecryptedServiceDto.fromJson(s.toJson()..addAll(toJsonDeep(json.decode(String.fromCharCodes(decryptedData)))))!;
+        return DecryptedServiceDto.fromJson({...s.toJson(), ...toJsonDeep(json.decode(String.fromCharCodes(decryptedData)))})!;
       } else {
         return DecryptedServiceDto.fromJson({
           ...s.toJson(),

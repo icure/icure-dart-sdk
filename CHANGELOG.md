@@ -1,3 +1,7 @@
+## 1.0.49
+
+- Fixed services decryption
+
 ## 1.0.48
 
 - Fixed mappers toJson
