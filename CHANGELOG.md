@@ -1,4 +1,9 @@
+## 1.0.48
+
+- Fixed mappers toJson
+
 ## 1.0.47
+
 - Fix some API Calls and acc clearCachesFor method
 
 ## 1.0.46
