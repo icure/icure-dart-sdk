@@ -38,6 +38,8 @@ abstract class CryptoConfig<D, K> {
 }
 
 abstract class Crypto {
+  void clearCachesFor(String dataOwnerId);
+
   Future<Set<String>> decryptEncryptionKeys(String myId, Map<String, Set<DelegationDto>> keys);
 
   Future<Tuple2<String, DataOwnerDto?>> encryptAESKeyForHcp(String myId, String delegateId, String objectId, String secret);
@@ -177,6 +179,13 @@ class LocalCrypto implements Crypto {
   Map<String, RSAKeypair> rsaKeyPairs;
 
   Map<String, Future<Uint8List?>> delegateHcpartyKeysCache = {};
+
+  @override
+  void clearCachesFor(String dataOwnerId) {
+    dataOwnerResolver.hcParties.removeWhere((key, value) => key == dataOwnerId);
+    dataOwnerResolver.patients.removeWhere((key, value) => key == dataOwnerId);
+    dataOwnerResolver.devices.removeWhere((key, value) => key == dataOwnerId);
+  }
 
   @override
   Future<Set<String>> decryptEncryptionKeys(String myId, Map<String, Set<DelegationDto>> keys) async {

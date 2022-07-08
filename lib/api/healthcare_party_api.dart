@@ -148,7 +148,7 @@ class HealthcarePartyApi {
   /// * [ListOfIdsDto] listOfIdsDto (required):
   Future<Response> deleteHealthcarePartiesWithHttpInfo(ListOfIdsDto listOfIdsDto,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v1/hcparty/delete/batch';
+    final path = r'/rest/v2/hcparty/delete/batch';
 
     // ignore: prefer_final_locals
     Object? postBody = listOfIdsDto;
@@ -777,7 +777,7 @@ class HealthcarePartyApi {
   /// * [String] healthcarePartyId (required):
   Future<Response> getHcPartyKeysForDelegateWithHttpInfo(String healthcarePartyId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/rest/v1/hcparty/byKeys/{healthcarePartyId}'.replaceAll('{healthcarePartyId}', healthcarePartyId);
+    final path = r'/rest/v1/hcparty/{healthcarePartyId}/keys'.replaceAll('{healthcarePartyId}', healthcarePartyId);
 
     // ignore: prefer_final_locals
     Object? postBody;
