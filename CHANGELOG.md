@@ -1,3 +1,7 @@
+## 1.0.50
+
+- Fixed model mappings fromJson
+
 ## 1.0.49
 
 - Fixed services decryption
