@@ -129,17 +129,18 @@ class CodeDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is CodeDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.deletionDate == deletionDate &&
-          other.context == context &&
-          other.type == type &&
-          other.code == code &&
-          other.version == version &&
-          other.label == label &&
-          other.author == author &&
-          other.regions == regions &&
+      identical(this, other) ||
+          other is CodeDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.deletionDate == deletionDate &&
+              other.context == context &&
+              other.type == type &&
+              other.code == code &&
+              other.version == version &&
+              other.label == label &&
+              other.author == author &&
+              other.regions == regions &&
           other.periodicity == periodicity &&
           other.level == level &&
           other.links == links &&
@@ -223,6 +224,9 @@ class CodeDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static CodeDto? fromJson(dynamic value) {
+    if (value is CodeDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -247,12 +251,18 @@ class CodeDto {
         version: mapValueOfType<String>(json, r'version'),
         label: mapCastOfType<String, String>(json, r'label') ?? const {},
         author: mapValueOfType<String>(json, r'author'),
-        regions: json[r'regions'] is Set ? (json[r'regions'] as Set).cast<String>() : json[r'regions'] is List ? ((json[r'regions'] as List).toSet())
-            .cast<String>() : const {},
+        regions: json[r'regions'] is Set
+            ? (json[r'regions'] as Set).cast<String>()
+            : json[r'regions'] is List
+                ? ((json[r'regions'] as List).toSet()).cast<String>()
+                : const {},
         periodicity: PeriodicityDto.listFromJson(json[r'periodicity'])!.toSet(),
         level: mapValueOfType<int>(json, r'level'),
-        links: json[r'links'] is Set ? (json[r'links'] as Set).cast<String>() : json[r'links'] is List ? ((json[r'links'] as List).toSet()).cast<
-            String>() : const {},
+        links: json[r'links'] is Set
+            ? (json[r'links'] as Set).cast<String>()
+            : json[r'links'] is List
+                ? ((json[r'links'] as List).toSet()).cast<String>()
+                : const {},
         qualifiedLinks: json[r'qualifiedLinks'] == null ? const {} : mapWithListOfStringsFromJson(json[r'qualifiedLinks']),
         flags: CodeDtoFlagsEnum.listFromJson(json[r'flags'])!.toSet(),
         searchTerms: json[r'searchTerms'] == null ? const {} : mapWithSetOfStringsFromJson(json[r'searchTerms']),
@@ -264,7 +274,10 @@ class CodeDto {
     return null;
   }
 
-  static List<CodeDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CodeDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CodeDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -292,12 +305,18 @@ class CodeDto {
   }
 
   // maps a json object with a list of CodeDto-objects as value to a dart map
-  static Map<String, List<CodeDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CodeDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CodeDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CodeDto.listFromJson(entry.value, growable: growable,);
+        final value = CodeDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -319,7 +338,6 @@ class CodeDto {
     'disabled',
   };
 }
-
 
 class CodeDtoFlagsEnum {
   /// Instantiate a new enum with the provided [value].
@@ -496,7 +514,10 @@ class CodeDtoFlagsEnum {
 
   static CodeDtoFlagsEnum? fromJson(dynamic value) => CodeDtoFlagsEnumTypeTransformer().decode(value);
 
-  static List<CodeDtoFlagsEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CodeDtoFlagsEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CodeDtoFlagsEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -698,5 +719,3 @@ class CodeDtoFlagsEnumTypeTransformer {
   /// Singleton [CodeDtoFlagsEnumTypeTransformer] instance.
   static CodeDtoFlagsEnumTypeTransformer? _instance;
 }
-
-

@@ -93,23 +93,23 @@ class DiaryNoteExportInfoDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DiaryNoteExportInfoDto &&
-          other.secretForeignKeys == secretForeignKeys &&
-          other.excludedIds == excludedIds &&
-          other.recipient == recipient &&
-          other.softwareName == softwareName &&
-          other.softwareVersion == softwareVersion &&
-          other.tags == tags &&
-          other.contexts == contexts &&
-          other.psy == psy &&
-          other.documentId == documentId &&
-          other.attachmentId == attachmentId &&
-          other.note == note;
+          other is DiaryNoteExportInfoDto &&
+              other.secretForeignKeys == secretForeignKeys &&
+              other.excludedIds == excludedIds &&
+              other.recipient == recipient &&
+              other.softwareName == softwareName &&
+              other.softwareVersion == softwareVersion &&
+              other.tags == tags &&
+              other.contexts == contexts &&
+              other.psy == psy &&
+              other.documentId == documentId &&
+              other.attachmentId == attachmentId &&
+              other.note == note;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (secretForeignKeys.hashCode) +
+  (secretForeignKeys.hashCode) +
       (excludedIds.hashCode) +
       (recipient == null ? 0 : recipient!.hashCode) +
       (softwareName == null ? 0 : softwareName!.hashCode) +
@@ -159,6 +159,9 @@ class DiaryNoteExportInfoDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DiaryNoteExportInfoDto? fromJson(dynamic value) {
+    if (value is DiaryNoteExportInfoDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

@@ -20,5 +20,4 @@ class AllDevicesFilter extends AbstractFilterDto<DeviceDto> {
 
     return json;
   }
-
 }

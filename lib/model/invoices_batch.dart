@@ -80,7 +80,8 @@ class InvoicesBatch {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is InvoicesBatch &&
+      identical(this, other) ||
+      other is InvoicesBatch &&
           other.invoicingYear == invoicingYear &&
           other.invoicingMonth == invoicingMonth &&
           other.fileRef == fileRef &&
@@ -94,7 +95,7 @@ class InvoicesBatch {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (invoicingYear.hashCode) +
+      (invoicingYear.hashCode) +
       (invoicingMonth.hashCode) +
       (fileRef == null ? 0 : fileRef!.hashCode) +
       (batchRef == null ? 0 : batchRef!.hashCode) +
@@ -138,6 +139,9 @@ class InvoicesBatch {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static InvoicesBatch? fromJson(dynamic value) {
+    if (value is InvoicesBatch) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -167,7 +171,10 @@ class InvoicesBatch {
     return null;
   }
 
-  static List<InvoicesBatch>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoicesBatch>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoicesBatch>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -195,12 +202,18 @@ class InvoicesBatch {
   }
 
   // maps a json object with a list of InvoicesBatch-objects as value to a dart map
-  static Map<String, List<InvoicesBatch>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<InvoicesBatch>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<InvoicesBatch>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = InvoicesBatch.listFromJson(entry.value, growable: growable,);
+        final value = InvoicesBatch.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -216,4 +229,3 @@ class InvoicesBatch {
     'invoices',
   };
 }
-

@@ -86,7 +86,8 @@ class FormLayout {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is FormLayout &&
+      identical(this, other) ||
+      other is FormLayout &&
           other.name == name &&
           other.width == width &&
           other.height == height &&
@@ -100,7 +101,7 @@ class FormLayout {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (name == null ? 0 : name!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
       (width == null ? 0 : width!.hashCode) +
       (height == null ? 0 : height!.hashCode) +
       (descr == null ? 0 : descr!.hashCode) +
@@ -146,6 +147,9 @@ class FormLayout {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static FormLayout? fromJson(dynamic value) {
+    if (value is FormLayout) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -169,15 +173,16 @@ class FormLayout {
         guid: mapValueOfType<String>(json, r'guid'),
         group: mapValueOfType<String>(json, r'group'),
         sections: FormSection.listFromJson(json[r'sections']) ?? const [],
-        importedServiceXPaths: json[r'importedServiceXPaths'] is List
-            ? (json[r'importedServiceXPaths'] as List).cast<String>()
-            : const [],
+        importedServiceXPaths: json[r'importedServiceXPaths'] is List ? (json[r'importedServiceXPaths'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<FormLayout>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FormLayout>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FormLayout>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -205,12 +210,18 @@ class FormLayout {
   }
 
   // maps a json object with a list of FormLayout-objects as value to a dart map
-  static Map<String, List<FormLayout>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FormLayout>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FormLayout>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FormLayout.listFromJson(entry.value, growable: growable,);
+        final value = FormLayout.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -220,7 +231,5 @@ class FormLayout {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

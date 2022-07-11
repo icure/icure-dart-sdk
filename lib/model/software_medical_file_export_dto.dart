@@ -50,7 +50,8 @@ class SoftwareMedicalFileExportDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is SoftwareMedicalFileExportDto &&
+      identical(this, other) ||
+      other is SoftwareMedicalFileExportDto &&
           other.secretForeignKeys == secretForeignKeys &&
           other.comment == comment &&
           other.exportAsPMF == exportAsPMF &&
@@ -60,7 +61,7 @@ class SoftwareMedicalFileExportDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (secretForeignKeys.hashCode) +
+      (secretForeignKeys.hashCode) +
       (comment == null ? 0 : comment!.hashCode) +
       (exportAsPMF.hashCode) +
       (softwareName == null ? 0 : softwareName!.hashCode) +
@@ -90,6 +91,9 @@ class SoftwareMedicalFileExportDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static SoftwareMedicalFileExportDto? fromJson(dynamic value) {
+    if (value is SoftwareMedicalFileExportDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -105,9 +109,7 @@ class SoftwareMedicalFileExportDto {
       }());
 
       return SoftwareMedicalFileExportDto(
-        secretForeignKeys: json[r'secretForeignKeys'] is List
-            ? (json[r'secretForeignKeys'] as List).cast<String>()
-            : const [],
+        secretForeignKeys: json[r'secretForeignKeys'] is List ? (json[r'secretForeignKeys'] as List).cast<String>() : const [],
         comment: mapValueOfType<String>(json, r'comment'),
         exportAsPMF: mapValueOfType<bool>(json, r'exportAsPMF')!,
         softwareName: mapValueOfType<String>(json, r'softwareName'),
@@ -117,7 +119,10 @@ class SoftwareMedicalFileExportDto {
     return null;
   }
 
-  static List<SoftwareMedicalFileExportDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SoftwareMedicalFileExportDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SoftwareMedicalFileExportDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -145,12 +150,18 @@ class SoftwareMedicalFileExportDto {
   }
 
   // maps a json object with a list of SoftwareMedicalFileExportDto-objects as value to a dart map
-  static Map<String, List<SoftwareMedicalFileExportDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SoftwareMedicalFileExportDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SoftwareMedicalFileExportDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SoftwareMedicalFileExportDto.listFromJson(entry.value, growable: growable,);
+        final value = SoftwareMedicalFileExportDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -165,4 +176,3 @@ class SoftwareMedicalFileExportDto {
     'exportAsPMF',
   };
 }
-

@@ -98,7 +98,8 @@ class MedexInfoDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MedexInfoDto &&
+      identical(this, other) ||
+      other is MedexInfoDto &&
           other.beginDate == beginDate &&
           other.endDate == endDate &&
           other.author == author &&
@@ -116,7 +117,7 @@ class MedexInfoDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (beginDate.hashCode) +
+      (beginDate.hashCode) +
       (endDate.hashCode) +
       (author == null ? 0 : author!.hashCode) +
       (patient == null ? 0 : patient!.hashCode) +
@@ -170,6 +171,9 @@ class MedexInfoDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MedexInfoDto? fromJson(dynamic value) {
+    if (value is MedexInfoDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -203,7 +207,10 @@ class MedexInfoDto {
     return null;
   }
 
-  static List<MedexInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MedexInfoDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MedexInfoDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -231,12 +238,18 @@ class MedexInfoDto {
   }
 
   // maps a json object with a list of MedexInfoDto-objects as value to a dart map
-  static Map<String, List<MedexInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MedexInfoDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MedexInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MedexInfoDto.listFromJson(entry.value, growable: growable,);
+        final value = MedexInfoDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -255,4 +268,3 @@ class MedexInfoDto {
     'outOfHomeAllowed',
   };
 }
-

@@ -222,7 +222,8 @@ class PlanOfActionDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is PlanOfActionDto &&
+      identical(this, other) ||
+      other is PlanOfActionDto &&
           other.id == id &&
           other.created == created &&
           other.modified == modified &&
@@ -252,7 +253,7 @@ class PlanOfActionDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
       (author == null ? 0 : author!.hashCode) +
@@ -352,6 +353,9 @@ class PlanOfActionDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PlanOfActionDto? fromJson(dynamic value) {
+    if (value is PlanOfActionDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -387,9 +391,11 @@ class PlanOfActionDto {
         idOpeningContact: mapValueOfType<String>(json, r'idOpeningContact'),
         idClosingContact: mapValueOfType<String>(json, r'idClosingContact'),
         status: mapValueOfType<int>(json, r'status')!,
-        documentIds: json[r'documentIds'] is Set ? (json[r'documentIds'] as Set).cast<String>() : json[r'documentIds'] is List
-            ? ((json[r'documentIds'] as List).toSet()).cast<String>()
-            : const {},
+        documentIds: json[r'documentIds'] is Set
+            ? (json[r'documentIds'] as Set).cast<String>()
+            : json[r'documentIds'] is List
+                ? ((json[r'documentIds'] as List).toSet()).cast<String>()
+                : const {},
         numberOfCares: mapValueOfType<int>(json, r'numberOfCares'),
         careTeamMemberships: CareTeamMembershipDto.listFromJson(json[r'careTeamMemberships'])!,
         relevant: mapValueOfType<bool>(json, r'relevant')!,
@@ -399,7 +405,10 @@ class PlanOfActionDto {
     return null;
   }
 
-  static List<PlanOfActionDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PlanOfActionDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PlanOfActionDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -427,12 +436,18 @@ class PlanOfActionDto {
   }
 
   // maps a json object with a list of PlanOfActionDto-objects as value to a dart map
-  static Map<String, List<PlanOfActionDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PlanOfActionDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PlanOfActionDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PlanOfActionDto.listFromJson(entry.value, growable: growable,);
+        final value = PlanOfActionDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -452,4 +467,3 @@ class PlanOfActionDto {
     'relevant',
   };
 }
-

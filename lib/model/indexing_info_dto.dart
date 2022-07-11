@@ -19,14 +19,12 @@ class IndexingInfoDto {
   Map<String, num> statuses;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is IndexingInfoDto &&
-          other.statuses == statuses;
+  bool operator ==(Object other) => identical(this, other) || other is IndexingInfoDto && other.statuses == statuses;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (statuses.hashCode);
+      (statuses.hashCode);
 
   @override
   String toString() => 'IndexingInfoDto[statuses=$statuses]';
@@ -41,6 +39,9 @@ class IndexingInfoDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static IndexingInfoDto? fromJson(dynamic value) {
+    if (value is IndexingInfoDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,7 +63,10 @@ class IndexingInfoDto {
     return null;
   }
 
-  static List<IndexingInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<IndexingInfoDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <IndexingInfoDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +94,18 @@ class IndexingInfoDto {
   }
 
   // maps a json object with a list of IndexingInfoDto-objects as value to a dart map
-  static Map<String, List<IndexingInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<IndexingInfoDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<IndexingInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = IndexingInfoDto.listFromJson(entry.value, growable: growable,);
+        final value = IndexingInfoDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -105,7 +115,5 @@ class IndexingInfoDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -92,16 +92,17 @@ class Editor {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is Editor &&
-          other.left == left &&
-          other.top == top &&
-          other.width == width &&
-          other.height == height &&
-          other.multiline == multiline &&
-          other.labelPosition == labelPosition &&
-          other.readOnly == readOnly &&
-          other.defaultValue == defaultValue &&
-          other.key == key;
+      identical(this, other) ||
+          other is Editor &&
+              other.left == left &&
+              other.top == top &&
+              other.width == width &&
+              other.height == height &&
+              other.multiline == multiline &&
+              other.labelPosition == labelPosition &&
+              other.readOnly == readOnly &&
+              other.defaultValue == defaultValue &&
+              other.key == key;
 
   @override
   int get hashCode =>
@@ -156,6 +157,9 @@ class Editor {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static Editor? fromJson(dynamic value) {
+    if (value is Editor) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -185,7 +189,10 @@ class Editor {
     return null;
   }
 
-  static List<Editor>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Editor>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Editor>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -213,12 +220,18 @@ class Editor {
   }
 
   // maps a json object with a list of Editor-objects as value to a dart map
-  static Map<String, List<Editor>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Editor>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Editor>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = Editor.listFromJson(entry.value, growable: growable,);
+        final value = Editor.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -228,10 +241,8 @@ class Editor {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class EditorLabelPositionEnum {
   /// Instantiate a new enum with the provided [value].
@@ -260,7 +271,10 @@ class EditorLabelPositionEnum {
 
   static EditorLabelPositionEnum? fromJson(dynamic value) => EditorLabelPositionEnumTypeTransformer().decode(value);
 
-  static List<EditorLabelPositionEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EditorLabelPositionEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EditorLabelPositionEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -314,5 +328,3 @@ class EditorLabelPositionEnumTypeTransformer {
   /// Singleton [EditorLabelPositionEnumTypeTransformer] instance.
   static EditorLabelPositionEnumTypeTransformer? _instance;
 }
-
-

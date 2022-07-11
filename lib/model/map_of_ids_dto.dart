@@ -19,14 +19,12 @@ class MapOfIdsDto {
   Map<String, List<String>> mapOfIds;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is MapOfIdsDto &&
-          other.mapOfIds == mapOfIds;
+  bool operator ==(Object other) => identical(this, other) || other is MapOfIdsDto && other.mapOfIds == mapOfIds;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (mapOfIds.hashCode);
+      (mapOfIds.hashCode);
 
   @override
   String toString() => 'MapOfIdsDto[mapOfIds=$mapOfIds]';
@@ -41,6 +39,9 @@ class MapOfIdsDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MapOfIdsDto? fromJson(dynamic value) {
+    if (value is MapOfIdsDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,7 +63,10 @@ class MapOfIdsDto {
     return null;
   }
 
-  static List<MapOfIdsDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MapOfIdsDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MapOfIdsDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +94,18 @@ class MapOfIdsDto {
   }
 
   // maps a json object with a list of MapOfIdsDto-objects as value to a dart map
-  static Map<String, List<MapOfIdsDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MapOfIdsDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MapOfIdsDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MapOfIdsDto.listFromJson(entry.value, growable: growable,);
+        final value = MapOfIdsDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +119,3 @@ class MapOfIdsDto {
     'mapOfIds',
   };
 }
-

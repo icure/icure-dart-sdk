@@ -16,5 +16,4 @@ class NotPredicate extends Predicate {
 
     return json;
   }
-
 }

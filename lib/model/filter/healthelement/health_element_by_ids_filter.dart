@@ -22,5 +22,4 @@ class HealthElementByIdsFilter extends AbstractFilterDto<HealthElementDto> {
 
     return json;
   }
-
 }

@@ -71,13 +71,14 @@ class CommercializationDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is CommercializationDto &&
-          other.from == from &&
-          other.to == to &&
-          other.reason == reason &&
-          other.endOfComercialization == endOfComercialization &&
-          other.impact == impact &&
-          other.additionalInformation == additionalInformation;
+      identical(this, other) ||
+          other is CommercializationDto &&
+              other.from == from &&
+              other.to == to &&
+              other.reason == reason &&
+              other.endOfComercialization == endOfComercialization &&
+              other.impact == impact &&
+              other.additionalInformation == additionalInformation;
 
   @override
   int get hashCode =>
@@ -120,6 +121,9 @@ class CommercializationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static CommercializationDto? fromJson(dynamic value) {
+    if (value is CommercializationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -146,7 +150,10 @@ class CommercializationDto {
     return null;
   }
 
-  static List<CommercializationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CommercializationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CommercializationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -174,12 +181,18 @@ class CommercializationDto {
   }
 
   // maps a json object with a list of CommercializationDto-objects as value to a dart map
-  static Map<String, List<CommercializationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CommercializationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CommercializationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CommercializationDto.listFromJson(entry.value, growable: growable,);
+        final value = CommercializationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -189,7 +202,5 @@ class CommercializationDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

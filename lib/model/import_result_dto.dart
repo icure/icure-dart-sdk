@@ -50,7 +50,8 @@ class ImportResultDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ImportResultDto &&
+      identical(this, other) ||
+      other is ImportResultDto &&
           other.patient == patient &&
           other.hes == hes &&
           other.ctcs == ctcs &&
@@ -64,7 +65,7 @@ class ImportResultDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (patient == null ? 0 : patient!.hashCode) +
+      (patient == null ? 0 : patient!.hashCode) +
       (hes.hashCode) +
       (ctcs.hashCode) +
       (warnings.hashCode) +
@@ -98,6 +99,9 @@ class ImportResultDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ImportResultDto? fromJson(dynamic value) {
+    if (value is ImportResultDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -116,12 +120,8 @@ class ImportResultDto {
         patient: PatientDto.fromJson(json[r'patient']),
         hes: HealthElementDto.listFromJson(json[r'hes']) ?? const [],
         ctcs: ContactDto.listFromJson(json[r'ctcs']) ?? const [],
-        warnings: json[r'warnings'] is List
-            ? (json[r'warnings'] as List).cast<String>()
-            : const [],
-        errors: json[r'errors'] is List
-            ? (json[r'errors'] as List).cast<String>()
-            : const [],
+        warnings: json[r'warnings'] is List ? (json[r'warnings'] as List).cast<String>() : const [],
+        errors: json[r'errors'] is List ? (json[r'errors'] as List).cast<String>() : const [],
         forms: FormDto.listFromJson(json[r'forms']) ?? const [],
         hcps: HealthcarePartyDto.listFromJson(json[r'hcps']) ?? const [],
         documents: DocumentDto.listFromJson(json[r'documents']) ?? const [],
@@ -131,7 +131,10 @@ class ImportResultDto {
     return null;
   }
 
-  static List<ImportResultDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ImportResultDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ImportResultDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -159,12 +162,18 @@ class ImportResultDto {
   }
 
   // maps a json object with a list of ImportResultDto-objects as value to a dart map
-  static Map<String, List<ImportResultDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ImportResultDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ImportResultDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ImportResultDto.listFromJson(entry.value, growable: growable,);
+        final value = ImportResultDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -174,7 +183,5 @@ class ImportResultDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

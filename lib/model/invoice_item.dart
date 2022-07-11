@@ -155,7 +155,8 @@ class InvoiceItem {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is InvoiceItem &&
+      identical(this, other) ||
+      other is InvoiceItem &&
           other.dateCode == dateCode &&
           other.codeNomenclature == codeNomenclature &&
           other.relatedCode == relatedCode &&
@@ -182,7 +183,7 @@ class InvoiceItem {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (dateCode == null ? 0 : dateCode!.hashCode) +
+      (dateCode == null ? 0 : dateCode!.hashCode) +
       (codeNomenclature.hashCode) +
       (relatedCode == null ? 0 : relatedCode!.hashCode) +
       (eidItem == null ? 0 : eidItem!.hashCode) +
@@ -274,6 +275,9 @@ class InvoiceItem {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static InvoiceItem? fromJson(dynamic value) {
+    if (value is InvoiceItem) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -316,7 +320,10 @@ class InvoiceItem {
     return null;
   }
 
-  static List<InvoiceItem>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceItem>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceItem>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -344,12 +351,18 @@ class InvoiceItem {
   }
 
   // maps a json object with a list of InvoiceItem-objects as value to a dart map
-  static Map<String, List<InvoiceItem>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<InvoiceItem>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<InvoiceItem>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = InvoiceItem.listFromJson(entry.value, growable: growable,);
+        final value = InvoiceItem.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -367,7 +380,6 @@ class InvoiceItem {
     'doctorSupplement',
   };
 }
-
 
 class InvoiceItemSideCodeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -394,7 +406,10 @@ class InvoiceItemSideCodeEnum {
 
   static InvoiceItemSideCodeEnum? fromJson(dynamic value) => InvoiceItemSideCodeEnumTypeTransformer().decode(value);
 
-  static List<InvoiceItemSideCodeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceItemSideCodeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceItemSideCodeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -447,7 +462,6 @@ class InvoiceItemSideCodeEnumTypeTransformer {
   static InvoiceItemSideCodeEnumTypeTransformer? _instance;
 }
 
-
 class InvoiceItemTimeOfDayEnum {
   /// Instantiate a new enum with the provided [value].
   const InvoiceItemTimeOfDayEnum._(this.value);
@@ -477,7 +491,10 @@ class InvoiceItemTimeOfDayEnum {
 
   static InvoiceItemTimeOfDayEnum? fromJson(dynamic value) => InvoiceItemTimeOfDayEnumTypeTransformer().decode(value);
 
-  static List<InvoiceItemTimeOfDayEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceItemTimeOfDayEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceItemTimeOfDayEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -534,7 +551,6 @@ class InvoiceItemTimeOfDayEnumTypeTransformer {
   static InvoiceItemTimeOfDayEnumTypeTransformer? _instance;
 }
 
-
 class InvoiceItemDerogationMaxNumberEnum {
   /// Instantiate a new enum with the provided [value].
   const InvoiceItemDerogationMaxNumberEnum._(this.value);
@@ -564,7 +580,10 @@ class InvoiceItemDerogationMaxNumberEnum {
 
   static InvoiceItemDerogationMaxNumberEnum? fromJson(dynamic value) => InvoiceItemDerogationMaxNumberEnumTypeTransformer().decode(value);
 
-  static List<InvoiceItemDerogationMaxNumberEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceItemDerogationMaxNumberEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceItemDerogationMaxNumberEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -621,7 +640,6 @@ class InvoiceItemDerogationMaxNumberEnumTypeTransformer {
   static InvoiceItemDerogationMaxNumberEnumTypeTransformer? _instance;
 }
 
-
 class InvoiceItemPrescriberNormEnum {
   /// Instantiate a new enum with the provided [value].
   const InvoiceItemPrescriberNormEnum._(this.value);
@@ -651,7 +669,10 @@ class InvoiceItemPrescriberNormEnum {
 
   static InvoiceItemPrescriberNormEnum? fromJson(dynamic value) => InvoiceItemPrescriberNormEnumTypeTransformer().decode(value);
 
-  static List<InvoiceItemPrescriberNormEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceItemPrescriberNormEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceItemPrescriberNormEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -708,7 +729,6 @@ class InvoiceItemPrescriberNormEnumTypeTransformer {
   static InvoiceItemPrescriberNormEnumTypeTransformer? _instance;
 }
 
-
 class InvoiceItemPercentNormEnum {
   /// Instantiate a new enum with the provided [value].
   const InvoiceItemPercentNormEnum._(this.value);
@@ -744,7 +764,10 @@ class InvoiceItemPercentNormEnum {
 
   static InvoiceItemPercentNormEnum? fromJson(dynamic value) => InvoiceItemPercentNormEnumTypeTransformer().decode(value);
 
-  static List<InvoiceItemPercentNormEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceItemPercentNormEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceItemPercentNormEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -806,5 +829,3 @@ class InvoiceItemPercentNormEnumTypeTransformer {
   /// Singleton [InvoiceItemPercentNormEnumTypeTransformer] instance.
   static InvoiceItemPercentNormEnumTypeTransformer? _instance;
 }
-
-

@@ -3,15 +3,7 @@
 part of icure_dart_sdk.api;
 
 class HealthElementByHcPartyTagCodeFilter extends AbstractFilterDto<HealthElementDto> {
-  HealthElementByHcPartyTagCodeFilter({
-    this.desc,
-    this.healthcarePartyId,
-    this.codeType,
-    this.codeCode,
-    this.tagType,
-    this.tagCode,
-    this.status
-  });
+  HealthElementByHcPartyTagCodeFilter({this.desc, this.healthcarePartyId, this.codeType, this.codeCode, this.tagType, this.tagCode, this.status});
 
   @override
   String? desc;
@@ -52,5 +44,4 @@ class HealthElementByHcPartyTagCodeFilter extends AbstractFilterDto<HealthElemen
 
     return json;
   }
-
 }

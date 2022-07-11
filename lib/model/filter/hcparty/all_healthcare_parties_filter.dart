@@ -2,11 +2,11 @@
 
 part of icure_dart_sdk.api;
 
-
 class AllHealthcarePartiesFilter extends AbstractFilterDto<HealthcarePartyDto> {
   AllHealthcarePartiesFilter({this.desc});
 
-  @override String? desc;
+  @override
+  String? desc;
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -20,6 +20,4 @@ class AllHealthcarePartiesFilter extends AbstractFilterDto<HealthcarePartyDto> {
 
     return json;
   }
-
 }
-

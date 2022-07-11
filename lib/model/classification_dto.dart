@@ -253,6 +253,9 @@ class ClassificationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ClassificationDto? fromJson(dynamic value) {
+    if (value is ClassificationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -285,8 +288,8 @@ class ClassificationDto {
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
             : json[r'secretForeignKeys'] is List
-                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-                : const {},
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+            : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),

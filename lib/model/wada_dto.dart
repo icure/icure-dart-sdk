@@ -44,17 +44,12 @@ class WadaDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is WadaDto &&
-          other.code == code &&
-          other.name == name &&
-          other.description == description;
+      identical(this, other) || other is WadaDto && other.code == code && other.name == name && other.description == description;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (code == null ? 0 : code!.hashCode) +
-      (name == null ? 0 : name!.hashCode) +
-      (description == null ? 0 : description!.hashCode);
+      (code == null ? 0 : code!.hashCode) + (name == null ? 0 : name!.hashCode) + (description == null ? 0 : description!.hashCode);
 
   @override
   String toString() => 'WadaDto[code=$code, name=$name, description=$description]';
@@ -77,6 +72,9 @@ class WadaDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static WadaDto? fromJson(dynamic value) {
+    if (value is WadaDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -100,7 +98,10 @@ class WadaDto {
     return null;
   }
 
-  static List<WadaDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<WadaDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <WadaDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -128,12 +129,18 @@ class WadaDto {
   }
 
   // maps a json object with a list of WadaDto-objects as value to a dart map
-  static Map<String, List<WadaDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<WadaDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<WadaDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = WadaDto.listFromJson(entry.value, growable: growable,);
+        final value = WadaDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -143,7 +150,5 @@ class WadaDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

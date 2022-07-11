@@ -34,16 +34,12 @@ class EmailTemplateDto {
   String? body;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is EmailTemplateDto &&
-          other.subject == subject &&
-          other.body == body;
+  bool operator ==(Object other) => identical(this, other) || other is EmailTemplateDto && other.subject == subject && other.body == body;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (subject == null ? 0 : subject!.hashCode) +
-      (body == null ? 0 : body!.hashCode);
+      (subject == null ? 0 : subject!.hashCode) + (body == null ? 0 : body!.hashCode);
 
   @override
   String toString() => 'EmailTemplateDto[subject=$subject, body=$body]';
@@ -63,6 +59,9 @@ class EmailTemplateDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static EmailTemplateDto? fromJson(dynamic value) {
+    if (value is EmailTemplateDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +84,9 @@ class EmailTemplateDto {
     return null;
   }
 
-  static List<EmailTemplateDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EmailTemplateDto>? listFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EmailTemplateDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +114,17 @@ class EmailTemplateDto {
   }
 
   // maps a json object with a list of EmailTemplateDto-objects as value to a dart map
-  static Map<String, List<EmailTemplateDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EmailTemplateDto>> mapListFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EmailTemplateDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = EmailTemplateDto.listFromJson(entry.value, growable: growable,);
+        final value = EmailTemplateDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +134,5 @@ class EmailTemplateDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -22,5 +22,4 @@ class IntersectionFilter<O> extends AbstractFilterDto<O> {
 
     return json;
   }
-
 }

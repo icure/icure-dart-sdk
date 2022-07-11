@@ -51,17 +51,17 @@ class SubstanceproductDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SubstanceproductDto &&
-          other.intendedcds == intendedcds &&
-          other.deliveredcds == deliveredcds &&
-          other.intendedname == intendedname &&
-          other.deliveredname == deliveredname &&
-          other.productId == productId;
+          other is SubstanceproductDto &&
+              other.intendedcds == intendedcds &&
+              other.deliveredcds == deliveredcds &&
+              other.intendedname == intendedname &&
+              other.deliveredname == deliveredname &&
+              other.productId == productId;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (intendedcds.hashCode) +
+  (intendedcds.hashCode) +
       (deliveredcds.hashCode) +
       (intendedname == null ? 0 : intendedname!.hashCode) +
       (deliveredname == null ? 0 : deliveredname!.hashCode) +
@@ -91,6 +91,9 @@ class SubstanceproductDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static SubstanceproductDto? fromJson(dynamic value) {
+    if (value is SubstanceproductDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -116,8 +119,7 @@ class SubstanceproductDto {
     return null;
   }
 
-  static List<SubstanceproductDto>? listFromJson(
-    dynamic json, {
+  static List<SubstanceproductDto>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <SubstanceproductDto>[];
@@ -147,8 +149,7 @@ class SubstanceproductDto {
   }
 
   // maps a json object with a list of SubstanceproductDto-objects as value to a dart map
-  static Map<String, List<SubstanceproductDto>> mapListFromJson(
-    dynamic json, {
+  static Map<String, List<SubstanceproductDto>> mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<SubstanceproductDto>>{};

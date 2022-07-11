@@ -35,7 +35,8 @@ class PaginatedListString {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is PaginatedListString &&
+      identical(this, other) ||
+      other is PaginatedListString &&
           other.pageSize == pageSize &&
           other.totalSize == totalSize &&
           other.rows == rows &&
@@ -44,10 +45,7 @@ class PaginatedListString {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (pageSize.hashCode) +
-      (totalSize.hashCode) +
-      (rows.hashCode) +
-      (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
+      (pageSize.hashCode) + (totalSize.hashCode) + (rows.hashCode) + (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
 
   @override
   String toString() => 'PaginatedListString[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
@@ -67,6 +65,9 @@ class PaginatedListString {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PaginatedListString? fromJson(dynamic value) {
+    if (value is PaginatedListString) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -84,16 +85,17 @@ class PaginatedListString {
       return PaginatedListString(
         pageSize: mapValueOfType<int>(json, r'pageSize')!,
         totalSize: mapValueOfType<int>(json, r'totalSize')!,
-        rows: json[r'rows'] is List
-            ? (json[r'rows'] as List).cast<String>()
-            : const [],
+        rows: json[r'rows'] is List ? (json[r'rows'] as List).cast<String>() : const [],
         nextKeyPair: PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
       );
     }
     return null;
   }
 
-  static List<PaginatedListString>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PaginatedListString>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PaginatedListString>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -121,12 +123,18 @@ class PaginatedListString {
   }
 
   // maps a json object with a list of PaginatedListString-objects as value to a dart map
-  static Map<String, List<PaginatedListString>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PaginatedListString>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PaginatedListString>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PaginatedListString.listFromJson(entry.value, growable: growable,);
+        final value = PaginatedListString.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -142,4 +150,3 @@ class PaginatedListString {
     'rows',
   };
 }
-

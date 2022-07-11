@@ -65,6 +65,9 @@ class PaginatedListCodeDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PaginatedListCodeDto? fromJson(dynamic value) {
+    if (value is PaginatedListCodeDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

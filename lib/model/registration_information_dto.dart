@@ -35,7 +35,8 @@ class RegistrationInformationDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is RegistrationInformationDto &&
+      identical(this, other) ||
+      other is RegistrationInformationDto &&
           other.firstName == firstName &&
           other.lastName == lastName &&
           other.emailAddress == emailAddress &&
@@ -44,10 +45,7 @@ class RegistrationInformationDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (firstName.hashCode) +
-      (lastName.hashCode) +
-      (emailAddress.hashCode) +
-      (userOptions == null ? 0 : userOptions!.hashCode);
+      (firstName.hashCode) + (lastName.hashCode) + (emailAddress.hashCode) + (userOptions == null ? 0 : userOptions!.hashCode);
 
   @override
   String toString() => 'RegistrationInformationDto[firstName=$firstName, lastName=$lastName, emailAddress=$emailAddress, userOptions=$userOptions]';
@@ -67,6 +65,9 @@ class RegistrationInformationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static RegistrationInformationDto? fromJson(dynamic value) {
+    if (value is RegistrationInformationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -91,7 +92,10 @@ class RegistrationInformationDto {
     return null;
   }
 
-  static List<RegistrationInformationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<RegistrationInformationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <RegistrationInformationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -119,12 +123,18 @@ class RegistrationInformationDto {
   }
 
   // maps a json object with a list of RegistrationInformationDto-objects as value to a dart map
-  static Map<String, List<RegistrationInformationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<RegistrationInformationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<RegistrationInformationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RegistrationInformationDto.listFromJson(entry.value, growable: growable,);
+        final value = RegistrationInformationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -140,4 +150,3 @@ class RegistrationInformationDto {
     'emailAddress',
   };
 }
-

@@ -11,7 +11,6 @@ class PatientByHcPartyGenderEducationProfession extends AbstractFilterDto<Patien
   String? education;
   String? profession;
 
-
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json['\$type'] = this.runtimeType.toString().let((type) {
@@ -36,6 +35,4 @@ class PatientByHcPartyGenderEducationProfession extends AbstractFilterDto<Patien
 
     return json;
   }
-
-
 }

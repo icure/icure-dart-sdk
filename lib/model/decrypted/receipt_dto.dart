@@ -167,33 +167,33 @@ class DecryptedReceiptDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is DecryptedReceiptDto &&
-              other.id == id &&
-              other.rev == rev &&
-              other.created == created &&
-              other.modified == modified &&
-              other.author == author &&
-              other.responsible == responsible &&
-              other.medicalLocationId == medicalLocationId &&
-              other.tags == tags &&
-              other.codes == codes &&
-              other.endOfLife == endOfLife &&
-              other.deletionDate == deletionDate &&
-              other.attachmentIds == attachmentIds &&
-              other.references == references &&
-              other.documentId == documentId &&
-              other.category == category &&
-              other.subCategory == subCategory &&
-              other.secretForeignKeys == secretForeignKeys &&
-              other.cryptedForeignKeys == cryptedForeignKeys &&
-              other.delegations == delegations &&
-              other.encryptionKeys == encryptionKeys &&
-              other.encryptedSelf == encryptedSelf;
+      other is DecryptedReceiptDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.attachmentIds == attachmentIds &&
+          other.references == references &&
+          other.documentId == documentId &&
+          other.category == category &&
+          other.subCategory == subCategory &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -275,6 +275,9 @@ class DecryptedReceiptDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedReceiptDto? fromJson(dynamic value) {
+    if (value is DecryptedReceiptDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -283,10 +286,8 @@ class DecryptedReceiptDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedReceiptDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedReceiptDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedReceiptDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedReceiptDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -304,31 +305,26 @@ class DecryptedReceiptDto {
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         attachmentIds: mapCastOfType<String, String>(json, r'attachmentIds')!,
-        references: json[r'references'] is List
-            ? (json[r'references'] as List).cast<String>()
-            : const [],
+        references: json[r'references'] is List ? (json[r'references'] as List).cast<String>() : const [],
         documentId: mapValueOfType<String>(json, r'documentId'),
         category: mapValueOfType<String>(json, r'category'),
         subCategory: mapValueOfType<String>(json, r'subCategory'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<DecryptedReceiptDto>? listFromJson(dynamic json, {
+  static List<DecryptedReceiptDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedReceiptDto>[];
@@ -358,7 +354,8 @@ class DecryptedReceiptDto {
   }
 
   // maps a json object with a list of DecryptedReceiptDto-objects as value to a dart map
-  static Map<String, List<DecryptedReceiptDto>> mapListFromJson(dynamic json, {
+  static Map<String, List<DecryptedReceiptDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedReceiptDto>>{};

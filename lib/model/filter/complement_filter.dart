@@ -28,5 +28,4 @@ class ComplementFilter<O> extends AbstractFilterDto<O> {
 
     return json;
   }
-
 }

@@ -166,7 +166,8 @@ class ReceiptDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ReceiptDto &&
+      identical(this, other) ||
+      other is ReceiptDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -192,7 +193,7 @@ class ReceiptDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -272,6 +273,9 @@ class ReceiptDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ReceiptDto? fromJson(dynamic value) {
+    if (value is ReceiptDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -299,31 +303,28 @@ class ReceiptDto {
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         attachmentIds: mapCastOfType<String, String>(json, r'attachmentIds')!,
-        references: json[r'references'] is List
-            ? (json[r'references'] as List).cast<String>()
-            : const [],
+        references: json[r'references'] is List ? (json[r'references'] as List).cast<String>() : const [],
         documentId: mapValueOfType<String>(json, r'documentId'),
         category: mapValueOfType<String>(json, r'category'),
         subCategory: mapValueOfType<String>(json, r'subCategory'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<ReceiptDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReceiptDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReceiptDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -351,12 +352,18 @@ class ReceiptDto {
   }
 
   // maps a json object with a list of ReceiptDto-objects as value to a dart map
-  static Map<String, List<ReceiptDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ReceiptDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ReceiptDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ReceiptDto.listFromJson(entry.value, growable: growable,);
+        final value = ReceiptDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -378,4 +385,3 @@ class ReceiptDto {
     'encryptionKeys',
   };
 }
-

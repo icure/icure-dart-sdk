@@ -654,7 +654,7 @@ class DecryptedPatientDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (identifier.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
@@ -914,6 +914,9 @@ class DecryptedPatientDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedPatientDto? fromJson(dynamic value) {
+    if (value is DecryptedPatientDto) {
+      return value;
+    }
     if (value is Map) {
       final json = {
         "identifier": [],
@@ -982,8 +985,8 @@ class DecryptedPatientDto {
         mergedIds: json[r'mergedIds'] is Set
             ? (json[r'mergedIds'] as Set).cast<String>()
             : json[r'mergedIds'] is List
-            ? ((json[r'mergedIds'] as List).toSet()).cast<String>()
-            : const {},
+                ? ((json[r'mergedIds'] as List).toSet()).cast<String>()
+                : const {},
         alias: mapValueOfType<String>(json, r'alias'),
         active: mapValueOfType<bool>(json, r'active')!,
         deactivationReason: PatientDtoDeactivationReasonEnum.fromJson(json[r'deactivationReason'])!,
@@ -1024,8 +1027,8 @@ class DecryptedPatientDto {
         secretForeignKeys: json[r'secretForeignKeys'] is Set
             ? (json[r'secretForeignKeys'] as Set).cast<String>()
             : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
         cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
         delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
         encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
@@ -1034,10 +1037,10 @@ class DecryptedPatientDto {
         nonDuplicateIds: json[r'nonDuplicateIds'] is Set
             ? (json[r'nonDuplicateIds'] as Set).cast<String>()
             : json[r'nonDuplicateIds'] is List
-            ? ((json[r'nonDuplicateIds'] as List).toSet()).cast<String>()
-            : const {},
+                ? ((json[r'nonDuplicateIds'] as List).toSet()).cast<String>()
+                : const {},
         encryptedAdministrativesDocuments:
-        json[r'encryptedAdministrativesDocuments'] is Set ? (json[r'encryptedAdministrativesDocuments'] as Set).cast<String>() : const {},
+            json[r'encryptedAdministrativesDocuments'] is Set ? (json[r'encryptedAdministrativesDocuments'] as Set).cast<String>() : const {},
         comment: mapValueOfType<String>(json, r'comment'),
         warning: mapValueOfType<String>(json, r'warning'),
         fatherBirthCountry: CodeStubDto.fromJson(json[r'fatherBirthCountry']),
@@ -1053,9 +1056,9 @@ class DecryptedPatientDto {
   }
 
   static List<DecryptedPatientDto>? listFromJson(
-      dynamic json, {
-        bool growable = false,
-      }) {
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DecryptedPatientDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -1084,9 +1087,9 @@ class DecryptedPatientDto {
 
   // maps a json object with a list of DecryptedPatientDto-objects as value to a dart map
   static Map<String, List<DecryptedPatientDto>> mapListFromJson(
-      dynamic json, {
-        bool growable = false,
-      }) {
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DecryptedPatientDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments

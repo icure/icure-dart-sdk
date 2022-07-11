@@ -111,7 +111,8 @@ class VmpDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is VmpDto &&
+      identical(this, other) ||
+      other is VmpDto &&
           other.id == id &&
           other.rev == rev &&
           other.deletionDate == deletionDate &&
@@ -129,7 +130,7 @@ class VmpDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
       (from == null ? 0 : from!.hashCode) +
@@ -187,6 +188,9 @@ class VmpDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static VmpDto? fromJson(dynamic value) {
+    if (value is VmpDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -220,7 +224,10 @@ class VmpDto {
     return null;
   }
 
-  static List<VmpDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<VmpDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <VmpDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -248,12 +255,18 @@ class VmpDto {
   }
 
   // maps a json object with a list of VmpDto-objects as value to a dart map
-  static Map<String, List<VmpDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<VmpDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<VmpDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = VmpDto.listFromJson(entry.value, growable: growable,);
+        final value = VmpDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -267,4 +280,3 @@ class VmpDto {
     'id',
   };
 }
-

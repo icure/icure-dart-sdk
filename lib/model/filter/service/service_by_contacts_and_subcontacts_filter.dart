@@ -2,14 +2,8 @@
 part of icure_dart_sdk.api;
 
 class ServiceByContactsAndSubcontactsFilter extends AbstractFilterDto<ServiceDto> {
-  ServiceByContactsAndSubcontactsFilter({
-    this.desc,
-    this.healthcarePartyId,
-    this.contacts = const {},
-    this.subContacts,
-    this.startValueDate,
-    this.endValueDate
-  });
+  ServiceByContactsAndSubcontactsFilter(
+      {this.desc, this.healthcarePartyId, this.contacts = const {}, this.subContacts, this.startValueDate, this.endValueDate});
 
   @override
   String? desc;
@@ -44,6 +38,4 @@ class ServiceByContactsAndSubcontactsFilter extends AbstractFilterDto<ServiceDto
 
     return json;
   }
-
-
 }

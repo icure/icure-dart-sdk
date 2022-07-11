@@ -269,8 +269,8 @@ class DeviceDto {
 
   @override
   String toString() =>
-
       'DeviceDto[id=$id, rev=$rev, deletionDate=$deletionDate, identifiers=$identifiers, created=$created, modified=$modified, author=$author, responsible=$responsible, tags=$tags, codes=$codes, endOfLife=$endOfLife, medicalLocationId=$medicalLocationId, externalId=$externalId, name=$name, type=$type, brand=$brand, model=$model, serialNumber=$serialNumber, parentId=$parentId, picture=$picture, properties=$properties, hcPartyKeys=$hcPartyKeys, aesExchangeKeys=$aesExchangeKeys, transferKeys=$transferKeys, privateKeyShamirPartitions=$privateKeyShamirPartitions, publicKey=$publicKey]';
+
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'id'] = id;
@@ -338,6 +338,9 @@ class DeviceDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DeviceDto? fromJson(dynamic value) {
+    if (value is DeviceDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

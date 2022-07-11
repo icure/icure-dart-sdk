@@ -65,6 +65,9 @@ class FormTemplateLayout {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static FormTemplateLayout? fromJson(dynamic value) {
+    if (value is FormTemplateLayout) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

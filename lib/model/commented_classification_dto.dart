@@ -39,7 +39,7 @@ class CommentedClassificationDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (title == null ? 0 : title!.hashCode) + (url == null ? 0 : url!.hashCode);
+  (title == null ? 0 : title!.hashCode) + (url == null ? 0 : url!.hashCode);
 
   @override
   String toString() => 'CommentedClassificationDto[title=$title, url=$url]';
@@ -59,6 +59,9 @@ class CommentedClassificationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static CommentedClassificationDto? fromJson(dynamic value) {
+    if (value is CommentedClassificationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

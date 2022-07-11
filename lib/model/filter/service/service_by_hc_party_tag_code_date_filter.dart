@@ -2,17 +2,16 @@
 part of icure_dart_sdk.api;
 
 class ServiceByHcPartyTagCodeDateFilter extends AbstractFilterDto<ServiceDto> {
-  ServiceByHcPartyTagCodeDateFilter({
-    this.desc,
-    this.healthcarePartyId,
-    this.patientSecretForeignKey,
-    this.tagType,
-    this.tagCode,
-    this.codeType,
-    this.codeCode,
-    this.startValueDate,
-    this.endValueDate
-  });
+  ServiceByHcPartyTagCodeDateFilter(
+      {this.desc,
+      this.healthcarePartyId,
+      this.patientSecretForeignKey,
+      this.tagType,
+      this.tagCode,
+      this.codeType,
+      this.codeCode,
+      this.startValueDate,
+      this.endValueDate});
 
   @override
   String? desc;
@@ -55,5 +54,4 @@ class ServiceByHcPartyTagCodeDateFilter extends AbstractFilterDto<ServiceDto> {
 
     return json;
   }
-
 }

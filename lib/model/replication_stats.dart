@@ -98,7 +98,8 @@ class ReplicationStats {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ReplicationStats &&
+      identical(this, other) ||
+      other is ReplicationStats &&
           other.revisionsChecked == revisionsChecked &&
           other.missingRevisionsFound == missingRevisionsFound &&
           other.docsRead == docsRead &&
@@ -112,7 +113,7 @@ class ReplicationStats {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (revisionsChecked == null ? 0 : revisionsChecked!.hashCode) +
+      (revisionsChecked == null ? 0 : revisionsChecked!.hashCode) +
       (missingRevisionsFound == null ? 0 : missingRevisionsFound!.hashCode) +
       (docsRead == null ? 0 : docsRead!.hashCode) +
       (docsWritten == null ? 0 : docsWritten!.hashCode) +
@@ -162,6 +163,9 @@ class ReplicationStats {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ReplicationStats? fromJson(dynamic value) {
+    if (value is ReplicationStats) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -191,7 +195,10 @@ class ReplicationStats {
     return null;
   }
 
-  static List<ReplicationStats>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReplicationStats>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReplicationStats>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -219,12 +226,18 @@ class ReplicationStats {
   }
 
   // maps a json object with a list of ReplicationStats-objects as value to a dart map
-  static Map<String, List<ReplicationStats>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ReplicationStats>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ReplicationStats>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ReplicationStats.listFromJson(entry.value, growable: growable,);
+        final value = ReplicationStats.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -234,7 +247,5 @@ class ReplicationStats {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

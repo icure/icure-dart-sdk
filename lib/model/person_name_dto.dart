@@ -73,7 +73,8 @@ class PersonNameDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is PersonNameDto &&
+      identical(this, other) ||
+      other is PersonNameDto &&
           other.lastName == lastName &&
           other.firstNames == firstNames &&
           other.start == start &&
@@ -86,7 +87,7 @@ class PersonNameDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (lastName == null ? 0 : lastName!.hashCode) +
+      (lastName == null ? 0 : lastName!.hashCode) +
       (firstNames.hashCode) +
       (start == null ? 0 : start!.hashCode) +
       (end == null ? 0 : end!.hashCode) +
@@ -126,6 +127,9 @@ class PersonNameDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PersonNameDto? fromJson(dynamic value) {
+    if (value is PersonNameDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -142,17 +146,11 @@ class PersonNameDto {
 
       return PersonNameDto(
         lastName: mapValueOfType<String>(json, r'lastName'),
-        firstNames: json[r'firstNames'] is List
-            ? (json[r'firstNames'] as List).cast<String>()
-            : const [],
+        firstNames: json[r'firstNames'] is List ? (json[r'firstNames'] as List).cast<String>() : const [],
         start: mapValueOfType<int>(json, r'start'),
         end: mapValueOfType<int>(json, r'end'),
-        prefix: json[r'prefix'] is List
-            ? (json[r'prefix'] as List).cast<String>()
-            : const [],
-        suffix: json[r'suffix'] is List
-            ? (json[r'suffix'] as List).cast<String>()
-            : const [],
+        prefix: json[r'prefix'] is List ? (json[r'prefix'] as List).cast<String>() : const [],
+        suffix: json[r'suffix'] is List ? (json[r'suffix'] as List).cast<String>() : const [],
         text: mapValueOfType<String>(json, r'text'),
         use: PersonNameDtoUseEnum.fromJson(json[r'use']),
       );
@@ -160,7 +158,10 @@ class PersonNameDto {
     return null;
   }
 
-  static List<PersonNameDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PersonNameDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PersonNameDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -188,12 +189,18 @@ class PersonNameDto {
   }
 
   // maps a json object with a list of PersonNameDto-objects as value to a dart map
-  static Map<String, List<PersonNameDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PersonNameDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PersonNameDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PersonNameDto.listFromJson(entry.value, growable: growable,);
+        final value = PersonNameDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -246,7 +253,10 @@ class PersonNameDtoUseEnum {
 
   static PersonNameDtoUseEnum? fromJson(dynamic value) => PersonNameDtoUseEnumTypeTransformer().decode(value);
 
-  static List<PersonNameDtoUseEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PersonNameDtoUseEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PersonNameDtoUseEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -308,5 +318,3 @@ class PersonNameDtoUseEnumTypeTransformer {
   /// Singleton [PersonNameDtoUseEnumTypeTransformer] instance.
   static PersonNameDtoUseEnumTypeTransformer? _instance;
 }
-
-

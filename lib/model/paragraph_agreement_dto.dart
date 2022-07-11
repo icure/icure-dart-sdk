@@ -197,7 +197,8 @@ class ParagraphAgreementDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ParagraphAgreementDto &&
+      identical(this, other) ||
+      other is ParagraphAgreementDto &&
           other.timestamp == timestamp &&
           other.paragraph == paragraph &&
           other.accepted == accepted &&
@@ -224,7 +225,7 @@ class ParagraphAgreementDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (timestamp == null ? 0 : timestamp!.hashCode) +
+      (timestamp == null ? 0 : timestamp!.hashCode) +
       (paragraph == null ? 0 : paragraph!.hashCode) +
       (accepted == null ? 0 : accepted!.hashCode) +
       (inTreatment == null ? 0 : inTreatment!.hashCode) +
@@ -320,6 +321,9 @@ class ParagraphAgreementDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ParagraphAgreementDto? fromJson(dynamic value) {
+    if (value is ParagraphAgreementDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -350,9 +354,7 @@ class ParagraphAgreementDto {
         ioRequestReference: mapValueOfType<String>(json, r'ioRequestReference'),
         responseType: mapValueOfType<String>(json, r'responseType'),
         refusalJustification: mapCastOfType<String, String>(json, r'refusalJustification') ?? const {},
-        verses: json[r'verses'] is Set
-            ? (json[r'verses'] as Set).cast<int>()
-            : const {},
+        verses: json[r'verses'] is Set ? (json[r'verses'] as Set).cast<int>() : const {},
         coverageType: mapValueOfType<String>(json, r'coverageType'),
         unitNumber: mapValueOfType<double>(json, r'unitNumber'),
         strength: mapValueOfType<double>(json, r'strength'),
@@ -364,7 +366,10 @@ class ParagraphAgreementDto {
     return null;
   }
 
-  static List<ParagraphAgreementDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ParagraphAgreementDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ParagraphAgreementDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -392,12 +397,18 @@ class ParagraphAgreementDto {
   }
 
   // maps a json object with a list of ParagraphAgreementDto-objects as value to a dart map
-  static Map<String, List<ParagraphAgreementDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ParagraphAgreementDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ParagraphAgreementDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ParagraphAgreementDto.listFromJson(entry.value, growable: growable,);
+        final value = ParagraphAgreementDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -407,7 +418,5 @@ class ParagraphAgreementDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

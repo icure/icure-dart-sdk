@@ -314,7 +314,8 @@ class FlowItemDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is FlowItemDto &&
+      identical(this, other) ||
+      other is FlowItemDto &&
           other.id == id &&
           other.title == title &&
           other.comment == comment &&
@@ -352,7 +353,7 @@ class FlowItemDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id == null ? 0 : id!.hashCode) +
+      (id == null ? 0 : id!.hashCode) +
       (title == null ? 0 : title!.hashCode) +
       (comment == null ? 0 : comment!.hashCode) +
       (receptionDate == null ? 0 : receptionDate!.hashCode) +
@@ -498,6 +499,9 @@ class FlowItemDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static FlowItemDto? fromJson(dynamic value) {
+    if (value is FlowItemDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -551,7 +555,10 @@ class FlowItemDto {
     return null;
   }
 
-  static List<FlowItemDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FlowItemDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FlowItemDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -579,12 +586,18 @@ class FlowItemDto {
   }
 
   // maps a json object with a list of FlowItemDto-objects as value to a dart map
-  static Map<String, List<FlowItemDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FlowItemDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FlowItemDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FlowItemDto.listFromJson(entry.value, growable: growable,);
+        final value = FlowItemDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -594,7 +607,5 @@ class FlowItemDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

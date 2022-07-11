@@ -279,17 +279,18 @@ class DocumentDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is DocumentDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.created == created &&
-          other.modified == modified &&
-          other.author == author &&
-          other.responsible == responsible &&
-          other.medicalLocationId == medicalLocationId &&
-          other.tags == tags &&
-          other.codes == codes &&
-          other.endOfLife == endOfLife &&
+      identical(this, other) ||
+          other is DocumentDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.created == created &&
+              other.modified == modified &&
+              other.author == author &&
+              other.responsible == responsible &&
+              other.medicalLocationId == medicalLocationId &&
+              other.tags == tags &&
+              other.codes == codes &&
+              other.endOfLife == endOfLife &&
           other.deletionDate == deletionDate &&
           other.objectStoreReference == objectStoreReference &&
           other.documentLocation == documentLocation &&
@@ -447,6 +448,9 @@ class DocumentDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DocumentDto? fromJson(dynamic value) {
+    if (value is DocumentDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -481,8 +485,11 @@ class DocumentDto {
         mainUti: mapValueOfType<String>(json, r'mainUti'),
         name: mapValueOfType<String>(json, r'name'),
         version: mapValueOfType<String>(json, r'version'),
-        otherUtis: json[r'otherUtis'] is Set ? (json[r'otherUtis'] as Set).cast<String>() : json[r'otherUtis'] is List ? ((json[r'otherUtis'] as List)
-            .toSet()).cast<String>() : const {},
+        otherUtis: json[r'otherUtis'] is Set
+            ? (json[r'otherUtis'] as Set).cast<String>()
+            : json[r'otherUtis'] is List
+                ? ((json[r'otherUtis'] as List).toSet()).cast<String>()
+                : const {},
         storedICureDocumentId: mapValueOfType<String>(json, r'storedICureDocumentId'),
         externalUuid: mapValueOfType<String>(json, r'externalUuid'),
         size: mapValueOfType<int>(json, r'size'),
@@ -491,25 +498,24 @@ class DocumentDto {
         attachmentId: mapValueOfType<String>(json, r'attachmentId'),
         encryptedAttachment: mapValueOfType<String>(json, r'encryptedAttachment'),
         decryptedAttachment: mapValueOfType<String>(json, r'decryptedAttachment'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<DocumentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DocumentDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DocumentDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -537,12 +543,18 @@ class DocumentDto {
   }
 
   // maps a json object with a list of DocumentDto-objects as value to a dart map
-  static Map<String, List<DocumentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DocumentDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DocumentDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DocumentDto.listFromJson(entry.value, growable: growable,);
+        final value = DocumentDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -588,7 +600,9 @@ class DocumentDtoDocumentLocationEnum {
 
   static DocumentDtoDocumentLocationEnum? fromJson(dynamic value) => DocumentDtoDocumentLocationEnumTypeTransformer().decode(value);
 
-  static List<DocumentDtoDocumentLocationEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DocumentDtoDocumentLocationEnum>? listFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DocumentDtoDocumentLocationEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -638,7 +652,6 @@ class DocumentDtoDocumentLocationEnumTypeTransformer {
   /// Singleton [DocumentDtoDocumentLocationEnumTypeTransformer] instance.
   static DocumentDtoDocumentLocationEnumTypeTransformer? _instance;
 }
-
 
 /// The type of document, ex: admission, clinical path, document report,invoice, etc.
 class DocumentDtoDocumentTypeEnum {
@@ -738,7 +751,9 @@ class DocumentDtoDocumentTypeEnum {
 
   static DocumentDtoDocumentTypeEnum? fromJson(dynamic value) => DocumentDtoDocumentTypeEnumTypeTransformer().decode(value);
 
-  static List<DocumentDtoDocumentTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DocumentDtoDocumentTypeEnum>? listFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DocumentDtoDocumentTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -863,7 +878,6 @@ class DocumentDtoDocumentTypeEnumTypeTransformer {
   static DocumentDtoDocumentTypeEnumTypeTransformer? _instance;
 }
 
-
 /// The status of the development of the document. Ex: Draft, finalized, reviewed, signed, etc.
 class DocumentDtoDocumentStatusEnum {
   /// Instantiate a new enum with the provided [value].
@@ -902,7 +916,10 @@ class DocumentDtoDocumentStatusEnum {
 
   static DocumentDtoDocumentStatusEnum? fromJson(dynamic value) => DocumentDtoDocumentStatusEnumTypeTransformer().decode(value);
 
-  static List<DocumentDtoDocumentStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DocumentDtoDocumentStatusEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DocumentDtoDocumentStatusEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -966,5 +983,3 @@ class DocumentDtoDocumentStatusEnumTypeTransformer {
   /// Singleton [DocumentDtoDocumentStatusEnumTypeTransformer] instance.
   static DocumentDtoDocumentStatusEnumTypeTransformer? _instance;
 }
-
-

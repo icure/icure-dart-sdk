@@ -48,19 +48,13 @@ class EntityReferenceDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is EntityReferenceDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.deletionDate == deletionDate &&
-          other.docId == docId;
+      identical(this, other) ||
+          other is EntityReferenceDto && other.id == id && other.rev == rev && other.deletionDate == deletionDate && other.docId == docId;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
-      (rev == null ? 0 : rev!.hashCode) +
-      (deletionDate == null ? 0 : deletionDate!.hashCode) +
-      (docId == null ? 0 : docId!.hashCode);
+  (id.hashCode) + (rev == null ? 0 : rev!.hashCode) + (deletionDate == null ? 0 : deletionDate!.hashCode) + (docId == null ? 0 : docId!.hashCode);
 
   @override
   String toString() => 'EntityReferenceDto[id=$id, rev=$rev, deletionDate=$deletionDate, docId=$docId]';
@@ -84,6 +78,9 @@ class EntityReferenceDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static EntityReferenceDto? fromJson(dynamic value) {
+    if (value is EntityReferenceDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -108,7 +105,10 @@ class EntityReferenceDto {
     return null;
   }
 
-  static List<EntityReferenceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EntityReferenceDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EntityReferenceDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -136,12 +136,18 @@ class EntityReferenceDto {
   }
 
   // maps a json object with a list of EntityReferenceDto-objects as value to a dart map
-  static Map<String, List<EntityReferenceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EntityReferenceDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EntityReferenceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = EntityReferenceDto.listFromJson(entry.value, growable: growable,);
+        final value = EntityReferenceDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -155,4 +161,3 @@ class EntityReferenceDto {
     'id',
   };
 }
-

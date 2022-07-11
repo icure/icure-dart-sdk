@@ -111,10 +111,10 @@ class ReplicatorDocumentDto {
   ///
   int? errorCount;
 
-
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ReplicatorDocumentDto &&
+      identical(this, other) ||
+      other is ReplicatorDocumentDto &&
           other.id == id &&
           other.rev == rev &&
           other.source_ == source_ &&
@@ -131,7 +131,7 @@ class ReplicatorDocumentDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (source_ == null ? 0 : source_!.hashCode) +
       (target == null ? 0 : target!.hashCode) +
@@ -189,6 +189,9 @@ class ReplicatorDocumentDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ReplicatorDocumentDto? fromJson(dynamic value) {
+    if (value is ReplicatorDocumentDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -211,9 +214,7 @@ class ReplicatorDocumentDto {
         owner: mapValueOfType<String>(json, r'owner'),
         createTarget: mapValueOfType<bool>(json, r'create_target'),
         continuous: mapValueOfType<bool>(json, r'continuous'),
-        docIds: json[r'doc_ids'] is List
-            ? (json[r'doc_ids'] as List).cast<String>()
-            : const [],
+        docIds: json[r'doc_ids'] is List ? (json[r'doc_ids'] as List).cast<String>() : const [],
         replicationState: mapValueOfType<String>(json, r'replicationState'),
         replicationStateTime: mapDateTime(json, r'replicationStateTime', ''),
         replicationStats: ReplicationStatsDto.fromJson(json[r'replicationStats']),
@@ -223,7 +224,10 @@ class ReplicatorDocumentDto {
     return null;
   }
 
-  static List<ReplicatorDocumentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReplicatorDocumentDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReplicatorDocumentDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -251,12 +255,18 @@ class ReplicatorDocumentDto {
   }
 
   // maps a json object with a list of ReplicatorDocumentDto-objects as value to a dart map
-  static Map<String, List<ReplicatorDocumentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ReplicatorDocumentDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ReplicatorDocumentDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ReplicatorDocumentDto.listFromJson(entry.value, growable: growable,);
+        final value = ReplicatorDocumentDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -270,4 +280,3 @@ class ReplicatorDocumentDto {
     'id',
   };
 }
-

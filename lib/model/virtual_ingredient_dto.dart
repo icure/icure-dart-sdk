@@ -65,7 +65,8 @@ class VirtualIngredientDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is VirtualIngredientDto &&
+      identical(this, other) ||
+      other is VirtualIngredientDto &&
           other.from == from &&
           other.to == to &&
           other.rank == rank &&
@@ -76,7 +77,7 @@ class VirtualIngredientDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (from == null ? 0 : from!.hashCode) +
+      (from == null ? 0 : from!.hashCode) +
       (to == null ? 0 : to!.hashCode) +
       (rank == null ? 0 : rank!.hashCode) +
       (type == null ? 0 : type!.hashCode) +
@@ -113,6 +114,9 @@ class VirtualIngredientDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static VirtualIngredientDto? fromJson(dynamic value) {
+    if (value is VirtualIngredientDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -139,7 +143,10 @@ class VirtualIngredientDto {
     return null;
   }
 
-  static List<VirtualIngredientDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<VirtualIngredientDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <VirtualIngredientDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -167,12 +174,18 @@ class VirtualIngredientDto {
   }
 
   // maps a json object with a list of VirtualIngredientDto-objects as value to a dart map
-  static Map<String, List<VirtualIngredientDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<VirtualIngredientDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<VirtualIngredientDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = VirtualIngredientDto.listFromJson(entry.value, growable: growable,);
+        final value = VirtualIngredientDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -182,10 +195,8 @@ class VirtualIngredientDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class VirtualIngredientDtoTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -210,7 +221,10 @@ class VirtualIngredientDtoTypeEnum {
 
   static VirtualIngredientDtoTypeEnum? fromJson(dynamic value) => VirtualIngredientDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<VirtualIngredientDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<VirtualIngredientDtoTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <VirtualIngredientDtoTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -260,5 +274,3 @@ class VirtualIngredientDtoTypeEnumTypeTransformer {
   /// Singleton [VirtualIngredientDtoTypeEnumTypeTransformer] instance.
   static VirtualIngredientDtoTypeEnumTypeTransformer? _instance;
 }
-
-

@@ -319,17 +319,18 @@ class CalendarItemDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is CalendarItemDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.created == created &&
-          other.modified == modified &&
-          other.author == author &&
-          other.responsible == responsible &&
-          other.medicalLocationId == medicalLocationId &&
-          other.tags == tags &&
-          other.codes == codes &&
-          other.endOfLife == endOfLife &&
+      identical(this, other) ||
+          other is CalendarItemDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.created == created &&
+              other.modified == modified &&
+              other.author == author &&
+              other.responsible == responsible &&
+              other.medicalLocationId == medicalLocationId &&
+              other.tags == tags &&
+              other.codes == codes &&
+              other.endOfLife == endOfLife &&
           other.deletionDate == deletionDate &&
           other.title == title &&
           other.calendarItemTypeId == calendarItemTypeId &&
@@ -510,6 +511,9 @@ class CalendarItemDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static CalendarItemDto? fromJson(dynamic value) {
+    if (value is CalendarItemDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -558,25 +562,24 @@ class CalendarItemDto {
         recurrenceId: mapValueOfType<String>(json, r'recurrenceId'),
         meetingTags: CalendarItemTagDto.listFromJson(json[r'meetingTags'])!.toSet(),
         flowItem: FlowItemDto.fromJson(json[r'flowItem']),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<CalendarItemDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CalendarItemDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CalendarItemDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -604,12 +607,18 @@ class CalendarItemDto {
   }
 
   // maps a json object with a list of CalendarItemDto-objects as value to a dart map
-  static Map<String, List<CalendarItemDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CalendarItemDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CalendarItemDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CalendarItemDto.listFromJson(entry.value, growable: growable,);
+        final value = CalendarItemDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -631,4 +640,3 @@ class CalendarItemDto {
     'encryptionKeys',
   };
 }
-

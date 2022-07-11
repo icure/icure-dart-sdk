@@ -35,7 +35,8 @@ class PaginatedListFormDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is PaginatedListFormDto &&
+      identical(this, other) ||
+      other is PaginatedListFormDto &&
           other.pageSize == pageSize &&
           other.totalSize == totalSize &&
           other.rows == rows &&
@@ -44,10 +45,7 @@ class PaginatedListFormDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (pageSize.hashCode) +
-      (totalSize.hashCode) +
-      (rows.hashCode) +
-      (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
+      (pageSize.hashCode) + (totalSize.hashCode) + (rows.hashCode) + (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
 
   @override
   String toString() => 'PaginatedListFormDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
@@ -67,6 +65,9 @@ class PaginatedListFormDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PaginatedListFormDto? fromJson(dynamic value) {
+    if (value is PaginatedListFormDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -91,7 +92,10 @@ class PaginatedListFormDto {
     return null;
   }
 
-  static List<PaginatedListFormDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PaginatedListFormDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PaginatedListFormDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -119,12 +123,18 @@ class PaginatedListFormDto {
   }
 
   // maps a json object with a list of PaginatedListFormDto-objects as value to a dart map
-  static Map<String, List<PaginatedListFormDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PaginatedListFormDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PaginatedListFormDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PaginatedListFormDto.listFromJson(entry.value, growable: growable,);
+        final value = PaginatedListFormDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -140,4 +150,3 @@ class PaginatedListFormDto {
     'rows',
   };
 }
-

@@ -122,7 +122,8 @@ class ResultInfoDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ResultInfoDto &&
+      identical(this, other) ||
+      other is ResultInfoDto &&
           other.ssin == ssin &&
           other.lastName == lastName &&
           other.firstName == firstName &&
@@ -140,7 +141,7 @@ class ResultInfoDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (ssin == null ? 0 : ssin!.hashCode) +
+      (ssin == null ? 0 : ssin!.hashCode) +
       (lastName == null ? 0 : lastName!.hashCode) +
       (firstName == null ? 0 : firstName!.hashCode) +
       (dateOfBirth == null ? 0 : dateOfBirth!.hashCode) +
@@ -202,6 +203,9 @@ class ResultInfoDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ResultInfoDto? fromJson(dynamic value) {
+    if (value is ResultInfoDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -235,7 +239,10 @@ class ResultInfoDto {
     return null;
   }
 
-  static List<ResultInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ResultInfoDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ResultInfoDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -263,12 +270,18 @@ class ResultInfoDto {
   }
 
   // maps a json object with a list of ResultInfoDto-objects as value to a dart map
-  static Map<String, List<ResultInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ResultInfoDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ResultInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ResultInfoDto.listFromJson(entry.value, growable: growable,);
+        final value = ResultInfoDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -283,4 +296,3 @@ class ResultInfoDto {
     'services',
   };
 }
-

@@ -53,11 +53,8 @@ class DeviceTypeDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is DeviceTypeDto &&
-          other.code == code &&
-          other.name == name &&
-          other.edqmCode == edqmCode &&
-          other.edqmDefinition == edqmDefinition;
+      identical(this, other) ||
+      other is DeviceTypeDto && other.code == code && other.name == name && other.edqmCode == edqmCode && other.edqmDefinition == edqmDefinition;
 
   @override
   int get hashCode =>
@@ -91,6 +88,9 @@ class DeviceTypeDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DeviceTypeDto? fromJson(dynamic value) {
+    if (value is DeviceTypeDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -115,7 +115,10 @@ class DeviceTypeDto {
     return null;
   }
 
-  static List<DeviceTypeDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DeviceTypeDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DeviceTypeDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -143,12 +146,18 @@ class DeviceTypeDto {
   }
 
   // maps a json object with a list of DeviceTypeDto-objects as value to a dart map
-  static Map<String, List<DeviceTypeDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DeviceTypeDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DeviceTypeDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DeviceTypeDto.listFromJson(entry.value, growable: growable,);
+        final value = DeviceTypeDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -158,7 +167,5 @@ class DeviceTypeDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

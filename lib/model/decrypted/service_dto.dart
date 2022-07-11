@@ -424,6 +424,9 @@ class DecryptedServiceDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedServiceDto? fromJson(dynamic value) {
+    if (value is DecryptedServiceDto) {
+      return value;
+    }
     if (value is Map) {
       final json = {
         "identifier": [],

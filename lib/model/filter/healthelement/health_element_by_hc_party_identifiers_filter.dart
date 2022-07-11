@@ -26,6 +26,4 @@ class HealthElementByHcPartyIdentifiersFilter extends AbstractFilterDto<HealthEl
 
     return json;
   }
-
-
 }

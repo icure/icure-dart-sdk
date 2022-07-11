@@ -450,6 +450,9 @@ class DecryptedDocumentDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedDocumentDto? fromJson(dynamic value) {
+    if (value is DecryptedDocumentDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -458,10 +461,8 @@ class DecryptedDocumentDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedDocumentDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedDocumentDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedDocumentDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedDocumentDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -478,50 +479,43 @@ class DecryptedDocumentDto {
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
-        objectStoreReference:
-        mapValueOfType<String>(json, r'objectStoreReference'),
-        documentLocation: DecryptedDocumentDtoDocumentLocationEnum.fromJson(
-            json[r'documentLocation']),
-        documentType: DecryptedDocumentDtoDocumentTypeEnum.fromJson(
-            json[r'documentType']),
-        documentStatus: DecryptedDocumentDtoDocumentStatusEnum.fromJson(
-            json[r'documentStatus']),
+        objectStoreReference: mapValueOfType<String>(json, r'objectStoreReference'),
+        documentLocation: DecryptedDocumentDtoDocumentLocationEnum.fromJson(json[r'documentLocation']),
+        documentType: DecryptedDocumentDtoDocumentTypeEnum.fromJson(json[r'documentType']),
+        documentStatus: DecryptedDocumentDtoDocumentStatusEnum.fromJson(json[r'documentStatus']),
         externalUri: mapValueOfType<String>(json, r'externalUri'),
         mainUti: mapValueOfType<String>(json, r'mainUti'),
         name: mapValueOfType<String>(json, r'name'),
         version: mapValueOfType<String>(json, r'version'),
-        otherUtis: json[r'otherUtis'] is Set ? (json[r'otherUtis'] as Set).cast<String>() : json[r'otherUtis'] is List ? ((json[r'otherUtis'] as List)
-            .toSet()).cast<String>() : const {},
-        storedICureDocumentId:
-        mapValueOfType<String>(json, r'storedICureDocumentId'),
+        otherUtis: json[r'otherUtis'] is Set
+            ? (json[r'otherUtis'] as Set).cast<String>()
+            : json[r'otherUtis'] is List
+                ? ((json[r'otherUtis'] as List).toSet()).cast<String>()
+                : const {},
+        storedICureDocumentId: mapValueOfType<String>(json, r'storedICureDocumentId'),
         externalUuid: mapValueOfType<String>(json, r'externalUuid'),
         size: mapValueOfType<int>(json, r'size'),
         hash: mapValueOfType<String>(json, r'hash'),
         openingContactId: mapValueOfType<String>(json, r'openingContactId'),
         attachmentId: mapValueOfType<String>(json, r'attachmentId'),
-        encryptedAttachment:
-        mapValueOfType<String>(json, r'encryptedAttachment'),
-        decryptedAttachment:
-        mapValueOfType<String>(json, r'decryptedAttachment'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        encryptedAttachment: mapValueOfType<String>(json, r'encryptedAttachment'),
+        decryptedAttachment: mapValueOfType<String>(json, r'decryptedAttachment'),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<DecryptedDocumentDto>? listFromJson(dynamic json, {
+  static List<DecryptedDocumentDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedDocumentDto>[];
@@ -551,7 +545,8 @@ class DecryptedDocumentDto {
   }
 
   // maps a json object with a list of DecryptedDocumentDto-objects as value to a dart map
-  static Map<String, List<DecryptedDocumentDto>> mapListFromJson(dynamic json, {
+  static Map<String, List<DecryptedDocumentDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedDocumentDto>>{};
@@ -605,8 +600,7 @@ class DecryptedDocumentDtoDocumentLocationEnum {
     body,
   ];
 
-  static DecryptedDocumentDtoDocumentLocationEnum? fromJson(dynamic value) =>
-      DecryptedDocumentDtoDocumentLocationEnumTypeTransformer().decode(value);
+  static DecryptedDocumentDtoDocumentLocationEnum? fromJson(dynamic value) => DecryptedDocumentDtoDocumentLocationEnumTypeTransformer().decode(value);
 
   static List<DecryptedDocumentDtoDocumentLocationEnum>? listFromJson(dynamic json, {
     bool growable = false,
@@ -628,8 +622,7 @@ class DecryptedDocumentDtoDocumentLocationEnum {
 /// and [decode] dynamic data back to [DecryptedDocumentDtoDocumentLocationEnum].
 class DecryptedDocumentDtoDocumentLocationEnumTypeTransformer {
   factory DecryptedDocumentDtoDocumentLocationEnumTypeTransformer() =>
-      _instance ??=
-      const DecryptedDocumentDtoDocumentLocationEnumTypeTransformer._();
+      _instance ??= const DecryptedDocumentDtoDocumentLocationEnumTypeTransformer._();
 
   const DecryptedDocumentDtoDocumentLocationEnumTypeTransformer._();
 
@@ -643,8 +636,7 @@ class DecryptedDocumentDtoDocumentLocationEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DecryptedDocumentDtoDocumentLocationEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  DecryptedDocumentDtoDocumentLocationEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'annex':
@@ -679,68 +671,43 @@ class DecryptedDocumentDtoDocumentTypeEnum {
 
   static const admission = DecryptedDocumentDtoDocumentTypeEnum._(r'admission');
   static const alert = DecryptedDocumentDtoDocumentTypeEnum._(r'alert');
-  static const bvtSample =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'bvt_sample');
-  static const clinicalpath =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'clinicalpath');
-  static const clinicalsummary =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'clinicalsummary');
-  static const contactreport =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'contactreport');
+  static const bvtSample = DecryptedDocumentDtoDocumentTypeEnum._(r'bvt_sample');
+  static const clinicalpath = DecryptedDocumentDtoDocumentTypeEnum._(r'clinicalpath');
+  static const clinicalsummary = DecryptedDocumentDtoDocumentTypeEnum._(r'clinicalsummary');
+  static const contactreport = DecryptedDocumentDtoDocumentTypeEnum._(r'contactreport');
   static const quote = DecryptedDocumentDtoDocumentTypeEnum._(r'quote');
   static const invoice = DecryptedDocumentDtoDocumentTypeEnum._(r'invoice');
   static const death = DecryptedDocumentDtoDocumentTypeEnum._(r'death');
   static const discharge = DecryptedDocumentDtoDocumentTypeEnum._(r'discharge');
-  static const dischargereport =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'dischargereport');
-  static const ebirthBabyMedicalform =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_baby_medicalform');
-  static const ebirthBabyNotification =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_baby_notification');
-  static const ebirthMotherMedicalform =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_mother_medicalform');
-  static const ebirthMotherNotification =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_mother_notification');
-  static const ecareSafeConsultation =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'ecare_safe_consultation');
-  static const epidemiology =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'epidemiology');
-  static const intervention =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'intervention');
-  static const labrequest =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'labrequest');
+  static const dischargereport = DecryptedDocumentDtoDocumentTypeEnum._(r'dischargereport');
+  static const ebirthBabyMedicalform = DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_baby_medicalform');
+  static const ebirthBabyNotification = DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_baby_notification');
+  static const ebirthMotherMedicalform = DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_mother_medicalform');
+  static const ebirthMotherNotification = DecryptedDocumentDtoDocumentTypeEnum._(r'ebirth_mother_notification');
+  static const ecareSafeConsultation = DecryptedDocumentDtoDocumentTypeEnum._(r'ecare_safe_consultation');
+  static const epidemiology = DecryptedDocumentDtoDocumentTypeEnum._(r'epidemiology');
+  static const intervention = DecryptedDocumentDtoDocumentTypeEnum._(r'intervention');
+  static const labrequest = DecryptedDocumentDtoDocumentTypeEnum._(r'labrequest');
   static const labresult = DecryptedDocumentDtoDocumentTypeEnum._(r'labresult');
-  static const medicaladvisoragreement =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'medicaladvisoragreement');
-  static const medicationschemeelement =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'medicationschemeelement');
+  static const medicaladvisoragreement = DecryptedDocumentDtoDocumentTypeEnum._(r'medicaladvisoragreement');
+  static const medicationschemeelement = DecryptedDocumentDtoDocumentTypeEnum._(r'medicationschemeelement');
   static const note = DecryptedDocumentDtoDocumentTypeEnum._(r'note');
-  static const notification =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'notification');
-  static const pharmaceuticalprescription =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'pharmaceuticalprescription');
-  static const prescription =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'prescription');
-  static const productdelivery =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'productdelivery');
-  static const quickdischargereport =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'quickdischargereport');
-  static const radiationexposuremonitoring =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'radiationexposuremonitoring');
+  static const notification = DecryptedDocumentDtoDocumentTypeEnum._(r'notification');
+  static const pharmaceuticalprescription = DecryptedDocumentDtoDocumentTypeEnum._(r'pharmaceuticalprescription');
+  static const prescription = DecryptedDocumentDtoDocumentTypeEnum._(r'prescription');
+  static const productdelivery = DecryptedDocumentDtoDocumentTypeEnum._(r'productdelivery');
+  static const quickdischargereport = DecryptedDocumentDtoDocumentTypeEnum._(r'quickdischargereport');
+  static const radiationexposuremonitoring = DecryptedDocumentDtoDocumentTypeEnum._(r'radiationexposuremonitoring');
   static const referral = DecryptedDocumentDtoDocumentTypeEnum._(r'referral');
   static const report = DecryptedDocumentDtoDocumentTypeEnum._(r'report');
   static const request = DecryptedDocumentDtoDocumentTypeEnum._(r'request');
   static const result = DecryptedDocumentDtoDocumentTypeEnum._(r'result');
   static const sumehr = DecryptedDocumentDtoDocumentTypeEnum._(r'sumehr');
-  static const telemonitoring =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'telemonitoring');
+  static const telemonitoring = DecryptedDocumentDtoDocumentTypeEnum._(r'telemonitoring');
   static const template = DecryptedDocumentDtoDocumentTypeEnum._(r'template');
-  static const templateAdmin =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'template_admin');
-  static const treatmentsuspension =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'treatmentsuspension');
-  static const vaccination =
-  DecryptedDocumentDtoDocumentTypeEnum._(r'vaccination');
+  static const templateAdmin = DecryptedDocumentDtoDocumentTypeEnum._(r'template_admin');
+  static const treatmentsuspension = DecryptedDocumentDtoDocumentTypeEnum._(r'treatmentsuspension');
+  static const vaccination = DecryptedDocumentDtoDocumentTypeEnum._(r'vaccination');
 
   /// List of all possible values in this [enum][DecryptedDocumentDtoDocumentTypeEnum].
   static const values = <DecryptedDocumentDtoDocumentTypeEnum>[
@@ -785,10 +752,10 @@ class DecryptedDocumentDtoDocumentTypeEnum {
     vaccination,
   ];
 
-  static DecryptedDocumentDtoDocumentTypeEnum? fromJson(dynamic value) =>
-      DecryptedDocumentDtoDocumentTypeEnumTypeTransformer().decode(value);
+  static DecryptedDocumentDtoDocumentTypeEnum? fromJson(dynamic value) => DecryptedDocumentDtoDocumentTypeEnumTypeTransformer().decode(value);
 
-  static List<DecryptedDocumentDtoDocumentTypeEnum>? listFromJson(dynamic json, {
+  static List<DecryptedDocumentDtoDocumentTypeEnum>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedDocumentDtoDocumentTypeEnum>[];
@@ -807,9 +774,7 @@ class DecryptedDocumentDtoDocumentTypeEnum {
 /// Transformation class that can [encode] an instance of [DecryptedDocumentDtoDocumentTypeEnum] to String,
 /// and [decode] dynamic data back to [DecryptedDocumentDtoDocumentTypeEnum].
 class DecryptedDocumentDtoDocumentTypeEnumTypeTransformer {
-  factory DecryptedDocumentDtoDocumentTypeEnumTypeTransformer() =>
-      _instance ??=
-      const DecryptedDocumentDtoDocumentTypeEnumTypeTransformer._();
+  factory DecryptedDocumentDtoDocumentTypeEnumTypeTransformer() => _instance ??= const DecryptedDocumentDtoDocumentTypeEnumTypeTransformer._();
 
   const DecryptedDocumentDtoDocumentTypeEnumTypeTransformer._();
 
@@ -823,8 +788,7 @@ class DecryptedDocumentDtoDocumentTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DecryptedDocumentDtoDocumentTypeEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  DecryptedDocumentDtoDocumentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'admission':
@@ -876,8 +840,7 @@ class DecryptedDocumentDtoDocumentTypeEnumTypeTransformer {
         case r'notification':
           return DecryptedDocumentDtoDocumentTypeEnum.notification;
         case r'pharmaceuticalprescription':
-          return DecryptedDocumentDtoDocumentTypeEnum
-              .pharmaceuticalprescription;
+          return DecryptedDocumentDtoDocumentTypeEnum.pharmaceuticalprescription;
         case r'prescription':
           return DecryptedDocumentDtoDocumentTypeEnum.prescription;
         case r'productdelivery':
@@ -885,8 +848,7 @@ class DecryptedDocumentDtoDocumentTypeEnumTypeTransformer {
         case r'quickdischargereport':
           return DecryptedDocumentDtoDocumentTypeEnum.quickdischargereport;
         case r'radiationexposuremonitoring':
-          return DecryptedDocumentDtoDocumentTypeEnum
-              .radiationexposuremonitoring;
+          return DecryptedDocumentDtoDocumentTypeEnum.radiationexposuremonitoring;
         case r'referral':
           return DecryptedDocumentDtoDocumentTypeEnum.referral;
         case r'report':
@@ -934,18 +896,14 @@ class DecryptedDocumentDtoDocumentStatusEnum {
   String toJson() => value;
 
   static const draft = DecryptedDocumentDtoDocumentStatusEnum._(r'draft');
-  static const finalized =
-  DecryptedDocumentDtoDocumentStatusEnum._(r'finalized');
-  static const pendingReview =
-  DecryptedDocumentDtoDocumentStatusEnum._(r'pending_review');
+  static const finalized = DecryptedDocumentDtoDocumentStatusEnum._(r'finalized');
+  static const pendingReview = DecryptedDocumentDtoDocumentStatusEnum._(r'pending_review');
   static const reviewed = DecryptedDocumentDtoDocumentStatusEnum._(r'reviewed');
-  static const pendingSignature =
-  DecryptedDocumentDtoDocumentStatusEnum._(r'pending_signature');
+  static const pendingSignature = DecryptedDocumentDtoDocumentStatusEnum._(r'pending_signature');
   static const signed = DecryptedDocumentDtoDocumentStatusEnum._(r'signed');
   static const canceled = DecryptedDocumentDtoDocumentStatusEnum._(r'canceled');
   static const sent = DecryptedDocumentDtoDocumentStatusEnum._(r'sent');
-  static const delivered =
-  DecryptedDocumentDtoDocumentStatusEnum._(r'delivered');
+  static const delivered = DecryptedDocumentDtoDocumentStatusEnum._(r'delivered');
 
   /// List of all possible values in this [enum][DecryptedDocumentDtoDocumentStatusEnum].
   static const values = <DecryptedDocumentDtoDocumentStatusEnum>[
@@ -960,8 +918,7 @@ class DecryptedDocumentDtoDocumentStatusEnum {
     delivered,
   ];
 
-  static DecryptedDocumentDtoDocumentStatusEnum? fromJson(dynamic value) =>
-      DecryptedDocumentDtoDocumentStatusEnumTypeTransformer().decode(value);
+  static DecryptedDocumentDtoDocumentStatusEnum? fromJson(dynamic value) => DecryptedDocumentDtoDocumentStatusEnumTypeTransformer().decode(value);
 
   static List<DecryptedDocumentDtoDocumentStatusEnum>? listFromJson(dynamic json, {
     bool growable = false,
@@ -982,9 +939,7 @@ class DecryptedDocumentDtoDocumentStatusEnum {
 /// Transformation class that can [encode] an instance of [DecryptedDocumentDtoDocumentStatusEnum] to String,
 /// and [decode] dynamic data back to [DecryptedDocumentDtoDocumentStatusEnum].
 class DecryptedDocumentDtoDocumentStatusEnumTypeTransformer {
-  factory DecryptedDocumentDtoDocumentStatusEnumTypeTransformer() =>
-      _instance ??=
-      const DecryptedDocumentDtoDocumentStatusEnumTypeTransformer._();
+  factory DecryptedDocumentDtoDocumentStatusEnumTypeTransformer() => _instance ??= const DecryptedDocumentDtoDocumentStatusEnumTypeTransformer._();
 
   const DecryptedDocumentDtoDocumentStatusEnumTypeTransformer._();
 
@@ -998,8 +953,7 @@ class DecryptedDocumentDtoDocumentStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DecryptedDocumentDtoDocumentStatusEnum? decode(dynamic data,
-      {bool allowNull = true}) {
+  DecryptedDocumentDtoDocumentStatusEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data.toString()) {
         case r'draft':

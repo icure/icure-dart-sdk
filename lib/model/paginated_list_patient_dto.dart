@@ -35,7 +35,8 @@ class PaginatedListPatientDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is PaginatedListPatientDto &&
+      identical(this, other) ||
+      other is PaginatedListPatientDto &&
           other.pageSize == pageSize &&
           other.totalSize == totalSize &&
           other.rows == rows &&
@@ -44,10 +45,7 @@ class PaginatedListPatientDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (pageSize.hashCode) +
-      (totalSize.hashCode) +
-      (rows.hashCode) +
-      (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
+      (pageSize.hashCode) + (totalSize.hashCode) + (rows.hashCode) + (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
 
   @override
   String toString() => 'PaginatedListPatientDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
@@ -67,6 +65,9 @@ class PaginatedListPatientDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PaginatedListPatientDto? fromJson(dynamic value) {
+    if (value is PaginatedListPatientDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -91,7 +92,10 @@ class PaginatedListPatientDto {
     return null;
   }
 
-  static List<PaginatedListPatientDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PaginatedListPatientDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PaginatedListPatientDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -119,12 +123,18 @@ class PaginatedListPatientDto {
   }
 
   // maps a json object with a list of PaginatedListPatientDto-objects as value to a dart map
-  static Map<String, List<PaginatedListPatientDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PaginatedListPatientDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PaginatedListPatientDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PaginatedListPatientDto.listFromJson(entry.value, growable: growable,);
+        final value = PaginatedListPatientDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -140,4 +150,3 @@ class PaginatedListPatientDto {
     'rows',
   };
 }
-

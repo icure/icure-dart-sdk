@@ -289,49 +289,49 @@ class DecryptedMessageDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is DecryptedMessageDto &&
-              other.id == id &&
-              other.rev == rev &&
-              other.created == created &&
-              other.modified == modified &&
-              other.author == author &&
-              other.responsible == responsible &&
-              other.medicalLocationId == medicalLocationId &&
-              other.tags == tags &&
-              other.codes == codes &&
-              other.endOfLife == endOfLife &&
-              other.deletionDate == deletionDate &&
-              other.fromAddress == fromAddress &&
-              other.fromHealthcarePartyId == fromHealthcarePartyId &&
-              other.formId == formId &&
-              other.status == status &&
-              other.recipientsType == recipientsType &&
-              other.recipients == recipients &&
-              other.toAddresses == toAddresses &&
-              other.received == received &&
-              other.sent == sent &&
-              other.metas == metas &&
-              other.readStatus == readStatus &&
-              other.transportGuid == transportGuid &&
-              other.remark == remark &&
-              other.conversationGuid == conversationGuid &&
-              other.subject == subject &&
-              other.invoiceIds == invoiceIds &&
-              other.parentId == parentId &&
-              other.externalRef == externalRef &&
-              other.unassignedResults == unassignedResults &&
-              other.assignedResults == assignedResults &&
-              other.senderReferences == senderReferences &&
-              other.secretForeignKeys == secretForeignKeys &&
-              other.cryptedForeignKeys == cryptedForeignKeys &&
-              other.delegations == delegations &&
-              other.encryptionKeys == encryptionKeys &&
-              other.encryptedSelf == encryptedSelf;
+      other is DecryptedMessageDto &&
+          other.id == id &&
+          other.rev == rev &&
+          other.created == created &&
+          other.modified == modified &&
+          other.author == author &&
+          other.responsible == responsible &&
+          other.medicalLocationId == medicalLocationId &&
+          other.tags == tags &&
+          other.codes == codes &&
+          other.endOfLife == endOfLife &&
+          other.deletionDate == deletionDate &&
+          other.fromAddress == fromAddress &&
+          other.fromHealthcarePartyId == fromHealthcarePartyId &&
+          other.formId == formId &&
+          other.status == status &&
+          other.recipientsType == recipientsType &&
+          other.recipients == recipients &&
+          other.toAddresses == toAddresses &&
+          other.received == received &&
+          other.sent == sent &&
+          other.metas == metas &&
+          other.readStatus == readStatus &&
+          other.transportGuid == transportGuid &&
+          other.remark == remark &&
+          other.conversationGuid == conversationGuid &&
+          other.subject == subject &&
+          other.invoiceIds == invoiceIds &&
+          other.parentId == parentId &&
+          other.externalRef == externalRef &&
+          other.unassignedResults == unassignedResults &&
+          other.assignedResults == assignedResults &&
+          other.senderReferences == senderReferences &&
+          other.secretForeignKeys == secretForeignKeys &&
+          other.cryptedForeignKeys == cryptedForeignKeys &&
+          other.delegations == delegations &&
+          other.encryptionKeys == encryptionKeys &&
+          other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -465,6 +465,9 @@ class DecryptedMessageDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedMessageDto? fromJson(dynamic value) {
+    if (value is DecryptedMessageDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -473,10 +476,8 @@ class DecryptedMessageDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedMessageDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedMessageDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedMessageDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedMessageDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -494,57 +495,58 @@ class DecryptedMessageDto {
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         fromAddress: mapValueOfType<String>(json, r'fromAddress'),
-        fromHealthcarePartyId:
-        mapValueOfType<String>(json, r'fromHealthcarePartyId'),
+        fromHealthcarePartyId: mapValueOfType<String>(json, r'fromHealthcarePartyId'),
         formId: mapValueOfType<String>(json, r'formId'),
         status: mapValueOfType<int>(json, r'status'),
         recipientsType: mapValueOfType<String>(json, r'recipientsType'),
-        recipients: json[r'recipients'] is Set ? (json[r'recipients'] as Set).cast<String>() : json[r'recipients'] is List
-            ? ((json[r'recipients'] as List).toSet()).cast<String>()
-            : const {},
-        toAddresses: json[r'toAddresses'] is Set ? (json[r'toAddresses'] as Set).cast<String>() : json[r'toAddresses'] is List
-            ? ((json[r'toAddresses'] as List).toSet()).cast<String>()
-            : const {},
+        recipients: json[r'recipients'] is Set
+            ? (json[r'recipients'] as Set).cast<String>()
+            : json[r'recipients'] is List
+                ? ((json[r'recipients'] as List).toSet()).cast<String>()
+                : const {},
+        toAddresses: json[r'toAddresses'] is Set
+            ? (json[r'toAddresses'] as Set).cast<String>()
+            : json[r'toAddresses'] is List
+                ? ((json[r'toAddresses'] as List).toSet()).cast<String>()
+                : const {},
         received: mapValueOfType<int>(json, r'received'),
         sent: mapValueOfType<int>(json, r'sent'),
         metas: mapCastOfType<String, String>(json, r'metas')!,
-        readStatus: mapValueOfType<Map<String, MessageReadStatusDto>>(
-            json, r'readStatus')!,
+        readStatus: mapValueOfType<Map<String, MessageReadStatusDto>>(json, r'readStatus')!,
         transportGuid: mapValueOfType<String>(json, r'transportGuid'),
         remark: mapValueOfType<String>(json, r'remark'),
         conversationGuid: mapValueOfType<String>(json, r'conversationGuid'),
         subject: mapValueOfType<String>(json, r'subject'),
-        invoiceIds: json[r'invoiceIds'] is Set ? (json[r'invoiceIds'] as Set).cast<String>() : json[r'invoiceIds'] is List
-            ? ((json[r'invoiceIds'] as List).toSet()).cast<String>()
-            : const {},
+        invoiceIds: json[r'invoiceIds'] is Set
+            ? (json[r'invoiceIds'] as Set).cast<String>()
+            : json[r'invoiceIds'] is List
+                ? ((json[r'invoiceIds'] as List).toSet()).cast<String>()
+                : const {},
         parentId: mapValueOfType<String>(json, r'parentId'),
         externalRef: mapValueOfType<String>(json, r'externalRef'),
-        unassignedResults: json[r'unassignedResults'] is Set ? (json[r'unassignedResults'] as Set).cast<String>() : json[r'unassignedResults'] is List
-            ? ((json[r'unassignedResults'] as List).toSet()).cast<String>()
-            : const {},
-        assignedResults:
-        mapCastOfType<String, String>(json, r'assignedResults')!,
-        senderReferences:
-        mapCastOfType<String, String>(json, r'senderReferences')!,
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        unassignedResults: json[r'unassignedResults'] is Set
+            ? (json[r'unassignedResults'] as Set).cast<String>()
+            : json[r'unassignedResults'] is List
+                ? ((json[r'unassignedResults'] as List).toSet()).cast<String>()
+                : const {},
+        assignedResults: mapCastOfType<String, String>(json, r'assignedResults')!,
+        senderReferences: mapCastOfType<String, String>(json, r'senderReferences')!,
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<DecryptedMessageDto>? listFromJson(dynamic json, {
+  static List<DecryptedMessageDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedMessageDto>[];
@@ -574,7 +576,8 @@ class DecryptedMessageDto {
   }
 
   // maps a json object with a list of DecryptedMessageDto-objects as value to a dart map
-  static Map<String, List<DecryptedMessageDto>> mapListFromJson(dynamic json, {
+  static Map<String, List<DecryptedMessageDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedMessageDto>>{};

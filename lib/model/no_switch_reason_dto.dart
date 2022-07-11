@@ -39,7 +39,7 @@ class NoSwitchReasonDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (code == null ? 0 : code!.hashCode) + (description == null ? 0 : description!.hashCode);
+  (code == null ? 0 : code!.hashCode) + (description == null ? 0 : description!.hashCode);
 
   @override
   String toString() => 'NoSwitchReasonDto[code=$code, description=$description]';
@@ -59,6 +59,9 @@ class NoSwitchReasonDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static NoSwitchReasonDto? fromJson(dynamic value) {
+    if (value is NoSwitchReasonDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -81,8 +84,7 @@ class NoSwitchReasonDto {
     return null;
   }
 
-  static List<NoSwitchReasonDto>? listFromJson(
-    dynamic json, {
+  static List<NoSwitchReasonDto>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <NoSwitchReasonDto>[];
@@ -112,8 +114,7 @@ class NoSwitchReasonDto {
   }
 
   // maps a json object with a list of NoSwitchReasonDto-objects as value to a dart map
-  static Map<String, List<NoSwitchReasonDto>> mapListFromJson(
-    dynamic json, {
+  static Map<String, List<NoSwitchReasonDto>> mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<NoSwitchReasonDto>>{};

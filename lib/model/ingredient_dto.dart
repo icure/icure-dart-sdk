@@ -92,7 +92,8 @@ class IngredientDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is IngredientDto &&
+      identical(this, other) ||
+      other is IngredientDto &&
           other.from == from &&
           other.to == to &&
           other.rank == rank &&
@@ -106,7 +107,7 @@ class IngredientDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (from == null ? 0 : from!.hashCode) +
+      (from == null ? 0 : from!.hashCode) +
       (to == null ? 0 : to!.hashCode) +
       (rank == null ? 0 : rank!.hashCode) +
       (type == null ? 0 : type!.hashCode) +
@@ -156,6 +157,9 @@ class IngredientDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static IngredientDto? fromJson(dynamic value) {
+    if (value is IngredientDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -185,7 +189,10 @@ class IngredientDto {
     return null;
   }
 
-  static List<IngredientDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<IngredientDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <IngredientDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -213,12 +220,18 @@ class IngredientDto {
   }
 
   // maps a json object with a list of IngredientDto-objects as value to a dart map
-  static Map<String, List<IngredientDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<IngredientDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<IngredientDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = IngredientDto.listFromJson(entry.value, growable: growable,);
+        final value = IngredientDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -228,10 +241,8 @@ class IngredientDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class IngredientDtoTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -256,7 +267,10 @@ class IngredientDtoTypeEnum {
 
   static IngredientDtoTypeEnum? fromJson(dynamic value) => IngredientDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<IngredientDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<IngredientDtoTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <IngredientDtoTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -306,5 +320,3 @@ class IngredientDtoTypeEnumTypeTransformer {
   /// Singleton [IngredientDtoTypeEnumTypeTransformer] instance.
   static IngredientDtoTypeEnumTypeTransformer? _instance;
 }
-
-

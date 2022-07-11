@@ -41,7 +41,8 @@ class MedicationSchemeExportInfoDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MedicationSchemeExportInfoDto &&
+      identical(this, other) ||
+      other is MedicationSchemeExportInfoDto &&
           other.secretForeignKeys == secretForeignKeys &&
           other.services == services &&
           other.recipient == recipient &&
@@ -50,10 +51,7 @@ class MedicationSchemeExportInfoDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (secretForeignKeys.hashCode) +
-      (services.hashCode) +
-      (recipient == null ? 0 : recipient!.hashCode) +
-      (comment == null ? 0 : comment!.hashCode);
+      (secretForeignKeys.hashCode) + (services.hashCode) + (recipient == null ? 0 : recipient!.hashCode) + (comment == null ? 0 : comment!.hashCode);
 
   @override
   String toString() =>
@@ -76,6 +74,9 @@ class MedicationSchemeExportInfoDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MedicationSchemeExportInfoDto? fromJson(dynamic value) {
+    if (value is MedicationSchemeExportInfoDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -91,9 +92,7 @@ class MedicationSchemeExportInfoDto {
       }());
 
       return MedicationSchemeExportInfoDto(
-        secretForeignKeys: json[r'secretForeignKeys'] is List
-            ? (json[r'secretForeignKeys'] as List).cast<String>()
-            : const [],
+        secretForeignKeys: json[r'secretForeignKeys'] is List ? (json[r'secretForeignKeys'] as List).cast<String>() : const [],
         services: ServiceDto.listFromJson(json[r'services'])!,
         recipient: HealthcarePartyDto.fromJson(json[r'recipient']),
         comment: mapValueOfType<String>(json, r'comment'),
@@ -102,7 +101,10 @@ class MedicationSchemeExportInfoDto {
     return null;
   }
 
-  static List<MedicationSchemeExportInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MedicationSchemeExportInfoDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MedicationSchemeExportInfoDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -130,12 +132,18 @@ class MedicationSchemeExportInfoDto {
   }
 
   // maps a json object with a list of MedicationSchemeExportInfoDto-objects as value to a dart map
-  static Map<String, List<MedicationSchemeExportInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MedicationSchemeExportInfoDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MedicationSchemeExportInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MedicationSchemeExportInfoDto.listFromJson(entry.value, growable: growable,);
+        final value = MedicationSchemeExportInfoDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -150,4 +158,3 @@ class MedicationSchemeExportInfoDto {
     'services',
   };
 }
-

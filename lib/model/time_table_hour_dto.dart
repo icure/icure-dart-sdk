@@ -34,16 +34,12 @@ class TimeTableHourDto {
   int? endHour;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is TimeTableHourDto &&
-          other.startHour == startHour &&
-          other.endHour == endHour;
+  bool operator ==(Object other) => identical(this, other) || other is TimeTableHourDto && other.startHour == startHour && other.endHour == endHour;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (startHour == null ? 0 : startHour!.hashCode) +
-      (endHour == null ? 0 : endHour!.hashCode);
+      (startHour == null ? 0 : startHour!.hashCode) + (endHour == null ? 0 : endHour!.hashCode);
 
   @override
   String toString() => 'TimeTableHourDto[startHour=$startHour, endHour=$endHour]';
@@ -63,6 +59,9 @@ class TimeTableHourDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static TimeTableHourDto? fromJson(dynamic value) {
+    if (value is TimeTableHourDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +84,10 @@ class TimeTableHourDto {
     return null;
   }
 
-  static List<TimeTableHourDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TimeTableHourDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TimeTableHourDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +115,18 @@ class TimeTableHourDto {
   }
 
   // maps a json object with a list of TimeTableHourDto-objects as value to a dart map
-  static Map<String, List<TimeTableHourDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TimeTableHourDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TimeTableHourDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = TimeTableHourDto.listFromJson(entry.value, growable: growable,);
+        final value = TimeTableHourDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +136,5 @@ class TimeTableHourDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

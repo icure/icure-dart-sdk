@@ -47,19 +47,13 @@ class MessagesReadStatusUpdate {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MessagesReadStatusUpdate &&
-          other.ids == ids &&
-          other.time == time &&
-          other.status == status &&
-          other.userId == userId;
+      identical(this, other) ||
+      other is MessagesReadStatusUpdate && other.ids == ids && other.time == time && other.status == status && other.userId == userId;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (ids.hashCode) +
-      (time == null ? 0 : time!.hashCode) +
-      (status == null ? 0 : status!.hashCode) +
-      (userId == null ? 0 : userId!.hashCode);
+      (ids.hashCode) + (time == null ? 0 : time!.hashCode) + (status == null ? 0 : status!.hashCode) + (userId == null ? 0 : userId!.hashCode);
 
   @override
   String toString() => 'MessagesReadStatusUpdate[ids=$ids, time=$time, status=$status, userId=$userId]';
@@ -83,6 +77,9 @@ class MessagesReadStatusUpdate {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MessagesReadStatusUpdate? fromJson(dynamic value) {
+    if (value is MessagesReadStatusUpdate) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -98,9 +95,7 @@ class MessagesReadStatusUpdate {
       }());
 
       return MessagesReadStatusUpdate(
-        ids: json[r'ids'] is List
-            ? (json[r'ids'] as List).cast<String>()
-            : const [],
+        ids: json[r'ids'] is List ? (json[r'ids'] as List).cast<String>() : const [],
         time: mapValueOfType<int>(json, r'time'),
         status: mapValueOfType<bool>(json, r'status'),
         userId: mapValueOfType<String>(json, r'userId'),
@@ -109,7 +104,10 @@ class MessagesReadStatusUpdate {
     return null;
   }
 
-  static List<MessagesReadStatusUpdate>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MessagesReadStatusUpdate>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MessagesReadStatusUpdate>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -137,12 +135,18 @@ class MessagesReadStatusUpdate {
   }
 
   // maps a json object with a list of MessagesReadStatusUpdate-objects as value to a dart map
-  static Map<String, List<MessagesReadStatusUpdate>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MessagesReadStatusUpdate>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MessagesReadStatusUpdate>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MessagesReadStatusUpdate.listFromJson(entry.value, growable: growable,);
+        final value = MessagesReadStatusUpdate.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -152,7 +156,5 @@ class MessagesReadStatusUpdate {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

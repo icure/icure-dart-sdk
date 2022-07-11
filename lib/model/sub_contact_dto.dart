@@ -177,7 +177,8 @@ class SubContactDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is SubContactDto &&
+      identical(this, other) ||
+      other is SubContactDto &&
           other.id == id &&
           other.created == created &&
           other.modified == modified &&
@@ -200,7 +201,7 @@ class SubContactDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id == null ? 0 : id!.hashCode) +
+      (id == null ? 0 : id!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
       (author == null ? 0 : author!.hashCode) +
@@ -280,6 +281,9 @@ class SubContactDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static SubContactDto? fromJson(dynamic value) {
+    if (value is SubContactDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -318,7 +322,10 @@ class SubContactDto {
     return null;
   }
 
-  static List<SubContactDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SubContactDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SubContactDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -346,12 +353,18 @@ class SubContactDto {
   }
 
   // maps a json object with a list of SubContactDto-objects as value to a dart map
-  static Map<String, List<SubContactDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SubContactDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SubContactDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SubContactDto.listFromJson(entry.value, growable: growable,);
+        final value = SubContactDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -367,4 +380,3 @@ class SubContactDto {
     'services',
   };
 }
-

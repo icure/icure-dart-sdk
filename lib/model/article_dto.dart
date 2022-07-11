@@ -154,17 +154,18 @@ class ArticleDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ArticleDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.created == created &&
-          other.modified == modified &&
-          other.author == author &&
-          other.responsible == responsible &&
-          other.medicalLocationId == medicalLocationId &&
-          other.tags == tags &&
-          other.codes == codes &&
-          other.endOfLife == endOfLife &&
+      identical(this, other) ||
+          other is ArticleDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.created == created &&
+              other.modified == modified &&
+              other.author == author &&
+              other.responsible == responsible &&
+              other.medicalLocationId == medicalLocationId &&
+              other.tags == tags &&
+              other.codes == codes &&
+              other.endOfLife == endOfLife &&
           other.deletionDate == deletionDate &&
           other.name == name &&
           other.content == content &&
@@ -252,6 +253,9 @@ class ArticleDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ArticleDto? fromJson(dynamic value) {
+    if (value is ArticleDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -281,25 +285,24 @@ class ArticleDto {
         name: mapValueOfType<String>(json, r'name'),
         content: ContentDto.listFromJson(json[r'content'])!,
         classification: mapValueOfType<String>(json, r'classification'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<ArticleDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ArticleDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ArticleDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -327,12 +330,18 @@ class ArticleDto {
   }
 
   // maps a json object with a list of ArticleDto-objects as value to a dart map
-  static Map<String, List<ArticleDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ArticleDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ArticleDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ArticleDto.listFromJson(entry.value, growable: growable,);
+        final value = ArticleDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -353,4 +362,3 @@ class ArticleDto {
     'encryptionKeys',
   };
 }
-

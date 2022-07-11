@@ -119,25 +119,25 @@ class FrontEndMigrationDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is FrontEndMigrationDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.deletionDate == deletionDate &&
-          other.name == name &&
-          other.startDate == startDate &&
-          other.endDate == endDate &&
-          other.status == status &&
-          other.logs == logs &&
-          other.userId == userId &&
-          other.startKey == startKey &&
-          other.startKeyDocId == startKeyDocId &&
-          other.processCount == processCount &&
-          other.properties == properties;
+          other is FrontEndMigrationDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.deletionDate == deletionDate &&
+              other.name == name &&
+              other.startDate == startDate &&
+              other.endDate == endDate &&
+              other.status == status &&
+              other.logs == logs &&
+              other.userId == userId &&
+              other.startKey == startKey &&
+              other.startKeyDocId == startKeyDocId &&
+              other.processCount == processCount &&
+              other.properties == properties;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (id.hashCode) +
+  (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
       (name == null ? 0 : name!.hashCode) +
@@ -199,6 +199,9 @@ class FrontEndMigrationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static FrontEndMigrationDto? fromJson(dynamic value) {
+    if (value is FrontEndMigrationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -232,8 +235,7 @@ class FrontEndMigrationDto {
     return null;
   }
 
-  static List<FrontEndMigrationDto>? listFromJson(
-    dynamic json, {
+  static List<FrontEndMigrationDto>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <FrontEndMigrationDto>[];
@@ -263,8 +265,7 @@ class FrontEndMigrationDto {
   }
 
   // maps a json object with a list of FrontEndMigrationDto-objects as value to a dart map
-  static Map<String, List<FrontEndMigrationDto>> mapListFromJson(
-    dynamic json, {
+  static Map<String, List<FrontEndMigrationDto>> mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<FrontEndMigrationDto>>{};
@@ -317,8 +318,7 @@ class FrontEndMigrationDtoStatusEnum {
 
   static FrontEndMigrationDtoStatusEnum? fromJson(dynamic value) => FrontEndMigrationDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<FrontEndMigrationDtoStatusEnum>? listFromJson(
-    dynamic json, {
+  static List<FrontEndMigrationDtoStatusEnum>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <FrontEndMigrationDtoStatusEnum>[];

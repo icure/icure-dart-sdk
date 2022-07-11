@@ -123,7 +123,8 @@ class IcureStubDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is IcureStubDto &&
+      identical(this, other) ||
+      other is IcureStubDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -143,7 +144,7 @@ class IcureStubDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -203,6 +204,9 @@ class IcureStubDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static IcureStubDto? fromJson(dynamic value) {
+    if (value is IcureStubDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -228,25 +232,24 @@ class IcureStubDto {
         tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
         endOfLife: mapValueOfType<int>(json, r'endOfLife'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<IcureStubDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<IcureStubDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <IcureStubDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -274,12 +277,18 @@ class IcureStubDto {
   }
 
   // maps a json object with a list of IcureStubDto-objects as value to a dart map
-  static Map<String, List<IcureStubDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<IcureStubDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<IcureStubDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = IcureStubDto.listFromJson(entry.value, growable: growable,);
+        final value = IcureStubDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -299,4 +308,3 @@ class IcureStubDto {
     'encryptionKeys',
   };
 }
-

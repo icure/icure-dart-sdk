@@ -35,15 +35,12 @@ class MessageWithBatch {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MessageWithBatch &&
-          other.invoicesBatch == invoicesBatch &&
-          other.message == message;
+      identical(this, other) || other is MessageWithBatch && other.invoicesBatch == invoicesBatch && other.message == message;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (invoicesBatch == null ? 0 : invoicesBatch!.hashCode) +
-      (message == null ? 0 : message!.hashCode);
+      (invoicesBatch == null ? 0 : invoicesBatch!.hashCode) + (message == null ? 0 : message!.hashCode);
 
   @override
   String toString() => 'MessageWithBatch[invoicesBatch=$invoicesBatch, message=$message]';
@@ -63,6 +60,9 @@ class MessageWithBatch {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MessageWithBatch? fromJson(dynamic value) {
+    if (value is MessageWithBatch) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +85,10 @@ class MessageWithBatch {
     return null;
   }
 
-  static List<MessageWithBatch>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MessageWithBatch>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MessageWithBatch>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +116,18 @@ class MessageWithBatch {
   }
 
   // maps a json object with a list of MessageWithBatch-objects as value to a dart map
-  static Map<String, List<MessageWithBatch>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MessageWithBatch>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MessageWithBatch>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MessageWithBatch.listFromJson(entry.value, growable: growable,);
+        final value = MessageWithBatch.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +137,5 @@ class MessageWithBatch {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

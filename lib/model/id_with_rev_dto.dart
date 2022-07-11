@@ -34,16 +34,12 @@ class IdWithRevDto {
   String? rev;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is IdWithRevDto &&
-          other.id == id &&
-          other.rev == rev;
+  bool operator ==(Object other) => identical(this, other) || other is IdWithRevDto && other.id == id && other.rev == rev;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id == null ? 0 : id!.hashCode) +
-      (rev == null ? 0 : rev!.hashCode);
+      (id == null ? 0 : id!.hashCode) + (rev == null ? 0 : rev!.hashCode);
 
   @override
   String toString() => 'IdWithRevDto[id=$id, rev=$rev]';
@@ -63,6 +59,9 @@ class IdWithRevDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static IdWithRevDto? fromJson(dynamic value) {
+    if (value is IdWithRevDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +84,10 @@ class IdWithRevDto {
     return null;
   }
 
-  static List<IdWithRevDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<IdWithRevDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <IdWithRevDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +115,18 @@ class IdWithRevDto {
   }
 
   // maps a json object with a list of IdWithRevDto-objects as value to a dart map
-  static Map<String, List<IdWithRevDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<IdWithRevDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<IdWithRevDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = IdWithRevDto.listFromJson(entry.value, growable: growable,);
+        final value = IdWithRevDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +136,5 @@ class IdWithRevDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

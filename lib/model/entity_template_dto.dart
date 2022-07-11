@@ -90,17 +90,18 @@ class EntityTemplateDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is EntityTemplateDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.deletionDate == deletionDate &&
-          other.userId == userId &&
-          other.descr == descr &&
-          other.keywords == keywords &&
-          other.entityType == entityType &&
-          other.subType == subType &&
-          other.defaultTemplate == defaultTemplate &&
-          other.entity == entity;
+      identical(this, other) ||
+          other is EntityTemplateDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.deletionDate == deletionDate &&
+              other.userId == userId &&
+              other.descr == descr &&
+              other.keywords == keywords &&
+              other.entityType == entityType &&
+              other.subType == subType &&
+              other.defaultTemplate == defaultTemplate &&
+              other.entity == entity;
 
   @override
   int get hashCode =>
@@ -153,6 +154,9 @@ class EntityTemplateDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static EntityTemplateDto? fromJson(dynamic value) {
+    if (value is EntityTemplateDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -173,19 +177,24 @@ class EntityTemplateDto {
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         userId: mapValueOfType<String>(json, r'userId'),
         descr: mapValueOfType<String>(json, r'descr'),
-        keywords: json[r'keywords'] is Set ? (json[r'keywords'] as Set).cast<String>() : json[r'keywords'] is List ? ((json[r'keywords'] as List)
-            .toSet()).cast<String>() : const {},
+        keywords: json[r'keywords'] is Set
+            ? (json[r'keywords'] as Set).cast<String>()
+            : json[r'keywords'] is List
+                ? ((json[r'keywords'] as List).toSet()).cast<String>()
+                : const {},
         entityType: mapValueOfType<String>(json, r'entityType'),
         subType: mapValueOfType<String>(json, r'subType'),
         defaultTemplate: mapValueOfType<bool>(json, r'defaultTemplate'),
-        entity:
-        List.from((json[r'entity' as List].cast<Map<String, Object>>())),
+        entity: List.from((json[r'entity' as List].cast<Map<String, Object>>())),
       );
     }
     return null;
   }
 
-  static List<EntityTemplateDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EntityTemplateDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EntityTemplateDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -213,12 +222,18 @@ class EntityTemplateDto {
   }
 
   // maps a json object with a list of EntityTemplateDto-objects as value to a dart map
-  static Map<String, List<EntityTemplateDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EntityTemplateDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EntityTemplateDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = EntityTemplateDto.listFromJson(entry.value, growable: growable,);
+        final value = EntityTemplateDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -233,4 +248,3 @@ class EntityTemplateDto {
     'entity',
   };
 }
-

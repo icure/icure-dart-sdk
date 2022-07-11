@@ -390,7 +390,8 @@ class HealthcarePartyDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is HealthcarePartyDto &&
+      identical(this, other) ||
+      other is HealthcarePartyDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -444,7 +445,7 @@ class HealthcarePartyDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -620,6 +621,9 @@ class HealthcarePartyDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static HealthcarePartyDto? fromJson(dynamic value) {
+    if (value is HealthcarePartyDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -662,9 +666,7 @@ class HealthcarePartyDto {
         nihiiSpecCode: mapValueOfType<String>(json, r'nihiiSpecCode'),
         ssin: mapValueOfType<String>(json, r'ssin'),
         addresses: AddressDto.listFromJson(json[r'addresses'])!,
-        languages: json[r'languages'] is List
-            ? (json[r'languages'] as List).cast<String>()
-            : const [],
+        languages: json[r'languages'] is List ? (json[r'languages'] as List).cast<String>() : const [],
         picture: mapValueOfType<String>(json, r'picture'),
         statuses: HealthcarePartyDtoStatusesEnum.listFromJson(json[r'statuses'])!.toSet(),
         statusHistory: HealthcarePartyHistoryStatusDto.listFromJson(json[r'statusHistory'])!,
@@ -691,7 +693,10 @@ class HealthcarePartyDto {
     return null;
   }
 
-  static List<HealthcarePartyDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<HealthcarePartyDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <HealthcarePartyDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -719,12 +724,18 @@ class HealthcarePartyDto {
   }
 
   // maps a json object with a list of HealthcarePartyDto-objects as value to a dart map
-  static Map<String, List<HealthcarePartyDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<HealthcarePartyDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<HealthcarePartyDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = HealthcarePartyDto.listFromJson(entry.value, growable: growable,);
+        final value = HealthcarePartyDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -789,7 +800,10 @@ class HealthcarePartyDtoGenderEnum {
 
   static HealthcarePartyDtoGenderEnum? fromJson(dynamic value) => HealthcarePartyDtoGenderEnumTypeTransformer().decode(value);
 
-  static List<HealthcarePartyDtoGenderEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<HealthcarePartyDtoGenderEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <HealthcarePartyDtoGenderEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -850,7 +864,6 @@ class HealthcarePartyDtoGenderEnumTypeTransformer {
   static HealthcarePartyDtoGenderEnumTypeTransformer? _instance;
 }
 
-
 /// The healthcare party's status: 'trainee' or 'withconvention' or 'accredited'
 class HealthcarePartyDtoStatusesEnum {
   /// Instantiate a new enum with the provided [value].
@@ -877,7 +890,10 @@ class HealthcarePartyDtoStatusesEnum {
 
   static HealthcarePartyDtoStatusesEnum? fromJson(dynamic value) => HealthcarePartyDtoStatusesEnumTypeTransformer().decode(value);
 
-  static List<HealthcarePartyDtoStatusesEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<HealthcarePartyDtoStatusesEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <HealthcarePartyDtoStatusesEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -929,5 +945,3 @@ class HealthcarePartyDtoStatusesEnumTypeTransformer {
   /// Singleton [HealthcarePartyDtoStatusesEnumTypeTransformer] instance.
   static HealthcarePartyDtoStatusesEnumTypeTransformer? _instance;
 }
-
-

@@ -34,16 +34,12 @@ class DurationDto {
   CodeStubDto? unit;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is DurationDto &&
-          other.value == value &&
-          other.unit == unit;
+  bool operator ==(Object other) => identical(this, other) || other is DurationDto && other.value == value && other.unit == unit;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (value == null ? 0 : value!.hashCode) +
-      (unit == null ? 0 : unit!.hashCode);
+      (value == null ? 0 : value!.hashCode) + (unit == null ? 0 : unit!.hashCode);
 
   @override
   String toString() => 'DurationDto[value=$value, unit=$unit]';
@@ -63,6 +59,9 @@ class DurationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DurationDto? fromJson(dynamic value) {
+    if (value is DurationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +84,10 @@ class DurationDto {
     return null;
   }
 
-  static List<DurationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DurationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DurationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +115,18 @@ class DurationDto {
   }
 
   // maps a json object with a list of DurationDto-objects as value to a dart map
-  static Map<String, List<DurationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DurationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DurationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DurationDto.listFromJson(entry.value, growable: growable,);
+        final value = DurationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +136,5 @@ class DurationDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

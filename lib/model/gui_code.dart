@@ -34,16 +34,12 @@ class GuiCode {
   String? code;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is GuiCode &&
-          other.type == type &&
-          other.code == code;
+  bool operator ==(Object other) => identical(this, other) || other is GuiCode && other.type == type && other.code == code;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (type == null ? 0 : type!.hashCode) +
-      (code == null ? 0 : code!.hashCode);
+      (type == null ? 0 : type!.hashCode) + (code == null ? 0 : code!.hashCode);
 
   @override
   String toString() => 'GuiCode[type=$type, code=$code]';
@@ -63,6 +59,9 @@ class GuiCode {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static GuiCode? fromJson(dynamic value) {
+    if (value is GuiCode) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +84,10 @@ class GuiCode {
     return null;
   }
 
-  static List<GuiCode>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GuiCode>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GuiCode>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +115,18 @@ class GuiCode {
   }
 
   // maps a json object with a list of GuiCode-objects as value to a dart map
-  static Map<String, List<GuiCode>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GuiCode>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GuiCode>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GuiCode.listFromJson(entry.value, growable: growable,);
+        final value = GuiCode.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +136,5 @@ class GuiCode {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

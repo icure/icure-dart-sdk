@@ -53,16 +53,13 @@ class LetterValueDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is LetterValueDto &&
-          other.letter == letter &&
-          other.index == index &&
-          other.coefficient == coefficient &&
-          other.value == value;
+      identical(this, other) ||
+      other is LetterValueDto && other.letter == letter && other.index == index && other.coefficient == coefficient && other.value == value;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (letter == null ? 0 : letter!.hashCode) +
+      (letter == null ? 0 : letter!.hashCode) +
       (index == null ? 0 : index!.hashCode) +
       (coefficient == null ? 0 : coefficient!.hashCode) +
       (value == null ? 0 : value!.hashCode);
@@ -91,6 +88,9 @@ class LetterValueDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static LetterValueDto? fromJson(dynamic value) {
+    if (value is LetterValueDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -115,7 +115,10 @@ class LetterValueDto {
     return null;
   }
 
-  static List<LetterValueDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<LetterValueDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <LetterValueDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -143,12 +146,18 @@ class LetterValueDto {
   }
 
   // maps a json object with a list of LetterValueDto-objects as value to a dart map
-  static Map<String, List<LetterValueDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<LetterValueDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<LetterValueDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = LetterValueDto.listFromJson(entry.value, growable: growable,);
+        final value = LetterValueDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -158,7 +167,5 @@ class LetterValueDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

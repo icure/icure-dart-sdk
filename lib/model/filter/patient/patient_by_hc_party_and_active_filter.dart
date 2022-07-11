@@ -25,5 +25,4 @@ class PatientByHcPartyAndActiveFilter extends AbstractFilterDto<PatientDto> {
 
     return json;
   }
-
 }

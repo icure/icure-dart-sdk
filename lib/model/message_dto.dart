@@ -288,7 +288,8 @@ class MessageDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MessageDto &&
+      identical(this, other) ||
+      other is MessageDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -330,7 +331,7 @@ class MessageDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -462,6 +463,9 @@ class MessageDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MessageDto? fromJson(dynamic value) {
+    if (value is MessageDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -493,12 +497,16 @@ class MessageDto {
         formId: mapValueOfType<String>(json, r'formId'),
         status: mapValueOfType<int>(json, r'status'),
         recipientsType: mapValueOfType<String>(json, r'recipientsType'),
-        recipients: json[r'recipients'] is Set ? (json[r'recipients'] as Set).cast<String>() : json[r'recipients'] is List
-            ? ((json[r'recipients'] as List).toSet()).cast<String>()
-            : const {},
-        toAddresses: json[r'toAddresses'] is Set ? (json[r'toAddresses'] as Set).cast<String>() : json[r'toAddresses'] is List
-            ? ((json[r'toAddresses'] as List).toSet()).cast<String>()
-            : const {},
+        recipients: json[r'recipients'] is Set
+            ? (json[r'recipients'] as Set).cast<String>()
+            : json[r'recipients'] is List
+                ? ((json[r'recipients'] as List).toSet()).cast<String>()
+                : const {},
+        toAddresses: json[r'toAddresses'] is Set
+            ? (json[r'toAddresses'] as Set).cast<String>()
+            : json[r'toAddresses'] is List
+                ? ((json[r'toAddresses'] as List).toSet()).cast<String>()
+                : const {},
         received: mapValueOfType<int>(json, r'received'),
         sent: mapValueOfType<int>(json, r'sent'),
         metas: mapCastOfType<String, String>(json, r'metas')!,
@@ -507,35 +515,38 @@ class MessageDto {
         remark: mapValueOfType<String>(json, r'remark'),
         conversationGuid: mapValueOfType<String>(json, r'conversationGuid'),
         subject: mapValueOfType<String>(json, r'subject'),
-        invoiceIds: json[r'invoiceIds'] is Set ? (json[r'invoiceIds'] as Set).cast<String>() : json[r'invoiceIds'] is List
-            ? ((json[r'invoiceIds'] as List).toSet()).cast<String>()
-            : const {},
+        invoiceIds: json[r'invoiceIds'] is Set
+            ? (json[r'invoiceIds'] as Set).cast<String>()
+            : json[r'invoiceIds'] is List
+                ? ((json[r'invoiceIds'] as List).toSet()).cast<String>()
+                : const {},
         parentId: mapValueOfType<String>(json, r'parentId'),
         externalRef: mapValueOfType<String>(json, r'externalRef'),
-        unassignedResults: json[r'unassignedResults'] is Set ? (json[r'unassignedResults'] as Set).cast<String>() : json[r'unassignedResults'] is List
-            ? ((json[r'unassignedResults'] as List).toSet()).cast<String>()
-            : const {},
+        unassignedResults: json[r'unassignedResults'] is Set
+            ? (json[r'unassignedResults'] as Set).cast<String>()
+            : json[r'unassignedResults'] is List
+                ? ((json[r'unassignedResults'] as List).toSet()).cast<String>()
+                : const {},
         assignedResults: mapCastOfType<String, String>(json, r'assignedResults')!,
         senderReferences: mapCastOfType<String, String>(json, r'senderReferences')!,
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<MessageDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MessageDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MessageDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -563,12 +574,18 @@ class MessageDto {
   }
 
   // maps a json object with a list of MessageDto-objects as value to a dart map
-  static Map<String, List<MessageDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MessageDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MessageDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MessageDto.listFromJson(entry.value, growable: growable,);
+        final value = MessageDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -596,4 +613,3 @@ class MessageDto {
     'encryptionKeys',
   };
 }
-

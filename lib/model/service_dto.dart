@@ -261,7 +261,8 @@ class ServiceDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ServiceDto &&
+      identical(this, other) ||
+      other is ServiceDto &&
           other.id == id &&
           other.transactionId == transactionId &&
           other.identifier == identifier &&
@@ -301,7 +302,7 @@ class ServiceDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (transactionId == null ? 0 : transactionId!.hashCode) +
       (identifier.hashCode) +
       (contactId == null ? 0 : contactId!.hashCode) +
@@ -421,6 +422,9 @@ class ServiceDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ServiceDto? fromJson(dynamic value) {
+    if (value is ServiceDto) {
+      return value;
+    }
     if (value is Map) {
       final json = {
         "identifier": [],
@@ -458,29 +462,34 @@ class ServiceDto {
         transactionId: mapValueOfType<String>(json, r'transactionId'),
         identifier: IdentifierDto.listFromJson(json[r'identifier'])!,
         contactId: mapValueOfType<String>(json, r'contactId'),
-        subContactIds: json[r'subContactIds'] is Set ? (json[r'subContactIds'] as Set).cast<String>() : json[r'subContactIds'] is List
-            ? ((json[r'subContactIds'] as List).toSet()).cast<String>()
-            : const {},
-        plansOfActionIds: json[r'plansOfActionIds'] is Set ? (json[r'plansOfActionIds'] as Set).cast<String>() : json[r'plansOfActionIds'] is List
-            ? ((json[r'plansOfActionIds'] as List).toSet()).cast<String>()
-            : const {},
-        healthElementsIds: json[r'healthElementsIds'] is Set ? (json[r'healthElementsIds'] as Set).cast<String>() : json[r'healthElementsIds'] is List
-            ? ((json[r'healthElementsIds'] as List).toSet()).cast<String>()
-            : const {},
-        formIds: json[r'formIds'] is Set ? (json[r'formIds'] as Set).cast<String>() : json[r'formIds'] is List ? ((json[r'formIds'] as List).toSet())
-            .cast<String>() : const {},
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        subContactIds: json[r'subContactIds'] is Set
+            ? (json[r'subContactIds'] as Set).cast<String>()
+            : json[r'subContactIds'] is List
+                ? ((json[r'subContactIds'] as List).toSet()).cast<String>()
+                : const {},
+        plansOfActionIds: json[r'plansOfActionIds'] is Set
+            ? (json[r'plansOfActionIds'] as Set).cast<String>()
+            : json[r'plansOfActionIds'] is List
+                ? ((json[r'plansOfActionIds'] as List).toSet()).cast<String>()
+                : const {},
+        healthElementsIds: json[r'healthElementsIds'] is Set
+            ? (json[r'healthElementsIds'] as Set).cast<String>()
+            : json[r'healthElementsIds'] is List
+                ? ((json[r'healthElementsIds'] as List).toSet()).cast<String>()
+                : const {},
+        formIds: json[r'formIds'] is Set
+            ? (json[r'formIds'] as Set).cast<String>()
+            : json[r'formIds'] is List
+                ? ((json[r'formIds'] as List).toSet()).cast<String>()
+                : const {},
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         label: mapValueOfType<String>(json, r'label'),
         index: mapValueOfType<int>(json, r'index'),
         content: json[r'content'] == null ? const {} : ContentDto.mapFromJson(json[r'content']),
@@ -498,9 +507,11 @@ class ServiceDto {
         medicalLocationId: mapValueOfType<String>(json, r'medicalLocationId'),
         comment: mapValueOfType<String>(json, r'comment'),
         status: mapValueOfType<int>(json, r'status'),
-        invoicingCodes: json[r'invoicingCodes'] is Set ? (json[r'invoicingCodes'] as Set).cast<String>() : json[r'invoicingCodes'] is List
-            ? ((json[r'invoicingCodes'] as List).toSet()).cast<String>()
-            : const {},
+        invoicingCodes: json[r'invoicingCodes'] is Set
+            ? (json[r'invoicingCodes'] as Set).cast<String>()
+            : json[r'invoicingCodes'] is List
+                ? ((json[r'invoicingCodes'] as List).toSet()).cast<String>()
+                : const {},
         notes: AnnotationDto.listFromJson(json[r'notes'])!,
         qualifiedLinks: mapCastOfType<String, Map<String, String>>(json, r'qualifiedLinks')!,
         codes: CodeStubDto.listFromJson(json[r'codes'])!.toSet(),
@@ -511,7 +522,10 @@ class ServiceDto {
     return null;
   }
 
-  static List<ServiceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ServiceDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ServiceDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -539,12 +553,18 @@ class ServiceDto {
   }
 
   // maps a json object with a list of ServiceDto-objects as value to a dart map
-  static Map<String, List<ServiceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ServiceDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ServiceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ServiceDto.listFromJson(entry.value, growable: growable,);
+        final value = ServiceDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -569,4 +589,3 @@ class ServiceDto {
     'tags',
   };
 }
-

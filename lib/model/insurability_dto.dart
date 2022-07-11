@@ -111,7 +111,8 @@ class InsurabilityDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is InsurabilityDto &&
+      identical(this, other) ||
+      other is InsurabilityDto &&
           other.parameters == parameters &&
           other.hospitalisation == hospitalisation &&
           other.ambulatory == ambulatory &&
@@ -126,7 +127,7 @@ class InsurabilityDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (parameters.hashCode) +
+      (parameters.hashCode) +
       (hospitalisation == null ? 0 : hospitalisation!.hashCode) +
       (ambulatory == null ? 0 : ambulatory!.hashCode) +
       (dental == null ? 0 : dental!.hashCode) +
@@ -178,6 +179,9 @@ class InsurabilityDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static InsurabilityDto? fromJson(dynamic value) {
+    if (value is InsurabilityDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -208,7 +212,10 @@ class InsurabilityDto {
     return null;
   }
 
-  static List<InsurabilityDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InsurabilityDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InsurabilityDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -236,12 +243,18 @@ class InsurabilityDto {
   }
 
   // maps a json object with a list of InsurabilityDto-objects as value to a dart map
-  static Map<String, List<InsurabilityDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<InsurabilityDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<InsurabilityDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = InsurabilityDto.listFromJson(entry.value, growable: growable,);
+        final value = InsurabilityDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -255,4 +268,3 @@ class InsurabilityDto {
     'parameters',
   };
 }
-

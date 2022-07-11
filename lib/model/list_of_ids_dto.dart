@@ -19,14 +19,12 @@ class ListOfIdsDto {
   List<String> ids;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is ListOfIdsDto &&
-          other.ids == ids;
+  bool operator ==(Object other) => identical(this, other) || other is ListOfIdsDto && other.ids == ids;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (ids.hashCode);
+      (ids.hashCode);
 
   @override
   String toString() => 'ListOfIdsDto[ids=$ids]';
@@ -41,6 +39,9 @@ class ListOfIdsDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ListOfIdsDto? fromJson(dynamic value) {
+    if (value is ListOfIdsDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -56,15 +57,16 @@ class ListOfIdsDto {
       }());
 
       return ListOfIdsDto(
-        ids: json[r'ids'] is List
-            ? (json[r'ids'] as List).cast<String>()
-            : const [],
+        ids: json[r'ids'] is List ? (json[r'ids'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<ListOfIdsDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ListOfIdsDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ListOfIdsDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -92,12 +94,18 @@ class ListOfIdsDto {
   }
 
   // maps a json object with a list of ListOfIdsDto-objects as value to a dart map
-  static Map<String, List<ListOfIdsDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ListOfIdsDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ListOfIdsDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ListOfIdsDto.listFromJson(entry.value, growable: growable,);
+        final value = ListOfIdsDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -111,4 +119,3 @@ class ListOfIdsDto {
     'ids',
   };
 }
-

@@ -47,19 +47,12 @@ class VmpStubDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is VmpStubDto &&
-          other.id == id &&
-          other.code == code &&
-          other.vmpGroup == vmpGroup &&
-          other.name == name;
+      identical(this, other) || other is VmpStubDto && other.id == id && other.code == code && other.vmpGroup == vmpGroup && other.name == name;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
-      (code == null ? 0 : code!.hashCode) +
-      (vmpGroup == null ? 0 : vmpGroup!.hashCode) +
-      (name == null ? 0 : name!.hashCode);
+      (id.hashCode) + (code == null ? 0 : code!.hashCode) + (vmpGroup == null ? 0 : vmpGroup!.hashCode) + (name == null ? 0 : name!.hashCode);
 
   @override
   String toString() => 'VmpStubDto[id=$id, code=$code, vmpGroup=$vmpGroup, name=$name]';
@@ -83,6 +76,9 @@ class VmpStubDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static VmpStubDto? fromJson(dynamic value) {
+    if (value is VmpStubDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -107,7 +103,10 @@ class VmpStubDto {
     return null;
   }
 
-  static List<VmpStubDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<VmpStubDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <VmpStubDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -135,12 +134,18 @@ class VmpStubDto {
   }
 
   // maps a json object with a list of VmpStubDto-objects as value to a dart map
-  static Map<String, List<VmpStubDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<VmpStubDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<VmpStubDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = VmpStubDto.listFromJson(entry.value, growable: growable,);
+        final value = VmpStubDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -154,4 +159,3 @@ class VmpStubDto {
     'id',
   };
 }
-

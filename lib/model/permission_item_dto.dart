@@ -22,16 +22,12 @@ class PermissionItemDto {
   Object predicate;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is PermissionItemDto &&
-          other.type == type &&
-          other.predicate == predicate;
+  bool operator ==(Object other) => identical(this, other) || other is PermissionItemDto && other.type == type && other.predicate == predicate;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (type.hashCode) +
-      (predicate.hashCode);
+      (type.hashCode) + (predicate.hashCode);
 
   @override
   String toString() => 'PermissionItemDto[type=$type, predicate=$predicate]';
@@ -47,6 +43,9 @@ class PermissionItemDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PermissionItemDto? fromJson(dynamic value) {
+    if (value is PermissionItemDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -69,7 +68,10 @@ class PermissionItemDto {
     return null;
   }
 
-  static List<PermissionItemDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PermissionItemDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PermissionItemDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,12 +99,18 @@ class PermissionItemDto {
   }
 
   // maps a json object with a list of PermissionItemDto-objects as value to a dart map
-  static Map<String, List<PermissionItemDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PermissionItemDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PermissionItemDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PermissionItemDto.listFromJson(entry.value, growable: growable,);
+        final value = PermissionItemDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -117,7 +125,6 @@ class PermissionItemDto {
     'predicate',
   };
 }
-
 
 class PermissionItemDtoTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -160,7 +167,10 @@ class PermissionItemDtoTypeEnum {
 
   static PermissionItemDtoTypeEnum? fromJson(dynamic value) => PermissionItemDtoTypeEnumTypeTransformer().decode(value);
 
-  static List<PermissionItemDtoTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PermissionItemDtoTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PermissionItemDtoTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -228,5 +238,3 @@ class PermissionItemDtoTypeEnumTypeTransformer {
   /// Singleton [PermissionItemDtoTypeEnumTypeTransformer] instance.
   static PermissionItemDtoTypeEnumTypeTransformer? _instance;
 }
-
-

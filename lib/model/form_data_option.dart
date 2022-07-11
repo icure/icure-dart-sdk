@@ -34,16 +34,12 @@ class FormDataOption {
   String? value;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is FormDataOption &&
-          other.key == key &&
-          other.value == value;
+  bool operator ==(Object other) => identical(this, other) || other is FormDataOption && other.key == key && other.value == value;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (key == null ? 0 : key!.hashCode) +
-      (value == null ? 0 : value!.hashCode);
+      (key == null ? 0 : key!.hashCode) + (value == null ? 0 : value!.hashCode);
 
   @override
   String toString() => 'FormDataOption[key=$key, value=$value]';
@@ -63,6 +59,9 @@ class FormDataOption {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static FormDataOption? fromJson(dynamic value) {
+    if (value is FormDataOption) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +84,10 @@ class FormDataOption {
     return null;
   }
 
-  static List<FormDataOption>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FormDataOption>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FormDataOption>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +115,18 @@ class FormDataOption {
   }
 
   // maps a json object with a list of FormDataOption-objects as value to a dart map
-  static Map<String, List<FormDataOption>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FormDataOption>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FormDataOption>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FormDataOption.listFromJson(entry.value, growable: growable,);
+        final value = FormDataOption.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +136,5 @@ class FormDataOption {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

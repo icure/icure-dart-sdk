@@ -101,7 +101,8 @@ class InvoiceSender {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is InvoiceSender &&
+      identical(this, other) ||
+      other is InvoiceSender &&
           other.nihii == nihii &&
           other.bic == bic &&
           other.iban == iban &&
@@ -116,7 +117,7 @@ class InvoiceSender {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (nihii == null ? 0 : nihii!.hashCode) +
+      (nihii == null ? 0 : nihii!.hashCode) +
       (bic == null ? 0 : bic!.hashCode) +
       (iban == null ? 0 : iban!.hashCode) +
       (bce == null ? 0 : bce!.hashCode) +
@@ -168,6 +169,9 @@ class InvoiceSender {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static InvoiceSender? fromJson(dynamic value) {
+    if (value is InvoiceSender) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -198,7 +202,10 @@ class InvoiceSender {
     return null;
   }
 
-  static List<InvoiceSender>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InvoiceSender>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InvoiceSender>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -226,12 +233,18 @@ class InvoiceSender {
   }
 
   // maps a json object with a list of InvoiceSender-objects as value to a dart map
-  static Map<String, List<InvoiceSender>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<InvoiceSender>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<InvoiceSender>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = InvoiceSender.listFromJson(entry.value, growable: growable,);
+        final value = InvoiceSender.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -245,4 +258,3 @@ class InvoiceSender {
     'isSpecialist',
   };
 }
-

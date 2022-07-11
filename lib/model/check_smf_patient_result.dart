@@ -47,13 +47,14 @@ class CheckSMFPatientResult {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is CheckSMFPatientResult &&
-          other.firstName == firstName &&
-          other.lastName == lastName &&
-          other.ssin == ssin &&
-          other.dateOfBirth == dateOfBirth &&
-          other.exists == exists &&
-          other.existingPatientId == existingPatientId;
+      identical(this, other) ||
+          other is CheckSMFPatientResult &&
+              other.firstName == firstName &&
+              other.lastName == lastName &&
+              other.ssin == ssin &&
+              other.dateOfBirth == dateOfBirth &&
+              other.exists == exists &&
+              other.existingPatientId == existingPatientId;
 
   @override
   int get hashCode =>
@@ -88,6 +89,9 @@ class CheckSMFPatientResult {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static CheckSMFPatientResult? fromJson(dynamic value) {
+    if (value is CheckSMFPatientResult) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -114,7 +118,10 @@ class CheckSMFPatientResult {
     return null;
   }
 
-  static List<CheckSMFPatientResult>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CheckSMFPatientResult>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CheckSMFPatientResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,12 +149,18 @@ class CheckSMFPatientResult {
   }
 
   // maps a json object with a list of CheckSMFPatientResult-objects as value to a dart map
-  static Map<String, List<CheckSMFPatientResult>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CheckSMFPatientResult>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CheckSMFPatientResult>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CheckSMFPatientResult.listFromJson(entry.value, growable: growable,);
+        final value = CheckSMFPatientResult.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -164,4 +177,3 @@ class CheckSMFPatientResult {
     'exists',
   };
 }
-

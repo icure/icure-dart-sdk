@@ -22,5 +22,4 @@ class UnionFilter<O> extends AbstractFilterDto<O> {
 
     return json;
   }
-
 }

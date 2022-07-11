@@ -122,7 +122,8 @@ class AmpComponentDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is AmpComponentDto &&
+      identical(this, other) ||
+      other is AmpComponentDto &&
           other.from == from &&
           other.to == to &&
           other.ingredients == ingredients &&
@@ -210,6 +211,9 @@ class AmpComponentDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static AmpComponentDto? fromJson(dynamic value) {
+    if (value is AmpComponentDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -245,7 +249,10 @@ class AmpComponentDto {
     return null;
   }
 
-  static List<AmpComponentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AmpComponentDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AmpComponentDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -273,12 +280,18 @@ class AmpComponentDto {
   }
 
   // maps a json object with a list of AmpComponentDto-objects as value to a dart map
-  static Map<String, List<AmpComponentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AmpComponentDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AmpComponentDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AmpComponentDto.listFromJson(entry.value, growable: growable,);
+        final value = AmpComponentDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -288,10 +301,8 @@ class AmpComponentDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class AmpComponentDtoCrushableEnum {
   /// Instantiate a new enum with the provided [value].
@@ -318,7 +329,9 @@ class AmpComponentDtoCrushableEnum {
 
   static AmpComponentDtoCrushableEnum? fromJson(dynamic value) => AmpComponentDtoCrushableEnumTypeTransformer().decode(value);
 
-  static List<AmpComponentDtoCrushableEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AmpComponentDtoCrushableEnum>? listFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AmpComponentDtoCrushableEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -371,7 +384,6 @@ class AmpComponentDtoCrushableEnumTypeTransformer {
   static AmpComponentDtoCrushableEnumTypeTransformer? _instance;
 }
 
-
 class AmpComponentDtoContainsAlcoholEnum {
   /// Instantiate a new enum with the provided [value].
   const AmpComponentDtoContainsAlcoholEnum._(this.value);
@@ -397,7 +409,10 @@ class AmpComponentDtoContainsAlcoholEnum {
 
   static AmpComponentDtoContainsAlcoholEnum? fromJson(dynamic value) => AmpComponentDtoContainsAlcoholEnumTypeTransformer().decode(value);
 
-  static List<AmpComponentDtoContainsAlcoholEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AmpComponentDtoContainsAlcoholEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AmpComponentDtoContainsAlcoholEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -449,5 +464,3 @@ class AmpComponentDtoContainsAlcoholEnumTypeTransformer {
   /// Singleton [AmpComponentDtoContainsAlcoholEnumTypeTransformer] instance.
   static AmpComponentDtoContainsAlcoholEnumTypeTransformer? _instance;
 }
-
-

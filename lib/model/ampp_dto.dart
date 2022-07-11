@@ -541,6 +541,9 @@ class AmppDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static AmppDto? fromJson(dynamic value) {
+    if (value is AmppDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

@@ -177,7 +177,8 @@ class TarificationDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is TarificationDto &&
+      identical(this, other) ||
+      other is TarificationDto &&
           other.id == id &&
           other.rev == rev &&
           other.deletionDate == deletionDate &&
@@ -209,7 +210,7 @@ class TarificationDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
       (label.hashCode) +
@@ -303,6 +304,9 @@ class TarificationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static TarificationDto? fromJson(dynamic value) {
+    if (value is TarificationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -327,15 +331,15 @@ class TarificationDto {
         code: mapValueOfType<String>(json, r'code'),
         version: mapValueOfType<String>(json, r'version'),
         author: mapValueOfType<String>(json, r'author'),
-        regions: json[r'regions'] is Set ? (json[r'regions'] as Set).cast<String>() : json[r'regions'] is List ? ((json[r'regions'] as List).toSet())
-            .cast<String>() : const {},
+        regions: json[r'regions'] is Set
+            ? (json[r'regions'] as Set).cast<String>()
+            : json[r'regions'] is List
+                ? ((json[r'regions'] as List).toSet()).cast<String>()
+                : const {},
         periodicity: PeriodicityDto.listFromJson(json[r'periodicity'])!,
         level: mapValueOfType<int>(json, r'level'),
-        links: json[r'links'] is List
-            ? (json[r'links'] as List).cast<String>()
-            : const [],
-        qualifiedLinks: json[r'qualifiedLinks'] == null
-            ? const {} : mapWithListOfStringsFromJson(json[r'qualifiedLinks']),
+        links: json[r'links'] is List ? (json[r'links'] as List).cast<String>() : const [],
+        qualifiedLinks: json[r'qualifiedLinks'] == null ? const {} : mapWithListOfStringsFromJson(json[r'qualifiedLinks']),
         flags: CodeDtoFlagsEnum.listFromJson(json[r'flags'])!.toSet(),
         searchTerms: json[r'searchTerms'] == null ? const {} : mapWithSetOfStringsFromJson(json[r'searchTerms']),
         data: mapValueOfType<String>(json, r'data'),
@@ -346,9 +350,11 @@ class TarificationDto {
         consultationCode: mapValueOfType<bool>(json, r'consultationCode'),
         hasRelatedCode: mapValueOfType<bool>(json, r'hasRelatedCode'),
         needsPrescriber: mapValueOfType<bool>(json, r'needsPrescriber'),
-        relatedCodes: json[r'relatedCodes'] is Set ? (json[r'relatedCodes'] as Set).cast<String>() : json[r'relatedCodes'] is List
-            ? ((json[r'relatedCodes'] as List).toSet()).cast<String>()
-            : const {},
+        relatedCodes: json[r'relatedCodes'] is Set
+            ? (json[r'relatedCodes'] as Set).cast<String>()
+            : json[r'relatedCodes'] is List
+                ? ((json[r'relatedCodes'] as List).toSet()).cast<String>()
+                : const {},
         ngroup: mapValueOfType<String>(json, r'ngroup'),
         letterValues: LetterValueDto.listFromJson(json[r'letterValues'])!,
       );
@@ -356,7 +362,10 @@ class TarificationDto {
     return null;
   }
 
-  static List<TarificationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TarificationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TarificationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -384,12 +393,18 @@ class TarificationDto {
   }
 
   // maps a json object with a list of TarificationDto-objects as value to a dart map
-  static Map<String, List<TarificationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TarificationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TarificationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = TarificationDto.listFromJson(entry.value, growable: growable,);
+        final value = TarificationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -415,6 +430,3 @@ class TarificationDto {
     'letterValues',
   };
 }
-
-
-

@@ -237,7 +237,8 @@ class MedicalHouseContractDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MedicalHouseContractDto &&
+      identical(this, other) ||
+      other is MedicalHouseContractDto &&
           other.contractId == contractId &&
           other.validFrom == validFrom &&
           other.validTo == validTo &&
@@ -275,7 +276,7 @@ class MedicalHouseContractDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (contractId == null ? 0 : contractId!.hashCode) +
+      (contractId == null ? 0 : contractId!.hashCode) +
       (validFrom == null ? 0 : validFrom!.hashCode) +
       (validTo == null ? 0 : validTo!.hashCode) +
       (mmNihii == null ? 0 : mmNihii!.hashCode) +
@@ -401,6 +402,9 @@ class MedicalHouseContractDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MedicalHouseContractDto? fromJson(dynamic value) {
+    if (value is MedicalHouseContractDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -454,7 +458,10 @@ class MedicalHouseContractDto {
     return null;
   }
 
-  static List<MedicalHouseContractDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MedicalHouseContractDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MedicalHouseContractDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -482,12 +489,18 @@ class MedicalHouseContractDto {
   }
 
   // maps a json object with a list of MedicalHouseContractDto-objects as value to a dart map
-  static Map<String, List<MedicalHouseContractDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MedicalHouseContractDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MedicalHouseContractDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MedicalHouseContractDto.listFromJson(entry.value, growable: growable,);
+        final value = MedicalHouseContractDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -510,7 +523,6 @@ class MedicalHouseContractDto {
     'receipts',
   };
 }
-
 
 class MedicalHouseContractDtoChangeTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -539,7 +551,10 @@ class MedicalHouseContractDtoChangeTypeEnum {
 
   static MedicalHouseContractDtoChangeTypeEnum? fromJson(dynamic value) => MedicalHouseContractDtoChangeTypeEnumTypeTransformer().decode(value);
 
-  static List<MedicalHouseContractDtoChangeTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MedicalHouseContractDtoChangeTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MedicalHouseContractDtoChangeTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -594,7 +609,6 @@ class MedicalHouseContractDtoChangeTypeEnumTypeTransformer {
   static MedicalHouseContractDtoChangeTypeEnumTypeTransformer? _instance;
 }
 
-
 class MedicalHouseContractDtoSuspensionReasonEnum {
   /// Instantiate a new enum with the provided [value].
   const MedicalHouseContractDtoSuspensionReasonEnum._(this.value);
@@ -625,7 +639,10 @@ class MedicalHouseContractDtoSuspensionReasonEnum {
   static MedicalHouseContractDtoSuspensionReasonEnum? fromJson(dynamic value) =>
       MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer().decode(value);
 
-  static List<MedicalHouseContractDtoSuspensionReasonEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MedicalHouseContractDtoSuspensionReasonEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MedicalHouseContractDtoSuspensionReasonEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -683,7 +700,6 @@ class MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer {
   static MedicalHouseContractDtoSuspensionReasonEnumTypeTransformer? _instance;
 }
 
-
 class MedicalHouseContractDtoSignatureTypeEnum {
   /// Instantiate a new enum with the provided [value].
   const MedicalHouseContractDtoSignatureTypeEnum._(this.value);
@@ -711,7 +727,10 @@ class MedicalHouseContractDtoSignatureTypeEnum {
 
   static MedicalHouseContractDtoSignatureTypeEnum? fromJson(dynamic value) => MedicalHouseContractDtoSignatureTypeEnumTypeTransformer().decode(value);
 
-  static List<MedicalHouseContractDtoSignatureTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MedicalHouseContractDtoSignatureTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MedicalHouseContractDtoSignatureTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -766,5 +785,3 @@ class MedicalHouseContractDtoSignatureTypeEnumTypeTransformer {
   /// Singleton [MedicalHouseContractDtoSignatureTypeEnumTypeTransformer] instance.
   static MedicalHouseContractDtoSignatureTypeEnumTypeTransformer? _instance;
 }
-
-

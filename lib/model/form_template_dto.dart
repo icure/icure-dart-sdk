@@ -180,7 +180,8 @@ class FormTemplateDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is FormTemplateDto &&
+      identical(this, other) ||
+      other is FormTemplateDto &&
           other.id == id &&
           other.rev == rev &&
           other.deletionDate == deletionDate &&
@@ -205,7 +206,7 @@ class FormTemplateDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
       (layout == null ? 0 : layout!.hashCode) +
@@ -293,6 +294,9 @@ class FormTemplateDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static FormTemplateDto? fromJson(dynamic value) {
+    if (value is FormTemplateDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -325,8 +329,11 @@ class FormTemplateDto {
         shortReport: mapValueOfType<String>(json, r'shortReport'),
         mediumReport: mapValueOfType<String>(json, r'mediumReport'),
         longReport: mapValueOfType<String>(json, r'longReport'),
-        reports: json[r'reports'] is Set ? (json[r'reports'] as Set).cast<String>() : json[r'reports'] is List ? ((json[r'reports'] as List).toSet())
-            .cast<String>() : const {},
+        reports: json[r'reports'] is Set
+            ? (json[r'reports'] as Set).cast<String>()
+            : json[r'reports'] is List
+                ? ((json[r'reports'] as List).toSet()).cast<String>()
+                : const {},
         tags: CodeStubDto.listFromJson(json[r'tags'])!.toSet(),
         layoutAttachmentId: mapValueOfType<String>(json, r'layoutAttachmentId'),
       );
@@ -334,7 +341,10 @@ class FormTemplateDto {
     return null;
   }
 
-  static List<FormTemplateDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FormTemplateDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FormTemplateDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -362,12 +372,18 @@ class FormTemplateDto {
   }
 
   // maps a json object with a list of FormTemplateDto-objects as value to a dart map
-  static Map<String, List<FormTemplateDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FormTemplateDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FormTemplateDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FormTemplateDto.listFromJson(entry.value, growable: growable,);
+        final value = FormTemplateDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -383,4 +399,3 @@ class FormTemplateDto {
     'tags',
   };
 }
-

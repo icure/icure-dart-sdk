@@ -255,6 +255,9 @@ class DecryptedArticleDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedArticleDto? fromJson(dynamic value) {
+    if (value is DecryptedArticleDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -263,10 +266,8 @@ class DecryptedArticleDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedArticleDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedArticleDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedArticleDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedArticleDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -286,25 +287,22 @@ class DecryptedArticleDto {
         name: mapValueOfType<String>(json, r'name'),
         content: ContentDto.listFromJson(json[r'content'])!,
         classification: mapValueOfType<String>(json, r'classification'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<DecryptedArticleDto>? listFromJson(dynamic json, {
+  static List<DecryptedArticleDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedArticleDto>[];
@@ -334,7 +332,8 @@ class DecryptedArticleDto {
   }
 
   // maps a json object with a list of DecryptedArticleDto-objects as value to a dart map
-  static Map<String, List<DecryptedArticleDto>> mapListFromJson(dynamic json, {
+  static Map<String, List<DecryptedArticleDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedArticleDto>>{};

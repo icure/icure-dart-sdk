@@ -49,7 +49,8 @@ class TelecomDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is TelecomDto &&
+      identical(this, other) ||
+      other is TelecomDto &&
           other.telecomType == telecomType &&
           other.telecomNumber == telecomNumber &&
           other.telecomDescription == telecomDescription &&
@@ -58,7 +59,7 @@ class TelecomDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (telecomType == null ? 0 : telecomType!.hashCode) +
+      (telecomType == null ? 0 : telecomType!.hashCode) +
       (telecomNumber == null ? 0 : telecomNumber!.hashCode) +
       (telecomDescription == null ? 0 : telecomDescription!.hashCode) +
       (encryptedSelf == null ? 0 : encryptedSelf!.hashCode);
@@ -88,6 +89,9 @@ class TelecomDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static TelecomDto? fromJson(dynamic value) {
+    if (value is TelecomDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -112,7 +116,10 @@ class TelecomDto {
     return null;
   }
 
-  static List<TelecomDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TelecomDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TelecomDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -140,12 +147,18 @@ class TelecomDto {
   }
 
   // maps a json object with a list of TelecomDto-objects as value to a dart map
-  static Map<String, List<TelecomDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TelecomDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TelecomDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = TelecomDto.listFromJson(entry.value, growable: growable,);
+        final value = TelecomDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -155,8 +168,7 @@ class TelecomDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
 
 /// The type of telecom method being used, ex: landline phone, mobile phone, email, fax, etc.
@@ -207,7 +219,10 @@ class TelecomDtoTelecomTypeEnum {
 
   static TelecomDtoTelecomTypeEnum? fromJson(dynamic value) => TelecomDtoTelecomTypeEnumTypeTransformer().decode(value);
 
-  static List<TelecomDtoTelecomTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TelecomDtoTelecomTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TelecomDtoTelecomTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -281,5 +296,3 @@ class TelecomDtoTelecomTypeEnumTypeTransformer {
   /// Singleton [TelecomDtoTelecomTypeEnumTypeTransformer] instance.
   static TelecomDtoTelecomTypeEnumTypeTransformer? _instance;
 }
-
-

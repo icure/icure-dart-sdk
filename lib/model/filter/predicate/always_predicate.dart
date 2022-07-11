@@ -11,5 +11,4 @@ class AlwaysPredicate extends Predicate {
 
     return json;
   }
-
 }

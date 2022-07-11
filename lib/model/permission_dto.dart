@@ -24,16 +24,12 @@ class PermissionDto {
   Set<PermissionItemDto> revokes;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is PermissionDto &&
-          other.grants == grants &&
-          other.revokes == revokes;
+  bool operator ==(Object other) => identical(this, other) || other is PermissionDto && other.grants == grants && other.revokes == revokes;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (grants.hashCode) +
-      (revokes.hashCode);
+      (grants.hashCode) + (revokes.hashCode);
 
   @override
   String toString() => 'PermissionDto[grants=$grants, revokes=$revokes]';
@@ -49,6 +45,9 @@ class PermissionDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PermissionDto? fromJson(dynamic value) {
+    if (value is PermissionDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -71,7 +70,10 @@ class PermissionDto {
     return null;
   }
 
-  static List<PermissionDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PermissionDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PermissionDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -99,12 +101,18 @@ class PermissionDto {
   }
 
   // maps a json object with a list of PermissionDto-objects as value to a dart map
-  static Map<String, List<PermissionDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PermissionDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PermissionDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PermissionDto.listFromJson(entry.value, growable: growable,);
+        final value = PermissionDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -119,4 +127,3 @@ class PermissionDto {
     'revokes',
   };
 }
-

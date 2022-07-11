@@ -35,5 +35,4 @@ class CodeByRegionTypeLabelLanguageFilter extends AbstractFilterDto<CodeDto> {
     }
     return json;
   }
-
 }

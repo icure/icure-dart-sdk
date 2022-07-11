@@ -51,12 +51,13 @@ class CareTeamMemberDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is CareTeamMemberDto &&
-          other.id == id &&
-          other.careTeamMemberType == careTeamMemberType &&
-          other.healthcarePartyId == healthcarePartyId &&
-          other.quality == quality &&
-          other.encryptedSelf == encryptedSelf;
+      identical(this, other) ||
+          other is CareTeamMemberDto &&
+              other.id == id &&
+              other.careTeamMemberType == careTeamMemberType &&
+              other.healthcarePartyId == healthcarePartyId &&
+              other.quality == quality &&
+              other.encryptedSelf == encryptedSelf;
 
   @override
   int get hashCode =>
@@ -93,6 +94,9 @@ class CareTeamMemberDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static CareTeamMemberDto? fromJson(dynamic value) {
+    if (value is CareTeamMemberDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -118,7 +122,10 @@ class CareTeamMemberDto {
     return null;
   }
 
-  static List<CareTeamMemberDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CareTeamMemberDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CareTeamMemberDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,12 +153,18 @@ class CareTeamMemberDto {
   }
 
   // maps a json object with a list of CareTeamMemberDto-objects as value to a dart map
-  static Map<String, List<CareTeamMemberDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CareTeamMemberDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CareTeamMemberDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CareTeamMemberDto.listFromJson(entry.value, growable: growable,);
+        final value = CareTeamMemberDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -165,7 +178,6 @@ class CareTeamMemberDto {
     'id',
   };
 }
-
 
 class CareTeamMemberDtoCareTeamMemberTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -192,7 +204,10 @@ class CareTeamMemberDtoCareTeamMemberTypeEnum {
 
   static CareTeamMemberDtoCareTeamMemberTypeEnum? fromJson(dynamic value) => CareTeamMemberDtoCareTeamMemberTypeEnumTypeTransformer().decode(value);
 
-  static List<CareTeamMemberDtoCareTeamMemberTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CareTeamMemberDtoCareTeamMemberTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CareTeamMemberDtoCareTeamMemberTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -244,5 +259,3 @@ class CareTeamMemberDtoCareTeamMemberTypeEnumTypeTransformer {
   /// Singleton [CareTeamMemberDtoCareTeamMemberTypeEnumTypeTransformer] instance.
   static CareTeamMemberDtoCareTeamMemberTypeEnumTypeTransformer? _instance;
 }
-
-

@@ -28,16 +28,12 @@ class VirtualFormDto {
   List<CodeStubDto> standardForms;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is VirtualFormDto &&
-          other.name == name &&
-          other.standardForms == standardForms;
+  bool operator ==(Object other) => identical(this, other) || other is VirtualFormDto && other.name == name && other.standardForms == standardForms;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (name == null ? 0 : name!.hashCode) +
-      (standardForms.hashCode);
+      (name == null ? 0 : name!.hashCode) + (standardForms.hashCode);
 
   @override
   String toString() => 'VirtualFormDto[name=$name, standardForms=$standardForms]';
@@ -55,6 +51,9 @@ class VirtualFormDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static VirtualFormDto? fromJson(dynamic value) {
+    if (value is VirtualFormDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -77,7 +76,10 @@ class VirtualFormDto {
     return null;
   }
 
-  static List<VirtualFormDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<VirtualFormDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <VirtualFormDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,12 +107,18 @@ class VirtualFormDto {
   }
 
   // maps a json object with a list of VirtualFormDto-objects as value to a dart map
-  static Map<String, List<VirtualFormDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<VirtualFormDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<VirtualFormDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = VirtualFormDto.listFromJson(entry.value, growable: growable,);
+        final value = VirtualFormDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -124,4 +132,3 @@ class VirtualFormDto {
     'standardForms',
   };
 }
-

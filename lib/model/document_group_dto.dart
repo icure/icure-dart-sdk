@@ -34,16 +34,12 @@ class DocumentGroupDto {
   String? name;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is DocumentGroupDto &&
-          other.guid == guid &&
-          other.name == name;
+  bool operator ==(Object other) => identical(this, other) || other is DocumentGroupDto && other.guid == guid && other.name == name;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (guid == null ? 0 : guid!.hashCode) +
-      (name == null ? 0 : name!.hashCode);
+  (guid == null ? 0 : guid!.hashCode) + (name == null ? 0 : name!.hashCode);
 
   @override
   String toString() => 'DocumentGroupDto[guid=$guid, name=$name]';
@@ -63,6 +59,9 @@ class DocumentGroupDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DocumentGroupDto? fromJson(dynamic value) {
+    if (value is DocumentGroupDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +84,10 @@ class DocumentGroupDto {
     return null;
   }
 
-  static List<DocumentGroupDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DocumentGroupDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DocumentGroupDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +115,18 @@ class DocumentGroupDto {
   }
 
   // maps a json object with a list of DocumentGroupDto-objects as value to a dart map
-  static Map<String, List<DocumentGroupDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DocumentGroupDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DocumentGroupDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DocumentGroupDto.listFromJson(entry.value, growable: growable,);
+        final value = DocumentGroupDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +136,5 @@ class DocumentGroupDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

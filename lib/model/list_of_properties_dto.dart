@@ -19,14 +19,12 @@ class ListOfPropertiesDto {
   Set<PropertyStubDto> properties;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is ListOfPropertiesDto &&
-          other.properties == properties;
+  bool operator ==(Object other) => identical(this, other) || other is ListOfPropertiesDto && other.properties == properties;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (properties.hashCode);
+      (properties.hashCode);
 
   @override
   String toString() => 'ListOfPropertiesDto[properties=$properties]';
@@ -41,6 +39,9 @@ class ListOfPropertiesDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ListOfPropertiesDto? fromJson(dynamic value) {
+    if (value is ListOfPropertiesDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,7 +63,10 @@ class ListOfPropertiesDto {
     return null;
   }
 
-  static List<ListOfPropertiesDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ListOfPropertiesDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ListOfPropertiesDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +94,18 @@ class ListOfPropertiesDto {
   }
 
   // maps a json object with a list of ListOfPropertiesDto-objects as value to a dart map
-  static Map<String, List<ListOfPropertiesDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ListOfPropertiesDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ListOfPropertiesDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ListOfPropertiesDto.listFromJson(entry.value, growable: growable,);
+        final value = ListOfPropertiesDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,4 +119,3 @@ class ListOfPropertiesDto {
     'properties',
   };
 }
-

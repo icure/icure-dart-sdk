@@ -27,6 +27,4 @@ class PatientByHcPartyDateOfBirthFilter extends AbstractFilterDto<PatientDto> {
 
     return json;
   }
-
-
 }

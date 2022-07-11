@@ -50,7 +50,8 @@ class TimeTableItemDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is TimeTableItemDto &&
+      identical(this, other) ||
+      other is TimeTableItemDto &&
           other.days == days &&
           other.hours == hours &&
           other.recurrenceTypes == recurrenceTypes &&
@@ -62,7 +63,7 @@ class TimeTableItemDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (days.hashCode) +
+      (days.hashCode) +
       (hours.hashCode) +
       (recurrenceTypes.hashCode) +
       (calendarItemTypeId == null ? 0 : calendarItemTypeId!.hashCode) +
@@ -94,6 +95,9 @@ class TimeTableItemDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static TimeTableItemDto? fromJson(dynamic value) {
+    if (value is TimeTableItemDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -109,13 +113,9 @@ class TimeTableItemDto {
       }());
 
       return TimeTableItemDto(
-        days: json[r'days'] is List
-            ? (json[r'days'] as List).cast<String>()
-            : const [],
+        days: json[r'days'] is List ? (json[r'days'] as List).cast<String>() : const [],
         hours: TimeTableHourDto.listFromJson(json[r'hours'])!,
-        recurrenceTypes: json[r'recurrenceTypes'] is List
-            ? (json[r'recurrenceTypes'] as List).cast<String>()
-            : const [],
+        recurrenceTypes: json[r'recurrenceTypes'] is List ? (json[r'recurrenceTypes'] as List).cast<String>() : const [],
         calendarItemTypeId: mapValueOfType<String>(json, r'calendarItemTypeId'),
         homeVisit: mapValueOfType<bool>(json, r'homeVisit')!,
         placeId: mapValueOfType<String>(json, r'placeId'),
@@ -125,7 +125,10 @@ class TimeTableItemDto {
     return null;
   }
 
-  static List<TimeTableItemDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TimeTableItemDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TimeTableItemDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -153,12 +156,18 @@ class TimeTableItemDto {
   }
 
   // maps a json object with a list of TimeTableItemDto-objects as value to a dart map
-  static Map<String, List<TimeTableItemDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TimeTableItemDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TimeTableItemDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = TimeTableItemDto.listFromJson(entry.value, growable: growable,);
+        final value = TimeTableItemDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -176,4 +185,3 @@ class TimeTableItemDto {
     'unavailable',
   };
 }
-

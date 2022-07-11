@@ -57,17 +57,13 @@ class PlaceDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is PlaceDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.deletionDate == deletionDate &&
-          other.name == name &&
-          other.address == address;
+      identical(this, other) ||
+      other is PlaceDto && other.id == id && other.rev == rev && other.deletionDate == deletionDate && other.name == name && other.address == address;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
       (name == null ? 0 : name!.hashCode) +
@@ -98,6 +94,9 @@ class PlaceDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PlaceDto? fromJson(dynamic value) {
+    if (value is PlaceDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -123,7 +122,10 @@ class PlaceDto {
     return null;
   }
 
-  static List<PlaceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PlaceDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PlaceDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -151,12 +153,18 @@ class PlaceDto {
   }
 
   // maps a json object with a list of PlaceDto-objects as value to a dart map
-  static Map<String, List<PlaceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PlaceDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PlaceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PlaceDto.listFromJson(entry.value, growable: growable,);
+        final value = PlaceDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -170,4 +178,3 @@ class PlaceDto {
     'id',
   };
 }
-

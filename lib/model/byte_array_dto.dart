@@ -19,14 +19,12 @@ class ByteArrayDto {
   List<String> data;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is ByteArrayDto &&
-          other.data == data;
+  bool operator ==(Object other) => identical(this, other) || other is ByteArrayDto && other.data == data;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (data.hashCode);
+      (data.hashCode);
 
   @override
   String toString() => 'ByteArrayDto[data=$data]';
@@ -41,6 +39,9 @@ class ByteArrayDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ByteArrayDto? fromJson(dynamic value) {
+    if (value is ByteArrayDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -56,15 +57,16 @@ class ByteArrayDto {
       }());
 
       return ByteArrayDto(
-        data: json[r'data'] is List
-            ? (json[r'data'] as List).cast<String>()
-            : const [],
+        data: json[r'data'] is List ? (json[r'data'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<ByteArrayDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ByteArrayDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ByteArrayDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -92,12 +94,18 @@ class ByteArrayDto {
   }
 
   // maps a json object with a list of ByteArrayDto-objects as value to a dart map
-  static Map<String, List<ByteArrayDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ByteArrayDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ByteArrayDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ByteArrayDto.listFromJson(entry.value, growable: growable,);
+        final value = ByteArrayDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -107,7 +115,5 @@ class ByteArrayDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

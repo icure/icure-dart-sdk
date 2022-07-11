@@ -59,6 +59,9 @@ class EmployerDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static EmployerDto? fromJson(dynamic value) {
+    if (value is EmployerDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

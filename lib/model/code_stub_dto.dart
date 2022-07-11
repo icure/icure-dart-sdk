@@ -112,6 +112,9 @@ class CodeStubDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static CodeStubDto? fromJson(dynamic value) {
+    if (value is CodeStubDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

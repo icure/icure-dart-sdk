@@ -36,16 +36,16 @@ class PaginatedListVmpDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is PaginatedListVmpDto &&
-          other.pageSize == pageSize &&
-          other.totalSize == totalSize &&
-          other.rows == rows &&
-          other.nextKeyPair == nextKeyPair;
+          other is PaginatedListVmpDto &&
+              other.pageSize == pageSize &&
+              other.totalSize == totalSize &&
+              other.rows == rows &&
+              other.nextKeyPair == nextKeyPair;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (pageSize.hashCode) + (totalSize.hashCode) + (rows.hashCode) + (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
+  (pageSize.hashCode) + (totalSize.hashCode) + (rows.hashCode) + (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
 
   @override
   String toString() => 'PaginatedListVmpDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
@@ -65,6 +65,9 @@ class PaginatedListVmpDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PaginatedListVmpDto? fromJson(dynamic value) {
+    if (value is PaginatedListVmpDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -89,8 +92,7 @@ class PaginatedListVmpDto {
     return null;
   }
 
-  static List<PaginatedListVmpDto>? listFromJson(
-    dynamic json, {
+  static List<PaginatedListVmpDto>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <PaginatedListVmpDto>[];
@@ -120,8 +122,7 @@ class PaginatedListVmpDto {
   }
 
   // maps a json object with a list of PaginatedListVmpDto-objects as value to a dart map
-  static Map<String, List<PaginatedListVmpDto>> mapListFromJson(
-    dynamic json, {
+  static Map<String, List<PaginatedListVmpDto>> mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<PaginatedListVmpDto>>{};

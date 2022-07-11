@@ -35,19 +35,13 @@ class Section {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is Section &&
-          other.section == section &&
-          other.fields == fields &&
-          other.description == description &&
-          other.keywords == keywords;
+      identical(this, other) ||
+      other is Section && other.section == section && other.fields == fields && other.description == description && other.keywords == keywords;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (section.hashCode) +
-      (fields.hashCode) +
-      (description == null ? 0 : description!.hashCode) +
-      (keywords.hashCode);
+      (section.hashCode) + (fields.hashCode) + (description == null ? 0 : description!.hashCode) + (keywords.hashCode);
 
   @override
   String toString() => 'Section[section=$section, fields=$fields, description=$description, keywords=$keywords]';
@@ -67,6 +61,9 @@ class Section {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static Section? fromJson(dynamic value) {
+    if (value is Section) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,15 +82,16 @@ class Section {
         section: mapValueOfType<String>(json, r'section') ?? r'',
         fields: List.from((json[r'fields' as List].cast<Object>())),
         description: mapValueOfType<String>(json, r'description'),
-        keywords: json[r'keywords'] is List
-            ? (json[r'keywords'] as List).cast<String>()
-            : const [],
+        keywords: json[r'keywords'] is List ? (json[r'keywords'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<Section>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Section>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Section>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -121,12 +119,18 @@ class Section {
   }
 
   // maps a json object with a list of Section-objects as value to a dart map
-  static Map<String, List<Section>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Section>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Section>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = Section.listFromJson(entry.value, growable: growable,);
+        final value = Section.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -141,4 +145,3 @@ class Section {
     'fields',
   };
 }
-

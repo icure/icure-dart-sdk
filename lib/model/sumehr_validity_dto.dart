@@ -19,14 +19,12 @@ class SumehrValidityDto {
   SumehrValidityDtoSumehrValidEnum sumehrValid;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is SumehrValidityDto &&
-          other.sumehrValid == sumehrValid;
+  bool operator ==(Object other) => identical(this, other) || other is SumehrValidityDto && other.sumehrValid == sumehrValid;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (sumehrValid.hashCode);
+      (sumehrValid.hashCode);
 
   @override
   String toString() => 'SumehrValidityDto[sumehrValid=$sumehrValid]';
@@ -41,6 +39,9 @@ class SumehrValidityDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static SumehrValidityDto? fromJson(dynamic value) {
+    if (value is SumehrValidityDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -62,7 +63,10 @@ class SumehrValidityDto {
     return null;
   }
 
-  static List<SumehrValidityDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SumehrValidityDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SumehrValidityDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,12 +94,18 @@ class SumehrValidityDto {
   }
 
   // maps a json object with a list of SumehrValidityDto-objects as value to a dart map
-  static Map<String, List<SumehrValidityDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SumehrValidityDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SumehrValidityDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SumehrValidityDto.listFromJson(entry.value, growable: growable,);
+        final value = SumehrValidityDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -109,7 +119,6 @@ class SumehrValidityDto {
     'sumehrValid',
   };
 }
-
 
 class SumehrValidityDtoSumehrValidEnum {
   /// Instantiate a new enum with the provided [value].
@@ -136,7 +145,10 @@ class SumehrValidityDtoSumehrValidEnum {
 
   static SumehrValidityDtoSumehrValidEnum? fromJson(dynamic value) => SumehrValidityDtoSumehrValidEnumTypeTransformer().decode(value);
 
-  static List<SumehrValidityDtoSumehrValidEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SumehrValidityDtoSumehrValidEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SumehrValidityDtoSumehrValidEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -188,5 +200,3 @@ class SumehrValidityDtoSumehrValidEnumTypeTransformer {
   /// Singleton [SumehrValidityDtoSumehrValidEnumTypeTransformer] instance.
   static SumehrValidityDtoSumehrValidEnumTypeTransformer? _instance;
 }
-
-

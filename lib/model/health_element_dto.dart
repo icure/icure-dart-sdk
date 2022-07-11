@@ -252,7 +252,8 @@ class HealthElementDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is HealthElementDto &&
+      identical(this, other) ||
+      other is HealthElementDto &&
           other.id == id &&
           other.identifiers == identifiers &&
           other.rev == rev &&
@@ -289,7 +290,7 @@ class HealthElementDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (identifiers.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
@@ -405,6 +406,9 @@ class HealthElementDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static HealthElementDto? fromJson(dynamic value) {
+    if (value is HealthElementDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -447,25 +451,24 @@ class HealthElementDto {
         plansOfAction: PlanOfActionDto.listFromJson(json[r'plansOfAction'])!,
         episodes: EpisodeDto.listFromJson(json[r'episodes'])!,
         careTeam: CareTeamMemberDto.listFromJson(json[r'careTeam'])!,
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<HealthElementDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<HealthElementDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <HealthElementDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -493,12 +496,18 @@ class HealthElementDto {
   }
 
   // maps a json object with a list of HealthElementDto-objects as value to a dart map
-  static Map<String, List<HealthElementDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<HealthElementDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<HealthElementDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = HealthElementDto.listFromJson(entry.value, growable: growable,);
+        final value = HealthElementDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -549,7 +558,10 @@ class HealthElementDtoLateralityEnum {
 
   static HealthElementDtoLateralityEnum? fromJson(dynamic value) => HealthElementDtoLateralityEnumTypeTransformer().decode(value);
 
-  static List<HealthElementDtoLateralityEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<HealthElementDtoLateralityEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <HealthElementDtoLateralityEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -599,5 +611,3 @@ class HealthElementDtoLateralityEnumTypeTransformer {
   /// Singleton [HealthElementDtoLateralityEnumTypeTransformer] instance.
   static HealthElementDtoLateralityEnumTypeTransformer? _instance;
 }
-
-

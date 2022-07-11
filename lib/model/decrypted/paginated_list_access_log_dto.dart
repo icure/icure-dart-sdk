@@ -36,23 +36,19 @@ class DecryptedPaginatedListAccessLogDto {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is DecryptedPaginatedListAccessLogDto &&
-              other.pageSize == pageSize &&
-              other.totalSize == totalSize &&
-              other.rows == rows &&
-              other.nextKeyPair == nextKeyPair;
+      other is DecryptedPaginatedListAccessLogDto &&
+          other.pageSize == pageSize &&
+          other.totalSize == totalSize &&
+          other.rows == rows &&
+          other.nextKeyPair == nextKeyPair;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (pageSize.hashCode) +
-      (totalSize.hashCode) +
-      (rows.hashCode) +
-      (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
+      (pageSize.hashCode) + (totalSize.hashCode) + (rows.hashCode) + (nextKeyPair == null ? 0 : nextKeyPair!.hashCode);
 
   @override
-  String toString() =>
-      'DecryptedPaginatedListAccessLogDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
+  String toString() => 'DecryptedPaginatedListAccessLogDto[pageSize=$pageSize, totalSize=$totalSize, rows=$rows, nextKeyPair=$nextKeyPair]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -69,6 +65,9 @@ class DecryptedPaginatedListAccessLogDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedPaginatedListAccessLogDto? fromJson(dynamic value) {
+    if (value is DecryptedPaginatedListAccessLogDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -77,10 +76,8 @@ class DecryptedPaginatedListAccessLogDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedPaginatedListAccessLogDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedPaginatedListAccessLogDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedPaginatedListAccessLogDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedPaginatedListAccessLogDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -89,14 +86,14 @@ class DecryptedPaginatedListAccessLogDto {
         pageSize: mapValueOfType<int>(json, r'pageSize')!,
         totalSize: mapValueOfType<int>(json, r'totalSize')!,
         rows: AccessLogDto.listFromJson(json[r'rows'])!,
-        nextKeyPair:
-        PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
+        nextKeyPair: PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
       );
     }
     return null;
   }
 
-  static List<DecryptedPaginatedListAccessLogDto>? listFromJson(dynamic json, {
+  static List<DecryptedPaginatedListAccessLogDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedPaginatedListAccessLogDto>[];
@@ -126,7 +123,8 @@ class DecryptedPaginatedListAccessLogDto {
   }
 
   // maps a json object with a list of DecryptedPaginatedListAccessLogDto-objects as value to a dart map
-  static Map<String, List<DecryptedPaginatedListAccessLogDto>> mapListFromJson(dynamic json, {
+  static Map<String, List<DecryptedPaginatedListAccessLogDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedPaginatedListAccessLogDto>>{};

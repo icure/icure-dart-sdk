@@ -50,7 +50,8 @@ class MedicinalproductDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MedicinalproductDto &&
+      identical(this, other) ||
+      other is MedicinalproductDto &&
           other.intendedcds == intendedcds &&
           other.deliveredcds == deliveredcds &&
           other.intendedname == intendedname &&
@@ -60,7 +61,7 @@ class MedicinalproductDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (intendedcds.hashCode) +
+      (intendedcds.hashCode) +
       (deliveredcds.hashCode) +
       (intendedname == null ? 0 : intendedname!.hashCode) +
       (deliveredname == null ? 0 : deliveredname!.hashCode) +
@@ -90,6 +91,9 @@ class MedicinalproductDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MedicinalproductDto? fromJson(dynamic value) {
+    if (value is MedicinalproductDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -115,7 +119,10 @@ class MedicinalproductDto {
     return null;
   }
 
-  static List<MedicinalproductDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MedicinalproductDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MedicinalproductDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -143,12 +150,18 @@ class MedicinalproductDto {
   }
 
   // maps a json object with a list of MedicinalproductDto-objects as value to a dart map
-  static Map<String, List<MedicinalproductDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MedicinalproductDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MedicinalproductDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MedicinalproductDto.listFromJson(entry.value, growable: growable,);
+        final value = MedicinalproductDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -163,4 +176,3 @@ class MedicinalproductDto {
     'deliveredcds',
   };
 }
-

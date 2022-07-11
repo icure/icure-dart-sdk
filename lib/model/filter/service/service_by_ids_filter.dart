@@ -21,5 +21,4 @@ class ServiceByIdsFilter extends AbstractFilterDto<ServiceDto> {
 
     return json;
   }
-
 }

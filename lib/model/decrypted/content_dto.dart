@@ -197,23 +197,19 @@ class DecryptedContentDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedContentDto? fromJson(dynamic value) {
+    if (value is DecryptedContentDto) {
+      return value;
+    }
     if (value is Map) {
-      final json = {
-        "compoundValue": [],
-        "ratio": [],
-        "range": [],
-        ...value.cast<String, dynamic>()
-      };
+      final json = {"compoundValue": [], "ratio": [], "range": [], ...value.cast<String, dynamic>()};
 
       // Ensure that the map contains the required keys.
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedContentDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedContentDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedContentDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedContentDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -237,7 +233,8 @@ class DecryptedContentDto {
     return null;
   }
 
-  static List<DecryptedContentDto>? listFromJson(dynamic json, {
+  static List<DecryptedContentDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedContentDto>[];
@@ -267,7 +264,8 @@ class DecryptedContentDto {
   }
 
   // maps a json object with a list of DecryptedContentDto-objects as value to a dart map
-  static Map<String, List<DecryptedContentDto>> mapListFromJson(dynamic json, {
+  static Map<String, List<DecryptedContentDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedContentDto>>{};

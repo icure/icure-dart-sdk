@@ -34,16 +34,12 @@ class QuantityDto {
   String? unit;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is QuantityDto &&
-          other.value == value &&
-          other.unit == unit;
+  bool operator ==(Object other) => identical(this, other) || other is QuantityDto && other.value == value && other.unit == unit;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (value == null ? 0 : value!.hashCode) +
-      (unit == null ? 0 : unit!.hashCode);
+      (value == null ? 0 : value!.hashCode) + (unit == null ? 0 : unit!.hashCode);
 
   @override
   String toString() => 'QuantityDto[value=$value, unit=$unit]';
@@ -63,6 +59,9 @@ class QuantityDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static QuantityDto? fromJson(dynamic value) {
+    if (value is QuantityDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -78,16 +77,17 @@ class QuantityDto {
       }());
 
       return QuantityDto(
-        value: json[r'value'] == null
-            ? null
-            : num.parse(json[r'value'].toString()),
+        value: json[r'value'] == null ? null : num.parse(json[r'value'].toString()),
         unit: mapValueOfType<String>(json, r'unit'),
       );
     }
     return null;
   }
 
-  static List<QuantityDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<QuantityDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <QuantityDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -115,12 +115,18 @@ class QuantityDto {
   }
 
   // maps a json object with a list of QuantityDto-objects as value to a dart map
-  static Map<String, List<QuantityDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<QuantityDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<QuantityDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = QuantityDto.listFromJson(entry.value, growable: growable,);
+        final value = QuantityDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -130,7 +136,5 @@ class QuantityDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

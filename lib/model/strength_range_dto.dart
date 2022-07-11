@@ -35,15 +35,12 @@ class StrengthRangeDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is StrengthRangeDto &&
-          other.numeratorRange == numeratorRange &&
-          other.denominator == denominator;
+      identical(this, other) || other is StrengthRangeDto && other.numeratorRange == numeratorRange && other.denominator == denominator;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (numeratorRange == null ? 0 : numeratorRange!.hashCode) +
-      (denominator == null ? 0 : denominator!.hashCode);
+      (numeratorRange == null ? 0 : numeratorRange!.hashCode) + (denominator == null ? 0 : denominator!.hashCode);
 
   @override
   String toString() => 'StrengthRangeDto[numeratorRange=$numeratorRange, denominator=$denominator]';
@@ -63,6 +60,9 @@ class StrengthRangeDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static StrengthRangeDto? fromJson(dynamic value) {
+    if (value is StrengthRangeDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +85,10 @@ class StrengthRangeDto {
     return null;
   }
 
-  static List<StrengthRangeDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<StrengthRangeDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <StrengthRangeDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +116,18 @@ class StrengthRangeDto {
   }
 
   // maps a json object with a list of StrengthRangeDto-objects as value to a dart map
-  static Map<String, List<StrengthRangeDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<StrengthRangeDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<StrengthRangeDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = StrengthRangeDto.listFromJson(entry.value, growable: growable,);
+        final value = StrengthRangeDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +137,5 @@ class StrengthRangeDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

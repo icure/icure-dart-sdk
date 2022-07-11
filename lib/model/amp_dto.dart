@@ -144,17 +144,18 @@ class AmpDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is AmpDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.deletionDate == deletionDate &&
-          other.from == from &&
-          other.to == to &&
-          other.code == code &&
-          other.vmp == vmp &&
-          other.officialName == officialName &&
-          other.status == status &&
-          other.name == name &&
+      identical(this, other) ||
+          other is AmpDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.deletionDate == deletionDate &&
+              other.from == from &&
+              other.to == to &&
+              other.code == code &&
+              other.vmp == vmp &&
+              other.officialName == officialName &&
+              other.status == status &&
+              other.name == name &&
           other.blackTriangle == blackTriangle &&
           other.medicineType == medicineType &&
           other.company == company &&
@@ -245,6 +246,9 @@ class AmpDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static AmpDto? fromJson(dynamic value) {
+    if (value is AmpDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -283,7 +287,10 @@ class AmpDto {
     return null;
   }
 
-  static List<AmpDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AmpDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AmpDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -311,12 +318,18 @@ class AmpDto {
   }
 
   // maps a json object with a list of AmpDto-objects as value to a dart map
-  static Map<String, List<AmpDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AmpDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AmpDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AmpDto.listFromJson(entry.value, growable: growable,);
+        final value = AmpDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -333,7 +346,6 @@ class AmpDto {
     'components',
   };
 }
-
 
 class AmpDtoStatusEnum {
   /// Instantiate a new enum with the provided [value].
@@ -360,7 +372,10 @@ class AmpDtoStatusEnum {
 
   static AmpDtoStatusEnum? fromJson(dynamic value) => AmpDtoStatusEnumTypeTransformer().decode(value);
 
-  static List<AmpDtoStatusEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AmpDtoStatusEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AmpDtoStatusEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -413,7 +428,6 @@ class AmpDtoStatusEnumTypeTransformer {
   static AmpDtoStatusEnumTypeTransformer? _instance;
 }
 
-
 class AmpDtoMedicineTypeEnum {
   /// Instantiate a new enum with the provided [value].
   const AmpDtoMedicineTypeEnum._(this.value);
@@ -437,7 +451,9 @@ class AmpDtoMedicineTypeEnum {
 
   static AmpDtoMedicineTypeEnum? fromJson(dynamic value) => AmpDtoMedicineTypeEnumTypeTransformer().decode(value);
 
-  static List<AmpDtoMedicineTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AmpDtoMedicineTypeEnum>? listFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AmpDtoMedicineTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -487,5 +503,3 @@ class AmpDtoMedicineTypeEnumTypeTransformer {
   /// Singleton [AmpDtoMedicineTypeEnumTypeTransformer] instance.
   static AmpDtoMedicineTypeEnumTypeTransformer? _instance;
 }
-
-

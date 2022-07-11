@@ -194,7 +194,8 @@ class AccessLogDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is AccessLogDto &&
+      identical(this, other) ||
+      other is AccessLogDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -309,6 +310,9 @@ class AccessLogDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static AccessLogDto? fromJson(dynamic value) {
+    if (value is AccessLogDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -341,25 +345,24 @@ class AccessLogDto {
         detail: mapValueOfType<String>(json, r'detail'),
         date: mapDateTime(json, r'date', ''),
         patientId: mapValueOfType<String>(json, r'patientId'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<AccessLogDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AccessLogDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AccessLogDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -387,12 +390,18 @@ class AccessLogDto {
   }
 
   // maps a json object with a list of AccessLogDto-objects as value to a dart map
-  static Map<String, List<AccessLogDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AccessLogDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AccessLogDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AccessLogDto.listFromJson(entry.value, growable: growable,);
+        final value = AccessLogDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -412,4 +421,3 @@ class AccessLogDto {
     'encryptionKeys',
   };
 }
-

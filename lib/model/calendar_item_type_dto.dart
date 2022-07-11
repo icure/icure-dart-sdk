@@ -87,17 +87,18 @@ class CalendarItemTypeDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is CalendarItemTypeDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.deletionDate == deletionDate &&
-          other.name == name &&
-          other.color == color &&
-          other.duration == duration &&
-          other.externalRef == externalRef &&
-          other.mikronoId == mikronoId &&
-          other.docIds == docIds &&
-          other.otherInfos == otherInfos &&
+      identical(this, other) ||
+          other is CalendarItemTypeDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.deletionDate == deletionDate &&
+              other.name == name &&
+              other.color == color &&
+              other.duration == duration &&
+              other.externalRef == externalRef &&
+              other.mikronoId == mikronoId &&
+              other.docIds == docIds &&
+              other.otherInfos == otherInfos &&
           other.subjectByLanguage == subjectByLanguage;
 
   @override
@@ -151,6 +152,9 @@ class CalendarItemTypeDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static CalendarItemTypeDto? fromJson(dynamic value) {
+    if (value is CalendarItemTypeDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -174,8 +178,11 @@ class CalendarItemTypeDto {
         duration: mapValueOfType<int>(json, r'duration')!,
         externalRef: mapValueOfType<String>(json, r'externalRef'),
         mikronoId: mapValueOfType<String>(json, r'mikronoId'),
-        docIds: json[r'docIds'] is Set ? (json[r'docIds'] as Set).cast<String>() : json[r'docIds'] is List ? ((json[r'docIds'] as List).toSet()).cast<
-            String>() : const {},
+        docIds: json[r'docIds'] is Set
+            ? (json[r'docIds'] as Set).cast<String>()
+            : json[r'docIds'] is List
+                ? ((json[r'docIds'] as List).toSet()).cast<String>()
+                : const {},
         otherInfos: mapCastOfType<String, String>(json, r'otherInfos')!,
         subjectByLanguage: mapCastOfType<String, String>(json, r'subjectByLanguage')!,
       );
@@ -183,7 +190,10 @@ class CalendarItemTypeDto {
     return null;
   }
 
-  static List<CalendarItemTypeDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CalendarItemTypeDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CalendarItemTypeDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -211,12 +221,18 @@ class CalendarItemTypeDto {
   }
 
   // maps a json object with a list of CalendarItemTypeDto-objects as value to a dart map
-  static Map<String, List<CalendarItemTypeDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CalendarItemTypeDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CalendarItemTypeDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CalendarItemTypeDto.listFromJson(entry.value, growable: growable,);
+        final value = CalendarItemTypeDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -234,4 +250,3 @@ class CalendarItemTypeDto {
     'subjectByLanguage',
   };
 }
-

@@ -207,17 +207,18 @@ class DocumentTemplateDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is DocumentTemplateDto &&
-          other.id == id &&
-          other.rev == rev &&
-          other.created == created &&
-          other.modified == modified &&
-          other.author == author &&
-          other.responsible == responsible &&
-          other.medicalLocationId == medicalLocationId &&
-          other.tags == tags &&
-          other.codes == codes &&
-          other.endOfLife == endOfLife &&
+      identical(this, other) ||
+          other is DocumentTemplateDto &&
+              other.id == id &&
+              other.rev == rev &&
+              other.created == created &&
+              other.modified == modified &&
+              other.author == author &&
+              other.responsible == responsible &&
+              other.medicalLocationId == medicalLocationId &&
+              other.tags == tags &&
+              other.codes == codes &&
+              other.endOfLife == endOfLife &&
           other.deletionDate == deletionDate &&
           other.attachment == attachment &&
           other.documentType == documentType &&
@@ -338,6 +339,9 @@ class DocumentTemplateDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DocumentTemplateDto? fromJson(dynamic value) {
+    if (value is DocumentTemplateDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -368,8 +372,11 @@ class DocumentTemplateDto {
         documentType: DocumentTemplateDtoDocumentTypeEnum.fromJson(json[r'documentType']),
         mainUti: mapValueOfType<String>(json, r'mainUti'),
         name: mapValueOfType<String>(json, r'name'),
-        otherUtis: json[r'otherUtis'] is Set ? (json[r'otherUtis'] as Set).cast<String>() : json[r'otherUtis'] is List ? ((json[r'otherUtis'] as List)
-            .toSet()).cast<String>() : const {},
+        otherUtis: json[r'otherUtis'] is Set
+            ? (json[r'otherUtis'] as Set).cast<String>()
+            : json[r'otherUtis'] is List
+                ? ((json[r'otherUtis'] as List).toSet()).cast<String>()
+                : const {},
         attachmentId: mapValueOfType<String>(json, r'attachmentId'),
         version: DocumentTemplateDtoVersionEnum.fromJson(json[r'version']),
         owner: mapValueOfType<String>(json, r'owner'),
@@ -383,7 +390,10 @@ class DocumentTemplateDto {
     return null;
   }
 
-  static List<DocumentTemplateDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DocumentTemplateDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DocumentTemplateDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -411,12 +421,18 @@ class DocumentTemplateDto {
   }
 
   // maps a json object with a list of DocumentTemplateDto-objects as value to a dart map
-  static Map<String, List<DocumentTemplateDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DocumentTemplateDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DocumentTemplateDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DocumentTemplateDto.listFromJson(entry.value, growable: growable,);
+        final value = DocumentTemplateDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -532,7 +548,9 @@ class DocumentTemplateDtoDocumentTypeEnum {
 
   static DocumentTemplateDtoDocumentTypeEnum? fromJson(dynamic value) => DocumentTemplateDtoDocumentTypeEnumTypeTransformer().decode(value);
 
-  static List<DocumentTemplateDtoDocumentTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DocumentTemplateDtoDocumentTypeEnum>? listFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DocumentTemplateDtoDocumentTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -657,7 +675,6 @@ class DocumentTemplateDtoDocumentTypeEnumTypeTransformer {
   static DocumentTemplateDtoDocumentTypeEnumTypeTransformer? _instance;
 }
 
-
 class DocumentTemplateDtoVersionEnum {
   /// Instantiate a new enum with the provided [value].
   const DocumentTemplateDtoVersionEnum._(this.value);
@@ -679,7 +696,9 @@ class DocumentTemplateDtoVersionEnum {
 
   static DocumentTemplateDtoVersionEnum? fromJson(dynamic value) => DocumentTemplateDtoVersionEnumTypeTransformer().decode(value);
 
-  static List<DocumentTemplateDtoVersionEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DocumentTemplateDtoVersionEnum>? listFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DocumentTemplateDtoVersionEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -727,5 +746,3 @@ class DocumentTemplateDtoVersionEnumTypeTransformer {
   /// Singleton [DocumentTemplateDtoVersionEnumTypeTransformer] instance.
   static DocumentTemplateDtoVersionEnumTypeTransformer? _instance;
 }
-
-

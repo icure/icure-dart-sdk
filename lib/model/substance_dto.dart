@@ -78,7 +78,8 @@ class SubstanceDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is SubstanceDto &&
+      identical(this, other) ||
+      other is SubstanceDto &&
           other.id == id &&
           other.rev == rev &&
           other.deletionDate == deletionDate &&
@@ -91,7 +92,7 @@ class SubstanceDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
       (code == null ? 0 : code!.hashCode) +
@@ -133,6 +134,9 @@ class SubstanceDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static SubstanceDto? fromJson(dynamic value) {
+    if (value is SubstanceDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -161,7 +165,10 @@ class SubstanceDto {
     return null;
   }
 
-  static List<SubstanceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SubstanceDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SubstanceDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -189,12 +196,18 @@ class SubstanceDto {
   }
 
   // maps a json object with a list of SubstanceDto-objects as value to a dart map
-  static Map<String, List<SubstanceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SubstanceDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SubstanceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SubstanceDto.listFromJson(entry.value, growable: growable,);
+        final value = SubstanceDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -208,4 +221,3 @@ class SubstanceDto {
     'id',
   };
 }
-

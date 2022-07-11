@@ -4,7 +4,8 @@ part of icure_dart_sdk.api;
 class PatientByHcPartyFilter extends AbstractFilterDto<PatientDto> {
   PatientByHcPartyFilter({this.desc, this.healthcarePartyId});
 
-  @override String? desc;
+  @override
+  String? desc;
   String? healthcarePartyId;
 
   Map<String, dynamic> toJson() {
@@ -22,5 +23,4 @@ class PatientByHcPartyFilter extends AbstractFilterDto<PatientDto> {
 
     return json;
   }
-
 }

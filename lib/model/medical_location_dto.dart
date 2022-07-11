@@ -224,6 +224,9 @@ class MedicalLocationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MedicalLocationDto? fromJson(dynamic value) {
+    if (value is MedicalLocationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

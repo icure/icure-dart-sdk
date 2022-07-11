@@ -102,6 +102,9 @@ class CareTeamMembershipDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static CareTeamMembershipDto? fromJson(dynamic value) {
+    if (value is CareTeamMembershipDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

@@ -29,7 +29,8 @@ class SumehrContentDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is SumehrContentDto &&
+      identical(this, other) ||
+      other is SumehrContentDto &&
           other.services == services &&
           other.healthElements == healthElements &&
           other.partnerships == partnerships &&
@@ -38,10 +39,7 @@ class SumehrContentDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (services.hashCode) +
-      (healthElements.hashCode) +
-      (partnerships.hashCode) +
-      (patientHealthcareParties.hashCode);
+      (services.hashCode) + (healthElements.hashCode) + (partnerships.hashCode) + (patientHealthcareParties.hashCode);
 
   @override
   String toString() =>
@@ -60,6 +58,9 @@ class SumehrContentDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static SumehrContentDto? fromJson(dynamic value) {
+    if (value is SumehrContentDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -84,7 +85,10 @@ class SumehrContentDto {
     return null;
   }
 
-  static List<SumehrContentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SumehrContentDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SumehrContentDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,12 +116,18 @@ class SumehrContentDto {
   }
 
   // maps a json object with a list of SumehrContentDto-objects as value to a dart map
-  static Map<String, List<SumehrContentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SumehrContentDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SumehrContentDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SumehrContentDto.listFromJson(entry.value, growable: growable,);
+        final value = SumehrContentDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -127,7 +137,5 @@ class SumehrContentDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

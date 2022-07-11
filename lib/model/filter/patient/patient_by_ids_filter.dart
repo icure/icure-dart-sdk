@@ -21,6 +21,4 @@ class PatientByIdsFilter extends AbstractFilterDto<PatientDto> {
 
     return json;
   }
-
-
 }

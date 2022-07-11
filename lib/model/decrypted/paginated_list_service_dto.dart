@@ -65,6 +65,9 @@ class DecryptedPaginatedListServiceDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedPaginatedListServiceDto? fromJson(dynamic value) {
+    if (value is DecryptedPaginatedListServiceDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

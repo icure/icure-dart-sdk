@@ -25,5 +25,4 @@ class HealthElementByHcPartySecretForeignKeysFilter extends AbstractFilterDto<He
 
     return json;
   }
-
 }

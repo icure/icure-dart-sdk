@@ -51,17 +51,17 @@ class ImportMapping {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ImportMapping &&
-          other.lifecycle == lifecycle &&
-          other.content == content &&
-          other.cdLocal == cdLocal &&
-          other.label == label &&
-          other.tags == tags;
+          other is ImportMapping &&
+              other.lifecycle == lifecycle &&
+              other.content == content &&
+              other.cdLocal == cdLocal &&
+              other.label == label &&
+              other.tags == tags;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (lifecycle == null ? 0 : lifecycle!.hashCode) +
+  (lifecycle == null ? 0 : lifecycle!.hashCode) +
       (content == null ? 0 : content!.hashCode) +
       (cdLocal == null ? 0 : cdLocal!.hashCode) +
       (label.hashCode) +
@@ -90,6 +90,9 @@ class ImportMapping {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ImportMapping? fromJson(dynamic value) {
+    if (value is ImportMapping) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -115,8 +118,7 @@ class ImportMapping {
     return null;
   }
 
-  static List<ImportMapping>? listFromJson(
-    dynamic json, {
+  static List<ImportMapping>? listFromJson(dynamic json, {
     bool growable = false,
   }) {
     final result = <ImportMapping>[];
@@ -146,8 +148,7 @@ class ImportMapping {
   }
 
   // maps a json object with a list of ImportMapping-objects as value to a dart map
-  static Map<String, List<ImportMapping>> mapListFromJson(
-    dynamic json, {
+  static Map<String, List<ImportMapping>> mapListFromJson(dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<ImportMapping>>{};

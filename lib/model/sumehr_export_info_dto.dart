@@ -68,7 +68,8 @@ class SumehrExportInfoDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is SumehrExportInfoDto &&
+      identical(this, other) ||
+      other is SumehrExportInfoDto &&
           other.secretForeignKeys == secretForeignKeys &&
           other.excludedIds == excludedIds &&
           other.recipient == recipient &&
@@ -82,7 +83,7 @@ class SumehrExportInfoDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (secretForeignKeys.hashCode) +
+      (secretForeignKeys.hashCode) +
       (excludedIds.hashCode) +
       (recipient == null ? 0 : recipient!.hashCode) +
       (softwareName == null ? 0 : softwareName!.hashCode) +
@@ -122,6 +123,9 @@ class SumehrExportInfoDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static SumehrExportInfoDto? fromJson(dynamic value) {
+    if (value is SumehrExportInfoDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -137,12 +141,8 @@ class SumehrExportInfoDto {
       }());
 
       return SumehrExportInfoDto(
-        secretForeignKeys: json[r'secretForeignKeys'] is List
-            ? (json[r'secretForeignKeys'] as List).cast<String>()
-            : const [],
-        excludedIds: json[r'excludedIds'] is List
-            ? (json[r'excludedIds'] as List).cast<String>()
-            : const [],
+        secretForeignKeys: json[r'secretForeignKeys'] is List ? (json[r'secretForeignKeys'] as List).cast<String>() : const [],
+        excludedIds: json[r'excludedIds'] is List ? (json[r'excludedIds'] as List).cast<String>() : const [],
         recipient: HealthcarePartyDto.fromJson(json[r'recipient']),
         softwareName: mapValueOfType<String>(json, r'softwareName'),
         softwareVersion: mapValueOfType<String>(json, r'softwareVersion'),
@@ -155,7 +155,10 @@ class SumehrExportInfoDto {
     return null;
   }
 
-  static List<SumehrExportInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<SumehrExportInfoDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <SumehrExportInfoDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -183,12 +186,18 @@ class SumehrExportInfoDto {
   }
 
   // maps a json object with a list of SumehrExportInfoDto-objects as value to a dart map
-  static Map<String, List<SumehrExportInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<SumehrExportInfoDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<SumehrExportInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SumehrExportInfoDto.listFromJson(entry.value, growable: growable,);
+        final value = SumehrExportInfoDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -204,4 +213,3 @@ class SumehrExportInfoDto {
     'comment',
   };
 }
-

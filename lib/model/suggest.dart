@@ -107,6 +107,9 @@ class Suggest {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static Suggest? fromJson(dynamic value) {
+    if (value is Suggest) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 

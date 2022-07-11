@@ -27,6 +27,4 @@ class PatientByHcPartyAndExternalIdFilter extends AbstractFilterDto<PatientDto> 
 
     return json;
   }
-
-
 }

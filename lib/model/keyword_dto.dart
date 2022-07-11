@@ -128,7 +128,8 @@ class KeywordDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is KeywordDto &&
+      identical(this, other) ||
+      other is KeywordDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -147,7 +148,7 @@ class KeywordDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
       (modified == null ? 0 : modified!.hashCode) +
@@ -209,6 +210,9 @@ class KeywordDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static KeywordDto? fromJson(dynamic value) {
+    if (value is KeywordDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -243,7 +247,10 @@ class KeywordDto {
     return null;
   }
 
-  static List<KeywordDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<KeywordDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <KeywordDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -271,12 +278,18 @@ class KeywordDto {
   }
 
   // maps a json object with a list of KeywordDto-objects as value to a dart map
-  static Map<String, List<KeywordDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<KeywordDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<KeywordDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = KeywordDto.listFromJson(entry.value, growable: growable,);
+        final value = KeywordDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -293,4 +306,3 @@ class KeywordDto {
     'subWords',
   };
 }
-

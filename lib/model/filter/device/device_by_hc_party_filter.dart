@@ -22,6 +22,4 @@ class DeviceByHcPartyFilter extends AbstractFilterDto<DeviceDto> {
     }
     return json;
   }
-
-
 }

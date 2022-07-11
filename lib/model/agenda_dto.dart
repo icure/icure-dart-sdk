@@ -128,7 +128,8 @@ class AgendaDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is AgendaDto &&
+      identical(this, other) ||
+      other is AgendaDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -209,6 +210,9 @@ class AgendaDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static AgendaDto? fromJson(dynamic value) {
+    if (value is AgendaDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -243,7 +247,9 @@ class AgendaDto {
     return null;
   }
 
-  static List<AgendaDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AgendaDto>? listFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AgendaDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -271,12 +277,18 @@ class AgendaDto {
   }
 
   // maps a json object with a list of AgendaDto-objects as value to a dart map
-  static Map<String, List<AgendaDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AgendaDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AgendaDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AgendaDto.listFromJson(entry.value, growable: growable,);
+        final value = AgendaDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -293,4 +305,3 @@ class AgendaDto {
     'rights',
   };
 }
-

@@ -28,16 +28,12 @@ class RemoteDto {
   RemoteAuthenticationDto? auth;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is RemoteDto &&
-          other.url == url &&
-          other.auth == auth;
+  bool operator ==(Object other) => identical(this, other) || other is RemoteDto && other.url == url && other.auth == auth;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (url.hashCode) +
-      (auth == null ? 0 : auth!.hashCode);
+      (url.hashCode) + (auth == null ? 0 : auth!.hashCode);
 
   @override
   String toString() => 'RemoteDto[url=$url, auth=$auth]';
@@ -55,6 +51,9 @@ class RemoteDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static RemoteDto? fromJson(dynamic value) {
+    if (value is RemoteDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -77,7 +76,10 @@ class RemoteDto {
     return null;
   }
 
-  static List<RemoteDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<RemoteDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <RemoteDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,12 +107,18 @@ class RemoteDto {
   }
 
   // maps a json object with a list of RemoteDto-objects as value to a dart map
-  static Map<String, List<RemoteDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<RemoteDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<RemoteDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RemoteDto.listFromJson(entry.value, growable: growable,);
+        final value = RemoteDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -124,4 +132,3 @@ class RemoteDto {
     'url',
   };
 }
-

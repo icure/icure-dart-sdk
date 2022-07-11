@@ -81,7 +81,8 @@ class InsuranceDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is InsuranceDto &&
+      identical(this, other) ||
+      other is InsuranceDto &&
           other.id == id &&
           other.rev == rev &&
           other.deletionDate == deletionDate &&
@@ -97,7 +98,7 @@ class InsuranceDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
       (name.hashCode) +
@@ -143,6 +144,9 @@ class InsuranceDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static InsuranceDto? fromJson(dynamic value) {
+    if (value is InsuranceDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -174,7 +178,10 @@ class InsuranceDto {
     return null;
   }
 
-  static List<InsuranceDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InsuranceDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InsuranceDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -202,12 +209,18 @@ class InsuranceDto {
   }
 
   // maps a json object with a list of InsuranceDto-objects as value to a dart map
-  static Map<String, List<InsuranceDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<InsuranceDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<InsuranceDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = InsuranceDto.listFromJson(entry.value, growable: growable,);
+        final value = InsuranceDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -226,4 +239,3 @@ class InsuranceDto {
     'address',
   };
 }
-

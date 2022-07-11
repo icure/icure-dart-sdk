@@ -60,7 +60,8 @@ class ReplicationDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ReplicationDto &&
+      identical(this, other) ||
+      other is ReplicationDto &&
           other.id == id &&
           other.rev == rev &&
           other.deletionDate == deletionDate &&
@@ -71,7 +72,7 @@ class ReplicationDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (id.hashCode) +
+      (id.hashCode) +
       (rev == null ? 0 : rev!.hashCode) +
       (deletionDate == null ? 0 : deletionDate!.hashCode) +
       (name == null ? 0 : name!.hashCode) +
@@ -105,6 +106,9 @@ class ReplicationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ReplicationDto? fromJson(dynamic value) {
+    if (value is ReplicationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -131,7 +135,10 @@ class ReplicationDto {
     return null;
   }
 
-  static List<ReplicationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ReplicationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ReplicationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -159,12 +166,18 @@ class ReplicationDto {
   }
 
   // maps a json object with a list of ReplicationDto-objects as value to a dart map
-  static Map<String, List<ReplicationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ReplicationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ReplicationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ReplicationDto.listFromJson(entry.value, growable: growable,);
+        final value = ReplicationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -179,4 +192,3 @@ class ReplicationDto {
     'databaseSynchronizations',
   };
 }
-

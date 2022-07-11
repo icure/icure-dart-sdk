@@ -32,17 +32,12 @@ class PaymentDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is PaymentDto &&
-          other.paymentDate == paymentDate &&
-          other.paymentType == paymentType &&
-          other.paid == paid;
+      identical(this, other) || other is PaymentDto && other.paymentDate == paymentDate && other.paymentType == paymentType && other.paid == paid;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (paymentDate.hashCode) +
-      (paymentType == null ? 0 : paymentType!.hashCode) +
-      (paid == null ? 0 : paid!.hashCode);
+      (paymentDate.hashCode) + (paymentType == null ? 0 : paymentType!.hashCode) + (paid == null ? 0 : paid!.hashCode);
 
   @override
   String toString() => 'PaymentDto[paymentDate=$paymentDate, paymentType=$paymentType, paid=$paid]';
@@ -63,6 +58,9 @@ class PaymentDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static PaymentDto? fromJson(dynamic value) {
+    if (value is PaymentDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -86,7 +84,10 @@ class PaymentDto {
     return null;
   }
 
-  static List<PaymentDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PaymentDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PaymentDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,12 +115,18 @@ class PaymentDto {
   }
 
   // maps a json object with a list of PaymentDto-objects as value to a dart map
-  static Map<String, List<PaymentDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<PaymentDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<PaymentDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PaymentDto.listFromJson(entry.value, growable: growable,);
+        final value = PaymentDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -133,7 +140,6 @@ class PaymentDto {
     'paymentDate',
   };
 }
-
 
 class PaymentDtoPaymentTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -170,7 +176,10 @@ class PaymentDtoPaymentTypeEnum {
 
   static PaymentDtoPaymentTypeEnum? fromJson(dynamic value) => PaymentDtoPaymentTypeEnumTypeTransformer().decode(value);
 
-  static List<PaymentDtoPaymentTypeEnum>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<PaymentDtoPaymentTypeEnum>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <PaymentDtoPaymentTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -232,5 +241,3 @@ class PaymentDtoPaymentTypeEnumTypeTransformer {
   /// Singleton [PaymentDtoPaymentTypeEnumTypeTransformer] instance.
   static PaymentDtoPaymentTypeEnumTypeTransformer? _instance;
 }
-
-

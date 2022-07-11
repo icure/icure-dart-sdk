@@ -230,7 +230,8 @@ class ContactDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ContactDto &&
+      identical(this, other) ||
+      other is ContactDto &&
           other.id == id &&
           other.rev == rev &&
           other.created == created &&
@@ -366,6 +367,9 @@ class ContactDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static ContactDto? fromJson(dynamic value) {
+    if (value is ContactDto) {
+      return value;
+    }
     if (value is Map) {
       final json = {
         "tags": {},
@@ -413,25 +417,24 @@ class ContactDto {
         services: ServiceDto.listFromJson(json[r'services'])!.toSet(),
         healthcarePartyId: mapValueOfType<String>(json, r'healthcarePartyId'),
         modifiedContactId: mapValueOfType<String>(json, r'modifiedContactId'),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<ContactDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ContactDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ContactDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -459,12 +462,17 @@ class ContactDto {
   }
 
   // maps a json object with a list of ContactDto-objects as value to a dart map
-  static Map<String, List<ContactDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ContactDto>> mapListFromJson(dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ContactDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ContactDto.listFromJson(entry.value, growable: growable,);
+        final value = ContactDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -486,4 +494,3 @@ class ContactDto {
     'encryptionKeys',
   };
 }
-

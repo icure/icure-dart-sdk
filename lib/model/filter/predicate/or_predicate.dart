@@ -14,5 +14,4 @@ class OrPredicate extends Predicate {
 
     return json;
   }
-
 }

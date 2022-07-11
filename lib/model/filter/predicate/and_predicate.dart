@@ -14,5 +14,4 @@ class AndPredicate extends Predicate {
 
     return json;
   }
-
 }

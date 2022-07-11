@@ -84,7 +84,8 @@ class FinancialInstitutionInformationDto {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is FinancialInstitutionInformationDto &&
+      identical(this, other) ||
+      other is FinancialInstitutionInformationDto &&
           other.name == name &&
           other.key == key &&
           other.bankAccount == bankAccount &&
@@ -97,7 +98,7 @@ class FinancialInstitutionInformationDto {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (name == null ? 0 : name!.hashCode) +
+      (name == null ? 0 : name!.hashCode) +
       (key == null ? 0 : key!.hashCode) +
       (bankAccount == null ? 0 : bankAccount!.hashCode) +
       (bic == null ? 0 : bic!.hashCode) +
@@ -141,6 +142,9 @@ class FinancialInstitutionInformationDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static FinancialInstitutionInformationDto? fromJson(dynamic value) {
+    if (value is FinancialInstitutionInformationDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -164,14 +168,19 @@ class FinancialInstitutionInformationDto {
         proxyBic: mapValueOfType<String>(json, r'proxyBic'),
         preferredFiiForPartners: json[r'preferredFiiForPartners'] is Set
             ? (json[r'preferredFiiForPartners'] as Set).cast<String>()
-            : json[r'preferredFiiForPartners'] is List ? ((json[r'preferredFiiForPartners'] as List).toSet()).cast<String>() : const {},
+            : json[r'preferredFiiForPartners'] is List
+                ? ((json[r'preferredFiiForPartners'] as List).toSet()).cast<String>()
+                : const {},
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<FinancialInstitutionInformationDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FinancialInstitutionInformationDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FinancialInstitutionInformationDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -199,12 +208,18 @@ class FinancialInstitutionInformationDto {
   }
 
   // maps a json object with a list of FinancialInstitutionInformationDto-objects as value to a dart map
-  static Map<String, List<FinancialInstitutionInformationDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FinancialInstitutionInformationDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FinancialInstitutionInformationDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FinancialInstitutionInformationDto.listFromJson(entry.value, growable: growable,);
+        final value = FinancialInstitutionInformationDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -218,4 +233,3 @@ class FinancialInstitutionInformationDto {
     'preferredFiiForPartners',
   };
 }
-

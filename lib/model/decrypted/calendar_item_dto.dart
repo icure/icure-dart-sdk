@@ -513,6 +513,9 @@ class DecryptedCalendarItemDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static DecryptedCalendarItemDto? fromJson(dynamic value) {
+    if (value is DecryptedCalendarItemDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -521,10 +524,8 @@ class DecryptedCalendarItemDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-          'Required key "DecryptedCalendarItemDto[$key]" is missing from JSON.');
-          assert(json[key] != null,
-          'Required key "DecryptedCalendarItemDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DecryptedCalendarItemDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DecryptedCalendarItemDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -543,8 +544,7 @@ class DecryptedCalendarItemDto {
         deletionDate: mapValueOfType<int>(json, r'deletionDate'),
         title: mapValueOfType<String>(json, r'title')!,
         calendarItemTypeId: mapValueOfType<String>(json, r'calendarItemTypeId'),
-        masterCalendarItemId:
-        mapValueOfType<String>(json, r'masterCalendarItemId'),
+        masterCalendarItemId: mapValueOfType<String>(json, r'masterCalendarItemId'),
         patientId: mapValueOfType<String>(json, r'patientId'),
         important: mapValueOfType<bool>(json, r'important'),
         homeVisit: mapValueOfType<bool>(json, r'homeVisit'),
@@ -562,28 +562,24 @@ class DecryptedCalendarItemDto {
         wasMigrated: mapValueOfType<bool>(json, r'wasMigrated'),
         agendaId: mapValueOfType<String>(json, r'agendaId'),
         recurrenceId: mapValueOfType<String>(json, r'recurrenceId'),
-        meetingTags:
-        CalendarItemTagDto.listFromJson(json[r'meetingTags'])!.toSet(),
+        meetingTags: CalendarItemTagDto.listFromJson(json[r'meetingTags'])!.toSet(),
         flowItem: FlowItemDto.fromJson(json[r'flowItem']),
-        secretForeignKeys: json[r'secretForeignKeys'] is Set ? (json[r'secretForeignKeys'] as Set).cast<String>() : json[r'secretForeignKeys'] is List
-            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
-            : const {},
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+                ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+                : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
         encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
   }
 
-  static List<DecryptedCalendarItemDto>? listFromJson(dynamic json, {
+  static List<DecryptedCalendarItemDto>? listFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final result = <DecryptedCalendarItemDto>[];
@@ -613,7 +609,8 @@ class DecryptedCalendarItemDto {
   }
 
   // maps a json object with a list of DecryptedCalendarItemDto-objects as value to a dart map
-  static Map<String, List<DecryptedCalendarItemDto>> mapListFromJson(dynamic json, {
+  static Map<String, List<DecryptedCalendarItemDto>> mapListFromJson(
+    dynamic json, {
     bool growable = false,
   }) {
     final map = <String, List<DecryptedCalendarItemDto>>{};

@@ -34,16 +34,12 @@ class RenewalDto {
   DurationDto? duration;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is RenewalDto &&
-          other.decimal == decimal &&
-          other.duration == duration;
+  bool operator ==(Object other) => identical(this, other) || other is RenewalDto && other.decimal == decimal && other.duration == duration;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (decimal == null ? 0 : decimal!.hashCode) +
-      (duration == null ? 0 : duration!.hashCode);
+      (decimal == null ? 0 : decimal!.hashCode) + (duration == null ? 0 : duration!.hashCode);
 
   @override
   String toString() => 'RenewalDto[decimal=$decimal, duration=$duration]';
@@ -63,6 +59,9 @@ class RenewalDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static RenewalDto? fromJson(dynamic value) {
+    if (value is RenewalDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -85,7 +84,10 @@ class RenewalDto {
     return null;
   }
 
-  static List<RenewalDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<RenewalDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <RenewalDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,12 +115,18 @@ class RenewalDto {
   }
 
   // maps a json object with a list of RenewalDto-objects as value to a dart map
-  static Map<String, List<RenewalDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<RenewalDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<RenewalDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RenewalDto.listFromJson(entry.value, growable: growable,);
+        final value = RenewalDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -128,7 +136,5 @@ class RenewalDto {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -28,16 +28,12 @@ class MessageReadStatusDto {
   bool read;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is MessageReadStatusDto &&
-          other.time == time &&
-          other.read == read;
+  bool operator ==(Object other) => identical(this, other) || other is MessageReadStatusDto && other.time == time && other.read == read;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-  (time == null ? 0 : time!.hashCode) +
-      (read.hashCode);
+      (time == null ? 0 : time!.hashCode) + (read.hashCode);
 
   @override
   String toString() => 'MessageReadStatusDto[time=$time, read=$read]';
@@ -55,6 +51,9 @@ class MessageReadStatusDto {
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
   static MessageReadStatusDto? fromJson(dynamic value) {
+    if (value is MessageReadStatusDto) {
+      return value;
+    }
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -77,7 +76,10 @@ class MessageReadStatusDto {
     return null;
   }
 
-  static List<MessageReadStatusDto>? listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MessageReadStatusDto>? listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MessageReadStatusDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,12 +107,18 @@ class MessageReadStatusDto {
   }
 
   // maps a json object with a list of MessageReadStatusDto-objects as value to a dart map
-  static Map<String, List<MessageReadStatusDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MessageReadStatusDto>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MessageReadStatusDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MessageReadStatusDto.listFromJson(entry.value, growable: growable,);
+        final value = MessageReadStatusDto.listFromJson(
+          entry.value,
+          growable: growable,
+        );
         if (value != null) {
           map[entry.key] = value;
         }
@@ -124,4 +132,3 @@ class MessageReadStatusDto {
     'read',
   };
 }
-
