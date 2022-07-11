@@ -201,10 +201,10 @@ class MeasureDto {
       }());
 
       return MeasureDto(
-        value: mapValueOfType<double>(json, r'value'),
-        min: mapValueOfType<double>(json, r'min'),
-        max: mapValueOfType<double>(json, r'max'),
-        ref: mapValueOfType<double>(json, r'ref'),
+        value: json[r'value'] is num ? json[r'value'].toDouble() : null,
+        min: json[r'min'] is num ? json[r'min'].toDouble() : null,
+        max: json[r'max'] is num ? json[r'max'].toDouble() : null,
+        ref: json[r'ref'] is num ? json[r'ref'].toDouble() : null,
         severity: mapValueOfType<int>(json, r'severity'),
         severityCode: mapValueOfType<String>(json, r'severityCode'),
         evolution: mapValueOfType<int>(json, r'evolution'),

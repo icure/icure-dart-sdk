@@ -1,3 +1,7 @@
+## 1.0.51
+
+- Fixed measureDto mapping
+
 ## 1.0.50
 
 - Fixed model mappings fromJson
