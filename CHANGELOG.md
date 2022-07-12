@@ -1,3 +1,7 @@
+## 1.0.52
+
+- Changed TimeSeriesDto lists to num instead of double
+ 
 ## 1.0.51
 
 - Fixed measureDto mapping
