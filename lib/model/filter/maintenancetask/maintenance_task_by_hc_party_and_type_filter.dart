@@ -3,12 +3,12 @@
 part of icure_dart_sdk.api;
 
 class MaintenanceTaskByHcPartyAndTypeFilter extends AbstractFilterDto<MaintenanceTaskDto> {
-  MaintenanceTaskByHcPartyAndTypeFilter({this.desc, this.healthcarePartyId, this.type});
+  MaintenanceTaskByHcPartyAndTypeFilter({this.desc, this.healthcarePartyId, this.taskType});
 
   @override
   String? desc;
   String? healthcarePartyId;
-  String? type;
+  String? taskType;
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -22,8 +22,8 @@ class MaintenanceTaskByHcPartyAndTypeFilter extends AbstractFilterDto<Maintenanc
     if (healthcarePartyId != null) {
       json[r'healthcarePartyId'] = healthcarePartyId;
     }
-    if (type != null) {
-      json[r'type'] = type;
+    if (taskType != null) {
+      json[r'taskType'] = taskType;
     }
     return json;
   }
