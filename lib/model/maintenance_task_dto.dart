@@ -143,11 +143,11 @@ class MaintenanceTaskDto {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = id;
+    json[r'id'] = id;
     if (rev != null) {
       json[r'rev'] = rev;
     }
-      json[r'identifier'] = identifier;
+    json[r'identifier'] = identifier;
     if (created != null) {
       json[r'created'] = created;
     }
@@ -163,8 +163,8 @@ class MaintenanceTaskDto {
     if (medicalLocationId != null) {
       json[r'medicalLocationId'] = medicalLocationId;
     }
-      json[r'tags'] = tags;
-      json[r'codes'] = codes;
+    json[r'tags'] = tags.toList();
+    json[r'codes'] = codes.toList();
     if (endOfLife != null) {
       json[r'endOfLife'] = endOfLife;
     }
@@ -174,12 +174,12 @@ class MaintenanceTaskDto {
     if (taskType != null) {
       json[r'taskType'] = taskType;
     }
-      json[r'properties'] = properties;
-      json[r'status'] = status;
-      json[r'secretForeignKeys'] = secretForeignKeys;
-      json[r'cryptedForeignKeys'] = cryptedForeignKeys;
-      json[r'delegations'] = delegations;
-      json[r'encryptionKeys'] = encryptionKeys;
+    json[r'properties'] = properties.toList();
+    json[r'status'] = status;
+    json[r'secretForeignKeys'] = secretForeignKeys.toList();
+    json[r'cryptedForeignKeys'] = cryptedForeignKeys.map((k, v) => MapEntry(k, v.toList()));
+    json[r'delegations'] = delegations.map((k, v) => MapEntry(k, v.toList()));
+    json[r'encryptionKeys'] = encryptionKeys.map((k, v) => MapEntry(k, v.toList()));
     if (encryptedSelf != null) {
       json[r'encryptedSelf'] = encryptedSelf;
     }
@@ -222,19 +222,15 @@ class MaintenanceTaskDto {
         taskType: json[r'taskType'],
         properties: PropertyStubDto.listFromJson(json[r'properties'])?.toSet() ?? const {},
         status: MaintenanceTaskDtoStatusEnum.fromJson(json[r'status'])!,
-        secretForeignKeys: json[r'secretForeignKeys'] == null
-            ? const {}
-            : (json[r'secretForeignKeys'] as Set).cast<String>(),
-        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
-        delegations: json[r'delegations'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'delegations']),
-        encryptionKeys: json[r'encryptionKeys'] == null
-            ? const {}
-            : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
-        encryptedSelf: json[r'encryptedSelf'],
+        secretForeignKeys: json[r'secretForeignKeys'] is Set
+            ? (json[r'secretForeignKeys'] as Set).cast<String>()
+            : json[r'secretForeignKeys'] is List
+            ? ((json[r'secretForeignKeys'] as List).toSet()).cast<String>()
+            : const {},
+        cryptedForeignKeys: json[r'cryptedForeignKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'cryptedForeignKeys']),
+        delegations: json[r'delegations'] == null ? const {} : DelegationDto.mapListFromJson(json[r'delegations']),
+        encryptionKeys: json[r'encryptionKeys'] == null ? const {} : DelegationDto.mapListFromJson(json[r'encryptionKeys']),
+        encryptedSelf: mapValueOfType<String>(json, r'encryptedSelf'),
       );
     }
     return null;
