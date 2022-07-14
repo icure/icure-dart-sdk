@@ -1,19 +1,20 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of icure_dart_sdk.api;
 
 class PaginatedListMaintenanceTaskDto {
   /// Returns a new [PaginatedListMaintenanceTaskDto] instance.
   PaginatedListMaintenanceTaskDto({
-    @required this.pageSize,
-    @required this.totalSize,
+    required this.pageSize,
+    required this.totalSize,
     this.rows = const [],
     this.nextKeyPair,
   });
@@ -24,7 +25,7 @@ class PaginatedListMaintenanceTaskDto {
 
   List<MaintenanceTaskDto> rows;
 
-  PaginatedDocumentKeyIdPairObject nextKeyPair;
+  PaginatedDocumentKeyIdPairObject? nextKeyPair;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PaginatedListMaintenanceTaskDto &&
@@ -35,9 +36,9 @@ class PaginatedListMaintenanceTaskDto {
 
   @override
   int get hashCode =>
-    (pageSize == null ? 0 : pageSize.hashCode) +
-    (totalSize == null ? 0 : totalSize.hashCode) +
-    (rows == null ? 0 : rows.hashCode) +
+    (pageSize.hashCode) +
+    (totalSize.hashCode) +
+    (rows.hashCode) +
     (nextKeyPair == null ? 0 : nextKeyPair.hashCode);
 
   @override
@@ -56,37 +57,84 @@ class PaginatedListMaintenanceTaskDto {
 
   /// Returns a new [PaginatedListMaintenanceTaskDto] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PaginatedListMaintenanceTaskDto fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : PaginatedListMaintenanceTaskDto(
+  static PaginatedListMaintenanceTaskDto? fromJson(dynamic value) {
+    if (value is PaginatedListMaintenanceTaskDto) {
+      return value;
+    }
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key), 'Required key "PaginatedListMaintenanceTaskDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PaginatedListMaintenanceTaskDto[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
+      return PaginatedListMaintenanceTaskDto(
         pageSize: json[r'pageSize'],
         totalSize: json[r'totalSize'],
-        rows: MaintenanceTaskDto.listFromJson(json[r'rows']),
+        rows: MaintenanceTaskDto.listFromJson(json[r'rows']) ?? const [],
         nextKeyPair: PaginatedDocumentKeyIdPairObject.fromJson(json[r'nextKeyPair']),
-    );
-
-  static List<PaginatedListMaintenanceTaskDto> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <PaginatedListMaintenanceTaskDto>[]
-      : json.map((dynamic value) => PaginatedListMaintenanceTaskDto.fromJson(value)).toList(growable: true == growable);
-
-  static Map<String, PaginatedListMaintenanceTaskDto> mapFromJson(Map<String, dynamic> json) {
-    final map = <String, PaginatedListMaintenanceTaskDto>{};
-    if (json?.isNotEmpty == true) {
-      json.forEach((key, value) => map[key] = PaginatedListMaintenanceTaskDto.fromJson(value));
+      );
     }
-    return map;
-  }
-
-  // maps a json object with a list of PaginatedListMaintenanceTaskDto-objects as value to a dart map
-  static Map<String, List<PaginatedListMaintenanceTaskDto>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<PaginatedListMaintenanceTaskDto>>{};
-    if (json?.isNotEmpty == true) {
-      json.forEach((key, value) {
-        map[key] = PaginatedListMaintenanceTaskDto.listFromJson(value, emptyIsNull: emptyIsNull, growable: growable,);
-      });
+    return null;
     }
-    return map;
-  }
+
+    static List<PaginatedListMaintenanceTaskDto>? listFromJson(dynamic json, {bool growable = false,}) {
+      final result = <PaginatedListMaintenanceTaskDto>[];
+      if (json is List && json.isNotEmpty) {
+        for (final row in json) {
+          final value = PaginatedListMaintenanceTaskDto.fromJson(row);
+          if (value != null) {
+            result.add(value);
+          }
+        }
+      }
+      return result.toList(growable: growable);
+    }
+
+    static Map<String, PaginatedListMaintenanceTaskDto> mapFromJson(dynamic json) {
+      final map = <String, PaginatedListMaintenanceTaskDto>{};
+      if (json is Map && json.isNotEmpty) {
+        json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+        for (final entry in json.entries) {
+          final value = PaginatedListMaintenanceTaskDto.fromJson(entry.value);
+          if (value != null) {
+            map[entry.key] = value;
+          }
+        }
+      }
+      return map;
+    }
+
+    // maps a json object with a list of PaginatedListMaintenanceTaskDto-objects as value to a dart map
+    static Map<String, List<PaginatedListMaintenanceTaskDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+      final map = <String, List<PaginatedListMaintenanceTaskDto>>{};
+      if (json is Map && json.isNotEmpty) {
+        json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+        for (final entry in json.entries) {
+          final value = PaginatedListMaintenanceTaskDto.listFromJson(
+            entry.value,
+            growable: growable,
+          );
+          if (value != null) {
+            map[entry.key] = value;
+          }
+        }
+      }
+      return map;
+    }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'pageSize',
+    'totalSize',
+    'rows',
+  };
 }
 

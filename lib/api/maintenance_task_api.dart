@@ -1,17 +1,18 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of icure_dart_sdk.api;
 
 
 class MaintenanceTaskApi {
-  MaintenanceTaskApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  MaintenanceTaskApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -23,12 +24,8 @@ class MaintenanceTaskApi {
   ///
   /// * [MaintenanceTaskDto] maintenanceTaskDto (required):
   Future<Response> createMaintenanceTaskWithHttpInfo(MaintenanceTaskDto maintenanceTaskDto) async {
-    // Verify required params are set.
-    if (maintenanceTaskDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: maintenanceTaskDto');
-    }
 
-    final path = r'/rest/v2/maintenancetask';
+    final path = r'/rest/v1/maintenancetask';
 
     Object postBody = maintenanceTaskDto;
 
@@ -38,7 +35,7 @@ class MaintenanceTaskApi {
 
     final contentTypes = <String>['application/json'];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    final authNames = <String>[r'basicSchema'];
 
 
     return await apiClient.invokeAPI(
@@ -58,7 +55,7 @@ class MaintenanceTaskApi {
   /// Parameters:
   ///
   /// * [MaintenanceTaskDto] maintenanceTaskDto (required):
-  Future<MaintenanceTaskDto> createMaintenanceTask(MaintenanceTaskDto maintenanceTaskDto) async {
+  Future<MaintenanceTaskDto?> createMaintenanceTask(MaintenanceTaskDto maintenanceTaskDto) async {
     final response = await createMaintenanceTaskWithHttpInfo(maintenanceTaskDto);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -66,10 +63,10 @@ class MaintenanceTaskApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MaintenanceTaskDto',) as MaintenanceTaskDto;
         }
-    return Future<MaintenanceTaskDto>.value(null);
+    return null;
   }
 
   /// Delete maintenanceTasks
@@ -80,15 +77,11 @@ class MaintenanceTaskApi {
   ///
   /// * [String] maintenanceTaskIds (required):
   Future<Response> deleteMaintenanceTaskWithHttpInfo(String maintenanceTaskIds) async {
-    // Verify required params are set.
-    if (maintenanceTaskIds == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: maintenanceTaskIds');
-    }
 
-    final path = r'/rest/v2/maintenancetask/{maintenanceTaskIds}'
+    final path = r'/rest/v1/maintenancetask/{maintenanceTaskIds}'
       .replaceAll('{' + 'maintenanceTaskIds' + '}', maintenanceTaskIds.toString());
 
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -96,7 +89,7 @@ class MaintenanceTaskApi {
 
     final contentTypes = <String>[];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    final authNames = <String>[r'basicSchema'];
 
 
     return await apiClient.invokeAPI(
@@ -116,7 +109,7 @@ class MaintenanceTaskApi {
   /// Parameters:
   ///
   /// * [String] maintenanceTaskIds (required):
-  Future<List<DocIdentifier>> deleteMaintenanceTask(String maintenanceTaskIds) async {
+  Future<List<DocIdentifier>?> deleteMaintenanceTask(String maintenanceTaskIds) async {
     final response = await deleteMaintenanceTaskWithHttpInfo(maintenanceTaskIds);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -124,12 +117,12 @@ class MaintenanceTaskApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<DocIdentifier>') as List)
         .cast<DocIdentifier>()
         .toList(growable: false);
     }
-    return Future<List<DocIdentifier>>.value(null);
+    return null;
   }
 
   /// Filter maintenanceTasks for the current user (HcParty) 
@@ -147,13 +140,9 @@ class MaintenanceTaskApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<Response> filterMaintenanceTasksByWithHttpInfo(FilterChainMaintenanceTask filterChainMaintenanceTask, { String startDocumentId, int limit }) async {
-    // Verify required params are set.
-    if (filterChainMaintenanceTask == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: filterChainMaintenanceTask');
-    }
+  Future<Response> filterMaintenanceTasksByWithHttpInfo(FilterChain<MaintenanceTaskDto> filterChainMaintenanceTask, { String? startDocumentId, int? limit }) async {
 
-    final path = r'/rest/v2/maintenancetask/filter';
+    final path = r'/rest/v1/maintenancetask/filter';
 
     Object postBody = filterChainMaintenanceTask;
 
@@ -162,15 +151,15 @@ class MaintenanceTaskApi {
     final formParams = <String, String>{};
 
     if (startDocumentId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDocumentId', startDocumentId));
+      queryParams.addAll(_queryParams('', 'startDocumentId', startDocumentId));
     }
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
     final contentTypes = <String>['application/json'];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    final authNames = <String>[r'basicSchema'];
 
 
     return await apiClient.invokeAPI(
@@ -198,7 +187,7 @@ class MaintenanceTaskApi {
   ///
   /// * [int] limit:
   ///   Number of rows
-  Future<PaginatedListMaintenanceTaskDto> filterMaintenanceTasksBy(FilterChainMaintenanceTask filterChainMaintenanceTask, { String startDocumentId, int limit }) async {
+  Future<PaginatedListMaintenanceTaskDto?> filterMaintenanceTasksBy(FilterChain<MaintenanceTaskDto> filterChainMaintenanceTask, { String? startDocumentId, int? limit }) async {
     final response = await filterMaintenanceTasksByWithHttpInfo(filterChainMaintenanceTask,  startDocumentId: startDocumentId, limit: limit );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -206,10 +195,10 @@ class MaintenanceTaskApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListMaintenanceTaskDto',) as PaginatedListMaintenanceTaskDto;
         }
-    return Future<PaginatedListMaintenanceTaskDto>.value(null);
+    return null;
   }
 
   /// Gets a maintenanceTask
@@ -220,15 +209,11 @@ class MaintenanceTaskApi {
   ///
   /// * [String] maintenanceTaskId (required):
   Future<Response> getMaintenanceTaskWithHttpInfo(String maintenanceTaskId) async {
-    // Verify required params are set.
-    if (maintenanceTaskId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: maintenanceTaskId');
-    }
 
-    final path = r'/rest/v2/maintenancetask/{maintenanceTaskId}'
+    final path = r'/rest/v1/maintenancetask/{maintenanceTaskId}'
       .replaceAll('{' + 'maintenanceTaskId' + '}', maintenanceTaskId.toString());
 
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -236,7 +221,7 @@ class MaintenanceTaskApi {
 
     final contentTypes = <String>[];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    final authNames = <String>[r'basicSchema'];
 
 
     return await apiClient.invokeAPI(
@@ -256,7 +241,7 @@ class MaintenanceTaskApi {
   /// Parameters:
   ///
   /// * [String] maintenanceTaskId (required):
-  Future<MaintenanceTaskDto> getMaintenanceTask(String maintenanceTaskId) async {
+  Future<MaintenanceTaskDto?> getMaintenanceTask(String maintenanceTaskId) async {
     final response = await getMaintenanceTaskWithHttpInfo(maintenanceTaskId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -264,10 +249,10 @@ class MaintenanceTaskApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MaintenanceTaskDto',) as MaintenanceTaskDto;
         }
-    return Future<MaintenanceTaskDto>.value(null);
+    return null;
   }
 
   /// Updates a maintenanceTask
@@ -278,12 +263,8 @@ class MaintenanceTaskApi {
   ///
   /// * [MaintenanceTaskDto] maintenanceTaskDto (required):
   Future<Response> modifyMaintenanceTaskWithHttpInfo(MaintenanceTaskDto maintenanceTaskDto) async {
-    // Verify required params are set.
-    if (maintenanceTaskDto == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: maintenanceTaskDto');
-    }
 
-    final path = r'/rest/v2/maintenancetask';
+    final path = r'/rest/v1/maintenancetask';
 
     Object postBody = maintenanceTaskDto;
 
@@ -293,7 +274,7 @@ class MaintenanceTaskApi {
 
     final contentTypes = <String>['application/json'];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    final authNames = <String>[];
+    final authNames = <String>[r'basicSchema'];
 
 
     return await apiClient.invokeAPI(
@@ -313,7 +294,7 @@ class MaintenanceTaskApi {
   /// Parameters:
   ///
   /// * [MaintenanceTaskDto] maintenanceTaskDto (required):
-  Future<MaintenanceTaskDto> modifyMaintenanceTask(MaintenanceTaskDto maintenanceTaskDto) async {
+  Future<MaintenanceTaskDto?> modifyMaintenanceTask(MaintenanceTaskDto maintenanceTaskDto) async {
     final response = await modifyMaintenanceTaskWithHttpInfo(maintenanceTaskDto);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -321,9 +302,9 @@ class MaintenanceTaskApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MaintenanceTaskDto',) as MaintenanceTaskDto;
         }
-    return Future<MaintenanceTaskDto>.value(null);
+    return null;
   }
 }

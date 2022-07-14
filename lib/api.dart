@@ -76,6 +76,7 @@ part 'api/icure_api.dart';
 part 'api/insurance_api.dart';
 part 'api/invoice_api.dart';
 part 'api/keyword_api.dart';
+part 'api/maintenance_task_api.dart';
 part 'api/medex_api.dart';
 part 'api/medical_location_api.dart';
 part 'api/message_api.dart';
@@ -196,6 +197,7 @@ part 'model/letter_value_dto.dart';
 part 'model/list_of_ids_dto.dart';
 part 'model/list_of_properties_dto.dart';
 part 'model/login_credentials.dart';
+part 'model/maintenance_task_dto.dart';
 part 'model/map_of_ids_dto.dart';
 part 'model/measure_dto.dart';
 part 'model/medex_info_dto.dart';
@@ -228,6 +230,7 @@ part 'model/paginated_list_form_dto.dart';
 part 'model/paginated_list_health_element_dto.dart';
 part 'model/paginated_list_healthcare_party_dto.dart';
 part 'model/paginated_list_invoice_dto.dart';
+part 'model/paginated_list_maintenance_task_dto.dart';
 part 'model/paginated_list_message_dto.dart';
 part 'model/paginated_list_nmp_dto.dart';
 part 'model/paginated_list_patient_dto.dart';
@@ -447,6 +450,14 @@ part 'model/filter/service/service_by_secret_foreign_keys.dart';
 part 'model/filter/service/service_by_hc_party_filter.dart';
 
 part 'model/filter/abstract_filter_dto.dart';
+
+part 'model/filter/maintenancetask/maintenance_task_after_date_filter.dart';
+
+part 'model/filter/maintenancetask/maintenance_task_by_hc_party_and_identifiers_filter.dart';
+
+part 'model/filter/maintenancetask/maintenance_task_by_hc_party_and_type_filter.dart';
+
+part 'model/filter/maintenancetask/maintenance_task_by_ids_filter.dart';
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';
