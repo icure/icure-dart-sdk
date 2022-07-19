@@ -170,8 +170,7 @@ class DataOwnerResolver {
 
   Future<PatientDto?> _getPatient(String patientId) async {
     try {
-      return patients[patientId] ??
-          (patients[patientId] = Future.value((await patientApi.rawGetPatients(ListOfIdsDto(ids: [patientId])))?.singleOrNull));
+      return patients[patientId] ?? (patients[patientId] = Future.value((await patientApi.rawGetPatient(patientId))));
     } on ApiException {
       return null;
     }
