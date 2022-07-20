@@ -170,7 +170,7 @@ class DockerTestBackend implements TestBackend {
             "Content-type": "application/json",
             "Authorization": "Basic ${base64.encode(utf8.encode("${this.couchdbUser}:${this.couchdbPassword}"))}"
           },
-          body: json.encode({"_id": userId, "login": "admin", "status": "ACTIVE", "java_type": "org.taktik.icure.entities.User", "passwordHash": "{R0DLKxxRDxdtpfY542gOUZbvWkfv1KWO9QOi9yvr/2c=}39a484cbf9057072623177422172e8a173bd826d68a2b12fa8e36ff94a44a0d7"})
+          body: json.encode({"_id": userId, "login": this.iCureUser, "status": "ACTIVE", "java_type": "org.taktik.icure.entities.User", "passwordHash": "{R0DLKxxRDxdtpfY542gOUZbvWkfv1KWO9QOi9yvr/2c=}39a484cbf9057072623177422172e8a173bd826d68a2b12fa8e36ff94a44a0d7"})
       );
     } finally {
       client.close();

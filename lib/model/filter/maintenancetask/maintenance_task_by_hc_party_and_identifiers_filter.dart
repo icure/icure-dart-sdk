@@ -3,11 +3,11 @@
 part of icure_dart_sdk.api;
 
 class MaintenanceTaskByHcPartyAndIdentifiersFilter extends AbstractFilterDto<MaintenanceTaskDto> {
-  MaintenanceTaskByHcPartyAndIdentifiersFilter({this.desc, this.responsible, this.identifiers = const []});
+  MaintenanceTaskByHcPartyAndIdentifiersFilter({this.desc, this.healthcarePartyId, this.identifiers = const []});
 
   @override
   String? desc;
-  String? responsible;
+  String? healthcarePartyId;
   List<IdentifierDto> identifiers;
 
   Map<String, dynamic> toJson() {
@@ -19,8 +19,8 @@ class MaintenanceTaskByHcPartyAndIdentifiersFilter extends AbstractFilterDto<Mai
     if (desc != null) {
       json[r'desc'] = desc;
     }
-    if (responsible != null) {
-      json[r'responsible'] = responsible;
+    if (healthcarePartyId != null) {
+      json[r'healthcarePartyId'] = healthcarePartyId;
     }
     json[r'identifiers'] = identifiers;
     return json;

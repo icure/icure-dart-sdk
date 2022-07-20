@@ -40,24 +40,23 @@ class CodeEquality implements Equality<CodeStubDto> {
 /// tests for MaintenanceTaskApi
 void main() {
   
-  final TestBackend backend = RemoteTestBackend.getInstance(Platform.environment["ICURE_USER"]!, Platform.environment["ICURE_PWD"]!);
+  // final TestBackend backend = DockerTestBackend.getInstance(15984, 16044, "icure", "icure", "test", "admin");
+  final TestBackend backend = RemoteTestBackend.getInstance("icuretest", "icuretest", "http://localhost:16043");
   final Uuid uuid = Uuid();
   final login = "hcp-${uuid.v4(options: {'rng': UuidUtil.cryptoRNG})}-delegate";
   HealthcarePartyDto? delegateHcp;
   MaintenanceTaskApi? maintenanceTaskApi;
-  String? hcpPrivateKey;
 
   setUpAll(() async {
     await backend.init();
 
     final client = ApiClient.basic(backend.iCureURL, backend.iCureUser, backend.iCurePwd);
     final hcpKeys = generateRandomPrivateAndPublicKeyPair();
-    hcpPrivateKey = hcpKeys.item1;
     delegateHcp = await HealthcarePartyApi(client).createHealthcareParty(
         new HealthcarePartyDto(id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}), publicKey: hcpKeys.item2, firstName: "test", lastName: "test")
     );
     assert(delegateHcp != null);
-    final userHcp = await UserApi(client).createUser(
+    await UserApi(client).createUser(
         new UserDto(
             id: "user-${uuid.v4(options: {'rng': UuidUtil.cryptoRNG})}-hcp",
             login: login,
@@ -112,7 +111,7 @@ void main() {
       assert(result != null);
       assert(result!.isNotEmpty);
       assert(result![0].id == toDelete.id);
-      final getResult = await maintenanceTaskApi!.getMaintenanceTask(toDelete!.id);
+      final getResult = await maintenanceTaskApi!.getMaintenanceTask(toDelete.id);
       assert(getResult != null);
       assert(getResult!.deletionDate != null);
     });
@@ -184,16 +183,17 @@ void main() {
     //Future<PaginatedListMaintenanceTaskDto> filterMaintenanceTasksBy(FilterChain<MaintenanceTaskDto> filterChainMaintenanceTask, { String startDocumentId, int limit }) async
     test('test filterMaintenanceTasksAfterDate - Success', () async {
       final mt1Id = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+      final creationTimestamp = DateTime.now().millisecondsSinceEpoch;
       final mt1 = await maintenanceTaskApi!.createMaintenanceTask(
           MaintenanceTaskDto(
               id: mt1Id,
-              created: DateTime.now().millisecond + 1000,
+              created: creationTimestamp + 10,
               status: MaintenanceTaskDtoStatusEnum.pending)
       );
       assert(mt1 != null);
       final filterResult = await maintenanceTaskApi!.filterMaintenanceTasksBy(
           FilterChain(
-              MaintenanceTaskAfterDateFilter(date: DateTime.now().millisecond + 500)
+              MaintenanceTaskAfterDateFilter(date: creationTimestamp + 1)
           )
       );
       assert(filterResult != null);
@@ -205,13 +205,18 @@ void main() {
     // Returns a list of maintenanceTasks along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
     //
     //Future<PaginatedListMaintenanceTaskDto> filterMaintenanceTasksBy(FilterChain<MaintenanceTaskDto> filterChainMaintenanceTask, { String startDocumentId, int limit }) async
-    test('test filterMaintenanceTasksByHcParty - Success', () async {
+    test('test filterMaintenanceTasksByHcPartyAndIdentifiers - Success', () async {
       final mt1Id = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
       final mt1 = await maintenanceTaskApi!.createMaintenanceTask(
           MaintenanceTaskDto(
               id: mt1Id,
               responsible: "DUMMY-RESPONSIBLE-$mt1Id",
-              status: MaintenanceTaskDtoStatusEnum.pending),
+              identifier: [IdentifierDto(
+                system: "DUMMY-SYSTEM",
+                value: "DUMMY-VALUE"
+              )],
+              delegations: {"DUMMY-RESPONSIBLE-$mt1Id": const {}},
+              status: MaintenanceTaskDtoStatusEnum.pending)
       );
       assert(mt1 != null);
       final mt2Id = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
@@ -223,12 +228,14 @@ void main() {
       assert(mt2 != null);
       final filterResult = await maintenanceTaskApi!.filterMaintenanceTasksBy(
           FilterChain(
-            MaintenanceTaskByHcPartyAndIdentifiersFilter(responsible: "DUMMY-RESPONSIBLE-$mt1Id")
+            MaintenanceTaskByHcPartyAndIdentifiersFilter(healthcarePartyId: "DUMMY-RESPONSIBLE-$mt1Id", identifiers: [IdentifierDto(
+                system: "DUMMY-SYSTEM",
+                value: "DUMMY-VALUE"
+            )])
           )
       );
       assert(filterResult != null);
       assert(filterResult!.rows.length == 1);
-      // It does not seem to work... who is the healthcareparty?
     });
 
     // Filter maintenanceTasks for the current user (HcParty)
@@ -242,19 +249,23 @@ void main() {
         MaintenanceTaskDto(
             id: mt1Id,
             taskType: "DUMMY-TYPE-$mt1Id",
-            status: MaintenanceTaskDtoStatusEnum.pending),
+            delegations: {"DUMMY-RESPONSIBLE-$mt1Id": const {}},
+            status: MaintenanceTaskDtoStatusEnum.pending)
       );
       assert(mt1 != null);
       final mt2Id = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
       final mt2 = await maintenanceTaskApi!.createMaintenanceTask(
           MaintenanceTaskDto(
               id: mt2Id,
+              delegations: {"DUMMY-RESPONSIBLE-$mt1Id": const {}},
               status: MaintenanceTaskDtoStatusEnum.pending)
       );
       assert(mt2 != null);
       final filterResult = await maintenanceTaskApi!.filterMaintenanceTasksBy(
           FilterChain(
-              MaintenanceTaskByHcPartyAndIdentifiersFilter(responsible: "DUMMY-TYPE-$mt1Id")
+              MaintenanceTaskByHcPartyAndTypeFilter(
+                  healthcarePartyId: "DUMMY-RESPONSIBLE-$mt1Id",
+                  type: "DUMMY-TYPE-$mt1Id")
           )
       );
       assert(filterResult != null);
