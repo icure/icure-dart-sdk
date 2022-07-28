@@ -411,6 +411,8 @@ class ApiClient {
           return ListOfPropertiesDto.fromJson(value);
         case 'LoginCredentials':
           return LoginCredentials.fromJson(value);
+        case 'MaintenanceTaskDto':
+          return MaintenanceTaskDto.fromJson(value);
         case 'MapOfIdsDto':
           return MapOfIdsDto.fromJson(value);
         case 'MeasureDto':
@@ -475,6 +477,8 @@ class ApiClient {
           return PaginatedListHealthcarePartyDto.fromJson(value);
         case 'PaginatedListInvoiceDto':
           return PaginatedListInvoiceDto.fromJson(value);
+        case 'PaginatedListMaintenanceTaskDto':
+          return PaginatedListMaintenanceTaskDto.fromJson(value);
         case 'PaginatedListMessageDto':
           return PaginatedListMessageDto.fromJson(value);
         case 'PaginatedListNmpDto':
