@@ -10,9 +10,17 @@ import 'package:test/test.dart';
 import 'package:uuid/uuid_util.dart';
 
 void main() {
-  final TestBackend backend = RemoteTestBackend.getInstance(Platform.environment["ICURE_USR"]!, Platform.environment["ICURE_PWD"]!, Platform.environment["TEST_ICURE_URL"]!);
+  final TestBackend backend = RemoteTestBackend.getInstance(
+      Platform.environment["ICURE_USR"]!,
+      Platform.environment["ICURE_PWD"]!,
+      Platform.environment["ICURE_COUCHDB_USERNAME"]!,
+      Platform.environment["ICURE_COUCHDB_PASSWORD"]!,
+      Platform.environment["TEST_ICURE_URL"]!,
+      Platform.environment["ICURE_COUCHDB_URL"]!
+  );
   final Uuid uuid = Uuid();
   UserApi? userApi;
+  List<String> generatedIds = [];
 
   setUpAll(() async {
     await backend.init();
@@ -21,6 +29,13 @@ void main() {
     userApi = UserApi(client);
 
     print("Successfully set up test backend!");
+  });
+
+  tearDownAll(() async {
+    await backend.shutdown(
+        ids: generatedIds,
+        dbPrefix: Platform.environment["ICURE_COUCHDB_PREFIX"]!
+    );
   });
 
   group("UsersByPatientIdFilter test", () {
@@ -36,6 +51,8 @@ void main() {
           )
       );
       assert(user1 != null);
+      generatedIds = generatedIds + [userId1];
+
       final userId2 = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
       final user2 = await userApi!.createUser(
           new UserDto(
@@ -46,6 +63,8 @@ void main() {
           )
       );
       assert(user2 != null);
+      generatedIds = generatedIds + [userId2];
+
       final userId3 = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
       final user3 = await userApi!.createUser(
           new UserDto(
@@ -56,6 +75,7 @@ void main() {
           )
       );
       assert(user3 != null);
+      generatedIds = generatedIds + [userId3];
 
       final filteredUsers = await userApi!.filterUsersBy(FilterChain(UsersByPatientIdFilter(patientToFilter)));
       assert(filteredUsers != null);

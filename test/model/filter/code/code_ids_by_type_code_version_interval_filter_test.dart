@@ -8,7 +8,14 @@ import '../../../util/test_utils.dart';
 import '../../../util/test_utils_backend.dart';
 
 void main() {
-  final TestBackend backend = RemoteTestBackend.getInstance(Platform.environment["ICURE_USR"]!, Platform.environment["ICURE_PWD"]!, Platform.environment["TEST_ICURE_URL"]!);
+  final TestBackend backend = RemoteTestBackend.getInstance(
+      Platform.environment["ICURE_USR"]!,
+      Platform.environment["ICURE_PWD"]!,
+      Platform.environment["ICURE_COUCHDB_USERNAME"]!,
+      Platform.environment["ICURE_COUCHDB_PASSWORD"]!,
+      Platform.environment["TEST_ICURE_URL"]!,
+      Platform.environment["ICURE_COUCHDB_URL"]!
+  );
   final testBatchSize = 90;
   final codeGenerator = CodeBatchGenerator();
   final testBatch = { for (var code in codeGenerator.createBatchOfUniqueCodes(testBatchSize)) code.id : code };
@@ -25,6 +32,13 @@ void main() {
     await Future.forEach(testBatch.values, (CodeDto code) async { await codeApi!.createCode(code);});
     testBatchIds.sort((a, b) => a.toLowerCase().compareTo(b.toLowerCase()));
     print("Successfully set up test backend!");
+  });
+
+  tearDownAll(() async {
+    await backend.shutdown(
+        ids: testBatchIds,
+        dbPrefix: Platform.environment["ICURE_COUCHDB_PREFIX"]!
+    );
   });
 
   group("CodeIdsByTypeCodeVersionIntervalFilter test", () {
