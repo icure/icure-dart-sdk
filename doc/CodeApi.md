@@ -1,4 +1,4 @@
-# icure_dart_sdk.api.CodeApi
+# openapi.api.CodeApi
 
 ## Load the API package
 ```dart
@@ -7,27 +7,24 @@ import 'package:icure_dart_sdk/api.dart';
 
 All URIs are relative to *https://kraken.icure.dev*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createCode**](CodeApi.md#createcode) | **POST** /rest/v1/code | Create a Code
-[**filterCodesBy**](CodeApi.md#filtercodesby) | **POST** /rest/v1/code/filter | Filter codes
-[**findCodesByLabel**](CodeApi.md#findcodesbylabel) | **
-GET** /rest/v1/code/byLabel | Finding codes by code, type and version with pagination.
-[**findCodesByLink**](CodeApi.md#findcodesbylink) | **
-GET** /rest/v1/code/byLink/{linkType} | Finding codes by code, type and version with pagination.
-[**findCodesByType**](CodeApi.md#findcodesbytype) | **
-GET** /rest/v1/code | Finding codes by code, type and version with pagination.
-[**getCode**](CodeApi.md#getcode) | **GET** /rest/v1/code/{codeId} | Get a code
+Method | HTTP request                                  | Description
+------------- |-----------------------------------------------| -------------
+[**createCode**](CodeApi.md#createcode) | **POST** /rest/v1/code                        | Create a Code
+[**createCodes**](CodeApi.md#createcodes) | **POST** /rest/v1/code/batch                  | Create a batch of codes
+[**filterCodesBy**](CodeApi.md#filtercodesby) | **POST** /rest/v1/code/filter                 | Filter codes
+[**findCodesByLabel**](CodeApi.md#findcodesbylabel) | **GET** /rest/v1/code/byLabel                 | Finding codes by code, type and version with pagination.
+[**findCodesByLink**](CodeApi.md#findcodesbylink) | **GET** /rest/v1/code/byLink/{linkType}       | Finding codes by code, type and version with pagination.
+[**findCodesByType**](CodeApi.md#findcodesbytype) | **GET** /rest/v1/code                         | Finding codes by code, type and version with pagination.
+[**getCode**](CodeApi.md#getcode) | **GET** /rest/v1/code/{codeId}                | Get a code
 [**getCodeWithParts**](CodeApi.md#getcodewithparts) | **GET** /rest/v1/code/{type}/{code}/{version} | Get a code
-[**getCodes**](CodeApi.md#getcodes) | **POST** /rest/v1/code/byIds | Get a list of codes by ids
-[**importCodes**](CodeApi.md#importcodes) | **POST** /rest/v1/code/{codeType} | Import codes
-[**listCodeTypesBy**](CodeApi.md#listcodetypesby) | **GET** /rest/v1/code/codetype/byRegionType | Finding code types.
-[**listCodesByRegionTypeCodeVersion**](CodeApi.md#listcodesbyregiontypecodeversion) | **
-GET** /rest/v1/code/byRegionTypeCode | Finding codes by code, type and version
-[**listTagTypesBy**](CodeApi.md#listtagtypesby) | **GET** /rest/v1/code/tagtype/byRegionType | Finding tag types.
-[**matchCodesBy**](CodeApi.md#matchcodesby) | **
-POST** /rest/v1/code/match | Get ids of code matching the provided filter for the current user (HcParty)
-[**modifyCode**](CodeApi.md#modifycode) | **PUT** /rest/v1/code | Modify a code
+[**getCodes**](CodeApi.md#getcodes) | **POST** /rest/v1/code/byIds                  | Get a list of codes by ids
+[**importCodes**](CodeApi.md#importcodes) | **POST** /rest/v1/code/{codeType}             | Import codes
+[**listCodeTypesBy**](CodeApi.md#listcodetypesby) | **GET** /rest/v1/code/codetype/byRegionType   | Finding code types.
+[**listCodesByRegionTypeCodeVersion**](CodeApi.md#listcodesbyregiontypecodeversion) | **GET** /rest/v1/code/byRegionTypeCode        | Finding codes by code, type and version
+[**listTagTypesBy**](CodeApi.md#listtagtypesby) | **GET** /rest/v1/code/tagtype/byRegionType    | Finding tag types.
+[**matchCodesBy**](CodeApi.md#matchcodesby) | **POST** /rest/v1/code/match                  | Get ids of code matching the provided filter for the current user (HcParty)
+[**modifyCode**](CodeApi.md#modifycode) | **PUT** /rest/v1/code                         | Modify a code
+[**modifyCodes**](CodeApi.md#modifycodes) | **PUT** /rest/v1/code/batch                   | Modify a batch of codes
 
 
 # **createCode**
@@ -44,7 +41,7 @@ import 'package:icure_dart_sdk/api.dart';
 final api_instance = CodeApi();
 final codeDto = CodeDto(); // CodeDto | 
 
-try {
+try { 
     final result = api_instance.createCode(codeDto);
     print(result);
 } catch (e) {
@@ -56,7 +53,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **codeDto** | [**CodeDto**](CodeDto.md)|  | 
+**codeDto** | [**CodeDto**](CodeDto.md)|  |
 
 ### Return type
 
@@ -68,15 +65,58 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: */*
+- **Content-Type**: application/json
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createCodes**
+> List<CodeDto> createCodes(codeDto)
+
+Create a batch of codes
+
+Create a batch of code entities. Fields Type, Code and Version are required for each code.
+
+### Example
+```dart
+import 'package:icure_dart_sdk/api.dart';
+
+final api_instance = CodeApi();
+final codeDto = [List<CodeDto>()]; // List<CodeDto> | 
+
+try { 
+    final result = api_instance.createCodes(codeDto);
+    print(result);
+} catch (e) {
+    print('Exception when calling CodeApi->createCodes: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**codeDto** | [**List<CodeDto>**](CodeDto.md)|  |
+
+### Return type
+
+[**List<CodeDto>**](CodeDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **filterCodesBy**
 > PaginatedListCodeDto filterCodesBy(startKey, startDocumentId, limit, skip, sort, desc, filterChainCode)
 
-Filter codes 
+Filter codes
 
 Returns a list of codes along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
 
@@ -93,7 +133,7 @@ final sort = sort_example; // String | Sort key
 final desc = true; // bool | Descending
 final filterChainCode = FilterChainCode(); // FilterChainCode | 
 
-try {
+try { 
     final result = api_instance.filterCodesBy(startKey, startDocumentId, limit, skip, sort, desc, filterChainCode);
     print(result);
 } catch (e) {
@@ -105,13 +145,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startKey** | **String**| The start key for pagination, depends on the filters used | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
- **skip** | **int**| Skip rows | [optional] 
- **sort** | **String**| Sort key | [optional] 
- **desc** | **bool**| Descending | [optional] 
- **filterChainCode** | [**FilterChainCode**](FilterChainCode.md)|  | [optional] 
+**startKey** | **String**| The start key for pagination, depends on the filters used | [optional]
+**startDocumentId** | **String**| A patient document ID | [optional]
+**limit** | **int**| Number of rows | [optional]
+**skip** | **int**| Skip rows | [optional]
+**sort** | **String**| Sort key | [optional]
+**desc** | **bool**| Descending | [optional]
+**filterChainCode** | [**FilterChainCode**](FilterChainCode.md)|  | [optional]
 
 ### Return type
 
@@ -123,13 +163,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: */*
+- **Content-Type**: application/json
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **findCodesByLabel**
-> PaginatedListCodeDto findCodesByLabel(region, types, language, label, startKey, startDocumentId, limit)
+> PaginatedListCodeDto findCodesByLabel(region, types, language, label, version, startKey, startDocumentId, limit)
 
 Finding codes by code, type and version with pagination.
 
@@ -144,12 +184,13 @@ final region = region_example; // String |
 final types = types_example; // String | 
 final language = language_example; // String | 
 final label = label_example; // String | 
+final version = version_example; // String | 
 final startKey = startKey_example; // String | The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey
 final startDocumentId = startDocumentId_example; // String | A code document ID
 final limit = 56; // int | Number of rows
 
-try {
-    final result = api_instance.findCodesByLabel(region, types, language, label, startKey, startDocumentId, limit);
+try { 
+    final result = api_instance.findCodesByLabel(region, types, language, label, version, startKey, startDocumentId, limit);
     print(result);
 } catch (e) {
     print('Exception when calling CodeApi->findCodesByLabel: $e\n');
@@ -160,13 +201,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region** | **String**|  | [optional] 
- **types** | **String**|  | [optional] 
- **language** | **String**|  | [optional] 
- **label** | **String**|  | [optional] 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A code document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+**region** | **String**|  | [optional]
+**types** | **String**|  | [optional]
+**language** | **String**|  | [optional]
+**label** | **String**|  | [optional]
+**version** | **String**|  | [optional]
+**startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+**startDocumentId** | **String**| A code document ID | [optional]
+**limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -178,8 +220,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -201,7 +243,7 @@ final startKey = startKey_example; // String | The start key for pagination: a J
 final startDocumentId = startDocumentId_example; // String | A code document ID
 final limit = 56; // int | Number of rows
 
-try {
+try { 
     final result = api_instance.findCodesByLink(linkType, linkedId, startKey, startDocumentId, limit);
     print(result);
 } catch (e) {
@@ -213,11 +255,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linkType** | **String**|  | 
- **linkedId** | **String**|  | [optional] 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A code document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+**linkType** | **String**|  |
+**linkedId** | **String**|  | [optional]
+**startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+**startDocumentId** | **String**| A code document ID | [optional]
+**limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -229,8 +271,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -254,7 +296,7 @@ final startKey = startKey_example; // String | The start key for pagination
 final startDocumentId = startDocumentId_example; // String | A code document ID
 final limit = 56; // int | Number of rows
 
-try {
+try { 
     final result = api_instance.findCodesByType(region, type, code, version, startKey, startDocumentId, limit);
     print(result);
 } catch (e) {
@@ -266,13 +308,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region** | **String**|  | [optional] 
- **type** | **String**|  | [optional] 
- **code** | **String**|  | [optional] 
- **version** | **String**|  | [optional] 
- **startKey** | **String**| The start key for pagination | [optional] 
- **startDocumentId** | **String**| A code document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+**region** | **String**|  | [optional]
+**type** | **String**|  | [optional]
+**code** | **String**|  | [optional]
+**version** | **String**|  | [optional]
+**startKey** | **String**| The start key for pagination | [optional]
+**startDocumentId** | **String**| A code document ID | [optional]
+**limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -284,8 +326,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -303,7 +345,7 @@ import 'package:icure_dart_sdk/api.dart';
 final api_instance = CodeApi();
 final codeId = codeId_example; // String | Code id
 
-try {
+try { 
     final result = api_instance.getCode(codeId);
     print(result);
 } catch (e) {
@@ -315,7 +357,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **codeId** | **String**| Code id | 
+**codeId** | **String**| Code id |
 
 ### Return type
 
@@ -327,8 +369,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -348,7 +390,7 @@ final type = type_example; // String | Code type
 final code = code_example; // String | Code code
 final version = version_example; // String | Code version
 
-try {
+try { 
     final result = api_instance.getCodeWithParts(type, code, version);
     print(result);
 } catch (e) {
@@ -360,9 +402,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| Code type | 
- **code** | **String**| Code code | 
- **version** | **String**| Code version | 
+**type** | **String**| Code type |
+**code** | **String**| Code code |
+**version** | **String**| Code version |
 
 ### Return type
 
@@ -374,8 +416,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -393,7 +435,7 @@ import 'package:icure_dart_sdk/api.dart';
 final api_instance = CodeApi();
 final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
 
-try {
+try { 
     final result = api_instance.getCodes(listOfIdsDto);
     print(result);
 } catch (e) {
@@ -405,7 +447,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+**listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -417,8 +459,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: */*
+- **Content-Type**: application/json
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -436,7 +478,7 @@ import 'package:icure_dart_sdk/api.dart';
 final api_instance = CodeApi();
 final codeType = codeType_example; // String | 
 
-try {
+try { 
     final result = api_instance.importCodes(codeType);
     print(result);
 } catch (e) {
@@ -448,7 +490,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **codeType** | **String**|  | 
+**codeType** | **String**|  |
 
 ### Return type
 
@@ -460,8 +502,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -480,7 +522,7 @@ final api_instance = CodeApi();
 final region = region_example; // String | Code region
 final type = type_example; // String | Code type
 
-try {
+try { 
     final result = api_instance.listCodeTypesBy(region, type);
     print(result);
 } catch (e) {
@@ -492,8 +534,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region** | **String**| Code region | [optional] 
- **type** | **String**| Code type | [optional] 
+**region** | **String**| Code region | [optional]
+**type** | **String**| Code type | [optional]
 
 ### Return type
 
@@ -505,8 +547,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -527,7 +569,7 @@ final type = type_example; // String | Code type
 final code = code_example; // String | Code code
 final version = version_example; // String | Code version
 
-try {
+try { 
     final result = api_instance.listCodesByRegionTypeCodeVersion(region, type, code, version);
     print(result);
 } catch (e) {
@@ -539,10 +581,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region** | **String**| Code region | [optional] 
- **type** | **String**| Code type | [optional] 
- **code** | **String**| Code code | [optional] 
- **version** | **String**| Code version | [optional] 
+**region** | **String**| Code region | [optional]
+**type** | **String**| Code type | [optional]
+**code** | **String**| Code code | [optional]
+**version** | **String**| Code version | [optional]
 
 ### Return type
 
@@ -554,8 +596,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -574,7 +616,7 @@ final api_instance = CodeApi();
 final region = region_example; // String | Code region
 final type = type_example; // String | Code type
 
-try {
+try { 
     final result = api_instance.listTagTypesBy(region, type);
     print(result);
 } catch (e) {
@@ -586,8 +628,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region** | **String**| Code region | [optional] 
- **type** | **String**| Code type | [optional] 
+**region** | **String**| Code region | [optional]
+**type** | **String**| Code type | [optional]
 
 ### Return type
 
@@ -599,15 +641,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **matchCodesBy**
 > List<String> matchCodesBy(abstractFilterDtoCode)
 
-Get ids of code matching the provided filter for the current user (HcParty) 
+Get ids of code matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
@@ -616,7 +658,7 @@ import 'package:icure_dart_sdk/api.dart';
 final api_instance = CodeApi();
 final abstractFilterDtoCode = AbstractFilterDtoCode(); // AbstractFilterDtoCode | 
 
-try {
+try { 
     final result = api_instance.matchCodesBy(abstractFilterDtoCode);
     print(result);
 } catch (e) {
@@ -628,7 +670,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **abstractFilterDtoCode** | [**AbstractFilterDtoCode**](AbstractFilterDtoCode.md)|  | 
+**abstractFilterDtoCode** | [**AbstractFilterDtoCode**](AbstractFilterDtoCode.md)|  |
 
 ### Return type
 
@@ -640,8 +682,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: */*
+- **Content-Type**: application/json
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -659,7 +701,7 @@ import 'package:icure_dart_sdk/api.dart';
 final api_instance = CodeApi();
 final codeDto = CodeDto(); // CodeDto | 
 
-try {
+try { 
     final result = api_instance.modifyCode(codeDto);
     print(result);
 } catch (e) {
@@ -671,7 +713,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **codeDto** | [**CodeDto**](CodeDto.md)|  | 
+**codeDto** | [**CodeDto**](CodeDto.md)|  |
 
 ### Return type
 
@@ -683,8 +725,51 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: */*
+- **Content-Type**: application/json
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **modifyCodes**
+> List<CodeDto> modifyCodes(codeDto)
+
+Modify a batch of codes
+
+Modification of (type, code, version) is not allowed.
+
+### Example
+```dart
+import 'package:icure_dart_sdk/api.dart';
+
+final api_instance = CodeApi();
+final codeDto = [List<CodeDto>()]; // List<CodeDto> | 
+
+try { 
+    final result = api_instance.modifyCodes(codeDto);
+    print(result);
+} catch (e) {
+    print('Exception when calling CodeApi->modifyCodes: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**codeDto** | [**List<CodeDto>**](CodeDto.md)|  |
+
+### Return type
+
+[**List<CodeDto>**](CodeDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
