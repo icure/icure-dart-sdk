@@ -73,6 +73,65 @@ class CodeApi {
     return null;
   }
 
+  /// Create a batch of codes
+  ///
+  /// Create a batch of code entities. Fields Type, Code and Version are required for each code.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [List<CodeDto>] codeDto (required):
+  Future<Response> createCodesWithHttpInfo(List<CodeDto> codeDto) async {
+
+    final path = r'/rest/v1/code/batch';
+
+    Object postBody = codeDto;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[r'basicSchema'];
+
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Create a batch of codes
+  ///
+  /// Create a batch of code entities. Fields Type, Code and Version are required for each code.
+  ///
+  /// Parameters:
+  ///
+  /// * [List<CodeDto>] codeDto (required):
+  Future<List<CodeDto>?> createCodes(List<CodeDto> codeDto) async {
+    final response = await createCodesWithHttpInfo(codeDto);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<CodeDto>') as List)
+          .cast<CodeDto>()
+          .toList();
+    }
+    return null;
+  }
+
   /// Filter codes 
   ///
   /// Returns a list of codes along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
@@ -1105,6 +1164,64 @@ class CodeApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CodeDto',) as CodeDto;
     
+    }
+    return null;
+  }
+
+  /// Modify a batch of codes
+  ///
+  /// Modification of (type, code, version) is not allowed.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [List<CodeDto>] codeDto (required):
+  Future<Response> modifyCodesWithHttpInfo(List<CodeDto> codeDto) async {
+    final path = r'/rest/v1/code/batch';
+
+    Object? postBody = codeDto;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[r'basicSchema'];
+
+
+    return await apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Modify a batch of codes
+  ///
+  /// Modification of (type, code, version) is not allowed.
+  ///
+  /// Parameters:
+  ///
+  /// * [List<CodeDto>] codeDto (required):
+  Future<List<CodeDto>?> modifyCodes(List<CodeDto> codeDto) async {
+    final response = await modifyCodesWithHttpInfo(codeDto);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<CodeDto>') as List)
+          .cast<CodeDto>()
+          .toList();
     }
     return null;
   }
