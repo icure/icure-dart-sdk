@@ -9,8 +9,6 @@ import 'package:uuid/uuid.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid_util.dart';
 
-final hashedAdmin = "{R0DLKxxRDxdtpfY542gOUZbvWkfv1KWO9QOi9yvr/2c=}39a484cbf9057072623177422172e8a173bd826d68a2b12fa8e36ff94a44a0d7";
-
 void main() {
   final TestBackend backend = RemoteTestBackend.getInstance(Platform.environment["ICURE_USR"]!, Platform.environment["ICURE_PWD"]!, Platform.environment["TEST_ICURE_URL"]!);
   final Uuid uuid = Uuid();
@@ -34,7 +32,6 @@ void main() {
               id: userId1,
               login: userId1,
               status: UserDtoStatusEnum.ACTIVE,
-              passwordHash: hashedAdmin,
               patientId: patientToFilter
           )
       );
@@ -45,7 +42,6 @@ void main() {
               id: userId2,
               login: userId2,
               status: UserDtoStatusEnum.ACTIVE,
-              passwordHash: hashedAdmin,
               patientId: patientToFilter
           )
       );
@@ -56,7 +52,6 @@ void main() {
               id: userId3,
               login: userId3,
               status: UserDtoStatusEnum.ACTIVE,
-              passwordHash: hashedAdmin,
               patientId: "DUMMY-PATIENT-2"
           )
       );
