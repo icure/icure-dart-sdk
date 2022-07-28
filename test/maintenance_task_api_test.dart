@@ -39,13 +39,20 @@ class CodeEquality implements Equality<CodeStubDto> {
 
 /// tests for MaintenanceTaskApi
 void main() {
-  
-  // final TestBackend backend = DockerTestBackend.getInstance(15984, 16044, "icure", "icure", "test", "admin");
-  final TestBackend backend = RemoteTestBackend.getInstance("icuretest", "icuretest", "http://localhost:16043");
+
+  final TestBackend backend = RemoteTestBackend.getInstance(
+      Platform.environment["ICURE_USR"]!,
+      Platform.environment["ICURE_PWD"]!,
+      Platform.environment["ICURE_COUCHDB_USERNAME"]!,
+      Platform.environment["ICURE_COUCHDB_PASSWORD"]!,
+      Platform.environment["TEST_ICURE_URL"]!,
+      Platform.environment["ICURE_COUCHDB_URL"]!
+  );
   final Uuid uuid = Uuid();
   final login = "hcp-${uuid.v4(options: {'rng': UuidUtil.cryptoRNG})}-delegate";
   HealthcarePartyDto? delegateHcp;
   MaintenanceTaskApi? maintenanceTaskApi;
+  List<String> generatedIds = [];
 
   setUpAll(() async {
     await backend.init();
@@ -56,20 +63,30 @@ void main() {
         new HealthcarePartyDto(id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}), publicKey: hcpKeys.item2, firstName: "test", lastName: "test")
     );
     assert(delegateHcp != null);
-    await UserApi(client).createUser(
+    final user = await UserApi(client).createUser(
         new UserDto(
             id: "user-${uuid.v4(options: {'rng': UuidUtil.cryptoRNG})}-hcp",
             login: login,
             status: UserDtoStatusEnum.ACTIVE,
-            passwordHash: "{R0DLKxxRDxdtpfY542gOUZbvWkfv1KWO9QOi9yvr/2c=}39a484cbf9057072623177422172e8a173bd826d68a2b12fa8e36ff94a44a0d7",
             healthcarePartyId: delegateHcp!.id
         )
     );
+    assert(user != null);
 
-    final clientHcp = ApiClient.basic(backend.iCureURL, login, "admin");
+    final authToken = await UserApi(client).getToken(user!.id, uuid.v4(options: {'rng': UuidUtil.cryptoRNG}));
+    assert(authToken != null);
+
+    final clientHcp = ApiClient.basic(backend.iCureURL, login, authToken!);
     maintenanceTaskApi = MaintenanceTaskApi(clientHcp);
 
     print("Successfully set up test backend!");
+  });
+
+  tearDownAll(() async {
+    await backend.shutdown(
+      ids: generatedIds,
+      dbPrefix: Platform.environment["ICURE_COUCHDB_PREFIX"]!
+    );
   });
 
   group('tests for MaintenanceTaskApi', () {
@@ -94,6 +111,7 @@ void main() {
       assert(ListEquality().equals(result!.properties.toList(), maintenanceTask.properties.toList()));
       assert(ListEquality(CodeEquality()).equals(result!.tags.toList(), maintenanceTask.tags.toList()));
       assert(ListEquality(CodeEquality()).equals(result!.codes.toList(), maintenanceTask.codes.toList()));
+      generatedIds = generatedIds + [maintenanceTask.id];
     });
 
     // Delete maintenanceTasks
@@ -149,6 +167,7 @@ void main() {
       assert(filterResult != null);
       assert(filterResult!.rows.length == 1);
       assert(filterResult!.rows[0].id == mt1Id);
+      generatedIds = generatedIds + [mt1Id, mt2Id];
     });
 
     // Filter maintenanceTasks for the current user (HcParty)
@@ -174,6 +193,7 @@ void main() {
       final filterResult = await maintenanceTaskApi!.filterMaintenanceTasksBy(FilterChain(MaintenanceTaskByIdsFilter(ids: {uuid.v4(options: {'rng': UuidUtil.cryptoRNG})})));
       assert(filterResult != null);
       assert(filterResult!.rows.length == 0);
+      generatedIds = generatedIds + [mt1Id, mt2Id];
     });
 
     // Filter maintenanceTasks for the current user (HcParty)
@@ -183,7 +203,7 @@ void main() {
     //Future<PaginatedListMaintenanceTaskDto> filterMaintenanceTasksBy(FilterChain<MaintenanceTaskDto> filterChainMaintenanceTask, { String startDocumentId, int limit }) async
     test('test filterMaintenanceTasksAfterDate - Success', () async {
       final mt1Id = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
-      final creationTimestamp = DateTime.now().millisecondsSinceEpoch;
+      final creationTimestamp = DateTime.now().millisecondsSinceEpoch + 1;
       final mt1 = await maintenanceTaskApi!.createMaintenanceTask(
           MaintenanceTaskDto(
               id: mt1Id,
@@ -193,11 +213,16 @@ void main() {
       assert(mt1 != null);
       final filterResult = await maintenanceTaskApi!.filterMaintenanceTasksBy(
           FilterChain(
-              MaintenanceTaskAfterDateFilter(date: creationTimestamp + 1)
+              MaintenanceTaskAfterDateFilter(date: creationTimestamp)
           )
       );
       assert(filterResult != null);
-      assert(filterResult!.rows.length == 1);
+      assert(filterResult!.rows.length > 0);
+      filterResult!.rows.forEach((task) {
+        assert(task.created != null);
+        assert(task.created! > creationTimestamp );
+      });
+      generatedIds = generatedIds + [mt1Id];
     });
 
     // Filter maintenanceTasks for the current user (HcParty)
@@ -236,6 +261,7 @@ void main() {
       );
       assert(filterResult != null);
       assert(filterResult!.rows.length == 1);
+      generatedIds = generatedIds + [mt1Id, mt2Id];
     });
 
     // Filter maintenanceTasks for the current user (HcParty)
@@ -270,6 +296,7 @@ void main() {
       );
       assert(filterResult != null);
       assert(filterResult!.rows.length == 1);
+      generatedIds = generatedIds + [mt1Id, mt2Id];
     });
 
 
@@ -288,6 +315,7 @@ void main() {
       final getResult = await maintenanceTaskApi!.getMaintenanceTask(toGet!.id);
       assert(getResult != null);
       assert(getResult!.id == getId);
+      generatedIds = generatedIds + [toGet.id];
     });
 
     // Updates a maintenanceTask
@@ -312,6 +340,7 @@ void main() {
       assert(modified!.id == id);
       assert(modified!.rev != created.rev);
       assert(modified!.status == MaintenanceTaskDtoStatusEnum.ongoing);
+      generatedIds = generatedIds + [created.id];
     });
 
   });

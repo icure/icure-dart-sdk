@@ -1,34 +1,61 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:http/retry.dart';
+import 'package:icure_dart_sdk/api.dart';
 import 'dart:convert';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
+
+class IdWithRev {
+
+  String id;
+  String rev;
+
+  IdWithRev(
+      this.id,
+      this.rev,
+      );
+
+  static IdWithRev fromJson(dynamic value) {
+    final json = value.cast<String, dynamic>();
+    return IdWithRev(
+      mapValueOfType<String>(json, r'_id')!,
+      mapValueOfType<String>(json, r'_rev')!,
+    );
+  }
+}
 
 abstract class TestBackend {
 
   abstract final String iCureUser;
   abstract final String iCurePwd;
   abstract final String iCureURL;
+  abstract final String couchdbUser;
+  abstract final String couchdbPassword;
 
   Future<void> init();
-  Future<void> shutdown();
+  Future<void> shutdown({List<String>? ids = null, String? dbPrefix = null});
 
 }
 
 class RemoteTestBackend implements TestBackend {
 
   static TestBackend? _instance;
+  String couchDBURL;
   @override final String iCurePwd;
   @override final String iCureURL;
   @override final String iCureUser;
+  @override final String couchdbUser;
+  @override final String couchdbPassword;
 
-  RemoteTestBackend(this.iCureUser, this.iCurePwd, this.iCureURL);
 
-  static TestBackend getInstance(String iCureUser, String iCurePwd, [String iCureURL = "https://kraken.icure.dev"]) {
+  RemoteTestBackend(this.iCureUser, this.iCurePwd, this.iCureURL, this.couchdbUser, this.couchdbPassword, this.couchDBURL);
+
+  static TestBackend getInstance(String iCureUser, String iCurePwd, String couchDbUser, String couchDbPassword, [String iCureURL = "https://kraken.icure.dev", String couchDBURL = "https://couch.svcacc.icure.cloud"]) {
     if (RemoteTestBackend._instance == null) {
-      RemoteTestBackend._instance = RemoteTestBackend(iCureUser, iCurePwd, iCureURL);
+      RemoteTestBackend._instance = RemoteTestBackend(iCureUser, iCurePwd, iCureURL, couchDbUser, couchDbPassword, couchDBURL);
     }
     return RemoteTestBackend._instance!;
   }
@@ -36,7 +63,29 @@ class RemoteTestBackend implements TestBackend {
   @override
   Future<void> init() async { }
 
-  Future<void> shutdown() async { }
+  Future<void> shutdown({List<String>? ids = null, String? dbPrefix = null}) async {
+    final headers = {
+      "Content-type": "application/json",
+      "Authorization": "Basic ${base64.encode(utf8.encode("${this.couchdbUser}:${this.couchdbPassword}"))}"
+    };
+    await Future.forEach(ids!, (String id) async {
+      final response = await http.get(Uri.parse("${this.couchDBURL}/${dbPrefix}-base/${Uri.encodeComponent(id)}"), headers: headers);
+      if (response.statusCode < 400) {
+        final decodedBody = await _decodeBodyBytes(response);
+        final element = IdWithRev.fromJson(jsonDecode(decodedBody));
+        await http.delete(Uri.parse("${this.couchDBURL}/${dbPrefix}-base/${Uri.encodeComponent(element.id)}?rev=${Uri.encodeComponent(element.rev)}"), headers: headers);
+      }
+    });
+
+  }
+
+  Future<String> _decodeBodyBytes(Response response) async {
+    final contentType = response.headers['content-type'];
+    return contentType != null && contentType.toLowerCase().startsWith('application/json')
+        ? response.bodyBytes.isEmpty ? '' : utf8.decode(response.bodyBytes)
+        : response.body;
+  }
+
 
 }
 
@@ -45,9 +94,9 @@ class DockerTestBackend implements TestBackend {
   static TestBackend? _instance;
   final int DB_PORT;
   final int AS_PORT;
-  final String couchdbUser;
-  final String couchdbPassword;
   final Uuid uuid = Uuid();
+  @override final String couchdbUser;
+  @override final String couchdbPassword;
   @override final String iCurePwd;
   @override final String iCureURL;
   @override final String iCureUser;
@@ -178,7 +227,7 @@ class DockerTestBackend implements TestBackend {
   }
 
   @override
-  Future<void> shutdown() async {
+  Future<void> shutdown({List<String>? ids = null, String? dbPrefix = null}) async {
     await Process.run("docker", ["rm", "-f", "couchdb-test-ts"]);
     await Process.run("docker", ["rm", "-f", "icure-oss-test"]);
     await Process.run("docker", ["network", "rm", "network-test"]);
