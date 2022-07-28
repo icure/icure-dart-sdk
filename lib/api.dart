@@ -395,11 +395,17 @@ part 'model/filter/code/code_by_ids_filter.dart';
 
 part 'model/filter/code/all_codes_filter.dart';
 
+part 'model/filter/code/code_ids_by_type_code_version_interval_filter.dart';
+
 part 'model/filter/chain/filter_chain.dart';
 
 part 'model/filter/user/user_by_ids_filter.dart';
 
 part 'model/filter/user/all_users_filter.dart';
+
+part 'model/filter/user/user_by_name_email_phone_filter.dart';
+
+part 'model/filter/user/users_by_patient_id_filter.dart';
 
 part 'model/filter/complement_filter.dart';
 
