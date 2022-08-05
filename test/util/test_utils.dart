@@ -65,7 +65,7 @@ class CodeBatchGenerator {
 
   final types = ["SNOMED", "LOINC", "TESTCODE", "DEEPSECRET"];
   final random = new Random();
-  final chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+  final chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890'; // pragma: allowlist secret
 
   String getRandomString(int length) => String.fromCharCodes(Iterable.generate(
       length, (_) => chars.codeUnitAt(random.nextInt(chars.length))));
