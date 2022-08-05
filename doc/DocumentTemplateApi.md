@@ -50,7 +50,7 @@ Returns an instance of created document template.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final documentTemplateDto = DocumentTemplateDto(); // DocumentTemplateDto | 
+final documentTemplateDto = DocumentTemplateDto(); // DocumentTemplateDto |
 
 try {
     final result = api_instance.createDocumentTemplate(documentTemplateDto);
@@ -64,7 +64,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTemplateDto** | [**DocumentTemplateDto**](DocumentTemplateDto.md)|  | 
+ **documentTemplateDto** | [**DocumentTemplateDto**](DocumentTemplateDto.md)|  |
 
 ### Return type
 
@@ -91,7 +91,7 @@ Deletes document templates
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteDocumentTemplates(listOfIdsDto);
@@ -105,7 +105,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -132,8 +132,8 @@ Download a the document template attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final documentTemplateId = documentTemplateId_example; // String | 
-final attachmentId = attachmentId_example; // String | 
+final documentTemplateId = documentTemplateId_example; // String |
+final attachmentId = attachmentId_example; // String |
 
 try {
     final result = api_instance.getAttachmentText(documentTemplateId, attachmentId);
@@ -147,8 +147,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTemplateId** | **String**|  | 
- **attachmentId** | **String**|  | 
+ **documentTemplateId** | **String**|  |
+ **attachmentId** | **String**|  |
 
 ### Return type
 
@@ -175,7 +175,7 @@ Gets a document template
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final documentTemplateId = documentTemplateId_example; // String | 
+final documentTemplateId = documentTemplateId_example; // String |
 
 try {
     final result = api_instance.getDocumentTemplate(documentTemplateId);
@@ -189,7 +189,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTemplateId** | **String**|  | 
+ **documentTemplateId** | **String**|  |
 
 ### Return type
 
@@ -216,8 +216,8 @@ Download a the document template attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final documentTemplateId = documentTemplateId_example; // String | 
-final attachmentId = attachmentId_example; // String | 
+final documentTemplateId = documentTemplateId_example; // String |
+final attachmentId = attachmentId_example; // String |
 
 try {
     final result = api_instance.getDocumentTemplateAttachment(documentTemplateId, attachmentId);
@@ -231,8 +231,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTemplateId** | **String**|  | 
- **attachmentId** | **String**|  | 
+ **documentTemplateId** | **String**|  |
+ **attachmentId** | **String**|  |
 
 ### Return type
 
@@ -333,7 +333,7 @@ Gets all document templates by Type
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final documentTypeCode = documentTypeCode_example; // String | 
+final documentTypeCode = documentTypeCode_example; // String |
 
 try {
     final result = api_instance.listDocumentTemplatesByDocumentType(documentTypeCode);
@@ -347,7 +347,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTypeCode** | **String**|  | 
+ **documentTypeCode** | **String**|  |
 
 ### Return type
 
@@ -374,7 +374,7 @@ Gets all document templates by Type For currentUser
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final documentTypeCode = documentTypeCode_example; // String | 
+final documentTypeCode = documentTypeCode_example; // String |
 
 try {
     final result = api_instance.listDocumentTemplatesByDocumentTypeForCurrentUser(documentTypeCode);
@@ -388,7 +388,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTypeCode** | **String**|  | 
+ **documentTypeCode** | **String**|  |
 
 ### Return type
 
@@ -415,7 +415,7 @@ Gets all document templates
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final specialityCode = specialityCode_example; // String | 
+final specialityCode = specialityCode_example; // String |
 
 try {
     final result = api_instance.listDocumentTemplatesBySpeciality(specialityCode);
@@ -429,7 +429,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **specialityCode** | **String**|  | 
+ **specialityCode** | **String**|  |
 
 ### Return type
 
@@ -458,8 +458,8 @@ Returns an instance of created document template.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final documentTemplateId = documentTemplateId_example; // String | 
-final documentTemplateDto = DocumentTemplateDto(); // DocumentTemplateDto | 
+final documentTemplateId = documentTemplateId_example; // String |
+final documentTemplateDto = DocumentTemplateDto(); // DocumentTemplateDto |
 
 try {
     final result = api_instance.modifyDocumentTemplate(documentTemplateId, documentTemplateDto);
@@ -473,8 +473,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTemplateId** | **String**|  | 
- **documentTemplateDto** | [**DocumentTemplateDto**](DocumentTemplateDto.md)|  | 
+ **documentTemplateId** | **String**|  |
+ **documentTemplateDto** | [**DocumentTemplateDto**](DocumentTemplateDto.md)|  |
 
 ### Return type
 
@@ -501,8 +501,8 @@ Creates a document's attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final documentTemplateId = documentTemplateId_example; // String | 
-final requestBody = [List<String>()]; // List<String> | 
+final documentTemplateId = documentTemplateId_example; // String |
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.setDocumentTemplateAttachment(documentTemplateId, requestBody);
@@ -516,8 +516,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTemplateId** | **String**|  | 
- **requestBody** | [**List<String>**](String.md)|  | 
+ **documentTemplateId** | **String**|  |
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -544,8 +544,8 @@ Creates a document's attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentTemplateApi();
-final documentTemplateId = documentTemplateId_example; // String | 
-final byteArrayDto = ByteArrayDto(); // ByteArrayDto | 
+final documentTemplateId = documentTemplateId_example; // String |
+final byteArrayDto = ByteArrayDto(); // ByteArrayDto |
 
 try {
     final result = api_instance.setDocumentTemplateAttachmentJson(documentTemplateId, byteArrayDto);
@@ -559,8 +559,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTemplateId** | **String**|  | 
- **byteArrayDto** | [**ByteArrayDto**](ByteArrayDto.md)|  | 
+ **documentTemplateId** | **String**|  |
+ **byteArrayDto** | [**ByteArrayDto**](ByteArrayDto.md)|  |
 
 ### Return type
 
@@ -576,4 +576,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

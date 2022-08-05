@@ -69,7 +69,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthcarePartyDto',) as HealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -132,7 +132,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthcarePartyDto',) as HealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -334,7 +334,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListHealthcarePartyDto',) as PaginatedListHealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -425,7 +425,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListHealthcarePartyDto',) as PaginatedListHealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -525,7 +525,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListHealthcarePartyDto',) as PaginatedListHealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -617,7 +617,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListHealthcarePartyDto',) as PaginatedListHealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -712,7 +712,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListHealthcarePartyDto',) as PaginatedListHealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -761,7 +761,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthcarePartyDto',) as HealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -937,7 +937,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthcarePartyDto',) as HealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -995,7 +995,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PublicKeyDto',) as PublicKeyDto;
-    
+
     }
     return null;
   }
@@ -1124,7 +1124,7 @@ class HealthcarePartyApi {
     return null;
   }
 
-  /// Get ids of healthcare party matching the provided filter for the current user (HcParty) 
+  /// Get ids of healthcare party matching the provided filter for the current user (HcParty)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1157,7 +1157,7 @@ class HealthcarePartyApi {
     );
   }
 
-  /// Get ids of healthcare party matching the provided filter for the current user (HcParty) 
+  /// Get ids of healthcare party matching the provided filter for the current user (HcParty)
   ///
   /// Parameters:
   ///
@@ -1232,7 +1232,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthcarePartyDto',) as HealthcarePartyDto;
-    
+
     }
     return null;
   }
@@ -1294,7 +1294,7 @@ class HealthcarePartyApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthcarePartyDto',) as HealthcarePartyDto;
-    
+
     }
     return null;
   }

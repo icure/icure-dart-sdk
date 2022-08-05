@@ -119,7 +119,7 @@ class GroupApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
-    
+
     }
     return null;
   }
@@ -180,7 +180,7 @@ class GroupApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
-    
+
     }
     return null;
   }
@@ -236,7 +236,7 @@ class GroupApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ReplicationInfoDto',) as ReplicationInfoDto;
-    
+
     }
     return null;
   }
@@ -315,7 +315,7 @@ class GroupApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+
     }
     return null;
   }
@@ -433,7 +433,7 @@ class GroupApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
-    
+
     }
     return null;
   }
@@ -497,7 +497,7 @@ class GroupApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
-    
+
     }
     return null;
   }
@@ -554,7 +554,7 @@ class GroupApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'RegistrationSuccessDto',) as RegistrationSuccessDto;
-    
+
     }
     return null;
   }
@@ -637,7 +637,7 @@ class GroupApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+
     }
     return null;
   }
@@ -705,7 +705,7 @@ class GroupApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GroupDto',) as GroupDto;
-    
+
     }
     return null;
   }

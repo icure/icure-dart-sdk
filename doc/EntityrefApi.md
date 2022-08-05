@@ -24,7 +24,7 @@ Create an entity reference
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityrefApi();
-final entityReferenceDto = EntityReferenceDto(); // EntityReferenceDto | 
+final entityReferenceDto = EntityReferenceDto(); // EntityReferenceDto |
 
 try {
     final result = api_instance.createEntityReference(entityReferenceDto);
@@ -38,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityReferenceDto** | [**EntityReferenceDto**](EntityReferenceDto.md)|  | 
+ **entityReferenceDto** | [**EntityReferenceDto**](EntityReferenceDto.md)|  |
 
 ### Return type
 
@@ -58,14 +58,14 @@ No authorization required
 # **getLatest**
 > EntityReferenceDto getLatest(prefix)
 
-Find latest reference for a prefix 
+Find latest reference for a prefix
 
 ### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityrefApi();
-final prefix = prefix_example; // String | 
+final prefix = prefix_example; // String |
 
 try {
     final result = api_instance.getLatest(prefix);
@@ -79,7 +79,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **prefix** | **String**|  | 
+ **prefix** | **String**|  |
 
 ### Return type
 
@@ -95,4 +95,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

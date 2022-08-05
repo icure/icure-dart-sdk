@@ -62,7 +62,7 @@ One of Name or Last name+First name, Nihii, and Public key are required.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto | 
+final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto |
 
 try {
     final result = api_instance.createHealthcareParty(healthcarePartyDto);
@@ -76,7 +76,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthcarePartyDto** | [**HealthcarePartyDto**](HealthcarePartyDto.md)|  | 
+ **healthcarePartyDto** | [**HealthcarePartyDto**](HealthcarePartyDto.md)|  |
 
 ### Return type
 
@@ -105,8 +105,8 @@ One of Name or Last name+First name, Nihii, and Public key are required.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final groupId = groupId_example; // String | 
-final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto | 
+final groupId = groupId_example; // String |
+final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto |
 
 try {
     final result = api_instance.createHealthcarePartyInGroup(groupId, healthcarePartyDto);
@@ -120,8 +120,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  | 
- **healthcarePartyDto** | [**HealthcarePartyDto**](HealthcarePartyDto.md)|  | 
+ **groupId** | **String**|  |
+ **healthcarePartyDto** | [**HealthcarePartyDto**](HealthcarePartyDto.md)|  |
 
 ### Return type
 
@@ -150,7 +150,7 @@ Deleting healthcareParties. Response is an array containing the id of deleted he
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteHealthcareParties(listOfIdsDto);
@@ -164,7 +164,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -193,8 +193,8 @@ Deleting a healthcareParty. Response is an array containing the id of deleted he
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final groupId = groupId_example; // String | 
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final groupId = groupId_example; // String |
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteHealthcarePartiesInGroup(groupId, listOfIdsDto);
@@ -208,8 +208,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  | 
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **groupId** | **String**|  |
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -238,7 +238,7 @@ Returns a list of healthcare party along with next start keys and Document ID. I
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final filterChainHealthcareParty = FilterChainHealthcareParty(); // FilterChainHealthcareParty | 
+final filterChainHealthcareParty = FilterChainHealthcareParty(); // FilterChainHealthcareParty |
 final startDocumentId = startDocumentId_example; // String | A HealthcareParty document ID
 final limit = 56; // int | Number of rows
 
@@ -254,9 +254,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterChainHealthcareParty** | [**FilterChainHealthcareParty**](FilterChainHealthcareParty.md)|  | 
- **startDocumentId** | **String**| A HealthcareParty document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **filterChainHealthcareParty** | [**FilterChainHealthcareParty**](FilterChainHealthcareParty.md)|  |
+ **startDocumentId** | **String**| A HealthcareParty document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -302,10 +302,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startKey** | **String**| A healthcare party Last name | [optional] 
- **startDocumentId** | **String**| A healthcare party document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
- **desc** | **bool**| Descending | [optional] 
+ **startKey** | **String**| A healthcare party Last name | [optional]
+ **startDocumentId** | **String**| A healthcare party document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
+ **desc** | **bool**| Descending | [optional]
 
 ### Return type
 
@@ -352,11 +352,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The Last name search value | [optional] 
- **startKey** | **String**| A healthcare party Last name | [optional] 
- **startDocumentId** | **String**| A healthcare party document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
- **desc** | **bool**| Descending | [optional] 
+ **name** | **String**| The Last name search value | [optional]
+ **startKey** | **String**| A healthcare party Last name | [optional]
+ **startDocumentId** | **String**| A healthcare party document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
+ **desc** | **bool**| Descending | [optional]
 
 ### Return type
 
@@ -403,11 +403,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| The type of the HCP (persphysician) | 
- **spec** | **String**| The speciality of the HCP | 
- **firstCode** | **String**| The first postCode for the HCP | 
- **lastCode** | **String**| The last postCode for the HCP | 
- **limit** | **int**| Number of rows | [optional] 
+ **type** | **String**| The type of the HCP (persphysician) |
+ **spec** | **String**| The speciality of the HCP |
+ **firstCode** | **String**| The first postCode for the HCP |
+ **lastCode** | **String**| The last postCode for the HCP |
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -436,7 +436,7 @@ Returns a list of healthcare parties.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final searchValue = searchValue_example; // String | 
+final searchValue = searchValue_example; // String |
 final startKey = startKey_example; // String | A healthcare party Last name
 final startDocumentId = startDocumentId_example; // String | A healthcare party document ID
 final limit = 56; // int | Number of rows
@@ -454,11 +454,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchValue** | **String**|  | 
- **startKey** | **String**| A healthcare party Last name | [optional] 
- **startDocumentId** | **String**| A healthcare party document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
- **desc** | **bool**| Descending | [optional] 
+ **searchValue** | **String**|  |
+ **startKey** | **String**| A healthcare party Last name | [optional]
+ **startDocumentId** | **String**| A healthcare party document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
+ **desc** | **bool**| Descending | [optional]
 
 ### Return type
 
@@ -526,7 +526,7 @@ Get the HcParty encrypted AES keys indexed by owner
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final healthcarePartyId = healthcarePartyId_example; // String | 
+final healthcarePartyId = healthcarePartyId_example; // String |
 
 try {
     final result = api_instance.getHcPartyKeysForDelegate(healthcarePartyId);
@@ -540,7 +540,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthcarePartyId** | **String**|  | 
+ **healthcarePartyId** | **String**|  |
 
 ### Return type
 
@@ -569,7 +569,7 @@ General information about the healthcare Party
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getHealthcareParties(listOfIdsDto);
@@ -583,7 +583,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -612,7 +612,7 @@ General information about the healthcare Party
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final healthcarePartyId = healthcarePartyId_example; // String | 
+final healthcarePartyId = healthcarePartyId_example; // String |
 
 try {
     final result = api_instance.getHealthcareParty(healthcarePartyId);
@@ -626,7 +626,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthcarePartyId** | **String**|  | 
+ **healthcarePartyId** | **String**|  |
 
 ### Return type
 
@@ -655,7 +655,7 @@ Returns the public key of a healthcare party in Hex
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final healthcarePartyId = healthcarePartyId_example; // String | 
+final healthcarePartyId = healthcarePartyId_example; // String |
 
 try {
     final result = api_instance.getPublicKey(healthcarePartyId);
@@ -669,7 +669,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthcarePartyId** | **String**|  | 
+ **healthcarePartyId** | **String**|  |
 
 ### Return type
 
@@ -712,7 +712,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The Last name search value | 
+ **name** | **String**| The Last name search value |
 
 ### Return type
 
@@ -741,7 +741,7 @@ Return a list of children hcp.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final parentId = parentId_example; // String | 
+final parentId = parentId_example; // String |
 
 try {
     final result = api_instance.listHealthcarePartiesByParentId(parentId);
@@ -755,7 +755,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parentId** | **String**|  | 
+ **parentId** | **String**|  |
 
 ### Return type
 
@@ -775,14 +775,14 @@ No authorization required
 # **matchHealthcarePartiesBy**
 > List<String> matchHealthcarePartiesBy(abstractFilterDtoHealthcareParty)
 
-Get ids of healthcare party matching the provided filter for the current user (HcParty) 
+Get ids of healthcare party matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final abstractFilterDtoHealthcareParty = AbstractFilterDtoHealthcareParty(); // AbstractFilterDtoHealthcareParty | 
+final abstractFilterDtoHealthcareParty = AbstractFilterDtoHealthcareParty(); // AbstractFilterDtoHealthcareParty |
 
 try {
     final result = api_instance.matchHealthcarePartiesBy(abstractFilterDtoHealthcareParty);
@@ -796,7 +796,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **abstractFilterDtoHealthcareParty** | [**AbstractFilterDtoHealthcareParty**](AbstractFilterDtoHealthcareParty.md)|  | 
+ **abstractFilterDtoHealthcareParty** | [**AbstractFilterDtoHealthcareParty**](AbstractFilterDtoHealthcareParty.md)|  |
 
 ### Return type
 
@@ -825,7 +825,7 @@ No particular return value. It's just a message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto | 
+final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto |
 
 try {
     final result = api_instance.modifyHealthcareParty(healthcarePartyDto);
@@ -839,7 +839,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthcarePartyDto** | [**HealthcarePartyDto**](HealthcarePartyDto.md)|  | 
+ **healthcarePartyDto** | [**HealthcarePartyDto**](HealthcarePartyDto.md)|  |
 
 ### Return type
 
@@ -868,8 +868,8 @@ No particular return value. It's just a message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthcarePartyApi();
-final groupId = groupId_example; // String | 
-final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto | 
+final groupId = groupId_example; // String |
+final healthcarePartyDto = HealthcarePartyDto(); // HealthcarePartyDto |
 
 try {
     final result = api_instance.modifyHealthcarePartyInGroup(groupId, healthcarePartyDto);
@@ -883,8 +883,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  | 
- **healthcarePartyDto** | [**HealthcarePartyDto**](HealthcarePartyDto.md)|  | 
+ **groupId** | **String**|  |
+ **healthcarePartyDto** | [**HealthcarePartyDto**](HealthcarePartyDto.md)|  |
 
 ### Return type
 
@@ -900,4 +900,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

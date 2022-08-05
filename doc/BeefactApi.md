@@ -23,10 +23,10 @@ create batch and message
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeefactApi();
-final insuranceId = insuranceId_example; // String | 
-final newMessageId = newMessageId_example; // String | 
-final numericalRef = 789; // int | 
-final mapOfIdsDto = MapOfIdsDto(); // MapOfIdsDto | 
+final insuranceId = insuranceId_example; // String |
+final newMessageId = newMessageId_example; // String |
+final numericalRef = 789; // int |
+final mapOfIdsDto = MapOfIdsDto(); // MapOfIdsDto |
 
 try {
     final result = api_instance.createBatchAndMessage(insuranceId, newMessageId, numericalRef, mapOfIdsDto);
@@ -40,10 +40,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **insuranceId** | **String**|  | 
- **newMessageId** | **String**|  | 
- **numericalRef** | **int**|  | 
- **mapOfIdsDto** | [**MapOfIdsDto**](MapOfIdsDto.md)|  | 
+ **insuranceId** | **String**|  |
+ **newMessageId** | **String**|  |
+ **numericalRef** | **int**|  |
+ **mapOfIdsDto** | [**MapOfIdsDto**](MapOfIdsDto.md)|  |
 
 ### Return type
 
@@ -59,4 +59,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

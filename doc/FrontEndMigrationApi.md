@@ -33,7 +33,7 @@ Creates a front end migration
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
-final frontEndMigrationDto = FrontEndMigrationDto(); // FrontEndMigrationDto | 
+final frontEndMigrationDto = FrontEndMigrationDto(); // FrontEndMigrationDto |
 
 try {
     final result = api_instance.createFrontEndMigration(frontEndMigrationDto);
@@ -47,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **frontEndMigrationDto** | [**FrontEndMigrationDto**](FrontEndMigrationDto.md)|  | 
+ **frontEndMigrationDto** | [**FrontEndMigrationDto**](FrontEndMigrationDto.md)|  |
 
 ### Return type
 
@@ -74,7 +74,7 @@ Deletes a front end migration
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
-final frontEndMigrationId = frontEndMigrationId_example; // String | 
+final frontEndMigrationId = frontEndMigrationId_example; // String |
 
 try {
     final result = api_instance.deleteFrontEndMigration(frontEndMigrationId);
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **frontEndMigrationId** | **String**|  | 
+ **frontEndMigrationId** | **String**|  |
 
 ### Return type
 
@@ -115,7 +115,7 @@ Gets a front end migration
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
-final frontEndMigrationId = frontEndMigrationId_example; // String | 
+final frontEndMigrationId = frontEndMigrationId_example; // String |
 
 try {
     final result = api_instance.getFrontEndMigration(frontEndMigrationId);
@@ -129,7 +129,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **frontEndMigrationId** | **String**|  | 
+ **frontEndMigrationId** | **String**|  |
 
 ### Return type
 
@@ -156,7 +156,7 @@ Gets an front end migration
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
-final frontEndMigrationName = frontEndMigrationName_example; // String | 
+final frontEndMigrationName = frontEndMigrationName_example; // String |
 
 try {
     final result = api_instance.getFrontEndMigrationByName(frontEndMigrationName);
@@ -170,7 +170,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **frontEndMigrationName** | **String**|  | 
+ **frontEndMigrationName** | **String**|  |
 
 ### Return type
 
@@ -234,7 +234,7 @@ Modifies a front end migration
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FrontEndMigrationApi();
-final frontEndMigrationDto = FrontEndMigrationDto(); // FrontEndMigrationDto | 
+final frontEndMigrationDto = FrontEndMigrationDto(); // FrontEndMigrationDto |
 
 try {
     final result = api_instance.modifyFrontEndMigration(frontEndMigrationDto);
@@ -248,7 +248,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **frontEndMigrationDto** | [**FrontEndMigrationDto**](FrontEndMigrationDto.md)|  | 
+ **frontEndMigrationDto** | [**FrontEndMigrationDto**](FrontEndMigrationDto.md)|  |
 
 ### Return type
 
@@ -264,4 +264,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

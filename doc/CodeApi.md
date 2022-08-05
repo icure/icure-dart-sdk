@@ -39,9 +39,9 @@ Type, Code and Version are required.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final codeDto = CodeDto(); // CodeDto | 
+final codeDto = CodeDto(); // CodeDto |
 
-try { 
+try {
     final result = api_instance.createCode(codeDto);
     print(result);
 } catch (e) {
@@ -82,9 +82,9 @@ Create a batch of code entities. Fields Type, Code and Version are required for 
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final codeDto = [List<CodeDto>()]; // List<CodeDto> | 
+final codeDto = [List<CodeDto>()]; // List<CodeDto> |
 
-try { 
+try {
     final result = api_instance.createCodes(codeDto);
     print(result);
 } catch (e) {
@@ -131,9 +131,9 @@ final limit = 56; // int | Number of rows
 final skip = 56; // int | Skip rows
 final sort = sort_example; // String | Sort key
 final desc = true; // bool | Descending
-final filterChainCode = FilterChainCode(); // FilterChainCode | 
+final filterChainCode = FilterChainCode(); // FilterChainCode |
 
-try { 
+try {
     final result = api_instance.filterCodesBy(startKey, startDocumentId, limit, skip, sort, desc, filterChainCode);
     print(result);
 } catch (e) {
@@ -180,16 +180,16 @@ Returns a list of codes matched with given input. If several types are provided,
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final region = region_example; // String | 
-final types = types_example; // String | 
-final language = language_example; // String | 
-final label = label_example; // String | 
-final version = version_example; // String | 
+final region = region_example; // String |
+final types = types_example; // String |
+final language = language_example; // String |
+final label = label_example; // String |
+final version = version_example; // String |
 final startKey = startKey_example; // String | The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey
 final startDocumentId = startDocumentId_example; // String | A code document ID
 final limit = 56; // int | Number of rows
 
-try { 
+try {
     final result = api_instance.findCodesByLabel(region, types, language, label, version, startKey, startDocumentId, limit);
     print(result);
 } catch (e) {
@@ -237,13 +237,13 @@ Returns a list of codes matched with given input.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final linkType = linkType_example; // String | 
-final linkedId = linkedId_example; // String | 
+final linkType = linkType_example; // String |
+final linkedId = linkedId_example; // String |
 final startKey = startKey_example; // String | The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey
 final startDocumentId = startDocumentId_example; // String | A code document ID
 final limit = 56; // int | Number of rows
 
-try { 
+try {
     final result = api_instance.findCodesByLink(linkType, linkedId, startKey, startDocumentId, limit);
     print(result);
 } catch (e) {
@@ -288,15 +288,15 @@ Returns a list of codes matched with given input.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final region = region_example; // String | 
-final type = type_example; // String | 
-final code = code_example; // String | 
-final version = version_example; // String | 
+final region = region_example; // String |
+final type = type_example; // String |
+final code = code_example; // String |
+final version = version_example; // String |
 final startKey = startKey_example; // String | The start key for pagination
 final startDocumentId = startDocumentId_example; // String | A code document ID
 final limit = 56; // int | Number of rows
 
-try { 
+try {
     final result = api_instance.findCodesByType(region, type, code, version, startKey, startDocumentId, limit);
     print(result);
 } catch (e) {
@@ -345,7 +345,7 @@ import 'package:icure_dart_sdk/api.dart';
 final api_instance = CodeApi();
 final codeId = codeId_example; // String | Code id
 
-try { 
+try {
     final result = api_instance.getCode(codeId);
     print(result);
 } catch (e) {
@@ -390,7 +390,7 @@ final type = type_example; // String | Code type
 final code = code_example; // String | Code code
 final version = version_example; // String | Code version
 
-try { 
+try {
     final result = api_instance.getCodeWithParts(type, code, version);
     print(result);
 } catch (e) {
@@ -433,9 +433,9 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
-try { 
+try {
     final result = api_instance.getCodes(listOfIdsDto);
     print(result);
 } catch (e) {
@@ -476,9 +476,9 @@ Import codes from the resources XML file depending on the passed pathVariable
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final codeType = codeType_example; // String | 
+final codeType = codeType_example; // String |
 
-try { 
+try {
     final result = api_instance.importCodes(codeType);
     print(result);
 } catch (e) {
@@ -522,7 +522,7 @@ final api_instance = CodeApi();
 final region = region_example; // String | Code region
 final type = type_example; // String | Code type
 
-try { 
+try {
     final result = api_instance.listCodeTypesBy(region, type);
     print(result);
 } catch (e) {
@@ -569,7 +569,7 @@ final type = type_example; // String | Code type
 final code = code_example; // String | Code code
 final version = version_example; // String | Code version
 
-try { 
+try {
     final result = api_instance.listCodesByRegionTypeCodeVersion(region, type, code, version);
     print(result);
 } catch (e) {
@@ -616,7 +616,7 @@ final api_instance = CodeApi();
 final region = region_example; // String | Code region
 final type = type_example; // String | Code type
 
-try { 
+try {
     final result = api_instance.listTagTypesBy(region, type);
     print(result);
 } catch (e) {
@@ -656,9 +656,9 @@ Get ids of code matching the provided filter for the current user (HcParty)
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final abstractFilterDtoCode = AbstractFilterDtoCode(); // AbstractFilterDtoCode | 
+final abstractFilterDtoCode = AbstractFilterDtoCode(); // AbstractFilterDtoCode |
 
-try { 
+try {
     final result = api_instance.matchCodesBy(abstractFilterDtoCode);
     print(result);
 } catch (e) {
@@ -699,9 +699,9 @@ Modification of (type, code, version) is not allowed.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final codeDto = CodeDto(); // CodeDto | 
+final codeDto = CodeDto(); // CodeDto |
 
-try { 
+try {
     final result = api_instance.modifyCode(codeDto);
     print(result);
 } catch (e) {
@@ -742,9 +742,9 @@ Modification of (type, code, version) is not allowed.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CodeApi();
-final codeDto = [List<CodeDto>()]; // List<CodeDto> | 
+final codeDto = [List<CodeDto>()]; // List<CodeDto> |
 
-try { 
+try {
     final result = api_instance.modifyCodes(codeDto);
     print(result);
 } catch (e) {
@@ -772,4 +772,3 @@ No authorization required
 - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

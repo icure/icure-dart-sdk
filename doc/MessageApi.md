@@ -53,7 +53,7 @@ Creates a message
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final messageDto = MessageDto(); // MessageDto | 
+final messageDto = MessageDto(); // MessageDto |
 
 try {
     final result = api_instance.createMessage(messageDto);
@@ -67,7 +67,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageDto** | [**MessageDto**](MessageDto.md)|  | 
+ **messageDto** | [**MessageDto**](MessageDto.md)|  |
 
 ### Return type
 
@@ -94,8 +94,8 @@ Deletes a message delegation
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final messageId = messageId_example; // String | 
-final delegateId = delegateId_example; // String | 
+final messageId = messageId_example; // String |
+final delegateId = delegateId_example; // String |
 
 try {
     final result = api_instance.deleteDelegation(messageId, delegateId);
@@ -109,8 +109,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageId** | **String**|  | 
- **delegateId** | **String**|  | 
+ **messageId** | **String**|  |
+ **delegateId** | **String**|  |
 
 ### Return type
 
@@ -137,7 +137,7 @@ Deletes multiple messages
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteMessages(listOfIdsDto);
@@ -151,7 +151,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -178,9 +178,9 @@ Get all messages (paginated) for current HC Party
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final startKey = startKey_example; // String | 
-final startDocumentId = startDocumentId_example; // String | 
-final limit = 56; // int | 
+final startKey = startKey_example; // String |
+final startDocumentId = startDocumentId_example; // String |
+final limit = 56; // int |
 
 try {
     final result = api_instance.findMessages(startKey, startDocumentId, limit);
@@ -194,9 +194,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startKey** | **String**|  | [optional] 
- **startDocumentId** | **String**|  | [optional] 
- **limit** | **int**|  | [optional] 
+ **startKey** | **String**|  | [optional]
+ **startDocumentId** | **String**|  | [optional]
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -223,11 +223,11 @@ Get all messages (paginated) for current HC Party and provided from address
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final fromAddress = fromAddress_example; // String | 
-final startKey = startKey_example; // String | 
-final startDocumentId = startDocumentId_example; // String | 
-final limit = 56; // int | 
-final hcpId = hcpId_example; // String | 
+final fromAddress = fromAddress_example; // String |
+final startKey = startKey_example; // String |
+final startDocumentId = startDocumentId_example; // String |
+final limit = 56; // int |
+final hcpId = hcpId_example; // String |
 
 try {
     final result = api_instance.findMessagesByFromAddress(fromAddress, startKey, startDocumentId, limit, hcpId);
@@ -241,11 +241,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fromAddress** | **String**|  | [optional] 
- **startKey** | **String**|  | [optional] 
- **startDocumentId** | **String**|  | [optional] 
- **limit** | **int**|  | [optional] 
- **hcpId** | **String**|  | [optional] 
+ **fromAddress** | **String**|  | [optional]
+ **startKey** | **String**|  | [optional]
+ **startDocumentId** | **String**|  | [optional]
+ **limit** | **int**|  | [optional]
+ **hcpId** | **String**|  | [optional]
 
 ### Return type
 
@@ -274,7 +274,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final secretFKeys = secretFKeys_example; // String | 
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.findMessagesByHCPartyPatientForeignKeys(secretFKeys);
@@ -288,7 +288,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **secretFKeys** | **String**|  | 
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -315,12 +315,12 @@ Get all messages (paginated) for current HC Party and provided to address
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final toAddress = toAddress_example; // String | 
-final startKey = startKey_example; // String | 
-final startDocumentId = startDocumentId_example; // String | 
-final limit = 56; // int | 
-final reverse = true; // bool | 
-final hcpId = hcpId_example; // String | 
+final toAddress = toAddress_example; // String |
+final startKey = startKey_example; // String |
+final startDocumentId = startDocumentId_example; // String |
+final limit = 56; // int |
+final reverse = true; // bool |
+final hcpId = hcpId_example; // String |
 
 try {
     final result = api_instance.findMessagesByToAddress(toAddress, startKey, startDocumentId, limit, reverse, hcpId);
@@ -334,12 +334,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **toAddress** | **String**|  | [optional] 
- **startKey** | **String**|  | [optional] 
- **startDocumentId** | **String**|  | [optional] 
- **limit** | **int**|  | [optional] 
- **reverse** | **bool**|  | [optional] 
- **hcpId** | **String**|  | [optional] 
+ **toAddress** | **String**|  | [optional]
+ **startKey** | **String**|  | [optional]
+ **startDocumentId** | **String**|  | [optional]
+ **limit** | **int**|  | [optional]
+ **reverse** | **bool**|  | [optional]
+ **hcpId** | **String**|  | [optional]
 
 ### Return type
 
@@ -366,12 +366,12 @@ Get all messages (paginated) for current HC Party and provided transportGuid
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final transportGuid = transportGuid_example; // String | 
-final received = true; // bool | 
-final startKey = startKey_example; // String | 
-final startDocumentId = startDocumentId_example; // String | 
-final limit = 56; // int | 
-final hcpId = hcpId_example; // String | 
+final transportGuid = transportGuid_example; // String |
+final received = true; // bool |
+final startKey = startKey_example; // String |
+final startDocumentId = startDocumentId_example; // String |
+final limit = 56; // int |
+final hcpId = hcpId_example; // String |
 
 try {
     final result = api_instance.findMessagesByTransportGuid(transportGuid, received, startKey, startDocumentId, limit, hcpId);
@@ -385,12 +385,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transportGuid** | **String**|  | [optional] 
- **received** | **bool**|  | [optional] 
- **startKey** | **String**|  | [optional] 
- **startDocumentId** | **String**|  | [optional] 
- **limit** | **int**|  | [optional] 
- **hcpId** | **String**|  | [optional] 
+ **transportGuid** | **String**|  | [optional]
+ **received** | **bool**|  | [optional]
+ **startKey** | **String**|  | [optional]
+ **startDocumentId** | **String**|  | [optional]
+ **limit** | **int**|  | [optional]
+ **hcpId** | **String**|  | [optional]
 
 ### Return type
 
@@ -417,13 +417,13 @@ Get all messages starting by a prefix between two date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final transportGuid = transportGuid_example; // String | 
-final from = 789; // int | 
-final to = 789; // int | 
-final startKey = startKey_example; // String | 
-final startDocumentId = startDocumentId_example; // String | 
-final limit = 56; // int | 
-final hcpId = hcpId_example; // String | 
+final transportGuid = transportGuid_example; // String |
+final from = 789; // int |
+final to = 789; // int |
+final startKey = startKey_example; // String |
+final startDocumentId = startDocumentId_example; // String |
+final limit = 56; // int |
+final hcpId = hcpId_example; // String |
 
 try {
     final result = api_instance.findMessagesByTransportGuidSentDate(transportGuid, from, to, startKey, startDocumentId, limit, hcpId);
@@ -437,13 +437,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transportGuid** | **String**|  | [optional] 
- **from** | **int**|  | [optional] 
- **to** | **int**|  | [optional] 
- **startKey** | **String**|  | [optional] 
- **startDocumentId** | **String**|  | [optional] 
- **limit** | **int**|  | [optional] 
- **hcpId** | **String**|  | [optional] 
+ **transportGuid** | **String**|  | [optional]
+ **from** | **int**|  | [optional]
+ **to** | **int**|  | [optional]
+ **startKey** | **String**|  | [optional]
+ **startDocumentId** | **String**|  | [optional]
+ **limit** | **int**|  | [optional]
+ **hcpId** | **String**|  | [optional]
 
 ### Return type
 
@@ -470,7 +470,7 @@ Get children messages of provided message
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final messageId = messageId_example; // String | 
+final messageId = messageId_example; // String |
 
 try {
     final result = api_instance.getChildrenMessages(messageId);
@@ -484,7 +484,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageId** | **String**|  | 
+ **messageId** | **String**|  |
 
 ### Return type
 
@@ -511,7 +511,7 @@ Gets a message
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final messageId = messageId_example; // String | 
+final messageId = messageId_example; // String |
 
 try {
     final result = api_instance.getMessage(messageId);
@@ -525,7 +525,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageId** | **String**|  | 
+ **messageId** | **String**|  |
 
 ### Return type
 
@@ -552,7 +552,7 @@ Get children messages of provided message
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getMessagesChildren(listOfIdsDto);
@@ -566,7 +566,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -593,7 +593,7 @@ Get children messages of provided message
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listMessagesByInvoices(listOfIdsDto);
@@ -607,7 +607,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -634,8 +634,8 @@ Get all messages for current HC Party and provided transportGuids
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final hcpId = hcpId_example; // String | 
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final hcpId = hcpId_example; // String |
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listMessagesByTransportGuids(hcpId, listOfIdsDto);
@@ -649,8 +649,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcpId** | **String**|  | 
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **hcpId** | **String**|  |
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -677,7 +677,7 @@ Updates a message
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final messageDto = MessageDto(); // MessageDto | 
+final messageDto = MessageDto(); // MessageDto |
 
 try {
     final result = api_instance.modifyMessage(messageDto);
@@ -691,7 +691,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageDto** | [**MessageDto**](MessageDto.md)|  | 
+ **messageDto** | [**MessageDto**](MessageDto.md)|  |
 
 ### Return type
 
@@ -718,8 +718,8 @@ Adds a delegation to a message
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final messageId = messageId_example; // String | 
-final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> | 
+final messageId = messageId_example; // String |
+final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> |
 
 try {
     final result = api_instance.newMessageDelegations(messageId, delegationDto);
@@ -733,8 +733,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageId** | **String**|  | 
- **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  | 
+ **messageId** | **String**|  |
+ **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  |
 
 ### Return type
 
@@ -761,7 +761,7 @@ Set read status for given list of messages
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final messagesReadStatusUpdate = MessagesReadStatusUpdate(); // MessagesReadStatusUpdate | 
+final messagesReadStatusUpdate = MessagesReadStatusUpdate(); // MessagesReadStatusUpdate |
 
 try {
     final result = api_instance.setMessagesReadStatus(messagesReadStatusUpdate);
@@ -775,7 +775,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messagesReadStatusUpdate** | [**MessagesReadStatusUpdate**](MessagesReadStatusUpdate.md)|  | 
+ **messagesReadStatusUpdate** | [**MessagesReadStatusUpdate**](MessagesReadStatusUpdate.md)|  |
 
 ### Return type
 
@@ -802,8 +802,8 @@ Set status bits for given list of messages
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MessageApi();
-final status = 56; // int | 
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final status = 56; // int |
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.setMessagesStatusBits(status, listOfIdsDto);
@@ -817,8 +817,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **int**|  | 
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **status** | **int**|  |
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -834,4 +834,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

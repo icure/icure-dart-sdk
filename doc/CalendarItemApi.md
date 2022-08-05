@@ -44,7 +44,7 @@ Creates a calendarItem
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final calendarItemDto = CalendarItemDto(); // CalendarItemDto | 
+final calendarItemDto = CalendarItemDto(); // CalendarItemDto |
 
 try {
     final result = api_instance.createCalendarItem(calendarItemDto);
@@ -58,7 +58,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **calendarItemDto** | [**CalendarItemDto**](CalendarItemDto.md)|  | 
+ **calendarItemDto** | [**CalendarItemDto**](CalendarItemDto.md)|  |
 
 ### Return type
 
@@ -85,7 +85,7 @@ Deletes an calendarItem
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final calendarItemIds = calendarItemIds_example; // String | 
+final calendarItemIds = calendarItemIds_example; // String |
 
 try {
     final result = api_instance.deleteCalendarItem(calendarItemIds);
@@ -99,7 +99,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **calendarItemIds** | **String**|  | 
+ **calendarItemIds** | **String**|  |
 
 ### Return type
 
@@ -126,7 +126,7 @@ Deletes calendarItems
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteCalendarItems(listOfIdsDto);
@@ -140,7 +140,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -167,8 +167,8 @@ Find CalendarItems by hcparty and patient
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.findCalendarItemsByHCPartyPatientForeignKeys(hcPartyId, secretFKeys);
@@ -182,8 +182,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -210,7 +210,7 @@ Find CalendarItems by recurrenceId
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final recurrenceId = recurrenceId_example; // String | 
+final recurrenceId = recurrenceId_example; // String |
 
 try {
     final result = api_instance.findCalendarItemsByRecurrenceId(recurrenceId);
@@ -224,7 +224,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **recurrenceId** | **String**|  | 
+ **recurrenceId** | **String**|  |
 
 ### Return type
 
@@ -251,7 +251,7 @@ Gets an calendarItem
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final calendarItemId = calendarItemId_example; // String | 
+final calendarItemId = calendarItemId_example; // String |
 
 try {
     final result = api_instance.getCalendarItem(calendarItemId);
@@ -265,7 +265,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **calendarItemId** | **String**|  | 
+ **calendarItemId** | **String**|  |
 
 ### Return type
 
@@ -329,9 +329,9 @@ Get CalendarItems by Period and HcPartyId
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final startDate = 789; // int | 
-final endDate = 789; // int | 
-final hcPartyId = hcPartyId_example; // String | 
+final startDate = 789; // int |
+final endDate = 789; // int |
+final hcPartyId = hcPartyId_example; // String |
 
 try {
     final result = api_instance.getCalendarItemsByPeriodAndHcPartyId(startDate, endDate, hcPartyId);
@@ -345,9 +345,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **int**|  | 
- **endDate** | **int**|  | 
- **hcPartyId** | **String**|  | 
+ **startDate** | **int**|  |
+ **endDate** | **int**|  |
+ **hcPartyId** | **String**|  |
 
 ### Return type
 
@@ -374,7 +374,7 @@ Get calendarItems by ids
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getCalendarItemsWithIds(listOfIdsDto);
@@ -388,7 +388,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | [optional] 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | [optional]
 
 ### Return type
 
@@ -415,9 +415,9 @@ Get CalendarItems by Period and AgendaId
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final startDate = 789; // int | 
-final endDate = 789; // int | 
-final agendaId = agendaId_example; // String | 
+final startDate = 789; // int |
+final endDate = 789; // int |
+final agendaId = agendaId_example; // String |
 
 try {
     final result = api_instance.getCalendarsByPeriodAndAgendaId(startDate, endDate, agendaId);
@@ -431,9 +431,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **int**|  | 
- **endDate** | **int**|  | 
- **agendaId** | **String**|  | 
+ **startDate** | **int**|  |
+ **endDate** | **int**|  |
+ **agendaId** | **String**|  |
 
 ### Return type
 
@@ -460,7 +460,7 @@ Modifies an calendarItem
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final calendarItemDto = CalendarItemDto(); // CalendarItemDto | 
+final calendarItemDto = CalendarItemDto(); // CalendarItemDto |
 
 try {
     final result = api_instance.modifyCalendarItem(calendarItemDto);
@@ -474,7 +474,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **calendarItemDto** | [**CalendarItemDto**](CalendarItemDto.md)|  | 
+ **calendarItemDto** | [**CalendarItemDto**](CalendarItemDto.md)|  |
 
 ### Return type
 
@@ -501,7 +501,7 @@ Update delegations in calendarItems
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemApi();
-final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
+final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> |
 
 try {
     final result = api_instance.setCalendarItemsDelegations(icureStubDto);
@@ -515,7 +515,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  | 
+ **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  |
 
 ### Return type
 
@@ -531,4 +531,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

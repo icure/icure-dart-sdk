@@ -32,7 +32,7 @@ Creates an access log
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
-final accessLogDto = AccessLogDto(); // AccessLogDto | 
+final accessLogDto = AccessLogDto(); // AccessLogDto |
 
 try {
     final result = api_instance.createAccessLog(accessLogDto);
@@ -46,7 +46,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessLogDto** | [**AccessLogDto**](AccessLogDto.md)|  | 
+ **accessLogDto** | [**AccessLogDto**](AccessLogDto.md)|  |
 
 ### Return type
 
@@ -73,7 +73,7 @@ Deletes an access log
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteAccessLogs(listOfIdsDto);
@@ -87,7 +87,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -114,12 +114,12 @@ Get Paginated List of Access logs
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
-final fromEpoch = 789; // int | 
-final toEpoch = 789; // int | 
-final startKey = 789; // int | 
-final startDocumentId = startDocumentId_example; // String | 
-final limit = 56; // int | 
-final descending = true; // bool | 
+final fromEpoch = 789; // int |
+final toEpoch = 789; // int |
+final startKey = 789; // int |
+final startDocumentId = startDocumentId_example; // String |
+final limit = 56; // int |
+final descending = true; // bool |
 
 try {
     final result = api_instance.findAccessLogsBy(fromEpoch, toEpoch, startKey, startDocumentId, limit, descending);
@@ -133,12 +133,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fromEpoch** | **int**|  | [optional] 
- **toEpoch** | **int**|  | [optional] 
- **startKey** | **int**|  | [optional] 
- **startDocumentId** | **String**|  | [optional] 
- **limit** | **int**|  | [optional] 
- **descending** | **bool**|  | [optional] 
+ **fromEpoch** | **int**|  | [optional]
+ **toEpoch** | **int**|  | [optional]
+ **startKey** | **int**|  | [optional]
+ **startDocumentId** | **String**|  | [optional]
+ **limit** | **int**|  | [optional]
+ **descending** | **bool**|  | [optional]
 
 ### Return type
 
@@ -185,13 +185,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| A User ID | 
- **accessType** | **String**| The type of access (COMPUTER or USER) | [optional] 
- **startDate** | **int**| The start search epoch | [optional] 
- **startKey** | **String**| The start key for pagination | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
- **descending** | **bool**| Descending order | [optional] 
+ **userId** | **String**| A User ID |
+ **accessType** | **String**| The type of access (COMPUTER or USER) | [optional]
+ **startDate** | **int**| The start search epoch | [optional]
+ **startKey** | **String**| The start key for pagination | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
+ **descending** | **bool**| Descending order | [optional]
 
 ### Return type
 
@@ -218,7 +218,7 @@ Gets an access log
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
-final accessLogId = accessLogId_example; // String | 
+final accessLogId = accessLogId_example; // String |
 
 try {
     final result = api_instance.getAccessLog(accessLogId);
@@ -232,7 +232,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessLogId** | **String**|  | 
+ **accessLogId** | **String**|  |
 
 ### Return type
 
@@ -259,8 +259,8 @@ List access logs found By Healthcare Party and secret foreign keyelementIds.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listAccessLogsByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys);
@@ -274,8 +274,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -302,7 +302,7 @@ Modifies an access log
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AccessLogApi();
-final accessLogDto = AccessLogDto(); // AccessLogDto | 
+final accessLogDto = AccessLogDto(); // AccessLogDto |
 
 try {
     final result = api_instance.modifyAccessLog(accessLogDto);
@@ -316,7 +316,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessLogDto** | [**AccessLogDto**](AccessLogDto.md)|  | 
+ **accessLogDto** | [**AccessLogDto**](AccessLogDto.md)|  |
 
 ### Return type
 
@@ -332,4 +332,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

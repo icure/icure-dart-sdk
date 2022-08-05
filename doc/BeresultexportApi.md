@@ -27,12 +27,12 @@ Export data
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultexportApi();
-final fromHcpId = fromHcpId_example; // String | 
-final toHcpId = toHcpId_example; // String | 
-final patId = patId_example; // String | 
-final date = 789; // int | 
-final ref = ref_example; // String | 
-final requestBody = [List<String>()]; // List<String> | 
+final fromHcpId = fromHcpId_example; // String |
+final toHcpId = toHcpId_example; // String |
+final patId = patId_example; // String |
+final date = 789; // int |
+final ref = ref_example; // String |
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.exportHealthOne(fromHcpId, toHcpId, patId, date, ref, requestBody);
@@ -46,12 +46,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fromHcpId** | **String**|  | 
- **toHcpId** | **String**|  | 
- **patId** | **String**|  | 
- **date** | **int**|  | 
- **ref** | **String**|  | 
- **requestBody** | [**List<String>**](String.md)|  | 
+ **fromHcpId** | **String**|  |
+ **toHcpId** | **String**|  |
+ **patId** | **String**|  |
+ **date** | **int**|  |
+ **ref** | **String**|  |
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -78,13 +78,13 @@ Export data
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultexportApi();
-final fromHcpId = fromHcpId_example; // String | 
-final toHcpId = toHcpId_example; // String | 
-final patId = patId_example; // String | 
-final date = 789; // int | 
-final ref = ref_example; // String | 
-final requestBody = [List<String>()]; // List<String> | 
-final mimeType = true; // bool | 
+final fromHcpId = fromHcpId_example; // String |
+final toHcpId = toHcpId_example; // String |
+final patId = patId_example; // String |
+final date = 789; // int |
+final ref = ref_example; // String |
+final requestBody = [List<String>()]; // List<String> |
+final mimeType = true; // bool |
 
 try {
     final result = api_instance.exportKmehrReport(fromHcpId, toHcpId, patId, date, ref, requestBody, mimeType);
@@ -98,13 +98,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fromHcpId** | **String**|  | 
- **toHcpId** | **String**|  | 
- **patId** | **String**|  | 
- **date** | **int**|  | 
- **ref** | **String**|  | 
- **requestBody** | [**List<String>**](String.md)|  | 
- **mimeType** | **bool**|  | [optional] 
+ **fromHcpId** | **String**|  |
+ **toHcpId** | **String**|  |
+ **patId** | **String**|  |
+ **date** | **int**|  |
+ **ref** | **String**|  |
+ **requestBody** | [**List<String>**](String.md)|  |
+ **mimeType** | **bool**|  | [optional]
 
 ### Return type
 
@@ -131,12 +131,12 @@ Export data
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultexportApi();
-final fromHcpId = fromHcpId_example; // String | 
-final toHcpId = toHcpId_example; // String | 
-final patId = patId_example; // String | 
-final date = 789; // int | 
-final ref = ref_example; // String | 
-final requestBody = [List<String>()]; // List<String> | 
+final fromHcpId = fromHcpId_example; // String |
+final toHcpId = toHcpId_example; // String |
+final patId = patId_example; // String |
+final date = 789; // int |
+final ref = ref_example; // String |
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.exportMedidoc(fromHcpId, toHcpId, patId, date, ref, requestBody);
@@ -150,12 +150,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fromHcpId** | **String**|  | 
- **toHcpId** | **String**|  | 
- **patId** | **String**|  | 
- **date** | **int**|  | 
- **ref** | **String**|  | 
- **requestBody** | [**List<String>**](String.md)|  | 
+ **fromHcpId** | **String**|  |
+ **toHcpId** | **String**|  |
+ **patId** | **String**|  |
+ **date** | **int**|  |
+ **ref** | **String**|  |
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -171,4 +171,3 @@ No authorization required
  - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

@@ -65,7 +65,7 @@ Returns an instance of created form.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formDto = FormDto(); // FormDto | 
+final formDto = FormDto(); // FormDto |
 
 try {
     final result = api_instance.createForm(formDto);
@@ -79,7 +79,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formDto** | [**FormDto**](FormDto.md)|  | 
+ **formDto** | [**FormDto**](FormDto.md)|  |
 
 ### Return type
 
@@ -108,7 +108,7 @@ Returns an instance of created form template.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formTemplateDto = FormTemplateDto(); // FormTemplateDto | 
+final formTemplateDto = FormTemplateDto(); // FormTemplateDto |
 
 try {
     final result = api_instance.createFormTemplate(formTemplateDto);
@@ -122,7 +122,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formTemplateDto** | [**FormTemplateDto**](FormTemplateDto.md)|  | 
+ **formTemplateDto** | [**FormTemplateDto**](FormTemplateDto.md)|  |
 
 ### Return type
 
@@ -151,7 +151,7 @@ Returns the created forms.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formDto = [List<FormDto>()]; // List<FormDto> | 
+final formDto = [List<FormDto>()]; // List<FormDto> |
 
 try {
     final result = api_instance.createForms(formDto);
@@ -165,7 +165,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formDto** | [**List<FormDto>**](FormDto.md)|  | 
+ **formDto** | [**List<FormDto>**](FormDto.md)|  |
 
 ### Return type
 
@@ -192,7 +192,7 @@ Delete a form template
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formTemplateId = formTemplateId_example; // String | 
+final formTemplateId = formTemplateId_example; // String |
 
 try {
     final result = api_instance.deleteFormTemplate(formTemplateId);
@@ -206,7 +206,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formTemplateId** | **String**|  | 
+ **formTemplateId** | **String**|  |
 
 ### Return type
 
@@ -235,7 +235,7 @@ Response is a set containing the ID's of deleted forms.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteForms(listOfIdsDto);
@@ -249,7 +249,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -278,8 +278,8 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formId = formId_example; // String | 
-final hcPartyId = hcPartyId_example; // String | 
+final formId = formId_example; // String |
+final hcPartyId = hcPartyId_example; // String |
 
 try {
     final result = api_instance.getChildrenForms(formId, hcPartyId);
@@ -293,8 +293,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formId** | **String**|  | 
- **hcPartyId** | **String**|  | 
+ **formId** | **String**|  |
+ **hcPartyId** | **String**|  |
 
 ### Return type
 
@@ -321,7 +321,7 @@ Gets a form
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formId = formId_example; // String | 
+final formId = formId_example; // String |
 
 try {
     final result = api_instance.getForm(formId);
@@ -335,7 +335,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formId** | **String**|  | 
+ **formId** | **String**|  |
 
 ### Return type
 
@@ -362,7 +362,7 @@ Gets the most recent form with the given logicalUuid
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final logicalUuid = logicalUuid_example; // String | 
+final logicalUuid = logicalUuid_example; // String |
 
 try {
     final result = api_instance.getFormByLogicalUuid(logicalUuid);
@@ -376,7 +376,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logicalUuid** | **String**|  | 
+ **logicalUuid** | **String**|  |
 
 ### Return type
 
@@ -403,7 +403,7 @@ Gets the most recent form with the given uniqueId
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final uniqueId = uniqueId_example; // String | 
+final uniqueId = uniqueId_example; // String |
 
 try {
     final result = api_instance.getFormByUniqueId(uniqueId);
@@ -417,7 +417,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uniqueId** | **String**|  | 
+ **uniqueId** | **String**|  |
 
 ### Return type
 
@@ -444,7 +444,7 @@ Gets a form template by guid
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formTemplateId = formTemplateId_example; // String | 
+final formTemplateId = formTemplateId_example; // String |
 
 try {
     final result = api_instance.getFormTemplate(formTemplateId);
@@ -458,7 +458,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formTemplateId** | **String**|  | 
+ **formTemplateId** | **String**|  |
 
 ### Return type
 
@@ -485,7 +485,7 @@ Gets all form templates for current user
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final loadLayout = true; // bool | 
+final loadLayout = true; // bool |
 
 try {
     final result = api_instance.getFormTemplates(loadLayout);
@@ -499,7 +499,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loadLayout** | **bool**|  | [optional] 
+ **loadLayout** | **bool**|  | [optional]
 
 ### Return type
 
@@ -526,8 +526,8 @@ Gets a form template
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formTemplateGuid = formTemplateGuid_example; // String | 
-final specialityCode = specialityCode_example; // String | 
+final formTemplateGuid = formTemplateGuid_example; // String |
+final specialityCode = specialityCode_example; // String |
 
 try {
     final result = api_instance.getFormTemplatesByGuid(formTemplateGuid, specialityCode);
@@ -541,8 +541,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formTemplateGuid** | **String**|  | 
- **specialityCode** | **String**|  | 
+ **formTemplateGuid** | **String**|  |
+ **specialityCode** | **String**|  |
 
 ### Return type
 
@@ -571,7 +571,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getForms(listOfIdsDto);
@@ -585,7 +585,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -612,7 +612,7 @@ Gets all forms with given logicalUuid
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final logicalUuid = logicalUuid_example; // String | 
+final logicalUuid = logicalUuid_example; // String |
 
 try {
     final result = api_instance.getFormsByLogicalUuid(logicalUuid);
@@ -626,7 +626,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logicalUuid** | **String**|  | 
+ **logicalUuid** | **String**|  |
 
 ### Return type
 
@@ -653,7 +653,7 @@ Gets all forms by uniqueId
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final uniqueId = uniqueId_example; // String | 
+final uniqueId = uniqueId_example; // String |
 
 try {
     final result = api_instance.getFormsByUniqueId(uniqueId);
@@ -667,7 +667,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uniqueId** | **String**|  | 
+ **uniqueId** | **String**|  |
 
 ### Return type
 
@@ -694,8 +694,8 @@ Gets all form templates
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final specialityCode = specialityCode_example; // String | 
-final loadLayout = true; // bool | 
+final specialityCode = specialityCode_example; // String |
+final loadLayout = true; // bool |
 
 try {
     final result = api_instance.listFormTemplatesBySpeciality(specialityCode, loadLayout);
@@ -709,8 +709,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **specialityCode** | **String**|  | 
- **loadLayout** | **bool**|  | [optional] 
+ **specialityCode** | **String**|  |
+ **loadLayout** | **bool**|  | [optional]
 
 ### Return type
 
@@ -739,11 +739,11 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
-final healthElementId = healthElementId_example; // String | 
-final planOfActionId = planOfActionId_example; // String | 
-final formTemplateId = formTemplateId_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
+final healthElementId = healthElementId_example; // String |
+final planOfActionId = planOfActionId_example; // String |
+final formTemplateId = formTemplateId_example; // String |
 
 try {
     final result = api_instance.listFormsByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys, healthElementId, planOfActionId, formTemplateId);
@@ -757,11 +757,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
- **healthElementId** | **String**|  | [optional] 
- **planOfActionId** | **String**|  | [optional] 
- **formTemplateId** | **String**|  | [optional] 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
+ **healthElementId** | **String**|  | [optional]
+ **planOfActionId** | **String**|  | [optional]
+ **formTemplateId** | **String**|  | [optional]
 
 ### Return type
 
@@ -790,8 +790,8 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listFormsDelegationsStubsByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys);
@@ -805,8 +805,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -835,7 +835,7 @@ Returns the modified form.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formDto = FormDto(); // FormDto | 
+final formDto = FormDto(); // FormDto |
 
 try {
     final result = api_instance.modifyForm(formDto);
@@ -849,7 +849,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formDto** | [**FormDto**](FormDto.md)|  | 
+ **formDto** | [**FormDto**](FormDto.md)|  |
 
 ### Return type
 
@@ -878,7 +878,7 @@ Returns the modified forms.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formDto = [List<FormDto>()]; // List<FormDto> | 
+final formDto = [List<FormDto>()]; // List<FormDto> |
 
 try {
     final result = api_instance.modifyForms(formDto);
@@ -892,7 +892,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formDto** | [**List<FormDto>**](FormDto.md)|  | 
+ **formDto** | [**List<FormDto>**](FormDto.md)|  |
 
 ### Return type
 
@@ -921,8 +921,8 @@ It delegates a form to a healthcare party. Returns the form with the new delegat
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formId = formId_example; // String | 
-final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> | 
+final formId = formId_example; // String |
+final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> |
 
 try {
     final result = api_instance.newFormDelegations(formId, delegationDto);
@@ -936,8 +936,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formId** | **String**|  | 
- **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  | 
+ **formId** | **String**|  |
+ **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  |
 
 ### Return type
 
@@ -966,7 +966,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
+final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> |
 
 try {
     final result = api_instance.setFormsDelegations(icureStubDto);
@@ -980,7 +980,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  | 
+ **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  |
 
 ### Return type
 
@@ -1007,8 +1007,8 @@ Update a form template's layout
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formTemplateId = formTemplateId_example; // String | 
-final attachment = BYTE_ARRAY_DATA_HERE; // String | 
+final formTemplateId = formTemplateId_example; // String |
+final attachment = BYTE_ARRAY_DATA_HERE; // String |
 
 try {
     final result = api_instance.setTemplateAttachmentMulti(formTemplateId, attachment);
@@ -1022,8 +1022,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formTemplateId** | **String**|  | 
- **attachment** | **String**|  | 
+ **formTemplateId** | **String**|  |
+ **attachment** | **String**|  |
 
 ### Return type
 
@@ -1052,8 +1052,8 @@ Returns an instance of created form template.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = FormApi();
-final formTemplateId = formTemplateId_example; // String | 
-final formTemplateDto = FormTemplateDto(); // FormTemplateDto | 
+final formTemplateId = formTemplateId_example; // String |
+final formTemplateDto = FormTemplateDto(); // FormTemplateDto |
 
 try {
     final result = api_instance.updateFormTemplate(formTemplateId, formTemplateDto);
@@ -1067,8 +1067,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formTemplateId** | **String**|  | 
- **formTemplateDto** | [**FormTemplateDto**](FormTemplateDto.md)|  | 
+ **formTemplateId** | **String**|  |
+ **formTemplateDto** | [**FormTemplateDto**](FormTemplateDto.md)|  |
 
 ### Return type
 
@@ -1084,4 +1084,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

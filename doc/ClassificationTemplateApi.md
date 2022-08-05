@@ -40,7 +40,7 @@ Returns an instance of created classification Template.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationTemplateApi();
-final classificationTemplateDto = ClassificationTemplateDto(); // ClassificationTemplateDto | 
+final classificationTemplateDto = ClassificationTemplateDto(); // ClassificationTemplateDto |
 
 try {
     final result = api_instance.createClassificationTemplate(classificationTemplateDto);
@@ -54,7 +54,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **classificationTemplateDto** | [**ClassificationTemplateDto**](ClassificationTemplateDto.md)|  | 
+ **classificationTemplateDto** | [**ClassificationTemplateDto**](ClassificationTemplateDto.md)|  |
 
 ### Return type
 
@@ -83,7 +83,7 @@ Response is a set containing the ID's of deleted classification Templates.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationTemplateApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteClassificationTemplates(listOfIdsDto);
@@ -97,7 +97,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -142,9 +142,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startKey** | **String**| A label | [optional] 
- **startDocumentId** | **String**| An classification template document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **startKey** | **String**| A label | [optional]
+ **startDocumentId** | **String**| An classification template document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -171,7 +171,7 @@ Get a classification Template
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationTemplateApi();
-final classificationTemplateId = classificationTemplateId_example; // String | 
+final classificationTemplateId = classificationTemplateId_example; // String |
 
 try {
     final result = api_instance.getClassificationTemplate(classificationTemplateId);
@@ -185,7 +185,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **classificationTemplateId** | **String**|  | 
+ **classificationTemplateId** | **String**|  |
 
 ### Return type
 
@@ -214,7 +214,7 @@ Ids are seperated by a coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationTemplateApi();
-final ids = ids_example; // String | 
+final ids = ids_example; // String |
 
 try {
     final result = api_instance.getClassificationTemplateByIds(ids);
@@ -228,7 +228,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**|  | 
+ **ids** | **String**|  |
 
 ### Return type
 
@@ -257,8 +257,8 @@ Keys hast to delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationTemplateApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listClassificationTemplatesByHCPartyPatientForeignKeys(hcPartyId, secretFKeys);
@@ -272,8 +272,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -302,7 +302,7 @@ Returns the modified classification Template.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationTemplateApi();
-final classificationTemplateDto = ClassificationTemplateDto(); // ClassificationTemplateDto | 
+final classificationTemplateDto = ClassificationTemplateDto(); // ClassificationTemplateDto |
 
 try {
     final result = api_instance.modifyClassificationTemplate(classificationTemplateDto);
@@ -316,7 +316,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **classificationTemplateDto** | [**ClassificationTemplateDto**](ClassificationTemplateDto.md)|  | 
+ **classificationTemplateDto** | [**ClassificationTemplateDto**](ClassificationTemplateDto.md)|  |
 
 ### Return type
 
@@ -345,8 +345,8 @@ It delegates a classification Template to a healthcare party (By current healthc
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ClassificationTemplateApi();
-final classificationTemplateId = classificationTemplateId_example; // String | 
-final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> | 
+final classificationTemplateId = classificationTemplateId_example; // String |
+final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> |
 
 try {
     final result = api_instance.newClassificationTemplateDelegations(classificationTemplateId, delegationDto);
@@ -360,8 +360,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **classificationTemplateId** | **String**|  | 
- **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  | 
+ **classificationTemplateId** | **String**|  |
+ **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  |
 
 ### Return type
 
@@ -377,4 +377,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

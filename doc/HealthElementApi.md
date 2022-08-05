@@ -50,7 +50,7 @@ Returns an instance of created health element.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final healthElementDto = HealthElementDto(); // HealthElementDto | 
+final healthElementDto = HealthElementDto(); // HealthElementDto |
 
 try {
     final result = api_instance.createHealthElement(healthElementDto);
@@ -64,7 +64,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementDto** | [**HealthElementDto**](HealthElementDto.md)|  | 
+ **healthElementDto** | [**HealthElementDto**](HealthElementDto.md)|  |
 
 ### Return type
 
@@ -93,7 +93,7 @@ Returns the created healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> | 
+final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> |
 
 try {
     final result = api_instance.createHealthElements(healthElementDto);
@@ -107,7 +107,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementDto** | [**List<HealthElementDto>**](HealthElementDto.md)|  | 
+ **healthElementDto** | [**List<HealthElementDto>**](HealthElementDto.md)|  |
 
 ### Return type
 
@@ -136,7 +136,7 @@ Response is a set containing the ID's of deleted health elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteHealthElements(listOfIdsDto);
@@ -150,7 +150,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -179,7 +179,7 @@ Returns a list of health elements along with next start keys and Document ID. If
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final filterChainHealthElement = FilterChainHealthElement(); // FilterChainHealthElement | 
+final filterChainHealthElement = FilterChainHealthElement(); // FilterChainHealthElement |
 final startDocumentId = startDocumentId_example; // String | A HealthElement document ID
 final limit = 56; // int | Number of rows
 
@@ -195,9 +195,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterChainHealthElement** | [**FilterChainHealthElement**](FilterChainHealthElement.md)|  | 
- **startDocumentId** | **String**| A HealthElement document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **filterChainHealthElement** | [**FilterChainHealthElement**](FilterChainHealthElement.md)|  |
+ **startDocumentId** | **String**| A HealthElement document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -224,7 +224,7 @@ Get a health element
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final healthElementId = healthElementId_example; // String | 
+final healthElementId = healthElementId_example; // String |
 
 try {
     final result = api_instance.getHealthElement(healthElementId);
@@ -238,7 +238,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementId** | **String**|  | 
+ **healthElementId** | **String**|  |
 
 ### Return type
 
@@ -267,7 +267,7 @@ Get a list of healthElement by ids/keys.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getHealthElements(listOfIdsDto);
@@ -281,7 +281,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -310,8 +310,8 @@ Keys hast to delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listHealthElementsByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys);
@@ -325,8 +325,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -355,8 +355,8 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys);
@@ -370,8 +370,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -391,14 +391,14 @@ No authorization required
 # **matchHealthElementsBy**
 > List<String> matchHealthElementsBy(abstractFilterDtoHealthElement)
 
-Get ids of health element matching the provided filter for the current user (HcParty) 
+Get ids of health element matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final abstractFilterDtoHealthElement = AbstractFilterDtoHealthElement(); // AbstractFilterDtoHealthElement | 
+final abstractFilterDtoHealthElement = AbstractFilterDtoHealthElement(); // AbstractFilterDtoHealthElement |
 
 try {
     final result = api_instance.matchHealthElementsBy(abstractFilterDtoHealthElement);
@@ -412,7 +412,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **abstractFilterDtoHealthElement** | [**AbstractFilterDtoHealthElement**](AbstractFilterDtoHealthElement.md)|  | 
+ **abstractFilterDtoHealthElement** | [**AbstractFilterDtoHealthElement**](AbstractFilterDtoHealthElement.md)|  |
 
 ### Return type
 
@@ -441,7 +441,7 @@ Returns the modified health element.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final healthElementDto = HealthElementDto(); // HealthElementDto | 
+final healthElementDto = HealthElementDto(); // HealthElementDto |
 
 try {
     final result = api_instance.modifyHealthElement(healthElementDto);
@@ -455,7 +455,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementDto** | [**HealthElementDto**](HealthElementDto.md)|  | 
+ **healthElementDto** | [**HealthElementDto**](HealthElementDto.md)|  |
 
 ### Return type
 
@@ -484,7 +484,7 @@ Returns the modified health elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> | 
+final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> |
 
 try {
     final result = api_instance.modifyHealthElements(healthElementDto);
@@ -498,7 +498,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementDto** | [**List<HealthElementDto>**](HealthElementDto.md)|  | 
+ **healthElementDto** | [**List<HealthElementDto>**](HealthElementDto.md)|  |
 
 ### Return type
 
@@ -527,8 +527,8 @@ It delegates a health element to a healthcare party (By current healthcare party
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final healthElementId = healthElementId_example; // String | 
-final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> | 
+final healthElementId = healthElementId_example; // String |
+final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> |
 
 try {
     final result = api_instance.newHealthElementDelegations(healthElementId, delegationDto);
@@ -542,8 +542,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementId** | **String**|  | 
- **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  | 
+ **healthElementId** | **String**|  |
+ **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  |
 
 ### Return type
 
@@ -572,7 +572,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = HealthElementApi();
-final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
+final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> |
 
 try {
     final result = api_instance.setHealthElementsDelegations(icureStubDto);
@@ -586,7 +586,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  | 
+ **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  |
 
 ### Return type
 
@@ -602,4 +602,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

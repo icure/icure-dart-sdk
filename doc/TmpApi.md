@@ -138,7 +138,7 @@ Returns an instance of created classification.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final classificationDto = ClassificationDto(); // ClassificationDto | 
+final classificationDto = ClassificationDto(); // ClassificationDto |
 
 try {
     final result = api_instance.createTmpClassification(classificationDto);
@@ -152,7 +152,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **classificationDto** | [**ClassificationDto**](ClassificationDto.md)|  | 
+ **classificationDto** | [**ClassificationDto**](ClassificationDto.md)|  |
 
 ### Return type
 
@@ -181,7 +181,7 @@ Returns an instance of created classification.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final classificationDto = [List<ClassificationDto>()]; // List<ClassificationDto> | 
+final classificationDto = [List<ClassificationDto>()]; // List<ClassificationDto> |
 
 try {
     final result = api_instance.createTmpClassifications(classificationDto);
@@ -195,7 +195,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **classificationDto** | [**List<ClassificationDto>**](ClassificationDto.md)|  | 
+ **classificationDto** | [**List<ClassificationDto>**](ClassificationDto.md)|  |
 
 ### Return type
 
@@ -224,7 +224,7 @@ Returns an instance of created contact.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final contactDto = ContactDto(); // ContactDto | 
+final contactDto = ContactDto(); // ContactDto |
 
 try {
     final result = api_instance.createTmpContact(contactDto);
@@ -238,7 +238,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactDto** | [**ContactDto**](ContactDto.md)|  | 
+ **contactDto** | [**ContactDto**](ContactDto.md)|  |
 
 ### Return type
 
@@ -267,7 +267,7 @@ Returns an instance of created contact.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final contactDto = [List<ContactDto>()]; // List<ContactDto> | 
+final contactDto = [List<ContactDto>()]; // List<ContactDto> |
 
 try {
     final result = api_instance.createTmpContacts(contactDto);
@@ -281,7 +281,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactDto** | [**List<ContactDto>**](ContactDto.md)|  | 
+ **contactDto** | [**List<ContactDto>**](ContactDto.md)|  |
 
 ### Return type
 
@@ -349,7 +349,7 @@ Returns an instance of created document.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final documentDto = DocumentDto(); // DocumentDto | 
+final documentDto = DocumentDto(); // DocumentDto |
 
 try {
     final result = api_instance.createTmpDocument(documentDto);
@@ -363,7 +363,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentDto** | [**DocumentDto**](DocumentDto.md)|  | 
+ **documentDto** | [**DocumentDto**](DocumentDto.md)|  |
 
 ### Return type
 
@@ -392,7 +392,7 @@ Returns an instance of created document.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final documentDto = [List<DocumentDto>()]; // List<DocumentDto> | 
+final documentDto = [List<DocumentDto>()]; // List<DocumentDto> |
 
 try {
     final result = api_instance.createTmpDocuments(documentDto);
@@ -406,7 +406,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentDto** | [**List<DocumentDto>**](DocumentDto.md)|  | 
+ **documentDto** | [**List<DocumentDto>**](DocumentDto.md)|  |
 
 ### Return type
 
@@ -435,7 +435,7 @@ Returns an instance of created entityTemplate.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto | 
+final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto |
 
 try {
     final result = api_instance.createTmpEntityTemplate(entityTemplateDto);
@@ -449,7 +449,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityTemplateDto** | [**EntityTemplateDto**](EntityTemplateDto.md)|  | 
+ **entityTemplateDto** | [**EntityTemplateDto**](EntityTemplateDto.md)|  |
 
 ### Return type
 
@@ -478,7 +478,7 @@ Returns an instance of created entityTemplate.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> | 
+final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> |
 
 try {
     final result = api_instance.createTmpEntityTemplates(entityTemplateDto);
@@ -492,7 +492,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityTemplateDto** | [**List<EntityTemplateDto>**](EntityTemplateDto.md)|  | 
+ **entityTemplateDto** | [**List<EntityTemplateDto>**](EntityTemplateDto.md)|  |
 
 ### Return type
 
@@ -521,7 +521,7 @@ Returns an instance of created form.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final formDto = FormDto(); // FormDto | 
+final formDto = FormDto(); // FormDto |
 
 try {
     final result = api_instance.createTmpForm(formDto);
@@ -535,7 +535,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formDto** | [**FormDto**](FormDto.md)|  | 
+ **formDto** | [**FormDto**](FormDto.md)|  |
 
 ### Return type
 
@@ -564,7 +564,7 @@ Returns an instance of created form.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final formDto = [List<FormDto>()]; // List<FormDto> | 
+final formDto = [List<FormDto>()]; // List<FormDto> |
 
 try {
     final result = api_instance.createTmpForms(formDto);
@@ -578,7 +578,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formDto** | [**List<FormDto>**](FormDto.md)|  | 
+ **formDto** | [**List<FormDto>**](FormDto.md)|  |
 
 ### Return type
 
@@ -607,7 +607,7 @@ Returns an instance of created healthElement.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final healthElementDto = HealthElementDto(); // HealthElementDto | 
+final healthElementDto = HealthElementDto(); // HealthElementDto |
 
 try {
     final result = api_instance.createTmpHealthElement(healthElementDto);
@@ -621,7 +621,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementDto** | [**HealthElementDto**](HealthElementDto.md)|  | 
+ **healthElementDto** | [**HealthElementDto**](HealthElementDto.md)|  |
 
 ### Return type
 
@@ -650,7 +650,7 @@ Returns an instance of created healthElement.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> | 
+final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> |
 
 try {
     final result = api_instance.createTmpHealthElements(healthElementDto);
@@ -664,7 +664,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementDto** | [**List<HealthElementDto>**](HealthElementDto.md)|  | 
+ **healthElementDto** | [**List<HealthElementDto>**](HealthElementDto.md)|  |
 
 ### Return type
 
@@ -693,7 +693,7 @@ Returns an instance of created invoice.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final invoiceDto = InvoiceDto(); // InvoiceDto | 
+final invoiceDto = InvoiceDto(); // InvoiceDto |
 
 try {
     final result = api_instance.createTmpInvoice(invoiceDto);
@@ -707,7 +707,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  | 
+ **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  |
 
 ### Return type
 
@@ -736,7 +736,7 @@ Returns an instance of created invoice.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> | 
+final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> |
 
 try {
     final result = api_instance.createTmpInvoices(invoiceDto);
@@ -750,7 +750,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceDto** | [**List<InvoiceDto>**](InvoiceDto.md)|  | 
+ **invoiceDto** | [**List<InvoiceDto>**](InvoiceDto.md)|  |
 
 ### Return type
 
@@ -779,7 +779,7 @@ Returns an instance of created message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final messageDto = MessageDto(); // MessageDto | 
+final messageDto = MessageDto(); // MessageDto |
 
 try {
     final result = api_instance.createTmpMessage(messageDto);
@@ -793,7 +793,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageDto** | [**MessageDto**](MessageDto.md)|  | 
+ **messageDto** | [**MessageDto**](MessageDto.md)|  |
 
 ### Return type
 
@@ -822,7 +822,7 @@ Returns an instance of created message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final messageDto = [List<MessageDto>()]; // List<MessageDto> | 
+final messageDto = [List<MessageDto>()]; // List<MessageDto> |
 
 try {
     final result = api_instance.createTmpMessages(messageDto);
@@ -836,7 +836,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageDto** | [**List<MessageDto>**](MessageDto.md)|  | 
+ **messageDto** | [**List<MessageDto>**](MessageDto.md)|  |
 
 ### Return type
 
@@ -865,7 +865,7 @@ Returns an instance of created patient.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final patientDto = PatientDto(); // PatientDto | 
+final patientDto = PatientDto(); // PatientDto |
 
 try {
     final result = api_instance.createTmpPatient(patientDto);
@@ -879,7 +879,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientDto** | [**PatientDto**](PatientDto.md)|  | 
+ **patientDto** | [**PatientDto**](PatientDto.md)|  |
 
 ### Return type
 
@@ -908,7 +908,7 @@ Returns an instance of created patient.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final patientDto = [List<PatientDto>()]; // List<PatientDto> | 
+final patientDto = [List<PatientDto>()]; // List<PatientDto> |
 
 try {
     final result = api_instance.createTmpPatients(patientDto);
@@ -922,7 +922,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientDto** | [**List<PatientDto>**](PatientDto.md)|  | 
+ **patientDto** | [**List<PatientDto>**](PatientDto.md)|  |
 
 ### Return type
 
@@ -951,7 +951,7 @@ Response is a set containing the ID's of deleted items.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.deleteTmpItems(requestBody);
@@ -965,7 +965,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1033,7 +1033,7 @@ Returns an instance of classification.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTmpClassification(id);
@@ -1047,7 +1047,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -1076,7 +1076,7 @@ Returns an instance of created classification.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.getTmpClassifications(requestBody);
@@ -1090,7 +1090,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1119,7 +1119,7 @@ Returns an instance of contact.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTmpContact(id);
@@ -1133,7 +1133,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -1162,7 +1162,7 @@ Returns an instance of created contact.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.getTmpContacts(requestBody);
@@ -1176,7 +1176,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1205,7 +1205,7 @@ Returns an instance of document.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTmpDocument(id);
@@ -1219,7 +1219,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -1248,7 +1248,7 @@ Returns an instance of created document.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.getTmpDocuments(requestBody);
@@ -1262,7 +1262,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1291,7 +1291,7 @@ Returns an instance of entityTemplate.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTmpEntityTemplate(id);
@@ -1305,7 +1305,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -1334,7 +1334,7 @@ Returns an instance of created entityTemplate.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.getTmpEntityTemplates(requestBody);
@@ -1348,7 +1348,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1377,7 +1377,7 @@ Returns an instance of form.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTmpForm(id);
@@ -1391,7 +1391,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -1420,7 +1420,7 @@ Returns an instance of created form.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.getTmpForms(requestBody);
@@ -1434,7 +1434,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1463,7 +1463,7 @@ Returns an instance of healthElement.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTmpHealthElement(id);
@@ -1477,7 +1477,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -1506,7 +1506,7 @@ Returns an instance of created healthElement.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.getTmpHealthElements(requestBody);
@@ -1520,7 +1520,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1549,7 +1549,7 @@ Returns an instance of invoice.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTmpInvoice(id);
@@ -1563,7 +1563,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -1592,7 +1592,7 @@ Returns an instance of created invoice.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.getTmpInvoices(requestBody);
@@ -1606,7 +1606,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1635,7 +1635,7 @@ Returns an instance of message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTmpMessage(id);
@@ -1649,7 +1649,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -1678,7 +1678,7 @@ Returns an instance of created message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.getTmpMessages(requestBody);
@@ -1692,7 +1692,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1721,7 +1721,7 @@ Returns an instance of patient.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getTmpPatient(id);
@@ -1735,7 +1735,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -1764,7 +1764,7 @@ Returns an instance of created patient.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.getTmpPatients(requestBody);
@@ -1778,7 +1778,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1807,8 +1807,8 @@ Returns paginated classifications.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final firstClassificationId = firstClassificationId_example; // String | 
-final pageSize = 56; // int | 
+final firstClassificationId = firstClassificationId_example; // String |
+final pageSize = 56; // int |
 
 try {
     final result = api_instance.listTmpClassifications(firstClassificationId, pageSize);
@@ -1822,8 +1822,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstClassificationId** | **String**|  | [optional] 
- **pageSize** | **int**|  | [optional] 
+ **firstClassificationId** | **String**|  | [optional]
+ **pageSize** | **int**|  | [optional]
 
 ### Return type
 
@@ -1852,8 +1852,8 @@ Returns paginated contacts.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final firstContactId = firstContactId_example; // String | 
-final pageSize = 56; // int | 
+final firstContactId = firstContactId_example; // String |
+final pageSize = 56; // int |
 
 try {
     final result = api_instance.listTmpContacts(firstContactId, pageSize);
@@ -1867,8 +1867,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstContactId** | **String**|  | [optional] 
- **pageSize** | **int**|  | [optional] 
+ **firstContactId** | **String**|  | [optional]
+ **pageSize** | **int**|  | [optional]
 
 ### Return type
 
@@ -1897,8 +1897,8 @@ Returns paginated documents.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final firstDocumentId = firstDocumentId_example; // String | 
-final pageSize = 56; // int | 
+final firstDocumentId = firstDocumentId_example; // String |
+final pageSize = 56; // int |
 
 try {
     final result = api_instance.listTmpDocuments(firstDocumentId, pageSize);
@@ -1912,8 +1912,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstDocumentId** | **String**|  | [optional] 
- **pageSize** | **int**|  | [optional] 
+ **firstDocumentId** | **String**|  | [optional]
+ **pageSize** | **int**|  | [optional]
 
 ### Return type
 
@@ -1942,8 +1942,8 @@ Returns paginated entityTemplates.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final firstEntityTemplateId = firstEntityTemplateId_example; // String | 
-final pageSize = 56; // int | 
+final firstEntityTemplateId = firstEntityTemplateId_example; // String |
+final pageSize = 56; // int |
 
 try {
     final result = api_instance.listTmpEntityTemplates(firstEntityTemplateId, pageSize);
@@ -1957,8 +1957,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstEntityTemplateId** | **String**|  | [optional] 
- **pageSize** | **int**|  | [optional] 
+ **firstEntityTemplateId** | **String**|  | [optional]
+ **pageSize** | **int**|  | [optional]
 
 ### Return type
 
@@ -1987,8 +1987,8 @@ Returns paginated forms.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final firstFormId = firstFormId_example; // String | 
-final pageSize = 56; // int | 
+final firstFormId = firstFormId_example; // String |
+final pageSize = 56; // int |
 
 try {
     final result = api_instance.listTmpForms(firstFormId, pageSize);
@@ -2002,8 +2002,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstFormId** | **String**|  | [optional] 
- **pageSize** | **int**|  | [optional] 
+ **firstFormId** | **String**|  | [optional]
+ **pageSize** | **int**|  | [optional]
 
 ### Return type
 
@@ -2032,8 +2032,8 @@ Returns paginated healthElements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final firstHealthElementId = firstHealthElementId_example; // String | 
-final pageSize = 56; // int | 
+final firstHealthElementId = firstHealthElementId_example; // String |
+final pageSize = 56; // int |
 
 try {
     final result = api_instance.listTmpHealthElements(firstHealthElementId, pageSize);
@@ -2047,8 +2047,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstHealthElementId** | **String**|  | [optional] 
- **pageSize** | **int**|  | [optional] 
+ **firstHealthElementId** | **String**|  | [optional]
+ **pageSize** | **int**|  | [optional]
 
 ### Return type
 
@@ -2077,8 +2077,8 @@ Returns paginated invoices.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final firstInvoiceId = firstInvoiceId_example; // String | 
-final pageSize = 56; // int | 
+final firstInvoiceId = firstInvoiceId_example; // String |
+final pageSize = 56; // int |
 
 try {
     final result = api_instance.listTmpInvoices(firstInvoiceId, pageSize);
@@ -2092,8 +2092,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstInvoiceId** | **String**|  | [optional] 
- **pageSize** | **int**|  | [optional] 
+ **firstInvoiceId** | **String**|  | [optional]
+ **pageSize** | **int**|  | [optional]
 
 ### Return type
 
@@ -2122,8 +2122,8 @@ Returns paginated messages.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final firstMessageId = firstMessageId_example; // String | 
-final pageSize = 56; // int | 
+final firstMessageId = firstMessageId_example; // String |
+final pageSize = 56; // int |
 
 try {
     final result = api_instance.listTmpMessages(firstMessageId, pageSize);
@@ -2137,8 +2137,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstMessageId** | **String**|  | [optional] 
- **pageSize** | **int**|  | [optional] 
+ **firstMessageId** | **String**|  | [optional]
+ **pageSize** | **int**|  | [optional]
 
 ### Return type
 
@@ -2167,8 +2167,8 @@ Returns paginated patients.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final firstPatientId = firstPatientId_example; // String | 
-final pageSize = 56; // int | 
+final firstPatientId = firstPatientId_example; // String |
+final pageSize = 56; // int |
 
 try {
     final result = api_instance.listTmpPatients(firstPatientId, pageSize);
@@ -2182,8 +2182,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstPatientId** | **String**|  | [optional] 
- **pageSize** | **int**|  | [optional] 
+ **firstPatientId** | **String**|  | [optional]
+ **pageSize** | **int**|  | [optional]
 
 ### Return type
 
@@ -2212,7 +2212,7 @@ Returns the modified classification.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final classificationDto = ClassificationDto(); // ClassificationDto | 
+final classificationDto = ClassificationDto(); // ClassificationDto |
 
 try {
     final result = api_instance.modifyTmpClassification(classificationDto);
@@ -2226,7 +2226,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **classificationDto** | [**ClassificationDto**](ClassificationDto.md)|  | 
+ **classificationDto** | [**ClassificationDto**](ClassificationDto.md)|  |
 
 ### Return type
 
@@ -2255,7 +2255,7 @@ Returns the modified healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final classificationDto = [List<ClassificationDto>()]; // List<ClassificationDto> | 
+final classificationDto = [List<ClassificationDto>()]; // List<ClassificationDto> |
 
 try {
     final result = api_instance.modifyTmpClassifications(classificationDto);
@@ -2269,7 +2269,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **classificationDto** | [**List<ClassificationDto>**](ClassificationDto.md)|  | 
+ **classificationDto** | [**List<ClassificationDto>**](ClassificationDto.md)|  |
 
 ### Return type
 
@@ -2298,7 +2298,7 @@ Returns the modified contact.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final contactDto = ContactDto(); // ContactDto | 
+final contactDto = ContactDto(); // ContactDto |
 
 try {
     final result = api_instance.modifyTmpContact(contactDto);
@@ -2312,7 +2312,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactDto** | [**ContactDto**](ContactDto.md)|  | 
+ **contactDto** | [**ContactDto**](ContactDto.md)|  |
 
 ### Return type
 
@@ -2341,7 +2341,7 @@ Returns the modified healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final contactDto = [List<ContactDto>()]; // List<ContactDto> | 
+final contactDto = [List<ContactDto>()]; // List<ContactDto> |
 
 try {
     final result = api_instance.modifyTmpContacts(contactDto);
@@ -2355,7 +2355,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactDto** | [**List<ContactDto>**](ContactDto.md)|  | 
+ **contactDto** | [**List<ContactDto>**](ContactDto.md)|  |
 
 ### Return type
 
@@ -2384,7 +2384,7 @@ Returns the modified document.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final documentDto = DocumentDto(); // DocumentDto | 
+final documentDto = DocumentDto(); // DocumentDto |
 
 try {
     final result = api_instance.modifyTmpDocument(documentDto);
@@ -2398,7 +2398,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentDto** | [**DocumentDto**](DocumentDto.md)|  | 
+ **documentDto** | [**DocumentDto**](DocumentDto.md)|  |
 
 ### Return type
 
@@ -2427,7 +2427,7 @@ Returns the modified healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final documentDto = [List<DocumentDto>()]; // List<DocumentDto> | 
+final documentDto = [List<DocumentDto>()]; // List<DocumentDto> |
 
 try {
     final result = api_instance.modifyTmpDocuments(documentDto);
@@ -2441,7 +2441,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentDto** | [**List<DocumentDto>**](DocumentDto.md)|  | 
+ **documentDto** | [**List<DocumentDto>**](DocumentDto.md)|  |
 
 ### Return type
 
@@ -2470,7 +2470,7 @@ Returns the modified entityTemplate.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto | 
+final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto |
 
 try {
     final result = api_instance.modifyTmpEntityTemplate(entityTemplateDto);
@@ -2484,7 +2484,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityTemplateDto** | [**EntityTemplateDto**](EntityTemplateDto.md)|  | 
+ **entityTemplateDto** | [**EntityTemplateDto**](EntityTemplateDto.md)|  |
 
 ### Return type
 
@@ -2513,7 +2513,7 @@ Returns the modified healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> | 
+final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> |
 
 try {
     final result = api_instance.modifyTmpEntityTemplates(entityTemplateDto);
@@ -2527,7 +2527,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityTemplateDto** | [**List<EntityTemplateDto>**](EntityTemplateDto.md)|  | 
+ **entityTemplateDto** | [**List<EntityTemplateDto>**](EntityTemplateDto.md)|  |
 
 ### Return type
 
@@ -2556,7 +2556,7 @@ Returns the modified form.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final formDto = FormDto(); // FormDto | 
+final formDto = FormDto(); // FormDto |
 
 try {
     final result = api_instance.modifyTmpForm(formDto);
@@ -2570,7 +2570,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formDto** | [**FormDto**](FormDto.md)|  | 
+ **formDto** | [**FormDto**](FormDto.md)|  |
 
 ### Return type
 
@@ -2599,7 +2599,7 @@ Returns the modified healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final formDto = [List<FormDto>()]; // List<FormDto> | 
+final formDto = [List<FormDto>()]; // List<FormDto> |
 
 try {
     final result = api_instance.modifyTmpForms(formDto);
@@ -2613,7 +2613,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **formDto** | [**List<FormDto>**](FormDto.md)|  | 
+ **formDto** | [**List<FormDto>**](FormDto.md)|  |
 
 ### Return type
 
@@ -2642,7 +2642,7 @@ Returns the modified healthElement.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final healthElementDto = HealthElementDto(); // HealthElementDto | 
+final healthElementDto = HealthElementDto(); // HealthElementDto |
 
 try {
     final result = api_instance.modifyTmpHealthElement(healthElementDto);
@@ -2656,7 +2656,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementDto** | [**HealthElementDto**](HealthElementDto.md)|  | 
+ **healthElementDto** | [**HealthElementDto**](HealthElementDto.md)|  |
 
 ### Return type
 
@@ -2685,7 +2685,7 @@ Returns the modified healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> | 
+final healthElementDto = [List<HealthElementDto>()]; // List<HealthElementDto> |
 
 try {
     final result = api_instance.modifyTmpHealthElements(healthElementDto);
@@ -2699,7 +2699,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementDto** | [**List<HealthElementDto>**](HealthElementDto.md)|  | 
+ **healthElementDto** | [**List<HealthElementDto>**](HealthElementDto.md)|  |
 
 ### Return type
 
@@ -2728,7 +2728,7 @@ Returns the modified invoice.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final invoiceDto = InvoiceDto(); // InvoiceDto | 
+final invoiceDto = InvoiceDto(); // InvoiceDto |
 
 try {
     final result = api_instance.modifyTmpInvoice(invoiceDto);
@@ -2742,7 +2742,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  | 
+ **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  |
 
 ### Return type
 
@@ -2771,7 +2771,7 @@ Returns the modified healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> | 
+final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> |
 
 try {
     final result = api_instance.modifyTmpInvoices(invoiceDto);
@@ -2785,7 +2785,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceDto** | [**List<InvoiceDto>**](InvoiceDto.md)|  | 
+ **invoiceDto** | [**List<InvoiceDto>**](InvoiceDto.md)|  |
 
 ### Return type
 
@@ -2814,7 +2814,7 @@ Returns the modified message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final messageDto = MessageDto(); // MessageDto | 
+final messageDto = MessageDto(); // MessageDto |
 
 try {
     final result = api_instance.modifyTmpMessage(messageDto);
@@ -2828,7 +2828,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageDto** | [**MessageDto**](MessageDto.md)|  | 
+ **messageDto** | [**MessageDto**](MessageDto.md)|  |
 
 ### Return type
 
@@ -2857,7 +2857,7 @@ Returns the modified healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final messageDto = [List<MessageDto>()]; // List<MessageDto> | 
+final messageDto = [List<MessageDto>()]; // List<MessageDto> |
 
 try {
     final result = api_instance.modifyTmpMessages(messageDto);
@@ -2871,7 +2871,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageDto** | [**List<MessageDto>**](MessageDto.md)|  | 
+ **messageDto** | [**List<MessageDto>**](MessageDto.md)|  |
 
 ### Return type
 
@@ -2900,7 +2900,7 @@ Returns the modified patient.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final patientDto = PatientDto(); // PatientDto | 
+final patientDto = PatientDto(); // PatientDto |
 
 try {
     final result = api_instance.modifyTmpPatient(patientDto);
@@ -2914,7 +2914,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientDto** | [**PatientDto**](PatientDto.md)|  | 
+ **patientDto** | [**PatientDto**](PatientDto.md)|  |
 
 ### Return type
 
@@ -2943,7 +2943,7 @@ Returns the modified healthcare elements.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final patientDto = [List<PatientDto>()]; // List<PatientDto> | 
+final patientDto = [List<PatientDto>()]; // List<PatientDto> |
 
 try {
     final result = api_instance.modifyTmpPatients(patientDto);
@@ -2957,7 +2957,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientDto** | [**List<PatientDto>**](PatientDto.md)|  | 
+ **patientDto** | [**List<PatientDto>**](PatientDto.md)|  |
 
 ### Return type
 
@@ -2986,7 +2986,7 @@ Response is a set containing the ID's of deleted items.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final requestBody = [List<String>()]; // List<String> | 
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.purgeTmpItems(requestBody);
@@ -3000,7 +3000,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**List<String>**](String.md)|  | 
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -3027,8 +3027,8 @@ No authorization required
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TmpApi();
-final from = from_example; // String | 
-final requestBody = [List<String>()]; // List<String> | 
+final from = from_example; // String |
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.replicateToTmpDatabase(from, requestBody);
@@ -3042,8 +3042,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **String**|  | 
- **requestBody** | [**List<String>**](String.md)|  | 
+ **from** | **String**|  |
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -3059,4 +3059,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

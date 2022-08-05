@@ -373,4 +373,3 @@ class MaintenanceTaskDtoStatusEnumTypeTransformer {
   /// Singleton [MaintenanceTaskDtoStatusEnumTypeTransformer] instance.
   static MaintenanceTaskDtoStatusEnumTypeTransformer? _instance;
 }
-

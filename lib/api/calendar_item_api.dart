@@ -65,7 +65,7 @@ class CalendarItemApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CalendarItemDto',) as CalendarItemDto;
-    
+
     }
     return null;
   }
@@ -355,7 +355,7 @@ class CalendarItemApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CalendarItemDto',) as CalendarItemDto;
-    
+
     }
     return null;
   }
@@ -650,7 +650,7 @@ class CalendarItemApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CalendarItemDto',) as CalendarItemDto;
-    
+
     }
     return null;
   }

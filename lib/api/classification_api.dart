@@ -69,7 +69,7 @@ class ClassificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
-    
+
     }
     return null;
   }
@@ -251,7 +251,7 @@ class ClassificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
-    
+
     }
     return null;
   }
@@ -369,7 +369,7 @@ class ClassificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
-    
+
     }
     return null;
   }
@@ -431,7 +431,7 @@ class ClassificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClassificationDto',) as ClassificationDto;
-    
+
     }
     return null;
   }

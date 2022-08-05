@@ -164,4 +164,3 @@ class CalendarItemTagDto {
   static const requiredKeys = <String>{
   };
 }
-

@@ -239,5 +239,3 @@ class DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer {
   /// Singleton [DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer] instance.
   static DatabaseSynchronizationDtoLocalTargetEnumTypeTransformer? _instance;
 }
-
-

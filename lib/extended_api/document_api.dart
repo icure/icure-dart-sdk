@@ -168,4 +168,3 @@ extension DocumentApiCrypto on DocumentApi {
     return await (await this.rawSetDocumentAttachment(documentId, attachment, enckeys: docEncKeys))?.let((it) => config.decryptDocument(user.dataOwnerId()!, it));
   }
 }
-

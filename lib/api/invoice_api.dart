@@ -163,7 +163,7 @@ class InvoiceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
-    
+
     }
     return null;
   }
@@ -277,7 +277,7 @@ class InvoiceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocIdentifier',) as DocIdentifier;
-    
+
     }
     return null;
   }
@@ -433,7 +433,7 @@ class InvoiceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListInvoiceDto',) as PaginatedListInvoiceDto;
-    
+
     }
     return null;
   }
@@ -487,7 +487,7 @@ class InvoiceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
-    
+
     }
     return null;
   }
@@ -1585,7 +1585,7 @@ class InvoiceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
-    
+
     }
     return null;
   }
@@ -1639,7 +1639,7 @@ class InvoiceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
-    
+
     }
     return null;
   }
@@ -1758,7 +1758,7 @@ class InvoiceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
-    
+
     }
     return null;
   }
@@ -1811,7 +1811,7 @@ class InvoiceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
-    
+
     }
     return null;
   }
@@ -2007,7 +2007,7 @@ class InvoiceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoiceDto',) as InvoiceDto;
-    
+
     }
     return null;
   }

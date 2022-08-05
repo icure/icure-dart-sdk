@@ -22,7 +22,7 @@ Generate a Medex XML String
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedexApi();
-final medexInfoDto = MedexInfoDto(); // MedexInfoDto | 
+final medexInfoDto = MedexInfoDto(); // MedexInfoDto |
 
 try {
     final result = api_instance.generateMedex(medexInfoDto);
@@ -36,7 +36,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **medexInfoDto** | [**MedexInfoDto**](MedexInfoDto.md)|  | 
+ **medexInfoDto** | [**MedexInfoDto**](MedexInfoDto.md)|  |
 
 ### Return type
 
@@ -52,4 +52,3 @@ No authorization required
  - **Accept**: application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

@@ -223,5 +223,3 @@ class PropertyTypeStubDtoTypeEnumTypeTransformer {
   /// Singleton [PropertyTypeStubDtoTypeEnumTypeTransformer] instance.
   static PropertyTypeStubDtoTypeEnumTypeTransformer? _instance;
 }
-
-

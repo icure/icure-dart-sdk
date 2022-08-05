@@ -101,5 +101,3 @@ extension AccessLogApiCrypto on AccessLogApi {
     return createdAccessLog != null ? await config.decryptAccessLog(user.dataOwnerId()!, createdAccessLog) : null;
   }
 }
-
-

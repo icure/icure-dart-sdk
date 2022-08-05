@@ -69,7 +69,7 @@ class HealthElementApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
-    
+
     }
     return null;
   }
@@ -266,7 +266,7 @@ class HealthElementApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListHealthElementDto',) as PaginatedListHealthElementDto;
-    
+
     }
     return null;
   }
@@ -320,7 +320,7 @@ class HealthElementApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
-    
+
     }
     return null;
   }
@@ -521,7 +521,7 @@ class HealthElementApi {
     return null;
   }
 
-  /// Get ids of health element matching the provided filter for the current user (HcParty) 
+  /// Get ids of health element matching the provided filter for the current user (HcParty)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -554,7 +554,7 @@ class HealthElementApi {
     );
   }
 
-  /// Get ids of health element matching the provided filter for the current user (HcParty) 
+  /// Get ids of health element matching the provided filter for the current user (HcParty)
   ///
   /// Parameters:
   ///
@@ -629,7 +629,7 @@ class HealthElementApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
-    
+
     }
     return null;
   }
@@ -751,7 +751,7 @@ class HealthElementApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HealthElementDto',) as HealthElementDto;
-    
+
     }
     return null;
   }

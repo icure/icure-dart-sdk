@@ -39,7 +39,7 @@ final api_instance = GroupApi();
 final id = id_example; // String | The id of the group, also used for subsequent authentication against the db (can only contain digits, letters, - and _)
 final name = name_example; // String | The name of the group
 final password = password_example; // String | The password of the group (can only contain digits, letters, - and _)
-final databaseInitialisationDto = DatabaseInitialisationDto(); // DatabaseInitialisationDto | 
+final databaseInitialisationDto = DatabaseInitialisationDto(); // DatabaseInitialisationDto |
 final server = server_example; // String | The server on which the group dbs will be created
 final q = 56; // int | The number of shards for patient and healthdata dbs : 3-8 is a recommended range of value
 final n = 56; // int | The number of replications for dbs : 3 is a recommended value
@@ -56,13 +56,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the group, also used for subsequent authentication against the db (can only contain digits, letters, - and _) | 
- **name** | **String**| The name of the group | 
- **password** | **String**| The password of the group (can only contain digits, letters, - and _) | 
- **databaseInitialisationDto** | [**DatabaseInitialisationDto**](DatabaseInitialisationDto.md)|  | 
- **server** | **String**| The server on which the group dbs will be created | [optional] 
- **q** | **int**| The number of shards for patient and healthdata dbs : 3-8 is a recommended range of value | [optional] 
- **n** | **int**| The number of replications for dbs : 3 is a recommended value | [optional] 
+ **id** | **String**| The id of the group, also used for subsequent authentication against the db (can only contain digits, letters, - and _) |
+ **name** | **String**| The name of the group |
+ **password** | **String**| The password of the group (can only contain digits, letters, - and _) |
+ **databaseInitialisationDto** | [**DatabaseInitialisationDto**](DatabaseInitialisationDto.md)|  |
+ **server** | **String**| The server on which the group dbs will be created | [optional]
+ **q** | **int**| The number of shards for patient and healthdata dbs : 3-8 is a recommended range of value | [optional]
+ **n** | **int**| The number of replications for dbs : 3 is a recommended value | [optional]
 
 ### Return type
 
@@ -105,7 +105,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the group | 
+ **id** | **String**| The id of the group |
 
 ### Return type
 
@@ -146,7 +146,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the group | 
+ **id** | **String**| The id of the group |
 
 ### Return type
 
@@ -191,9 +191,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the group | 
- **clazz** | **String**| The class of the design doc | [optional] 
- **warmup** | **bool**| Warmup the design doc | [optional] 
+ **id** | **String**| The id of the group |
+ **clazz** | **String**| The class of the design doc | [optional]
+ **warmup** | **bool**| Warmup the design doc | [optional]
 
 ### Return type
 
@@ -276,8 +276,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the group | 
- **name** | **String**| The new name for the group | 
+ **id** | **String**| The id of the group |
+ **name** | **String**| The new name for the group |
 
 ### Return type
 
@@ -307,7 +307,7 @@ import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group
-final listOfPropertiesDto = ListOfPropertiesDto(); // ListOfPropertiesDto | 
+final listOfPropertiesDto = ListOfPropertiesDto(); // ListOfPropertiesDto |
 
 try {
     final result = api_instance.modifyGroupProperties(id, listOfPropertiesDto);
@@ -321,8 +321,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the group | 
- **listOfPropertiesDto** | [**ListOfPropertiesDto**](ListOfPropertiesDto.md)|  | 
+ **id** | **String**| The id of the group |
+ **listOfPropertiesDto** | [**ListOfPropertiesDto**](ListOfPropertiesDto.md)|  |
 
 ### Return type
 
@@ -351,7 +351,7 @@ Create a new group and associated dbs.  The created group will be manageable by 
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
-final registrationInformationDto = RegistrationInformationDto(); // RegistrationInformationDto | 
+final registrationInformationDto = RegistrationInformationDto(); // RegistrationInformationDto |
 
 try {
     final result = api_instance.registerNewGroupAdministrator(registrationInformationDto);
@@ -365,7 +365,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **registrationInformationDto** | [**RegistrationInformationDto**](RegistrationInformationDto.md)|  | 
+ **registrationInformationDto** | [**RegistrationInformationDto**](RegistrationInformationDto.md)|  |
 
 ### Return type
 
@@ -395,7 +395,7 @@ import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = GroupApi();
 final id = id_example; // String | The id of the group
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 final q = 56; // int | The number of shards for patient and healthdata dbs : 3-8 is a recommended range of value
 final n = 56; // int | The number of replications for dbs : 3 is a recommended value
 
@@ -411,10 +411,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the group | 
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
- **q** | **int**| The number of shards for patient and healthdata dbs : 3-8 is a recommended range of value | [optional] 
- **n** | **int**| The number of replications for dbs : 3 is a recommended value | [optional] 
+ **id** | **String**| The id of the group |
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
+ **q** | **int**| The number of shards for patient and healthdata dbs : 3-8 is a recommended range of value | [optional]
+ **n** | **int**| The number of replications for dbs : 3 is a recommended value | [optional]
 
 ### Return type
 
@@ -458,8 +458,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the group | 
- **password** | **String**| The new password for the group (can only contain digits, letters, - and _) | 
+ **id** | **String**| The id of the group |
+ **password** | **String**| The new password for the group (can only contain digits, letters, - and _) |
 
 ### Return type
 
@@ -504,9 +504,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The id of the group | 
- **limit** | **int**| Solve at most limit conflicts | [optional] 
- **warmup** | **bool**| Warmup the design doc | [optional] 
+ **id** | **String**| The id of the group |
+ **limit** | **int**| Solve at most limit conflicts | [optional]
+ **warmup** | **bool**| Warmup the design doc | [optional]
 
 ### Return type
 
@@ -522,4 +522,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

@@ -29,7 +29,7 @@ Creates a agenda
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
-final agendaDto = AgendaDto(); // AgendaDto | 
+final agendaDto = AgendaDto(); // AgendaDto |
 
 try {
     final result = api_instance.createAgenda(agendaDto);
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agendaDto** | [**AgendaDto**](AgendaDto.md)|  | 
+ **agendaDto** | [**AgendaDto**](AgendaDto.md)|  |
 
 ### Return type
 
@@ -70,7 +70,7 @@ Deletes agendas
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteAgendas(listOfIdsDto);
@@ -84,7 +84,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -111,7 +111,7 @@ Gets an agenda
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
-final agendaId = agendaId_example; // String | 
+final agendaId = agendaId_example; // String |
 
 try {
     final result = api_instance.getAgenda(agendaId);
@@ -125,7 +125,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agendaId** | **String**|  | 
+ **agendaId** | **String**|  |
 
 ### Return type
 
@@ -189,7 +189,7 @@ Gets all agendas for user
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
-final userId = userId_example; // String | 
+final userId = userId_example; // String |
 
 try {
     final result = api_instance.getAgendasForUser(userId);
@@ -203,7 +203,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
+ **userId** | **String**|  |
 
 ### Return type
 
@@ -230,7 +230,7 @@ Gets readable agendas for user
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
-final userId = userId_example; // String | 
+final userId = userId_example; // String |
 
 try {
     final result = api_instance.getReadableAgendasForUser(userId);
@@ -244,7 +244,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
+ **userId** | **String**|  |
 
 ### Return type
 
@@ -271,7 +271,7 @@ Modifies an agenda
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AgendaApi();
-final agendaDto = AgendaDto(); // AgendaDto | 
+final agendaDto = AgendaDto(); // AgendaDto |
 
 try {
     final result = api_instance.modifyAgenda(agendaDto);
@@ -285,7 +285,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agendaDto** | [**AgendaDto**](AgendaDto.md)|  | 
+ **agendaDto** | [**AgendaDto**](AgendaDto.md)|  |
 
 ### Return type
 
@@ -301,4 +301,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

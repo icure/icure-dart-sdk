@@ -31,7 +31,7 @@ Creates a medical location
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedicalLocationApi();
-final medicalLocationDto = MedicalLocationDto(); // MedicalLocationDto | 
+final medicalLocationDto = MedicalLocationDto(); // MedicalLocationDto |
 
 try {
     final result = api_instance.createMedicalLocation(medicalLocationDto);
@@ -45,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **medicalLocationDto** | [**MedicalLocationDto**](MedicalLocationDto.md)|  | 
+ **medicalLocationDto** | [**MedicalLocationDto**](MedicalLocationDto.md)|  |
 
 ### Return type
 
@@ -72,7 +72,7 @@ Deletes medical locations
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedicalLocationApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteMedicalLocations(listOfIdsDto);
@@ -86,7 +86,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -113,7 +113,7 @@ Gets a medical location
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedicalLocationApi();
-final locationId = locationId_example; // String | 
+final locationId = locationId_example; // String |
 
 try {
     final result = api_instance.getMedicalLocation(locationId);
@@ -127,7 +127,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **locationId** | **String**|  | 
+ **locationId** | **String**|  |
 
 ### Return type
 
@@ -191,7 +191,7 @@ Modifies a medical location
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MedicalLocationApi();
-final medicalLocationDto = MedicalLocationDto(); // MedicalLocationDto | 
+final medicalLocationDto = MedicalLocationDto(); // MedicalLocationDto |
 
 try {
     final result = api_instance.modifyMedicalLocation(medicalLocationDto);
@@ -205,7 +205,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **medicalLocationDto** | [**MedicalLocationDto**](MedicalLocationDto.md)|  | 
+ **medicalLocationDto** | [**MedicalLocationDto**](MedicalLocationDto.md)|  |
 
 ### Return type
 
@@ -221,4 +221,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

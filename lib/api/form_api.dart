@@ -69,7 +69,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
-    
+
     }
     return null;
   }
@@ -127,7 +127,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormTemplateDto',) as FormTemplateDto;
-    
+
     }
     return null;
   }
@@ -241,7 +241,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocIdentifier',) as DocIdentifier;
-    
+
     }
     return null;
   }
@@ -420,7 +420,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
-    
+
     }
     return null;
   }
@@ -474,7 +474,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
-    
+
     }
     return null;
   }
@@ -528,7 +528,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
-    
+
     }
     return null;
   }
@@ -582,7 +582,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormTemplateDto',) as FormTemplateDto;
-    
+
     }
     return null;
   }
@@ -1161,7 +1161,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
-    
+
     }
     return null;
   }
@@ -1283,7 +1283,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormDto',) as FormDto;
-    
+
     }
     return null;
   }
@@ -1410,7 +1410,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'String',) as String;
-    
+
     }
     return null;
   }
@@ -1472,7 +1472,7 @@ class FormApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FormTemplateDto',) as FormTemplateDto;
-    
+
     }
     return null;
   }

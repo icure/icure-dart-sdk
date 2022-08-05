@@ -30,7 +30,7 @@ Returns an instance of created keyword.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
-final keywordDto = KeywordDto(); // KeywordDto | 
+final keywordDto = KeywordDto(); // KeywordDto |
 
 try {
     final result = api_instance.createKeyword(keywordDto);
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keywordDto** | [**KeywordDto**](KeywordDto.md)|  | 
+ **keywordDto** | [**KeywordDto**](KeywordDto.md)|  |
 
 ### Return type
 
@@ -73,7 +73,7 @@ Response is a set containing the ID's of deleted keywords.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteKeywords(listOfIdsDto);
@@ -87,7 +87,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -114,7 +114,7 @@ Get a keyword
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
-final keywordId = keywordId_example; // String | 
+final keywordId = keywordId_example; // String |
 
 try {
     final result = api_instance.getKeyword(keywordId);
@@ -128,7 +128,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keywordId** | **String**|  | 
+ **keywordId** | **String**|  |
 
 ### Return type
 
@@ -192,7 +192,7 @@ Get keywords by user
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
-final userId = userId_example; // String | 
+final userId = userId_example; // String |
 
 try {
     final result = api_instance.getKeywordsByUser(userId);
@@ -206,7 +206,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
+ **userId** | **String**|  |
 
 ### Return type
 
@@ -235,7 +235,7 @@ Returns the modified keyword.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = KeywordApi();
-final keywordDto = KeywordDto(); // KeywordDto | 
+final keywordDto = KeywordDto(); // KeywordDto |
 
 try {
     final result = api_instance.modifyKeyword(keywordDto);
@@ -249,7 +249,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keywordDto** | [**KeywordDto**](KeywordDto.md)|  | 
+ **keywordDto** | [**KeywordDto**](KeywordDto.md)|  |
 
 ### Return type
 
@@ -265,4 +265,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

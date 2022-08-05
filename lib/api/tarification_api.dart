@@ -69,7 +69,7 @@ class TarificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TarificationDto',) as TarificationDto;
-    
+
     }
     return null;
   }
@@ -170,7 +170,7 @@ class TarificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListTarificationDto',) as PaginatedListTarificationDto;
-    
+
     }
     return null;
   }
@@ -365,7 +365,7 @@ class TarificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListTarificationDto',) as PaginatedListTarificationDto;
-    
+
     }
     return null;
   }
@@ -425,7 +425,7 @@ class TarificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TarificationDto',) as TarificationDto;
-    
+
     }
     return null;
   }
@@ -500,7 +500,7 @@ class TarificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TarificationDto',) as TarificationDto;
-    
+
     }
     return null;
   }
@@ -617,7 +617,7 @@ class TarificationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TarificationDto',) as TarificationDto;
-    
+
     }
     return null;
   }

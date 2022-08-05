@@ -33,7 +33,7 @@ Creates a calendarItemType
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
-final calendarItemTypeDto = CalendarItemTypeDto(); // CalendarItemTypeDto | 
+final calendarItemTypeDto = CalendarItemTypeDto(); // CalendarItemTypeDto |
 
 try {
     final result = api_instance.createCalendarItemType(calendarItemTypeDto);
@@ -47,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **calendarItemTypeDto** | [**CalendarItemTypeDto**](CalendarItemTypeDto.md)|  | 
+ **calendarItemTypeDto** | [**CalendarItemTypeDto**](CalendarItemTypeDto.md)|  |
 
 ### Return type
 
@@ -74,7 +74,7 @@ Deletes calendarItemTypes
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteCalendarItemTypes(listOfIdsDto);
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -115,7 +115,7 @@ Gets a calendarItemType
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
-final calendarItemTypeId = calendarItemTypeId_example; // String | 
+final calendarItemTypeId = calendarItemTypeId_example; // String |
 
 try {
     final result = api_instance.getCalendarItemType(calendarItemTypeId);
@@ -129,7 +129,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **calendarItemTypeId** | **String**|  | 
+ **calendarItemTypeId** | **String**|  |
 
 ### Return type
 
@@ -230,7 +230,7 @@ Modifies an calendarItemType
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = CalendarItemTypeApi();
-final calendarItemTypeDto = CalendarItemTypeDto(); // CalendarItemTypeDto | 
+final calendarItemTypeDto = CalendarItemTypeDto(); // CalendarItemTypeDto |
 
 try {
     final result = api_instance.modifyCalendarItemType(calendarItemTypeDto);
@@ -244,7 +244,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **calendarItemTypeDto** | [**CalendarItemTypeDto**](CalendarItemTypeDto.md)|  | 
+ **calendarItemTypeDto** | [**CalendarItemTypeDto**](CalendarItemTypeDto.md)|  |
 
 ### Return type
 
@@ -260,4 +260,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

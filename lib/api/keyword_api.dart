@@ -69,7 +69,7 @@ class KeywordApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'KeywordDto',) as KeywordDto;
-    
+
     }
     return null;
   }
@@ -184,7 +184,7 @@ class KeywordApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'KeywordDto',) as KeywordDto;
-    
+
     }
     return null;
   }
@@ -346,7 +346,7 @@ class KeywordApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'KeywordDto',) as KeywordDto;
-    
+
     }
     return null;
   }

@@ -224,4 +224,3 @@ class IdentifierDto {
   static const requiredKeys = <String>{
   };
 }
-

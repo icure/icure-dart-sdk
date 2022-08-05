@@ -73,11 +73,11 @@ Check whether patients in SMF already exists in DB
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final documentId = documentId_example; // String | 
-final documentKey = documentKey_example; // String | 
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> | 
+final documentId = documentId_example; // String |
+final documentKey = documentKey_example; // String |
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> |
 
 try {
     final result = api_instance.checkIfSMFPatientsExists(documentId, documentKey, patientId, language, requestBody);
@@ -91,11 +91,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **documentKey** | **String**|  | [optional] 
- **patientId** | **String**|  | [optional] 
- **language** | **String**|  | [optional] 
- **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional] 
+ **documentId** | **String**|  |
+ **documentKey** | **String**|  | [optional]
+ **patientId** | **String**|  | [optional]
+ **language** | **String**|  | [optional]
+ **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional]
 
 ### Return type
 
@@ -122,16 +122,16 @@ Get Kmehr contactreport
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final id = id_example; // String | 
-final date = 789; // int | 
-final language = language_example; // String | 
-final recipientNihii = recipientNihii_example; // String | 
-final recipientSsin = recipientSsin_example; // String | 
-final recipientFirstName = recipientFirstName_example; // String | 
-final recipientLastName = recipientLastName_example; // String | 
-final mimeType = mimeType_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
+final patientId = patientId_example; // String |
+final id = id_example; // String |
+final date = 789; // int |
+final language = language_example; // String |
+final recipientNihii = recipientNihii_example; // String |
+final recipientSsin = recipientSsin_example; // String |
+final recipientFirstName = recipientFirstName_example; // String |
+final recipientLastName = recipientLastName_example; // String |
+final mimeType = mimeType_example; // String |
+final body = MultipartFile(); // MultipartFile |
 
 try {
     final result = api_instance.generateContactreportExport(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body);
@@ -145,16 +145,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **id** | **String**|  | 
- **date** | **int**|  | 
- **language** | **String**|  | 
- **recipientNihii** | **String**|  | 
- **recipientSsin** | **String**|  | 
- **recipientFirstName** | **String**|  | 
- **recipientLastName** | **String**|  | 
- **mimeType** | **String**|  | 
- **body** | **MultipartFile**|  | 
+ **patientId** | **String**|  |
+ **id** | **String**|  |
+ **date** | **int**|  |
+ **language** | **String**|  |
+ **recipientNihii** | **String**|  |
+ **recipientSsin** | **String**|  |
+ **recipientFirstName** | **String**|  |
+ **recipientLastName** | **String**|  |
+ **mimeType** | **String**|  |
+ **body** | **MultipartFile**|  |
 
 ### Return type
 
@@ -181,9 +181,9 @@ Generate diarynote
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final diaryNoteExportInfoDto = DiaryNoteExportInfoDto(); // DiaryNoteExportInfoDto | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final diaryNoteExportInfoDto = DiaryNoteExportInfoDto(); // DiaryNoteExportInfoDto |
 
 try {
     final result = api_instance.generateDiaryNote(patientId, language, diaryNoteExportInfoDto);
@@ -197,9 +197,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **language** | **String**|  | 
- **diaryNoteExportInfoDto** | [**DiaryNoteExportInfoDto**](DiaryNoteExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **language** | **String**|  |
+ **diaryNoteExportInfoDto** | [**DiaryNoteExportInfoDto**](DiaryNoteExportInfoDto.md)|  |
 
 ### Return type
 
@@ -226,16 +226,16 @@ Get Kmehr labresult
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final id = id_example; // String | 
-final date = 789; // int | 
-final language = language_example; // String | 
-final recipientNihii = recipientNihii_example; // String | 
-final recipientSsin = recipientSsin_example; // String | 
-final recipientFirstName = recipientFirstName_example; // String | 
-final recipientLastName = recipientLastName_example; // String | 
-final mimeType = mimeType_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
+final patientId = patientId_example; // String |
+final id = id_example; // String |
+final date = 789; // int |
+final language = language_example; // String |
+final recipientNihii = recipientNihii_example; // String |
+final recipientSsin = recipientSsin_example; // String |
+final recipientFirstName = recipientFirstName_example; // String |
+final recipientLastName = recipientLastName_example; // String |
+final mimeType = mimeType_example; // String |
+final body = MultipartFile(); // MultipartFile |
 
 try {
     final result = api_instance.generateLabresultExport(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body);
@@ -249,16 +249,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **id** | **String**|  | 
- **date** | **int**|  | 
- **language** | **String**|  | 
- **recipientNihii** | **String**|  | 
- **recipientSsin** | **String**|  | 
- **recipientFirstName** | **String**|  | 
- **recipientLastName** | **String**|  | 
- **mimeType** | **String**|  | 
- **body** | **MultipartFile**|  | 
+ **patientId** | **String**|  |
+ **id** | **String**|  |
+ **date** | **int**|  |
+ **language** | **String**|  |
+ **recipientNihii** | **String**|  |
+ **recipientSsin** | **String**|  |
+ **recipientFirstName** | **String**|  |
+ **recipientLastName** | **String**|  |
+ **mimeType** | **String**|  |
+ **body** | **MultipartFile**|  |
 
 ### Return type
 
@@ -285,11 +285,11 @@ Get Medicationscheme export
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final recipientSafe = recipientSafe_example; // String | 
-final version = 56; // int | 
-final medicationSchemeExportInfoDto = MedicationSchemeExportInfoDto(); // MedicationSchemeExportInfoDto | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final recipientSafe = recipientSafe_example; // String |
+final version = 56; // int |
+final medicationSchemeExportInfoDto = MedicationSchemeExportInfoDto(); // MedicationSchemeExportInfoDto |
 
 try {
     final result = api_instance.generateMedicationSchemeExport(patientId, language, recipientSafe, version, medicationSchemeExportInfoDto);
@@ -303,11 +303,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **language** | **String**|  | 
- **recipientSafe** | **String**|  | 
- **version** | **int**|  | 
- **medicationSchemeExportInfoDto** | [**MedicationSchemeExportInfoDto**](MedicationSchemeExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **language** | **String**|  |
+ **recipientSafe** | **String**|  |
+ **version** | **int**|  |
+ **medicationSchemeExportInfoDto** | [**MedicationSchemeExportInfoDto**](MedicationSchemeExportInfoDto.md)|  |
 
 ### Return type
 
@@ -334,16 +334,16 @@ Get Kmehr note
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final id = id_example; // String | 
-final date = 789; // int | 
-final language = language_example; // String | 
-final recipientNihii = recipientNihii_example; // String | 
-final recipientSsin = recipientSsin_example; // String | 
-final recipientFirstName = recipientFirstName_example; // String | 
-final recipientLastName = recipientLastName_example; // String | 
-final mimeType = mimeType_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
+final patientId = patientId_example; // String |
+final id = id_example; // String |
+final date = 789; // int |
+final language = language_example; // String |
+final recipientNihii = recipientNihii_example; // String |
+final recipientSsin = recipientSsin_example; // String |
+final recipientFirstName = recipientFirstName_example; // String |
+final recipientLastName = recipientLastName_example; // String |
+final mimeType = mimeType_example; // String |
+final body = MultipartFile(); // MultipartFile |
 
 try {
     final result = api_instance.generateNoteExport(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body);
@@ -357,16 +357,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **id** | **String**|  | 
- **date** | **int**|  | 
- **language** | **String**|  | 
- **recipientNihii** | **String**|  | 
- **recipientSsin** | **String**|  | 
- **recipientFirstName** | **String**|  | 
- **recipientLastName** | **String**|  | 
- **mimeType** | **String**|  | 
- **body** | **MultipartFile**|  | 
+ **patientId** | **String**|  |
+ **id** | **String**|  |
+ **date** | **int**|  |
+ **language** | **String**|  |
+ **recipientNihii** | **String**|  |
+ **recipientSsin** | **String**|  |
+ **recipientFirstName** | **String**|  |
+ **recipientLastName** | **String**|  |
+ **mimeType** | **String**|  |
+ **body** | **MultipartFile**|  |
 
 ### Return type
 
@@ -393,8 +393,8 @@ Get KMEHR Patient Info export
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
 
 try {
     final result = api_instance.generatePatientInfoExport(patientId, language);
@@ -408,8 +408,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **language** | **String**|  | [optional] 
+ **patientId** | **String**|  |
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -436,16 +436,16 @@ Get Kmehr prescription
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final id = id_example; // String | 
-final date = 789; // int | 
-final language = language_example; // String | 
-final recipientNihii = recipientNihii_example; // String | 
-final recipientSsin = recipientSsin_example; // String | 
-final recipientFirstName = recipientFirstName_example; // String | 
-final recipientLastName = recipientLastName_example; // String | 
-final mimeType = mimeType_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
+final patientId = patientId_example; // String |
+final id = id_example; // String |
+final date = 789; // int |
+final language = language_example; // String |
+final recipientNihii = recipientNihii_example; // String |
+final recipientSsin = recipientSsin_example; // String |
+final recipientFirstName = recipientFirstName_example; // String |
+final recipientLastName = recipientLastName_example; // String |
+final mimeType = mimeType_example; // String |
+final body = MultipartFile(); // MultipartFile |
 
 try {
     final result = api_instance.generatePrescriptionExport(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body);
@@ -459,16 +459,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **id** | **String**|  | 
- **date** | **int**|  | 
- **language** | **String**|  | 
- **recipientNihii** | **String**|  | 
- **recipientSsin** | **String**|  | 
- **recipientFirstName** | **String**|  | 
- **recipientLastName** | **String**|  | 
- **mimeType** | **String**|  | 
- **body** | **MultipartFile**|  | 
+ **patientId** | **String**|  |
+ **id** | **String**|  |
+ **date** | **int**|  |
+ **language** | **String**|  |
+ **recipientNihii** | **String**|  |
+ **recipientSsin** | **String**|  |
+ **recipientFirstName** | **String**|  |
+ **recipientLastName** | **String**|  |
+ **mimeType** | **String**|  |
+ **body** | **MultipartFile**|  |
 
 ### Return type
 
@@ -495,16 +495,16 @@ Get Kmehr report
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final id = id_example; // String | 
-final date = 789; // int | 
-final language = language_example; // String | 
-final recipientNihii = recipientNihii_example; // String | 
-final recipientSsin = recipientSsin_example; // String | 
-final recipientFirstName = recipientFirstName_example; // String | 
-final recipientLastName = recipientLastName_example; // String | 
-final mimeType = mimeType_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
+final patientId = patientId_example; // String |
+final id = id_example; // String |
+final date = 789; // int |
+final language = language_example; // String |
+final recipientNihii = recipientNihii_example; // String |
+final recipientSsin = recipientSsin_example; // String |
+final recipientFirstName = recipientFirstName_example; // String |
+final recipientLastName = recipientLastName_example; // String |
+final mimeType = mimeType_example; // String |
+final body = MultipartFile(); // MultipartFile |
 
 try {
     final result = api_instance.generateReportExport(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body);
@@ -518,16 +518,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **id** | **String**|  | 
- **date** | **int**|  | 
- **language** | **String**|  | 
- **recipientNihii** | **String**|  | 
- **recipientSsin** | **String**|  | 
- **recipientFirstName** | **String**|  | 
- **recipientLastName** | **String**|  | 
- **mimeType** | **String**|  | 
- **body** | **MultipartFile**|  | 
+ **patientId** | **String**|  |
+ **id** | **String**|  |
+ **date** | **int**|  |
+ **language** | **String**|  |
+ **recipientNihii** | **String**|  |
+ **recipientSsin** | **String**|  |
+ **recipientFirstName** | **String**|  |
+ **recipientLastName** | **String**|  |
+ **mimeType** | **String**|  |
+ **body** | **MultipartFile**|  |
 
 ### Return type
 
@@ -554,16 +554,16 @@ Get Kmehr request
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final id = id_example; // String | 
-final date = 789; // int | 
-final language = language_example; // String | 
-final recipientNihii = recipientNihii_example; // String | 
-final recipientSsin = recipientSsin_example; // String | 
-final recipientFirstName = recipientFirstName_example; // String | 
-final recipientLastName = recipientLastName_example; // String | 
-final mimeType = mimeType_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
+final patientId = patientId_example; // String |
+final id = id_example; // String |
+final date = 789; // int |
+final language = language_example; // String |
+final recipientNihii = recipientNihii_example; // String |
+final recipientSsin = recipientSsin_example; // String |
+final recipientFirstName = recipientFirstName_example; // String |
+final recipientLastName = recipientLastName_example; // String |
+final mimeType = mimeType_example; // String |
+final body = MultipartFile(); // MultipartFile |
 
 try {
     final result = api_instance.generateRequestExport(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body);
@@ -577,16 +577,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **id** | **String**|  | 
- **date** | **int**|  | 
- **language** | **String**|  | 
- **recipientNihii** | **String**|  | 
- **recipientSsin** | **String**|  | 
- **recipientFirstName** | **String**|  | 
- **recipientLastName** | **String**|  | 
- **mimeType** | **String**|  | 
- **body** | **MultipartFile**|  | 
+ **patientId** | **String**|  |
+ **id** | **String**|  |
+ **date** | **int**|  |
+ **language** | **String**|  |
+ **recipientNihii** | **String**|  |
+ **recipientSsin** | **String**|  |
+ **recipientFirstName** | **String**|  |
+ **recipientLastName** | **String**|  |
+ **mimeType** | **String**|  |
+ **body** | **MultipartFile**|  |
 
 ### Return type
 
@@ -613,16 +613,16 @@ Get Kmehr result
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final id = id_example; // String | 
-final date = 789; // int | 
-final language = language_example; // String | 
-final recipientNihii = recipientNihii_example; // String | 
-final recipientSsin = recipientSsin_example; // String | 
-final recipientFirstName = recipientFirstName_example; // String | 
-final recipientLastName = recipientLastName_example; // String | 
-final mimeType = mimeType_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
+final patientId = patientId_example; // String |
+final id = id_example; // String |
+final date = 789; // int |
+final language = language_example; // String |
+final recipientNihii = recipientNihii_example; // String |
+final recipientSsin = recipientSsin_example; // String |
+final recipientFirstName = recipientFirstName_example; // String |
+final recipientLastName = recipientLastName_example; // String |
+final mimeType = mimeType_example; // String |
+final body = MultipartFile(); // MultipartFile |
 
 try {
     final result = api_instance.generateResultExport(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body);
@@ -636,16 +636,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **id** | **String**|  | 
- **date** | **int**|  | 
- **language** | **String**|  | 
- **recipientNihii** | **String**|  | 
- **recipientSsin** | **String**|  | 
- **recipientFirstName** | **String**|  | 
- **recipientLastName** | **String**|  | 
- **mimeType** | **String**|  | 
- **body** | **MultipartFile**|  | 
+ **patientId** | **String**|  |
+ **id** | **String**|  |
+ **date** | **int**|  |
+ **language** | **String**|  |
+ **recipientNihii** | **String**|  |
+ **recipientSsin** | **String**|  |
+ **recipientFirstName** | **String**|  |
+ **recipientLastName** | **String**|  |
+ **mimeType** | **String**|  |
+ **body** | **MultipartFile**|  |
 
 ### Return type
 
@@ -672,9 +672,9 @@ Get SMF (Software Medical File) export
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final softwareMedicalFileExportDto = SoftwareMedicalFileExportDto(); // SoftwareMedicalFileExportDto | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final softwareMedicalFileExportDto = SoftwareMedicalFileExportDto(); // SoftwareMedicalFileExportDto |
 
 try {
     final result = api_instance.generateSmfExport(patientId, language, softwareMedicalFileExportDto);
@@ -688,9 +688,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **language** | **String**|  | 
- **softwareMedicalFileExportDto** | [**SoftwareMedicalFileExportDto**](SoftwareMedicalFileExportDto.md)|  | 
+ **patientId** | **String**|  |
+ **language** | **String**|  |
+ **softwareMedicalFileExportDto** | [**SoftwareMedicalFileExportDto**](SoftwareMedicalFileExportDto.md)|  |
 
 ### Return type
 
@@ -717,9 +717,9 @@ Generate sumehr
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.generateSumehr(patientId, language, sumehrExportInfoDto);
@@ -733,9 +733,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **language** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **language** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -762,9 +762,9 @@ Generate sumehr
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.generateSumehrV2(patientId, language, sumehrExportInfoDto);
@@ -778,9 +778,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **language** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **language** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -807,8 +807,8 @@ Get sumehr elements
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.getSumehrContent(patientId, sumehrExportInfoDto);
@@ -822,8 +822,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -850,8 +850,8 @@ Check sumehr signature
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.getSumehrMd5(patientId, sumehrExportInfoDto);
@@ -865,8 +865,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -893,8 +893,8 @@ Get sumehr elements
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.getSumehrV2Content(patientId, sumehrExportInfoDto);
@@ -908,8 +908,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -936,8 +936,8 @@ Check sumehr signature
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.getSumehrV2Md5(patientId, sumehrExportInfoDto);
@@ -951,8 +951,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -979,12 +979,12 @@ Import MedicationScheme into patient(s) using existing document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final documentId = documentId_example; // String | 
-final documentKey = documentKey_example; // String | 
+final documentId = documentId_example; // String |
+final documentKey = documentKey_example; // String |
 final dryRun = true; // bool | Dry run: do not save in database
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> |
 
 try {
     final result = api_instance.importMedicationScheme(documentId, documentKey, dryRun, patientId, language, requestBody);
@@ -998,12 +998,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **documentKey** | **String**|  | [optional] 
- **dryRun** | **bool**| Dry run: do not save in database | [optional] 
- **patientId** | **String**|  | [optional] 
- **language** | **String**|  | [optional] 
- **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional] 
+ **documentId** | **String**|  |
+ **documentKey** | **String**|  | [optional]
+ **dryRun** | **bool**| Dry run: do not save in database | [optional]
+ **patientId** | **String**|  | [optional]
+ **language** | **String**|  | [optional]
+ **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional]
 
 ### Return type
 
@@ -1030,12 +1030,12 @@ Import SMF into patient(s) using existing document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final documentId = documentId_example; // String | 
-final documentKey = documentKey_example; // String | 
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final dryRun = true; // bool | 
-final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> | 
+final documentId = documentId_example; // String |
+final documentKey = documentKey_example; // String |
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final dryRun = true; // bool |
+final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> |
 
 try {
     final result = api_instance.importSmf(documentId, documentKey, patientId, language, dryRun, requestBody);
@@ -1049,12 +1049,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **documentKey** | **String**|  | [optional] 
- **patientId** | **String**|  | [optional] 
- **language** | **String**|  | [optional] 
- **dryRun** | **bool**|  | [optional] 
- **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional] 
+ **documentId** | **String**|  |
+ **documentKey** | **String**|  | [optional]
+ **patientId** | **String**|  | [optional]
+ **language** | **String**|  | [optional]
+ **dryRun** | **bool**|  | [optional]
+ **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional]
 
 ### Return type
 
@@ -1081,12 +1081,12 @@ Import sumehr into patient(s) using existing document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final documentId = documentId_example; // String | 
-final documentKey = documentKey_example; // String | 
+final documentId = documentId_example; // String |
+final documentKey = documentKey_example; // String |
 final dryRun = true; // bool | Dry run: do not save in database
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> |
 
 try {
     final result = api_instance.importSumehr(documentId, documentKey, dryRun, patientId, language, requestBody);
@@ -1100,12 +1100,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **documentKey** | **String**|  | [optional] 
- **dryRun** | **bool**| Dry run: do not save in database | [optional] 
- **patientId** | **String**|  | [optional] 
- **language** | **String**|  | [optional] 
- **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional] 
+ **documentId** | **String**|  |
+ **documentKey** | **String**|  | [optional]
+ **dryRun** | **bool**| Dry run: do not save in database | [optional]
+ **patientId** | **String**|  | [optional]
+ **language** | **String**|  | [optional]
+ **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional]
 
 ### Return type
 
@@ -1132,13 +1132,13 @@ Import sumehr into patient(s) using existing document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final documentId = documentId_example; // String | 
-final itemId = itemId_example; // String | 
-final documentKey = documentKey_example; // String | 
+final documentId = documentId_example; // String |
+final itemId = itemId_example; // String |
+final documentKey = documentKey_example; // String |
 final dryRun = true; // bool | Dry run: do not save in database
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final requestBody = Map<String, List<ImportMapping>>(); // Map<String, List<ImportMapping>> |
 
 try {
     final result = api_instance.importSumehrByItemId(documentId, itemId, documentKey, dryRun, patientId, language, requestBody);
@@ -1152,13 +1152,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **itemId** | **String**|  | 
- **documentKey** | **String**|  | [optional] 
- **dryRun** | **bool**| Dry run: do not save in database | [optional] 
- **patientId** | **String**|  | [optional] 
- **language** | **String**|  | [optional] 
- **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional] 
+ **documentId** | **String**|  |
+ **itemId** | **String**|  |
+ **documentKey** | **String**|  | [optional]
+ **dryRun** | **bool**| Dry run: do not save in database | [optional]
+ **patientId** | **String**|  | [optional]
+ **language** | **String**|  | [optional]
+ **requestBody** | [**Map<String, List<ImportMapping>>**](List.md)|  | [optional]
 
 ### Return type
 
@@ -1185,8 +1185,8 @@ Get sumehr validity
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.isSumehrV2Valid(patientId, sumehrExportInfoDto);
@@ -1200,8 +1200,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -1228,8 +1228,8 @@ Get sumehr validity
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.isSumehrValid(patientId, sumehrExportInfoDto);
@@ -1243,8 +1243,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -1271,9 +1271,9 @@ Validate sumehr
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.validateSumehr(patientId, language, sumehrExportInfoDto);
@@ -1287,9 +1287,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **language** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **language** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -1316,9 +1316,9 @@ Validate sumehr
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BekmehrApi();
-final patientId = patientId_example; // String | 
-final language = language_example; // String | 
-final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto | 
+final patientId = patientId_example; // String |
+final language = language_example; // String |
+final sumehrExportInfoDto = SumehrExportInfoDto(); // SumehrExportInfoDto |
 
 try {
     final result = api_instance.validateSumehrV2(patientId, language, sumehrExportInfoDto);
@@ -1332,9 +1332,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **language** | **String**|  | 
- **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  | 
+ **patientId** | **String**|  |
+ **language** | **String**|  |
+ **sumehrExportInfoDto** | [**SumehrExportInfoDto**](SumehrExportInfoDto.md)|  |
 
 ### Return type
 
@@ -1350,4 +1350,3 @@ No authorization required
  - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
