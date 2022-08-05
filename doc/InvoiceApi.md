@@ -77,14 +77,14 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final userId = userId_example; // String | 
-final type = type_example; // String | 
-final sentMediumType = sentMediumType_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
-final invoicingCodeDto = [List<InvoicingCodeDto>()]; // List<InvoicingCodeDto> | 
-final insuranceId = insuranceId_example; // String | 
-final invoiceId = invoiceId_example; // String | 
-final gracePeriod = 56; // int | 
+final userId = userId_example; // String |
+final type = type_example; // String |
+final sentMediumType = sentMediumType_example; // String |
+final secretFKeys = secretFKeys_example; // String |
+final invoicingCodeDto = [List<InvoicingCodeDto>()]; // List<InvoicingCodeDto> |
+final insuranceId = insuranceId_example; // String |
+final invoiceId = invoiceId_example; // String |
+final gracePeriod = 56; // int |
 
 try {
     final result = api_instance.appendCodes(userId, type, sentMediumType, secretFKeys, invoicingCodeDto, insuranceId, invoiceId, gracePeriod);
@@ -98,14 +98,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **type** | **String**|  | 
- **sentMediumType** | **String**|  | 
- **secretFKeys** | **String**|  | 
- **invoicingCodeDto** | [**List<InvoicingCodeDto>**](InvoicingCodeDto.md)|  | 
- **insuranceId** | **String**|  | [optional] 
- **invoiceId** | **String**|  | [optional] 
- **gracePeriod** | **int**|  | [optional] 
+ **userId** | **String**|  |
+ **type** | **String**|  |
+ **sentMediumType** | **String**|  |
+ **secretFKeys** | **String**|  |
+ **invoicingCodeDto** | [**List<InvoicingCodeDto>**](InvoicingCodeDto.md)|  |
+ **insuranceId** | **String**|  | [optional]
+ **invoiceId** | **String**|  | [optional]
+ **gracePeriod** | **int**|  | [optional]
 
 ### Return type
 
@@ -132,7 +132,7 @@ Creates an invoice
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceDto = InvoiceDto(); // InvoiceDto | 
+final invoiceDto = InvoiceDto(); // InvoiceDto |
 
 try {
     final result = api_instance.createInvoice(invoiceDto);
@@ -146,7 +146,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  | 
+ **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  |
 
 ### Return type
 
@@ -175,7 +175,7 @@ Returns the created invoices.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> | 
+final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> |
 
 try {
     final result = api_instance.createInvoices(invoiceDto);
@@ -189,7 +189,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceDto** | [**List<InvoiceDto>**](InvoiceDto.md)|  | 
+ **invoiceDto** | [**List<InvoiceDto>**](InvoiceDto.md)|  |
 
 ### Return type
 
@@ -216,7 +216,7 @@ Deletes an invoice
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceId = invoiceId_example; // String | 
+final invoiceId = invoiceId_example; // String |
 
 try {
     final result = api_instance.deleteInvoice(invoiceId);
@@ -230,7 +230,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceId** | **String**|  | 
+ **invoiceId** | **String**|  |
 
 ### Return type
 
@@ -259,7 +259,7 @@ Returns a list of invoices along with next start keys and Document ID. If the ne
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final filterChainInvoice = FilterChainInvoice(); // FilterChainInvoice | 
+final filterChainInvoice = FilterChainInvoice(); // FilterChainInvoice |
 
 try {
     final result = api_instance.filterInvoicesBy(filterChainInvoice);
@@ -273,7 +273,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterChainInvoice** | [**FilterChainInvoice**](FilterChainInvoice.md)|  | 
+ **filterChainInvoice** | [**FilterChainInvoice**](FilterChainInvoice.md)|  |
 
 ### Return type
 
@@ -300,9 +300,9 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final hcPartyId = hcPartyId_example; // String | 
-final fromDate = 789; // int | 
-final toDate = 789; // int | 
+final hcPartyId = hcPartyId_example; // String |
+final fromDate = 789; // int |
+final toDate = 789; // int |
 final startKey = startKey_example; // String | The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey
 final startDocumentId = startDocumentId_example; // String | A patient document ID
 final limit = 56; // int | Number of rows
@@ -319,12 +319,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **fromDate** | **int**|  | [optional] 
- **toDate** | **int**|  | [optional] 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **hcPartyId** | **String**|  |
+ **fromDate** | **int**|  | [optional]
+ **toDate** | **int**|  | [optional]
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -351,7 +351,7 @@ Gets an invoice
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceId = invoiceId_example; // String | 
+final invoiceId = invoiceId_example; // String |
 
 try {
     final result = api_instance.getInvoice(invoiceId);
@@ -365,7 +365,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceId** | **String**|  | 
+ **invoiceId** | **String**|  |
 
 ### Return type
 
@@ -392,7 +392,7 @@ Gets an invoice
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getInvoices(listOfIdsDto);
@@ -406,7 +406,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -433,7 +433,7 @@ Get the list of all used tarifications frequencies in invoices
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final minOccurences = 789; // int | 
+final minOccurences = 789; // int |
 
 try {
     final result = api_instance.getTarificationsCodesOccurences(minOccurences);
@@ -447,7 +447,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minOccurences** | **int**|  | 
+ **minOccurences** | **int**|  |
 
 ### Return type
 
@@ -474,10 +474,10 @@ Gets all invoices per status
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final status = status_example; // String | 
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
-final from = 789; // int | 
-final to = 789; // int | 
+final status = status_example; // String |
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
+final from = 789; // int |
+final to = 789; // int |
 
 try {
     final result = api_instance.listAllHcpsByStatus(status, listOfIdsDto, from, to);
@@ -491,10 +491,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**|  | 
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
- **from** | **int**|  | [optional] 
- **to** | **int**|  | [optional] 
+ **status** | **String**|  |
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
+ **from** | **int**|  | [optional]
+ **to** | **int**|  | [optional]
 
 ### Return type
 
@@ -521,7 +521,7 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listInvoicesByContactIds(listOfIdsDto);
@@ -535,7 +535,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -564,8 +564,8 @@ Keys have to delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listInvoicesByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys);
@@ -579,8 +579,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -609,8 +609,8 @@ Keys have to delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final hcPartyId = hcPartyId_example; // String | 
-final groupId = groupId_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final groupId = groupId_example; // String |
 
 try {
     final result = api_instance.listInvoicesByHcPartyAndGroupId(hcPartyId, groupId);
@@ -624,8 +624,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **groupId** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **groupId** | **String**|  |
 
 ### Return type
 
@@ -654,12 +654,12 @@ Keys have to delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final hcPartyId = hcPartyId_example; // String | 
-final sentMediumType = sentMediumType_example; // String | 
-final invoiceType = invoiceType_example; // String | 
-final sent = true; // bool | 
-final from = 789; // int | 
-final to = 789; // int | 
+final hcPartyId = hcPartyId_example; // String |
+final sentMediumType = sentMediumType_example; // String |
+final invoiceType = invoiceType_example; // String |
+final sent = true; // bool |
+final from = 789; // int |
+final to = 789; // int |
 
 try {
     final result = api_instance.listInvoicesByHcPartySentMediumTypeInvoiceTypeSentDate(hcPartyId, sentMediumType, invoiceType, sent, from, to);
@@ -673,12 +673,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **sentMediumType** | **String**|  | 
- **invoiceType** | **String**|  | 
- **sent** | **bool**|  | 
- **from** | **int**|  | [optional] 
- **to** | **int**|  | [optional] 
+ **hcPartyId** | **String**|  |
+ **sentMediumType** | **String**|  |
+ **invoiceType** | **String**|  |
+ **sent** | **bool**|  |
+ **from** | **int**|  | [optional]
+ **to** | **int**|  | [optional]
 
 ### Return type
 
@@ -705,11 +705,11 @@ Get all invoices by author, by sending mode, by status and by date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final hcPartyId = hcPartyId_example; // String | 
-final sendingMode = sendingMode_example; // String | 
-final status = status_example; // String | 
-final from = 789; // int | 
-final to = 789; // int | 
+final hcPartyId = hcPartyId_example; // String |
+final sendingMode = sendingMode_example; // String |
+final status = status_example; // String |
+final from = 789; // int |
+final to = 789; // int |
 
 try {
     final result = api_instance.listInvoicesByHcpartySendingModeStatusDate(hcPartyId, sendingMode, status, from, to);
@@ -723,11 +723,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **sendingMode** | **String**|  | [optional] 
- **status** | **String**|  | [optional] 
- **from** | **int**|  | [optional] 
- **to** | **int**|  | [optional] 
+ **hcPartyId** | **String**|  |
+ **sendingMode** | **String**|  | [optional]
+ **status** | **String**|  | [optional]
+ **from** | **int**|  | [optional]
+ **to** | **int**|  | [optional]
 
 ### Return type
 
@@ -754,7 +754,7 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceIds = invoiceIds_example; // String | 
+final invoiceIds = invoiceIds_example; // String |
 
 try {
     final result = api_instance.listInvoicesByIds(invoiceIds);
@@ -768,7 +768,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceIds** | **String**|  | 
+ **invoiceIds** | **String**|  |
 
 ### Return type
 
@@ -795,7 +795,7 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final recipientIds = recipientIds_example; // String | 
+final recipientIds = recipientIds_example; // String |
 
 try {
     final result = api_instance.listInvoicesByRecipientsIds(recipientIds);
@@ -809,7 +809,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **recipientIds** | **String**|  | 
+ **recipientIds** | **String**|  |
 
 ### Return type
 
@@ -836,7 +836,7 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final serviceIds = serviceIds_example; // String | 
+final serviceIds = serviceIds_example; // String |
 
 try {
     final result = api_instance.listInvoicesByServiceIds(serviceIds);
@@ -850,7 +850,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceIds** | **String**|  | 
+ **serviceIds** | **String**|  |
 
 ### Return type
 
@@ -879,8 +879,8 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listInvoicesDelegationsStubsByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys);
@@ -894,8 +894,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -922,7 +922,7 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final userIds = userIds_example; // String | 
+final userIds = userIds_example; // String |
 
 try {
     final result = api_instance.listToInsurances(userIds);
@@ -936,7 +936,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userIds** | **String**|  | [optional] 
+ **userIds** | **String**|  | [optional]
 
 ### Return type
 
@@ -963,7 +963,7 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final userIds = userIds_example; // String | 
+final userIds = userIds_example; // String |
 
 try {
     final result = api_instance.listToInsurancesUnsent(userIds);
@@ -977,7 +977,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userIds** | **String**|  | [optional] 
+ **userIds** | **String**|  | [optional]
 
 ### Return type
 
@@ -1004,7 +1004,7 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final hcPartyId = hcPartyId_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
 
 try {
     final result = api_instance.listToPatients(hcPartyId);
@@ -1018,7 +1018,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | [optional] 
+ **hcPartyId** | **String**|  | [optional]
 
 ### Return type
 
@@ -1045,7 +1045,7 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final hcPartyId = hcPartyId_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
 
 try {
     final result = api_instance.listToPatientsUnsent(hcPartyId);
@@ -1059,7 +1059,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | [optional] 
+ **hcPartyId** | **String**|  | [optional]
 
 ### Return type
 
@@ -1086,8 +1086,8 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceId = invoiceId_example; // String | 
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final invoiceId = invoiceId_example; // String |
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.mergeTo(invoiceId, listOfIdsDto);
@@ -1101,8 +1101,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceId** | **String**|  | 
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **invoiceId** | **String**|  |
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -1129,7 +1129,7 @@ Modifies an invoice
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceDto = InvoiceDto(); // InvoiceDto | 
+final invoiceDto = InvoiceDto(); // InvoiceDto |
 
 try {
     final result = api_instance.modifyInvoice(invoiceDto);
@@ -1143,7 +1143,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  | 
+ **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  |
 
 ### Return type
 
@@ -1172,7 +1172,7 @@ Returns the modified invoices.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> | 
+final invoiceDto = [List<InvoiceDto>()]; // List<InvoiceDto> |
 
 try {
     final result = api_instance.modifyInvoices(invoiceDto);
@@ -1186,7 +1186,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceDto** | [**List<InvoiceDto>**](InvoiceDto.md)|  | 
+ **invoiceDto** | [**List<InvoiceDto>**](InvoiceDto.md)|  |
 
 ### Return type
 
@@ -1213,8 +1213,8 @@ Adds a delegation to a invoice
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceId = invoiceId_example; // String | 
-final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> | 
+final invoiceId = invoiceId_example; // String |
+final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> |
 
 try {
     final result = api_instance.newInvoiceDelegations(invoiceId, delegationDto);
@@ -1228,8 +1228,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceId** | **String**|  | 
- **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  | 
+ **invoiceId** | **String**|  |
+ **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  |
 
 ### Return type
 
@@ -1256,7 +1256,7 @@ Modifies an invoice
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceDto = InvoiceDto(); // InvoiceDto | 
+final invoiceDto = InvoiceDto(); // InvoiceDto |
 
 try {
     final result = api_instance.reassignInvoice(invoiceDto);
@@ -1270,7 +1270,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  | 
+ **invoiceDto** | [**InvoiceDto**](InvoiceDto.md)|  |
 
 ### Return type
 
@@ -1297,10 +1297,10 @@ Remove an invoice of an user
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final userId = userId_example; // String | 
-final serviceId = serviceId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
-final requestBody = [List<String>()]; // List<String> | 
+final userId = userId_example; // String |
+final serviceId = serviceId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
+final requestBody = [List<String>()]; // List<String> |
 
 try {
     final result = api_instance.removeCodes(userId, serviceId, secretFKeys, requestBody);
@@ -1314,10 +1314,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **serviceId** | **String**|  | 
- **secretFKeys** | **String**|  | 
- **requestBody** | [**List<String>**](String.md)|  | 
+ **userId** | **String**|  |
+ **serviceId** | **String**|  |
+ **secretFKeys** | **String**|  |
+ **requestBody** | [**List<String>**](String.md)|  |
 
 ### Return type
 
@@ -1346,7 +1346,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
+final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> |
 
 try {
     final result = api_instance.setInvoicesDelegations(icureStubDto);
@@ -1360,7 +1360,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  | 
+ **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  |
 
 ### Return type
 
@@ -1387,9 +1387,9 @@ Gets all invoices for author at date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InvoiceApi();
-final invoiceId = invoiceId_example; // String | 
-final scheme = scheme_example; // String | 
-final forcedValue = forcedValue_example; // String | 
+final invoiceId = invoiceId_example; // String |
+final scheme = scheme_example; // String |
+final forcedValue = forcedValue_example; // String |
 
 try {
     final result = api_instance.validate(invoiceId, scheme, forcedValue);
@@ -1403,9 +1403,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoiceId** | **String**|  | 
- **scheme** | **String**|  | 
- **forcedValue** | **String**|  | 
+ **invoiceId** | **String**|  |
+ **scheme** | **String**|  |
+ **forcedValue** | **String**|  |
 
 ### Return type
 
@@ -1421,4 +1421,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

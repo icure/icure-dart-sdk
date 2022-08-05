@@ -65,7 +65,7 @@ class AccessLogApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
-    
+
     }
     return null;
   }
@@ -214,7 +214,7 @@ class AccessLogApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAccessLogDto',) as PaginatedListAccessLogDto;
-    
+
     }
     return null;
   }
@@ -326,7 +326,7 @@ class AccessLogApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAccessLogDto',) as PaginatedListAccessLogDto;
-    
+
     }
     return null;
   }
@@ -380,7 +380,7 @@ class AccessLogApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
-    
+
     }
     return null;
   }
@@ -497,7 +497,7 @@ class AccessLogApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccessLogDto',) as AccessLogDto;
-    
+
     }
     return null;
   }

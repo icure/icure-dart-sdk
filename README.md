@@ -41,7 +41,7 @@ import 'package:icure_dart_sdk/api.dart';
 
 
 final api_instance = AccessLogApi();
-final accessLogDto = AccessLogDto(); // AccessLogDto | 
+final accessLogDto = AccessLogDto(); // AccessLogDto |
 
 try {
     final result = api_instance.createAccessLog(accessLogDto);
@@ -1309,6 +1309,3 @@ PUT** /rest/v1/user/inGroup/{groupId} | Modify a user.
 
 
 ## Author
-
-
-

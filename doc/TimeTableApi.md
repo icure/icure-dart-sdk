@@ -29,7 +29,7 @@ Creates a timeTable
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
-final timeTableDto = TimeTableDto(); // TimeTableDto | 
+final timeTableDto = TimeTableDto(); // TimeTableDto |
 
 try {
     final result = api_instance.createTimeTable(timeTableDto);
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **timeTableDto** | [**TimeTableDto**](TimeTableDto.md)|  | 
+ **timeTableDto** | [**TimeTableDto**](TimeTableDto.md)|  |
 
 ### Return type
 
@@ -70,7 +70,7 @@ Deletes an timeTable
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteTimeTable(listOfIdsDto);
@@ -84,7 +84,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -111,7 +111,7 @@ Gets a timeTable
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
-final timeTableId = timeTableId_example; // String | 
+final timeTableId = timeTableId_example; // String |
 
 try {
     final result = api_instance.getTimeTable(timeTableId);
@@ -125,7 +125,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **timeTableId** | **String**|  | 
+ **timeTableId** | **String**|  |
 
 ### Return type
 
@@ -152,7 +152,7 @@ Get TimeTables by AgendaId
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
-final agendaId = agendaId_example; // String | 
+final agendaId = agendaId_example; // String |
 
 try {
     final result = api_instance.getTimeTablesByAgendaId(agendaId);
@@ -166,7 +166,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agendaId** | **String**|  | 
+ **agendaId** | **String**|  |
 
 ### Return type
 
@@ -193,9 +193,9 @@ Get TimeTables by Period and AgendaId
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
-final startDate = 789; // int | 
-final endDate = 789; // int | 
-final agendaId = agendaId_example; // String | 
+final startDate = 789; // int |
+final endDate = 789; // int |
+final agendaId = agendaId_example; // String |
 
 try {
     final result = api_instance.getTimeTablesByPeriodAndAgendaId(startDate, endDate, agendaId);
@@ -209,9 +209,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **int**|  | 
- **endDate** | **int**|  | 
- **agendaId** | **String**|  | 
+ **startDate** | **int**|  |
+ **endDate** | **int**|  |
+ **agendaId** | **String**|  |
 
 ### Return type
 
@@ -238,7 +238,7 @@ Modifies an timeTable
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TimeTableApi();
-final timeTableDto = TimeTableDto(); // TimeTableDto | 
+final timeTableDto = TimeTableDto(); // TimeTableDto |
 
 try {
     final result = api_instance.modifyTimeTable(timeTableDto);
@@ -252,7 +252,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **timeTableDto** | [**TimeTableDto**](TimeTableDto.md)|  | 
+ **timeTableDto** | [**TimeTableDto**](TimeTableDto.md)|  |
 
 ### Return type
 
@@ -268,4 +268,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

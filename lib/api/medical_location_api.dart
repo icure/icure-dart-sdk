@@ -65,7 +65,7 @@ class MedicalLocationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicalLocationDto',) as MedicalLocationDto;
-    
+
     }
     return null;
   }
@@ -176,7 +176,7 @@ class MedicalLocationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicalLocationDto',) as MedicalLocationDto;
-    
+
     }
     return null;
   }
@@ -277,7 +277,7 @@ class MedicalLocationApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicalLocationDto',) as MedicalLocationDto;
-    
+
     }
     return null;
   }

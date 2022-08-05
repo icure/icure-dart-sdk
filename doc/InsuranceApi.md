@@ -31,7 +31,7 @@ Creates an insurance
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
-final insuranceDto = InsuranceDto(); // InsuranceDto | 
+final insuranceDto = InsuranceDto(); // InsuranceDto |
 
 try {
     final result = api_instance.createInsurance(insuranceDto);
@@ -45,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **insuranceDto** | [**InsuranceDto**](InsuranceDto.md)|  | 
+ **insuranceDto** | [**InsuranceDto**](InsuranceDto.md)|  |
 
 ### Return type
 
@@ -72,7 +72,7 @@ Deletes an insurance
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
-final insuranceId = insuranceId_example; // String | 
+final insuranceId = insuranceId_example; // String |
 
 try {
     final result = api_instance.deleteInsurance(insuranceId);
@@ -86,7 +86,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **insuranceId** | **String**|  | 
+ **insuranceId** | **String**|  |
 
 ### Return type
 
@@ -113,7 +113,7 @@ Gets an insurance
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
-final insuranceId = insuranceId_example; // String | 
+final insuranceId = insuranceId_example; // String |
 
 try {
     final result = api_instance.getInsurance(insuranceId);
@@ -127,7 +127,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **insuranceId** | **String**|  | 
+ **insuranceId** | **String**|  |
 
 ### Return type
 
@@ -154,7 +154,7 @@ Gets insurances by id
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getInsurances(listOfIdsDto);
@@ -168,7 +168,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -195,7 +195,7 @@ Gets an insurance
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
-final insuranceCode = insuranceCode_example; // String | 
+final insuranceCode = insuranceCode_example; // String |
 
 try {
     final result = api_instance.listInsurancesByCode(insuranceCode);
@@ -209,7 +209,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **insuranceCode** | **String**|  | 
+ **insuranceCode** | **String**|  |
 
 ### Return type
 
@@ -236,7 +236,7 @@ Gets an insurance
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
-final insuranceName = insuranceName_example; // String | 
+final insuranceName = insuranceName_example; // String |
 
 try {
     final result = api_instance.listInsurancesByName(insuranceName);
@@ -250,7 +250,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **insuranceName** | **String**|  | 
+ **insuranceName** | **String**|  |
 
 ### Return type
 
@@ -277,7 +277,7 @@ Modifies an insurance
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = InsuranceApi();
-final insuranceDto = InsuranceDto(); // InsuranceDto | 
+final insuranceDto = InsuranceDto(); // InsuranceDto |
 
 try {
     final result = api_instance.modifyInsurance(insuranceDto);
@@ -291,7 +291,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **insuranceDto** | [**InsuranceDto**](InsuranceDto.md)|  | 
+ **insuranceDto** | [**InsuranceDto**](InsuranceDto.md)|  |
 
 ### Return type
 
@@ -307,4 +307,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

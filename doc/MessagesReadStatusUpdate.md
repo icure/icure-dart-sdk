@@ -9,10 +9,8 @@ import 'package:icure_dart_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | **List<String>** |  | [optional] [default to const []]
-**time** | **int** |  | [optional] 
-**status** | **bool** |  | [optional] 
-**userId** | **String** |  | [optional] 
+**time** | **int** |  | [optional]
+**status** | **bool** |  | [optional]
+**userId** | **String** |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

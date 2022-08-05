@@ -163,7 +163,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
-    
+
     }
     return null;
   }
@@ -251,7 +251,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
-    
+
     }
     return null;
   }
@@ -339,7 +339,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
-    
+
     }
     return null;
   }
@@ -439,7 +439,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
-    
+
     }
     return null;
   }
@@ -527,7 +527,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
-    
+
     }
     return null;
   }
@@ -615,7 +615,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListAmpDto',) as PaginatedListAmpDto;
-    
+
     }
     return null;
   }
@@ -715,7 +715,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListNmpDto',) as PaginatedListNmpDto;
-    
+
     }
     return null;
   }
@@ -815,7 +815,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpGroupDto',) as PaginatedListVmpGroupDto;
-    
+
     }
     return null;
   }
@@ -903,7 +903,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpGroupDto',) as PaginatedListVmpGroupDto;
-    
+
     }
     return null;
   }
@@ -991,7 +991,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpDto',) as PaginatedListVmpDto;
-    
+
     }
     return null;
   }
@@ -1079,7 +1079,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpDto',) as PaginatedListVmpDto;
-    
+
     }
     return null;
   }
@@ -1179,7 +1179,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpDto',) as PaginatedListVmpDto;
-    
+
     }
     return null;
   }
@@ -1268,7 +1268,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListVmpDto',) as PaginatedListVmpDto;
-    
+
     }
     return null;
   }
@@ -1317,7 +1317,7 @@ class Besamv2Api {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'SamVersionDto',) as SamVersionDto;
-    
+
     }
     return null;
   }

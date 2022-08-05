@@ -143,7 +143,7 @@ void main() {
       assert(result!.isEmpty);
     });
 
-    // Filter maintenanceTasks for the current user (HcParty) 
+    // Filter maintenanceTasks for the current user (HcParty)
     //
     // Returns a list of maintenanceTasks along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
     //

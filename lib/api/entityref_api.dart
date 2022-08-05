@@ -65,12 +65,12 @@ class EntityrefApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EntityReferenceDto',) as EntityReferenceDto;
-    
+
     }
     return null;
   }
 
-  /// Find latest reference for a prefix 
+  /// Find latest reference for a prefix
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -105,7 +105,7 @@ class EntityrefApi {
     );
   }
 
-  /// Find latest reference for a prefix 
+  /// Find latest reference for a prefix
   ///
   /// Parameters:
   ///
@@ -120,7 +120,7 @@ class EntityrefApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EntityReferenceDto',) as EntityReferenceDto;
-    
+
     }
     return null;
   }

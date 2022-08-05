@@ -37,7 +37,7 @@ Type, Tarification and Version are required.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
-final tarificationDto = TarificationDto(); // TarificationDto | 
+final tarificationDto = TarificationDto(); // TarificationDto |
 
 try {
     final result = api_instance.createTarification(tarificationDto);
@@ -51,7 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tarificationDto** | [**TarificationDto**](TarificationDto.md)|  | 
+ **tarificationDto** | [**TarificationDto**](TarificationDto.md)|  |
 
 ### Return type
 
@@ -80,10 +80,10 @@ Returns a list of tarifications matched with given input.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
-final region = region_example; // String | 
-final type = type_example; // String | 
-final tarification = tarification_example; // String | 
-final version = version_example; // String | 
+final region = region_example; // String |
+final type = type_example; // String |
+final tarification = tarification_example; // String |
+final version = version_example; // String |
 final startDocumentId = startDocumentId_example; // String | A tarification document ID
 final limit = 56; // int | Number of rows
 
@@ -99,12 +99,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region** | **String**|  | [optional] 
- **type** | **String**|  | [optional] 
- **tarification** | **String**|  | [optional] 
- **version** | **String**|  | [optional] 
- **startDocumentId** | **String**| A tarification document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **region** | **String**|  | [optional]
+ **type** | **String**|  | [optional]
+ **tarification** | **String**|  | [optional]
+ **version** | **String**|  | [optional]
+ **startDocumentId** | **String**| A tarification document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -150,10 +150,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region** | **String**| Tarification region | [optional] 
- **type** | **String**| Tarification type | [optional] 
- **tarification** | **String**| Tarification tarification | [optional] 
- **version** | **String**| Tarification version | [optional] 
+ **region** | **String**| Tarification region | [optional]
+ **type** | **String**| Tarification type | [optional]
+ **tarification** | **String**| Tarification tarification | [optional]
+ **version** | **String**| Tarification version | [optional]
 
 ### Return type
 
@@ -182,10 +182,10 @@ Returns a list of tarifications matched with given input.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
-final region = region_example; // String | 
-final types = types_example; // String | 
-final language = language_example; // String | 
-final label = label_example; // String | 
+final region = region_example; // String |
+final types = types_example; // String |
+final language = language_example; // String |
+final label = label_example; // String |
 final startDocumentId = startDocumentId_example; // String | A tarification document ID
 final limit = 56; // int | Number of rows
 
@@ -201,12 +201,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region** | **String**|  | [optional] 
- **types** | **String**|  | [optional] 
- **language** | **String**|  | [optional] 
- **label** | **String**|  | [optional] 
- **startDocumentId** | **String**| A tarification document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **region** | **String**|  | [optional]
+ **types** | **String**|  | [optional]
+ **language** | **String**|  | [optional]
+ **label** | **String**|  | [optional]
+ **startDocumentId** | **String**| A tarification document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -249,7 +249,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tarificationId** | **String**| Tarification id | 
+ **tarificationId** | **String**| Tarification id |
 
 ### Return type
 
@@ -294,9 +294,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| Tarification type | 
- **tarification** | **String**| Tarification tarification | 
- **version** | **String**| Tarification version | 
+ **type** | **String**| Tarification type |
+ **tarification** | **String**| Tarification tarification |
+ **version** | **String**| Tarification version |
 
 ### Return type
 
@@ -325,7 +325,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getTarifications(listOfIdsDto);
@@ -339,7 +339,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -368,7 +368,7 @@ Modification of (type, tarification, version) is not allowed.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = TarificationApi();
-final tarificationDto = TarificationDto(); // TarificationDto | 
+final tarificationDto = TarificationDto(); // TarificationDto |
 
 try {
     final result = api_instance.modifyTarification(tarificationDto);
@@ -382,7 +382,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tarificationDto** | [**TarificationDto**](TarificationDto.md)|  | 
+ **tarificationDto** | [**TarificationDto**](TarificationDto.md)|  |
 
 ### Return type
 
@@ -398,4 +398,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

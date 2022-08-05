@@ -69,7 +69,7 @@ class DeviceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeviceDto',) as DeviceDto;
-    
+
     }
     return null;
   }
@@ -247,7 +247,7 @@ class DeviceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DocIdentifier',) as DocIdentifier;
-    
+
     }
     return null;
   }
@@ -312,7 +312,7 @@ class DeviceApi {
     return null;
   }
 
-  /// Filter devices for the current user (HcParty) 
+  /// Filter devices for the current user (HcParty)
   ///
   /// Returns a list of devices along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -361,7 +361,7 @@ class DeviceApi {
     );
   }
 
-  /// Filter devices for the current user (HcParty) 
+  /// Filter devices for the current user (HcParty)
   ///
   /// Returns a list of devices along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -384,7 +384,7 @@ class DeviceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListDeviceDto',) as PaginatedListDeviceDto;
-    
+
     }
     return null;
   }
@@ -442,7 +442,7 @@ class DeviceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeviceDto',) as DeviceDto;
-    
+
     }
     return null;
   }
@@ -565,7 +565,7 @@ class DeviceApi {
     return null;
   }
 
-  /// Get ids of devices matching the provided filter for the current user (HcParty) 
+  /// Get ids of devices matching the provided filter for the current user (HcParty)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -598,7 +598,7 @@ class DeviceApi {
     );
   }
 
-  /// Get ids of devices matching the provided filter for the current user (HcParty) 
+  /// Get ids of devices matching the provided filter for the current user (HcParty)
   ///
   /// Parameters:
   ///
@@ -673,7 +673,7 @@ class DeviceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeviceDto',) as DeviceDto;
-    
+
     }
     return null;
   }

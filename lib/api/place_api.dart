@@ -65,7 +65,7 @@ class PlaceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlaceDto',) as PlaceDto;
-    
+
     }
     return null;
   }
@@ -175,7 +175,7 @@ class PlaceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlaceDto',) as PlaceDto;
-    
+
     }
     return null;
   }
@@ -276,7 +276,7 @@ class PlaceApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PlaceDto',) as PlaceDto;
-    
+
     }
     return null;
   }

@@ -26,7 +26,7 @@ Creates a article
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ArticleApi();
-final articleDto = ArticleDto(); // ArticleDto | 
+final articleDto = ArticleDto(); // ArticleDto |
 
 try {
     final result = api_instance.createArticle(articleDto);
@@ -40,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **articleDto** | [**ArticleDto**](ArticleDto.md)|  | 
+ **articleDto** | [**ArticleDto**](ArticleDto.md)|  |
 
 ### Return type
 
@@ -67,7 +67,7 @@ Deletes articles
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ArticleApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteArticles(listOfIdsDto);
@@ -81,7 +81,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -108,7 +108,7 @@ Gets an article
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ArticleApi();
-final articleId = articleId_example; // String | 
+final articleId = articleId_example; // String |
 
 try {
     final result = api_instance.getArticle(articleId);
@@ -122,7 +122,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **articleId** | **String**|  | 
+ **articleId** | **String**|  |
 
 ### Return type
 
@@ -186,7 +186,7 @@ Modifies an article
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ArticleApi();
-final articleDto = ArticleDto(); // ArticleDto | 
+final articleDto = ArticleDto(); // ArticleDto |
 
 try {
     final result = api_instance.modifyArticle(articleDto);
@@ -200,7 +200,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **articleDto** | [**ArticleDto**](ArticleDto.md)|  | 
+ **articleDto** | [**ArticleDto**](ArticleDto.md)|  |
 
 ### Return type
 
@@ -216,4 +216,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

@@ -37,7 +37,7 @@ Name, last name, date of birth, and gender are required. After creation of the d
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final deviceDto = DeviceDto(); // DeviceDto | 
+final deviceDto = DeviceDto(); // DeviceDto |
 
 try {
     final result = api_instance.createDevice(deviceDto);
@@ -51,7 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceDto** | [**DeviceDto**](DeviceDto.md)|  | 
+ **deviceDto** | [**DeviceDto**](DeviceDto.md)|  |
 
 ### Return type
 
@@ -80,7 +80,7 @@ Returns the id and _rev of created devices
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> | 
+final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> |
 
 try {
     final result = api_instance.createDevices(deviceDto);
@@ -94,7 +94,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceDto** | [**List<DeviceDto>**](DeviceDto.md)|  | 
+ **deviceDto** | [**List<DeviceDto>**](DeviceDto.md)|  |
 
 ### Return type
 
@@ -123,7 +123,7 @@ Returns the id and _rev of created devices
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> | 
+final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> |
 
 try {
     final result = api_instance.createDevices1(deviceDto);
@@ -137,7 +137,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceDto** | [**List<DeviceDto>**](DeviceDto.md)|  | 
+ **deviceDto** | [**List<DeviceDto>**](DeviceDto.md)|  |
 
 ### Return type
 
@@ -166,7 +166,7 @@ Response contains the id/rev of deleted device.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final deviceId = deviceId_example; // String | 
+final deviceId = deviceId_example; // String |
 
 try {
     final result = api_instance.deleteDevice(deviceId);
@@ -180,7 +180,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceId** | **String**|  | 
+ **deviceId** | **String**|  |
 
 ### Return type
 
@@ -209,7 +209,7 @@ Response is an array containing the id/rev of deleted devices.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteDevices(listOfIdsDto);
@@ -223,7 +223,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -243,7 +243,7 @@ No authorization required
 # **filterDevicesBy**
 > PaginatedListDeviceDto filterDevicesBy(filterChainDevice, startDocumentId, limit)
 
-Filter devices for the current user (HcParty) 
+Filter devices for the current user (HcParty)
 
 Returns a list of devices along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
 
@@ -252,7 +252,7 @@ Returns a list of devices along with next start keys and Document ID. If the nex
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final filterChainDevice = FilterChainDevice(); // FilterChainDevice | 
+final filterChainDevice = FilterChainDevice(); // FilterChainDevice |
 final startDocumentId = startDocumentId_example; // String | A device document ID
 final limit = 56; // int | Number of rows
 
@@ -268,9 +268,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterChainDevice** | [**FilterChainDevice**](FilterChainDevice.md)|  | 
- **startDocumentId** | **String**| A device document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **filterChainDevice** | [**FilterChainDevice**](FilterChainDevice.md)|  |
+ **startDocumentId** | **String**| A device document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -299,7 +299,7 @@ It gets device administrative data.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final deviceId = deviceId_example; // String | 
+final deviceId = deviceId_example; // String |
 
 try {
     final result = api_instance.getDevice(deviceId);
@@ -313,7 +313,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceId** | **String**|  | 
+ **deviceId** | **String**|  |
 
 ### Return type
 
@@ -342,7 +342,7 @@ It gets device administrative data.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getDevices(listOfIdsDto);
@@ -356,7 +356,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -376,14 +376,14 @@ No authorization required
 # **matchDevicesBy**
 > List<String> matchDevicesBy(abstractFilterDtoDevice)
 
-Get ids of devices matching the provided filter for the current user (HcParty) 
+Get ids of devices matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final abstractFilterDtoDevice = AbstractFilterDtoDevice(); // AbstractFilterDtoDevice | 
+final abstractFilterDtoDevice = AbstractFilterDtoDevice(); // AbstractFilterDtoDevice |
 
 try {
     final result = api_instance.matchDevicesBy(abstractFilterDtoDevice);
@@ -397,7 +397,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **abstractFilterDtoDevice** | [**AbstractFilterDtoDevice**](AbstractFilterDtoDevice.md)|  | 
+ **abstractFilterDtoDevice** | [**AbstractFilterDtoDevice**](AbstractFilterDtoDevice.md)|  |
 
 ### Return type
 
@@ -426,7 +426,7 @@ Returns the updated device
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final deviceDto = DeviceDto(); // DeviceDto | 
+final deviceDto = DeviceDto(); // DeviceDto |
 
 try {
     final result = api_instance.updateDevice(deviceDto);
@@ -440,7 +440,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceDto** | [**DeviceDto**](DeviceDto.md)|  | 
+ **deviceDto** | [**DeviceDto**](DeviceDto.md)|  |
 
 ### Return type
 
@@ -469,7 +469,7 @@ Returns the id and _rev of modified devices
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> | 
+final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> |
 
 try {
     final result = api_instance.updateDevices(deviceDto);
@@ -483,7 +483,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceDto** | [**List<DeviceDto>**](DeviceDto.md)|  | 
+ **deviceDto** | [**List<DeviceDto>**](DeviceDto.md)|  |
 
 ### Return type
 
@@ -512,7 +512,7 @@ Returns the id and _rev of modified devices
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DeviceApi();
-final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> | 
+final deviceDto = [List<DeviceDto>()]; // List<DeviceDto> |
 
 try {
     final result = api_instance.updateDevices1(deviceDto);
@@ -526,7 +526,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceDto** | [**List<DeviceDto>**](DeviceDto.md)|  | 
+ **deviceDto** | [**List<DeviceDto>**](DeviceDto.md)|  |
 
 ### Return type
 
@@ -542,4 +542,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

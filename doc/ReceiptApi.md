@@ -30,7 +30,7 @@ Creates a receipt
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
-final receiptDto = ReceiptDto(); // ReceiptDto | 
+final receiptDto = ReceiptDto(); // ReceiptDto |
 
 try {
     final result = api_instance.createReceipt(receiptDto);
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **receiptDto** | [**ReceiptDto**](ReceiptDto.md)|  | 
+ **receiptDto** | [**ReceiptDto**](ReceiptDto.md)|  |
 
 ### Return type
 
@@ -71,7 +71,7 @@ Deletes receipts
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteReceipts(listOfIdsDto);
@@ -85,7 +85,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -112,7 +112,7 @@ Gets a receipt
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
-final receiptId = receiptId_example; // String | 
+final receiptId = receiptId_example; // String |
 
 try {
     final result = api_instance.getReceipt(receiptId);
@@ -126,7 +126,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **receiptId** | **String**|  | 
+ **receiptId** | **String**|  |
 
 ### Return type
 
@@ -153,9 +153,9 @@ Get an attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
-final receiptId = receiptId_example; // String | 
-final attachmentId = attachmentId_example; // String | 
-final enckeys = enckeys_example; // String | 
+final receiptId = receiptId_example; // String |
+final attachmentId = attachmentId_example; // String |
+final enckeys = enckeys_example; // String |
 
 try {
     final result = api_instance.getReceiptAttachment(receiptId, attachmentId, enckeys);
@@ -169,9 +169,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **receiptId** | **String**|  | 
- **attachmentId** | **String**|  | 
- **enckeys** | **String**|  | 
+ **receiptId** | **String**|  |
+ **attachmentId** | **String**|  |
+ **enckeys** | **String**|  |
 
 ### Return type
 
@@ -198,7 +198,7 @@ Gets a receipt
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
-final ref = ref_example; // String | 
+final ref = ref_example; // String |
 
 try {
     final result = api_instance.listByReference(ref);
@@ -212,7 +212,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ref** | **String**|  | 
+ **ref** | **String**|  |
 
 ### Return type
 
@@ -239,7 +239,7 @@ Updates a receipt
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
-final receiptDto = ReceiptDto(); // ReceiptDto | 
+final receiptDto = ReceiptDto(); // ReceiptDto |
 
 try {
     final result = api_instance.modifyReceipt(receiptDto);
@@ -253,7 +253,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **receiptDto** | [**ReceiptDto**](ReceiptDto.md)|  | 
+ **receiptDto** | [**ReceiptDto**](ReceiptDto.md)|  |
 
 ### Return type
 
@@ -280,10 +280,10 @@ Creates a receipt's attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ReceiptApi();
-final receiptId = receiptId_example; // String | 
-final blobType = blobType_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
-final enckeys = enckeys_example; // String | 
+final receiptId = receiptId_example; // String |
+final blobType = blobType_example; // String |
+final body = MultipartFile(); // MultipartFile |
+final enckeys = enckeys_example; // String |
 
 try {
     final result = api_instance.setReceiptAttachment(receiptId, blobType, body, enckeys);
@@ -297,10 +297,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **receiptId** | **String**|  | 
- **blobType** | **String**|  | 
- **body** | **MultipartFile**|  | 
- **enckeys** | **String**|  | [optional] 
+ **receiptId** | **String**|  |
+ **blobType** | **String**|  |
+ **body** | **MultipartFile**|  |
+ **enckeys** | **String**|  | [optional]
 
 ### Return type
 
@@ -316,4 +316,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

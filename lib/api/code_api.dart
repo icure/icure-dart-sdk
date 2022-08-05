@@ -68,7 +68,7 @@ class CodeApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CodeDto',) as CodeDto;
-    
+
     }
     return null;
   }
@@ -132,7 +132,7 @@ class CodeApi {
     return null;
   }
 
-  /// Filter codes 
+  /// Filter codes
   ///
   /// Returns a list of codes along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -205,7 +205,7 @@ class CodeApi {
     );
   }
 
-  /// Filter codes 
+  /// Filter codes
   ///
   /// Returns a list of codes along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
   ///
@@ -240,7 +240,7 @@ class CodeApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListCodeDto',) as PaginatedListCodeDto;
-    
+
     }
     return null;
   }
@@ -350,7 +350,7 @@ class CodeApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListCodeDto',) as PaginatedListCodeDto;
-    
+
     }
     return null;
   }
@@ -443,7 +443,7 @@ class CodeApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListCodeDto',) as PaginatedListCodeDto;
-    
+
     }
     return null;
   }
@@ -553,7 +553,7 @@ class CodeApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedListCodeDto',) as PaginatedListCodeDto;
-    
+
     }
     return null;
   }
@@ -613,7 +613,7 @@ class CodeApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CodeDto',) as CodeDto;
-    
+
     }
     return null;
   }
@@ -685,7 +685,7 @@ class CodeApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CodeDto',) as CodeDto;
-    
+
     }
     return null;
   }
@@ -804,7 +804,7 @@ class CodeApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+
     }
     return null;
   }
@@ -1055,7 +1055,7 @@ class CodeApi {
     return null;
   }
 
-  /// Get ids of code matching the provided filter for the current user (HcParty) 
+  /// Get ids of code matching the provided filter for the current user (HcParty)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1088,7 +1088,7 @@ class CodeApi {
     );
   }
 
-  /// Get ids of code matching the provided filter for the current user (HcParty) 
+  /// Get ids of code matching the provided filter for the current user (HcParty)
   ///
   /// Parameters:
   ///
@@ -1163,7 +1163,7 @@ class CodeApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CodeDto',) as CodeDto;
-    
+
     }
     return null;
   }

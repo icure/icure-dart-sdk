@@ -45,7 +45,7 @@ Type, EntityTemplate and Version are required.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto | 
+final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto |
 
 try {
     final result = api_instance.createEntityTemplate(entityTemplateDto);
@@ -59,7 +59,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityTemplateDto** | [**EntityTemplateDto**](EntityTemplateDto.md)|  | 
+ **entityTemplateDto** | [**EntityTemplateDto**](EntityTemplateDto.md)|  |
 
 ### Return type
 
@@ -88,7 +88,7 @@ Returns the modified entityTemplates.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> | 
+final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> |
 
 try {
     final result = api_instance.createEntityTemplates(entityTemplateDto);
@@ -102,7 +102,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityTemplateDto** | [**List<EntityTemplateDto>**](EntityTemplateDto.md)|  | 
+ **entityTemplateDto** | [**List<EntityTemplateDto>**](EntityTemplateDto.md)|  |
 
 ### Return type
 
@@ -129,7 +129,7 @@ Delete entity templates
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteEntityTemplate(listOfIdsDto);
@@ -143,7 +143,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -172,9 +172,9 @@ Returns a list of entityTemplates matched with given input.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final type = type_example; // String | 
-final keyword = keyword_example; // String | 
-final includeEntities = true; // bool | 
+final type = type_example; // String |
+final keyword = keyword_example; // String |
+final includeEntities = true; // bool |
 
 try {
     final result = api_instance.findAllEntityTemplatesByKeyword(type, keyword, includeEntities);
@@ -188,9 +188,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**|  | 
- **keyword** | **String**|  | 
- **includeEntities** | **bool**|  | [optional] 
+ **type** | **String**|  |
+ **keyword** | **String**|  |
+ **includeEntities** | **bool**|  | [optional]
 
 ### Return type
 
@@ -233,7 +233,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityTemplateId** | **String**| EntityTemplate id | 
+ **entityTemplateId** | **String**| EntityTemplate id |
 
 ### Return type
 
@@ -262,7 +262,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getEntityTemplates(listOfIdsDto);
@@ -276,7 +276,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -305,9 +305,9 @@ Returns a list of entityTemplates matched with given input.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final type = type_example; // String | 
-final searchString = searchString_example; // String | 
-final includeEntities = true; // bool | 
+final type = type_example; // String |
+final searchString = searchString_example; // String |
+final includeEntities = true; // bool |
 
 try {
     final result = api_instance.listAllEntityTemplatesBy(type, searchString, includeEntities);
@@ -321,9 +321,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**|  | 
- **searchString** | **String**|  | [optional] 
- **includeEntities** | **bool**|  | [optional] 
+ **type** | **String**|  |
+ **searchString** | **String**|  | [optional]
+ **includeEntities** | **bool**|  | [optional]
 
 ### Return type
 
@@ -352,10 +352,10 @@ Returns a list of entityTemplates matched with given input.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final userId = userId_example; // String | 
-final type = type_example; // String | 
-final searchString = searchString_example; // String | 
-final includeEntities = true; // bool | 
+final userId = userId_example; // String |
+final type = type_example; // String |
+final searchString = searchString_example; // String |
+final includeEntities = true; // bool |
 
 try {
     final result = api_instance.listEntityTemplatesBy(userId, type, searchString, includeEntities);
@@ -369,10 +369,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **type** | **String**|  | 
- **searchString** | **String**|  | [optional] 
- **includeEntities** | **bool**|  | [optional] 
+ **userId** | **String**|  |
+ **type** | **String**|  |
+ **searchString** | **String**|  | [optional]
+ **includeEntities** | **bool**|  | [optional]
 
 ### Return type
 
@@ -401,10 +401,10 @@ Returns a list of entityTemplates matched with given input.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final userId = userId_example; // String | 
-final type = type_example; // String | 
-final keyword = keyword_example; // String | 
-final includeEntities = true; // bool | 
+final userId = userId_example; // String |
+final type = type_example; // String |
+final keyword = keyword_example; // String |
+final includeEntities = true; // bool |
 
 try {
     final result = api_instance.listEntityTemplatesByKeyword(userId, type, keyword, includeEntities);
@@ -418,10 +418,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **type** | **String**|  | 
- **keyword** | **String**|  | 
- **includeEntities** | **bool**|  | [optional] 
+ **userId** | **String**|  |
+ **type** | **String**|  |
+ **keyword** | **String**|  |
+ **includeEntities** | **bool**|  | [optional]
 
 ### Return type
 
@@ -450,7 +450,7 @@ Modification of (type, entityTemplate, version) is not allowed.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto | 
+final entityTemplateDto = EntityTemplateDto(); // EntityTemplateDto |
 
 try {
     final result = api_instance.modifyEntityTemplate(entityTemplateDto);
@@ -464,7 +464,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityTemplateDto** | [**EntityTemplateDto**](EntityTemplateDto.md)|  | 
+ **entityTemplateDto** | [**EntityTemplateDto**](EntityTemplateDto.md)|  |
 
 ### Return type
 
@@ -493,7 +493,7 @@ Returns the modified entityTemplates.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = EntityTemplateApi();
-final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> | 
+final entityTemplateDto = [List<EntityTemplateDto>()]; // List<EntityTemplateDto> |
 
 try {
     final result = api_instance.modifyEntityTemplates(entityTemplateDto);
@@ -507,7 +507,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityTemplateDto** | [**List<EntityTemplateDto>**](EntityTemplateDto.md)|  | 
+ **entityTemplateDto** | [**List<EntityTemplateDto>**](EntityTemplateDto.md)|  |
 
 ### Return type
 
@@ -523,4 +523,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

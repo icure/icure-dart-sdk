@@ -76,7 +76,7 @@ void main() {
       generatedIds = generatedIds + codeBatch.map((e) => e.id).toList();
     });
 
-    // Filter codes 
+    // Filter codes
     //
     // Returns a list of codes along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
     //
@@ -175,7 +175,7 @@ void main() {
       // TODO
     });
 
-    // Get ids of code matching the provided filter for the current user (HcParty) 
+    // Get ids of code matching the provided filter for the current user (HcParty)
     //
     //Future<List<String>> matchCodesBy(AbstractFilterDtoCode abstractFilterDtoCode) async
     test('test matchCodesBy', () async {

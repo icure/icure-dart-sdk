@@ -11,5 +11,3 @@ Name | Type | Description | Notes
 **properties** | [**Set<PropertyStubDto>**](PropertyStubDto.md) |  | [default to const {}]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

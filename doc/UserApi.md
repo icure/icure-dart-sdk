@@ -55,7 +55,7 @@ UserDto gets returned.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final healthcarePartyId = healthcarePartyId_example; // String | 
+final healthcarePartyId = healthcarePartyId_example; // String |
 
 try {
     final result = api_instance.assignHealthcareParty(healthcarePartyId);
@@ -69,7 +69,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthcarePartyId** | **String**|  | 
+ **healthcarePartyId** | **String**|  |
 
 ### Return type
 
@@ -96,7 +96,7 @@ No authorization required
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final password = password_example; // String | 
+final password = password_example; // String |
 
 try {
     final result = api_instance.checkPassword(password);
@@ -110,7 +110,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **password** | **String**|  | 
+ **password** | **String**|  |
 
 ### Return type
 
@@ -137,8 +137,8 @@ Check token validity
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final userId = userId_example; // String | 
-final token = token_example; // String | 
+final userId = userId_example; // String |
+final token = token_example; // String |
 
 try {
     final result = api_instance.checkTokenValidity(userId, token);
@@ -152,8 +152,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **token** | **String**|  | 
+ **userId** | **String**|  |
+ **token** | **String**|  |
 
 ### Return type
 
@@ -182,7 +182,7 @@ Create a user. HealthcareParty ID should be set. Email or Login have to be set. 
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final userDto = UserDto(); // UserDto | 
+final userDto = UserDto(); // UserDto |
 
 try {
     final result = api_instance.createUser(userDto);
@@ -196,7 +196,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userDto** | [**UserDto**](UserDto.md)|  | 
+ **userDto** | [**UserDto**](UserDto.md)|  |
 
 ### Return type
 
@@ -225,8 +225,8 @@ Create a user. HealthcareParty ID should be set. Email has to be set and the Log
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final groupId = groupId_example; // String | 
-final userDto = UserDto(); // UserDto | 
+final groupId = groupId_example; // String |
+final userDto = UserDto(); // UserDto |
 
 try {
     final result = api_instance.createUserInGroup(groupId, userDto);
@@ -240,8 +240,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  | 
- **userDto** | [**UserDto**](UserDto.md)|  | 
+ **groupId** | **String**|  |
+ **userDto** | [**UserDto**](UserDto.md)|  |
 
 ### Return type
 
@@ -270,7 +270,7 @@ Delete a User based on his/her ID. The return value is an array containing the I
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final userId = userId_example; // String | 
+final userId = userId_example; // String |
 
 try {
     final result = api_instance.deleteUser(userId);
@@ -284,7 +284,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
+ **userId** | **String**|  |
 
 ### Return type
 
@@ -313,8 +313,8 @@ Delete a User based on his/her ID. The return value is an array containing the I
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final groupId = groupId_example; // String | 
-final userId = userId_example; // String | 
+final groupId = groupId_example; // String |
+final userId = userId_example; // String |
 
 try {
     final result = api_instance.deleteUserInGroup(groupId, userId);
@@ -328,8 +328,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  | 
- **userId** | **String**|  | 
+ **groupId** | **String**|  |
+ **userId** | **String**|  |
 
 ### Return type
 
@@ -356,7 +356,7 @@ No authorization required
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final password = password_example; // String | 
+final password = password_example; // String |
 
 try {
     final result = api_instance.encodePassword(password);
@@ -370,7 +370,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **password** | **String**|  | 
+ **password** | **String**|  |
 
 ### Return type
 
@@ -399,7 +399,7 @@ Returns a list of users along with next start keys and Document ID. If the nextS
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final filterChainUser = FilterChainUser(); // FilterChainUser | 
+final filterChainUser = FilterChainUser(); // FilterChainUser |
 final startDocumentId = startDocumentId_example; // String | A User document ID
 final limit = 56; // int | Number of rows
 
@@ -415,9 +415,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterChainUser** | [**FilterChainUser**](FilterChainUser.md)|  | 
- **startDocumentId** | **String**| A User document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **filterChainUser** | [**FilterChainUser**](FilterChainUser.md)|  |
+ **startDocumentId** | **String**| A User document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -444,7 +444,7 @@ Get the list of users by healthcare party id
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.findByHcpartyId(id);
@@ -458,7 +458,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -485,8 +485,8 @@ Send a forgotten email message to an user
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final email = email_example; // String | the email of the user 
-final emailTemplateDto = EmailTemplateDto(); // EmailTemplateDto | 
+final email = email_example; // String | the email of the user
+final emailTemplateDto = EmailTemplateDto(); // EmailTemplateDto |
 
 try {
     final result = api_instance.forgottenPassword(email, emailTemplateDto);
@@ -500,8 +500,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| the email of the user  | 
- **emailTemplateDto** | [**EmailTemplateDto**](EmailTemplateDto.md)|  | 
+ **email** | **String**| the email of the user  |
+ **emailTemplateDto** | [**EmailTemplateDto**](EmailTemplateDto.md)|  |
 
 ### Return type
 
@@ -645,7 +645,7 @@ Request a new temporary token for authentication
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final userId = userId_example; // String | 
+final userId = userId_example; // String |
 final key = key_example; // String | The token key. Only one instance of a token with a defined key can exist at the same time
 final tokenValidity = 789; // int | The token validity in seconds
 
@@ -661,9 +661,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **key** | **String**| The token key. Only one instance of a token with a defined key can exist at the same time | 
- **tokenValidity** | **int**| The token validity in seconds | [optional] 
+ **userId** | **String**|  |
+ **key** | **String**| The token key. Only one instance of a token with a defined key can exist at the same time |
+ **tokenValidity** | **int**| The token validity in seconds | [optional]
 
 ### Return type
 
@@ -692,7 +692,7 @@ General information about the user
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final userId = userId_example; // String | 
+final userId = userId_example; // String |
 
 try {
     final result = api_instance.getUser(userId);
@@ -706,7 +706,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
+ **userId** | **String**|  |
 
 ### Return type
 
@@ -735,7 +735,7 @@ General information about the user
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final email = email_example; // String | 
+final email = email_example; // String |
 
 try {
     final result = api_instance.getUserByEmail(email);
@@ -749,7 +749,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**|  | 
+ **email** | **String**|  |
 
 ### Return type
 
@@ -794,9 +794,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startKey** | **String**| An user email | [optional] 
- **startDocumentId** | **String**| An user document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **startKey** | **String**| An user email | [optional]
+ **startDocumentId** | **String**| An user document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -825,7 +825,7 @@ Returns a list of users.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final groupId = groupId_example; // String | 
+final groupId = groupId_example; // String |
 final startKey = startKey_example; // String | An user login
 final startDocumentId = startDocumentId_example; // String | An user document ID
 final limit = 56; // int | Number of rows
@@ -842,10 +842,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  | 
- **startKey** | **String**| An user login | [optional] 
- **startDocumentId** | **String**| An user document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **groupId** | **String**|  |
+ **startKey** | **String**| An user login | [optional]
+ **startDocumentId** | **String**| An user document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -865,14 +865,14 @@ No authorization required
 # **matchUsersBy**
 > List<String> matchUsersBy(abstractFilterDtoUser)
 
-Get ids of healthcare party matching the provided filter for the current user (HcParty) 
+Get ids of healthcare party matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final abstractFilterDtoUser = AbstractFilterDtoUser(); // AbstractFilterDtoUser | 
+final abstractFilterDtoUser = AbstractFilterDtoUser(); // AbstractFilterDtoUser |
 
 try {
     final result = api_instance.matchUsersBy(abstractFilterDtoUser);
@@ -886,7 +886,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **abstractFilterDtoUser** | [**AbstractFilterDtoUser**](AbstractFilterDtoUser.md)|  | 
+ **abstractFilterDtoUser** | [**AbstractFilterDtoUser**](AbstractFilterDtoUser.md)|  |
 
 ### Return type
 
@@ -915,8 +915,8 @@ Modify a User properties based on his/her ID. The return value is the modified u
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final userId = userId_example; // String | 
-final propertyStubDto = [List<PropertyStubDto>()]; // List<PropertyStubDto> | 
+final userId = userId_example; // String |
+final propertyStubDto = [List<PropertyStubDto>()]; // List<PropertyStubDto> |
 
 try {
     final result = api_instance.modifyProperties(userId, propertyStubDto);
@@ -930,8 +930,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **propertyStubDto** | [**List<PropertyStubDto>**](PropertyStubDto.md)|  | [optional] 
+ **userId** | **String**|  |
+ **propertyStubDto** | [**List<PropertyStubDto>**](PropertyStubDto.md)|  | [optional]
 
 ### Return type
 
@@ -960,7 +960,7 @@ No particular return value. It's just a message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final userDto = UserDto(); // UserDto | 
+final userDto = UserDto(); // UserDto |
 
 try {
     final result = api_instance.modifyUser(userDto);
@@ -974,7 +974,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userDto** | [**UserDto**](UserDto.md)|  | 
+ **userDto** | [**UserDto**](UserDto.md)|  |
 
 ### Return type
 
@@ -1003,8 +1003,8 @@ No particular return value. It's just a message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = UserApi();
-final groupId = groupId_example; // String | 
-final userDto = UserDto(); // UserDto | 
+final groupId = groupId_example; // String |
+final userDto = UserDto(); // UserDto |
 
 try {
     final result = api_instance.modifyUserInGroup(groupId, userDto);
@@ -1018,8 +1018,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  | 
- **userDto** | [**UserDto**](UserDto.md)|  | 
+ **groupId** | **String**|  |
+ **userDto** | [**UserDto**](UserDto.md)|  |
 
 ### Return type
 
@@ -1035,4 +1035,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

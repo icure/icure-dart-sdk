@@ -153,7 +153,7 @@ Get replication info
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
-final id = id_example; // String | 
+final id = id_example; // String |
 
 try {
     final result = api_instance.getReplicatorInfo(id);
@@ -167,7 +167,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**|  |
 
 ### Return type
 
@@ -268,7 +268,7 @@ Resolve contacts conflicts
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
-final limit = 56; // int | 
+final limit = 56; // int |
 
 try {
     final result = api_instance.resolveContactsConflicts(limit);
@@ -282,7 +282,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -309,8 +309,8 @@ resolve documents conflicts
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
-final ids = ids_example; // String | 
-final limit = 56; // int | 
+final ids = ids_example; // String |
+final limit = 56; // int |
 
 try {
     final result = api_instance.resolveDocumentsConflicts(ids, limit);
@@ -324,8 +324,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**|  | [optional] 
- **limit** | **int**|  | [optional] 
+ **ids** | **String**|  | [optional]
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -352,7 +352,7 @@ resolve forms conflicts
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
-final limit = 56; // int | 
+final limit = 56; // int |
 
 try {
     final result = api_instance.resolveFormsConflicts(limit);
@@ -366,7 +366,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -393,7 +393,7 @@ resolve healthcare elements conflicts
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
-final limit = 56; // int | 
+final limit = 56; // int |
 
 try {
     final result = api_instance.resolveHealthElementsConflicts(limit);
@@ -407,7 +407,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -434,7 +434,7 @@ resolve invoices conflicts
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
-final limit = 56; // int | 
+final limit = 56; // int |
 
 try {
     final result = api_instance.resolveInvoicesConflicts(limit);
@@ -448,7 +448,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -475,7 +475,7 @@ resolve messages conflicts
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
-final limit = 56; // int | 
+final limit = 56; // int |
 
 try {
     final result = api_instance.resolveMessagesConflicts(limit);
@@ -489,7 +489,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -516,7 +516,7 @@ Resolve patients conflicts
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
-final limit = 56; // int | 
+final limit = 56; // int |
 
 try {
     final result = api_instance.resolvePatientsConflicts(limit);
@@ -530,7 +530,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -557,8 +557,8 @@ Force update design doc
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = IcureApi();
-final entityName = entityName_example; // String | 
-final warmup = true; // bool | 
+final entityName = entityName_example; // String |
+final warmup = true; // bool |
 
 try {
     final result = api_instance.updateDesignDoc(entityName, warmup);
@@ -572,8 +572,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityName** | **String**|  | 
- **warmup** | **bool**|  | [optional] 
+ **entityName** | **String**|  |
+ **warmup** | **bool**|  | [optional]
 
 ### Return type
 
@@ -589,4 +589,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

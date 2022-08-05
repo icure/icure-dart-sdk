@@ -8,12 +8,10 @@ import 'package:icure_dart_sdk/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deviceType** | **String** |  | [optional] 
-**readDate** | **int** |  | [optional] 
+**deviceType** | **String** |  | [optional]
+**readDate** | **int** |  | [optional]
 **readHour** | **int** |  | [default to 0]
-**readType** | **String** |  | [optional] 
-**readvalue** | **String** |  | [optional] 
+**readType** | **String** |  | [optional]
+**readvalue** | **String** |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

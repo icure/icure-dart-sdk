@@ -25,8 +25,8 @@ Add a list of granted and revoked permissions to user.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PermissionApi();
-final userId = userId_example; // String | 
-final permissionDto = PermissionDto(); // PermissionDto | 
+final userId = userId_example; // String |
+final permissionDto = PermissionDto(); // PermissionDto |
 
 try {
     final result = api_instance.modifyUserPermissions(userId, permissionDto);
@@ -40,8 +40,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **permissionDto** | [**PermissionDto**](PermissionDto.md)|  | 
+ **userId** | **String**|  |
+ **permissionDto** | [**PermissionDto**](PermissionDto.md)|  |
 
 ### Return type
 
@@ -57,4 +57,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

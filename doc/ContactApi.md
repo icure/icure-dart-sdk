@@ -72,8 +72,8 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.closeForHCPartyPatientForeignKeys(hcPartyId, secretFKeys);
@@ -87,8 +87,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -117,7 +117,7 @@ Returns an instance of created contact.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final contactDto = ContactDto(); // ContactDto | 
+final contactDto = ContactDto(); // ContactDto |
 
 try {
     final result = api_instance.createContact(contactDto);
@@ -131,7 +131,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactDto** | [**ContactDto**](ContactDto.md)|  | 
+ **contactDto** | [**ContactDto**](ContactDto.md)|  |
 
 ### Return type
 
@@ -160,7 +160,7 @@ Returns the modified contacts.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final contactDto = [List<ContactDto>()]; // List<ContactDto> | 
+final contactDto = [List<ContactDto>()]; // List<ContactDto> |
 
 try {
     final result = api_instance.createContacts(contactDto);
@@ -174,7 +174,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactDto** | [**List<ContactDto>**](ContactDto.md)|  | 
+ **contactDto** | [**List<ContactDto>**](ContactDto.md)|  |
 
 ### Return type
 
@@ -203,7 +203,7 @@ Response is a set containing the ID's of deleted contacts.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteContacts(listOfIdsDto);
@@ -217,7 +217,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -237,7 +237,7 @@ No authorization required
 # **filterContactsBy**
 > PaginatedListContactDto filterContactsBy(filterChainContact, startDocumentId, limit)
 
-List contacts for the current user (HcParty) or the given hcparty in the filter 
+List contacts for the current user (HcParty) or the given hcparty in the filter
 
 Returns a list of contacts along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
 
@@ -246,7 +246,7 @@ Returns a list of contacts along with next start keys and Document ID. If the ne
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final filterChainContact = FilterChainContact(); // FilterChainContact | 
+final filterChainContact = FilterChainContact(); // FilterChainContact |
 final startDocumentId = startDocumentId_example; // String | A Contact document ID
 final limit = 56; // int | Number of rows
 
@@ -262,9 +262,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterChainContact** | [**FilterChainContact**](FilterChainContact.md)|  | 
- **startDocumentId** | **String**| A Contact document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **filterChainContact** | [**FilterChainContact**](FilterChainContact.md)|  |
+ **startDocumentId** | **String**| A Contact document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -284,7 +284,7 @@ No authorization required
 # **filterServicesBy**
 > PaginatedListServiceDto filterServicesBy(filterChainService, startDocumentId, limit)
 
-List services for the current user (HcParty) or the given hcparty in the filter 
+List services for the current user (HcParty) or the given hcparty in the filter
 
 Returns a list of contacts along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
 
@@ -293,7 +293,7 @@ Returns a list of contacts along with next start keys and Document ID. If the ne
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final filterChainService = FilterChainService(); // FilterChainService | 
+final filterChainService = FilterChainService(); // FilterChainService |
 final startDocumentId = startDocumentId_example; // String | A Contact document ID
 final limit = 56; // int | Number of rows
 
@@ -309,9 +309,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterChainService** | [**FilterChainService**](FilterChainService.md)|  | 
- **startDocumentId** | **String**| A Contact document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **filterChainService** | [**FilterChainService**](FilterChainService.md)|  |
+ **startDocumentId** | **String**| A Contact document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -358,11 +358,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startKey** | **int**| The contact openingDate | 
- **endKey** | **int**| The contact max openingDate | 
- **hcpartyid** | **String**| hcpartyid | 
- **startDocumentId** | **String**| A contact party document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **startKey** | **int**| The contact openingDate |
+ **endKey** | **int**| The contact max openingDate |
+ **hcpartyid** | **String**| hcpartyid |
+ **startDocumentId** | **String**| A contact party document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -389,7 +389,7 @@ Get a contact
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final contactId = contactId_example; // String | 
+final contactId = contactId_example; // String |
 
 try {
     final result = api_instance.getContact(contactId);
@@ -403,7 +403,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactId** | **String**|  | 
+ **contactId** | **String**|  |
 
 ### Return type
 
@@ -430,7 +430,7 @@ Get contacts
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getContacts(listOfIdsDto);
@@ -444,7 +444,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -508,8 +508,8 @@ Get the list of all used codes frequencies in services
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final codeType = codeType_example; // String | 
-final minOccurences = 789; // int | 
+final codeType = codeType_example; // String |
+final minOccurences = 789; // int |
 
 try {
     final result = api_instance.getServiceCodesOccurences(codeType, minOccurences);
@@ -523,8 +523,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **codeType** | **String**|  | 
- **minOccurences** | **int**|  | 
+ **codeType** | **String**|  |
+ **minOccurences** | **int**|  |
 
 ### Return type
 
@@ -544,7 +544,7 @@ No authorization required
 # **getServices**
 > List<ServiceDto> getServices(listOfIdsDto)
 
-List services with provided ids 
+List services with provided ids
 
 Returns a list of services
 
@@ -553,7 +553,7 @@ Returns a list of services
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getServices(listOfIdsDto);
@@ -567,7 +567,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -587,7 +587,7 @@ No authorization required
 # **getServicesLinkedTo**
 > List<ServiceDto> getServicesLinkedTo(listOfIdsDto, linkType)
 
-List services linked to provided ids 
+List services linked to provided ids
 
 Returns a list of services
 
@@ -596,7 +596,7 @@ Returns a list of services
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 final linkType = linkType_example; // String | The type of the link
 
 try {
@@ -611,8 +611,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
- **linkType** | **String**| The type of the link | [optional] 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
+ **linkType** | **String**| The type of the link | [optional]
 
 ### Return type
 
@@ -639,8 +639,8 @@ List contacts found By Healthcare Party and service Id.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final hcPartyId = hcPartyId_example; // String | 
-final serviceId = serviceId_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final serviceId = serviceId_example; // String |
 
 try {
     final result = api_instance.listContactByHCPartyServiceId(hcPartyId, serviceId);
@@ -654,8 +654,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **serviceId** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **serviceId** | **String**|  |
 
 ### Return type
 
@@ -682,7 +682,7 @@ List contacts found By externalId.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final externalId = externalId_example; // String | 
+final externalId = externalId_example; // String |
 
 try {
     final result = api_instance.listContactsByExternalId(externalId);
@@ -696,7 +696,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **externalId** | **String**|  | 
+ **externalId** | **String**|  |
 
 ### Return type
 
@@ -723,8 +723,8 @@ List contacts found By Healthcare Party and form Id.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final hcPartyId = hcPartyId_example; // String | 
-final formId = formId_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final formId = formId_example; // String |
 
 try {
     final result = api_instance.listContactsByHCPartyAndFormId(hcPartyId, formId);
@@ -738,8 +738,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **formId** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **formId** | **String**|  |
 
 ### Return type
 
@@ -766,8 +766,8 @@ List contacts found By Healthcare Party and form Id.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final hcPartyId = hcPartyId_example; // String | 
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final hcPartyId = hcPartyId_example; // String |
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listContactsByHCPartyAndFormIds(hcPartyId, listOfIdsDto);
@@ -781,8 +781,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **hcPartyId** | **String**|  |
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -809,8 +809,8 @@ List contacts found By Healthcare Party and Patient foreign keys.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final hcPartyId = hcPartyId_example; // String | 
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final hcPartyId = hcPartyId_example; // String |
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listContactsByHCPartyAndPatientForeignKeys(hcPartyId, listOfIdsDto);
@@ -824,8 +824,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **hcPartyId** | **String**|  |
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -854,10 +854,10 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
-final planOfActionsIds = planOfActionsIds_example; // String | 
-final skipClosedContacts = true; // bool | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
+final planOfActionsIds = planOfActionsIds_example; // String |
+final skipClosedContacts = true; // bool |
 
 try {
     final result = api_instance.listContactsByHCPartyAndPatientSecretFKeys(hcPartyId, secretFKeys, planOfActionsIds, skipClosedContacts);
@@ -871,10 +871,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
- **planOfActionsIds** | **String**|  | [optional] 
- **skipClosedContacts** | **bool**|  | [optional] 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
+ **planOfActionsIds** | **String**|  | [optional]
+ **skipClosedContacts** | **bool**|  | [optional]
 
 ### Return type
 
@@ -903,8 +903,8 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listContactsDelegationsStubsByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys);
@@ -918,8 +918,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -948,7 +948,7 @@ Returns a list of services
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final associationId = associationId_example; // String | 
+final associationId = associationId_example; // String |
 
 try {
     final result = api_instance.listServicesByAssociationId(associationId);
@@ -962,7 +962,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **associationId** | **String**|  | 
+ **associationId** | **String**|  |
 
 ### Return type
 
@@ -991,7 +991,7 @@ Returns the list of services linked to the provided health element id
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final healthElementId = healthElementId_example; // String | 
+final healthElementId = healthElementId_example; // String |
 
 try {
     final result = api_instance.listServicesByHealthElementId(healthElementId);
@@ -1005,7 +1005,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthElementId** | **String**|  | 
+ **healthElementId** | **String**|  |
 
 ### Return type
 
@@ -1025,14 +1025,14 @@ No authorization required
 # **matchContactsBy**
 > List<String> matchContactsBy(abstractFilterDtoContact)
 
-Get ids of contacts matching the provided filter for the current user (HcParty) 
+Get ids of contacts matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final abstractFilterDtoContact = AbstractFilterDtoContact(); // AbstractFilterDtoContact | 
+final abstractFilterDtoContact = AbstractFilterDtoContact(); // AbstractFilterDtoContact |
 
 try {
     final result = api_instance.matchContactsBy(abstractFilterDtoContact);
@@ -1046,7 +1046,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **abstractFilterDtoContact** | [**AbstractFilterDtoContact**](AbstractFilterDtoContact.md)|  | 
+ **abstractFilterDtoContact** | [**AbstractFilterDtoContact**](AbstractFilterDtoContact.md)|  |
 
 ### Return type
 
@@ -1075,7 +1075,7 @@ Returns the modified contact.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final contactDto = ContactDto(); // ContactDto | 
+final contactDto = ContactDto(); // ContactDto |
 
 try {
     final result = api_instance.modifyContact(contactDto);
@@ -1089,7 +1089,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactDto** | [**ContactDto**](ContactDto.md)|  | 
+ **contactDto** | [**ContactDto**](ContactDto.md)|  |
 
 ### Return type
 
@@ -1118,7 +1118,7 @@ Returns the modified contacts.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final contactDto = [List<ContactDto>()]; // List<ContactDto> | 
+final contactDto = [List<ContactDto>()]; // List<ContactDto> |
 
 try {
     final result = api_instance.modifyContacts(contactDto);
@@ -1132,7 +1132,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactDto** | [**List<ContactDto>**](ContactDto.md)|  | 
+ **contactDto** | [**List<ContactDto>**](ContactDto.md)|  |
 
 ### Return type
 
@@ -1161,7 +1161,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
+final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> |
 
 try {
     final result = api_instance.modifyContactsDelegations(icureStubDto);
@@ -1175,7 +1175,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  | 
+ **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  |
 
 ### Return type
 
@@ -1204,8 +1204,8 @@ It delegates a contact to a healthcare party (By current healthcare party). Retu
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final contactId = contactId_example; // String | 
-final delegationDto = DelegationDto(); // DelegationDto | 
+final contactId = contactId_example; // String |
+final delegationDto = DelegationDto(); // DelegationDto |
 
 try {
     final result = api_instance.newContactDelegations(contactId, delegationDto);
@@ -1219,8 +1219,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactId** | **String**|  | 
- **delegationDto** | [**DelegationDto**](DelegationDto.md)|  | 
+ **contactId** | **String**|  |
+ **delegationDto** | [**DelegationDto**](DelegationDto.md)|  |
 
 ### Return type
 
@@ -1249,7 +1249,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = ContactApi();
-final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
+final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> |
 
 try {
     final result = api_instance.setContactsDelegations(icureStubDto);
@@ -1263,7 +1263,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  | 
+ **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  |
 
 ### Return type
 
@@ -1279,4 +1279,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

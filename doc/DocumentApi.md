@@ -49,7 +49,7 @@ Creates a document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentDto = DocumentDto(); // DocumentDto | 
+final documentDto = DocumentDto(); // DocumentDto |
 
 try {
     final result = api_instance.createDocument(documentDto);
@@ -63,7 +63,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentDto** | [**DocumentDto**](DocumentDto.md)|  | 
+ **documentDto** | [**DocumentDto**](DocumentDto.md)|  |
 
 ### Return type
 
@@ -90,7 +90,7 @@ Deletes a document's attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentId = documentId_example; // String | 
+final documentId = documentId_example; // String |
 
 try {
     final result = api_instance.deleteAttachment(documentId);
@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
+ **documentId** | **String**|  |
 
 ### Return type
 
@@ -131,7 +131,7 @@ Deletes documents
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deleteDocument(listOfIdsDto);
@@ -145,7 +145,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -174,7 +174,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final limit = 56; // int | 
+final limit = 56; // int |
 
 try {
     final result = api_instance.findWithoutDelegation(limit);
@@ -188,7 +188,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional] 
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -215,7 +215,7 @@ Gets a document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentId = documentId_example; // String | 
+final documentId = documentId_example; // String |
 
 try {
     final result = api_instance.getDocument(documentId);
@@ -229,7 +229,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
+ **documentId** | **String**|  |
 
 ### Return type
 
@@ -256,10 +256,10 @@ Load document's attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentId = documentId_example; // String | 
-final attachmentId = attachmentId_example; // String | 
-final enckeys = enckeys_example; // String | 
-final fileName = fileName_example; // String | 
+final documentId = documentId_example; // String |
+final attachmentId = attachmentId_example; // String |
+final enckeys = enckeys_example; // String |
+final fileName = fileName_example; // String |
 
 try {
     final result = api_instance.getDocumentAttachment(documentId, attachmentId, enckeys, fileName);
@@ -273,10 +273,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **attachmentId** | **String**|  | 
- **enckeys** | **String**|  | [optional] 
- **fileName** | **String**|  | [optional] 
+ **documentId** | **String**|  |
+ **attachmentId** | **String**|  |
+ **enckeys** | **String**|  | [optional]
+ **fileName** | **String**|  | [optional]
 
 ### Return type
 
@@ -303,7 +303,7 @@ Gets a document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final externalUuid = externalUuid_example; // String | 
+final externalUuid = externalUuid_example; // String |
 
 try {
     final result = api_instance.getDocumentByExternalUuid(externalUuid);
@@ -317,7 +317,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **externalUuid** | **String**|  | 
+ **externalUuid** | **String**|  |
 
 ### Return type
 
@@ -344,7 +344,7 @@ Gets a document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getDocuments(listOfIdsDto);
@@ -358,7 +358,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -385,7 +385,7 @@ Get all documents with externalUuid
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final externalUuid = externalUuid_example; // String | 
+final externalUuid = externalUuid_example; // String |
 
 try {
     final result = api_instance.getDocumentsByExternalUuid(externalUuid);
@@ -399,7 +399,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **externalUuid** | **String**|  | 
+ **externalUuid** | **String**|  |
 
 ### Return type
 
@@ -428,9 +428,9 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentTypeCode = documentTypeCode_example; // String | 
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final documentTypeCode = documentTypeCode_example; // String |
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listDocumentByTypeHCPartyMessageSecretFKeys(documentTypeCode, hcPartyId, secretFKeys);
@@ -444,9 +444,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTypeCode** | **String**|  | 
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **documentTypeCode** | **String**|  |
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -475,8 +475,8 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final hcPartyId = hcPartyId_example; // String | 
-final secretFKeys = secretFKeys_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final secretFKeys = secretFKeys_example; // String |
 
 try {
     final result = api_instance.listDocumentsByHCPartyAndPatientForeignKeys(hcPartyId, secretFKeys);
@@ -490,8 +490,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **secretFKeys** | **String**|  | 
+ **hcPartyId** | **String**|  |
+ **secretFKeys** | **String**|  |
 
 ### Return type
 
@@ -518,7 +518,7 @@ Updates a document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentDto = DocumentDto(); // DocumentDto | 
+final documentDto = DocumentDto(); // DocumentDto |
 
 try {
     final result = api_instance.modifyDocument(documentDto);
@@ -532,7 +532,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentDto** | [**DocumentDto**](DocumentDto.md)|  | 
+ **documentDto** | [**DocumentDto**](DocumentDto.md)|  |
 
 ### Return type
 
@@ -561,7 +561,7 @@ Returns the modified documents.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentDto = [List<DocumentDto>()]; // List<DocumentDto> | 
+final documentDto = [List<DocumentDto>()]; // List<DocumentDto> |
 
 try {
     final result = api_instance.modifyDocuments(documentDto);
@@ -575,7 +575,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentDto** | [**List<DocumentDto>**](DocumentDto.md)|  | 
+ **documentDto** | [**List<DocumentDto>**](DocumentDto.md)|  |
 
 ### Return type
 
@@ -602,9 +602,9 @@ Creates a document's attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentId = documentId_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
-final enckeys = enckeys_example; // String | 
+final documentId = documentId_example; // String |
+final body = MultipartFile(); // MultipartFile |
+final enckeys = enckeys_example; // String |
 
 try {
     final result = api_instance.setDocumentAttachment(documentId, body, enckeys);
@@ -618,9 +618,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **body** | **MultipartFile**|  | 
- **enckeys** | **String**|  | [optional] 
+ **documentId** | **String**|  |
+ **body** | **MultipartFile**|  |
+ **enckeys** | **String**|  | [optional]
 
 ### Return type
 
@@ -647,9 +647,9 @@ Creates a document's attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentId = documentId_example; // String | 
-final attachment = BYTE_ARRAY_DATA_HERE; // String | 
-final enckeys = enckeys_example; // String | 
+final documentId = documentId_example; // String |
+final attachment = BYTE_ARRAY_DATA_HERE; // String |
+final enckeys = enckeys_example; // String |
 
 try {
     final result = api_instance.setDocumentAttachmentMulti(documentId, attachment, enckeys);
@@ -663,9 +663,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **attachment** | **String**|  | 
- **enckeys** | **String**|  | [optional] 
+ **documentId** | **String**|  |
+ **attachment** | **String**|  |
+ **enckeys** | **String**|  | [optional]
 
 ### Return type
 
@@ -694,7 +694,7 @@ Keys must be delimited by coma
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> | 
+final icureStubDto = [List<IcureStubDto>()]; // List<IcureStubDto> |
 
 try {
     final result = api_instance.setDocumentsDelegations(icureStubDto);
@@ -708,7 +708,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  | 
+ **icureStubDto** | [**List<IcureStubDto>**](IcureStubDto.md)|  |
 
 ### Return type
 
@@ -735,9 +735,9 @@ Creates a document's attachment
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = DocumentApi();
-final documentId = documentId_example; // String | 
-final body = MultipartFile(); // MultipartFile | 
-final enckeys = enckeys_example; // String | 
+final documentId = documentId_example; // String |
+final body = MultipartFile(); // MultipartFile |
+final enckeys = enckeys_example; // String |
 
 try {
     final result = api_instance.setSafeDocumentAttachment(documentId, body, enckeys);
@@ -751,9 +751,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **body** | **MultipartFile**|  | 
- **enckeys** | **String**|  | [optional] 
+ **documentId** | **String**|  |
+ **body** | **MultipartFile**|  |
+ **enckeys** | **String**|  | [optional]
 
 ### Return type
 
@@ -769,4 +769,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

@@ -243,5 +243,3 @@ class FlatRateTarificationDtoFlatRateTypeEnumTypeTransformer {
   /// Singleton [FlatRateTarificationDtoFlatRateTypeEnumTypeTransformer] instance.
   static FlatRateTarificationDtoFlatRateTypeEnumTypeTransformer? _instance;
 }
-
-

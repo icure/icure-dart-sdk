@@ -150,4 +150,3 @@ class ReplicationInfoDto {
     'running',
   };
 }
-

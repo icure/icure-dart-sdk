@@ -27,7 +27,7 @@ Login using username and password
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AuthApi();
-final loginCredentials = LoginCredentials(); // LoginCredentials | 
+final loginCredentials = LoginCredentials(); // LoginCredentials |
 
 try {
     final result = api_instance.login(loginCredentials);
@@ -41,7 +41,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loginCredentials** | [**LoginCredentials**](LoginCredentials.md)|  | 
+ **loginCredentials** | [**LoginCredentials**](LoginCredentials.md)|  |
 
 ### Return type
 
@@ -148,8 +148,8 @@ Get token for subsequent operation
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AuthApi();
-final method = method_example; // String | 
-final path = path_example; // String | 
+final method = method_example; // String |
+final path = path_example; // String |
 
 try {
     final result = api_instance.token(method, path);
@@ -163,8 +163,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **method** | **String**|  | 
- **path** | **String**|  | 
+ **method** | **String**|  |
+ **path** | **String**|  |
 
 ### Return type
 
@@ -180,4 +180,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

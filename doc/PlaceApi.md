@@ -26,7 +26,7 @@ Creates a place
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PlaceApi();
-final placeDto = PlaceDto(); // PlaceDto | 
+final placeDto = PlaceDto(); // PlaceDto |
 
 try {
     final result = api_instance.createPlace(placeDto);
@@ -40,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **placeDto** | [**PlaceDto**](PlaceDto.md)|  | 
+ **placeDto** | [**PlaceDto**](PlaceDto.md)|  |
 
 ### Return type
 
@@ -67,7 +67,7 @@ Deletes places
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PlaceApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deletePlaces(listOfIdsDto);
@@ -81,7 +81,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -108,7 +108,7 @@ Gets an place
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PlaceApi();
-final placeId = placeId_example; // String | 
+final placeId = placeId_example; // String |
 
 try {
     final result = api_instance.getPlace(placeId);
@@ -122,7 +122,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **placeId** | **String**|  | 
+ **placeId** | **String**|  |
 
 ### Return type
 
@@ -186,7 +186,7 @@ Modifies an place
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PlaceApi();
-final placeDto = PlaceDto(); // PlaceDto | 
+final placeDto = PlaceDto(); // PlaceDto |
 
 try {
     final result = api_instance.modifyPlace(placeDto);
@@ -200,7 +200,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **placeDto** | [**PlaceDto**](PlaceDto.md)|  | 
+ **placeDto** | [**PlaceDto**](PlaceDto.md)|  |
 
 ### Return type
 
@@ -216,4 +216,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

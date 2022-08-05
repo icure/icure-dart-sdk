@@ -65,7 +65,7 @@ PUT** /rest/v1/patient/undelete/{patientIds} | undelete previously deleted patie
 # **countOfPatients**
 > ContentDto countOfPatients(hcPartyId)
 
-Get count of patients for a specific HcParty or for the current HcParty 
+Get count of patients for a specific HcParty or for the current HcParty
 
 Returns the count of patients
 
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**| Healthcare party id | 
+ **hcPartyId** | **String**| Healthcare party id |
 
 ### Return type
 
@@ -117,7 +117,7 @@ Name, last name, date of birth, and gender are required. After creation of the p
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final patientDto = PatientDto(); // PatientDto | 
+final patientDto = PatientDto(); // PatientDto |
 
 try {
     final result = api_instance.createPatient(patientDto);
@@ -131,7 +131,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientDto** | [**PatientDto**](PatientDto.md)|  | 
+ **patientDto** | [**PatientDto**](PatientDto.md)|  |
 
 ### Return type
 
@@ -160,7 +160,7 @@ Returns the id and _rev of created patients
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final patientDto = [List<PatientDto>()]; // List<PatientDto> | 
+final patientDto = [List<PatientDto>()]; // List<PatientDto> |
 
 try {
     final result = api_instance.createPatients(patientDto);
@@ -174,7 +174,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientDto** | [**List<PatientDto>**](PatientDto.md)|  | 
+ **patientDto** | [**List<PatientDto>**](PatientDto.md)|  |
 
 ### Return type
 
@@ -203,7 +203,7 @@ Response is an array containing the ID of deleted patient..
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.deletePatients(listOfIdsDto);
@@ -217,7 +217,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -237,7 +237,7 @@ No authorization required
 # **filterPatientsBy**
 > PaginatedListPatientDto filterPatientsBy(filterChainPatient, startKey, startDocumentId, limit, skip, sort, desc)
 
-Filter patients for the current user (HcParty) 
+Filter patients for the current user (HcParty)
 
 Returns a list of patients along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
 
@@ -246,7 +246,7 @@ Returns a list of patients along with next start keys and Document ID. If the ne
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final filterChainPatient = FilterChainPatient(); // FilterChainPatient | 
+final filterChainPatient = FilterChainPatient(); // FilterChainPatient |
 final startKey = startKey_example; // String | The start key for pagination, depends on the filters used
 final startDocumentId = startDocumentId_example; // String | A patient document ID
 final limit = 56; // int | Number of rows
@@ -266,13 +266,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterChainPatient** | [**FilterChainPatient**](FilterChainPatient.md)|  | 
- **startKey** | **String**| The start key for pagination, depends on the filters used | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
- **skip** | **int**| Skip rows | [optional] 
- **sort** | **String**| Sort key | [optional] 
- **desc** | **bool**| Descending | [optional] 
+ **filterChainPatient** | [**FilterChainPatient**](FilterChainPatient.md)|  |
+ **startKey** | **String**| The start key for pagination, depends on the filters used | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
+ **skip** | **int**| Skip rows | [optional]
+ **sort** | **String**| Sort key | [optional]
+ **desc** | **bool**| Descending | [optional]
 
 ### Return type
 
@@ -319,11 +319,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **int**| Filter deletions after this date (unix epoch), included | [optional] 
- **endDate** | **int**| Filter deletions before this date (unix epoch), included | [optional] 
- **desc** | **bool**| Descending | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **startDate** | **int**| Filter deletions after this date (unix epoch), included | [optional]
+ **endDate** | **int**| Filter deletions before this date (unix epoch), included | [optional]
+ **desc** | **bool**| Descending | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -367,10 +367,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**| Healthcare party id | 
- **startKey** | **String**| The start key for pagination, depends on the filters used | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **hcPartyId** | **String**| Healthcare party id |
+ **startKey** | **String**| The start key for pagination, depends on the filters used | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -414,10 +414,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**| Healthcare party id | 
- **startKey** | **String**| The start key for pagination, depends on the filters used | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **hcPartyId** | **String**| Healthcare party id |
+ **startKey** | **String**| The start key for pagination, depends on the filters used | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -463,11 +463,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| A User ID | 
- **accessType** | **String**| The type of access (COMPUTER or USER) | [optional] 
- **startDate** | **int**| The start search epoch | [optional] 
- **startKey** | **String**| The start key for pagination | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
+ **userId** | **String**| A User ID |
+ **accessType** | **String**| The type of access (COMPUTER or USER) | [optional]
+ **startDate** | **int**| The start search epoch | [optional]
+ **startKey** | **String**| The start key for pagination | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
  **limit** | **int**| Number of rows | [optional] [default to 1000]
 
 ### Return type
@@ -516,11 +516,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**| Healthcare party id | [optional] 
- **sortField** | **String**| Optional value for sorting results by a given field ('name', 'ssin', 'dateOfBirth'). Specifying this deactivates filtering | [optional] 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **hcPartyId** | **String**| Healthcare party id | [optional]
+ **sortField** | **String**| Optional value for sorting results by a given field ('name', 'ssin', 'dateOfBirth'). Specifying this deactivates filtering | [optional]
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
  **sortDirection** | **String**| Optional value for providing a sorting direction ('asc', 'desc'). Set to 'asc' by default. | [optional] [default to 'asc']
 
 ### Return type
@@ -541,7 +541,7 @@ No authorization required
 # **findPatientsByNameBirthSsinAuto**
 > PaginatedListPatientDto findPatientsByNameBirthSsinAuto(healthcarePartyId, filterValue, startKey, startDocumentId, limit, sortDirection)
 
-Find patients for the current user (HcParty) 
+Find patients for the current user (HcParty)
 
 Returns a list of patients along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
 
@@ -569,11 +569,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **healthcarePartyId** | **String**| HealthcareParty Id, if unset will user user's hcpId | [optional] 
- **filterValue** | **String**| Optional value for filtering results | [optional] 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **healthcarePartyId** | **String**| HealthcareParty Id, if unset will user user's hcpId | [optional]
+ **filterValue** | **String**| Optional value for filtering results | [optional]
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
  **sortDirection** | **String**| Optional value for providing a sorting direction ('asc', 'desc'). Set to 'asc' by default. | [optional] [default to 'asc']
 
 ### Return type
@@ -620,10 +620,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**| Healthcare party id | 
- **startKey** | **String**| The page first id | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Page size | [optional] 
+ **hcPartyId** | **String**| Healthcare party id |
+ **startKey** | **String**| The page first id | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Page size | [optional]
 
 ### Return type
 
@@ -652,7 +652,7 @@ Returns a list of patients that have been modified after the provided date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final date = 789; // int | 
+final date = 789; // int |
 final startKey = 789; // int | The start key for pagination the date of the first element of the new page
 final startDocumentId = startDocumentId_example; // String | A patient document ID
 final limit = 56; // int | Number of rows
@@ -669,10 +669,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **date** | **int**|  | 
- **startKey** | **int**| The start key for pagination the date of the first element of the new page | [optional] 
- **startDocumentId** | **String**| A patient document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **date** | **int**|  |
+ **startKey** | **int**| The start key for pagination the date of the first element of the new page | [optional]
+ **startDocumentId** | **String**| A patient document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -692,7 +692,7 @@ No authorization required
 # **fuzzySearch**
 > List<PatientDto> fuzzySearch(firstName, lastName, dateOfBirth)
 
-Filter patients for the current user (HcParty) 
+Filter patients for the current user (HcParty)
 
 Returns a list of patients
 
@@ -717,9 +717,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstName** | **String**| The first name | [optional] 
- **lastName** | **String**| The last name | [optional] 
- **dateOfBirth** | **int**| The date of birth | [optional] 
+ **firstName** | **String**| The first name | [optional]
+ **lastName** | **String**| The last name | [optional]
+ **dateOfBirth** | **int**| The date of birth | [optional]
 
 ### Return type
 
@@ -748,7 +748,7 @@ It gets patient administrative data.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final patientId = patientId_example; // String | 
+final patientId = patientId_example; // String |
 
 try {
     final result = api_instance.getPatient(patientId);
@@ -762,7 +762,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
+ **patientId** | **String**|  |
 
 ### Return type
 
@@ -803,7 +803,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **externalId** | **String**| A external ID | 
+ **externalId** | **String**| A external ID |
 
 ### Return type
 
@@ -832,9 +832,9 @@ It gets patient administrative data based on the identifier (root & extension) p
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final hcPartyId = hcPartyId_example; // String | 
-final id = id_example; // String | 
-final system = system_example; // String | 
+final hcPartyId = hcPartyId_example; // String |
+final id = id_example; // String |
+final system = system_example; // String |
 
 try {
     final result = api_instance.getPatientByHealthcarepartyAndIdentifier(hcPartyId, id, system);
@@ -848,9 +848,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **id** | **String**|  | 
- **system** | **String**|  | [optional] 
+ **hcPartyId** | **String**|  |
+ **id** | **String**|  |
+ **system** | **String**|  | [optional]
 
 ### Return type
 
@@ -893,7 +893,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**| The patient Id for which information is shared | 
+ **patientId** | **String**| The patient Id for which information is shared |
 
 ### Return type
 
@@ -922,7 +922,7 @@ It gets patient administrative data.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.getPatients(listOfIdsDto);
@@ -936,7 +936,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -980,8 +980,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstName** | **String**| First name prefix | [optional] 
- **lastName** | **String**| Last name prefix | [optional] 
+ **firstName** | **String**| First name prefix | [optional]
+ **lastName** | **String**| Last name prefix | [optional]
 
 ### Return type
 
@@ -1001,7 +1001,7 @@ No authorization required
 # **listOfMergesAfter**
 > List<PatientDto> listOfMergesAfter(date)
 
-List patients that have been merged towards another patient 
+List patients that have been merged towards another patient
 
 Returns a list of patients that have been merged after the provided date
 
@@ -1010,7 +1010,7 @@ Returns a list of patients that have been merged after the provided date
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final date = 789; // int | 
+final date = 789; // int |
 
 try {
     final result = api_instance.listOfMergesAfter(date);
@@ -1024,7 +1024,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **date** | **int**|  | 
+ **date** | **int**|  |
 
 ### Return type
 
@@ -1044,14 +1044,14 @@ No authorization required
 # **matchPatientsBy**
 > List<String> matchPatientsBy(abstractFilterDtoPatient)
 
-Get ids of patients matching the provided filter for the current user (HcParty) 
+Get ids of patients matching the provided filter for the current user (HcParty)
 
 ### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final abstractFilterDtoPatient = AbstractFilterDtoPatient(); // AbstractFilterDtoPatient | 
+final abstractFilterDtoPatient = AbstractFilterDtoPatient(); // AbstractFilterDtoPatient |
 
 try {
     final result = api_instance.matchPatientsBy(abstractFilterDtoPatient);
@@ -1065,7 +1065,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **abstractFilterDtoPatient** | [**AbstractFilterDtoPatient**](AbstractFilterDtoPatient.md)|  | 
+ **abstractFilterDtoPatient** | [**AbstractFilterDtoPatient**](AbstractFilterDtoPatient.md)|  |
 
 ### Return type
 
@@ -1092,8 +1092,8 @@ Merge a series of patients into another patient
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final toId = toId_example; // String | 
-final fromIds = fromIds_example; // String | 
+final toId = toId_example; // String |
+final fromIds = fromIds_example; // String |
 
 try {
     final result = api_instance.mergeInto(toId, fromIds);
@@ -1107,8 +1107,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **toId** | **String**|  | 
- **fromIds** | **String**|  | 
+ **toId** | **String**|  |
+ **fromIds** | **String**|  |
 
 ### Return type
 
@@ -1137,7 +1137,7 @@ No particular return value. It's just a message.
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final patientDto = PatientDto(); // PatientDto | 
+final patientDto = PatientDto(); // PatientDto |
 
 try {
     final result = api_instance.modifyPatient(patientDto);
@@ -1151,7 +1151,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientDto** | [**PatientDto**](PatientDto.md)|  | 
+ **patientDto** | [**PatientDto**](PatientDto.md)|  |
 
 ### Return type
 
@@ -1178,7 +1178,7 @@ Set a patient referral doctor
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final patientId = patientId_example; // String | 
+final patientId = patientId_example; // String |
 final referralId = referralId_example; // String | The referal id. Accepts 'none' for referral removal.
 final start = 789; // int | Optional value for start of referral
 final end = 789; // int | Optional value for end of referral
@@ -1195,10 +1195,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **referralId** | **String**| The referal id. Accepts 'none' for referral removal. | 
- **start** | **int**| Optional value for start of referral | [optional] 
- **end** | **int**| Optional value for end of referral | [optional] 
+ **patientId** | **String**|  |
+ **referralId** | **String**| The referal id. Accepts 'none' for referral removal. |
+ **start** | **int**| Optional value for start of referral | [optional]
+ **end** | **int**| Optional value for end of referral | [optional]
 
 ### Return type
 
@@ -1227,7 +1227,7 @@ Returns the id and _rev of modified patients
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final patientDto = [List<PatientDto>()]; // List<PatientDto> | 
+final patientDto = [List<PatientDto>()]; // List<PatientDto> |
 
 try {
     final result = api_instance.modifyPatients(patientDto);
@@ -1241,7 +1241,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientDto** | [**List<PatientDto>**](PatientDto.md)|  | 
+ **patientDto** | [**List<PatientDto>**](PatientDto.md)|  |
 
 ### Return type
 
@@ -1270,8 +1270,8 @@ It delegates a patient to a healthcare party (By current healthcare party). A mo
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final patientId = patientId_example; // String | 
-final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> | 
+final patientId = patientId_example; // String |
+final delegationDto = [List<DelegationDto>()]; // List<DelegationDto> |
 
 try {
     final result = api_instance.newPatientDelegations(patientId, delegationDto);
@@ -1285,8 +1285,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientId** | **String**|  | 
- **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  | 
+ **patientId** | **String**|  |
+ **delegationDto** | [**List<DelegationDto>**](DelegationDto.md)|  |
 
 ### Return type
 
@@ -1315,11 +1315,11 @@ Register a new patient into the system
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final hcPartyId = hcPartyId_example; // String | 
-final groupId = groupId_example; // String | 
-final patientDto = PatientDto(); // PatientDto | 
-final token = token_example; // String | 
-final useShortToken = true; // bool | 
+final hcPartyId = hcPartyId_example; // String |
+final groupId = groupId_example; // String |
+final patientDto = PatientDto(); // PatientDto |
+final token = token_example; // String |
+final useShortToken = true; // bool |
 
 try {
     final result = api_instance.registerPatient(hcPartyId, groupId, patientDto, token, useShortToken);
@@ -1333,11 +1333,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hcPartyId** | **String**|  | 
- **groupId** | **String**|  | 
- **patientDto** | [**PatientDto**](PatientDto.md)|  | 
- **token** | **String**|  | [optional] 
- **useShortToken** | **bool**|  | [optional] 
+ **hcPartyId** | **String**|  |
+ **groupId** | **String**|  |
+ **patientDto** | [**PatientDto**](PatientDto.md)|  |
+ **token** | **String**|  | [optional]
+ **useShortToken** | **bool**|  | [optional]
 
 ### Return type
 
@@ -1366,7 +1366,7 @@ Response is an array containing the ID of undeleted patient..
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = PatientApi();
-final patientIds = patientIds_example; // String | 
+final patientIds = patientIds_example; // String |
 
 try {
     final result = api_instance.undeletePatient(patientIds);
@@ -1380,7 +1380,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientIds** | **String**|  | 
+ **patientIds** | **String**|  |
 
 ### Return type
 
@@ -1396,4 +1396,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

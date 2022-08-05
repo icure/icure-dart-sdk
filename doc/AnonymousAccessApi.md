@@ -30,13 +30,13 @@ The start of the slot is returned in YYYYDDMMHHmmss format and only slots belong
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = AnonymousAccessApi();
-final groupId = groupId_example; // String | 
-final userId = userId_example; // String | 
-final getCalendarItemTypeId = getCalendarItemTypeId_example; // String | 
-final startDate = 789; // int | 
-final endDate = 789; // int | 
-final hcpId = hcpId_example; // String | 
-final limit = 56; // int | 
+final groupId = groupId_example; // String |
+final userId = userId_example; // String |
+final getCalendarItemTypeId = getCalendarItemTypeId_example; // String |
+final startDate = 789; // int |
+final endDate = 789; // int |
+final hcpId = hcpId_example; // String |
+final limit = 56; // int |
 
 try {
     final result = api_instance.getAvailabilitiesByPeriodAndCalendarItemTypeId(groupId, userId, getCalendarItemTypeId, startDate, endDate, hcpId, limit);
@@ -50,13 +50,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  | 
- **userId** | **String**|  | 
- **getCalendarItemTypeId** | **String**|  | 
- **startDate** | **int**|  | 
- **endDate** | **int**|  | 
- **hcpId** | **String**|  | 
- **limit** | **int**|  | [optional] 
+ **groupId** | **String**|  |
+ **userId** | **String**|  |
+ **getCalendarItemTypeId** | **String**|  |
+ **startDate** | **int**|  |
+ **endDate** | **int**|  |
+ **hcpId** | **String**|  |
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -87,8 +87,8 @@ import 'package:icure_dart_sdk/api.dart';
 final api_instance = AnonymousAccessApi();
 final groupId = groupId_example; // String | Healthcare parties group id
 final userId = userId_example; // String | Healthcare party user id
-final startDate = 789; // int | 
-final endDate = 789; // int | 
+final startDate = 789; // int |
+final endDate = 789; // int |
 
 try {
     final result = api_instance.listAppointmentTypesForUser(groupId, userId, startDate, endDate);
@@ -102,10 +102,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**| Healthcare parties group id | 
- **userId** | **String**| Healthcare party user id | 
- **startDate** | **int**|  | 
- **endDate** | **int**|  | 
+ **groupId** | **String**| Healthcare parties group id |
+ **userId** | **String**| Healthcare party user id |
+ **startDate** | **int**|  |
+ **endDate** | **int**|  |
 
 ### Return type
 
@@ -148,7 +148,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**| Healthcare parties group id | 
+ **groupId** | **String**| Healthcare parties group id |
 
 ### Return type
 
@@ -164,4 +164,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

@@ -86,7 +86,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dmppCode** | **String**| dmppCode | 
+ **dmppCode** | **String**| dmppCode |
 
 ### Return type
 
@@ -132,10 +132,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **atcCode** | **String**| atcCode | 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A amp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **atcCode** | **String**| atcCode |
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A amp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -181,10 +181,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vmpgCode** | **String**| vmpgCode | 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A vmp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **vmpgCode** | **String**| vmpgCode |
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A vmp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -230,10 +230,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vmpgId** | **String**| vmpgCode | 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A vmp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **vmpgId** | **String**| vmpgCode |
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A vmp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -280,11 +280,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **language** | **String**| language | [optional] 
- **label** | **String**| label | [optional] 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| An amp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **language** | **String**| language | [optional]
+ **label** | **String**| label | [optional]
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| An amp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -330,10 +330,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vmpCode** | **String**| vmpCode | 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A amp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **vmpCode** | **String**| vmpCode |
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A amp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -379,10 +379,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vmpId** | **String**| vmpgCode | 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A amp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **vmpId** | **String**| vmpgCode |
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A amp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -429,11 +429,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **language** | **String**| language | [optional] 
- **label** | **String**| label | [optional] 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A vmp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **language** | **String**| language | [optional]
+ **label** | **String**| label | [optional]
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A vmp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -480,11 +480,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **language** | **String**| language | [optional] 
- **label** | **String**| label | [optional] 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A vmpgroup document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **language** | **String**| language | [optional]
+ **label** | **String**| label | [optional]
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A vmpgroup document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -530,10 +530,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vmpgCode** | **String**| vmpgCode | 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A vmpgroup document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **vmpgCode** | **String**| vmpgCode |
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A vmpgroup document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -579,10 +579,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vmpgCode** | **String**| vmpgCode | 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A vmp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **vmpgCode** | **String**| vmpgCode |
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A vmp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -628,10 +628,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vmpgId** | **String**| vmpgId | 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A vmp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **vmpgId** | **String**| vmpgId |
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A vmp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -678,11 +678,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **language** | **String**| language | [optional] 
- **label** | **String**| label | [optional] 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A vmp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **language** | **String**| language | [optional]
+ **label** | **String**| label | [optional]
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A vmp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -728,10 +728,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vmpCode** | **String**| vmpCode | 
- **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional] 
- **startDocumentId** | **String**| A vmp document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **vmpCode** | **String**| vmpCode |
+ **startKey** | **String**| The start key for pagination: a JSON representation of an array containing all the necessary components to form the Complex Key's startKey | [optional]
+ **startDocumentId** | **String**| A vmp document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -799,7 +799,7 @@ Returns a list of amps matched with given input. If several types are provided, 
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listAmpsByDmppCodes(listOfIdsDto);
@@ -813,7 +813,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -842,7 +842,7 @@ Returns a list of codes matched with given input. If several types are provided,
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listAmpsByGroupCodes(listOfIdsDto);
@@ -856,7 +856,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -885,7 +885,7 @@ Returns a list of codes matched with given input. If several types are provided,
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listAmpsByGroupIds(listOfIdsDto);
@@ -899,7 +899,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -928,7 +928,7 @@ Returns a list of codes matched with given input. If several types are provided,
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listAmpsByVmpCodes(listOfIdsDto);
@@ -942,7 +942,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -971,7 +971,7 @@ Returns a list of codes matched with given input. If several types are provided,
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listAmpsByVmpIds(listOfIdsDto);
@@ -985,7 +985,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -1014,7 +1014,7 @@ Returns a list of codes matched with given input. If several types are provided,
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listNmpsByCnks(listOfIdsDto);
@@ -1028,7 +1028,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -1131,7 +1131,7 @@ Returns a list of group codes matched with given input. If several types are pro
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listVmpGroupsByVmpGroupCodes(listOfIdsDto);
@@ -1145,7 +1145,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -1174,7 +1174,7 @@ Returns a list of codes matched with given input. If several types are provided,
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listVmpsByGroupIds(listOfIdsDto);
@@ -1188,7 +1188,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -1217,7 +1217,7 @@ Returns a list of codes matched with given input. If several types are provided,
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = Besamv2Api();
-final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto | 
+final listOfIdsDto = ListOfIdsDto(); // ListOfIdsDto |
 
 try {
     final result = api_instance.listVmpsByVmpCodes(listOfIdsDto);
@@ -1231,7 +1231,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  | 
+ **listOfIdsDto** | [**ListOfIdsDto**](ListOfIdsDto.md)|  |
 
 ### Return type
 
@@ -1247,4 +1247,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createMaintenanceTask**](MaintenanceTaskApi.md#createmaintenancetask) | **POST** /rest/v2/maintenancetask | Creates a maintenanceTask
 [**deleteMaintenanceTask**](MaintenanceTaskApi.md#deletemaintenancetask) | **DELETE** /rest/v2/maintenancetask/{maintenanceTaskIds} | Delete maintenanceTasks
-[**filterMaintenanceTasksBy**](MaintenanceTaskApi.md#filtermaintenancetasksby) | **POST** /rest/v2/maintenancetask/filter | Filter maintenanceTasks for the current user (HcParty) 
+[**filterMaintenanceTasksBy**](MaintenanceTaskApi.md#filtermaintenancetasksby) | **POST** /rest/v2/maintenancetask/filter | Filter maintenanceTasks for the current user (HcParty)
 [**getMaintenanceTask**](MaintenanceTaskApi.md#getmaintenancetask) | **GET** /rest/v2/maintenancetask/{maintenanceTaskId} | Gets a maintenanceTask
 [**modifyMaintenanceTask**](MaintenanceTaskApi.md#modifymaintenancetask) | **PUT** /rest/v2/maintenancetask | Updates a maintenanceTask
 
@@ -21,14 +21,14 @@ Method | HTTP request | Description
 
 Creates a maintenanceTask
 
-### Example 
+### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MaintenanceTaskApi();
-final maintenanceTaskDto = MaintenanceTaskDto(); // MaintenanceTaskDto | 
+final maintenanceTaskDto = MaintenanceTaskDto(); // MaintenanceTaskDto |
 
-try { 
+try {
     final result = api_instance.createMaintenanceTask(maintenanceTaskDto);
     print(result);
 } catch (e) {
@@ -40,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **maintenanceTaskDto** | [**MaintenanceTaskDto**](MaintenanceTaskDto.md)|  | 
+ **maintenanceTaskDto** | [**MaintenanceTaskDto**](MaintenanceTaskDto.md)|  |
 
 ### Return type
 
@@ -62,14 +62,14 @@ No authorization required
 
 Delete maintenanceTasks
 
-### Example 
+### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MaintenanceTaskApi();
-final maintenanceTaskIds = maintenanceTaskIds_example; // String | 
+final maintenanceTaskIds = maintenanceTaskIds_example; // String |
 
-try { 
+try {
     final result = api_instance.deleteMaintenanceTask(maintenanceTaskIds);
     print(result);
 } catch (e) {
@@ -81,7 +81,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **maintenanceTaskIds** | **String**|  | 
+ **maintenanceTaskIds** | **String**|  |
 
 ### Return type
 
@@ -101,20 +101,20 @@ No authorization required
 # **filterMaintenanceTasksBy**
 > PaginatedListMaintenanceTaskDto filterMaintenanceTasksBy(filterChainMaintenanceTask, startDocumentId, limit)
 
-Filter maintenanceTasks for the current user (HcParty) 
+Filter maintenanceTasks for the current user (HcParty)
 
 Returns a list of maintenanceTasks along with next start keys and Document ID. If the nextStartKey is Null it means that this is the last page.
 
-### Example 
+### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MaintenanceTaskApi();
-final filterChainMaintenanceTask = FilterChainMaintenanceTask(); // FilterChainMaintenanceTask | 
+final filterChainMaintenanceTask = FilterChainMaintenanceTask(); // FilterChainMaintenanceTask |
 final startDocumentId = startDocumentId_example; // String | A maintenanceTask document ID
 final limit = 56; // int | Number of rows
 
-try { 
+try {
     final result = api_instance.filterMaintenanceTasksBy(filterChainMaintenanceTask, startDocumentId, limit);
     print(result);
 } catch (e) {
@@ -126,9 +126,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterChainMaintenanceTask** | [**FilterChainMaintenanceTask**](FilterChainMaintenanceTask.md)|  | 
- **startDocumentId** | **String**| A maintenanceTask document ID | [optional] 
- **limit** | **int**| Number of rows | [optional] 
+ **filterChainMaintenanceTask** | [**FilterChainMaintenanceTask**](FilterChainMaintenanceTask.md)|  |
+ **startDocumentId** | **String**| A maintenanceTask document ID | [optional]
+ **limit** | **int**| Number of rows | [optional]
 
 ### Return type
 
@@ -150,14 +150,14 @@ No authorization required
 
 Gets a maintenanceTask
 
-### Example 
+### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MaintenanceTaskApi();
-final maintenanceTaskId = maintenanceTaskId_example; // String | 
+final maintenanceTaskId = maintenanceTaskId_example; // String |
 
-try { 
+try {
     final result = api_instance.getMaintenanceTask(maintenanceTaskId);
     print(result);
 } catch (e) {
@@ -169,7 +169,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **maintenanceTaskId** | **String**|  | 
+ **maintenanceTaskId** | **String**|  |
 
 ### Return type
 
@@ -191,14 +191,14 @@ No authorization required
 
 Updates a maintenanceTask
 
-### Example 
+### Example
 ```dart
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = MaintenanceTaskApi();
-final maintenanceTaskDto = MaintenanceTaskDto(); // MaintenanceTaskDto | 
+final maintenanceTaskDto = MaintenanceTaskDto(); // MaintenanceTaskDto |
 
-try { 
+try {
     final result = api_instance.modifyMaintenanceTask(maintenanceTaskDto);
     print(result);
 } catch (e) {
@@ -210,7 +210,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **maintenanceTaskDto** | [**MaintenanceTaskDto**](MaintenanceTaskDto.md)|  | 
+ **maintenanceTaskDto** | [**MaintenanceTaskDto**](MaintenanceTaskDto.md)|  |
 
 ### Return type
 
@@ -226,4 +226,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

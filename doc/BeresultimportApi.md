@@ -27,8 +27,8 @@ Can we handle this document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultimportApi();
-final id = id_example; // String | 
-final enckeys = enckeys_example; // String | 
+final id = id_example; // String |
+final enckeys = enckeys_example; // String |
 
 try {
     final result = api_instance.canHandle(id, enckeys);
@@ -42,8 +42,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
- **enckeys** | **String**|  | 
+ **id** | **String**|  |
+ **enckeys** | **String**|  |
 
 ### Return type
 
@@ -70,14 +70,14 @@ import document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultimportApi();
-final documentId = documentId_example; // String | 
-final hcpId = hcpId_example; // String | 
-final language = language_example; // String | 
-final protocolIds = protocolIds_example; // String | 
-final formIds = formIds_example; // String | 
-final planOfActionId = planOfActionId_example; // String | 
-final enckeys = enckeys_example; // String | 
-final ctc = ; // ContactDto | 
+final documentId = documentId_example; // String |
+final hcpId = hcpId_example; // String |
+final language = language_example; // String |
+final protocolIds = protocolIds_example; // String |
+final formIds = formIds_example; // String |
+final planOfActionId = planOfActionId_example; // String |
+final enckeys = enckeys_example; // String |
+final ctc = ; // ContactDto |
 
 try {
     final result = api_instance.doImport(documentId, hcpId, language, protocolIds, formIds, planOfActionId, enckeys, ctc);
@@ -91,14 +91,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentId** | **String**|  | 
- **hcpId** | **String**|  | 
- **language** | **String**|  | 
- **protocolIds** | **String**|  | 
- **formIds** | **String**|  | 
- **planOfActionId** | **String**|  | 
- **enckeys** | **String**|  | 
- **ctc** | [**ContactDto**](.md)|  | 
+ **documentId** | **String**|  |
+ **hcpId** | **String**|  |
+ **language** | **String**|  |
+ **protocolIds** | **String**|  |
+ **formIds** | **String**|  |
+ **planOfActionId** | **String**|  |
+ **enckeys** | **String**|  |
+ **ctc** | [**ContactDto**](.md)|  |
 
 ### Return type
 
@@ -125,10 +125,10 @@ Extract general infos from document
 import 'package:icure_dart_sdk/api.dart';
 
 final api_instance = BeresultimportApi();
-final id = id_example; // String | 
-final language = language_example; // String | 
-final enckeys = enckeys_example; // String | 
-final full = true; // bool | 
+final id = id_example; // String |
+final language = language_example; // String |
+final enckeys = enckeys_example; // String |
+final full = true; // bool |
 
 try {
     final result = api_instance.getInfos(id, language, enckeys, full);
@@ -142,10 +142,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
- **language** | **String**|  | 
- **enckeys** | **String**|  | 
- **full** | **bool**|  | [optional] 
+ **id** | **String**|  |
+ **language** | **String**|  |
+ **enckeys** | **String**|  |
+ **full** | **bool**|  | [optional]
 
 ### Return type
 
@@ -161,4 +161,3 @@ No authorization required
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

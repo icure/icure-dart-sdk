@@ -68,7 +68,7 @@ class EntityTemplateApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EntityTemplateDto',) as EntityTemplateDto;
-    
+
     }
     return null;
   }
@@ -320,7 +320,7 @@ class EntityTemplateApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EntityTemplateDto',) as EntityTemplateDto;
-    
+
     }
     return null;
   }
@@ -673,7 +673,7 @@ class EntityTemplateApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EntityTemplateDto',) as EntityTemplateDto;
-    
+
     }
     return null;
   }
