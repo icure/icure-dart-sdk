@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:icure_dart_sdk/api.dart';
 import 'package:test/test.dart';
 
-import '../../../util/test_utils.dart';
+import '../../../util/code_batch_generator.dart';
 import '../../../util/test_utils_backend.dart';
 
 void main() {

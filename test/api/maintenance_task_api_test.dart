@@ -15,7 +15,7 @@ import 'package:icure_dart_sdk/crypto/crypto.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
-import 'util/test_utils_backend.dart';
+import '../util/test_utils_backend.dart';
 
 class CodeEquality implements Equality<CodeStubDto> {
   @override

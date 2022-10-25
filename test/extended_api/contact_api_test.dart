@@ -1,5 +1,4 @@
 @Timeout(Duration(hours: 1))
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypton/crypton.dart';
@@ -12,25 +11,21 @@ import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
 void main() {
-  final apiClient = ApiClient.basic('https://kraken.icure.dev', 'abdemotst2', '27b90f6e-6847-44bf-b90f-6e6847b4bf1c');
+  final iCureUrl = Platform.environment["ICURE_URL"] ?? "https://kraken.icure.dev";
+  final hcpUsername = Platform.environment["HCP_1_USERNAME"]!;
+  final hcpPassword = Platform.environment["HCP_1_PASSWORD"]!;
+  final hcpPrivKey = Platform.environment["HCP_1_PRIV_KEY"]!;
+
+  final apiClient = ApiClient.basic(iCureUrl, hcpUsername, hcpPassword);
 
   final userApi = UserApi(apiClient);
   final hcpApi = HealthcarePartyApi(apiClient);
   final patientApi = PatientApi(apiClient);
   final healthElementApi = HealthElementApi(apiClient);
   final contactApi = ContactApi(apiClient);
+  final defaultDataOwnerResolver = DataOwnerResolver(apiClient);
 
   final Uuid uuid = Uuid();
-
-  Future<LocalCrypto> _localCrypto(UserDto user, HealthcarePartyDto hcp) async {
-    final fileUri = Uri.file("test/resources/keys/782f1bcd-9f3f-408a-af1b-cd9f3f908a98-icc-priv.2048.key", windows: false);
-    final hcpKeyFile = File.fromUri(fileUri);
-
-    final hcpPrivateKey = (await hcpKeyFile.readAsString(encoding: utf8)).toPrivateKey();
-    final keyPairs = {user.healthcarePartyId!: RSAKeypair(hcpPrivateKey)};
-
-    return LocalCrypto(DataOwnerResolver(apiClient), keyPairs);
-  }
 
   Future<DecryptedPatientDto?> createPatient(UserDto currentUser, LocalCrypto lc) async {
     final createdPatient = await patientApi.createPatient(currentUser,
@@ -62,7 +57,7 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      final lc = await _localCrypto(currentUser, currentHcp);
+      final lc = await LocalCrypto(defaultDataOwnerResolver, {currentUser.healthcarePartyId!: RSAKeypair(hcpPrivKey.toPrivateKey())});
       DecryptedPatientDto? createdPatient = await createPatient(currentUser, lc);
 
       final contactToCreate = DecryptedContactDto(
@@ -92,7 +87,7 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      final lc = await _localCrypto(currentUser, currentHcp);
+      final lc = await LocalCrypto(defaultDataOwnerResolver, {currentUser.healthcarePartyId!: RSAKeypair(hcpPrivKey.toPrivateKey())});
       DecryptedPatientDto? createdPatient = await createPatient(currentUser, lc);
       final createdHealthElement = await healthElementApi.createHealthElementWithPatient(currentUser, createdPatient!,
           DecryptedHealthElementDto(
@@ -103,7 +98,7 @@ void main() {
           healthElementCryptoConfig(lc));
 
       final serviceId = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
-      final createdContact = await contactApi.createContactWithPatient(currentUser, createdPatient!, DecryptedContactDto(
+      await contactApi.createContactWithPatient(currentUser, createdPatient!, DecryptedContactDto(
           id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
           services: {_weightServiceDto(serviceId: serviceId)},
           openingDate: 20171214,

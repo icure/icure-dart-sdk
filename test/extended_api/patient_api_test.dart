@@ -10,8 +10,6 @@ import "package:test/test.dart";
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
-import '../util/test_utils.dart';
-
 Future<E> retry<E>(Future<E> Function () action, {int trials = 5, int delay = 100}) async {
   try {
     return await action();
@@ -26,7 +24,12 @@ Future<E> retry<E>(Future<E> Function () action, {int trials = 5, int delay = 10
 }
 
 void main() {
-  final apiClient = ApiClient.basic('https://kraken.icure.dev', 'abdemotst2', '27b90f6e-6847-44bf-b90f-6e6847b4bf1c');
+  final iCureUrl = Platform.environment["ICURE_URL"] ?? "https://kraken.icure.dev";
+  final hcpUsername = Platform.environment["HCP_1_USERNAME"]!;
+  final hcpPassword = Platform.environment["HCP_1_PASSWORD"]!;
+  final hcpPrivKey = Platform.environment["HCP_1_PRIV_KEY"]!;
+
+  final apiClient = ApiClient.basic(iCureUrl, hcpUsername, hcpPassword);
 
   final userApi = UserApi(apiClient);
   final hcpApi = HealthcarePartyApi(apiClient);
@@ -45,7 +48,7 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await TestUtils.localCrypto(defaultDataOwnerResolver, currentUser, currentHcp);
+      final lc = await LocalCrypto(defaultDataOwnerResolver, {currentUser.healthcarePartyId!: RSAKeypair(hcpPrivKey.toPrivateKey())});
 
       var patient = DecryptedPatientDto(
           id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
@@ -73,77 +76,25 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await TestUtils.localCrypto(defaultDataOwnerResolver, currentUser, currentHcp);
+      var lc = await LocalCrypto(defaultDataOwnerResolver, {currentUser.healthcarePartyId!: RSAKeypair(hcpPrivKey.toPrivateKey())});
 
+      final createdPatient = await patientApi.createPatient(currentUser, DecryptedPatientDto(
+          id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+          firstName: 'John',
+          lastName: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+          note: 'Premature optimization is the root of all evil'), patientCryptoConfig(lc));
+
+      // When
       var patients = await patientApi.filterPatientsBy(
           currentUser,
-          FilterChain(PatientByHcPartyNameContainsFuzzyFilter(healthcarePartyId: currentHcp.id, searchString: 'max')),
+          FilterChain(PatientByHcPartyNameContainsFuzzyFilter(healthcarePartyId: currentHcp.id, searchString: createdPatient!.lastName)),
           null,
           null,
           null,
           patientCryptoConfig(lc));
 
       // Then
-      expect(patients!.rows.length > 0, true);
-    });
-
-    test('Create patient with crypto HK', () async {
-      // Init
-      var hkCreds = await TestUtils.credentials();
-      var hkApiClient = ApiClient.basic('https://kraken.icure.dev', hkCreds.username, hkCreds.password);
-      var hkUserApi = UserApi(hkApiClient);
-      var hkHcpApi = HealthcarePartyApi(hkApiClient);
-      var hkPatientApi = PatientApi(hkApiClient);
-      var hkDataOwnerResolver = DataOwnerResolver(hkApiClient);
-
-      var currentUser = await hkUserApi.getCurrentUser();
-      var currentHcp = await hkHcpApi.getCurrentHealthcareParty();
-
-      if (currentUser == null || currentHcp == null) {
-        throw Exception("Test init error : Current User or current HCP can't be null");
-      }
-
-      var lc = await TestUtils.localCrypto(hkDataOwnerResolver, currentUser, currentHcp);
-
-      final DecryptedPatientDto patient = DecryptedPatientDto(id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}), firstName: 'John', lastName: 'Doe');
-
-      // When
-      var createdPatient = await hkPatientApi.createPatient(currentUser, patient, patientCryptoConfig(lc));
-      var idUser = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
-      var passwordUser = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
-      var createdUser = await hkUserApi.createUser(new UserDto(id: idUser, login: idUser.substring(0, 8), patientId: createdPatient!.id, passwordHash: passwordUser));
-      print("Patient user login ${idUser.substring(0,8)} and password ${passwordUser}");
-
-      var patApiClient = ApiClient.basic('https://kraken.icure.dev', createdUser!.login!, passwordUser);
-
-      var patUserApi = UserApi(patApiClient);
-      var patPatientApi = PatientApi(patApiClient);
-
-      final patUser = await retry(() => patUserApi.getCurrentUser());
-      final keyPair = generateRandomPrivateAndPublicKeyPair();
-
-      print("Patient private key ${keyPair.item1} and public key ${keyPair.item2}");
-
-      var patLc = LocalCrypto(DataOwnerResolver(patApiClient), { patUser!.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
-
-      final pat = await patPatientApi.getPatient(patUser, patUser.patientId!, patientCryptoConfig(patLc));
-
-      pat!.publicKey = keyPair.item2;
-
-      final modPat = await patPatientApi.modifyPatient(patUser, pat, patientCryptoConfig(patLc));
-      patLc = LocalCrypto(DataOwnerResolver(patApiClient), { patUser.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
-
-      final pat2 = await patPatientApi.getPatient(patUser, patUser.patientId!, patientCryptoConfig(patLc));
-      pat2!.note = "Secret";
-      pat2.delegations = {};
-      pat2.encryptionKeys = {};
-      final modPat2 = (await patPatientApi.modifyPatient(patUser, pat2, patientCryptoConfig(patLc)))!;
-
-      // Then
-      expect(modPat2.id, pat2.id);
-      expect(modPat2.firstName, pat2.firstName);
-      expect(modPat2.lastName, pat2.lastName);
-      expect(modPat2.note, pat2.note);
+      expect(patients!.rows.first.id, createdPatient.id);
     });
 
     test('Create patient with crypto iCure', () async {
@@ -155,7 +106,7 @@ void main() {
         throw Exception("Test init error : Current User or current HCP can't be null");
       }
 
-      var lc = await TestUtils.localCrypto(defaultDataOwnerResolver, currentUser, currentHcp);
+      var lc = await LocalCrypto(defaultDataOwnerResolver, {currentUser.healthcarePartyId!: RSAKeypair(hcpPrivKey.toPrivateKey())});
 
       final DecryptedPatientDto patient = DecryptedPatientDto(id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}), firstName: 'John', lastName: 'Doe');
 
@@ -165,7 +116,6 @@ void main() {
       var passwordUser = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
       var createdUser = await userApi.createUser(
           new UserDto(id: idUser, login: idUser.substring(0, 8), patientId: createdPatient!.id, passwordHash: passwordUser));
-      print("Patient user login ${idUser.substring(0, 8)} and password ${passwordUser}");
 
       var patApiClient = ApiClient.basic('https://kraken.icure.dev', createdUser!.login!, passwordUser);
 
@@ -175,8 +125,6 @@ void main() {
 
       final patUser = await retry(() => patUserApi.getCurrentUser());
       final keyPair = generateRandomPrivateAndPublicKeyPair();
-
-      print("Patient private key ${keyPair.item1} and public key ${keyPair.item2}");
 
       var patLc = LocalCrypto(DataOwnerResolver(patApiClient), { patUser!.patientId!: RSAKeypair(keyPair.item1.toPrivateKey())});
 

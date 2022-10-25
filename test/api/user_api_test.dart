@@ -8,13 +8,20 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
+import 'dart:io';
+
 import 'package:icure_dart_sdk/api.dart';
 import 'package:test/test.dart';
 
 
 /// tests for UserApi
 void main() {
-  final instance = UserApi(ApiClient.basic('https://kraken.icure.dev', 'abdemotst2', '27b90f6e-6847-44bf-b90f-6e6847b4bf1c'));
+  final iCureUrl = Platform.environment["ICURE_URL"] ?? "https://kraken.icure.dev";
+  final hcpUsername = Platform.environment["HCP_1_USERNAME"]!;
+  final hcpPassword = Platform.environment["HCP_1_PASSWORD"]!;
+  final apiClient = ApiClient.basic(iCureUrl, hcpUsername, hcpPassword);
+
+  final instance = UserApi(apiClient);
 
   group('tests for UserApi', () {
     // Assign a healthcare party ID to current user
@@ -118,7 +125,7 @@ void main() {
     //Future<UserDto> getCurrentUser() async
     test('test getCurrentUser', () async {
       UserDto? res = await instance.getCurrentUser();
-      assert(res?.login == 'abdemotst2');
+      assert(res?.login == hcpUsername);
     });
 
     // Get presently logged-in user.
