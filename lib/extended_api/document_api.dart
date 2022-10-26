@@ -3,36 +3,40 @@ part of icure_dart_sdk.api;
 
 extension DocumentInitDto on DecryptedDocumentDto {
 
-  Future<DecryptedDocumentDto> initDelegations(UserDto user, CryptoConfig<DecryptedDocumentDto, DocumentDto> config) async {
+  Future<DecryptedDocumentDto> initDelegations(UserDto user, CryptoConfig<DecryptedDocumentDto, DocumentDto> config, { Set<String>? delegates = null }) async {
     final Uuid uuid = Uuid();
 
-    Set<String> delegationKeys = Set.from(user.autoDelegations["all"] ?? <String>{})..addAll(user.autoDelegations["medicalInformation"] ?? <String>{});
+    Set<String> delegationKeys = Set.from(delegates ?? <String>{})
+      ..addAll(user.autoDelegations["all"] ?? <String>{})
+      ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{});
 
     final ek = Uint8List.fromList(List<int>.generate(32, (i) => random.nextInt(256)));
     final sfk = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
 
     responsible = user.dataOwnerId()!;
     author = user.id;
-    delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value({...delegations}),
-        (m, d) async => (await m)
-          ..addEntries([
-            MapEntry(d, {
-              DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk)).item1)
-            })
-          ]));
+    delegations = await (delegationKeys..add(user.dataOwnerId()!)).fold(Future.value({...delegations}), (m, d) async {
+      final acc = await m;
+      final keyAndOwner = await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk);
+      return acc..addEntries([
+          MapEntry(d, {
+            DelegationDto(owner: user.dataOwnerId(), delegatedTo: d, key: keyAndOwner.item1)
+          })
+        ]);
+    });
 
-    encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(
-        Future.value({...encryptionKeys}),
-        (m, d) async => (await m)
-          ..addEntries([
-            MapEntry(d, {
-              DelegationDto(
-                  owner: user.dataOwnerId(),
-                  delegatedTo: d,
-                  key: (await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek.toHexString())).item1)
-            })
-          ]));
+    encryptionKeys = await (delegationKeys..add(user.dataOwnerId()!)).fold(Future.value({...encryptionKeys}), (m, d) async {
+      final acc = await m;
+      final keyAndOwner = await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek.toHexString());
+      return acc..addEntries([
+          MapEntry(d, {
+            DelegationDto(
+                owner: user.dataOwnerId(),
+                delegatedTo: d,
+                key: keyAndOwner.item1)
+          })
+        ]);
+    });
     return this;
   }
 }

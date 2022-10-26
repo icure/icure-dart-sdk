@@ -6,9 +6,12 @@ import 'package:icure_dart_sdk/api.dart';
 import 'package:icure_dart_sdk/crypto/crypto.dart';
 import 'package:icure_dart_sdk/extended_api/data_owner_resolver.dart';
 import 'package:icure_dart_sdk/util/binary_utils.dart';
+import 'package:icure_dart_sdk/util/collection_utils.dart';
 import "package:test/test.dart";
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
+
+import '../util/user_creation_utils.dart';
 
 Future<E> retry<E>(Future<E> Function () action, {int trials = 5, int delay = 100}) async {
   try {
@@ -39,6 +42,50 @@ void main() {
   final Uuid uuid = Uuid();
 
   group('tests for PatientApi', () {
+    test('MDT-175: Patient Init Delegations test', () async {
+      // Init
+      final mainHcpUser = await UserCreationUtils.createAHcpUser(userApi, hcpApi);
+      final mainHcpApiClient = ApiClient.basic(iCureUrl, mainHcpUser.login, mainHcpUser.password);
+      final mainHcpUserApi = UserApi(mainHcpApiClient);
+      final mainHcpHcpApi = HealthcarePartyApi(mainHcpApiClient);
+      final mainHcpPatientApi = PatientApi(mainHcpApiClient);
+
+      final currentUser = await retry(() => mainHcpUserApi.getCurrentUser(), trials: 5, delay: 1000);
+      final currentHcp = await mainHcpHcpApi.getCurrentHealthcareParty();
+
+      if (currentUser == null || currentHcp == null) {
+        throw Exception("Test init error : Current User or current HCP can't be null");
+      }
+
+      final hcpUsers = <UserCreds>[];
+      for (int i = 0; i < 10; i++) {
+        hcpUsers.add(await UserCreationUtils.createAHcpUser(mainHcpUserApi, mainHcpHcpApi));
+      }
+
+      final lc = await LocalCrypto(DataOwnerResolver(mainHcpApiClient), {currentUser.healthcarePartyId!: RSAKeypair(mainHcpUser.privKey.toPrivateKey())});
+
+      for (int i = 0; i < 10; i++) {
+        final createdPatient = await mainHcpPatientApi.rawCreatePatient(PatientDto(
+            id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
+            firstName: 'John',
+            lastName: 'Doe',
+            note: 'Premature optimization is the root of all evil'));
+        final decrPatient = DecryptedPatientDto.fromJson(toJsonDeep(createdPatient!));
+
+        print("[$i] Creating patient ${createdPatient.id}");
+
+        // When
+        final patientWithDelegations = await decrPatient!.initDelegations(currentUser, patientCryptoConfig(lc), delegates: Set.from(hcpUsers.map((user) => user.hcpId)));
+
+        // Then
+        expect(patientWithDelegations.delegations.containsKey(currentHcp.id), true);
+        hcpUsers.forEach((user) { expect(patientWithDelegations.delegations.containsKey(user.hcpId), true); });
+
+        expect(patientWithDelegations.encryptionKeys.containsKey(currentHcp.id), true);
+        hcpUsers.forEach((user) { expect(patientWithDelegations.encryptionKeys.containsKey(user.hcpId), true); });
+      }
+    });
+
     test('test createPatient', () async {
       // Init
       final currentUser = await userApi.getCurrentUser();
