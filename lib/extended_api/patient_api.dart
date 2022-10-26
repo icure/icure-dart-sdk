@@ -2,10 +2,11 @@
 part of icure_dart_sdk.api;
 
 extension PatientInitDto on DecryptedPatientDto {
-  Future<DecryptedPatientDto> initDelegations(UserDto user, CryptoConfig<DecryptedPatientDto, PatientDto> config) async {
+  Future<DecryptedPatientDto> initDelegations(UserDto user, CryptoConfig<DecryptedPatientDto, PatientDto> config, { Set<String>? delegates = null }) async {
     final Uuid uuid = Uuid();
 
-    Set<String> delegates = Set.from(user.autoDelegations["all"] ?? <String>{})
+    Set<String> allDelegates = Set.from(delegates ?? <String>{})
+      ..addAll(user.autoDelegations["all"] ?? <String>{})
       ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{});
     final ek = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
     final sfk = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
@@ -14,13 +15,15 @@ extension PatientInitDto on DecryptedPatientDto {
     author = user.id;
 
     DataOwnerDto? dataOwner = null;
-    delegations = await (delegates..add(user.dataOwnerId()!)).fold(
+    delegations = await (allDelegates..add(user.dataOwnerId()!)).fold(
         Future.value({...delegations}),
             (m, d) async {
+          final acc = await m;
+
           final keyAndOwner = await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, sfk);
           dataOwner = keyAndOwner.item2 ?? dataOwner;
 
-          return (await m)..addEntries([
+          return acc..addEntries([
             MapEntry(d, {
               DelegationDto(
                   owner: user.dataOwnerId(),
@@ -31,13 +34,15 @@ extension PatientInitDto on DecryptedPatientDto {
           ]);
         });
 
-    encryptionKeys = await (delegates..add(user.dataOwnerId()!)).fold(
+    encryptionKeys = await (allDelegates..add(user.dataOwnerId()!)).fold(
         Future.value({...encryptionKeys}),
             (m, d) async {
+          final acc = await m;
+
           final keyAndOwner = await config.crypto.encryptAESKeyForHcp(user.dataOwnerId()!, d, id, ek);
           dataOwner = keyAndOwner.item2 ?? dataOwner;
 
-          return (await m)..addEntries([
+          return acc..addEntries([
             MapEntry(d, {
               DelegationDto(
                   owner: user.dataOwnerId(),
