@@ -1,3 +1,8 @@
+## 1.1.0
+
+- Adding the possibility to provide additional delegates when instancing a new data to encrypt
+- Fix race condition during patient initialization when creating delegations
+
 ## 1.0.53
 
 - Fixed getPatient

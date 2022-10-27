@@ -1,4 +1,9 @@
 git_push.sh
+icure-openapi-spec.json
+openapi-generator-cli.jar
+analysis_options.yaml
+icure-dart-sdk.iml
 /test/resources/attachments/**
 /test/resources/keys/**
-icure-dart-sdk.iml
+/icure-pre-commit
+/doc
