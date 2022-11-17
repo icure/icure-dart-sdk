@@ -73,7 +73,7 @@ class BeefactApi {
   Future<MessageWithBatch?> createBatchAndMessage(String insuranceId, String newMessageId, int numericalRef, MapOfIdsDto mapOfIdsDto,) async {
     final response = await createBatchAndMessageWithHttpInfo(insuranceId, newMessageId, numericalRef, mapOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

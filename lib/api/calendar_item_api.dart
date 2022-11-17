@@ -58,7 +58,7 @@ class CalendarItemApi {
   Future<CalendarItemDto?> createCalendarItem(CalendarItemDto calendarItemDto,) async {
     final response = await createCalendarItemWithHttpInfo(calendarItemDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -112,7 +112,7 @@ class CalendarItemApi {
   Future<List<DocIdentifier>?> deleteCalendarItem(String calendarItemIds,) async {
     final response = await deleteCalendarItemWithHttpInfo(calendarItemIds,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -168,7 +168,7 @@ class CalendarItemApi {
   Future<List<DocIdentifier>?> deleteCalendarItems(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteCalendarItemsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -232,7 +232,7 @@ class CalendarItemApi {
   Future<List<CalendarItemDto>?> findCalendarItemsByHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await findCalendarItemsByHCPartyPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -291,7 +291,7 @@ class CalendarItemApi {
   Future<List<CalendarItemDto>?> findCalendarItemsByRecurrenceId(String recurrenceId,) async {
     final response = await findCalendarItemsByRecurrenceIdWithHttpInfo(recurrenceId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -348,7 +348,7 @@ class CalendarItemApi {
   Future<CalendarItemDto?> getCalendarItem(String calendarItemId,) async {
     final response = await getCalendarItemWithHttpInfo(calendarItemId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -393,7 +393,7 @@ class CalendarItemApi {
   Future<List<CalendarItemDto>?> getCalendarItems() async {
     final response = await getCalendarItemsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -462,7 +462,7 @@ class CalendarItemApi {
   Future<List<CalendarItemDto>?> getCalendarItemsByPeriodAndHcPartyId(int startDate, int endDate, String hcPartyId,) async {
     final response = await getCalendarItemsByPeriodAndHcPartyIdWithHttpInfo(startDate, endDate, hcPartyId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -518,7 +518,7 @@ class CalendarItemApi {
   Future<List<CalendarItemDto>?> getCalendarItemsWithIds({ ListOfIdsDto? listOfIdsDto, }) async {
     final response = await getCalendarItemsWithIdsWithHttpInfo( listOfIdsDto: listOfIdsDto, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -587,7 +587,7 @@ class CalendarItemApi {
   Future<List<CalendarItemDto>?> getCalendarsByPeriodAndAgendaId(int startDate, int endDate, String agendaId,) async {
     final response = await getCalendarsByPeriodAndAgendaIdWithHttpInfo(startDate, endDate, agendaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -643,7 +643,7 @@ class CalendarItemApi {
   Future<CalendarItemDto?> modifyCalendarItem(CalendarItemDto calendarItemDto,) async {
     final response = await modifyCalendarItemWithHttpInfo(calendarItemDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -696,7 +696,7 @@ class CalendarItemApi {
   Future<List<CalendarItemDto>?> setCalendarItemsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await setCalendarItemsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

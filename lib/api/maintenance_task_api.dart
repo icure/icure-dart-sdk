@@ -58,7 +58,7 @@ class MaintenanceTaskApi {
   Future<MaintenanceTaskDto?> createMaintenanceTask(MaintenanceTaskDto maintenanceTaskDto) async {
     final response = await createMaintenanceTaskWithHttpInfo(maintenanceTaskDto);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -112,7 +112,7 @@ class MaintenanceTaskApi {
   Future<List<DocIdentifier>?> deleteMaintenanceTask(String maintenanceTaskIds) async {
     final response = await deleteMaintenanceTaskWithHttpInfo(maintenanceTaskIds);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -190,7 +190,7 @@ class MaintenanceTaskApi {
   Future<PaginatedListMaintenanceTaskDto?> filterMaintenanceTasksBy(FilterChain<MaintenanceTaskDto> filterChainMaintenanceTask, { String? startDocumentId, int? limit }) async {
     final response = await filterMaintenanceTasksByWithHttpInfo(filterChainMaintenanceTask,  startDocumentId: startDocumentId, limit: limit );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -244,7 +244,7 @@ class MaintenanceTaskApi {
   Future<MaintenanceTaskDto?> getMaintenanceTask(String maintenanceTaskId) async {
     final response = await getMaintenanceTaskWithHttpInfo(maintenanceTaskId);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -297,7 +297,7 @@ class MaintenanceTaskApi {
   Future<MaintenanceTaskDto?> modifyMaintenanceTask(MaintenanceTaskDto maintenanceTaskDto) async {
     final response = await modifyMaintenanceTaskWithHttpInfo(maintenanceTaskDto);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

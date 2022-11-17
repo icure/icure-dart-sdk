@@ -58,7 +58,7 @@ class TimeTableApi {
   Future<TimeTableDto?> rawCreateTimeTable(TimeTableDto timeTableDto,) async {
     final response = await rawCreateTimeTableWithHttpInfo(timeTableDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -112,7 +112,7 @@ class TimeTableApi {
   Future<List<DocIdentifier>?> rawDeleteTimeTable(ListOfIdsDto listOfIdsDto,) async {
     final response = await rawDeleteTimeTableWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -169,7 +169,7 @@ class TimeTableApi {
   Future<TimeTableDto?> rawGetTimeTable(String timeTableId,) async {
     final response = await rawGetTimeTableWithHttpInfo(timeTableId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -225,7 +225,7 @@ class TimeTableApi {
   Future<List<TimeTableDto>?> rawGetTimeTablesByAgendaId(String agendaId,) async {
     final response = await rawGetTimeTablesByAgendaIdWithHttpInfo(agendaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -294,7 +294,7 @@ class TimeTableApi {
   Future<List<TimeTableDto>?> rawGetTimeTablesByPeriodAndAgendaId(int startDate, int endDate, String agendaId,) async {
     final response = await rawGetTimeTablesByPeriodAndAgendaIdWithHttpInfo(startDate, endDate, agendaId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -350,7 +350,7 @@ class TimeTableApi {
   Future<TimeTableDto?> rawModifyTimeTable(TimeTableDto timeTableDto,) async {
     final response = await rawModifyTimeTableWithHttpInfo(timeTableDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
