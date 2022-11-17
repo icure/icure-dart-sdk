@@ -58,7 +58,7 @@ class AccessLogApi {
   Future<AccessLogDto?> rawCreateAccessLog(AccessLogDto accessLogDto,) async {
     final response = await rawCreateAccessLogWithHttpInfo(accessLogDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -111,7 +111,7 @@ class AccessLogApi {
   Future<List<DocIdentifier>?> rawDeleteAccessLogs(ListOfIdsDto listOfIdsDto,) async {
     final response = await rawDeleteAccessLogsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -207,7 +207,7 @@ class AccessLogApi {
   Future<PaginatedListAccessLogDto?> rawFindAccessLogsBy({ int? fromEpoch, int? toEpoch, int? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     final response = await rawFindAccessLogsByWithHttpInfo( fromEpoch: fromEpoch, toEpoch: toEpoch, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -319,7 +319,7 @@ class AccessLogApi {
   Future<PaginatedListAccessLogDto?> rawFindAccessLogsByUserAfterDate(String userId, { String? accessType, int? startDate, String? startKey, String? startDocumentId, int? limit, bool? descending, }) async {
     final response = await rawFindAccessLogsByUserAfterDateWithHttpInfo(userId,  accessType: accessType, startDate: startDate, startKey: startKey, startDocumentId: startDocumentId, limit: limit, descending: descending, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -373,7 +373,7 @@ class AccessLogApi {
   Future<AccessLogDto?> rawGetAccessLog(String accessLogId,) async {
     final response = await rawGetAccessLogWithHttpInfo(accessLogId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -434,7 +434,7 @@ class AccessLogApi {
   Future<List<AccessLogDto>?> rawListAccessLogsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await rawListAccessLogsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -490,7 +490,7 @@ class AccessLogApi {
   Future<AccessLogDto?> rawModifyAccessLog(AccessLogDto accessLogDto,) async {
     final response = await rawModifyAccessLogWithHttpInfo(accessLogDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

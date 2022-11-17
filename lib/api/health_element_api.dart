@@ -62,7 +62,7 @@ class HealthElementApi {
   Future<HealthElementDto?> rawCreateHealthElement(HealthElementDto healthElementDto,) async {
     final response = await rawCreateHealthElementWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -119,7 +119,7 @@ class HealthElementApi {
   Future<List<HealthElementDto>?> rawCreateHealthElements(List<HealthElementDto> healthElementDto,) async {
     final response = await rawCreateHealthElementsWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -179,7 +179,7 @@ class HealthElementApi {
   Future<List<DocIdentifier>?> rawDeleteHealthElements(ListOfIdsDto listOfIdsDto,) async {
     final response = await rawDeleteHealthElementsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -259,7 +259,7 @@ class HealthElementApi {
   Future<PaginatedListHealthElementDto?> rawFilterHealthElementsBy(FilterChain<HealthElementDto> filterChainHealthElement, { String? startDocumentId, int? limit, }) async {
     final response = await rawFilterHealthElementsByWithHttpInfo(filterChainHealthElement,  startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -313,7 +313,7 @@ class HealthElementApi {
   Future<HealthElementDto?> rawGetHealthElement(String healthElementId,) async {
     final response = await rawGetHealthElementWithHttpInfo(healthElementId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -370,7 +370,7 @@ class HealthElementApi {
   Future<List<HealthElementDto>?> rawGetHealthElements(ListOfIdsDto listOfIdsDto,) async {
     final response = await rawGetHealthElementsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -438,7 +438,7 @@ class HealthElementApi {
   Future<List<HealthElementDto>?> rawListHealthElementsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await rawListHealthElementsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -506,7 +506,7 @@ class HealthElementApi {
   Future<List<IcureStubDto>?> rawListHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await rawListHealthElementsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -562,7 +562,7 @@ class HealthElementApi {
   Future<List<String>?> rawMatchHealthElementsBy(AbstractFilterDto<HealthElementDto> abstractFilterDtoHealthElement,) async {
     final response = await rawMatchHealthElementsByWithHttpInfo(abstractFilterDtoHealthElement,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -622,7 +622,7 @@ class HealthElementApi {
   Future<HealthElementDto?> rawModifyHealthElement(HealthElementDto healthElementDto,) async {
     final response = await rawModifyHealthElementWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -679,7 +679,7 @@ class HealthElementApi {
   Future<List<HealthElementDto>?> rawModifyHealthElements(List<HealthElementDto> healthElementDto,) async {
     final response = await rawModifyHealthElementsWithHttpInfo(healthElementDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -744,7 +744,7 @@ class HealthElementApi {
   Future<HealthElementDto?> rawNewHealthElementDelegations(String healthElementId, List<DelegationDto> delegationDto,) async {
     final response = await rawNewHealthElementDelegationsWithHttpInfo(healthElementId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -801,7 +801,7 @@ class HealthElementApi {
   Future<List<HealthElementDto>?> rawSetHealthElementsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await rawSetHealthElementsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

@@ -61,7 +61,7 @@ class EntityTemplateApi {
   Future<EntityTemplateDto?> createEntityTemplate(EntityTemplateDto entityTemplateDto,) async {
     final response = await createEntityTemplateWithHttpInfo(entityTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -118,7 +118,7 @@ class EntityTemplateApi {
   Future<List<EntityTemplateDto>?> createEntityTemplates(List<EntityTemplateDto> entityTemplateDto,) async {
     final response = await createEntityTemplatesWithHttpInfo(entityTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -175,7 +175,7 @@ class EntityTemplateApi {
   Future<List<DocIdentifier>?> deleteEntityTemplate(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteEntityTemplateWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -250,7 +250,7 @@ class EntityTemplateApi {
   Future<List<EntityTemplateDto>?> findAllEntityTemplatesByKeyword(String type, String keyword, { bool? includeEntities, }) async {
     final response = await findAllEntityTemplatesByKeywordWithHttpInfo(type, keyword,  includeEntities: includeEntities, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -313,7 +313,7 @@ class EntityTemplateApi {
   Future<EntityTemplateDto?> getEntityTemplate(String entityTemplateId,) async {
     final response = await getEntityTemplateWithHttpInfo(entityTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -370,7 +370,7 @@ class EntityTemplateApi {
   Future<List<EntityTemplateDto>?> getEntityTemplates(ListOfIdsDto listOfIdsDto,) async {
     final response = await getEntityTemplatesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -446,7 +446,7 @@ class EntityTemplateApi {
   Future<List<EntityTemplateDto>?> listAllEntityTemplatesBy(String type, { String? searchString, bool? includeEntities, }) async {
     final response = await listAllEntityTemplatesByWithHttpInfo(type,  searchString: searchString, includeEntities: includeEntities, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -526,7 +526,7 @@ class EntityTemplateApi {
   Future<List<EntityTemplateDto>?> listEntityTemplatesBy(String userId, String type, { String? searchString, bool? includeEntities, }) async {
     final response = await listEntityTemplatesByWithHttpInfo(userId, type,  searchString: searchString, includeEntities: includeEntities, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -606,7 +606,7 @@ class EntityTemplateApi {
   Future<List<EntityTemplateDto>?> listEntityTemplatesByKeyword(String userId, String type, String keyword, { bool? includeEntities, }) async {
     final response = await listEntityTemplatesByKeywordWithHttpInfo(userId, type, keyword,  includeEntities: includeEntities, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -666,7 +666,7 @@ class EntityTemplateApi {
   Future<EntityTemplateDto?> modifyEntityTemplate(EntityTemplateDto entityTemplateDto,) async {
     final response = await modifyEntityTemplateWithHttpInfo(entityTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -723,7 +723,7 @@ class EntityTemplateApi {
   Future<List<EntityTemplateDto>?> modifyEntityTemplates(List<EntityTemplateDto> entityTemplateDto,) async {
     final response = await modifyEntityTemplatesWithHttpInfo(entityTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

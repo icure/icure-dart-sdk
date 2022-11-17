@@ -83,7 +83,7 @@ class BeresultexportApi {
   Future<MultipartFile?> exportHealthOne(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
     final response = await exportHealthOneWithHttpInfo(fromHcpId, toHcpId, patId, date, ref, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -170,7 +170,7 @@ class BeresultexportApi {
   Future<MultipartFile?> exportKmehrReport(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody, { bool? mimeType, }) async {
     final response = await exportKmehrReportWithHttpInfo(fromHcpId, toHcpId, patId, date, ref, requestBody,  mimeType: mimeType, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -249,7 +249,7 @@ class BeresultexportApi {
   Future<MultipartFile?> exportMedidoc(String fromHcpId, String toHcpId, String patId, int date, String ref, List<String> requestBody,) async {
     final response = await exportMedidocWithHttpInfo(fromHcpId, toHcpId, patId, date, ref, requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

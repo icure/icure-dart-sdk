@@ -84,7 +84,7 @@ class BekmehrApi {
   Future<List<CheckSMFPatientResult>?> checkIfSMFPatientsExists(String documentId, { String? documentKey, String? patientId, String? language, Map<String, List<ImportMapping>>? requestBody, }) async {
     final response = await checkIfSMFPatientsExistsWithHttpInfo(documentId,  documentKey: documentKey, patientId: patientId, language: language, requestBody: requestBody, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -185,7 +185,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateContactreportExport(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     final response = await generateContactreportExportWithHttpInfo(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -249,7 +249,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateDiaryNote(String patientId, String language, DiaryNoteExportInfoDto diaryNoteExportInfoDto,) async {
     final response = await generateDiaryNoteWithHttpInfo(patientId, language, diaryNoteExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -347,7 +347,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateLabresultExport(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     final response = await generateLabresultExportWithHttpInfo(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -421,7 +421,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateMedicationSchemeExport(String patientId, String language, String recipientSafe, int version, MedicationSchemeExportInfoDto medicationSchemeExportInfoDto,) async {
     final response = await generateMedicationSchemeExportWithHttpInfo(patientId, language, recipientSafe, version, medicationSchemeExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -519,7 +519,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateNoteExport(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     final response = await generateNoteExportWithHttpInfo(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -581,7 +581,7 @@ class BekmehrApi {
   Future<MultipartFile?> generatePatientInfoExport(String patientId, { String? language, }) async {
     final response = await generatePatientInfoExportWithHttpInfo(patientId,  language: language, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -681,7 +681,7 @@ class BekmehrApi {
   Future<MultipartFile?> generatePrescriptionExport(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     final response = await generatePrescriptionExportWithHttpInfo(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -779,7 +779,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateReportExport(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     final response = await generateReportExportWithHttpInfo(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -877,7 +877,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateRequestExport(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     final response = await generateRequestExportWithHttpInfo(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -975,7 +975,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateResultExport(String patientId, String id, int date, String language, String recipientNihii, String recipientSsin, String recipientFirstName, String recipientLastName, String mimeType, MultipartFile body,) async {
     final response = await generateResultExportWithHttpInfo(patientId, id, date, language, recipientNihii, recipientSsin, recipientFirstName, recipientLastName, mimeType, body,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1039,7 +1039,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateSmfExport(String patientId, String language, SoftwareMedicalFileExportDto softwareMedicalFileExportDto,) async {
     final response = await generateSmfExportWithHttpInfo(patientId, language, softwareMedicalFileExportDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1103,7 +1103,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateSumehr(String patientId, String language, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await generateSumehrWithHttpInfo(patientId, language, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1167,7 +1167,7 @@ class BekmehrApi {
   Future<MultipartFile?> generateSumehrV2(String patientId, String language, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await generateSumehrV2WithHttpInfo(patientId, language, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1225,7 +1225,7 @@ class BekmehrApi {
   Future<SumehrContentDto?> getSumehrContent(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await getSumehrContentWithHttpInfo(patientId, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1284,7 +1284,7 @@ class BekmehrApi {
   Future<ContentDto?> getSumehrMd5(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await getSumehrMd5WithHttpInfo(patientId, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1342,7 +1342,7 @@ class BekmehrApi {
   Future<SumehrContentDto?> getSumehrV2Content(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await getSumehrV2ContentWithHttpInfo(patientId, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1400,7 +1400,7 @@ class BekmehrApi {
   Future<ContentDto?> getSumehrV2Md5(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await getSumehrV2Md5WithHttpInfo(patientId, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1489,7 +1489,7 @@ class BekmehrApi {
   Future<List<ImportResultDto>?> importMedicationScheme(String documentId, { String? documentKey, bool? dryRun, String? patientId, String? language, Map<String, List<ImportMapping>>? requestBody, }) async {
     final response = await importMedicationSchemeWithHttpInfo(documentId,  documentKey: documentKey, dryRun: dryRun, patientId: patientId, language: language, requestBody: requestBody, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1579,7 +1579,7 @@ class BekmehrApi {
   Future<List<ImportResultDto>?> importSmf(String documentId, { String? documentKey, String? patientId, String? language, bool? dryRun, Map<String, List<ImportMapping>>? requestBody, }) async {
     final response = await importSmfWithHttpInfo(documentId,  documentKey: documentKey, patientId: patientId, language: language, dryRun: dryRun, requestBody: requestBody, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1671,7 +1671,7 @@ class BekmehrApi {
   Future<List<ImportResultDto>?> importSumehr(String documentId, { String? documentKey, bool? dryRun, String? patientId, String? language, Map<String, List<ImportMapping>>? requestBody, }) async {
     final response = await importSumehrWithHttpInfo(documentId,  documentKey: documentKey, dryRun: dryRun, patientId: patientId, language: language, requestBody: requestBody, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1768,7 +1768,7 @@ class BekmehrApi {
   Future<List<ImportResultDto>?> importSumehrByItemId(String documentId, String itemId, { String? documentKey, bool? dryRun, String? patientId, String? language, Map<String, List<ImportMapping>>? requestBody, }) async {
     final response = await importSumehrByItemIdWithHttpInfo(documentId, itemId,  documentKey: documentKey, dryRun: dryRun, patientId: patientId, language: language, requestBody: requestBody, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1830,7 +1830,7 @@ class BekmehrApi {
   Future<SumehrValidityDto?> isSumehrV2Valid(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await isSumehrV2ValidWithHttpInfo(patientId, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1888,7 +1888,7 @@ class BekmehrApi {
   Future<SumehrValidityDto?> isSumehrValid(String patientId, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await isSumehrValidWithHttpInfo(patientId, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1952,7 +1952,7 @@ class BekmehrApi {
   Future<MultipartFile?> validateSumehr(String patientId, String language, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await validateSumehrWithHttpInfo(patientId, language, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -2016,7 +2016,7 @@ class BekmehrApi {
   Future<MultipartFile?> validateSumehrV2(String patientId, String language, SumehrExportInfoDto sumehrExportInfoDto,) async {
     final response = await validateSumehrV2WithHttpInfo(patientId, language, sumehrExportInfoDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-ID"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
