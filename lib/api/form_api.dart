@@ -62,7 +62,7 @@ class FormApi {
   Future<FormDto?> rawCreateForm(FormDto formDto,) async {
     final response = await rawCreateFormWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -120,7 +120,7 @@ class FormApi {
   Future<FormTemplateDto?> rawCreateFormTemplate(FormTemplateDto formTemplateDto,) async {
     final response = await rawCreateFormTemplateWithHttpInfo(formTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -177,7 +177,7 @@ class FormApi {
   Future<List<FormDto>?> rawCreateForms(List<FormDto> formDto,) async {
     final response = await rawCreateFormsWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -234,7 +234,7 @@ class FormApi {
   Future<DocIdentifier?> rawDeleteFormTemplate(String formTemplateId,) async {
     final response = await rawDeleteFormTemplateWithHttpInfo(formTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -291,7 +291,7 @@ class FormApi {
   Future<List<DocIdentifier>?> rawDeleteForms(ListOfIdsDto listOfIdsDto,) async {
     final response = await rawDeleteFormsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -356,7 +356,7 @@ class FormApi {
   Future<List<FormDto>?> rawGetChildrenForms(String formId, String hcPartyId,) async {
     final response = await rawGetChildrenFormsWithHttpInfo(formId, hcPartyId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -413,7 +413,7 @@ class FormApi {
   Future<FormDto?> rawGetForm(String formId,) async {
     final response = await rawGetFormWithHttpInfo(formId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -467,7 +467,7 @@ class FormApi {
   Future<FormDto?> rawGetFormByLogicalUuid(String logicalUuid,) async {
     final response = await rawGetFormByLogicalUuidWithHttpInfo(logicalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -521,7 +521,7 @@ class FormApi {
   Future<FormDto?> rawGetFormByUniqueId(String uniqueId,) async {
     final response = await rawGetFormByUniqueIdWithHttpInfo(uniqueId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -575,7 +575,7 @@ class FormApi {
   Future<FormTemplateDto?> rawGetFormTemplate(String formTemplateId,) async {
     final response = await rawGetFormTemplateWithHttpInfo(formTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -633,7 +633,7 @@ class FormApi {
   Future<List<FormTemplateDto>?> rawGetFormTemplates({ bool? loadLayout, }) async {
     final response = await rawGetFormTemplatesWithHttpInfo( loadLayout: loadLayout, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -696,7 +696,7 @@ class FormApi {
   Future<List<FormTemplateDto>?> rawGetFormTemplatesByGuid(String formTemplateGuid, String specialityCode,) async {
     final response = await rawGetFormTemplatesByGuidWithHttpInfo(formTemplateGuid, specialityCode,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -757,7 +757,7 @@ class FormApi {
   Future<List<FormDto>?> rawGetForms(ListOfIdsDto listOfIdsDto,) async {
     final response = await rawGetFormsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -815,7 +815,7 @@ class FormApi {
   Future<List<FormDto>?> rawGetFormsByLogicalUuid(String logicalUuid,) async {
     final response = await rawGetFormsByLogicalUuidWithHttpInfo(logicalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -872,7 +872,7 @@ class FormApi {
   Future<List<FormDto>?> rawGetFormsByUniqueId(String uniqueId,) async {
     final response = await rawGetFormsByUniqueIdWithHttpInfo(uniqueId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -937,7 +937,7 @@ class FormApi {
   Future<List<FormTemplateDto>?> rawListFormTemplatesBySpeciality(String specialityCode, { bool? loadLayout, }) async {
     final response = await rawListFormTemplatesBySpecialityWithHttpInfo(specialityCode,  loadLayout: loadLayout, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1026,7 +1026,7 @@ class FormApi {
   Future<List<FormDto>?> rawListFormsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys, { String? healthElementId, String? planOfActionId, String? formTemplateId, }) async {
     final response = await rawListFormsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,  healthElementId: healthElementId, planOfActionId: planOfActionId, formTemplateId: formTemplateId, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1094,7 +1094,7 @@ class FormApi {
   Future<List<IcureStubDto>?> rawListFormsDelegationsStubsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await rawListFormsDelegationsStubsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1154,7 +1154,7 @@ class FormApi {
   Future<FormDto?> rawModifyForm(FormDto formDto,) async {
     final response = await rawModifyFormWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1211,7 +1211,7 @@ class FormApi {
   Future<List<FormDto>?> rawModifyForms(List<FormDto> formDto,) async {
     final response = await rawModifyFormsWithHttpInfo(formDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1276,7 +1276,7 @@ class FormApi {
   Future<FormDto?> rawNewFormDelegations(String formId, List<DelegationDto> delegationDto,) async {
     final response = await rawNewFormDelegationsWithHttpInfo(formId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1333,7 +1333,7 @@ class FormApi {
   Future<List<IcureStubDto>?> rawSetFormsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await rawSetFormsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1403,7 +1403,7 @@ class FormApi {
   Future<String?> rawSetTemplateAttachmentMulti(String formTemplateId, String attachment,) async {
     final response = await rawSetTemplateAttachmentMultiWithHttpInfo(formTemplateId, attachment,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1465,7 +1465,7 @@ class FormApi {
   Future<FormTemplateDto?> rawUpdateFormTemplate(String formTemplateId, FormTemplateDto formTemplateDto,) async {
     final response = await rawUpdateFormTemplateWithHttpInfo(formTemplateId, formTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

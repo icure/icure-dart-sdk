@@ -96,7 +96,7 @@ class AnonymousAccessApi {
   Future<List<int>?> getAvailabilitiesByPeriodAndCalendarItemTypeId(String groupId, String userId, String getCalendarItemTypeId, int startDate, int endDate, String hcpId, { int? limit, }) async {
     final response = await getAvailabilitiesByPeriodAndCalendarItemTypeIdWithHttpInfo(groupId, userId, getCalendarItemTypeId, startDate, endDate, hcpId,  limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -178,7 +178,7 @@ class AnonymousAccessApi {
   Future<List<CalendarItemTypeDto>?> listAppointmentTypesForUser(String groupId, String userId, int startDate, int endDate,) async {
     final response = await listAppointmentTypesForUserWithHttpInfo(groupId, userId, startDate, endDate,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -241,7 +241,7 @@ class AnonymousAccessApi {
   Future<List<UserDto>?> listHealthcarePartiesInGroup(String groupId,) async {
     final response = await listHealthcarePartiesInGroupWithHttpInfo(groupId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

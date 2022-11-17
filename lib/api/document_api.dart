@@ -58,7 +58,7 @@ class DocumentApi {
   Future<DocumentDto?> rawCreateDocument(DocumentDto documentDto,) async {
     final response = await rawCreateDocumentWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -113,7 +113,7 @@ class DocumentApi {
   Future<DocumentDto?> rawDeleteAttachment(String documentId,) async {
     final response = await rawDeleteAttachmentWithHttpInfo(documentId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -166,7 +166,7 @@ class DocumentApi {
   Future<List<DocIdentifier>?> rawDeleteDocument(ListOfIdsDto listOfIdsDto,) async {
     final response = await rawDeleteDocumentWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -231,7 +231,7 @@ class DocumentApi {
   Future<List<DocumentDto>?> rawFindWithoutDelegation({ int? limit, }) async {
     final response = await rawFindWithoutDelegationWithHttpInfo( limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -288,7 +288,7 @@ class DocumentApi {
   Future<DocumentDto?> rawGetDocument(String documentId,) async {
     final response = await rawGetDocumentWithHttpInfo(documentId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -362,7 +362,7 @@ class DocumentApi {
   Future<MultipartFile?> rawGetDocumentAttachment(String documentId, String attachmentId, { String? enckeys, String? fileName, }) async {
     final response = await rawGetDocumentAttachmentWithHttpInfo(documentId, attachmentId,  enckeys: enckeys, fileName: fileName, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -416,7 +416,7 @@ class DocumentApi {
   Future<DocumentDto?> rawGetDocumentByExternalUuid(String externalUuid,) async {
     final response = await rawGetDocumentByExternalUuidWithHttpInfo(externalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -469,7 +469,7 @@ class DocumentApi {
   Future<List<DocumentDto>?> rawGetDocuments(ListOfIdsDto listOfIdsDto,) async {
     final response = await rawGetDocumentsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -527,7 +527,7 @@ class DocumentApi {
   Future<List<DocumentDto>?> rawGetDocumentsByExternalUuid(String externalUuid,) async {
     final response = await rawGetDocumentsByExternalUuidWithHttpInfo(externalUuid,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -600,7 +600,7 @@ class DocumentApi {
   Future<List<DocumentDto>?> rawListDocumentByTypeHCPartyMessageSecretFKeys(String documentTypeCode, String hcPartyId, String secretFKeys,) async {
     final response = await rawListDocumentByTypeHCPartyMessageSecretFKeysWithHttpInfo(documentTypeCode, hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -668,7 +668,7 @@ class DocumentApi {
   Future<List<DocumentDto>?> rawListDocumentsByHCPartyAndPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await rawListDocumentsByHCPartyAndPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -724,7 +724,7 @@ class DocumentApi {
   Future<DocumentDto?> rawModifyDocument(DocumentDto documentDto,) async {
     final response = await rawModifyDocumentWithHttpInfo(documentDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -781,7 +781,7 @@ class DocumentApi {
   Future<List<DocumentDto>?> rawModifyDocuments(List<DocumentDto> documentDto) async {
     final response = await rawModifyDocumentsWithHttpInfo(documentDto);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -850,7 +850,7 @@ class DocumentApi {
   Future<DocumentDto?> rawSetDocumentAttachment(String documentId, ByteStream attachment, { String? enckeys, }) async {
     final response = await rawSetDocumentAttachmentWithHttpInfo(documentId, attachment,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -915,7 +915,7 @@ class DocumentApi {
   Future<DocumentDto?> rawSetDocumentAttachmentMulti(String documentId, MultipartFile attachment, { String? enckeys, }) async {
     final response = await rawSetDocumentAttachmentMultiWithHttpInfo(documentId, attachment,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -972,7 +972,7 @@ class DocumentApi {
   Future<List<IcureStubDto>?> rawSetDocumentsDelegations(List<IcureStubDto> icureStubDto,) async {
     final response = await rawSetDocumentsDelegationsWithHttpInfo(icureStubDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1042,7 +1042,7 @@ class DocumentApi {
   Future<DocumentDto?> rawSetSafeDocumentAttachment(String documentId, MultipartFile body, { String? enckeys, }) async {
     final response = await rawSetSafeDocumentAttachmentWithHttpInfo(documentId, body,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

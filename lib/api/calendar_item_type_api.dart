@@ -58,7 +58,7 @@ class CalendarItemTypeApi {
   Future<CalendarItemTypeDto?> createCalendarItemType(CalendarItemTypeDto calendarItemTypeDto,) async {
     final response = await createCalendarItemTypeWithHttpInfo(calendarItemTypeDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -111,7 +111,7 @@ class CalendarItemTypeApi {
   Future<List<DocIdentifier>?> deleteCalendarItemTypes(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteCalendarItemTypesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -168,7 +168,7 @@ class CalendarItemTypeApi {
   Future<CalendarItemTypeDto?> getCalendarItemType(String calendarItemTypeId,) async {
     final response = await getCalendarItemTypeWithHttpInfo(calendarItemTypeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -213,7 +213,7 @@ class CalendarItemTypeApi {
   Future<List<CalendarItemTypeDto>?> getCalendarItemTypes() async {
     final response = await getCalendarItemTypesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -261,7 +261,7 @@ class CalendarItemTypeApi {
   Future<List<CalendarItemTypeDto>?> getCalendarItemTypesIncludeDeleted() async {
     final response = await getCalendarItemTypesIncludeDeletedWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -317,7 +317,7 @@ class CalendarItemTypeApi {
   Future<CalendarItemTypeDto?> modifyCalendarItemType(CalendarItemTypeDto calendarItemTypeDto,) async {
     final response = await modifyCalendarItemTypeWithHttpInfo(calendarItemTypeDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

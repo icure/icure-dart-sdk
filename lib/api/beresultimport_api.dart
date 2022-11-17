@@ -65,7 +65,7 @@ class BeresultimportApi {
   Future<bool?> canHandle(String id, String enckeys,) async {
     final response = await canHandleWithHttpInfo(id, enckeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -156,7 +156,7 @@ class BeresultimportApi {
   Future<ContactDto?> doImport(String documentId, String hcpId, String language, String protocolIds, String formIds, String planOfActionId, String enckeys, ContactDto ctc,) async {
     final response = await doImportWithHttpInfo(documentId, hcpId, language, protocolIds, formIds, planOfActionId, enckeys, ctc,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -228,7 +228,7 @@ class BeresultimportApi {
   Future<List<ResultInfoDto>?> getInfos(String id, String language, String enckeys, { bool? full, }) async {
     final response = await getInfosWithHttpInfo(id, language, enckeys,  full: full, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

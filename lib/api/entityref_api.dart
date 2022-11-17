@@ -58,7 +58,7 @@ class EntityrefApi {
   Future<EntityReferenceDto?> createEntityReference(EntityReferenceDto entityReferenceDto,) async {
     final response = await createEntityReferenceWithHttpInfo(entityReferenceDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -113,7 +113,7 @@ class EntityrefApi {
   Future<EntityReferenceDto?> getLatest(String prefix,) async {
     final response = await getLatestWithHttpInfo(prefix,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["X-Request-Id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
