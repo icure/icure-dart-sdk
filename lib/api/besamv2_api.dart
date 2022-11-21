@@ -65,7 +65,7 @@ class Besamv2Api {
   Future<List<AmpDto>?> findAmpsByDmppCode(String dmppCode,) async {
     final response = await findAmpsByDmppCodeWithHttpInfo(dmppCode,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -156,7 +156,7 @@ class Besamv2Api {
   Future<PaginatedListAmpDto?> findPaginatedAmpsByAtc(String atcCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByAtcWithHttpInfo(atcCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -244,7 +244,7 @@ class Besamv2Api {
   Future<PaginatedListAmpDto?> findPaginatedAmpsByGroupCode(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByGroupCodeWithHttpInfo(vmpgCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -332,7 +332,7 @@ class Besamv2Api {
   Future<PaginatedListAmpDto?> findPaginatedAmpsByGroupId(String vmpgId, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByGroupIdWithHttpInfo(vmpgId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -432,7 +432,7 @@ class Besamv2Api {
   Future<PaginatedListAmpDto?> findPaginatedAmpsByLabel({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByLabelWithHttpInfo( language: language, label: label, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -520,7 +520,7 @@ class Besamv2Api {
   Future<PaginatedListAmpDto?> findPaginatedAmpsByVmpCode(String vmpCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByVmpCodeWithHttpInfo(vmpCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -608,7 +608,7 @@ class Besamv2Api {
   Future<PaginatedListAmpDto?> findPaginatedAmpsByVmpId(String vmpId, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedAmpsByVmpIdWithHttpInfo(vmpId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -708,7 +708,7 @@ class Besamv2Api {
   Future<PaginatedListNmpDto?> findPaginatedNmpsByLabel({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedNmpsByLabelWithHttpInfo( language: language, label: label, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -808,7 +808,7 @@ class Besamv2Api {
   Future<PaginatedListVmpGroupDto?> findPaginatedVmpGroupsByLabel({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpGroupsByLabelWithHttpInfo( language: language, label: label, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -896,7 +896,7 @@ class Besamv2Api {
   Future<PaginatedListVmpGroupDto?> findPaginatedVmpGroupsByVmpGroupCode(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpGroupsByVmpGroupCodeWithHttpInfo(vmpgCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -984,7 +984,7 @@ class Besamv2Api {
   Future<PaginatedListVmpDto?> findPaginatedVmpsByGroupCode(String vmpgCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpsByGroupCodeWithHttpInfo(vmpgCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1072,7 +1072,7 @@ class Besamv2Api {
   Future<PaginatedListVmpDto?> findPaginatedVmpsByGroupId(String vmpgId, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpsByGroupIdWithHttpInfo(vmpgId,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1172,7 +1172,7 @@ class Besamv2Api {
   Future<PaginatedListVmpDto?> findPaginatedVmpsByLabel({ String? language, String? label, String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpsByLabelWithHttpInfo( language: language, label: label, startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1261,7 +1261,7 @@ class Besamv2Api {
   Future<PaginatedListVmpDto?> findPaginatedVmpsByVmpCode(String vmpCode, { String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findPaginatedVmpsByVmpCodeWithHttpInfo(vmpCode,  startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1310,7 +1310,7 @@ class Besamv2Api {
   Future<SamVersionDto?> getSamVersion() async {
     final response = await getSamVersionWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1367,7 +1367,7 @@ class Besamv2Api {
   Future<List<AmpDto>?> listAmpsByDmppCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByDmppCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1427,7 +1427,7 @@ class Besamv2Api {
   Future<List<AmpDto>?> listAmpsByGroupCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByGroupCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1487,7 +1487,7 @@ class Besamv2Api {
   Future<List<AmpDto>?> listAmpsByGroupIds(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByGroupIdsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1547,7 +1547,7 @@ class Besamv2Api {
   Future<List<AmpDto>?> listAmpsByVmpCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByVmpCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1608,7 +1608,7 @@ class Besamv2Api {
   Future<List<AmpDto>?> listAmpsByVmpIds(ListOfIdsDto listOfIdsDto,) async {
     final response = await listAmpsByVmpIdsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1669,7 +1669,7 @@ class Besamv2Api {
   Future<List<NmpDto>?> listNmpsByCnks(ListOfIdsDto listOfIdsDto,) async {
     final response = await listNmpsByCnksWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1717,7 +1717,7 @@ class Besamv2Api {
   Future<List<PharmaceuticalFormDto>?> listPharmaceuticalForms() async {
     final response = await listPharmaceuticalFormsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1765,7 +1765,7 @@ class Besamv2Api {
   Future<List<SubstanceDto>?> listSubstances() async {
     final response = await listSubstancesWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1825,7 +1825,7 @@ class Besamv2Api {
   Future<List<VmpGroupDto>?> listVmpGroupsByVmpGroupCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listVmpGroupsByVmpGroupCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1885,7 +1885,7 @@ class Besamv2Api {
   Future<List<VmpDto>?> listVmpsByGroupIds(ListOfIdsDto listOfIdsDto,) async {
     final response = await listVmpsByGroupIdsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -1945,7 +1945,7 @@ class Besamv2Api {
   Future<List<VmpDto>?> listVmpsByVmpCodes(ListOfIdsDto listOfIdsDto,) async {
     final response = await listVmpsByVmpCodesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

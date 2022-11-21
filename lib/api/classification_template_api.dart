@@ -62,7 +62,7 @@ class ClassificationTemplateApi {
   Future<ClassificationTemplateDto?> createClassificationTemplate(ClassificationTemplateDto classificationTemplateDto,) async {
     final response = await createClassificationTemplateWithHttpInfo(classificationTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -120,7 +120,7 @@ class ClassificationTemplateApi {
   Future<List<DocIdentifier>?> deleteClassificationTemplates(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteClassificationTemplatesWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -205,7 +205,7 @@ class ClassificationTemplateApi {
   Future<PaginatedListClassificationTemplateDto?> findClassificationTemplatesBy({ String? startKey, String? startDocumentId, int? limit, }) async {
     final response = await findClassificationTemplatesByWithHttpInfo( startKey: startKey, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -259,7 +259,7 @@ class ClassificationTemplateApi {
   Future<ClassificationTemplateDto?> getClassificationTemplate(String classificationTemplateId,) async {
     final response = await getClassificationTemplateWithHttpInfo(classificationTemplateId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -317,7 +317,7 @@ class ClassificationTemplateApi {
   Future<List<ClassificationTemplateDto>?> getClassificationTemplateByIds(String ids,) async {
     final response = await getClassificationTemplateByIdsWithHttpInfo(ids,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -385,7 +385,7 @@ class ClassificationTemplateApi {
   Future<List<ClassificationTemplateDto>?> listClassificationTemplatesByHCPartyPatientForeignKeys(String hcPartyId, String secretFKeys,) async {
     final response = await listClassificationTemplatesByHCPartyPatientForeignKeysWithHttpInfo(hcPartyId, secretFKeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -445,7 +445,7 @@ class ClassificationTemplateApi {
   Future<ClassificationTemplateDto?> modifyClassificationTemplate(ClassificationTemplateDto classificationTemplateDto,) async {
     final response = await modifyClassificationTemplateWithHttpInfo(classificationTemplateDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -508,7 +508,7 @@ class ClassificationTemplateApi {
   Future<ClassificationTemplateDto?> newClassificationTemplateDelegations(String classificationTemplateId, List<DelegationDto> delegationDto,) async {
     final response = await newClassificationTemplateDelegationsWithHttpInfo(classificationTemplateId, delegationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

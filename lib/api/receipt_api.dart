@@ -58,7 +58,7 @@ class ReceiptApi {
   Future<ReceiptDto?> rawCreateReceipt(ReceiptDto receiptDto,) async {
     final response = await rawCreateReceiptWithHttpInfo(receiptDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -112,7 +112,7 @@ class ReceiptApi {
   Future<List<DocIdentifier>?> rawDeleteReceipts(ListOfIdsDto listOfIdsDto,) async {
     final response = await rawDeleteReceiptsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -169,7 +169,7 @@ class ReceiptApi {
   Future<ReceiptDto?> rawGetReceipt(String receiptId,) async {
     final response = await rawGetReceiptWithHttpInfo(receiptId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -234,7 +234,7 @@ class ReceiptApi {
   Future<MultipartFile?> rawGetReceiptAttachment(String receiptId, String attachmentId, String enckeys,) async {
     final response = await rawGetReceiptAttachmentWithHttpInfo(receiptId, attachmentId, enckeys,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -288,7 +288,7 @@ class ReceiptApi {
   Future<List<ReceiptDto>?> rawListByReference(String ref,) async {
     final response = await rawListByReferenceWithHttpInfo(ref,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -344,7 +344,7 @@ class ReceiptApi {
   Future<ReceiptDto?> rawModifyReceipt(ReceiptDto receiptDto,) async {
     final response = await rawModifyReceiptWithHttpInfo(receiptDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -414,7 +414,7 @@ class ReceiptApi {
   Future<ReceiptDto?> rawSetReceiptAttachment(String receiptId, String blobType, MultipartFile body, { String? enckeys, }) async {
     final response = await rawSetReceiptAttachmentWithHttpInfo(receiptId, blobType, body,  enckeys: enckeys, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

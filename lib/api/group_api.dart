@@ -112,7 +112,7 @@ class GroupApi {
   Future<GroupDto?> createGroup(String id, String name, String password, DatabaseInitialisationDto databaseInitialisationDto, { String? server, int? q, int? n, }) async {
     final response = await createGroupWithHttpInfo(id, name, password, databaseInitialisationDto,  server: server, q: q, n: n, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -173,7 +173,7 @@ class GroupApi {
   Future<GroupDto?> getGroup(String id,) async {
     final response = await getGroupWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -229,7 +229,7 @@ class GroupApi {
   Future<ReplicationInfoDto?> getReplicationInfo1(String id,) async {
     final response = await getReplicationInfo1WithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -308,7 +308,7 @@ class GroupApi {
   Future<Object?> initDesignDocs(String id, { String? clazz, bool? warmup, }) async {
     final response = await initDesignDocsWithHttpInfo(id,  clazz: clazz, warmup: warmup, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -357,7 +357,7 @@ class GroupApi {
   Future<List<GroupDto>?> listGroups() async {
     final response = await listGroupsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -426,7 +426,7 @@ class GroupApi {
   Future<GroupDto?> modifyGroupName(String id, String name,) async {
     final response = await modifyGroupNameWithHttpInfo(id, name,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -490,7 +490,7 @@ class GroupApi {
   Future<GroupDto?> modifyGroupProperties(String id, ListOfPropertiesDto listOfPropertiesDto,) async {
     final response = await modifyGroupPropertiesWithHttpInfo(id, listOfPropertiesDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -547,7 +547,7 @@ class GroupApi {
   Future<RegistrationSuccessDto?> registerNewGroupAdministrator(RegistrationInformationDto registrationInformationDto,) async {
     final response = await registerNewGroupAdministratorWithHttpInfo(registrationInformationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -630,7 +630,7 @@ class GroupApi {
   Future<Object?> resetStorage(String id, ListOfIdsDto listOfIdsDto, { int? q, int? n, }) async {
     final response = await resetStorageWithHttpInfo(id, listOfIdsDto,  q: q, n: n, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -698,7 +698,7 @@ class GroupApi {
   Future<GroupDto?> setGroupPassword(String id, String password,) async {
     final response = await setGroupPasswordWithHttpInfo(id, password,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -777,7 +777,7 @@ class GroupApi {
   Future<List<IdWithRevDto>?> solveConflicts(String id, { int? limit, bool? warmup, }) async {
     final response = await solveConflictsWithHttpInfo(id,  limit: limit, warmup: warmup, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
