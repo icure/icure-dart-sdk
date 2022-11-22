@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Improved error management (added X-Request-ID)
+
 ## 1.1.0
 
 - Adding the possibility to provide additional delegates when instancing a new data to encrypt
