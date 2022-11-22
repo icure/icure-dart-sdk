@@ -58,7 +58,7 @@ class MedicalLocationApi {
   Future<MedicalLocationDto?> createMedicalLocation(MedicalLocationDto medicalLocationDto,) async {
     final response = await createMedicalLocationWithHttpInfo(medicalLocationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -112,7 +112,7 @@ class MedicalLocationApi {
   Future<List<DocIdentifier>?> deleteMedicalLocations(ListOfIdsDto listOfIdsDto,) async {
     final response = await deleteMedicalLocationsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -169,7 +169,7 @@ class MedicalLocationApi {
   Future<MedicalLocationDto?> getMedicalLocation(String locationId,) async {
     final response = await getMedicalLocationWithHttpInfo(locationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -214,7 +214,7 @@ class MedicalLocationApi {
   Future<List<MedicalLocationDto>?> getMedicalLocations() async {
     final response = await getMedicalLocationsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -270,7 +270,7 @@ class MedicalLocationApi {
   Future<MedicalLocationDto?> modifyMedicalLocation(MedicalLocationDto medicalLocationDto,) async {
     final response = await modifyMedicalLocationWithHttpInfo(medicalLocationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

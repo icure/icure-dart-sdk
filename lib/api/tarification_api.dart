@@ -62,7 +62,7 @@ class TarificationApi {
   Future<TarificationDto?> createTarification(TarificationDto tarificationDto,) async {
     final response = await createTarificationWithHttpInfo(tarificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -163,7 +163,7 @@ class TarificationApi {
   Future<PaginatedListTarificationDto?> findTarificationsBy({ String? region, String? type, String? tarification, String? version, String? startDocumentId, int? limit, }) async {
     final response = await findTarificationsByWithHttpInfo( region: region, type: type, tarification: tarification, version: version, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -254,7 +254,7 @@ class TarificationApi {
   Future<List<TarificationDto>?> findTarificationsBy1({ String? region, String? type, String? tarification, String? version, }) async {
     final response = await findTarificationsBy1WithHttpInfo( region: region, type: type, tarification: tarification, version: version, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -358,7 +358,7 @@ class TarificationApi {
   Future<PaginatedListTarificationDto?> findTarificationsByLabel({ String? region, String? types, String? language, String? label, String? startDocumentId, int? limit, }) async {
     final response = await findTarificationsByLabelWithHttpInfo( region: region, types: types, language: language, label: label, startDocumentId: startDocumentId, limit: limit, );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -418,7 +418,7 @@ class TarificationApi {
   Future<TarificationDto?> getTarification(String tarificationId,) async {
     final response = await getTarificationWithHttpInfo(tarificationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -493,7 +493,7 @@ class TarificationApi {
   Future<TarificationDto?> getTarificationWithParts(String type, String tarification, String version,) async {
     final response = await getTarificationWithPartsWithHttpInfo(type, tarification, version,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -550,7 +550,7 @@ class TarificationApi {
   Future<List<TarificationDto>?> getTarifications(ListOfIdsDto listOfIdsDto,) async {
     final response = await getTarificationsWithHttpInfo(listOfIdsDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -610,7 +610,7 @@ class TarificationApi {
   Future<TarificationDto?> modifyTarification(TarificationDto tarificationDto,) async {
     final response = await modifyTarificationWithHttpInfo(tarificationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

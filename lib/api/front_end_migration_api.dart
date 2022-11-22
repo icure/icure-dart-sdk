@@ -58,7 +58,7 @@ class FrontEndMigrationApi {
   Future<FrontEndMigrationDto?> createFrontEndMigration(FrontEndMigrationDto frontEndMigrationDto,) async {
     final response = await createFrontEndMigrationWithHttpInfo(frontEndMigrationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -113,7 +113,7 @@ class FrontEndMigrationApi {
   Future<DocIdentifier?> deleteFrontEndMigration(String frontEndMigrationId,) async {
     final response = await deleteFrontEndMigrationWithHttpInfo(frontEndMigrationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -167,7 +167,7 @@ class FrontEndMigrationApi {
   Future<FrontEndMigrationDto?> getFrontEndMigration(String frontEndMigrationId,) async {
     final response = await getFrontEndMigrationWithHttpInfo(frontEndMigrationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -221,7 +221,7 @@ class FrontEndMigrationApi {
   Future<List<FrontEndMigrationDto>?> getFrontEndMigrationByName(String frontEndMigrationName,) async {
     final response = await getFrontEndMigrationByNameWithHttpInfo(frontEndMigrationName,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -269,7 +269,7 @@ class FrontEndMigrationApi {
   Future<List<FrontEndMigrationDto>?> getFrontEndMigrations() async {
     final response = await getFrontEndMigrationsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
@@ -325,7 +325,7 @@ class FrontEndMigrationApi {
   Future<FrontEndMigrationDto?> modifyFrontEndMigration(FrontEndMigrationDto frontEndMigrationDto,) async {
     final response = await modifyFrontEndMigrationWithHttpInfo(frontEndMigrationDto,);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException.withRequestId(response.statusCode, await _decodeBodyBytes(response), response.headers["x-request-id"], response.request?.url.toString());
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"

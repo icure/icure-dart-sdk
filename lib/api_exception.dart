@@ -13,10 +13,14 @@ part of icure_dart_sdk.api;
 class ApiException implements Exception {
   ApiException(this.code, this.message);
 
+  ApiException.withRequestId(this.code, this.message, this.requestId, this.url);
+
   ApiException.withInner(this.code, this.message, this.innerException, this.stackTrace);
 
   int code = 0;
   String? message;
+  String? requestId;
+  String? url;
   Exception? innerException;
   StackTrace? stackTrace;
 
@@ -25,8 +29,11 @@ class ApiException implements Exception {
     if (message == null) {
       return 'ApiException';
     }
+    if (requestId != null) {
+      return '$code - $message\nX-Request-Id: $requestId\nURL: $url';
+    }
     if (innerException == null) {
-      return 'ApiException $code: $message';
+      return '$code: $message';
     }
     return 'ApiException $code: $message (Inner exception: $innerException)\n\n$stackTrace';
   }
