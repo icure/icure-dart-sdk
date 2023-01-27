@@ -8,14 +8,18 @@ extension PatientInitDto on DecryptedPatientDto {
     Set<String> allDelegates = Set.from(delegates ?? <String>{})
       ..addAll(user.autoDelegations["all"] ?? <String>{})
       ..addAll(user.autoDelegations["medicalInformation"] ?? <String>{});
-    final ek = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
-    final sfk = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
 
-    responsible = this.responsible ?? user.dataOwnerId()!;
-    author = user.id;
+    if (!this.encryptionKeys.isEmpty || !this.delegations.isEmpty) {
+      throw FormatException("Patient is already initialised");
+    }
+
+    this.responsible = this.responsible ?? user.dataOwnerId()!;
+    this.author = user.id;
 
     DataOwnerDto? dataOwner = null;
-    delegations = await (allDelegates..add(user.dataOwnerId()!)).fold(
+
+    final sfk = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+    this.delegations = await (allDelegates..add(user.dataOwnerId()!)).fold(
         Future.value({...delegations}),
             (m, d) async {
           final acc = await m;
@@ -34,8 +38,9 @@ extension PatientInitDto on DecryptedPatientDto {
           ]);
         });
 
-    encryptionKeys = await (allDelegates..add(user.dataOwnerId()!)).fold(
-        Future.value({...encryptionKeys}),
+    final ek = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+    this.encryptionKeys = await (allDelegates..add(user.dataOwnerId()!)).fold(
+        Future.value({...this.encryptionKeys}),
             (m, d) async {
           final acc = await m;
 
@@ -55,6 +60,7 @@ extension PatientInitDto on DecryptedPatientDto {
 
     if (dataOwner != null && this.id == dataOwner!.dataOwnerId) {
       this.hcPartyKeys = dataOwner!.hcPartyKeys;
+      this.aesExchangeKeys = dataOwner!.aesExchangeKeys;
       this.rev = dataOwner!.rev;
     }
 

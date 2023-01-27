@@ -65,6 +65,17 @@ class DataOwnerResolver {
   }
 
   Future<DataOwnerDto?> updateDataOwnerWithNewDelegateKeyPair(String dataOwnerId, Map<String, List<String>> newKeyPair) async {
+    try {
+      return await _doUpdateDataOwnerWithNewDelegateKeyPair(dataOwnerId, newKeyPair);
+    } on ApiException {
+      hcParties.remove(dataOwnerId);
+      patients.remove(dataOwnerId);
+      devices.remove(dataOwnerId);
+      return _doUpdateDataOwnerWithNewDelegateKeyPair(dataOwnerId, newKeyPair);
+    }
+  }
+
+  Future<DataOwnerDto?> _doUpdateDataOwnerWithNewDelegateKeyPair(String dataOwnerId, Map<String, List<String>> newKeyPair) async {
     return Future.wait([
       _updateHcpWithNewDelegateKeyPair(dataOwnerId, newKeyPair),
       _updatePatientWithNewDelegateKeyPair(dataOwnerId, newKeyPair),
@@ -196,11 +207,12 @@ class DataOwnerResolver {
 }
 
 class DataOwnerDto {
-  DataOwnerDto(this.type, this.dataOwnerId, this.hcPartyKeys, {this.publicKey = null, this.parentId = null, this.rev = null});
+  DataOwnerDto(this.type, this.dataOwnerId, this.hcPartyKeys, {this.publicKey = null, this.parentId = null, this.rev = null, this.aesExchangeKeys = const {} });
 
   final DataOwnerType type;
   final String dataOwnerId;
   final Map<String, List<String>> hcPartyKeys;
+  final Map<String, Map<String, Map<String, String>>> aesExchangeKeys;
   final String? publicKey;
   final String? parentId;
   final String? rev;

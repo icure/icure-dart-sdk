@@ -96,8 +96,19 @@ extension HealthElementApiCrypto on HealthElementApi {
   }
 
   Future<DecryptedHealthElementDto?> createHealthElementWithPatient(UserDto user, DecryptedPatientDto patient,
-      DecryptedHealthElementDto healthElementDto, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
-    final String? key = (await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patient.delegations)).firstOrNull;
+      DecryptedHealthElementDto healthElementDto, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) {
+    return createHealthElementWithPatientInfo(user, patient.id, patient.delegations, healthElementDto, config);
+  }
+
+  Future<DecryptedHealthElementDto?> createHealthElementWithPatientInfo(
+    UserDto user,
+    String patientId,
+    Map<String, Set<DelegationDto>> patientDelegations,
+    DecryptedHealthElementDto healthElementDto,
+    CryptoConfig<DecryptedHealthElementDto,
+    HealthElementDto> config
+  ) async {
+    final String? key = (await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patientDelegations)).firstOrNull;
 
     if (key == null) {
       throw Exception("No delegation for user");
@@ -109,7 +120,7 @@ extension HealthElementApiCrypto on HealthElementApi {
     final Set<String> secretFK = [key].toSet();
     final Set<String> newDelegations = [...delegations, user.dataOwnerId()!].toSet();
     final secretForDelegates = await Future.wait((newDelegations)
-        .map((String d) async => Tuple2(d, await config.crypto.encryptValueForHcp(user.dataOwnerId()!, d, healthElementDto.id, patient.id))));
+        .map((String d) async => Tuple2(d, await config.crypto.encryptValueForHcp(user.dataOwnerId()!, d, healthElementDto.id, patientId))));
 
     encryptedHealthElement.secretForeignKeys = secretFK;
     encryptedHealthElement.cryptedForeignKeys = {
@@ -124,7 +135,17 @@ extension HealthElementApiCrypto on HealthElementApi {
 
   Future<List<DecryptedHealthElementDto>?> createHealthElements(UserDto user, DecryptedPatientDto patient,
       List<DecryptedHealthElementDto> healthElements, CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config) async {
-    final String? key = (await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patient.delegations)).firstOrNull;
+    return createHealthElementsWithPatientInfo(user, patient.id, patient.delegations, healthElements, config);
+  }
+
+  Future<List<DecryptedHealthElementDto>?> createHealthElementsWithPatientInfo(
+    UserDto user,
+    String patientId,
+    Map<String, Set<DelegationDto>> patientDelegations,
+    List<DecryptedHealthElementDto> healthElements,
+    CryptoConfig<DecryptedHealthElementDto, HealthElementDto> config
+  ) async {
+    final String? key = (await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patientDelegations)).firstOrNull;
     if (key == null) {
       throw Exception("No delegation for user");
     }
@@ -135,7 +156,7 @@ extension HealthElementApiCrypto on HealthElementApi {
 
     var healthElementsToCreate = await Future.wait(healthElements.map((he) async {
       final secretForDelegates = await Future.wait(
-          (newDelegations).map((String d) async => Tuple2(d, await config.crypto.encryptValueForHcp(user.dataOwnerId()!, d, he.id, patient.id))));
+          (newDelegations).map((String d) async => Tuple2(d, await config.crypto.encryptValueForHcp(user.dataOwnerId()!, d, he.id, patientId))));
       final HealthElementDto encryptedHealthElement =
       await config.encryptHealthElement(user.dataOwnerId()!, delegations, await he.initDelegations(user, config));
 
