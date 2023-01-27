@@ -98,16 +98,26 @@ extension ContactApiCrypto on ContactApi {
   }
 
   Future<DecryptedContactDto?> createContactWithPatient(
-      UserDto user, DecryptedPatientDto patient, DecryptedContactDto contact, CryptoConfig<DecryptedContactDto, ContactDto> config) async {
+      UserDto user, DecryptedPatientDto patient, DecryptedContactDto contact, CryptoConfig<DecryptedContactDto, ContactDto> config) {
+    return createContactWithPatientInfo(user, patient.id, patient.delegations, contact, config);
+  }
+
+  Future<DecryptedContactDto?> createContactWithPatientInfo(
+      UserDto user,
+      String patientId,
+      Map<String, Set<DelegationDto>> patientDelegations,
+      DecryptedContactDto contact,
+      CryptoConfig<DecryptedContactDto, ContactDto> config
+  ) async {
     var delegations = <String>{...(user.autoDelegations["all"] ?? {}), ...(user.autoDelegations["medicalInformation"] ?? {})};
     var encContact = await config.encryptContact(user.dataOwnerId()!, delegations, (await contact.initDelegations(user, config)));
-    final secret = (await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patient.delegations)).firstOrNull;
+    final secret = (await config.crypto.decryptEncryptionKeys(user.dataOwnerId()!, patientDelegations)).firstOrNull;
     if (secret == null) {
-      throw FormatException("Cannot get delegation key for ${patient.id} and hcp ${user.dataOwnerId()}");
+      throw FormatException("Cannot get delegation key for ${patientId} and hcp ${user.dataOwnerId()}");
     }
 
     final secretForDelegates = await Future.wait((<String>{...delegations, user.dataOwnerId()!})
-        .map((String d) async => Tuple2(d, await config.crypto.encryptValueForHcp(user.dataOwnerId()!, d, contact.id, patient.id))));
+        .map((String d) async => Tuple2(d, await config.crypto.encryptValueForHcp(user.dataOwnerId()!, d, contact.id, patientId))));
     encContact.cryptedForeignKeys = {
       ...encContact.cryptedForeignKeys,
       ...Map.fromEntries(secretForDelegates
@@ -157,15 +167,30 @@ extension ContactApiCrypto on ContactApi {
         : await Future.wait(newContacts.map((newContact) => config.decryptContact(user.dataOwnerId()!, newContact)));
   }
 
-  Future<DecryptedContactDto?> deleteServices(UserDto user, DecryptedPatientDto patient, List<DecryptedServiceDto> services,
-      CryptoConfig<DecryptedContactDto, ContactDto> config) {
+  Future<DecryptedContactDto?> deleteServices(
+    UserDto user,
+    DecryptedPatientDto patient,
+    List<DecryptedServiceDto> services,
+    CryptoConfig<DecryptedContactDto, ContactDto> config
+  ) {
+    return deleteServicesWithPatientInfo(user, patient.id, patient.delegations, services, config);
+  }
+
+  Future<DecryptedContactDto?> deleteServicesWithPatientInfo(
+      UserDto user,
+      String patientId,
+      Map<String, Set<DelegationDto>> patientDelegations,
+      List<DecryptedServiceDto> services,
+      CryptoConfig<DecryptedContactDto, ContactDto> config
+      ) {
     final Uuid uuid = Uuid();
     final currentTime = DateTime
         .now()
         .millisecondsSinceEpoch;
-    return this.createContactWithPatient(
+    return this.createContactWithPatientInfo(
         user,
-        patient,
+        patientId,
+        patientDelegations,
         DecryptedContactDto(
             id: uuid.v4(options: {'rng': UuidUtil.cryptoRNG}),
             services:

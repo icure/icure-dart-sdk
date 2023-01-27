@@ -47,6 +47,9 @@ abstract class Crypto {
   Future<Tuple2<String, DataOwnerDto?>> encryptValueForHcp(String myId, String delegateId, String objectId, String secret);
 
   Future<String> encryptRSAKeyUsing(String publicKey, String rsaPrivateKey);
+
+  // Find all keys that I can decrypt which are not shared to me by the delegate or which I didn't share with the delegate.ß
+  Future<Set<String>> findAndDecryptPotentiallyUnknownKeysForDelegate(String myId, String delegateId, Map<String, Set<DelegationDto>> keys);
 }
 
 BaseCryptoConfig<DecryptedPatientDto, PatientDto> patientCryptoConfig(Crypto crypto) {
@@ -189,7 +192,8 @@ class LocalCrypto implements Crypto {
 
   @override
   Future<Set<String>> decryptEncryptionKeys(String myId, Map<String, Set<DelegationDto>> keys) async {
-    List<String?> decryptedKeys = await Future.wait((keys[myId] ?? {}).map((d) async {
+    final keysWithMe = keys.values.flattened.where((element) => element.delegatedTo == myId || element.owner == myId).toSet();
+    List<String?> decryptedKeys = await Future.wait((keysWithMe).map((d) async {
       try {
         final delegateHcPartyKey = await getDelegateHcPartyKey(d.delegatedTo!, d.owner!, null);
         if (delegateHcPartyKey == null) {
@@ -230,6 +234,23 @@ class LocalCrypto implements Crypto {
       ..init(true, pointy.PublicKeyParameter<pointy.RSAPublicKey>(myPublicKey.asPointyCastle));
 
     return encryptorForMe.process(rsaPrivateKey.fromHexString()).toHexString();
+  }
+
+  @override
+  Future<Set<String>> findAndDecryptPotentiallyUnknownKeysForDelegate(String myId, String delegateId, Map<String, Set<DelegationDto>> keys) async {
+    final allDecrypted = await decryptEncryptionKeys(myId, keys);
+    final Map<String, Set<DelegationDto>> meAndDelegateKeys = {};
+    final delegateToMeKeys = (keys[myId] ?? {}).where((element) => element.owner == delegateId).toSet();
+    final meToDelegateKeys = (keys[delegateId] ?? {}).where((element) => element.owner == myId).toSet();
+    if (delegateToMeKeys.isNotEmpty) {
+      meAndDelegateKeys[myId] = delegateToMeKeys;
+    }
+    if (meToDelegateKeys.isNotEmpty) {
+      meAndDelegateKeys[delegateId] = meToDelegateKeys;
+    }
+    final decryptedForDelegate = await decryptEncryptionKeys(myId, meAndDelegateKeys);
+    allDecrypted.removeAll(decryptedForDelegate);
+    return allDecrypted;
   }
 
   String _getDelegateIdOwnerIdKeyForCache(String delegateId, String ownerId) {

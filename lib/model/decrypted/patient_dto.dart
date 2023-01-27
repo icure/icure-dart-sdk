@@ -455,7 +455,7 @@ class DecryptedPatientDto {
 
   /// Extra AES exchange keys, usually the ones we lost access to at some point
   /// The structure is { publicKey: { delegateId: [aesExKey_for_this, aesExKey_for_delegate] } }
-  Map<String, Map<String, List<String>>> aesExchangeKeys;
+  Map<String, Map<String, Map<String, String>>> aesExchangeKeys;
 
   /// Data owner private keys encrypted with its other public keys.
   /// This mechanism will help the data owner to re-encrypt all information with its new key, if he found back the lost one.
@@ -1020,7 +1020,7 @@ class DecryptedPatientDto {
         parameters: json[r'parameters'] == null ? const {} : mapWithListOfStringsFromJson(json[r'parameters']),
         properties: PropertyStubDto.listFromJson(json[r'properties'])!.toSet(),
         hcPartyKeys: json[r'hcPartyKeys'] == null ? const {} : mapWithListOfStringsFromJson(json[r'hcPartyKeys']),
-        aesExchangeKeys: json[r'aesExchangeKeys'] == null ? const {} : mapOf(json[r'aesExchangeKeys'], (el) => mapWithListOfStringsFromJson(el)),
+        aesExchangeKeys: json[r'aesExchangeKeys'] == null ? const {} : mapOf(json[r'aesExchangeKeys'], (el) => mapWithMapOfStringsFromJson(el)),
         transferKeys: json[r'transferKeys'] == null ? const {} : mapWithMapOfStringsFromJson(json[r'transferKeys']),
         privateKeyShamirPartitions: mapCastOfType<String, String>(json, r'privateKeyShamirPartitions')!,
         publicKey: mapValueOfType<String>(json, r'publicKey'),
