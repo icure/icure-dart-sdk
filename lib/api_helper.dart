@@ -85,7 +85,7 @@ Map<String, V> mapOf<V>(dynamic json, V Function(dynamic json) valueMappingOp) {
   if (json is Map && json.isNotEmpty) {
     json = json.cast<String, dynamic>(); // ignore: parameter_assignments
     for (final entry in json.entries) {
-      final value = valueMappingOp(json);
+      final value = valueMappingOp(entry.value);
       if (value != null) {
         map[entry.key] = value;
       }
