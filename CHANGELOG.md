@@ -1,8 +1,17 @@
-## 1.0.54
+## 1.1.2
 
 - Add method to crypto api to find delegation keys which are not already shared between delegator and delegate
 - Fix aes exchange keys types
 - Add methods to health element and contact api which require only the necessary fields of the DecryptedPatientDto
+
+## 1.1.1
+
+- Improved error management (added X-Request-ID)
+
+## 1.1.0
+
+- Adding the possibility to provide additional delegates when instancing a new data to encrypt
+- Fix race condition during patient initialization when creating delegations
 
 ## 1.0.53
 
