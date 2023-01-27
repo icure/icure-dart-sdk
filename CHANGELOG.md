@@ -1,3 +1,9 @@
+## 1.0.54
+
+- Add method to crypto api to find delegation keys which are not already shared between delegator and delegate
+- Fix aes exchange keys types
+- Add methods to health element and contact api which require only the necessary fields of the DecryptedPatientDto
+
 ## 1.0.53
 
 - Fixed getPatient
